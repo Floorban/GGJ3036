@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://ci752aldwpxhr"]
+
+[ext_resource type="PackedScene" uid="uid://cjeigbydorgdu" path="res://game/level/combat_area/CombatArea.tscn" id="1_231da"]
+
+[node name="CombatAreaEricTest" unique_id=1259752126 instance=ExtResource("1_231da")]

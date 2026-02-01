@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cqk4twm4sfdyp"]
+
+[ext_resource type="Script" uid="uid://ci23jn24qnic1" path="res://game/system/character/character.gd" id="1_icscu"]
+[ext_resource type="PackedScene" uid="uid://dpw0p64fe8sla" path="res://game/system/anatomy/parts/face/eye.tscn" id="2_7fyn6"]
+[ext_resource type="PackedScene" uid="uid://db1cym3qxkh3h" path="res://game/system/anatomy/parts/face/ear.tscn" id="3_mq3re"]
+[ext_resource type="PackedScene" uid="uid://7t20pmgtsjd4" path="res://game/system/anatomy/parts/face/nose.tscn" id="4_5gfad"]
+[ext_resource type="PackedScene" uid="uid://cmqa3cfa22as6" path="res://game/system/anatomy/parts/face/mouth.tscn" id="5_6uakp"]
+
+[node name="Character" type="Node2D" unique_id=1861387119]
+script = ExtResource("1_icscu")
+
+[node name="Face" type="Node2D" parent="." unique_id=1800008709]
+
+[node name="Eye" parent="Face" unique_id=1690948451 instance=ExtResource("2_7fyn6")]
+unique_name_in_owner = true
+
+[node name="Ear" parent="Face" unique_id=1222327045 instance=ExtResource("3_mq3re")]
+unique_name_in_owner = true
+
+[node name="Nose" parent="Face" unique_id=1350482542 instance=ExtResource("4_5gfad")]
+unique_name_in_owner = true
+
+[node name="Mouth" parent="Face" unique_id=508432269 instance=ExtResource("5_6uakp")]
+unique_name_in_owner = true

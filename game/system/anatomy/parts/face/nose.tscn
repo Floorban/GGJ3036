@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://7t20pmgtsjd4"]
+
+[ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_bxjig"]
+
+[node name="Nose" unique_id=1690948451 instance=ExtResource("1_bxjig")]
