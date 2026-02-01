@@ -4,3 +4,6 @@
 
 [node name="CombatComponent" type="Node" unique_id=823960288]
 script = ExtResource("1_d7a3t")
+
+[node name="CombatTimer" type="Timer" parent="." unique_id=971548847]
+unique_name_in_owner = true

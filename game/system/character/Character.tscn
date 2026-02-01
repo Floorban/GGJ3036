@@ -5,20 +5,22 @@
 [ext_resource type="PackedScene" uid="uid://db1cym3qxkh3h" path="res://game/system/anatomy/parts/face/ear.tscn" id="3_mq3re"]
 [ext_resource type="PackedScene" uid="uid://7t20pmgtsjd4" path="res://game/system/anatomy/parts/face/nose.tscn" id="4_5gfad"]
 [ext_resource type="PackedScene" uid="uid://cmqa3cfa22as6" path="res://game/system/anatomy/parts/face/mouth.tscn" id="5_6uakp"]
+[ext_resource type="PackedScene" uid="uid://ytitdedgqe2j" path="res://game/system/combat/combat_component.tscn" id="6_mq3re"]
 
 [node name="Character" type="Node2D" unique_id=1861387119]
 script = ExtResource("1_icscu")
 
-[node name="Face" type="Node2D" parent="." unique_id=1800008709]
-
-[node name="Eye" parent="Face" unique_id=1690948451 instance=ExtResource("2_7fyn6")]
+[node name="Eye" parent="." unique_id=1690948451 instance=ExtResource("2_7fyn6")]
 unique_name_in_owner = true
 
-[node name="Ear" parent="Face" unique_id=1222327045 instance=ExtResource("3_mq3re")]
+[node name="Ear" parent="." unique_id=1222327045 instance=ExtResource("3_mq3re")]
 unique_name_in_owner = true
 
-[node name="Nose" parent="Face" unique_id=1350482542 instance=ExtResource("4_5gfad")]
+[node name="Nose" parent="." unique_id=1350482542 instance=ExtResource("4_5gfad")]
 unique_name_in_owner = true
 
-[node name="Mouth" parent="Face" unique_id=508432269 instance=ExtResource("5_6uakp")]
+[node name="Mouth" parent="." unique_id=508432269 instance=ExtResource("5_6uakp")]
+unique_name_in_owner = true
+
+[node name="CombatComponent" parent="." unique_id=823960288 instance=ExtResource("6_mq3re")]
 unique_name_in_owner = true

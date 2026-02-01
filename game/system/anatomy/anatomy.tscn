@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://dml04uxtc34nm"]
 
 [ext_resource type="Script" uid="uid://bekkhc07oy7xl" path="res://game/system/anatomy/anatomy.gd" id="1_hstcr"]
+[ext_resource type="PackedScene" uid="uid://c1xy4lkq206i0" path="res://game/system/anatomy/anatomy_ui.tscn" id="2_r8mws"]
 
-[node name="Anatomy" type="Node2D" unique_id=1690948451]
+[node name="Anatomy" type="Node2D" unique_id=1690948451 groups=["anatomy"]]
 script = ExtResource("1_hstcr")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=500964707]
+
+[node name="MouseDetectArea" type="Area2D" parent="." unique_id=1106976729]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDetectArea" unique_id=149295176]
+
+[node name="AnatomyUI" parent="." unique_id=665909425 instance=ExtResource("2_r8mws")]
