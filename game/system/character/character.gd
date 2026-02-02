@@ -15,6 +15,7 @@ var anatomy_parts: Array[Anatomy]
 var opponent_anatomy: Array[Anatomy]
 
 @export var arm: Arm
+var can_attack := false
 
 func init_character() -> void:
 	get_anatomy_references()
@@ -27,7 +28,8 @@ func get_anatomy_references() -> void:
 			opponent_anatomy.append(anatomy)
 
 func _init_combat_component() -> void:
-	combat_component.combat_ready.connect(_perform_attack)
+	combat_component.combat_ready.connect(_on_attack_ready)
+	arm.action_finished.connect(_on_attack_finished)
 	combat_component.base_damage = attack_damage
 	combat_component.reset_attack_timer(attack_cooldown)
 
@@ -41,12 +43,21 @@ func _init_anatomy_parts() -> void:
 	for part in anatomy_parts:
 		part.init_part()
 
-func _perform_attack() -> void:
-	var target := choose_target()
+func get_ready_to_battle() -> void:
+	combat_component.combat_timer.start()
+
+func _perform_attack(target: Anatomy) -> void:
+	can_attack = false
 	if target:
 		arm.punch(
 			target.global_position,
 			func(): combat_component.attack(target))
+
+func _on_attack_ready() -> void:
+	can_attack = true
+
+func _on_attack_finished() -> void:
+	combat_component.combat_timer.start()
 
 func choose_target() -> Anatomy:
 	if opponent == null:

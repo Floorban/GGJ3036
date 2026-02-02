@@ -1,5 +1,7 @@
 class_name Arm extends Node2D
 
+signal action_finished
+
 @onready var skeleton: Skeleton2D = $Skeleton2D
 @onready var fist_target: Marker2D = %FistTarget
 @export var windup_distance := 18.0
@@ -40,7 +42,7 @@ func punch(target_global_pos: Vector2, on_hit: Callable) -> void:
 		fist_target,
 		"global_position",
 		global_position + wind_up_pos,
-		0.5
+		0.5 + randf_range(-0.2,0.2)
 	)
 	
 	# Move fist to target
@@ -48,7 +50,7 @@ func punch(target_global_pos: Vector2, on_hit: Callable) -> void:
 		fist_target,
 		"global_position",
 		target_global_pos,
-		0.3
+		0.2 + randf_range(-0.05,0.15)
 	)
 
 	# Apply damage at peak
@@ -64,4 +66,5 @@ func punch(target_global_pos: Vector2, on_hit: Callable) -> void:
 
 	tween.tween_callback(func():
 		is_punching = false
+		action_finished.emit()
 	)

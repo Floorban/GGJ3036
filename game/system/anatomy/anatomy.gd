@@ -50,8 +50,8 @@ func set_hp(changed_amount: float) -> void:
 
 func part_dead() -> void:
 	state = PartState.DESTROYED
-	sprite.rotation += randf_range(-0.4, 0.4)
-	sprite.position += Vector2(randf_range(-6, 6), randf_range(4, 10))
+	sprite.rotation += randf_range(-1, 1)
+	sprite.position += Vector2(randf_range(-15, 15), randf_range(-5,20))
 	sprite.modulate = Color.CHOCOLATE
 
 func is_part_dead() -> bool:

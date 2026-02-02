@@ -2,8 +2,18 @@
 
 [ext_resource type="Script" uid="uid://dgx3liosox4lw" path="res://game/system/combat/combat_component.gd" id="1_d7a3t"]
 
-[node name="CombatComponent" type="Node" unique_id=823960288]
+[node name="CombatComponent" type="Control" unique_id=47785056]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_d7a3t")
 
 [node name="CombatTimer" type="Timer" parent="." unique_id=971548847]
 unique_name_in_owner = true
+process_callback = 0
+
+[node name="AttackCooldownBar" type="ProgressBar" parent="." unique_id=1458516297]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 27.0
