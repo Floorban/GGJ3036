@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="ParameterPreset" id="{f0764c85-5fe5-4982-be52-2aface42c7f1}">
 		<property name="name">
-			<value>Complete</value>
+			<value>Impact</value>
 		</property>
 		<relationship name="folder">
 			<destination>{a1c591f4-6c20-45ba-807f-9bda5c6b75c6}</destination>
@@ -16,11 +16,15 @@
 			<value>2</value>
 		</property>
 		<property name="maximum">
-			<value>2</value>
+			<value>6</value>
 		</property>
 		<property name="enumerationLabels">
-			<value>False</value>
-			<value>True</value>
+			<value>Normal</value>
+			<value>Normal L</value>
+			<value>Normal R</value>
+			<value>Fatal</value>
+			<value>Fatal L</value>
+			<value>Fatal R</value>
 		</property>
 		<property name="initialValue">
 			<value>0</value>

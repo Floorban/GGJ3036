@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ppw8l3n7dspu"
+path="res://.godot/imported/m_Bass.ogg-25bb965a236057e46681eb25faa3c1cd.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/Music/m_Bass.ogg"
+dest_files=["res://.godot/imported/m_Bass.ogg-25bb965a236057e46681eb25faa3c1cd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

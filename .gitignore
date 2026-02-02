@@ -23,3 +23,12 @@ mono_crash.*.json
 .user
 .autosave
 .unsaved
+addons/fmod/icons/bank_icon.svg.import
+addons/fmod/icons/bus_icon.svg.import
+addons/fmod/icons/c_parameter_icon.svg.import
+addons/fmod/icons/d_parameter_icon.svg.import
+addons/fmod/icons/event_icon.svg.import
+addons/fmod/icons/fmod_emitter.png.import
+addons/fmod/icons/fmod_icon.svg.import
+addons/fmod/icons/snapshot_icon.svg.import
+addons/fmod/icons/vca_icon.svg.import

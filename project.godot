@@ -23,6 +23,7 @@ config/icon="res://sprites/icon.svg"
 [autoload]
 
 FmodManager="*uid://cds10pm7hwn3p"
+audio="*uid://bnb4oio35tq1m"
 
 [editor_plugins]
 
