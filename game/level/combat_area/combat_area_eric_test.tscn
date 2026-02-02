@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="4_yn5lq"]
 [ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="5_hb3kr"]
 
-[node name="CombatAreaEricTest" unique_id=1259752126 instance=ExtResource("1_231da")]
+[node name="CombatAreaEricTest" unique_id=1259752126 node_paths=PackedStringArray("player", "enemy") instance=ExtResource("1_231da")]
+battle_ongoing = true
+player = NodePath("Player")
+enemy = NodePath("Enemy")
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_27j7o")]
 position = Vector2(557, 509)
