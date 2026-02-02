@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bx6iq6mndw35r"]
+
+[ext_resource type="PackedScene" uid="uid://cjeigbydorgdu" path="res://game/level/combat_area/CombatArea.tscn" id="1_vipbd"]
+[ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="2_eno60"]
+[ext_resource type="PackedScene" uid="uid://dvu82xeeb87ff" path="res://game/system/character/player/player.tscn" id="3_4vbmx"]
+[ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/enemy.tscn" id="4_4jxn8"]
+[ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="5_utspg"]
+[ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="6_bbatp"]
+[ext_resource type="Texture2D" uid="uid://bk1awwhg2p6h8" path="res://sprites/Backgrounds/Arena.png" id="7_ikyoe"]
+
+[node name="CombatAreaEricTest" unique_id=1259752126 node_paths=PackedStringArray("player", "enemy") instance=ExtResource("1_vipbd")]
+battle_ongoing = true
+player = NodePath("Player")
+enemy = NodePath("Enemy")
+
+[node name="AudioManager" parent="." index="0" unique_id=1015518348 instance=ExtResource("2_eno60")]
+
+[node name="Player" parent="." index="1" unique_id=1861387119 instance=ExtResource("3_4vbmx")]
+position = Vector2(557, 509)
+attack_damage = 1.0
+
+[node name="Enemy" parent="." index="2" unique_id=1231642872 instance=ExtResource("4_4jxn8")]
+position = Vector2(564, 321)
+
+[node name="Camera" parent="." index="3" unique_id=1361226820 node_paths=PackedStringArray("follow_node") instance=ExtResource("5_utspg")]
+position = Vector2(574, 425)
+zoom = Vector2(1.5, 1.5)
+decay = 1.0
+max_offset = Vector2(50, 100)
+max_roll = 0.5
+follow_node = NodePath("../Center")
+
+[node name="Center" type="Marker2D" parent="." index="4" unique_id=2695179]
+position = Vector2(562, 412)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="5" unique_id=1574395548]
+
+[node name="GameUI" parent="CanvasLayer" index="0" unique_id=1770480254 instance=ExtResource("6_bbatp")]
+unique_name_in_owner = true
+
+[node name="Background" type="Sprite2D" parent="." index="6" unique_id=1879367137]
+modulate = Color(0.4710695, 0.4710695, 0.4710695, 1)
+z_index = -10
+position = Vector2(556, 448)
+rotation = -0.44854963
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_ikyoe")

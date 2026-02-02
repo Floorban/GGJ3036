@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{e9a2a0fa-0d2d-4e27-85c3-da0e7508e08e}">
+		<property name="assetPath">
+			<value>Music/m_Bass.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>15.302879818594104</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f07d0426-a1b0-41e5-8c22-5cf9a9a47224}</destination>
+		</relationship>
+	</object>
+</objects>

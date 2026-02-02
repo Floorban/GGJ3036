@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c58rcri4vn031"
+path="res://.godot/imported/s_Ring.ogg-460003fdc24130617342da0241fde942.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/Sound Effects/s_Ring.ogg"
+dest_files=["res://.godot/imported/s_Ring.ogg-460003fdc24130617342da0241fde942.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

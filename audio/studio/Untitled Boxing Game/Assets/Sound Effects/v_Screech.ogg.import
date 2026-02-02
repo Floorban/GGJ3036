@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b6jdspqbcvajc"
+path="res://.godot/imported/v_Screech.ogg-31c10281e1d1e2aa8f86818f3909f588.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/Sound Effects/v_Screech.ogg"
+dest_files=["res://.godot/imported/v_Screech.ogg-31c10281e1d1e2aa8f86818f3909f588.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
