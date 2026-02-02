@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="5_hb3kr"]
 
 [node name="CombatAreaEricTest" unique_id=1259752126 node_paths=PackedStringArray("player", "enemy") instance=ExtResource("1_231da")]
+battle_ongoing = true
 player = NodePath("Player")
 enemy = NodePath("Enemy")
 
@@ -19,7 +20,9 @@ position = Vector2(564, 321)
 
 [node name="Camera" parent="." index="2" unique_id=1361226820 node_paths=PackedStringArray("follow_node") instance=ExtResource("4_yn5lq")]
 position = Vector2(574, 425)
-max_offset = Vector2(100, 200)
+decay = 1.0
+max_offset = Vector2(50, 100)
+max_roll = 0.5
 follow_node = NodePath("../Center")
 
 [node name="Center" type="Marker2D" parent="." index="3" unique_id=2695179]

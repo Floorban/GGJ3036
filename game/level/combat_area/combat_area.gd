@@ -6,17 +6,19 @@ signal battle_end
 @onready var game_ui: GameUI = %GameUI
 @export var battle_duration := 60.0
 var battle_time_left: float
-@export var battle_ongoing : bool = false:
-	set(value):
-		battle_ongoing = value
-		if battle_start:
-			start_battle()
+@export var battle_ongoing : bool = false
+	#set(value):
+		#battle_ongoing = value
+		#if battle_ongoing:
+			#start_battle()
 
 @export var player: Player
 @export var enemy: Enemy
 
 func _ready() -> void:
 	init_combat_arena()
+	if battle_ongoing:
+		start_battle()
 
 func init_combat_arena() -> void:
 	battle_time_left = battle_duration

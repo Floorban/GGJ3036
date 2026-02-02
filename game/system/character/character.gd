@@ -6,21 +6,21 @@ var opponent: Character
 @export var attack_cooldown: float = 2.0
 
 var anatomy_parts: Array[Anatomy]
-@onready var eye_1: Anatomy = %Eye1
-@onready var eye_2: Anatomy = %Eye2
-@onready var ear_1: Anatomy = %Ear1
-@onready var ear_2: Anatomy = %Ear2
+@onready var eye_1: Anatomy = %EyeL
+@onready var eye_2: Anatomy = %EyeR
+@onready var ear_1: Anatomy = %EarL
+@onready var ear_2: Anatomy = %EarR
 @onready var nose: Anatomy = %Nose
 @onready var mouth: Anatomy = %Mouth
 var opponent_anatomy: Array[Anatomy]
 
 @export var arm: Arm
-var can_attack := false
+var can_action := false
 
 func init_character() -> void:
-	get_anatomy_references()
-	_init_combat_component()
 	_init_anatomy_parts()
+	_init_combat_component()
+	get_anatomy_references()
 
 func get_anatomy_references() -> void:
 	for anatomy in get_tree().get_nodes_in_group("anatomy"):
@@ -28,7 +28,7 @@ func get_anatomy_references() -> void:
 			opponent_anatomy.append(anatomy)
 
 func _init_combat_component() -> void:
-	combat_component.combat_ready.connect(_on_attack_ready)
+	combat_component.combat_ready.connect(_on_action_ready)
 	arm.action_finished.connect(_on_attack_finished)
 	combat_component.base_damage = attack_damage
 	combat_component.reset_attack_timer(attack_cooldown)
@@ -46,15 +46,24 @@ func _init_anatomy_parts() -> void:
 func get_ready_to_battle() -> void:
 	combat_component.combat_timer.start()
 
+func _perform_action(target: Anatomy) -> void:
+	if target in opponent_anatomy:
+		_perform_attack(target)
+	elif target in anatomy_parts:
+		_perform_block(target)
+
 func _perform_attack(target: Anatomy) -> void:
-	can_attack = false
+	can_action = false
 	if target:
 		arm.punch(
 			target.global_position,
 			func(): combat_component.attack(target))
 
-func _on_attack_ready() -> void:
-	can_attack = true
+func _perform_block(target: Anatomy) -> void:
+	can_action = false
+
+func _on_action_ready() -> void:
+	can_action = true
 
 func _on_attack_finished() -> void:
 	combat_component.combat_timer.start()
@@ -70,13 +79,21 @@ func choose_target() -> Anatomy:
 		_highlight_target(null)
 		return null
 		
-	var new_target = valid_targets.pick_random()
+	var new_target: Anatomy = valid_targets.pick_random()
+	new_target.is_targeted = true
 	_highlight_target(new_target)
 	return new_target
 
-func _highlight_target(anatomy: Anatomy) -> void:
+func _highlight_target(anatomy: Anatomy, block_target := false) -> void:
 	for part in opponent_anatomy:
 		if not part.is_part_dead():
 			part.sprite.modulate = Color.WHITE
 
-	if anatomy: anatomy.sprite.modulate = Color.RED
+	if anatomy:
+		if block_target:
+			for part in anatomy_parts:
+				if not part.is_part_dead() and not part.is_targeted:
+					part.sprite.modulate = Color.WHITE
+			anatomy.sprite.modulate = Color.SKY_BLUE
+		else:
+			anatomy.sprite.modulate = Color.RED

@@ -17,19 +17,19 @@ texture_filter = 1
 scale = Vector2(5, 5)
 texture = ExtResource("2_5gfad")
 
-[node name="Eye1" parent="." unique_id=1690948451 instance=ExtResource("2_7fyn6")]
+[node name="EyeL" parent="." unique_id=1690948451 instance=ExtResource("2_7fyn6")]
 unique_name_in_owner = true
 position = Vector2(-36, 31)
 
-[node name="Eye2" parent="." unique_id=584210078 instance=ExtResource("2_7fyn6")]
+[node name="EyeR" parent="." unique_id=584210078 instance=ExtResource("2_7fyn6")]
 unique_name_in_owner = true
 position = Vector2(32, 32)
 
-[node name="Ear1" parent="." unique_id=1222327045 instance=ExtResource("3_mq3re")]
+[node name="EarL" parent="." unique_id=1222327045 instance=ExtResource("3_mq3re")]
 unique_name_in_owner = true
 position = Vector2(-73, 1)
 
-[node name="Ear2" parent="." unique_id=959483894 instance=ExtResource("3_mq3re")]
+[node name="EarR" parent="." unique_id=959483894 instance=ExtResource("3_mq3re")]
 unique_name_in_owner = true
 position = Vector2(74, 0)
 

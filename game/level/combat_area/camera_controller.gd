@@ -9,7 +9,7 @@ var trauma_power : int = 2
 
 ## cam follow
 @export var follow_node : Node2D 
-const MAX_DIST = 50
+const MAX_DIST = 20
 var target_distance = 0
 var center_pos : Vector2
 

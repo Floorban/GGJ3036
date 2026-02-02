@@ -26,6 +26,7 @@ func attack(target: Anatomy) -> void:
 		push_error("no target to attack")
 		return
 	target.set_hp(base_damage)
+	target.is_targeted = false
 
 func reset_attack_timer(attack_cooldown: float) -> void:
 	combat_timer.wait_time = attack_cooldown

@@ -13,6 +13,7 @@ var state: PartState = PartState.HEALTHY
 @onready var mouse_detect_area: Area2D = $MouseDetectArea
 @onready var anatomy_ui: AnatomyUI = $AnatomyUI
 
+var is_targeted := false
 var is_hovering := false
 
 func init_part() -> void:
