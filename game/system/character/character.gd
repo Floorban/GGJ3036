@@ -83,6 +83,10 @@ func _on_action_ready() -> void:
 
 func _on_action_finished(blocking: bool) -> void:
 	if not blocking:
+		if opponent.blocking_part:
+			opponent.blocking_part = null
+			arm.rest_pos()
+			print("A")
 		_on_attack_finished()
 
 func _on_attack_finished() -> void:
