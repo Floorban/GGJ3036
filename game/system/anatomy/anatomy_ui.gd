@@ -19,4 +19,4 @@ func set_stats_ui(id: String, state: String, block_amount: int, effect: String) 
 	label_effect.text = effect
 
 func toggle_panel(turned_on: bool) -> void:
-	panel.visible = turned_on
+	visible = turned_on

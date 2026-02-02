@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cqk4twm4sfdyp"]
 
 [ext_resource type="Script" uid="uid://ci23jn24qnic1" path="res://game/system/character/character.gd" id="1_icscu"]
+[ext_resource type="Texture2D" uid="uid://dfkjr6p0df0on" path="res://sprites/ui/circle.png" id="2_5gfad"]
 [ext_resource type="PackedScene" uid="uid://dpw0p64fe8sla" path="res://game/system/anatomy/parts/face/eye.tscn" id="2_7fyn6"]
 [ext_resource type="PackedScene" uid="uid://db1cym3qxkh3h" path="res://game/system/anatomy/parts/face/ear.tscn" id="3_mq3re"]
 [ext_resource type="PackedScene" uid="uid://7t20pmgtsjd4" path="res://game/system/anatomy/parts/face/nose.tscn" id="4_5gfad"]
@@ -10,29 +11,35 @@
 [node name="Character" type="Node2D" unique_id=1861387119]
 script = ExtResource("1_icscu")
 
+[node name="Face" type="Sprite2D" parent="." unique_id=1276534686]
+modulate = Color(0.33305404, 0.23262998, 0.0849072, 1)
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("2_5gfad")
+
 [node name="Eye1" parent="." unique_id=1690948451 instance=ExtResource("2_7fyn6")]
 unique_name_in_owner = true
-position = Vector2(-177, -6)
+position = Vector2(-36, 31)
 
 [node name="Eye2" parent="." unique_id=584210078 instance=ExtResource("2_7fyn6")]
 unique_name_in_owner = true
-position = Vector2(128, -14)
+position = Vector2(32, 32)
 
 [node name="Ear1" parent="." unique_id=1222327045 instance=ExtResource("3_mq3re")]
 unique_name_in_owner = true
-position = Vector2(-346, 97)
+position = Vector2(-88, 1)
 
 [node name="Ear2" parent="." unique_id=959483894 instance=ExtResource("3_mq3re")]
 unique_name_in_owner = true
-position = Vector2(251, 115)
+position = Vector2(86, 0)
 
 [node name="Nose" parent="." unique_id=1350482542 instance=ExtResource("4_5gfad")]
 unique_name_in_owner = true
-position = Vector2(-7, 128)
+position = Vector2(0, -6)
 
 [node name="Mouth" parent="." unique_id=508432269 instance=ExtResource("5_6uakp")]
 unique_name_in_owner = true
-position = Vector2(2, 265)
+position = Vector2(2, -52)
 
 [node name="CombatComponent" parent="." unique_id=823960288 instance=ExtResource("6_mq3re")]
 unique_name_in_owner = true

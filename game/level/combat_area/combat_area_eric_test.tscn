@@ -9,11 +9,12 @@ player = NodePath("Player")
 enemy = NodePath("Enemy")
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_27j7o")]
-position = Vector2(583, 469)
+position = Vector2(557, 509)
+attack_damage = 1.0
 
 [node name="Enemy" parent="." index="1" unique_id=1231642872 instance=ExtResource("3_27j7o")]
-position = Vector2(562, 10)
+position = Vector2(564, 321)
 
 [node name="Camera2D" type="Camera2D" parent="." index="2" unique_id=115216192]
-position = Vector2(652, 414)
-zoom = Vector2(0.7, 0.7)
+position = Vector2(574, 425)
+zoom = Vector2(1.8, 1.8)

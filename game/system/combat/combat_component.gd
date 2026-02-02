@@ -1,5 +1,6 @@
 class_name CombatComponent extends Node
 
+signal attack_windup(progress: float)
 signal combat_ready
 
 var base_damage: float
@@ -8,6 +9,13 @@ var base_damage: float
 
 func _ready() -> void:
 	combat_timer.timeout.connect(_on_combat_timer_out)
+
+func _process(_delta: float) -> void:
+	if combat_timer.is_stopped():
+		return
+
+	var progress := 1.0 - (combat_timer.time_left / combat_timer.wait_time)
+	attack_windup.emit(progress)
 
 func _on_combat_timer_out() -> void:
 	combat_ready.emit()

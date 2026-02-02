@@ -2,4 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_q55ig"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q55ig"]
+size = Vector2(82, 20)
+
 [node name="Mouth" unique_id=1690948451 instance=ExtResource("1_q55ig")]
+
+[node name="Sprite" parent="." index="0" unique_id=500964707]
+scale = Vector2(1.2307693, 0.3)
+
+[node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
+shape = SubResource("RectangleShape2D_q55ig")

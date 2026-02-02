@@ -2,8 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_obar5"]
 [ext_resource type="Script" uid="uid://cmbivobrytkx7" path="res://game/system/character/player/player.gd" id="2_b2mth"]
+[ext_resource type="PackedScene" uid="uid://cc5iuju00imms" path="res://game/system/anatomy/parts/body/arm.tscn" id="3_3ipx8"]
 
 [node name="Player" unique_id=1861387119 instance=ExtResource("1_obar5")]
 script = ExtResource("2_b2mth")
 attack_damage = 2.0
 attack_cooldown = 3.0
+
+[node name="Arm" parent="." index="7" unique_id=334395171 instance=ExtResource("3_3ipx8")]
+unique_name_in_owner = true
+position = Vector2(44, -54)

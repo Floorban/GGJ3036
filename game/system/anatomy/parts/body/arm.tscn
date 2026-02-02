@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://cc5iuju00imms"]
+
+[ext_resource type="Script" uid="uid://crtjhl3xse5fi" path="res://game/system/anatomy/parts/body/arm.gd" id="1_hily2"]
+[ext_resource type="Texture2D" uid="uid://dpyb4wdpwxli" path="res://sprites/icon.svg" id="2_54hrx"]
+
+[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_54hrx"]
+target_nodepath = NodePath("../FistTarget")
+fabrik_data_chain_length = 3
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("Sprite2DBone2D")
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Sprite2DBone2D/Sprite2D2Bone2D")
+joint_data/1/magnet_position = Vector2(0, 0)
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("Sprite2DBone2D/Sprite2D2Bone2D/Sprite2D3Bone2D")
+joint_data/2/magnet_position = Vector2(0, 0)
+joint_data/2/use_target_rotation = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_54hrx"]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DFABRIK_54hrx")
+
+[node name="Arm" type="Node2D" unique_id=1972221418]
+script = ExtResource("1_hily2")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=408280702]
+modification_stack = SubResource("SkeletonModificationStack2D_54hrx")
+
+[node name="Sprite2DBone2D" type="Bone2D" parent="Skeleton2D" unique_id=1789155330]
+rotation = 0.1714634
+scale = Vector2(0.20312546, 0.1796877)
+rest = Transform2D(0.20219468, 0.019423341, -0.01718216, 0.17886423, 0, 40.5)
+auto_calculate_length_and_angle = false
+length = 550.0
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Sprite2DBone2D" unique_id=1904858807]
+z_index = -1
+position = Vector2(192.66234, 10.059482)
+scale = Vector2(3.6705182, 1.2826781)
+texture = ExtResource("2_54hrx")
+
+[node name="Sprite2D2Bone2D" type="Bone2D" parent="Skeleton2D/Sprite2DBone2D" unique_id=1966820033]
+position = Vector2(353.846, -1.5258789e-05)
+rotation = 0.11977731
+scale = Vector2(1.0785996, 3.1700444)
+skew = -0.025872707
+rest = Transform2D(1.0392241, -0.31928748, 0.7363789, 3.0628166, 265.38428, -1.5258789e-05)
+auto_calculate_length_and_angle = false
+length = 450.0
+bone_angle = -1.150347e-06
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Skeleton2D/Sprite2DBone2D/Sprite2D2Bone2D" unique_id=1575779853]
+z_index = 1
+position = Vector2(214.73099, -1.5569115)
+scale = Vector2(3.7210128, 0.3730775)
+texture = ExtResource("2_54hrx")
+
+[node name="Sprite2D3Bone2D" type="Bone2D" parent="Skeleton2D/Sprite2DBone2D/Sprite2D2Bone2D" unique_id=1916331396]
+position = Vector2(399.99957, 0)
+rotation = -0.11426462
+scale = Vector2(0.7576851, 0.39946756)
+skew = -0.54820824
+rest = Transform2D(-0.45176578, -0.24657224, 0.7012968, -0.18903401, 299.9998, 0)
+auto_calculate_length_and_angle = false
+length = 50.0
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="Skeleton2D/Sprite2DBone2D/Sprite2D2Bone2D/Sprite2D3Bone2D" unique_id=520692977]
+z_index = 1
+position = Vector2(27.586056, -4.8475437)
+scale = Vector2(0.58446074, 0.8313532)
+texture = ExtResource("2_54hrx")
+
+[node name="FistTarget" type="Marker2D" parent="." unique_id=702061991]
+unique_name_in_owner = true
+position = Vector2(78, -84)

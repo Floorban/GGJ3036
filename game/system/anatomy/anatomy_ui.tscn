@@ -2,6 +2,14 @@
 
 [ext_resource type="Script" uid="uid://ccdqq5mspaiqg" path="res://game/system/anatomy/anatomy_ui.gd" id="1_kt6gv"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5v1lm"]
+bg_color = Color(0.29060543, 0.2906055, 0.29060534, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kt6gv"]
 bg_color = Color(0.011764706, 0.011764706, 0.011764706, 0.40392157)
 border_width_left = 2
@@ -18,14 +26,6 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5v1lm"]
-bg_color = Color(0.29060543, 0.2906055, 0.29060534, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_kt6gv"]
 thickness = 4
 vertical = true
@@ -38,19 +38,6 @@ offset_right = 200.0
 offset_bottom = 60.0
 script = ExtResource("1_kt6gv")
 
-[node name="HpBar" type="ProgressBar" parent="." unique_id=1828563697]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 25)
-layout_mode = 0
-offset_top = -27.0
-offset_right = 50.0
-offset_bottom = -2.0
-theme_override_font_sizes/font_size = 10
-theme_override_styles/background = SubResource("StyleBoxFlat_kt6gv")
-theme_override_styles/fill = SubResource("StyleBoxFlat_2wssl")
-max_value = 3.0
-step = 0.1
-
 [node name="Panel" type="Panel" parent="." unique_id=273158366]
 layout_mode = 1
 anchors_preset = 15
@@ -58,6 +45,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_5v1lm")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=829839520]
@@ -81,18 +69,22 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_constants/separation = 4
 
+[node name="HpBar" type="ProgressBar" parent="Panel/MarginContainer/HBoxContainer/Info" unique_id=1828563697]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+theme_override_styles/background = SubResource("StyleBoxFlat_kt6gv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2wssl")
+max_value = 3.0
+step = 0.1
+
 [node name="LabelName" type="Label" parent="Panel/MarginContainer/HBoxContainer/Info" unique_id=1656866749]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Body"
 horizontal_alignment = 1
-
-[node name="LabelState" type="Label" parent="Panel/MarginContainer/HBoxContainer/Info" unique_id=1878072070]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = " HEALTHY"
 
 [node name="VSeparator" type="VSeparator" parent="Panel/MarginContainer/HBoxContainer" unique_id=1919382996]
 layout_mode = 2
@@ -102,6 +94,12 @@ theme_override_styles/separator = SubResource("StyleBoxLine_kt6gv")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 4
+
+[node name="LabelState" type="Label" parent="Panel/MarginContainer/HBoxContainer/Stats" unique_id=1878072070]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = " HEALTHY"
 
 [node name="LabelBlock" type="Label" parent="Panel/MarginContainer/HBoxContainer/Stats" unique_id=1352774914]
 unique_name_in_owner = true

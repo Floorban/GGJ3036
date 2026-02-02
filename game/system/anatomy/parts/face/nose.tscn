@@ -2,4 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_bxjig"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxjig"]
+
 [node name="Nose" unique_id=1690948451 instance=ExtResource("1_bxjig")]
+
+[node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
+shape = SubResource("RectangleShape2D_bxjig")

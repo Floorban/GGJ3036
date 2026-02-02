@@ -14,6 +14,8 @@ var anatomy_parts: Array[Anatomy]
 @onready var mouth: Anatomy = %Mouth
 var opponent_anatomy: Array[Anatomy]
 
+@onready var arm: Arm = %Arm
+
 func init_character() -> void:
 	get_anatomy_references()
 	_init_combat_component()
@@ -42,7 +44,9 @@ func _init_anatomy_parts() -> void:
 func _perform_attack() -> void:
 	var target := choose_target()
 	if target:
-		combat_component.attack(target)
+		arm.punch(
+			target.global_position,
+			func(): combat_component.attack(target))
 
 func choose_target() -> Anatomy:
 	if opponent == null:
