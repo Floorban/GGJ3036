@@ -2,8 +2,6 @@ class_name Player extends Character
 
 var selected_target: Anatomy
 
-@export var sfx_hit: String
-
 func get_anatomy_references() -> void:
 	super.get_anatomy_references()
 	for a in anatomy_parts:

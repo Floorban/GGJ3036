@@ -12,8 +12,6 @@ var windup_position: Vector2
 var is_punching := false
 var is_blocking := false
 
-@export var sfx_hit: String
-
 func _ready() -> void:
 	rest_position = fist_target.global_position
 	windup_position = rest_position
@@ -66,7 +64,6 @@ func punch(target_global_pos: Vector2, on_hit: Callable) -> void:
 		return
 	is_blocking = false
 	is_punching = true
-	audio.play(sfx_hit, global_transform, "Impact", "Fatal L")
 
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
