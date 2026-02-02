@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://db1cym3qxkh3h"]
 
 [ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_0uj06"]
+[ext_resource type="Texture2D" uid="uid://cwmdhwa1rgr1" path="res://sprites/body_parts/FaceAssets/Ear1.png" id="2_03vvk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uj06"]
-size = Vector2(20, 36)
+size = Vector2(20, 44)
 
 [node name="Ear" unique_id=1690948451 instance=ExtResource("1_0uj06")]
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
-scale = Vector2(0.3, 0.59016395)
+scale = Vector2(1, 1)
+texture = ExtResource("2_03vvk")
+flip_v = true
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
 shape = SubResource("RectangleShape2D_0uj06")

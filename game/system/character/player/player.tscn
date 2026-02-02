@@ -3,6 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_obar5"]
 [ext_resource type="Script" uid="uid://cmbivobrytkx7" path="res://game/system/character/player/player.gd" id="2_b2mth"]
 [ext_resource type="PackedScene" uid="uid://cc5iuju00imms" path="res://game/system/anatomy/parts/body/arm_r.tscn" id="3_3ipx8"]
+[ext_resource type="Texture2D" uid="uid://bg86p5akltu0x" path="res://sprites/body_parts/Basehead/BaseHead.png" id="3_jme82"]
+[ext_resource type="Texture2D" uid="uid://c718x58jremuc" path="res://sprites/BodyParts/Limbs/Body.png" id="4_ekhjb"]
+[ext_resource type="Texture2D" uid="uid://btk6xaqn631c3" path="res://sprites/body_parts/Noise.png" id="5_0fnm0"]
+[ext_resource type="Texture2D" uid="uid://cid6i0r1qcfd6" path="res://sprites/body_parts/Shadows/Shadows.png" id="5_alke5"]
+[ext_resource type="Texture2D" uid="uid://ccoko0d1ab75c" path="res://sprites/body_parts/FaceAssets/HappyEye.png" id="5_jme82"]
+[ext_resource type="Texture2D" uid="uid://cwmdhwa1rgr1" path="res://sprites/body_parts/FaceAssets/Ear1.png" id="7_an5c5"]
+[ext_resource type="Texture2D" uid="uid://csa4gop6t6gpc" path="res://sprites/body_parts/FaceAssets/MouthHappyExp.png" id="8_ka5xu"]
+[ext_resource type="Texture2D" uid="uid://5fed4iu6277k" path="res://sprites/body_parts/FaceAssets/Nose.png" id="8_w1s3x"]
 
 [node name="Player" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_obar5")]
 script = ExtResource("2_b2mth")
@@ -10,6 +18,86 @@ attack_damage = 2.0
 attack_cooldown = 3.0
 arm = NodePath("ArmR")
 
-[node name="ArmR" parent="." index="7" unique_id=334395171 instance=ExtResource("3_3ipx8")]
+[node name="Noise" type="Sprite2D" parent="." index="0" unique_id=290120544]
+modulate = Color(1, 1, 1, 0.7372549)
+z_index = 5
+texture_filter = 1
+position = Vector2(2.7363, 4.685764)
+rotation = -3.054326
+scale = Vector2(1.18494, 0.99840635)
+texture = ExtResource("5_0fnm0")
+
+[node name="Face" parent="." index="1" unique_id=1276534686]
+modulate = Color(0.943782, 0.7265996, 0.81621385, 1)
+z_index = 1
+rotation = 3.1415927
+scale = Vector2(1, 1)
+texture = ExtResource("3_jme82")
+
+[node name="Shadow" type="Sprite2D" parent="Face" index="0" unique_id=1034765696]
+texture_filter = 1
+position = Vector2(3.999999, -12.000001)
+rotation = 0.087266445
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("5_alke5")
+
+[node name="Shoulder" type="Sprite2D" parent="." index="2" unique_id=779808539]
+texture_filter = 1
+rotation = -3.054326
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_ekhjb")
+
+[node name="EyeL" parent="." index="3" unique_id=1690948451]
+position = Vector2(-27, 31)
+
+[node name="Sprite" parent="EyeL" index="0" unique_id=500964707]
+texture = ExtResource("5_jme82")
+flip_v = true
+
+[node name="EyeR" parent="." index="4" unique_id=584210078]
+position = Vector2(28, 29)
+
+[node name="Sprite" parent="EyeR" index="0" unique_id=500964707]
+texture = ExtResource("5_jme82")
+flip_v = true
+
+[node name="EarL" parent="." index="5" unique_id=1222327045]
+position = Vector2(-51, 1)
+
+[node name="Sprite" parent="EarL" index="0" unique_id=500964707]
+position = Vector2(-4, 1)
+rotation = 3.1240225
+texture = ExtResource("7_an5c5")
+flip_v = false
+
+[node name="EarR" parent="." index="6" unique_id=959483894]
+position = Vector2(58, 0)
+
+[node name="Sprite" parent="EarR" index="0" unique_id=500964707]
+texture = ExtResource("7_an5c5")
+
+[node name="Nose" parent="." index="7" unique_id=1350482542]
+position = Vector2(-3, 8)
+
+[node name="Sprite" parent="Nose" index="0" unique_id=500964707]
+modulate = Color(0.8738907, 0.8738907, 0.87389064, 1)
+rotation = 3.1415927
+texture = ExtResource("8_w1s3x")
+
+[node name="Mouth" parent="." index="8" unique_id=508432269]
+position = Vector2(4, -36)
+
+[node name="Sprite" parent="Mouth" index="0" unique_id=500964707]
+texture = ExtResource("8_ka5xu")
+
+[node name="ArmR" parent="." index="9" unique_id=334395171 instance=ExtResource("3_3ipx8")]
 unique_name_in_owner = true
-position = Vector2(44, -54)
+z_index = 2
+position = Vector2(103, -23)
+
+[editable path="EyeL"]
+[editable path="EyeR"]
+[editable path="EarL"]
+[editable path="EarR"]
+[editable path="Nose"]
+[editable path="Mouth"]

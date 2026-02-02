@@ -5,10 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://c1xy4lkq206i0" path="res://game/system/anatomy/anatomy_ui.tscn" id="2_r8mws"]
 
 [node name="Anatomy" type="Node2D" unique_id=1690948451 groups=["anatomy"]]
+z_index = 2
 script = ExtResource("1_hstcr")
 max_hp = 3.0
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=500964707]
+texture_filter = 1
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_phaok")
 

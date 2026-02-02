@@ -8,6 +8,9 @@
 script = ExtResource("2_26h1w")
 arm = NodePath("EnemyArmR")
 
+[node name="Face" parent="." index="0" unique_id=1276534686]
+modulate = Color(0.33333334, 0.23137255, 0.08627451, 1)
+
 [node name="EyeL" parent="." index="1" unique_id=1690948451]
 max_hp = 30.0
 
