@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://db1cym3qxkh3h"]
 
 [ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_0uj06"]
-[ext_resource type="Texture2D" uid="uid://cwmdhwa1rgr1" path="res://sprites/body_parts/FaceAssets/Ear1.png" id="2_03vvk"]
+[ext_resource type="Texture2D" uid="uid://dgfbrc3ii8iw6" path="res://sprites/body_parts/FaceAssets/Ear1.png" id="2_03vvk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uj06"]
 size = Vector2(20, 44)
