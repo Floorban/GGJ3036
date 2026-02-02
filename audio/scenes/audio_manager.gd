@@ -30,6 +30,7 @@ var test_event: FmodEvent = null
 
 func _ready() -> void: 
 	load_banks()
+	play(test_name)
 	#player = get_tree().get_first_node_in_group("player")
 	#listener = get_node("Essentials/FmodListener3D")
 

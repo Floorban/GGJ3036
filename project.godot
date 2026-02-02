@@ -8,6 +8,11 @@
 
 config_version=5
 
+[Fmod]
+
+General/banks_path="res://audio/banks/Desktop"
+DSP/dsp_buffer_size=1028
+
 [application]
 
 config/name="GGJ3036"
