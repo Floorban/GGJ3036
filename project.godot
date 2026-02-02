@@ -8,12 +8,25 @@
 
 config_version=5
 
+[Fmod]
+
+General/banks_path="res://audio/banks/Desktop"
+DSP/dsp_buffer_size=1028
+
 [application]
 
 config/name="GGJ3036"
 run/main_scene="uid://ci752aldwpxhr"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://sprites/icon.svg"
+
+[autoload]
+
+FmodManager="*uid://cds10pm7hwn3p"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
 
 [physics]
 

@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cc5iuju00imms"]
 
 [ext_resource type="Script" uid="uid://crtjhl3xse5fi" path="res://game/system/anatomy/parts/body/arm.gd" id="1_788lw"]
-[ext_resource type="Texture2D" uid="uid://dpyb4wdpwxli" path="res://sprites/icon.svg" id="2_w3gwp"]
+[ext_resource type="Texture2D" uid="uid://j1ev066edrvp" path="res://sprites/BodyParts/Limbs/Uparm.png" id="2_ahwjh"]
+[ext_resource type="Texture2D" uid="uid://dl2lswog5wtgw" path="res://sprites/BodyParts/Limbs/Forearms.png" id="3_ahwjh"]
+[ext_resource type="Texture2D" uid="uid://xwpifbuqrxhe" path="res://sprites/BodyParts/Limbs/Fists.png" id="4_ahwjh"]
 
 [sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_54hrx"]
 target_nodepath = NodePath("../FistTarget")
@@ -10,7 +12,7 @@ joint_data/0/bone_index = 0
 joint_data/0/bone2d_node = NodePath("ArmUp")
 joint_data/1/bone_index = 1
 joint_data/1/bone2d_node = NodePath("ArmUp/ArmLow")
-joint_data/1/magnet_position = Vector2(0, 0)
+joint_data/1/magnet_position = Vector2(2000, 20)
 joint_data/2/bone_index = 2
 joint_data/2/bone2d_node = NodePath("ArmUp/ArmLow/Fist")
 joint_data/2/magnet_position = Vector2(0, 0)
@@ -39,25 +41,26 @@ metadata/_local_pose_override_enabled_ = true
 [node name="SpriteArmUp" type="Sprite2D" parent="Skeleton2D/ArmUp" unique_id=1904858807]
 z_index = -1
 position = Vector2(192.66234, 10.059482)
-scale = Vector2(3.6705182, 1.2826781)
-texture = ExtResource("2_w3gwp")
+rotation = -1.288053
+texture = ExtResource("2_ahwjh")
 
 [node name="ArmLow" type="Bone2D" parent="Skeleton2D/ArmUp" unique_id=1966820033]
-position = Vector2(353.846, -1.5258789e-05)
-rotation = 0.11977731
-scale = Vector2(1.0785996, 3.1700444)
-skew = -0.025872707
+position = Vector2(486.5293, 7.6293945e-06)
+rotation = 2.7966914
+scale = Vector2(1.090687, 3.142656)
+skew = 0.07084751
 rest = Transform2D(1.0392241, -0.31928748, 0.7363789, 3.0628166, 265.38428, -1.5258789e-05)
 auto_calculate_length_and_angle = false
 length = 450.0
-bone_angle = -1.150347e-06
+bone_angle = 241.15596
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
 z_index = 1
-position = Vector2(214.73099, -1.5569115)
-scale = Vector2(3.7210128, 0.3730775)
-texture = ExtResource("2_w3gwp")
+position = Vector2(-91.80101, -75.66607)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ahwjh")
+flip_v = true
 
 [node name="Fist" type="Bone2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1916331396]
 position = Vector2(399.99957, 0)
@@ -66,17 +69,17 @@ scale = Vector2(0.7576851, 0.39946756)
 skew = -0.54820824
 rest = Transform2D(-0.45176578, -0.24657224, 0.7012968, -0.18903401, 299.9998, 0)
 auto_calculate_length_and_angle = false
-length = 50.0
-bone_angle = 0.0
+length = 100.0
+bone_angle = -117.856
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteFist" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow/Fist" unique_id=520692977]
 z_index = 1
-position = Vector2(-5.333497, -0.7034004)
-rotation = -0.43633232
-scale = Vector2(0.8131413, 0.38048074)
-texture = ExtResource("2_w3gwp")
+position = Vector2(-96.91019, 37.33225)
+rotation = 2.125811
+texture = ExtResource("4_ahwjh")
+flip_h = true
 
 [node name="FistTarget" type="Marker2D" parent="." unique_id=702061991]
 unique_name_in_owner = true
-position = Vector2(78, -84)
+position = Vector2(56, -71)

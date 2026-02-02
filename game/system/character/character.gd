@@ -51,44 +51,53 @@ func get_ready_to_battle() -> void:
 
 func take_damage(damaged_amount: float) -> void:
 	if blocking_part:
-		combat_component.combat_timer.start()
-		blocking_part = null
+		_on_block_finished()
 	else:
-		print(damaged_amount)
+		pass
 
-func _perform_action(target: Anatomy) -> void:
-	if target in opponent_anatomy:
-		_perform_attack(target)
-	elif target in anatomy_parts:
-		_perform_block(target)
+#func _perform_action(target: Anatomy) -> void:
+	#if target in opponent_anatomy:
+		#_perform_attack(target)
+	#elif target in anatomy_parts:
+		#_perform_block(target)
 
 func _perform_attack(target: Anatomy) -> void:
 	can_action = false
 	if target:
+		if blocking_part:
+			blocking_part.is_blocking = false
 		arm.punch(
 			target.global_position,
 			func(): combat_component.attack(target))
 
 func _perform_block(target: Anatomy) -> void:
 	if target:
+		if blocking_part:
+			blocking_part.is_blocking = false
 		blocking_part = target
+		blocking_part.is_blocking = true
 		arm.block(target.global_position)
 
 func _on_action_ready() -> void:
 	can_action = true
 
 func _on_action_finished(blocking: bool) -> void:
-	if blocking:
-		_on_block_finished()
-	else:
+	if not blocking:
+		if opponent.blocking_part:
+			opponent.blocking_part = null
+			arm.rest_pos()
+			print("A")
 		_on_attack_finished()
 
 func _on_attack_finished() -> void:
 	combat_component.combat_timer.start()
 
 func _on_block_finished() -> void:
-	if blocking_part:
-		blocking_part.is_blocking = true
+	combat_component.combat_timer.start()
+	print("blocked" + blocking_part.name)
+	arm.rest_pos()
+	blocking_part.is_blocking = false
+	blocking_part = null
 
 func choose_target() -> Anatomy:
 	if opponent == null:
@@ -114,8 +123,12 @@ func _highlight_target(anatomy: Anatomy, block_target := false) -> void:
 	if anatomy:
 		if block_target:
 			for part in anatomy_parts:
-				if not part.is_part_dead() and not part.is_targeted:
+				if not part.is_part_dead() and part.is_blocking:
 					part.sprite.modulate = Color.WHITE
-			anatomy.sprite.modulate = Color.SKY_BLUE
+				else:
+					anatomy.sprite.modulate = Color.SKY_BLUE
 		else:
+			for part in anatomy_parts:
+				if not part.is_part_dead():
+					part.sprite.modulate = Color.WHITE
 			anatomy.sprite.modulate = Color.RED

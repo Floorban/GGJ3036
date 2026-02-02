@@ -28,6 +28,20 @@ func update_windup(progress: float, attack_dir: Vector2) -> void:
 		0.15
 	)
 
+func rest_pos() -> void:
+	is_punching = false
+	is_blocking = false
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_OUT)
+	
+	tween.tween_property(
+		fist_target,
+		"global_position",
+		rest_position,
+		0.2 + randf_range(-0.05,0.15)
+	)
+
 func block(target_global_pos: Vector2) -> void:
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
@@ -48,13 +62,14 @@ func block(target_global_pos: Vector2) -> void:
 func punch(target_global_pos: Vector2, on_hit: Callable) -> void:
 	if is_punching:
 		return
+	is_blocking = false
 	is_punching = true
 
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
 	
-	var wind_up_pos := Vector2(randf_range(2,4), randf_range(2,4))
+	var wind_up_pos := Vector2(randf_range(1,2), randf_range(1,2))
 	
 	tween.tween_property(
 		fist_target,

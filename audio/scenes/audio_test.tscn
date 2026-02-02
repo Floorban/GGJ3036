@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cmxi03h52gfs8"]
+
+[ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="1_a85q8"]
+
+[node name="AudioTest" type="Node2D" unique_id=568600643]
+
+[node name="AudioManager" parent="." unique_id=1015518348 instance=ExtResource("1_a85q8")]
+test_name = "event:/Music/Melody"

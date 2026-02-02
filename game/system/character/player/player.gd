@@ -19,7 +19,7 @@ func choose_target() -> Anatomy:
 
 func _on_action_ready() -> void:
 	super._on_action_ready()
-	if selected_target and can_action:
+	if selected_target and can_action and not blocking_part:
 		_perform_attack(selected_target)
 
 func _on_anatomy_clicked(anatomy: Anatomy) -> void:
@@ -35,20 +35,25 @@ func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
 		_perform_block(anatomy)
 	else:
 		selected_target = null
+		blocking_part = null
 		_highlight_target(null)
+		arm.rest_pos()
 
 func _on_enemy_anatomy_clicked(anatomy: Anatomy) -> void:
 	if anatomy.state == Anatomy.PartState.DESTROYED:
 		return
-	
 	if selected_target != anatomy:
+		if blocking_part:
+			arm.rest_pos()
 		selected_target = anatomy
 		_highlight_target(anatomy)
 		if can_action:
 			_perform_attack(selected_target)
 	else:
 		selected_target = null
+		blocking_part = null
 		_highlight_target(null)
+		
 
 
 	
