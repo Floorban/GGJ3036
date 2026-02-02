@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dp8pqgndfsc8v"]
+
+[ext_resource type="Script" uid="uid://jmln1tmbns1m" path="res://game/level/combat_area/camera_controller.gd" id="1_gxhld"]
+[ext_resource type="Texture2D" uid="uid://qu3moh6sgeo0" path="res://sprites/ui/crosshairs.png" id="2_5xpr3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xae20"]
+atlas = ExtResource("2_5xpr3")
+region = Rect2(80, 0, 16, 16)
+
+[node name="Camera" type="Camera2D" unique_id=1361226820]
+zoom = Vector2(1.8, 1.8)
+script = ExtResource("1_gxhld")
+
+[node name="Crosshair" type="Sprite2D" parent="." unique_id=851492487]
+texture_filter = 1
+texture = SubResource("AtlasTexture_xae20")
