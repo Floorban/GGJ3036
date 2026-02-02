@@ -53,5 +53,5 @@ offset_right = 27.5
 offset_bottom = 67.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.8627451, 0.65882355, 0.007843138, 1)
-theme_override_font_sizes/font_size = 48
-text = "60"
+theme_override_font_sizes/font_size = 64
+text = "90"
