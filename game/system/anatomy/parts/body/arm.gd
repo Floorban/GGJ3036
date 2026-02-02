@@ -1,6 +1,6 @@
 class_name Arm extends Node2D
 
-signal action_finished
+signal action_finished(blocking: bool)
 
 @onready var skeleton: Skeleton2D = $Skeleton2D
 @onready var fist_target: Marker2D = %FistTarget
@@ -10,6 +10,7 @@ signal action_finished
 var rest_position: Vector2
 var windup_position: Vector2
 var is_punching := false
+var is_blocking := false
 
 func _ready() -> void:
 	rest_position = fist_target.global_position
@@ -25,6 +26,23 @@ func update_windup(progress: float, attack_dir: Vector2) -> void:
 	fist_target.global_position = fist_target.global_position.lerp(
 		windup_position,
 		0.15
+	)
+
+func block(target_global_pos: Vector2) -> void:
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_OUT)
+
+	tween.tween_property(
+		fist_target,
+		"global_position",
+		target_global_pos,
+		0.2 + randf_range(-0.05,0.15)
+	)
+
+	tween.tween_callback(func():
+		is_blocking = true
+		emit_signal("action_finished", is_blocking)
 	)
 
 func punch(target_global_pos: Vector2, on_hit: Callable) -> void:
@@ -66,5 +84,5 @@ func punch(target_global_pos: Vector2, on_hit: Callable) -> void:
 
 	tween.tween_callback(func():
 		is_punching = false
-		action_finished.emit()
+		emit_signal("action_finished", is_blocking)
 	)

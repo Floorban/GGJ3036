@@ -16,6 +16,7 @@ var opponent_anatomy: Array[Anatomy]
 
 @export var arm: Arm
 var can_action := false
+var blocking_part: Anatomy
 
 func init_character() -> void:
 	_init_anatomy_parts()
@@ -29,7 +30,8 @@ func get_anatomy_references() -> void:
 
 func _init_combat_component() -> void:
 	combat_component.combat_ready.connect(_on_action_ready)
-	arm.action_finished.connect(_on_attack_finished)
+	#arm.action_finished.connect(_on_action_finished)
+	arm.action_finished.connect(func(blocking: bool): _on_action_finished(blocking))
 	combat_component.base_damage = attack_damage
 	combat_component.reset_attack_timer(attack_cooldown)
 
@@ -42,9 +44,17 @@ func _init_anatomy_parts() -> void:
 	anatomy_parts.append(mouth)
 	for part in anatomy_parts:
 		part.init_part()
+		part.anatomy_damaged.connect(take_damage)
 
 func get_ready_to_battle() -> void:
 	combat_component.combat_timer.start()
+
+func take_damage(damaged_amount: float) -> void:
+	if blocking_part:
+		combat_component.combat_timer.start()
+		blocking_part = null
+	else:
+		print(damaged_amount)
 
 func _perform_action(target: Anatomy) -> void:
 	if target in opponent_anatomy:
@@ -60,13 +70,25 @@ func _perform_attack(target: Anatomy) -> void:
 			func(): combat_component.attack(target))
 
 func _perform_block(target: Anatomy) -> void:
-	can_action = false
+	if target:
+		blocking_part = target
+		arm.block(target.global_position)
 
 func _on_action_ready() -> void:
 	can_action = true
 
+func _on_action_finished(blocking: bool) -> void:
+	if blocking:
+		_on_block_finished()
+	else:
+		_on_attack_finished()
+
 func _on_attack_finished() -> void:
 	combat_component.combat_timer.start()
+
+func _on_block_finished() -> void:
+	if blocking_part:
+		blocking_part.is_blocking = true
 
 func choose_target() -> Anatomy:
 	if opponent == null:

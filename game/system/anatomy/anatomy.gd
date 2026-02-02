@@ -1,6 +1,7 @@
 class_name Anatomy extends Node2D
 
 signal anatomy_clicked(anatomy: Anatomy)
+signal anatomy_damaged(amount: float)
 
 enum PartState { HEALTHY, DAMAGED, OUT_OF_PLACE, DESTROYED }
 var state: PartState = PartState.HEALTHY
@@ -14,6 +15,7 @@ var state: PartState = PartState.HEALTHY
 @onready var anatomy_ui: AnatomyUI = $AnatomyUI
 
 var is_targeted := false
+var is_blocking := false
 var is_hovering := false
 
 func init_part() -> void:
@@ -43,6 +45,7 @@ func _unhover_part() -> void:
 # refactor later when heal
 func set_hp(changed_amount: float) -> void:
 	current_hp -= changed_amount
+	anatomy_damaged.emit(changed_amount)
 	anatomy_ui.set_hp_bar(current_hp, max_hp)
 	if current_hp <= 0 and state != PartState.DESTROYED:
 		part_dead()

@@ -5,7 +5,7 @@ var next_target: Anatomy
 func get_ready_to_battle() -> void:
 	super.get_ready_to_battle()
 	_perform_attack(next_target)
-	arm.action_finished.connect(func(): next_target = choose_target())
+	arm.action_finished.connect(func(_blocking: bool): next_target = choose_target())
 
 func _perform_attack(_target: Anatomy) -> void:
 	can_action = false

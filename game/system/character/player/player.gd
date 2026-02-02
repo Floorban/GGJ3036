@@ -32,6 +32,7 @@ func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
 	if selected_target != anatomy:
 		selected_target = anatomy
 		_highlight_target(anatomy, true)
+		_perform_block(anatomy)
 	else:
 		selected_target = null
 		_highlight_target(null)

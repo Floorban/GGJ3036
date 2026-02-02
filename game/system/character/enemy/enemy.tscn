@@ -8,16 +8,16 @@
 script = ExtResource("2_26h1w")
 arm = NodePath("EnemyArmR")
 
-[node name="Eye1" parent="." index="1" unique_id=1690948451]
+[node name="EyeL" parent="." index="1" unique_id=1690948451]
 max_hp = 30.0
 
-[node name="Eye2" parent="." index="2" unique_id=584210078]
+[node name="EyeR" parent="." index="2" unique_id=584210078]
 max_hp = 30.0
 
-[node name="Ear1" parent="." index="3" unique_id=1222327045]
+[node name="EarL" parent="." index="3" unique_id=1222327045]
 max_hp = 30.0
 
-[node name="Ear2" parent="." index="4" unique_id=959483894]
+[node name="EarR" parent="." index="4" unique_id=959483894]
 max_hp = 30.0
 
 [node name="Nose" parent="." index="5" unique_id=1350482542]
