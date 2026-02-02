@@ -2,10 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_l53d7"]
 [ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_26h1w"]
+[ext_resource type="PackedScene" uid="uid://13tkw1wdly0n" path="res://game/system/anatomy/parts/body/enemy_arm_r.tscn" id="3_sopgc"]
 
-[node name="Enemy" unique_id=1861387119 instance=ExtResource("1_l53d7")]
+[node name="Enemy" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_l53d7")]
 script = ExtResource("2_26h1w")
-attack_cooldown = 5.0
+arm = NodePath("EnemyArmR")
 
 [node name="Eye1" parent="." index="1" unique_id=1690948451]
 max_hp = 30.0
@@ -24,3 +25,6 @@ max_hp = 30.0
 
 [node name="Mouth" parent="." index="6" unique_id=508432269]
 max_hp = 30.0
+
+[node name="EnemyArmR" parent="." index="7" unique_id=1972221418 instance=ExtResource("3_sopgc")]
+position = Vector2(-85, 24)

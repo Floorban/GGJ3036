@@ -14,7 +14,7 @@ var anatomy_parts: Array[Anatomy]
 @onready var mouth: Anatomy = %Mouth
 var opponent_anatomy: Array[Anatomy]
 
-@onready var arm: Arm = %Arm
+@export var arm: Arm
 
 func init_character() -> void:
 	get_anatomy_references()
@@ -65,6 +65,7 @@ func choose_target() -> Anatomy:
 
 func _highlight_target(anatomy: Anatomy) -> void:
 	for part in opponent_anatomy:
-		part.sprite.modulate = Color.WHITE
+		if not part.is_part_dead():
+			part.sprite.modulate = Color.WHITE
 
 	if anatomy: anatomy.sprite.modulate = Color.RED

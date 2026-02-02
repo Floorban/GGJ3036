@@ -27,11 +27,11 @@ position = Vector2(32, 32)
 
 [node name="Ear1" parent="." unique_id=1222327045 instance=ExtResource("3_mq3re")]
 unique_name_in_owner = true
-position = Vector2(-88, 1)
+position = Vector2(-73, 1)
 
 [node name="Ear2" parent="." unique_id=959483894 instance=ExtResource("3_mq3re")]
 unique_name_in_owner = true
-position = Vector2(86, 0)
+position = Vector2(74, 0)
 
 [node name="Nose" parent="." unique_id=1350482542 instance=ExtResource("4_5gfad")]
 unique_name_in_owner = true

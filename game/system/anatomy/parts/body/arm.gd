@@ -1,5 +1,6 @@
 class_name Arm extends Node2D
 
+@onready var skeleton: Skeleton2D = $Skeleton2D
 @onready var fist_target: Marker2D = %FistTarget
 @export var windup_distance := 18.0
 @export var windup_strength := 1.0
@@ -33,7 +34,7 @@ func punch(target_global_pos: Vector2, on_hit: Callable) -> void:
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
 	
-	var wind_up_pos := Vector2(randf_range(2,5), randf_range(2,5))
+	var wind_up_pos := Vector2(randf_range(2,4), randf_range(2,4))
 	
 	tween.tween_property(
 		fist_target,

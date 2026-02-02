@@ -53,3 +53,6 @@ func part_dead() -> void:
 	sprite.rotation += randf_range(-0.4, 0.4)
 	sprite.position += Vector2(randf_range(-6, 6), randf_range(4, 10))
 	sprite.modulate = Color.CHOCOLATE
+
+func is_part_dead() -> bool:
+	return state == PartState.DESTROYED
