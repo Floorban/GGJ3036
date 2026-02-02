@@ -10,17 +10,29 @@
 [node name="Character" type="Node2D" unique_id=1861387119]
 script = ExtResource("1_icscu")
 
-[node name="Eye" parent="." unique_id=1690948451 instance=ExtResource("2_7fyn6")]
+[node name="Eye1" parent="." unique_id=1690948451 instance=ExtResource("2_7fyn6")]
 unique_name_in_owner = true
+position = Vector2(-177, -6)
 
-[node name="Ear" parent="." unique_id=1222327045 instance=ExtResource("3_mq3re")]
+[node name="Eye2" parent="." unique_id=584210078 instance=ExtResource("2_7fyn6")]
 unique_name_in_owner = true
+position = Vector2(128, -14)
+
+[node name="Ear1" parent="." unique_id=1222327045 instance=ExtResource("3_mq3re")]
+unique_name_in_owner = true
+position = Vector2(-346, 97)
+
+[node name="Ear2" parent="." unique_id=959483894 instance=ExtResource("3_mq3re")]
+unique_name_in_owner = true
+position = Vector2(251, 115)
 
 [node name="Nose" parent="." unique_id=1350482542 instance=ExtResource("4_5gfad")]
 unique_name_in_owner = true
+position = Vector2(-7, 128)
 
 [node name="Mouth" parent="." unique_id=508432269 instance=ExtResource("5_6uakp")]
 unique_name_in_owner = true
+position = Vector2(2, 265)
 
 [node name="CombatComponent" parent="." unique_id=823960288 instance=ExtResource("6_mq3re")]
 unique_name_in_owner = true

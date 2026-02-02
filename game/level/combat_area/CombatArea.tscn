@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://cjeigbydorgdu"]
 
+[ext_resource type="Script" uid="uid://rxlknesyelar" path="res://game/level/combat_area/combat_area.gd" id="1_dt2ra"]
+
 [node name="CombatArea" type="Node2D" unique_id=1259752126]
+script = ExtResource("1_dt2ra")

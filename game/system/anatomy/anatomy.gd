@@ -20,9 +20,11 @@ func init_part() -> void:
 	mouse_detect_area.mouse_entered.connect(_hover_over_part)
 	mouse_detect_area.mouse_exited.connect(_unhover_part)
 	mouse_detect_area.input_event.connect(_on_input_event)
+	anatomy_ui.set_hp_bar(current_hp, max_hp)
 	anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
+	anatomy_ui.toggle_panel(false)
 
-func _on_input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if not is_hovering:
 		return
 	if event is InputEventMouseButton and event.pressed:

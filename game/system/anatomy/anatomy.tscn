@@ -1,15 +1,26 @@
 [gd_scene format=3 uid="uid://dml04uxtc34nm"]
 
 [ext_resource type="Script" uid="uid://bekkhc07oy7xl" path="res://game/system/anatomy/anatomy.gd" id="1_hstcr"]
+[ext_resource type="Texture2D" uid="uid://dina2mpprqa58" path="res://sprites/ui/white.png" id="2_phaok"]
 [ext_resource type="PackedScene" uid="uid://c1xy4lkq206i0" path="res://game/system/anatomy/anatomy_ui.tscn" id="2_r8mws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phaok"]
+size = Vector2(62, 58)
 
 [node name="Anatomy" type="Node2D" unique_id=1690948451 groups=["anatomy"]]
 script = ExtResource("1_hstcr")
+max_hp = 3.0
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=500964707]
+texture = ExtResource("2_phaok")
 
 [node name="MouseDetectArea" type="Area2D" parent="." unique_id=1106976729]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDetectArea" unique_id=149295176]
+shape = SubResource("RectangleShape2D_phaok")
 
 [node name="AnatomyUI" parent="." unique_id=665909425 instance=ExtResource("2_r8mws")]
+offset_left = -52.0
+offset_top = 61.0
+offset_right = 148.0
+offset_bottom = 121.0

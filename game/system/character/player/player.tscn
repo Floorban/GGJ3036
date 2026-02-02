@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dvu82xeeb87ff"]
+
+[ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_obar5"]
+[ext_resource type="Script" uid="uid://cmbivobrytkx7" path="res://game/system/character/player/player.gd" id="2_b2mth"]
+
+[node name="Player" unique_id=1861387119 instance=ExtResource("1_obar5")]
+script = ExtResource("2_b2mth")
+attack_damage = 2.0
+attack_cooldown = 3.0

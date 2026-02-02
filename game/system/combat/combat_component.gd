@@ -13,6 +13,9 @@ func _on_combat_timer_out() -> void:
 	combat_ready.emit()
 
 func attack(target: Anatomy) -> void:
+	if target == null:
+		push_error("no target to attack")
+		return
 	target.set_hp(base_damage)
 
 func reset_attack_timer(attack_cooldown: float) -> void:

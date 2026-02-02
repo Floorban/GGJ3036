@@ -1,5 +1,19 @@
 [gd_scene format=3 uid="uid://ci752aldwpxhr"]
 
 [ext_resource type="PackedScene" uid="uid://cjeigbydorgdu" path="res://game/level/combat_area/CombatArea.tscn" id="1_231da"]
+[ext_resource type="PackedScene" uid="uid://dvu82xeeb87ff" path="res://game/system/character/player/player.tscn" id="2_27j7o"]
+[ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/enemy.tscn" id="3_27j7o"]
 
-[node name="CombatAreaEricTest" unique_id=1259752126 instance=ExtResource("1_231da")]
+[node name="CombatAreaEricTest" unique_id=1259752126 node_paths=PackedStringArray("player", "enemy") instance=ExtResource("1_231da")]
+player = NodePath("Player")
+enemy = NodePath("Enemy")
+
+[node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_27j7o")]
+position = Vector2(583, 469)
+
+[node name="Enemy" parent="." index="1" unique_id=1231642872 instance=ExtResource("3_27j7o")]
+position = Vector2(562, 10)
+
+[node name="Camera2D" type="Camera2D" parent="." index="2" unique_id=115216192]
+position = Vector2(652, 414)
+zoom = Vector2(0.7, 0.7)

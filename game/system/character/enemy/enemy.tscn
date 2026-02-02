@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bjmnq3jlda34w"]
+
+[ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_l53d7"]
+[ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_26h1w"]
+
+[node name="Enemy" unique_id=1861387119 instance=ExtResource("1_l53d7")]
+script = ExtResource("2_26h1w")
+attack_cooldown = 5.0
