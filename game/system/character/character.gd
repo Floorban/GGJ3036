@@ -129,6 +129,6 @@ func _highlight_target(anatomy: Anatomy, block_target := false) -> void:
 					anatomy.sprite.modulate = Color.SKY_BLUE
 		else:
 			for part in anatomy_parts:
-				if not part.is_part_dead():
+				if not part.is_part_dead() and not part.is_targeted:
 					part.sprite.modulate = Color.WHITE
 			anatomy.sprite.modulate = Color.RED

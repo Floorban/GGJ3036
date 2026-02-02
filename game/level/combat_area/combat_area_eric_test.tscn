@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/enemy.tscn" id="3_27j7o"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="4_yn5lq"]
 [ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="5_hb3kr"]
+[ext_resource type="Texture2D" uid="uid://bk1awwhg2p6h8" path="res://sprites/Backgrounds/Arena.png" id="6_5nku2"]
 
 [node name="CombatAreaEricTest" unique_id=1259752126 node_paths=PackedStringArray("player", "enemy") instance=ExtResource("1_231da")]
 battle_ongoing = true
@@ -20,6 +21,7 @@ position = Vector2(564, 321)
 
 [node name="Camera" parent="." index="2" unique_id=1361226820 node_paths=PackedStringArray("follow_node") instance=ExtResource("4_yn5lq")]
 position = Vector2(574, 425)
+zoom = Vector2(1.5, 1.5)
 decay = 1.0
 max_offset = Vector2(50, 100)
 max_roll = 0.5
@@ -32,3 +34,11 @@ position = Vector2(562, 412)
 
 [node name="GameUI" parent="CanvasLayer" index="0" unique_id=1770480254 instance=ExtResource("5_hb3kr")]
 unique_name_in_owner = true
+
+[node name="Background" type="Sprite2D" parent="." index="5" unique_id=1879367137]
+modulate = Color(0.4710695, 0.4710695, 0.4710695, 1)
+z_index = -10
+position = Vector2(556, 448)
+rotation = -0.44854963
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_5nku2")
