@@ -28,6 +28,7 @@ func _ready() -> void:
 		start_battle()
 
 func init_combat_arena() -> void:
+	enemy.visible = true
 	battle_time_left = battle_duration
 	player.opponent = enemy
 	enemy.opponent = player

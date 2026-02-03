@@ -34,7 +34,7 @@ shader_parameter/warble_speed = 3.3490001590775
 [node name="CombatAreaEricTest" unique_id=1259752126 node_paths=PackedStringArray("player", "enemy") instance=ExtResource("1_231da")]
 battle_ongoing = true
 player = NodePath("Player")
-enemy = NodePath("Enemies/FatGuy")
+enemy = NodePath("Enemies/Boxer")
 
 [node name="Enemies" type="Node2D" parent="." index="0" unique_id=1097934614]
 
@@ -42,6 +42,7 @@ enemy = NodePath("Enemies/FatGuy")
 visible = false
 
 [node name="FatGuy" parent="Enemies" index="1" unique_id=1077317192 instance=ExtResource("8_ett71")]
+visible = false
 position = Vector2(-3, -63)
 
 [node name="BrainOut1" parent="Enemies" index="2" unique_id=1115020370 instance=ExtResource("7_b1y20")]

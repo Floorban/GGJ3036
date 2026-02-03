@@ -35,6 +35,8 @@ specular_texture = ExtResource("6_x0c4x")
 
 [node name="BoxerArm" type="Node2D" unique_id=1972221418]
 script = ExtResource("1_lint7")
+windup_distance = 30.0
+windup_strength = 2.0
 
 [node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=408280702]
 modification_stack = SubResource("SkeletonModificationStack2D_7wcrw")
