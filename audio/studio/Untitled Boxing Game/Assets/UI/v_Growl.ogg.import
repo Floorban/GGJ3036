@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://nugw0ef0nbtm"
+path="res://.godot/imported/v_Growl.ogg-e1d40e8b78127797dd6f15f96decca29.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/UI/v_Growl.ogg"
+dest_files=["res://.godot/imported/v_Growl.ogg-e1d40e8b78127797dd6f15f96decca29.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

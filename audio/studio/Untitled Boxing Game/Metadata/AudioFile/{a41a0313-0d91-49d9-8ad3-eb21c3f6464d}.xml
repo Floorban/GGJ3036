@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{a41a0313-0d91-49d9-8ad3-eb21c3f6464d}">
 		<property name="assetPath">
-			<value>Sound Effects/s_Ring.ogg</value>
+			<value>Combat/s_Ring.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

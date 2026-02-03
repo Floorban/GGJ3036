@@ -60,7 +60,7 @@
 			<destination>{3f301e42-cc5d-4975-88cf-4d29c9478ef2}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{7e187f93-fa37-4714-9bfc-eb4af684322c}</destination>
+			<destination>{3da0508b-64d4-48b1-be9b-53f66bbc786c}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{7be9ee66-dfd3-4b3f-bfb4-146ff8ca579e}" />
@@ -131,6 +131,9 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{4fce5333-99a2-4ae2-ba42-c294f19c139a}">
+		<property name="start">
+			<value>0.89231580148259226</value>
+		</property>
 		<property name="length">
 			<value>0.5</value>
 		</property>

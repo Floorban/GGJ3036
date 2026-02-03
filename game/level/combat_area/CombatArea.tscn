@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://rxlknesyelar" path="res://game/level/combat_area/combat_area.gd" id="1_dt2ra"]
 
-[node name="CombatArea" type="Node2D" unique_id=1259752126]
+[node name="CombatArea" type="Node2D" unique_id=1259752126 node_paths=PackedStringArray("player", "enemy")]
 script = ExtResource("1_dt2ra")
+battle_ongoing = true
+player = NodePath("")
+enemy = NodePath("")
 sfx_hit = "event:/SFX/Hit"

@@ -18,10 +18,6 @@ var battle_time_left: float
 @export var player: Player
 @export var enemy: Enemy
 
-#AUDIO
-@export var sfx_hit: String
-@export var sfx_crit: String
-
 func _ready() -> void:
 	retro_mat = retro_screen.material as ShaderMaterial
 	init_combat_arena()
@@ -37,6 +33,8 @@ func init_combat_arena() -> void:
 	enemy.init_character()
 	player.hit.connect(_screen_shake)
 	player.blocked.connect(_screen_shake)
+	player.die.connect(end_battle)
+	enemy.die.connect(end_battle)
 
 func start_battle() -> void:
 	player.get_ready_to_battle()
@@ -44,7 +42,9 @@ func start_battle() -> void:
 	battle_start.emit()
 
 func end_battle() -> void:
-	pass
+	player.end_battle()
+	enemy.end_battle()
+	print("over")
 
 func _process(delta: float) -> void:
 	if battle_time_left <= 0:
@@ -59,7 +59,7 @@ var distortion_tween: Tween
 var barrel_distortion := 0.0
 
 func _screen_shake(value: float, crit := false) -> void:
-	camera.add_trauma(value / 3)
+	camera.add_trauma(value / 10)
 
 	var peak : float = clamp(value * 0.15, 0.05, 0.35)
 

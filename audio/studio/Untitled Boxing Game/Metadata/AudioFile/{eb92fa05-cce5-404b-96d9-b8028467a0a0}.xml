@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{eb92fa05-cce5-404b-96d9-b8028467a0a0}">
 		<property name="assetPath">
-			<value>Sound Effects/s_Crit.ogg</value>
+			<value>Combat/s_Crit.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

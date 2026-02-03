@@ -58,7 +58,7 @@
 			<destination>{f2f65a1d-8e62-4b3f-b127-8973ac09acb6}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{7e187f93-fa37-4714-9bfc-eb4af684322c}</destination>
+			<destination>{3da0508b-64d4-48b1-be9b-53f66bbc786c}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{b9325f00-0a10-4214-9f92-4dcfd4589aaa}">
@@ -161,7 +161,7 @@
 	</object>
 	<object class="SingleSound" id="{acd46c62-9448-4906-a354-b76a8845d370}">
 		<property name="length">
-			<value>0.64841977732550482</value>
+			<value>0.5</value>
 		</property>
 		<property name="pitch">
 			<value>-4.5</value>
@@ -329,7 +329,7 @@
 	</object>
 	<object class="AutomationPoint" id="{1ff1c63a-2d7b-4b3e-8cc5-f86aca3b4da6}">
 		<property name="position">
-			<value>0.64841977732550482</value>
+			<value>0.5</value>
 		</property>
 		<property name="value">
 			<value>0</value>
