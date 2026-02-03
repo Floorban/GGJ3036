@@ -36,7 +36,8 @@ func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
 	if arm.is_punching:
 		return
 	if selected_target != anatomy:
-		if selected_target:
+		if selected_target and selected_target.is_targeted:
+			selected_target.is_targeted = false
 			selected_target._unhighlight_target()
 		selected_target = anatomy
 		_perform_block(anatomy)
@@ -58,7 +59,8 @@ func _on_enemy_anatomy_clicked(anatomy: Anatomy) -> void:
 			arm.rest_pos()
 		anatomy.is_targeted = true
 		anatomy._highlight_target()
-		if selected_target:
+		if selected_target and selected_target.is_targeted:
+			selected_target.is_targeted = false
 			selected_target._unhighlight_target()
 		selected_target = anatomy
 		if can_action:
