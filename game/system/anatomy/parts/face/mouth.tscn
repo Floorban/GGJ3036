@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://cmqa3cfa22as6"]
 
 [ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_q55ig"]
-[ext_resource type="Texture2D" uid="uid://c5hb0jk44pabh" path="res://sprites/body_parts/FaceAssets/MouthPainExp.png" id="2_p4dd3"]
+[ext_resource type="Texture2D" uid="uid://bx66efeocb5lk" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerAngryMouth.png" id="2_p4dd3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q55ig"]
-size = Vector2(58, 18)
+size = Vector2(110, 46)
 
 [node name="Mouth" unique_id=1690948451 instance=ExtResource("1_q55ig")]
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
+position = Vector2(-13, -73)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_p4dd3")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-position = Vector2(-1, 0)
+position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_q55ig")

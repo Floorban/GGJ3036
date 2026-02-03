@@ -51,7 +51,7 @@ func _highlight_target(block_target := false) -> void:
 
 	if block_target:
 		if is_blocking:
-			sprite.modulate = Color.SKY_BLUE
+			sprite.modulate = Color.CADET_BLUE
 	elif is_targeted:
 		sprite.modulate = Color.RED
 
@@ -59,6 +59,7 @@ func _unhighlight_target() -> void:
 	if is_part_dead():
 		return
 	sprite.modulate = original_color
+	print("b")
 
 # refactor later when heal
 func set_hp(changed_amount: float) -> void:

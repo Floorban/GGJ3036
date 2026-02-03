@@ -1,5 +1,10 @@
 class_name Character extends Node2D
 
+signal hit(damage: float)
+signal blocked(blocked_damage: float)
+
+@export var top_down_dir := 1
+
 var opponent: Character
 @onready var combat_component: CombatComponent = %CombatComponent
 @export var attack_damage: float = 1.0
@@ -17,6 +22,9 @@ var opponent_anatomy: Array[Anatomy]
 @export var arm: Arm
 var can_action := false
 var blocking_part: Anatomy
+
+@onready var face: Sprite2D = $Face
+@onready var shoulder: Sprite2D = $Shoulder
 
 func init_character() -> void:
 	_init_anatomy_parts()
@@ -50,10 +58,12 @@ func _init_anatomy_parts() -> void:
 func get_ready_to_battle() -> void:
 	combat_component.combat_timer.start()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
 
 func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
+	arm.sprite_fist.modulate = Color.DIM_GRAY
+	
 	if blocking_part == target and can_action:
 		_on_successful_block(attacker)
 		return
@@ -62,8 +72,88 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 	if arm.is_blocking and blocking_part:
 		_on_block_finished()
 	target.set_hp(damage)
+	hit.emit(damage * 1.5)
+	get_hit_visual_feedback(damage / 5)
+
+var face_tween : Tween
+var face_og_pos : Vector2
+var face_og_rot : float
+var face_current_rot: float
+
+func rand_outside_range(min_abs: float, max_abs: float) -> float:
+	var sign : int = [-1, 1].pick_random()
+	return sign * randf_range(min_abs, max_abs)
+
+func get_hit_visual_feedback(damage_scale: float) -> void:
+	# Kill previous hit reactions
+	if face_tween:
+		face_tween.kill()
+
+	face_og_pos = face.global_position
+	face_og_rot = face.global_rotation
+
+	var pos_offset := Vector2(
+		rand_outside_range(-100, -250),
+		randf_range(-50, -200) * top_down_dir
+	) * damage_scale
+
+	var rot_offset := rand_outside_range(3, 5) * damage_scale
+
+	var hit_time := damage_scale + randf_range(-0.15, 0.05)
+
+	face_tween = create_tween()
+	face_tween.set_trans(Tween.TRANS_QUAD)
+	face_tween.set_ease(Tween.EASE_OUT)
+
+	face_tween.parallel().tween_property(
+		face,
+		"global_position",
+		face_og_pos + pos_offset,
+		hit_time
+	)
+
+	face_tween.parallel().tween_property(
+		face,
+		"global_rotation",
+		face_og_rot + rot_offset,
+		hit_time
+	)
+	
+	face_current_rot = face.global_rotation
+
+	face_tween.parallel().tween_method(
+		func(value):
+			face.rotation = value,
+		face_current_rot,
+		face_current_rot + rot_offset,
+		hit_time
+	)
+
+	face_tween.tween_callback(face_return)
+
+func face_return() -> void:
+	var return_time := 0.15 + randf_range(-0.05, 0.12)
+
+	face_tween = create_tween()
+	face_tween.set_trans(Tween.TRANS_QUAD)
+	face_tween.set_ease(Tween.EASE_OUT)
+
+	face_tween.parallel().tween_property(
+		face,
+		"global_position",
+		face_og_pos,
+		return_time
+	)
+
+	face_tween.parallel().tween_property(
+		face,
+		"rotation",
+		face_og_rot,
+		return_time
+	)
 
 func _on_successful_block(attacker: Character) -> void:
+	blocked.emit(1.0)
 	can_action = false
 	attacker.arm.interrupt(func(): attacker.can_action = false)
 	arm.block_success()
@@ -83,9 +173,14 @@ func _perform_attack(target: Anatomy) -> void:
 			blocking_part.is_blocking = false
 		arm.punch(
 			target.global_position,
-			func(): target.anatomy_hit.emit(attack_damage))
+			func(): 
+			target.anatomy_hit.emit(attack_damage)
+			hit.emit(attack_damage)
+			)
 
 func _perform_block(target: Anatomy) -> void:
+	if can_action:
+		arm._on_arm_charge_finished()
 	blocking_part = target
 	target.is_blocking = true
 	target._highlight_target(true)
@@ -93,6 +188,8 @@ func _perform_block(target: Anatomy) -> void:
 
 func _on_action_ready() -> void:
 	can_action = true
+	if blocking_part:
+		arm._on_arm_charge_finished()
 
 func _on_action_finished(blocking: bool) -> void:
 	if not blocking:
@@ -100,9 +197,9 @@ func _on_action_finished(blocking: bool) -> void:
 
 func _on_attack_finished() -> void:
 	combat_component.combat_timer.start()
-	arm.sprite_fist.modulate = Color.DIM_GRAY
 
 func _on_block_finished() -> void:
+	arm.sprite_fist.modulate = Color.DIM_GRAY
 	blocking_part.is_blocking = false
 	blocking_part = null
 

@@ -12,5 +12,7 @@ zoom = Vector2(1.8, 1.8)
 script = ExtResource("1_gxhld")
 
 [node name="Crosshair" type="Sprite2D" parent="." unique_id=851492487]
+z_index = 10
 texture_filter = 1
+scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_xae20")

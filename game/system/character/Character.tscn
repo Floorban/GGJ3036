@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqk4twm4sfdyp"]
 
 [ext_resource type="Script" uid="uid://ci23jn24qnic1" path="res://game/system/character/character.gd" id="1_icscu"]
-[ext_resource type="Texture2D" uid="uid://dfkjr6p0df0on" path="res://sprites/ui/circle.png" id="2_5gfad"]
+[ext_resource type="Texture2D" uid="uid://bp8af0x6h20rt" path="res://sprites/body_parts/Basehead/BoxeBaseHead.png" id="2_5gfad"]
 [ext_resource type="PackedScene" uid="uid://dpw0p64fe8sla" path="res://game/system/anatomy/parts/face/eye.tscn" id="2_7fyn6"]
 [ext_resource type="PackedScene" uid="uid://db1cym3qxkh3h" path="res://game/system/anatomy/parts/face/ear.tscn" id="3_mq3re"]
 [ext_resource type="PackedScene" uid="uid://7t20pmgtsjd4" path="res://game/system/anatomy/parts/face/nose.tscn" id="4_5gfad"]
@@ -12,34 +12,55 @@
 script = ExtResource("1_icscu")
 
 [node name="Face" type="Sprite2D" parent="." unique_id=1276534686]
-modulate = Color(0.33305404, 0.23262998, 0.0849072, 1)
 texture_filter = 1
-scale = Vector2(5, 5)
 texture = ExtResource("2_5gfad")
 
-[node name="EyeL" parent="." unique_id=1690948451 instance=ExtResource("2_7fyn6")]
-unique_name_in_owner = true
-position = Vector2(-36, 31)
+[node name="Features" type="Node2D" parent="Face" unique_id=2130456873]
 
-[node name="EyeR" parent="." unique_id=584210078 instance=ExtResource("2_7fyn6")]
+[node name="EyeL" parent="Face/Features" unique_id=1690948451 instance=ExtResource("2_7fyn6")]
 unique_name_in_owner = true
-position = Vector2(32, 32)
+position = Vector2(-44, -12)
 
-[node name="EarL" parent="." unique_id=1222327045 instance=ExtResource("3_mq3re")]
+[node name="EyeR" parent="Face/Features" unique_id=584210078 instance=ExtResource("2_7fyn6")]
 unique_name_in_owner = true
-position = Vector2(-73, 1)
+position = Vector2(68, -18)
+rotation = -0.0004542619
 
-[node name="EarR" parent="." unique_id=959483894 instance=ExtResource("3_mq3re")]
+[node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
+position = Vector2(-53.009533, 20.975922)
+flip_h = true
+
+[node name="EarL" parent="Face/Features" unique_id=1222327045 instance=ExtResource("3_mq3re")]
 unique_name_in_owner = true
-position = Vector2(74, 0)
+position = Vector2(-90.00001, 40)
+rotation = -0.15477757
 
-[node name="Nose" parent="." unique_id=1350482542 instance=ExtResource("4_5gfad")]
+[node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
+position = Vector2(107, -33)
+flip_h = true
+flip_v = false
+
+[node name="CollisionShape2D" parent="Face/Features/EarL/MouseDetectArea" parent_id_path=PackedInt32Array(1222327045, 1106976729) index="0" unique_id=149295176]
+position = Vector2(0.7462387, -35.58365)
+
+[node name="EarR" parent="Face/Features" unique_id=959483894 instance=ExtResource("3_mq3re")]
+unique_name_in_owner = true
+position = Vector2(103, 7)
+
+[node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
+position = Vector2(-99, -28)
+flip_v = false
+
+[node name="CollisionShape2D" parent="Face/Features/EarR/MouseDetectArea" parent_id_path=PackedInt32Array(959483894, 1106976729) index="0" unique_id=149295176]
+position = Vector2(6.373123, -30)
+
+[node name="Nose" parent="Face/Features" unique_id=1350482542 instance=ExtResource("4_5gfad")]
 unique_name_in_owner = true
 position = Vector2(0, -6)
 
-[node name="Mouth" parent="." unique_id=508432269 instance=ExtResource("5_6uakp")]
+[node name="Mouth" parent="Face/Features" unique_id=508432269 instance=ExtResource("5_6uakp")]
 unique_name_in_owner = true
-position = Vector2(2, -52)
+position = Vector2(18, 51)
 
 [node name="CombatComponent" parent="." unique_id=823960288 instance=ExtResource("6_mq3re")]
 unique_name_in_owner = true
@@ -47,3 +68,8 @@ offset_left = 123.0
 offset_top = 49.0
 offset_right = 123.0
 offset_bottom = 49.0
+
+[editable path="Face/Features/EyeR"]
+[editable path="Face/Features/EarL"]
+[editable path="Face/Features/EarR"]
+[editable path="Face/Features/Mouth"]

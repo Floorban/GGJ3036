@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://dpw0p64fe8sla"]
 
 [ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_818u1"]
-[ext_resource type="Texture2D" uid="uid://b2ckq0bnxkhvc" path="res://sprites/body_parts/FaceAssets/Eye.png" id="2_kg5hk"]
+[ext_resource type="Texture2D" uid="uid://b56sq1ns8ntd7" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerAngryEye.png" id="2_kg5hk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg5hk"]
-size = Vector2(37, 17)
+size = Vector2(66, 28)
 
 [node name="Eye" unique_id=1690948451 instance=ExtResource("1_818u1")]
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
-position = Vector2(34, 34)
-scale = Vector2(1.2, 1.2)
+position = Vector2(47, 19)
+scale = Vector2(1, 1)
 texture = ExtResource("2_kg5hk")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]

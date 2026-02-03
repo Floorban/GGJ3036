@@ -3,6 +3,7 @@ extends Node2D
 signal battle_start
 signal battle_end
 
+@onready var camera: CameraController = $Camera
 @onready var game_ui: GameUI = %GameUI
 @export var battle_duration := 60.0
 var battle_time_left: float
@@ -26,6 +27,8 @@ func init_combat_arena() -> void:
 	enemy.opponent = player
 	player.init_character()
 	enemy.init_character()
+	player.hit.connect(_screen_shake)
+	player.blocked.connect(_screen_shake)
 
 func start_battle() -> void:
 	player.get_ready_to_battle()
@@ -40,4 +43,6 @@ func _process(delta: float) -> void:
 	if battle_ongoing:
 		battle_time_left -= delta
 		game_ui.set_round_ui(battle_time_left)
-	
+
+func _screen_shake(value) -> void:
+	camera.add_trauma(value / 3)
