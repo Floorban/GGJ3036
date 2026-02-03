@@ -10,14 +10,10 @@ var opponent: Character
 @export var attack_damage: float = 1.0
 @export var action_cooldown: float = 2.0
 
-var anatomy_parts: Array[Anatomy]
-@onready var eye_1: Anatomy = %EyeL
-@onready var eye_2: Anatomy = %EyeR
-@onready var ear_1: Anatomy = %EarL
-@onready var ear_2: Anatomy = %EarR
-@onready var nose: Anatomy = %Nose
-@onready var mouth: Anatomy = %Mouth
-var opponent_anatomy: Array[Anatomy]
+@onready var features: Node2D = %Features
+
+@export var anatomy_parts: Array[Anatomy]
+@export var opponent_anatomy: Array[Anatomy]
 
 @export var arm: Arm
 var can_action := false
@@ -32,8 +28,8 @@ func init_character() -> void:
 	get_anatomy_references()
 
 func get_anatomy_references() -> void:
-	for anatomy in get_tree().get_nodes_in_group("anatomy"):
-		if anatomy.get_parent() != self:
+	for anatomy : Anatomy in get_tree().get_nodes_in_group("anatomy"):
+		if anatomy.body_owner != self:
 			opponent_anatomy.append(anatomy)
 
 func _init_combat_component() -> void:
@@ -43,14 +39,10 @@ func _init_combat_component() -> void:
 	combat_component.reset_attack_timer(action_cooldown)
 
 func _init_anatomy_parts() -> void:
-	anatomy_parts.append(eye_1)
-	anatomy_parts.append(eye_2)
-	anatomy_parts.append(ear_1)
-	anatomy_parts.append(ear_2)
-	anatomy_parts.append(nose)
-	anatomy_parts.append(mouth)
+	for anatomy in features.get_children():
+		anatomy_parts.append(anatomy)
 	for part in anatomy_parts:
-		part.init_part()
+		part.init_part(self)
 		part.anatomy_hit.connect(
 		func(dmg): resolve_hit(part, dmg, opponent)
 		)

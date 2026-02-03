@@ -6,6 +6,8 @@ signal anatomy_hit(damage: float)
 enum PartState { HEALTHY, DESTROYED }
 var state: PartState = PartState.HEALTHY
 
+var body_owner : Character
+
 @export var max_hp : float
 @export var current_hp : float
 @export var block_amount : float
@@ -19,7 +21,8 @@ var is_targeted := false
 var is_blocking := false
 var is_hovering := false
 
-func init_part() -> void:
+func init_part(body: Character) -> void:
+	body_owner = body
 	current_hp = max_hp
 	mouse_detect_area.mouse_entered.connect(_hover_over_part)
 	mouse_detect_area.mouse_exited.connect(_unhover_part)
@@ -59,7 +62,6 @@ func _unhighlight_target() -> void:
 	if is_part_dead():
 		return
 	sprite.modulate = original_color
-	print("b")
 
 # refactor later when heal
 func set_hp(changed_amount: float) -> void:
