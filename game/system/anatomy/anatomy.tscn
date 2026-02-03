@@ -19,7 +19,7 @@ texture = ExtResource("2_phaok")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDetectArea" unique_id=149295176]
 
 [node name="AnatomyUI" parent="." unique_id=665909425 instance=ExtResource("2_r8mws")]
-visible = false
+z_index = 5
 offset_left = -52.0
 offset_top = 12.0
 offset_right = 148.0

@@ -13,7 +13,6 @@ var body_owner : Character
 @export var block_amount : float
 
 @onready var sprite: Sprite2D = $Sprite
-@onready var original_color: Color = sprite.modulate
 @onready var mouse_detect_area: Area2D = $MouseDetectArea
 @onready var anatomy_ui: AnatomyUI = $AnatomyUI
 
@@ -21,15 +20,22 @@ var is_targeted := false
 var is_blocking := false
 var is_hovering := false
 
+var current_color: Color
+
 func init_part(body: Character) -> void:
 	body_owner = body
-	current_hp = max_hp
 	mouse_detect_area.mouse_entered.connect(_hover_over_part)
 	mouse_detect_area.mouse_exited.connect(_unhover_part)
 	mouse_detect_area.input_event.connect(_on_input_event)
+	recover_part()
+	anatomy_ui.toggle_panel(false)
+
+func recover_part() -> void:
+	current_hp = max_hp
 	anatomy_ui.set_hp_bar(current_hp, max_hp)
 	anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
-	anatomy_ui.toggle_panel(false)
+	current_color = Color.WHITE
+	sprite.modulate = current_color
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if not is_hovering:
@@ -37,7 +43,6 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			anatomy_clicked.emit(self)
-
 
 func _hover_over_part() -> void:
 	anatomy_ui.toggle_panel(true)
@@ -63,12 +68,18 @@ func _unhighlight_target() -> void:
 	if is_part_dead():
 		return
 	if not is_targeted:
-		sprite.modulate = original_color
+		sprite.modulate = current_color
 
 # refactor later when heal
 func set_hp(changed_amount: float) -> void:
 	current_hp -= changed_amount
 	anatomy_ui.set_hp_bar(current_hp, max_hp)
+	anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
+	if current_hp <= max_hp / 2 and state != PartState.DESTROYED:
+		move_part()
+		current_color = Color.CHOCOLATE
+		if not is_targeted:
+			sprite.modulate = current_color
 	if current_hp <= 0 and state != PartState.DESTROYED:
 		part_dead()
 	#elif current_hp <= max_hp * 0.4:
@@ -76,9 +87,13 @@ func set_hp(changed_amount: float) -> void:
 
 func part_dead() -> void:
 	state = PartState.DESTROYED
-	sprite.rotation += randf_range(-1, 1)
-	sprite.position += Vector2(randf_range(-15, 15), randf_range(-5,20))
-	sprite.modulate = Color.CHOCOLATE
+	current_color = Color.WEB_PURPLE
+	sprite.modulate = current_color
+	move_part()
+
+func move_part() -> void:
+	sprite.rotation += randf_range(-0.8, 0.8)
+	sprite.position += Vector2(randf_range(-2, 2), randf_range(-2, 2))
 
 func is_part_dead() -> bool:
 	return state == PartState.DESTROYED

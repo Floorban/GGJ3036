@@ -38,6 +38,9 @@ func start_battle() -> void:
 	enemy.get_ready_to_battle()
 	battle_start.emit()
 
+func end_battle() -> void:
+	pass
+
 func _process(delta: float) -> void:
 	if battle_time_left <= 0:
 		battle_time_left = 0

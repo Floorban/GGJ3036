@@ -21,6 +21,10 @@ func start() -> void:
 	combat_timer.start()
 	action_cd_bar.modulate = Color.WEB_GRAY
 
+func stop() -> void:
+	combat_timer.stop()
+	action_cd_bar.value = 0
+
 func _on_combat_timer_out() -> void:
 	combat_ready.emit()
 	

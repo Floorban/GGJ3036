@@ -3,6 +3,14 @@ class_name Character extends Node2D
 signal hit(damage: float)
 signal blocked(blocked_damage: float)
 
+signal die()
+
+var is_dead := false
+@export var max_health : float
+var health : float
+
+@export var punch_strength := 0.1
+
 @export var top_down_dir := 1
 
 var opponent: Character
@@ -50,6 +58,12 @@ func _init_anatomy_parts() -> void:
 
 func get_ready_to_battle() -> void:
 	combat_component.start()
+
+func end_battle() -> void:
+	combat_component.stop()
+	health = max_health
+	for part in anatomy_parts:
+		part.recover_part()
 
 func _process(_delta: float) -> void:
 	arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
@@ -160,12 +174,13 @@ func _on_successful_block(attacker: Character) -> void:
 
 func _perform_attack(target: Anatomy) -> void:
 	can_action = false
-	arm._on_arm_charge_finished()
-	await get_tree().create_timer(0.4).timeout
+	arm._on_arm_charge_finished(punch_strength * 3)
+	await get_tree().create_timer(punch_strength * 2).timeout
 	if target:
 		if blocking_part:
 			blocking_part.is_blocking = false
 		arm.punch(
+			punch_strength,
 			target.global_position,
 			func(): 
 			target.anatomy_hit.emit(attack_damage)
@@ -174,7 +189,7 @@ func _perform_attack(target: Anatomy) -> void:
 
 func _perform_block(target: Anatomy) -> void:
 	if can_action:
-		arm._on_arm_charge_finished()
+		arm._on_arm_charge_finished(punch_strength * 3)
 	blocking_part = target
 	target.is_blocking = true
 	target._highlight_target(true)
@@ -183,7 +198,7 @@ func _perform_block(target: Anatomy) -> void:
 func _on_action_ready() -> void:
 	can_action = true
 	if blocking_part:
-		arm._on_arm_charge_finished()
+		arm._on_arm_charge_finished(punch_strength * 3)
 
 func _on_action_finished(blocking: bool) -> void:
 	if not blocking:
@@ -194,6 +209,7 @@ func _on_attack_finished() -> void:
 		targeting_part.is_targeted = false
 		targeting_part._unhighlight_target()
 	combat_component.start()
+	arm.sprite_fist.modulate = Color.DIM_GRAY
 
 func _on_block_finished() -> void:
 	arm.sprite_fist.modulate = Color.DIM_GRAY

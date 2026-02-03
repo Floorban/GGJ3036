@@ -37,7 +37,7 @@ func set_cd_bar(current: float, max_value: float) -> void:
 		cd_bar_1.value = half
 		cd_bar_2.value = current - half
 
-func _on_arm_charge_finished() -> void:
+func _on_arm_charge_finished(scale_speed: float) -> void:
 	sprite_fist.modulate = Color.WHITE
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
@@ -46,15 +46,15 @@ func _on_arm_charge_finished() -> void:
 	tween.tween_property(
 		sprite_fist,
 		"scale",
-		sprite_fist.scale * 1.2,
-		0.25
+		sprite_fist.scale * 1.5,
+		scale_speed
 	)
 	
 	tween.tween_property(
 		sprite_fist,
 		"scale",
 		Vector2.ONE,
-		0.25
+		scale_speed
 	)
 
 func rest_pos() -> void:
@@ -128,7 +128,7 @@ func block(target_global_pos: Vector2) -> void:
 		emit_signal("action_finished", is_blocking)
 	)
 
-func punch(target_global_pos: Vector2, on_hit: Callable) -> void:
+func punch(punch_speed: float, target_global_pos: Vector2, on_hit: Callable) -> void:
 	if is_punching:
 		return
 	is_blocking = false
@@ -144,7 +144,7 @@ func punch(target_global_pos: Vector2, on_hit: Callable) -> void:
 		fist_target,
 		"global_position",
 		global_position + wind_up_pos,
-		0.5 + randf_range(-0.2,0.2)
+		punch_speed + 0.5 + randf_range(-0.2,0.2)
 	)
 	
 	# Move fist to target
@@ -152,7 +152,7 @@ func punch(target_global_pos: Vector2, on_hit: Callable) -> void:
 		fist_target,
 		"global_position",
 		target_global_pos,
-		0.2 + randf_range(-0.05,0.15)
+		punch_speed + randf_range(0,0.05)
 	)
 
 	# Apply damage at peak

@@ -72,7 +72,7 @@ color = Color(0.5190886, 0.12432248, 0.21945283, 1)
 unique_name_in_owner = true
 
 [node name="Background" type="Sprite2D" parent="." index="6" unique_id=1879367137]
-modulate = Color(0.4710695, 0.4710695, 0.4710695, 1)
+modulate = Color(0.22415566, 0.5097198, 0.31566837, 0.78431374)
 z_index = -10
 position = Vector2(556, 448)
 rotation = -0.44854963
