@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccvgnd72c25eq"
-path="res://.godot/imported/FatBaseHead.png-f40ede3e62670e32b646ae210f3ebcde.ctex"
+uid="uid://b8hrd4p7oqxrv"
+path="res://.godot/imported/Beard4.png-5f2dc283da581a19eb110d840a4fc95a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/body_parts/Basehead/FatBaseHead.png"
-dest_files=["res://.godot/imported/FatBaseHead.png-f40ede3e62670e32b646ae210f3ebcde.ctex"]
+source_file="res://sprites/body_parts/FaceAssets/Beard4.png"
+dest_files=["res://.godot/imported/Beard4.png-5f2dc283da581a19eb110d840a4fc95a.ctex"]
 
 [params]
 
