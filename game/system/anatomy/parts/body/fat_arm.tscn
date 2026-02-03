@@ -79,7 +79,7 @@ skew = 0.05602479
 rest = Transform2D(1.0392241, -0.31928748, 0.7363789, 3.0628166, 265.38428, -1.5258789e-05)
 auto_calculate_length_and_angle = false
 length = 500.0
-bone_angle = 74.278984
+bone_angle = 74.27898
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
@@ -101,7 +101,7 @@ texture_progress = SubResource("CanvasTexture_hiita")
 
 [node name="Fist" type="Bone2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1916331396]
 position = Vector2(135.47656, 185.07103)
-rotation = 0.20092899
+rotation = 0.20092897
 scale = Vector2(0.49100003, 0.293)
 skew = 0.74193394
 rest = Transform2D(-0.45176578, -0.24657224, 0.7012968, -0.18903401, 299.9998, 0)
@@ -119,5 +119,5 @@ texture = ExtResource("6_ro8a2")
 
 [node name="FistTarget" type="Marker2D" parent="." unique_id=702061991]
 unique_name_in_owner = true
-position = Vector2(-118.00001, 100)
+position = Vector2(-97.00001, 188)
 rotation = 1.864747

@@ -12,7 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cbm87l305yvl4" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutEar2.png" id="10_5b2wa"]
 [ext_resource type="Texture2D" uid="uid://d2lpd12xxlk1c" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutnose.png" id="10_a4lc5"]
 [ext_resource type="Texture2D" uid="uid://fqws2hygcgep" path="res://sprites/body_parts/FaceAssets/Enemies/EnemyMouth.png" id="11_ohoc6"]
-[ext_resource type="PackedScene" uid="uid://13tkw1wdly0n" path="res://game/system/anatomy/parts/body/enemy_arm_r.tscn" id="12_q0tdi"]
+[ext_resource type="PackedScene" uid="uid://13tkw1wdly0n" path="res://game/system/anatomy/parts/body/brain_out_arm.tscn" id="12_q0tdi"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ut17"]
 radius = 33.98572

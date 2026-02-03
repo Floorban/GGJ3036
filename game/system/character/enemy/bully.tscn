@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c718x58jremuc" path="res://sprites/BodyParts/Limbs/Body.png" id="4_mtw3s"]
 [ext_resource type="Texture2D" uid="uid://7v7vtwtknr1v" path="res://sprites/body_parts/Basehead/BullyBasehead.png" id="5_acmvr"]
 [ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="5_ci5v1"]
-[ext_resource type="PackedScene" uid="uid://13tkw1wdly0n" path="res://game/system/anatomy/parts/body/enemy_arm_r.tscn" id="6_vprwn"]
+[ext_resource type="PackedScene" uid="uid://13tkw1wdly0n" path="res://game/system/anatomy/parts/body/brain_out_arm.tscn" id="6_vprwn"]
 [ext_resource type="Texture2D" uid="uid://cyi6mum44ae3p" path="res://sprites/body_parts/FaceAssets/Enemies/Bully/BullyEye1.png" id="7_1j2w3"]
 [ext_resource type="Texture2D" uid="uid://c35mboen8d88w" path="res://sprites/body_parts/FaceAssets/Enemies/Bully/BullyEye2.png" id="7_vprwn"]
 [ext_resource type="Texture2D" uid="uid://dk2jimxvf8eah" path="res://sprites/body_parts/FaceAssets/Enemies/Bully/BullyEar2.png" id="8_ci5v1"]

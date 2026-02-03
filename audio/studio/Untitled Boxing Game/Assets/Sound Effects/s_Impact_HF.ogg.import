@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c21vfhelcn14k"
+path="res://.godot/imported/s_Impact_HF.ogg-1dd5a67f4edacf38ac5db37a766f1571.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/Sound Effects/s_Impact_HF.ogg"
+dest_files=["res://.godot/imported/s_Impact_HF.ogg-1dd5a67f4edacf38ac5db37a766f1571.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
