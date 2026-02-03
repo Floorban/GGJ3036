@@ -31,7 +31,7 @@ uniform float pixel_size : hint_range(1.0, 32.0) = 4.0;
 uniform bool adaptive_pixels = true; // New parameter for adaptive pixel sizing
 uniform bool enable_outline = true;
 uniform vec4 outline_color : source_color = vec4(0.0, 0.0, 0.0, 1.0);
-uniform float outline_thickness : hint_range(0.5, 3.0) = 1.0;
+uniform float outline_thickness : hint_range(0.5, 3.0) = 3.0;
 
 // Optional chromatic aberration for extra effect
 uniform bool chromatic_aberration = false;

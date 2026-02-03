@@ -5,6 +5,8 @@ signal battle_end
 
 @onready var camera: CameraController = $Camera
 @onready var game_ui: GameUI = %GameUI
+@onready var retro_screen: ColorRect = %RetroScreen
+var retro_mat: ShaderMaterial
 @export var battle_duration := 60.0
 var battle_time_left: float
 @export var battle_ongoing : bool = false
@@ -17,6 +19,7 @@ var battle_time_left: float
 @export var enemy: Enemy
 
 func _ready() -> void:
+	retro_mat = retro_screen.material as ShaderMaterial
 	init_combat_arena()
 	if battle_ongoing:
 		start_battle()
@@ -44,5 +47,44 @@ func _process(delta: float) -> void:
 		battle_time_left -= delta
 		game_ui.set_round_ui(battle_time_left)
 
-func _screen_shake(value) -> void:
+var distortion_tween: Tween
+var barrel_distortion := 0.0
+
+func _screen_shake(value: float) -> void:
 	camera.add_trauma(value / 3)
+
+	var peak : float = clamp(value * 0.15, 0.05, 0.35)
+
+	if distortion_tween and distortion_tween.is_running():
+		distortion_tween.kill()
+
+	barrel_distortion = peak
+	retro_mat.set_shader_parameter("barrel_distortion", barrel_distortion)
+	
+	Engine.time_scale = 0.4
+	
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_OUT)
+
+	tween.tween_method(
+		func(v):
+			barrel_distortion = v
+			retro_mat.set_shader_parameter("barrel_distortion", v),
+		barrel_distortion,
+		0.0,
+		0.15 + randf_range(-0.05, 0.15)
+	)
+	
+	tween.tween_method(
+		func(v):
+			barrel_distortion = v
+			retro_mat.set_shader_parameter("barrel_distortion", v),
+		barrel_distortion,
+		1.0,
+		0.3 + randf_range(-0.05, 0.15)
+	)
+	
+	tween.tween_callback(func():
+		Engine.time_scale = 1.0
+	)

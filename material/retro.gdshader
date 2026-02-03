@@ -14,7 +14,7 @@ uniform float vignette_outer_radius : hint_range(0.1, 2.0) = 0.7;
 uniform float vignette_inner_radius : hint_range(0.0, 1.9) = 0.2;
 
 uniform float scanline_intensity : hint_range(0.0, 1.0) = 0.2;
-uniform float barrel_distortion : hint_range(0.0, 0.5) = 0.15;
+uniform float barrel_distortion : hint_range(0.0, 1.0) = 1.0;
 uniform float chromatic_aberration : hint_range(0.0, 0.01) = 0.005;
 uniform float crt_vignette_power : hint_range(0.0, 5.0) = 2.0; 
 
