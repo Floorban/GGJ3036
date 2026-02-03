@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://b0n0jboitaswt"]
+
+[ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_66ayq"]
+[ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_yvqvv"]
+[ext_resource type="Texture2D" uid="uid://c7hpvptgk40bi" path="res://sprites/body_parts/Noise.png" id="3_0o8re"]
+[ext_resource type="Texture2D" uid="uid://c3aws1pud8ee1" path="res://sprites/body_parts/FaceAssets/Enemies/Eric/EricHair.png" id="4_1dbei"]
+[ext_resource type="Texture2D" uid="uid://dqpkhg3vo62qu" path="res://sprites/body_parts/Bodies/EricBody.png" id="4_yvqvv"]
+[ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="5_y8j40"]
+[ext_resource type="Texture2D" uid="uid://cnwj52gow0ixr" path="res://sprites/body_parts/Basehead/EricBaseHead.png" id="5_yvqvv"]
+[ext_resource type="PackedScene" uid="uid://c6ojue1kighsy" path="res://game/system/anatomy/parts/body/eric_arm.tscn" id="6_jemvd"]
+[ext_resource type="Texture2D" uid="uid://ddhgc8fwjs6p" path="res://sprites/body_parts/FaceAssets/Enemies/Eric/EricEye1.png" id="7_16ne6"]
+[ext_resource type="Texture2D" uid="uid://bycmh4dp4kn8j" path="res://sprites/body_parts/FaceAssets/Enemies/Eric/EricEye2.png" id="8_y8j40"]
+[ext_resource type="Texture2D" uid="uid://dfrroulxy08s3" path="res://sprites/body_parts/FaceAssets/Enemies/Eric/EricNose.png" id="9_y8j40"]
+[ext_resource type="Texture2D" uid="uid://qv4luwgncgbb" path="res://sprites/body_parts/FaceAssets/Enemies/Eric/EricMouth.png" id="10_jemvd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1dbei"]
+radius = 10.929144
+height = 62.806717
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cte70"]
+radius = 12.316006
+height = 55.40077
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dbei"]
+size = Vector2(30.76924, 46.153854)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cte70"]
+size = Vector2(83.2724, 25.836197)
+
+[node name="Eric" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_66ayq")]
+script = ExtResource("2_yvqvv")
+action_cooldown = 0.5
+arm = NodePath("EricArm")
+
+[node name="Noise" type="Sprite2D" parent="." index="0" unique_id=1677025307]
+modulate = Color(1, 1, 1, 0.7372549)
+z_index = 5
+texture_filter = 1
+position = Vector2(2, 4.7683716e-07)
+rotation = -0.06344986
+scale = Vector2(1.18494, 0.99840635)
+texture = ExtResource("3_0o8re")
+
+[node name="Shoulder" type="Sprite2D" parent="." index="1" unique_id=799220475]
+z_index = -3
+texture_filter = 1
+position = Vector2(-1, 46)
+rotation = -3.16503
+scale = Vector2(0.55, 0.45)
+texture = ExtResource("4_yvqvv")
+
+[node name="Face" parent="." index="2" unique_id=1276534686]
+position = Vector2(-11, 10)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_yvqvv")
+
+[node name="Hair" type="Sprite2D" parent="Face" index="0" unique_id=1922594991]
+z_index = 1
+position = Vector2(-1.5384617, 4.615383)
+scale = Vector2(1.0769231, 1.0769231)
+texture = ExtResource("4_1dbei")
+
+[node name="Shadow" type="Sprite2D" parent="Face" index="1" unique_id=1587950718]
+texture_filter = 1
+position = Vector2(3.999999, -12.000001)
+rotation = 0.087266445
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("5_y8j40")
+
+[node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
+position = Vector2(-50.769234, -21.538464)
+max_hp = 4.0
+
+[node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
+texture = ExtResource("7_16ne6")
+
+[node name="CollisionShape2D" parent="Face/Features/EyeL/MouseDetectArea" parent_id_path=PackedInt32Array(1690948451, 1106976729) index="0" unique_id=149295176]
+position = Vector2(30.769234, 3.076926)
+rotation = -0.7606134
+shape = SubResource("CapsuleShape2D_1dbei")
+
+[node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
+position = Vector2(56.923077, -23.076923)
+max_hp = 4.0
+
+[node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
+texture = ExtResource("8_y8j40")
+flip_h = false
+
+[node name="CollisionShape2D" parent="Face/Features/EyeR/MouseDetectArea" parent_id_path=PackedInt32Array(584210078, 1106976729) index="0" unique_id=149295176]
+position = Vector2(10.767133, 4.6202765)
+rotation = 0.99918497
+shape = SubResource("CapsuleShape2D_cte70")
+
+[node name="AnatomyUI" parent="Face/Features/EyeR" index="2" unique_id=665909425]
+z_index = 0
+
+[node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
+visible = false
+max_hp = 4.0
+
+[node name="AnatomyUI" parent="Face/Features/EarL" index="2" unique_id=665909425]
+z_index = 0
+
+[node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
+visible = false
+max_hp = 4.0
+
+[node name="AnatomyUI" parent="Face/Features/EarR" index="2" unique_id=665909425]
+z_index = 0
+
+[node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
+position = Vector2(-3.0769234, -3.0769234)
+max_hp = 4.0
+
+[node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
+position = Vector2(-4.615385, -0.15384676)
+texture = ExtResource("9_y8j40")
+
+[node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
+position = Vector2(29.230774, 18.46154)
+shape = SubResource("RectangleShape2D_1dbei")
+
+[node name="AnatomyUI" parent="Face/Features/Nose" index="2" unique_id=665909425]
+z_index = 0
+
+[node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
+position = Vector2(15.384615, 55.38462)
+max_hp = 4.0
+
+[node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
+position = Vector2(-18, -51)
+texture = ExtResource("10_jemvd")
+
+[node name="CollisionShape2D" parent="Face/Features/Mouth/MouseDetectArea" parent_id_path=PackedInt32Array(508432269, 1106976729) index="0" unique_id=149295176]
+position = Vector2(-21.538462, -3.0769296)
+rotation = 0.65627617
+shape = SubResource("RectangleShape2D_cte70")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Face/Features/Mouth/MouseDetectArea" parent_id_path=PackedInt32Array(508432269, 1106976729) index="1" unique_id=287658633]
+position = Vector2(36.923084, -1.5384674)
+rotation = -0.67051935
+shape = SubResource("RectangleShape2D_cte70")
+
+[node name="AnatomyUI" parent="Face/Features/Mouth" index="2" unique_id=665909425]
+z_index = 0
+
+[node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 146.0
+offset_bottom = 199.0
+grow_horizontal = 1
+grow_vertical = 1
+theme_override_constants/margin_left = 230
+theme_override_constants/margin_top = 100
+
+[node name="EricArm" parent="." index="4" unique_id=1972221418 instance=ExtResource("6_jemvd")]
+position = Vector2(-89, 47)
+
+[editable path="Face/Features/EyeL"]
+[editable path="Face/Features/EyeR"]
+[editable path="Face/Features/EarL"]
+[editable path="Face/Features/EarR"]
+[editable path="Face/Features/Nose"]
+[editable path="Face/Features/Mouth"]
+[editable path="CombatComponent"]

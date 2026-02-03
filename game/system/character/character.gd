@@ -39,7 +39,7 @@ func init_character() -> void:
 
 func get_anatomy_references() -> void:
 	for anatomy : Anatomy in get_tree().get_nodes_in_group("anatomy"):
-		if anatomy.body_owner != self:
+		if anatomy.visible and anatomy.body_owner != self:
 			opponent_anatomy.append(anatomy)
 
 func _init_combat_component() -> void:
@@ -50,7 +50,8 @@ func _init_combat_component() -> void:
 
 func _init_anatomy_parts() -> void:
 	for anatomy in features.get_children():
-		anatomy_parts.append(anatomy)
+		if anatomy.visible:
+			anatomy_parts.append(anatomy)
 	for part in anatomy_parts:
 		part.init_part(self)
 		part.anatomy_hit.connect(

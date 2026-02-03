@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://cmbivobrytkx7" path="res://game/system/character/player/player.gd" id="2_b2mth"]
 [ext_resource type="PackedScene" uid="uid://cc5iuju00imms" path="res://game/system/anatomy/parts/body/player_arm.tscn" id="3_3ipx8"]
 [ext_resource type="Texture2D" uid="uid://0e11br4awprf" path="res://sprites/body_parts/Basehead/BaseHead.png" id="3_jme82"]
-[ext_resource type="Texture2D" uid="uid://c718x58jremuc" path="res://sprites/BodyParts/Limbs/Body.png" id="4_ekhjb"]
 [ext_resource type="Texture2D" uid="uid://c7hpvptgk40bi" path="res://sprites/body_parts/Noise.png" id="5_0fnm0"]
 [ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="5_alke5"]
 [ext_resource type="Texture2D" uid="uid://dq5dyeefodkfo" path="res://sprites/body_parts/FaceAssets/Beard.png" id="6_w1s3x"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dgfbrc3ii8iw6" path="res://sprites/body_parts/FaceAssets/Ear1.png" id="9_eq501"]
 [ext_resource type="Texture2D" uid="uid://b3w53qi4iph3g" path="res://sprites/body_parts/FaceAssets/Ear2.png" id="10_hu301"]
 [ext_resource type="Texture2D" uid="uid://d1r4bn32e30v7" path="res://sprites/body_parts/FaceAssets/MouthPainExp.png" id="11_f2h07"]
+[ext_resource type="Texture2D" uid="uid://defn8lxlh0cq7" path="res://sprites/body_parts/Bodies/MCbody.png" id="12_f2h07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xspq"]
 size = Vector2(30.499966, 10.499966)
@@ -173,8 +173,8 @@ z_index = 0
 z_index = -3
 texture_filter = 1
 rotation = -3.054326
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_ekhjb")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_f2h07")
 
 [node name="ArmR" parent="." index="2" unique_id=334395171 instance=ExtResource("3_3ipx8")]
 unique_name_in_owner = true

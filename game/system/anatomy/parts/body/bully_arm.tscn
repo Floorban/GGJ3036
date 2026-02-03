@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://crtjhl3xse5fi" path="res://game/system/anatomy/parts/body/arm.gd" id="1_wpigf"]
 [ext_resource type="Texture2D" uid="uid://klmyj3qqo2mv" path="res://sprites/body_parts/Arms/Bully/BullyBiceps.png" id="2_ita1a"]
-[ext_resource type="Texture2D" uid="uid://bj25j34mky2ol" path="res://sprites/body_parts/Arms/FatGuy/FatGuyBiceps.png" id="2_nec5t"]
-[ext_resource type="Texture2D" uid="uid://pkjwsawiyogi" path="res://sprites/body_parts/Arms/FatGuy/FatGuyForearm.png" id="3_ita1a"]
-[ext_resource type="Texture2D" uid="uid://blxv1h0r70fa5" path="res://sprites/body_parts/Arms/Boxer/BoxerForearm.png" id="4_db1rx"]
 [ext_resource type="Texture2D" uid="uid://3pyd2dq5e6s1" path="res://sprites/body_parts/Arms/Bully/BullyForearm.png" id="4_ita1a"]
 [ext_resource type="Texture2D" uid="uid://b6wqc8wi4oqxn" path="res://sprites/body_parts/Arms/Bully/BullyHands.png" id="7_ita1a"]
 
@@ -25,16 +22,6 @@ joint_data/2/use_target_rotation = true
 enabled = true
 modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DFABRIK_kibof")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_004is"]
-diffuse_texture = ExtResource("2_nec5t")
-normal_texture = ExtResource("2_nec5t")
-specular_texture = ExtResource("2_nec5t")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_hiita"]
-diffuse_texture = ExtResource("3_ita1a")
-normal_texture = ExtResource("3_ita1a")
-specular_texture = ExtResource("4_db1rx")
 
 [node name="BullyArm" type="Node2D" unique_id=1972221418]
 script = ExtResource("1_wpigf")
@@ -63,17 +50,16 @@ texture = ExtResource("2_ita1a")
 
 [node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1025545314]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(500, 200)
-offset_left = -80.22178
-offset_top = -122.55974
-offset_right = 419.77823
-offset_bottom = 593.44025
+offset_left = -60.59929
+offset_top = -81.84662
+offset_right = 439.4007
+offset_bottom = 634.1534
 rotation = 0.003891746
 step = 0.01
-value = 100.0
+value = 99.79
 fill_mode = 2
-texture_progress = SubResource("CanvasTexture_004is")
+texture_progress = ExtResource("2_ita1a")
 
 [node name="ArmLow" type="Bone2D" parent="Skeleton2D/ArmUp" unique_id=1966820033]
 position = Vector2(349.64224, -61.47026)
@@ -94,15 +80,14 @@ texture = ExtResource("4_ita1a")
 
 [node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1587456585]
 unique_name_in_owner = true
-visible = false
-offset_left = -117.00564
-offset_top = -91.096886
-offset_right = 398.99435
-offset_bottom = 332.9031
+offset_left = -77.857704
+offset_top = -85.67804
+offset_right = 438.1423
+offset_bottom = 338.32196
 step = 0.01
 value = 100.0
 fill_mode = 2
-texture_progress = SubResource("CanvasTexture_hiita")
+texture_progress = ExtResource("4_ita1a")
 
 [node name="Fist" type="Bone2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1916331396]
 position = Vector2(156.03815, 244.66867)

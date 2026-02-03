@@ -1,52 +1,52 @@
-[gd_scene format=3 uid="uid://13tkw1wdly0n"]
+[gd_scene format=3 uid="uid://dgcophwyo7ufp"]
 
-[ext_resource type="Script" uid="uid://crtjhl3xse5fi" path="res://game/system/anatomy/parts/body/arm.gd" id="1_gu2ah"]
-[ext_resource type="Texture2D" uid="uid://j1ev066edrvp" path="res://sprites/BodyParts/Limbs/Uparm.png" id="2_g608g"]
-[ext_resource type="Texture2D" uid="uid://bj25j34mky2ol" path="res://sprites/body_parts/Arms/FatGuy/FatGuyBiceps.png" id="3_j1ylf"]
-[ext_resource type="Texture2D" uid="uid://dl2lswog5wtgw" path="res://sprites/BodyParts/Limbs/Forearms.png" id="4_c8blv"]
-[ext_resource type="Texture2D" uid="uid://pkjwsawiyogi" path="res://sprites/body_parts/Arms/FatGuy/FatGuyForearm.png" id="5_x1yb7"]
-[ext_resource type="Texture2D" uid="uid://blxv1h0r70fa5" path="res://sprites/body_parts/Arms/Boxer/BoxerForearm.png" id="6_c7w5e"]
-[ext_resource type="Texture2D" uid="uid://xwpifbuqrxhe" path="res://sprites/BodyParts/Limbs/Fists.png" id="7_8ybyt"]
+[ext_resource type="Script" uid="uid://crtjhl3xse5fi" path="res://game/system/anatomy/parts/body/arm.gd" id="1_kr0sh"]
+[ext_resource type="Texture2D" uid="uid://j1ev066edrvp" path="res://sprites/BodyParts/Limbs/Uparm.png" id="2_kr0sh"]
+[ext_resource type="Texture2D" uid="uid://bj25j34mky2ol" path="res://sprites/body_parts/Arms/FatGuy/FatGuyBiceps.png" id="3_ifqqa"]
+[ext_resource type="Texture2D" uid="uid://dl2lswog5wtgw" path="res://sprites/BodyParts/Limbs/Forearms.png" id="4_kr0sh"]
+[ext_resource type="Texture2D" uid="uid://pkjwsawiyogi" path="res://sprites/body_parts/Arms/FatGuy/FatGuyForearm.png" id="5_udbgk"]
+[ext_resource type="Texture2D" uid="uid://blxv1h0r70fa5" path="res://sprites/body_parts/Arms/Boxer/BoxerForearm.png" id="6_lfydp"]
+[ext_resource type="Texture2D" uid="uid://xwpifbuqrxhe" path="res://sprites/BodyParts/Limbs/Fists.png" id="7_kr0sh"]
 
-[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_gu2ah"]
+[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_ovb2x"]
 target_nodepath = NodePath("../FistTarget")
 fabrik_data_chain_length = 3
 joint_data/0/bone_index = 0
 joint_data/0/bone2d_node = NodePath("ArmUp")
 joint_data/1/bone_index = 1
 joint_data/1/bone2d_node = NodePath("ArmUp/ArmLow")
-joint_data/1/magnet_position = Vector2(4000, -2000)
+joint_data/1/magnet_position = Vector2(-4000, -2000)
 joint_data/2/bone_index = 2
 joint_data/2/bone2d_node = NodePath("ArmUp/ArmLow/Fist")
 joint_data/2/magnet_position = Vector2(0, 0)
 joint_data/2/use_target_rotation = true
 
-[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_g608g"]
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_sq55q"]
 enabled = true
 modification_count = 1
-modifications/0 = SubResource("SkeletonModification2DFABRIK_gu2ah")
+modifications/0 = SubResource("SkeletonModification2DFABRIK_ovb2x")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_004is"]
-diffuse_texture = ExtResource("3_j1ylf")
-normal_texture = ExtResource("3_j1ylf")
-specular_texture = ExtResource("3_j1ylf")
+diffuse_texture = ExtResource("3_ifqqa")
+normal_texture = ExtResource("3_ifqqa")
+specular_texture = ExtResource("3_ifqqa")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_hiita"]
-diffuse_texture = ExtResource("5_x1yb7")
-normal_texture = ExtResource("5_x1yb7")
-specular_texture = ExtResource("6_c7w5e")
+diffuse_texture = ExtResource("5_udbgk")
+normal_texture = ExtResource("5_udbgk")
+specular_texture = ExtResource("6_lfydp")
 
-[node name="BrainOutArm" type="Node2D" unique_id=1972221418]
-script = ExtResource("1_gu2ah")
+[node name="DefaultArm" type="Node2D" unique_id=1972221418]
+script = ExtResource("1_kr0sh")
 windup_distance = 20.0
 windup_strength = 2.0
 
 [node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=408280702]
-modification_stack = SubResource("SkeletonModificationStack2D_g608g")
+modification_stack = SubResource("SkeletonModificationStack2D_sq55q")
 
 [node name="ArmUp" type="Bone2D" parent="Skeleton2D" unique_id=1789155330]
-rotation = 2.3146644
-scale = Vector2(0.20312573, 0.17968778)
+rotation = 2.6053407
+scale = Vector2(0.20312572, 0.17968775)
 rest = Transform2D(0.20219468, 0.019423341, -0.01718216, 0.17886423, 0, 40.5)
 auto_calculate_length_and_angle = false
 length = 550.0
@@ -59,7 +59,7 @@ z_index = -1
 texture_filter = 1
 position = Vector2(232.66965, 39.89037)
 rotation = -1.7560382
-texture = ExtResource("2_g608g")
+texture = ExtResource("2_kr0sh")
 flip_h = true
 
 [node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1025545314]
@@ -77,22 +77,22 @@ fill_mode = 2
 texture_progress = SubResource("CanvasTexture_004is")
 
 [node name="ArmLow" type="Bone2D" parent="Skeleton2D/ArmUp" unique_id=1966820033]
-position = Vector2(479.83545, 90.975006)
-rotation = -1.7962627
-scale = Vector2(1.1207544, 0.9051202)
-skew = -0.05965221
+position = Vector2(436.21402, 82.70451)
+rotation = -2.7532759
+scale = Vector2(1.0142292, 1.0014895)
+skew = -0.07849717
 rest = Transform2D(1.0392241, -0.31928748, 0.7363789, 3.0628166, 265.38428, -1.5258789e-05)
 auto_calculate_length_and_angle = false
 length = 500.0
-bone_angle = 31.623
+bone_angle = 37.162994
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
 self_modulate = Color(0.77354246, 0.38726708, 0.7703552, 1)
 z_index = -2
 texture_filter = 1
-position = Vector2(242.83443, 121.77595)
-texture = ExtResource("4_c8blv")
+position = Vector2(231.2458, 177.14815)
+texture = ExtResource("4_kr0sh")
 flip_h = true
 
 [node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1587456585]
@@ -108,10 +108,10 @@ fill_mode = 2
 texture_progress = SubResource("CanvasTexture_hiita")
 
 [node name="Fist" type="Bone2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1916331396]
-position = Vector2(358.14886, 302.04227)
-rotation = 0.014940349
-scale = Vector2(0.9835787, 0.94899726)
-skew = -0.0028697252
+position = Vector2(358.14917, 302.04236)
+rotation = -0.42470488
+scale = Vector2(0.99999994, 0.93599993)
+skew = 0.07441628
 rest = Transform2D(-0.45176578, -0.24657224, 0.7012968, -0.18903401, 299.9998, 0)
 auto_calculate_length_and_angle = false
 length = 50.0
@@ -121,14 +121,13 @@ metadata/_local_pose_override_enabled_ = true
 [node name="SpriteFist" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow/Fist" unique_id=520692977]
 unique_name_in_owner = true
 self_modulate = Color(0.82, 0.5084, 0.75248665, 1)
-z_index = 5
 texture_filter = 1
-position = Vector2(41.310894, 103.78269)
+position = Vector2(111.8926, 113.57622)
 rotation = -0.06758747
-texture = ExtResource("7_8ybyt")
+texture = ExtResource("7_kr0sh")
 flip_h = true
 
 [node name="FistTarget" type="Marker2D" parent="." unique_id=702061991]
 unique_name_in_owner = true
-position = Vector2(-81, 101.00001)
+position = Vector2(-45.000008, 146.00002)
 rotation = 1.864747

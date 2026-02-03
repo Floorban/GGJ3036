@@ -7,9 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://cxo0b3lr3mm6c" path="res://game/system/character/enemy/bully.tscn" id="2_y4xw1"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="4_yn5lq"]
 [ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="5_hb3kr"]
+[ext_resource type="PackedScene" uid="uid://b0n0jboitaswt" path="res://game/system/character/enemy/eric.tscn" id="6_4lpjd"]
 [ext_resource type="Texture2D" uid="uid://bk1awwhg2p6h8" path="res://sprites/Backgrounds/Arena.png" id="6_5nku2"]
 [ext_resource type="Shader" uid="uid://bqqnlybur4rdk" path="res://material/retro.gdshader" id="6_b1y20"]
 [ext_resource type="PackedScene" uid="uid://bavdc803jhh86" path="res://game/system/character/enemy/brain_out_1.tscn" id="7_b1y20"]
+[ext_resource type="PackedScene" uid="uid://c07hnykxqlg1x" path="res://game/system/character/enemy/brain_out_2.tscn" id="7_c7avg"]
 [ext_resource type="PackedScene" uid="uid://c7qftgs4x4ay4" path="res://game/system/character/enemy/fat_guy.tscn" id="8_ett71"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ett71"]
@@ -35,21 +37,28 @@ shader_parameter/warble_speed = 3.3490001590775
 [node name="CombatAreaEricTest" unique_id=1259752126 node_paths=PackedStringArray("player", "enemy") instance=ExtResource("1_231da")]
 battle_ongoing = true
 player = NodePath("Player")
-enemy = NodePath("Enemies/Bully")
+enemy = NodePath("Enemies/BrainOut2")
 
 [node name="Enemies" type="Node2D" parent="." index="0" unique_id=1097934614]
 
-[node name="Boxer" parent="Enemies" index="0" unique_id=1861387119 instance=ExtResource("2_2ra4k")]
+[node name="Bully" parent="Enemies" index="0" unique_id=1161750587 instance=ExtResource("2_y4xw1")]
 visible = false
 
-[node name="FatGuy" parent="Enemies" index="1" unique_id=1077317192 instance=ExtResource("8_ett71")]
+[node name="Boxer" parent="Enemies" index="1" unique_id=1861387119 instance=ExtResource("2_2ra4k")]
 visible = false
-position = Vector2(-3, -63)
 
 [node name="BrainOut1" parent="Enemies" index="2" unique_id=1115020370 instance=ExtResource("7_b1y20")]
 visible = false
 
-[node name="Bully" parent="Enemies" index="3" unique_id=1161750587 instance=ExtResource("2_y4xw1")]
+[node name="FatGuy" parent="Enemies" index="3" unique_id=1077317192 instance=ExtResource("8_ett71")]
+visible = false
+position = Vector2(-3, -63)
+
+[node name="Eric" parent="Enemies" index="4" unique_id=1583780970 instance=ExtResource("6_4lpjd")]
+visible = false
+
+[node name="BrainOut2" parent="Enemies" index="5" unique_id=15882543 instance=ExtResource("7_c7avg")]
+visible = false
 
 [node name="AudioManager" parent="." index="1" unique_id=1015518348 instance=ExtResource("2_ett71")]
 
