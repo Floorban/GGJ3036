@@ -82,7 +82,6 @@ position = Vector2(1.5, -2.000002)
 shape = SubResource("RectangleShape2D_8xspq")
 
 [node name="AnatomyUI" parent="Face/Features/EyeL" index="2" unique_id=665909425]
-visible = false
 z_index = 0
 
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
@@ -102,7 +101,6 @@ position = Vector2(2.2888184e-05, -0.99165344)
 shape = SubResource("RectangleShape2D_f2h07")
 
 [node name="AnatomyUI" parent="Face/Features/EyeR" index="2" unique_id=665909425]
-visible = false
 z_index = 0
 
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
@@ -124,7 +122,6 @@ scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_hu301")
 
 [node name="AnatomyUI" parent="Face/Features/EarL" index="2" unique_id=665909425]
-visible = false
 z_index = 0
 
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
@@ -146,7 +143,6 @@ scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_wqm0g")
 
 [node name="AnatomyUI" parent="Face/Features/EarR" index="2" unique_id=665909425]
-visible = false
 z_index = 0
 
 [node name="Sprite" parent="Face/Features/Nose" parent_id_path=PackedInt32Array(1350482542) index="0" unique_id=500964707]
@@ -157,7 +153,6 @@ position = Vector2(-1.0000001, 1.5)
 shape = SubResource("RectangleShape2D_388rn")
 
 [node name="AnatomyUI" parent="Face/Features/Nose" parent_id_path=PackedInt32Array(1350482542) index="2" unique_id=665909425]
-visible = false
 z_index = 0
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
@@ -172,7 +167,6 @@ texture = ExtResource("11_f2h07")
 shape = SubResource("RectangleShape2D_eq501")
 
 [node name="AnatomyUI" parent="Face/Features/Mouth" index="2" unique_id=665909425]
-visible = false
 z_index = 0
 
 [node name="Shoulder" type="Sprite2D" parent="." index="1" unique_id=779808539]
