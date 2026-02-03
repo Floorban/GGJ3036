@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bk1awwhg2p6h8" path="res://sprites/Backgrounds/Arena.png" id="6_5nku2"]
 [ext_resource type="Shader" uid="uid://bqqnlybur4rdk" path="res://material/retro.gdshader" id="6_b1y20"]
 [ext_resource type="PackedScene" uid="uid://bavdc803jhh86" path="res://game/system/character/enemy/brain_out_1.tscn" id="7_b1y20"]
+[ext_resource type="PackedScene" uid="uid://c7qftgs4x4ay4" path="res://game/system/character/enemy/fat_guy.tscn" id="8_ett71"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ett71"]
 shader = ExtResource("6_b1y20")
@@ -32,7 +33,7 @@ shader_parameter/warble_speed = 3.3490001590775
 [node name="CombatAreaEricTest" unique_id=1259752126 node_paths=PackedStringArray("player", "enemy") instance=ExtResource("1_231da")]
 battle_ongoing = true
 player = NodePath("Player")
-enemy = NodePath("BrainOut1")
+enemy = NodePath("FatGuy")
 
 [node name="AudioManager" parent="." index="0" unique_id=1015518348 instance=ExtResource("2_ett71")]
 
@@ -77,4 +78,12 @@ rotation = -0.44854963
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_5nku2")
 
+<<<<<<< Updated upstream
 [node name="BrainOut1" parent="." index="7" unique_id=1533413725 instance=ExtResource("7_b1y20")]
+=======
+[node name="BrainOut1" parent="." index="6" unique_id=1533413725 instance=ExtResource("7_b1y20")]
+visible = false
+
+[node name="FatGuy" parent="." index="7" unique_id=1077317192 instance=ExtResource("8_ett71")]
+position = Vector2(-3, -63)
+>>>>>>> Stashed changes
