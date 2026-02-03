@@ -23,6 +23,17 @@ enabled = true
 modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DFABRIK_nb8xb")
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_004is"]
+diffuse_texture = ExtResource("2_004is")
+normal_texture = ExtResource("2_004is")
+specular_texture = ExtResource("2_004is")
+specular_color = Color(0.24030471, 0.24030474, 0.24030471, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hiita"]
+diffuse_texture = ExtResource("3_hiita")
+normal_texture = ExtResource("3_hiita")
+specular_texture = ExtResource("3_hiita")
+
 [node name="EnemyArmR" type="Node2D" unique_id=1972221418]
 script = ExtResource("1_3tsn6")
 
@@ -39,10 +50,23 @@ bone_angle = 0.0
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmUp" type="Sprite2D" parent="Skeleton2D/ArmUp" unique_id=1904858807]
+self_modulate = Color(0.56032693, 0.560327, 0.56032693, 1)
 z_index = -1
 position = Vector2(192.66234, 10.059482)
 rotation = -1.288053
 texture = ExtResource("2_004is")
+
+[node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1025545314]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 200)
+offset_left = -219.81076
+offset_top = -360.77582
+offset_right = 280.18924
+offset_bottom = 355.22418
+rotation = 0.003891746
+step = 0.1
+fill_mode = 2
+texture_progress = SubResource("CanvasTexture_004is")
 
 [node name="ArmLow" type="Bone2D" parent="Skeleton2D/ArmUp" unique_id=1966820033]
 position = Vector2(486.53793, 1.5258789e-05)
@@ -56,11 +80,22 @@ bone_angle = 241.15591
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
+self_modulate = Color(0.56032693, 0.560327, 0.56032693, 1)
 z_index = 1
 position = Vector2(-91.80101, -75.66607)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_hiita")
 flip_v = true
+
+[node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1587456585]
+unique_name_in_owner = true
+offset_left = -120.730644
+offset_top = 316.94818
+offset_right = 395.26935
+offset_bottom = 740.9482
+rotation = -1.9008528
+step = 0.1
+texture_progress = SubResource("CanvasTexture_hiita")
 
 [node name="Fist" type="Bone2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1916331396]
 position = Vector2(-217.09222, -151.17935)
@@ -74,6 +109,7 @@ bone_angle = -117.856
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteFist" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow/Fist" unique_id=520692977]
+unique_name_in_owner = true
 z_index = 1
 position = Vector2(-96.91019, 37.33225)
 rotation = 2.125811

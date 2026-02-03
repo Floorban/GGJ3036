@@ -9,6 +9,8 @@ func get_ready_to_battle() -> void:
 
 func _perform_attack(_target: Anatomy) -> void:
 	can_action = false
+	arm._on_arm_charge_finished()
+	await get_tree().create_timer(0.4).timeout
 	if next_target:
 		arm.punch(
 			next_target.global_position,

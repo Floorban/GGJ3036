@@ -50,6 +50,9 @@ func _init_anatomy_parts() -> void:
 func get_ready_to_battle() -> void:
 	combat_component.combat_timer.start()
 
+func _process(delta: float) -> void:
+	arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
+
 func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 	if blocking_part == target and can_action:
 		_on_successful_block(attacker)
@@ -73,6 +76,8 @@ func _on_successful_block(attacker: Character) -> void:
 
 func _perform_attack(target: Anatomy) -> void:
 	can_action = false
+	arm._on_arm_charge_finished()
+	await get_tree().create_timer(0.4).timeout
 	if target:
 		if blocking_part:
 			blocking_part.is_blocking = false
@@ -95,6 +100,7 @@ func _on_action_finished(blocking: bool) -> void:
 
 func _on_attack_finished() -> void:
 	combat_component.combat_timer.start()
+	arm.sprite_fist.modulate = Color.DIM_GRAY
 
 func _on_block_finished() -> void:
 	blocking_part.is_blocking = false

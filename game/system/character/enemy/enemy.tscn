@@ -3,10 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_l53d7"]
 [ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_26h1w"]
 [ext_resource type="Texture2D" uid="uid://c7hpvptgk40bi" path="res://sprites/body_parts/Noise.png" id="3_0rm70"]
-[ext_resource type="Texture2D" uid="uid://0e11br4awprf" path="res://sprites/body_parts/Basehead/BaseHead.png" id="3_au27s"]
 [ext_resource type="PackedScene" uid="uid://13tkw1wdly0n" path="res://game/system/anatomy/parts/body/enemy_arm_r.tscn" id="3_sopgc"]
 [ext_resource type="Texture2D" uid="uid://c718x58jremuc" path="res://sprites/BodyParts/Limbs/Body.png" id="4_2soic"]
 [ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="5_2soic"]
+[ext_resource type="Texture2D" uid="uid://bp8af0x6h20rt" path="res://sprites/body_parts/Basehead/BoxeBaseHead.png" id="5_we4ev"]
+[ext_resource type="Texture2D" uid="uid://b56sq1ns8ntd7" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerAngryEye.png" id="7_we4ev"]
+[ext_resource type="Texture2D" uid="uid://5ksven807827" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerNose.png" id="8_i74xv"]
+[ext_resource type="Texture2D" uid="uid://ud5q6ruq7nd4" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerEar2.png" id="8_ibu3x"]
+[ext_resource type="Texture2D" uid="uid://dt20s6pfx6fln" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerMouth.png" id="9_3xtpi"]
 
 [node name="Enemy" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_l53d7")]
 script = ExtResource("2_26h1w")
@@ -28,9 +32,9 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_2soic")
 
 [node name="Face" parent="." index="2" unique_id=1276534686]
-modulate = Color(0.8951158, 0.6880571, 0.41257173, 1)
-scale = Vector2(1, 1)
-texture = ExtResource("3_au27s")
+modulate = Color(1, 1, 1, 1)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_we4ev")
 
 [node name="Shadow" type="Sprite2D" parent="Face" index="0" unique_id=1587950718]
 texture_filter = 1
@@ -43,16 +47,33 @@ texture = ExtResource("5_2soic")
 position = Vector2(-37, -21)
 max_hp = 30.0
 
+[node name="Sprite" parent="EyeL" index="0" unique_id=500964707]
+position = Vector2(40, 16.000002)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_we4ev")
+
 [node name="EyeR" parent="." index="4" unique_id=584210078]
 position = Vector2(38, -27)
 max_hp = 30.0
+
+[node name="Sprite" parent="EyeR" index="0" unique_id=500964707]
+position = Vector2(-38.000004, -11.000002)
+rotation = -3.2665365
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_we4ev")
+
+[node name="CollisionShape2D" parent="EyeR/MouseDetectArea" parent_id_path=PackedInt32Array(584210078, 1106976729) index="0" unique_id=149295176]
+position = Vector2(1.5, -1.5)
 
 [node name="EarL" parent="." index="5" unique_id=1222327045]
 position = Vector2(-62, 1)
 max_hp = 30.0
 
 [node name="Sprite" parent="EarL" index="0" unique_id=500964707]
-flip_h = true
+position = Vector2(67, 0.99999976)
+rotation = 0.058212444
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_ibu3x")
 flip_v = false
 
 [node name="EarR" parent="." index="6" unique_id=959483894]
@@ -60,14 +81,37 @@ position = Vector2(60, 0)
 max_hp = 30.0
 
 [node name="Sprite" parent="EarR" index="0" unique_id=500964707]
+position = Vector2(-64.00001, 2)
+rotation = -0.10612203
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_ibu3x")
+flip_h = true
 flip_v = false
 
 [node name="Nose" parent="." index="7" unique_id=1350482542]
 max_hp = 30.0
 
+[node name="Sprite" parent="Nose" index="0" unique_id=500964707]
+position = Vector2(-6, -3.5762787e-07)
+rotation = -0.14195237
+scale = Vector2(1, 1)
+texture = ExtResource("8_i74xv")
+
+[node name="CollisionShape2D" parent="Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
+position = Vector2(1.5, 1.5)
+
 [node name="Mouth" parent="." index="8" unique_id=508432269]
 position = Vector2(0, 37)
 max_hp = 30.0
+
+[node name="Sprite" parent="Mouth" index="0" unique_id=500964707]
+position = Vector2(9.999998, 55)
+rotation = -3.155748
+scale = Vector2(1, 1)
+texture = ExtResource("9_3xtpi")
+
+[node name="CollisionShape2D" parent="Mouth/MouseDetectArea" parent_id_path=PackedInt32Array(508432269, 1106976729) index="0" unique_id=149295176]
+position = Vector2(-2.5, 1)
 
 [node name="EnemyArmR" parent="." index="9" unique_id=1972221418 instance=ExtResource("3_sopgc")]
 z_index = 2
@@ -80,5 +124,9 @@ offset_top = 2.0
 offset_right = -219.0
 offset_bottom = 2.0
 
+[editable path="EyeL"]
+[editable path="EyeR"]
 [editable path="EarL"]
 [editable path="EarR"]
+[editable path="Nose"]
+[editable path="Mouth"]

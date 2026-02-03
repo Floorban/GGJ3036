@@ -2,6 +2,10 @@ class_name Arm extends Node2D
 
 signal action_finished(blocking: bool)
 
+@onready var cd_bar_1: TextureProgressBar = %CDBar1
+@onready var cd_bar_2: TextureProgressBar = %CDBar2
+@onready var sprite_fist: Sprite2D = %SpriteFist
+
 @onready var skeleton: Skeleton2D = $Skeleton2D
 @onready var fist_target: Marker2D = %FistTarget
 @export var windup_distance := 18.0
@@ -18,6 +22,40 @@ var interrupted := false
 func _ready() -> void:
 	rest_position = fist_target.global_position
 	windup_position = rest_position
+	sprite_fist.modulate = Color.DIM_GRAY
+
+func set_cd_bar(current: float, max_value: float) -> void:
+	var half = max_value / 2
+	if cd_bar_1.max_value != half: cd_bar_1.max_value = half
+	if cd_bar_2.max_value != half: cd_bar_2.max_value = half
+	
+	current = clamp(current, 0.0, max_value)
+	if current <= half:
+		cd_bar_1.value = current
+		cd_bar_2.value = 0
+	else:
+		cd_bar_1.value = half
+		cd_bar_2.value = current - half
+
+func _on_arm_charge_finished() -> void:
+	sprite_fist.modulate = Color.WHITE
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_OUT)
+
+	tween.tween_property(
+		sprite_fist,
+		"scale",
+		sprite_fist.scale * 1.2,
+		0.25
+	)
+	
+	tween.tween_property(
+		sprite_fist,
+		"scale",
+		Vector2.ONE,
+		0.25
+	)
 
 func rest_pos() -> void:
 	if interrupted:

@@ -23,6 +23,17 @@ enabled = true
 modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DFABRIK_54hrx")
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_ahwjh"]
+diffuse_texture = ExtResource("2_ahwjh")
+normal_texture = ExtResource("2_ahwjh")
+specular_texture = ExtResource("2_ahwjh")
+specular_color = Color(0.24030471, 0.24030474, 0.24030471, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ql54a"]
+diffuse_texture = ExtResource("3_ahwjh")
+normal_texture = ExtResource("3_ahwjh")
+specular_texture = ExtResource("3_ahwjh")
+
 [node name="ArmR" type="Node2D" unique_id=1972221418]
 script = ExtResource("1_788lw")
 
@@ -39,10 +50,23 @@ bone_angle = 0.0
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmUp" type="Sprite2D" parent="Skeleton2D/ArmUp" unique_id=1904858807]
+self_modulate = Color(0.3747318, 0.37473187, 0.37473184, 1)
 z_index = -1
 position = Vector2(192.66234, 10.059482)
 rotation = -1.288053
 texture = ExtResource("2_ahwjh")
+
+[node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1327626244]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 200)
+offset_left = -216.39249
+offset_top = -353.36325
+offset_right = 283.6075
+offset_bottom = 362.63675
+rotation = 0.008577707
+step = 0.1
+fill_mode = 2
+texture_progress = SubResource("CanvasTexture_ahwjh")
 
 [node name="ArmLow" type="Bone2D" parent="Skeleton2D/ArmUp" unique_id=1966820033]
 position = Vector2(486.5293, 7.6293945e-06)
@@ -52,15 +76,27 @@ skew = 0.07084751
 rest = Transform2D(1.0392241, -0.31928748, 0.7363789, 3.0628166, 265.38428, -1.5258789e-05)
 auto_calculate_length_and_angle = false
 length = 450.0
-bone_angle = 241.15596
+bone_angle = 241.15593
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
+self_modulate = Color(0.42252156, 0.42252156, 0.42252156, 1)
 z_index = 1
 position = Vector2(-91.80101, -75.66607)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ahwjh")
 flip_v = true
+
+[node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1618480170]
+unique_name_in_owner = true
+offset_left = 167.43848
+offset_top = -339.63162
+offset_right = 683.4385
+offset_bottom = 84.36838
+rotation = 1.2899597
+step = 0.1
+fill_mode = 1
+texture_progress = SubResource("CanvasTexture_ql54a")
 
 [node name="Fist" type="Bone2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1916331396]
 position = Vector2(399.99957, 0)
@@ -74,6 +110,7 @@ bone_angle = -117.856
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteFist" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow/Fist" unique_id=520692977]
+unique_name_in_owner = true
 z_index = 1
 position = Vector2(-96.91019, 37.33225)
 rotation = 2.125811
