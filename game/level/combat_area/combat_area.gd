@@ -20,6 +20,7 @@ var battle_time_left: float
 
 #AUDIO
 @export var sfx_hit: String
+@export var sfx_crit: String
 
 func _ready() -> void:
 	retro_mat = retro_screen.material as ShaderMaterial
@@ -70,10 +71,7 @@ func _screen_shake(value: float, crit := false) -> void:
 	
 	if crit:
 		Engine.time_scale = 0.4
-		audio.play(sfx_hit, global_transform, "Impact", "Fatal")
-	
-	else:
-			audio.play(sfx_hit, global_transform, "Impact", "Normal")
+
 	
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)

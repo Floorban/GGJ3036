@@ -22,6 +22,9 @@ var is_hovering := false
 
 var current_color: Color
 
+var sfx_hit: String = "event:/SFX/Hit"
+var sfx_crit: String = "event:/SFX/Crit"
+
 func init_part(body: Character) -> void:
 	body_owner = body
 	mouse_detect_area.mouse_entered.connect(_hover_over_part)
@@ -71,7 +74,7 @@ func _unhighlight_target() -> void:
 		sprite.modulate = current_color
 
 # refactor later when heal
-func set_hp(changed_amount: float) -> void:
+func set_hp(changed_amount: float, crit: bool = false) -> void:
 	current_hp -= changed_amount
 	anatomy_ui.set_hp_bar(current_hp, max_hp)
 	anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
@@ -82,6 +85,9 @@ func set_hp(changed_amount: float) -> void:
 			sprite.modulate = current_color
 	if current_hp <= 0 and state != PartState.DESTROYED:
 		part_dead()
+	
+	if crit: audio.play(sfx_crit)
+	else: audio.play(sfx_hit, global_transform, "Intensity", changed_amount / max_hp)
 	#elif current_hp <= max_hp * 0.4:
 		#state = PartState.OUT_OF_PLACE
 

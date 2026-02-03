@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="ParameterPreset" id="{f0764c85-5fe5-4982-be52-2aface42c7f1}">
+	<object class="ParameterPreset" id="{c3d2e87c-3ef4-4031-b72f-349dea3dd8fe}">
 		<property name="name">
-			<value>Impact</value>
+			<value>Intensity</value>
 		</property>
 		<relationship name="folder">
 			<destination>{a1c591f4-6c20-45ba-807f-9bda5c6b75c6}</destination>
 		</relationship>
 		<relationship name="parameter">
-			<destination>{a10747d8-a13a-43a1-b966-1e427b675b47}</destination>
+			<destination>{30fefffd-af53-4e57-ba71-a3df5a0d4fc0}</destination>
 		</relationship>
 	</object>
-	<object class="GameParameter" id="{a10747d8-a13a-43a1-b966-1e427b675b47}">
-		<property name="parameterType">
-			<value>2</value>
-		</property>
-		<property name="enumerationLabels">
-			<value>Fatal</value>
-		</property>
+	<object class="GameParameter" id="{30fefffd-af53-4e57-ba71-a3df5a0d4fc0}">
 		<property name="initialValue">
 			<value>0</value>
 		</property>
