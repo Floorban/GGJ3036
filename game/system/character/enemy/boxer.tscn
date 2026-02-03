@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c718x58jremuc" path="res://sprites/BodyParts/Limbs/Body.png" id="4_2soic"]
 [ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="5_2soic"]
 
-[node name="Enemy" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_l53d7")]
+[node name="Boxer" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_l53d7")]
 script = ExtResource("2_26h1w")
 action_cooldown = 5.0
 arm = NodePath("EnemyArmR")
@@ -45,21 +45,18 @@ max_hp = 4.0
 max_hp = 4.0
 
 [node name="AnatomyUI" parent="Face/Features/EyeR" index="2" unique_id=665909425]
-visible = false
 z_index = 0
 
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 max_hp = 4.0
 
 [node name="AnatomyUI" parent="Face/Features/EarL" index="2" unique_id=665909425]
-visible = false
 z_index = 0
 
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 max_hp = 4.0
 
 [node name="AnatomyUI" parent="Face/Features/EarR" index="2" unique_id=665909425]
-visible = false
 z_index = 0
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
@@ -69,14 +66,12 @@ max_hp = 4.0
 position = Vector2(12.307696, 3.3846195)
 
 [node name="AnatomyUI" parent="Face/Features/Nose" index="2" unique_id=665909425]
-visible = false
 z_index = 0
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 max_hp = 4.0
 
 [node name="AnatomyUI" parent="Face/Features/Mouth" index="2" unique_id=665909425]
-visible = false
 z_index = 0
 
 [node name="EnemyArmR" parent="." index="3" unique_id=1972221418 instance=ExtResource("3_sopgc")]
