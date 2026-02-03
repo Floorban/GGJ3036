@@ -14,6 +14,7 @@ enemy = NodePath("Enemy")
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_27j7o")]
 position = Vector2(557, 509)
+top_down_dir = 1
 attack_damage = 1.0
 
 [node name="Enemy" parent="." index="1" unique_id=1231642872 instance=ExtResource("3_27j7o")]

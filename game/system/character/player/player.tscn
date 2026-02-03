@@ -20,6 +20,12 @@ size = Vector2(40.000004, 15.999999)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2h07"]
 size = Vector2(40.769485, 18.016674)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu301"]
+size = Vector2(16.340965, 49.123295)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqm0g"]
+size = Vector2(13.180496, 50.540962)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_388rn"]
 size = Vector2(24, 67)
 
@@ -56,7 +62,7 @@ scale = Vector2(1.1, 1.1)
 texture = ExtResource("5_alke5")
 
 [node name="Beard" type="Sprite2D" parent="Face" index="2" unique_id=1900917381]
-z_index = 5
+z_index = 3
 position = Vector2(-3.9999993, 8)
 texture = ExtResource("6_w1s3x")
 
@@ -96,7 +102,9 @@ texture = ExtResource("9_eq501")
 flip_h = false
 
 [node name="CollisionShape2D" parent="Face/Features/EarL/MouseDetectArea" parent_id_path=PackedInt32Array(1222327045, 1106976729) index="0" unique_id=149295176]
-position = Vector2(0.7462387, -35.58366)
+position = Vector2(2.575756, -35.583675)
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_hu301")
 
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 position = Vector2(-71, 27.999998)
@@ -106,6 +114,12 @@ rotation = 0.093511336
 position = Vector2(4.9999847, -29)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("10_hu301")
+
+[node name="CollisionShape2D" parent="Face/Features/EarR/MouseDetectArea" parent_id_path=PackedInt32Array(959483894, 1106976729) index="0" unique_id=149295176]
+position = Vector2(5.749489, -28.680151)
+rotation = -0.13820246
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_wqm0g")
 
 [node name="Sprite" parent="Face/Features/Nose" parent_id_path=PackedInt32Array(1350482542) index="0" unique_id=500964707]
 texture = ExtResource("7_ka5xu")
@@ -136,6 +150,9 @@ texture = ExtResource("4_ekhjb")
 unique_name_in_owner = true
 z_index = 2
 position = Vector2(103, -23)
+
+[node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
+theme_override_constants/margin_right = 230
 
 [editable path="Face/Features/EyeL"]
 [editable path="Face/Features/EyeR"]

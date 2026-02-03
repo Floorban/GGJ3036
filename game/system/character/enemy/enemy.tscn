@@ -73,7 +73,7 @@ offset_right = 146.0
 offset_bottom = 199.0
 grow_horizontal = 1
 grow_vertical = 1
-theme_override_constants/margin_left = 150
+theme_override_constants/margin_left = 230
 theme_override_constants/margin_top = 100
 
 [editable path="Face/Features/EyeR"]

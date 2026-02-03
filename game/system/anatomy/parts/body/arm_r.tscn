@@ -81,7 +81,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
 self_modulate = Color(0.42252156, 0.42252156, 0.42252156, 1)
-z_index = 1
+z_index = 5
 position = Vector2(-91.80101, -75.66607)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ahwjh")
@@ -111,7 +111,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteFist" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow/Fist" unique_id=520692977]
 unique_name_in_owner = true
-z_index = 1
+z_index = 5
 position = Vector2(-96.91019, 37.33225)
 rotation = 2.125811
 texture = ExtResource("4_ahwjh")

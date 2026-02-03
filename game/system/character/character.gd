@@ -18,6 +18,7 @@ var opponent: Character
 @export var arm: Arm
 var can_action := false
 var blocking_part: Anatomy
+var targeting_part: Anatomy
 
 @onready var face: Sprite2D = $Face
 @onready var shoulder: Sprite2D = $Shoulder
@@ -147,7 +148,9 @@ func face_return() -> void:
 func _on_successful_block(attacker: Character) -> void:
 	blocked.emit(1.0)
 	can_action = false
-	attacker.arm.interrupt(func(): attacker.can_action = false)
+	attacker.arm.interrupt(func(): 
+		attacker.can_action = false
+	)
 	arm.block_success()
 	combat_component.reset_attack_timer(action_cooldown)
 	combat_component.start()
@@ -187,6 +190,9 @@ func _on_action_finished(blocking: bool) -> void:
 		_on_attack_finished()
 
 func _on_attack_finished() -> void:
+	if targeting_part:
+		targeting_part.is_targeted = false
+		targeting_part._unhighlight_target()
 	combat_component.start()
 
 func _on_block_finished() -> void:
@@ -196,15 +202,18 @@ func _on_block_finished() -> void:
 
 func choose_target() -> Anatomy:
 	if opponent == null:
+		targeting_part = null
 		return null
 
 	var valid_targets := opponent.anatomy_parts.filter(
 		func(part): return part.state != Anatomy.PartState.DESTROYED)
 
 	if valid_targets.is_empty():
+		targeting_part = null
 		return null
 		
 	var new_target: Anatomy = valid_targets.pick_random()
-	new_target.is_targeted = true
-	new_target._highlight_target()
+	targeting_part = new_target
+	targeting_part.is_targeted = true
+	targeting_part._highlight_target()
 	return new_target
