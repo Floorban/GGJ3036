@@ -15,10 +15,14 @@ DSP/dsp_buffer_size=1028
 
 [application]
 
-config/name="GGJ3036"
-run/main_scene="uid://ci752aldwpxhr"
+config/name="Unfix"
+config/description="Queble game jam 2026.
+Themes: Out of Place & Timing"
+config/version="1.0"
+run/main_scene="uid://c1q6sj2ue5ird"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://sprites/icon.svg"
+boot_splash/minimum_display_time=20
 
 [autoload]
 

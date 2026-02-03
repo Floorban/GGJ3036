@@ -57,15 +57,16 @@ func _init_anatomy_parts() -> void:
 		part.anatomy_hit.connect(
 		func(dmg): resolve_hit(part, dmg, opponent)
 		)
+		max_health += part.max_hp
 
 func get_ready_to_battle() -> void:
 	combat_component.start()
+	for part in anatomy_parts:
+		part.recover_part()
+	health = max_health
 
 func end_battle() -> void:
 	combat_component.stop()
-	health = max_health
-	for part in anatomy_parts:
-		part.recover_part()
 
 func _process(_delta: float) -> void:
 	arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
@@ -81,6 +82,12 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 	if arm.is_blocking and blocking_part:
 		_on_block_finished()
 	target.set_hp(damage)
+	health -= damage
+	var dead_anatomy := 0
+	for a in anatomy_parts:
+		if a.is_part_dead(): dead_anatomy += 1
+	if health <= 0 or dead_anatomy >= anatomy_parts.size():
+		die.emit()
 	hit.emit(damage * 1.5)
 	get_hit_visual_feedback(damage / 5)
 
@@ -103,7 +110,7 @@ func get_hit_visual_feedback(damage_scale: float) -> void:
 
 	var pos_offset := Vector2(
 		rand_outside_range(-100, -250),
-		randf_range(-50, -200) * top_down_dir
+		randf_range(-20, -100) * top_down_dir
 	) * damage_scale
 
 	var rot_offset := rand_outside_range(3, 5) * damage_scale
@@ -185,9 +192,12 @@ func _perform_attack(target: Anatomy) -> void:
 			punch_strength,
 			target.global_position,
 			func():
-				target.anatomy_hit.emit(attack_damage)
-				var blocked := randf() < critical_chance
-				hit.emit(attack_damage, blocked)
+				var crit := randf() < critical_chance
+				var dmg := attack_damage
+				if crit: dmg *= 3
+				target.anatomy_hit.emit(dmg)
+				hit.emit(dmg, crit)
+				print(dmg)
 		)
 
 func _perform_block(target: Anatomy) -> void:

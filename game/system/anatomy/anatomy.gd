@@ -14,7 +14,6 @@ var body_owner : Character
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var mouse_detect_area: Area2D = $MouseDetectArea
-@onready var anatomy_ui: AnatomyUI = $AnatomyUI
 
 var is_targeted := false
 var is_blocking := false
@@ -33,12 +32,12 @@ func init_part(body: Character) -> void:
 	mouse_detect_area.mouse_exited.connect(_unhover_part)
 	mouse_detect_area.input_event.connect(_on_input_event)
 	recover_part()
-	anatomy_ui.toggle_panel(false)
+	#anatomy_ui.toggle_panel(false)
 
 func recover_part() -> void:
 	current_hp = max_hp
-	anatomy_ui.set_hp_bar(current_hp, max_hp)
-	anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
+	#anatomy_ui.set_hp_bar(current_hp, max_hp)
+	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
 	current_color = Color.WHITE
 	sprite.modulate = current_color
 
@@ -50,11 +49,11 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 			anatomy_clicked.emit(self)
 
 func _hover_over_part() -> void:
-	anatomy_ui.toggle_panel(true)
+	#anatomy_ui.toggle_panel(true)
 	is_hovering = true
 
 func _unhover_part() -> void:
-	anatomy_ui.toggle_panel(false)
+	#anatomy_ui.toggle_panel(false)
 	is_hovering = false
 
 func _highlight_target(block_target := false) -> void:
@@ -78,8 +77,8 @@ func _unhighlight_target() -> void:
 # refactor later when heal
 func set_hp(changed_amount: float, crit: bool = false) -> void:
 	current_hp -= changed_amount
-	anatomy_ui.set_hp_bar(current_hp, max_hp)
-	anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
+	#anatomy_ui.set_hp_bar(current_hp, max_hp)
+	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
 	if current_hp <= max_hp / 2 and state != PartState.DESTROYED:
 		move_part()
 		current_color = Color.CHOCOLATE

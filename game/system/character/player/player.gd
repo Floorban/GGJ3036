@@ -1,5 +1,6 @@
 class_name Player extends Character
 
+var can_control := true
 var selected_target: Anatomy
 
 func get_anatomy_references() -> void:
@@ -9,8 +10,13 @@ func get_anatomy_references() -> void:
 	for a in opponent_anatomy:
 		a.anatomy_clicked.connect(_on_enemy_anatomy_clicked)
 
+func get_ready_to_battle() -> void:
+	super.get_ready_to_battle()
+	can_control = true
+
 func end_battle() -> void:
 	super.end_battle()
+	can_control = false
 
 func choose_target() -> Anatomy:
 	if selected_target and selected_target.state != Anatomy.PartState.DESTROYED:
@@ -42,7 +48,7 @@ func _on_block_finished() -> void:
 	)
 
 func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
-	if arm.is_punching:
+	if arm.is_punching or not can_control:
 		return
 	if selected_target != anatomy:
 		if selected_target:
@@ -60,7 +66,7 @@ func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
 		arm.rest_pos()
 
 func _on_enemy_anatomy_clicked(anatomy: Anatomy) -> void:
-	if anatomy.state == Anatomy.PartState.DESTROYED:
+	if anatomy.state == Anatomy.PartState.DESTROYED or not can_control:
 		return
 	if selected_target != anatomy:
 		if arm.is_blocking and blocking_part:
