@@ -37,7 +37,7 @@ shader_parameter/warble_speed = 3.3490001590775
 [node name="CombatAreaEricTest" unique_id=1259752126 node_paths=PackedStringArray("player", "enemy") instance=ExtResource("1_231da")]
 battle_ongoing = true
 player = NodePath("Player")
-enemy = NodePath("Enemies/BrainOut2")
+enemy = NodePath("Enemies/Bully")
 
 [node name="Enemies" type="Node2D" parent="." index="0" unique_id=1097934614]
 
