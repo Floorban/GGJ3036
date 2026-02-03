@@ -70,7 +70,13 @@ color = Color(0.5190886, 0.12432248, 0.21945283, 1)
 [node name="GameUI" parent="CanvasLayer" index="0" unique_id=1770480254 instance=ExtResource("5_hb3kr")]
 unique_name_in_owner = true
 
-[node name="Background" type="Sprite2D" parent="." index="6" unique_id=1879367137]
+[node name="BrainOut2" parent="." index="6" unique_id=1533413725 instance=ExtResource("7_b1y20")]
+visible = false
+
+[node name="FatGuy" parent="." index="7" unique_id=1077317192 instance=ExtResource("8_ett71")]
+position = Vector2(-3, -63)
+
+[node name="Background" type="Sprite2D" parent="." index="8" unique_id=1879367137]
 modulate = Color(0.22415566, 0.5097198, 0.31566837, 0.78431374)
 z_index = -10
 position = Vector2(-6.790283, 133.79175)
@@ -78,9 +84,5 @@ rotation = -0.44854963
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_5nku2")
 
-[node name="BrainOut1" parent="." index="7" unique_id=1533413725 instance=ExtResource("7_b1y20")]
-[node name="BrainOut1" parent="." index="6" unique_id=1533413725 instance=ExtResource("7_b1y20")]
+[node name="BrainOut1" parent="." index="9" unique_id=1115020370 instance=ExtResource("7_b1y20")]
 visible = false
-
-[node name="FatGuy" parent="." index="7" unique_id=1077317192 instance=ExtResource("8_ett71")]
-position = Vector2(-3, -63)
