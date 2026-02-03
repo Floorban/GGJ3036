@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{8192bdec-08b7-4599-9ece-cf0521b71243}">
 		<property name="assetPath">
-			<value>Sound Effects/v_Mongolian.ogg</value>
+			<value>UI/v_Mongolian.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

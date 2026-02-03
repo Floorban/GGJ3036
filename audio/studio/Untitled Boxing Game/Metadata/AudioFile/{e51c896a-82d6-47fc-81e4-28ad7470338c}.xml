@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{e51c896a-82d6-47fc-81e4-28ad7470338c}">
 		<property name="assetPath">
-			<value>Sound Effects/v_Growl.ogg</value>
+			<value>UI/v_Growl.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

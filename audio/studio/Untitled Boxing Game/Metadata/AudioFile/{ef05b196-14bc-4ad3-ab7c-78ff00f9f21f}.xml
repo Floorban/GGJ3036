@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{ef05b196-14bc-4ad3-ab7c-78ff00f9f21f}">
 		<property name="assetPath">
-			<value>Sound Effects/s_Yoink.ogg</value>
+			<value>UI/s_Yoink.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

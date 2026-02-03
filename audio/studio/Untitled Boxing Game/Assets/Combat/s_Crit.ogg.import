@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cfngvbey31mgp"
+path="res://.godot/imported/s_Crit.ogg-c3108cb98384efc50b60b0c9e23fc000.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/Combat/s_Crit.ogg"
+dest_files=["res://.godot/imported/s_Crit.ogg-c3108cb98384efc50b60b0c9e23fc000.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

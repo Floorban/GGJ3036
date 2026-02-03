@@ -19,8 +19,8 @@ var battle_time_left: float
 @export var enemy: Enemy
 
 #AUDIO
-@export var sfx_hit: String
-@export var sfx_crit: String
+var sfx_hit: String = "event:/SFX/Hit"
+var sfx_crit: String = "event:/SFX/Crit"
 
 func _ready() -> void:
 	retro_mat = retro_screen.material as ShaderMaterial
