@@ -53,7 +53,7 @@ func _process(delta: float) -> void:
 var distortion_tween: Tween
 var barrel_distortion := 0.0
 
-func _screen_shake(value: float) -> void:
+func _screen_shake(value: float, crit := false) -> void:
 	camera.add_trauma(value / 3)
 
 	var peak : float = clamp(value * 0.15, 0.05, 0.35)
@@ -64,7 +64,8 @@ func _screen_shake(value: float) -> void:
 	barrel_distortion = peak
 	retro_mat.set_shader_parameter("barrel_distortion", barrel_distortion)
 	
-	Engine.time_scale = 0.4
+	if crit:
+		Engine.time_scale = 0.4
 	
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)

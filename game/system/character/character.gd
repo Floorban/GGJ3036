@@ -9,6 +9,7 @@ var is_dead := false
 @export var max_health : float
 var health : float
 
+@export var critical_chance := 0.2
 @export var punch_strength := 0.1
 
 @export var top_down_dir := 1
@@ -182,10 +183,11 @@ func _perform_attack(target: Anatomy) -> void:
 		arm.punch(
 			punch_strength,
 			target.global_position,
-			func(): 
-			target.anatomy_hit.emit(attack_damage)
-			hit.emit(attack_damage)
-			)
+			func():
+				target.anatomy_hit.emit(attack_damage)
+				var blocked := randf() < critical_chance
+				hit.emit(attack_damage, blocked)
+		)
 
 func _perform_block(target: Anatomy) -> void:
 	if can_action:
