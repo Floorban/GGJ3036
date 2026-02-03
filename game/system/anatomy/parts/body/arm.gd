@@ -137,8 +137,8 @@ func punch(punch_speed: float, target_global_pos: Vector2, on_hit: Callable) -> 
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
-	
-	var wind_up_pos := Vector2(randf_range(1,2), randf_range(1,2))
+
+	var wind_up_pos := rest_position - arm_dir * windup_distance * windup_strength * Vector2(randf_range(1,2), randf_range(1,2))
 	
 	tween.tween_property(
 		fist_target,
