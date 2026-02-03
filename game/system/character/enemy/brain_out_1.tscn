@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://fqws2hygcgep" path="res://sprites/body_parts/FaceAssets/Enemies/EnemyMouth.png" id="11_ohoc6"]
 [ext_resource type="PackedScene" uid="uid://13tkw1wdly0n" path="res://game/system/anatomy/parts/body/brain_out_arm.tscn" id="12_q0tdi"]
 
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ut17"]
 radius = 33.98572
 
@@ -33,10 +32,11 @@ size = Vector2(76.92308, 35.38462)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqmy7"]
 size = Vector2(100.15385, 33.846153)
 
-[node name="BrainOut1" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_2ut17")]
+[node name="bran" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_2ut17")]
 script = ExtResource("2_5b2wa")
-action_cooldown = 5.0
-arm = NodePath("EnemyArmR")
+max_health = 5.0
+action_cooldown = 1.0
+arm = NodePath("BrainOutArm")
 
 [node name="Noise" type="Sprite2D" parent="." index="0" unique_id=1677025307]
 modulate = Color(1, 1, 1, 0.7372549)
@@ -131,9 +131,10 @@ position = Vector2(109.230774, -9.23077)
 max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
-position = Vector2(-108.86951, -8.617884)
+position = Vector2(-109.230774, -3.0769243)
 rotation = -0.12990488
 texture = ExtResource("10_5b2wa")
+flip_h = true
 
 [node name="MouseDetectArea" parent="Face/Features/EarR" index="1" unique_id=1106976729]
 position = Vector2(-15.25412, 29.382114)
@@ -182,11 +183,6 @@ shape = SubResource("RectangleShape2D_oqmy7")
 [node name="AnatomyUI" parent="Face/Features/Mouth" index="2" unique_id=665909425]
 z_index = 0
 
-[node name="EnemyArmR" parent="." index="3" unique_id=1972221418 instance=ExtResource("12_q0tdi")]
-z_index = 2
-position = Vector2(-97, 28)
-arm_dir = -1
-
 [node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
 anchors_preset = 0
 anchor_left = 0.0
@@ -201,6 +197,9 @@ grow_horizontal = 1
 grow_vertical = 1
 theme_override_constants/margin_left = 230
 theme_override_constants/margin_top = 100
+
+[node name="BrainOutArm" parent="." index="4" unique_id=1972221418 instance=ExtResource("12_q0tdi")]
+position = Vector2(-92, 19)
 
 [editable path="Face/Features/EyeL"]
 [editable path="Face/Features/EyeR"]

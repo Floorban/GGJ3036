@@ -15,7 +15,7 @@ joint_data/0/bone_index = 0
 joint_data/0/bone2d_node = NodePath("ArmUp")
 joint_data/1/bone_index = 1
 joint_data/1/bone2d_node = NodePath("ArmUp/ArmLow")
-joint_data/1/magnet_position = Vector2(-2000, 20)
+joint_data/1/magnet_position = Vector2(-4000, -2000)
 joint_data/2/bone_index = 2
 joint_data/2/bone2d_node = NodePath("ArmUp/ArmLow/Fist")
 joint_data/2/magnet_position = Vector2(0, 0)
@@ -38,6 +38,8 @@ specular_texture = ExtResource("6_c7w5e")
 
 [node name="BrainOutArm" type="Node2D" unique_id=1972221418]
 script = ExtResource("1_gu2ah")
+windup_distance = 30.0
+windup_strength = 5.0
 
 [node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=408280702]
 modification_stack = SubResource("SkeletonModificationStack2D_13bbr")
@@ -61,6 +63,7 @@ texture = ExtResource("2_g608g")
 
 [node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1025545314]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(500, 200)
 offset_left = -219.81076
 offset_top = -360.77582
@@ -79,20 +82,21 @@ skew = -0.1207881
 rest = Transform2D(1.0392241, -0.31928748, 0.7363789, 3.0628166, 265.38428, -1.5258789e-05)
 auto_calculate_length_and_angle = false
 length = 450.0
-bone_angle = 241.15591
+bone_angle = 247.431
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
 modulate = Color(0.69783163, 0.35847697, 0.38574123, 1)
 self_modulate = Color(0.56032693, 0.560327, 0.56032693, 1)
-z_index = 1
-position = Vector2(-91.80101, -75.66607)
+z_index = -3
+position = Vector2(-92.91809, -78.04885)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_c8blv")
 flip_v = true
 
 [node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1587456585]
 unique_name_in_owner = true
+visible = false
 offset_left = -120.730644
 offset_top = 316.94818
 offset_right = 395.26935
@@ -115,12 +119,12 @@ metadata/_local_pose_override_enabled_ = true
 [node name="SpriteFist" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow/Fist" unique_id=520692977]
 unique_name_in_owner = true
 z_index = 1
-position = Vector2(-96.91019, 37.33225)
-rotation = 2.125811
+position = Vector2(-97.17459, -41.4655)
+rotation = 2.7018425
 texture = ExtResource("7_8ybyt")
 flip_h = true
 
-[node name="FistTarget" type="Marker2D" parent="." unique_id=702061991]
+[node name="FistTarget" type="Marker2D" parent="." unique_id=742673356]
 unique_name_in_owner = true
-position = Vector2(-59, 126)
+position = Vector2(-88, 142)
 rotation = 1.9102256

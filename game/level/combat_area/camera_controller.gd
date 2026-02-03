@@ -61,6 +61,6 @@ func add_trauma(amount: float):
 
 func _shake():
 	var amount = pow(trauma, trauma_power)
-	rotation = max_roll * amount * randf_range(-1, 1)
+	rotation = max_roll * amount * randf_range(-10, 10)
 	offset.x = max_offset.x * amount * randf_range(-1, 1)
 	offset.y = max_offset.y * amount * randf_range(-1, 1)

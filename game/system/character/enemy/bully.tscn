@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://c718x58jremuc" path="res://sprites/BodyParts/Limbs/Body.png" id="4_mtw3s"]
 [ext_resource type="Texture2D" uid="uid://7v7vtwtknr1v" path="res://sprites/body_parts/Basehead/BullyBasehead.png" id="5_acmvr"]
 [ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="5_ci5v1"]
-[ext_resource type="PackedScene" uid="uid://13tkw1wdly0n" path="res://game/system/anatomy/parts/body/brain_out_arm.tscn" id="6_vprwn"]
 [ext_resource type="Texture2D" uid="uid://cyi6mum44ae3p" path="res://sprites/body_parts/FaceAssets/Enemies/Bully/BullyEye1.png" id="7_1j2w3"]
 [ext_resource type="Texture2D" uid="uid://c35mboen8d88w" path="res://sprites/body_parts/FaceAssets/Enemies/Bully/BullyEye2.png" id="7_vprwn"]
 [ext_resource type="Texture2D" uid="uid://dk2jimxvf8eah" path="res://sprites/body_parts/FaceAssets/Enemies/Bully/BullyEar2.png" id="8_ci5v1"]
 [ext_resource type="Texture2D" uid="uid://7kedrmr212j2" path="res://sprites/body_parts/FaceAssets/Enemies/Bully/BullyNose.png" id="8_mtw3s"]
 [ext_resource type="Texture2D" uid="uid://dnjocllndkyvv" path="res://sprites/body_parts/FaceAssets/Enemies/Bully/BullyHappyMouth.png" id="10_vprwn"]
+[ext_resource type="PackedScene" uid="uid://cfl7jvfvhmapj" path="res://game/system/anatomy/parts/body/bully_arm.tscn" id="12_qjg54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1j2w3"]
 size = Vector2(44.615395, 26.153858)
@@ -34,7 +34,7 @@ size = Vector2(100.15385, 33.846153)
 [node name="Bully" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_ulrfh")]
 script = ExtResource("2_acmvr")
 action_cooldown = 5.0
-arm = NodePath("EnemyArmR")
+arm = NodePath("BullyArm")
 
 [node name="Noise" type="Sprite2D" parent="." index="0" unique_id=1677025307]
 modulate = Color(1, 1, 1, 0.7372549)
@@ -168,10 +168,8 @@ shape = SubResource("RectangleShape2D_oqmy7")
 [node name="AnatomyUI" parent="Face/Features/Mouth" index="2" unique_id=665909425]
 z_index = 0
 
-[node name="EnemyArmR" parent="." index="3" unique_id=1972221418 instance=ExtResource("6_vprwn")]
-z_index = 2
-position = Vector2(-97, 28)
-arm_dir = -1
+[node name="BullyArm" parent="." index="3" unique_id=1972221418 instance=ExtResource("12_qjg54")]
+position = Vector2(-84, 4)
 
 [node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
 anchors_preset = 0

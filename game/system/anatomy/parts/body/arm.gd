@@ -75,18 +75,6 @@ func rest_pos() -> void:
 		0.25 + randf_range(-0.05,0.15)
 	)
 
-func update_windup(progress: float, attack_dir: Vector2) -> void:
-	if is_punching:
-		return
-
-	var eased := ease(progress, 0.7)
-	windup_position = rest_position - attack_dir * windup_distance * eased * windup_strength
-
-	fist_target.global_position = fist_target.global_position.lerp(
-		windup_position,
-		0.15
-	)
-
 func block_success() -> void:
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
