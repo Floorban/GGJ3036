@@ -1,0 +1,210 @@
+[gd_scene format=3 uid="uid://bavdc803jhh86"]
+
+[ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_2ut17"]
+[ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_5b2wa"]
+[ext_resource type="Texture2D" uid="uid://c7hpvptgk40bi" path="res://sprites/body_parts/Noise.png" id="3_a4lc5"]
+[ext_resource type="Texture2D" uid="uid://c718x58jremuc" path="res://sprites/BodyParts/Limbs/Body.png" id="4_ohoc6"]
+[ext_resource type="Texture2D" uid="uid://be6i27tjv1e7i" path="res://sprites/body_parts/Basehead/BaseHead2.png" id="5_2ut17"]
+[ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="6_sirja"]
+[ext_resource type="Texture2D" uid="uid://dfl6ph8khdn4j" path="res://sprites/body_parts/FaceAssets/Enemies/EnemyEye1.png" id="7_2ut17"]
+[ext_resource type="Texture2D" uid="uid://drrk5scohqatx" path="res://sprites/body_parts/FaceAssets/Enemies/EnemyeEye2.png" id="8_5b2wa"]
+[ext_resource type="Texture2D" uid="uid://dg1uohhq5arrs" path="res://sprites/body_parts/FaceAssets/Enemies/EnemyEar1.png" id="9_5b2wa"]
+[ext_resource type="Texture2D" uid="uid://cbm87l305yvl4" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutEar2.png" id="10_5b2wa"]
+[ext_resource type="Texture2D" uid="uid://d2lpd12xxlk1c" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutnose.png" id="10_a4lc5"]
+[ext_resource type="Texture2D" uid="uid://fqws2hygcgep" path="res://sprites/body_parts/FaceAssets/Enemies/EnemyMouth.png" id="11_ohoc6"]
+[ext_resource type="PackedScene" uid="uid://13tkw1wdly0n" path="res://game/system/anatomy/parts/body/enemy_arm_r.tscn" id="12_q0tdi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ut17"]
+radius = 33.98572
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5b2wa"]
+radius = 32.222443
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vprwn"]
+size = Vector2(28.004152, 67.60803)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjg54"]
+size = Vector2(24.83223, 82.101105)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci5v1"]
+size = Vector2(76.92308, 35.38462)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqmy7"]
+size = Vector2(100.15385, 33.846153)
+
+[node name="BrainOut1" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_2ut17")]
+script = ExtResource("2_5b2wa")
+action_cooldown = 5.0
+arm = NodePath("EnemyArmR")
+
+[node name="Noise" type="Sprite2D" parent="." index="0" unique_id=1677025307]
+modulate = Color(1, 1, 1, 0.7372549)
+z_index = 5
+texture_filter = 1
+position = Vector2(2, 4.7683716e-07)
+rotation = -0.06344986
+scale = Vector2(1.18494, 0.99840635)
+texture = ExtResource("3_a4lc5")
+
+[node name="Shoulder" type="Sprite2D" parent="." index="1" unique_id=799220475]
+z_index = -3
+texture_filter = 1
+rotation = -3.054326
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_ohoc6")
+
+[node name="Face" parent="." index="2" unique_id=1276534686]
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_2ut17")
+
+[node name="Shadow" type="Sprite2D" parent="Face" index="0" unique_id=1587950718]
+texture_filter = 1
+position = Vector2(3.999999, -12.000001)
+rotation = 0.087266445
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("6_sirja")
+
+[node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
+position = Vector2(-44.615383, -12.307694)
+rotation = -0.066466406
+max_hp = 4.0
+
+[node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
+position = Vector2(43.475746, 19.179356)
+rotation = -2.9323409
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("7_2ut17")
+flip_h = true
+flip_v = true
+
+[node name="MouseDetectArea" parent="Face/Features/EyeL" index="1" unique_id=1106976729]
+position = Vector2(-1.4675083, 12.378658)
+
+[node name="CollisionShape2D" parent="Face/Features/EyeL/MouseDetectArea" index="0" unique_id=149295176]
+position = Vector2(-5.7990966, -19.029821)
+shape = SubResource("CircleShape2D_2ut17")
+
+[node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
+position = Vector2(73.84616, -18.461538)
+rotation = -0.2574762
+max_hp = 4.0
+
+[node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
+position = Vector2(-72.30907, 3.044074)
+rotation = 0.12570071
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("8_5b2wa")
+flip_h = false
+
+[node name="CollisionShape2D" parent="Face/Features/EyeR/MouseDetectArea" parent_id_path=PackedInt32Array(584210078, 1106976729) index="0" unique_id=149295176]
+position = Vector2(-13.389733, -3.5257947)
+scale = Vector2(0.99999934, 0.99999934)
+shape = SubResource("CircleShape2D_5b2wa")
+
+[node name="AnatomyUI" parent="Face/Features/EyeR" index="2" unique_id=665909425]
+z_index = 0
+
+[node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
+position = Vector2(-92.3077, -7.692308)
+rotation = -0.07894593
+max_hp = 4.0
+
+[node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
+position = Vector2(106.750244, 16.161392)
+rotation = 0.17692009
+texture = ExtResource("9_5b2wa")
+
+[node name="MouseDetectArea" parent="Face/Features/EarL" index="1" unique_id=1106976729]
+position = Vector2(-11.101398, 40.74575)
+
+[node name="CollisionShape2D" parent="Face/Features/EarL/MouseDetectArea" index="0" unique_id=149295176]
+position = Vector2(0.5647583, -40.323715)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_vprwn")
+
+[node name="AnatomyUI" parent="Face/Features/EarL" index="2" unique_id=665909425]
+z_index = 0
+
+[node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
+position = Vector2(109.230774, -9.23077)
+max_hp = 4.0
+
+[node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
+position = Vector2(-108.86951, -8.617884)
+rotation = -0.12990488
+texture = ExtResource("10_5b2wa")
+
+[node name="MouseDetectArea" parent="Face/Features/EarR" index="1" unique_id=1106976729]
+position = Vector2(-15.25412, 29.382114)
+
+[node name="CollisionShape2D" parent="Face/Features/EarR/MouseDetectArea" index="0" unique_id=149295176]
+position = Vector2(16.725502, -25.793829)
+rotation = 0.23272005
+shape = SubResource("RectangleShape2D_qjg54")
+
+[node name="AnatomyUI" parent="Face/Features/EarR" index="2" unique_id=665909425]
+z_index = 0
+
+[node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
+position = Vector2(0, 16.923079)
+max_hp = 4.0
+
+[node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
+position = Vector2(-4.615385, -23.230772)
+scale = Vector2(1, 1)
+texture = ExtResource("10_a4lc5")
+
+[node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
+position = Vector2(1.5384628, 8.307694)
+shape = SubResource("RectangleShape2D_ci5v1")
+
+[node name="AnatomyUI" parent="Face/Features/Nose" index="2" unique_id=665909425]
+z_index = 0
+
+[node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
+position = Vector2(9.23077, 69.230774)
+max_hp = 4.0
+
+[node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
+position = Vector2(-6.1538463, -84.61539)
+rotation = 0.052437354
+scale = Vector2(1, 1)
+texture = ExtResource("11_ohoc6")
+
+[node name="MouseDetectArea" parent="Face/Features/Mouth" index="1" unique_id=1106976729]
+position = Vector2(3.7692382, 22.23079)
+
+[node name="CollisionShape2D" parent="Face/Features/Mouth/MouseDetectArea" index="0" unique_id=149295176]
+position = Vector2(-3.076923, -23.76926)
+shape = SubResource("RectangleShape2D_oqmy7")
+
+[node name="AnatomyUI" parent="Face/Features/Mouth" index="2" unique_id=665909425]
+z_index = 0
+
+[node name="EnemyArmR" parent="." index="3" unique_id=1972221418 instance=ExtResource("12_q0tdi")]
+z_index = 2
+position = Vector2(-97, 28)
+arm_dir = -1
+
+[node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 146.0
+offset_bottom = 199.0
+grow_horizontal = 1
+grow_vertical = 1
+theme_override_constants/margin_left = 230
+theme_override_constants/margin_top = 100
+
+[editable path="Face/Features/EyeL"]
+[editable path="Face/Features/EyeR"]
+[editable path="Face/Features/EarL"]
+[editable path="Face/Features/EarR"]
+[editable path="Face/Features/Nose"]
+[editable path="Face/Features/Mouth"]
+[editable path="CombatComponent"]
