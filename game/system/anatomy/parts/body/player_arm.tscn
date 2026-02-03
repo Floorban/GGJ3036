@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cc5iuju00imms"]
 
-[ext_resource type="Script" uid="uid://crtjhl3xse5fi" path="res://game/system/anatomy/parts/body/arm.gd" id="1_788lw"]
-[ext_resource type="Texture2D" uid="uid://bhytlnq3gthah" path="res://sprites/body_parts/Arms/MC/Biceps.png" id="2_o42ap"]
-[ext_resource type="Texture2D" uid="uid://bwdjo5rtue62q" path="res://sprites/body_parts/Arms/MC/Forearm.png" id="3_ql54a"]
-[ext_resource type="Texture2D" uid="uid://cdc7aqnujvcq0" path="res://sprites/body_parts/Arms/MC/Hand.png" id="4_ahwjh"]
+[ext_resource type="Script" uid="uid://crtjhl3xse5fi" path="res://game/system/anatomy/parts/body/arm.gd" id="1_iofsa"]
+[ext_resource type="Texture2D" uid="uid://bhytlnq3gthah" path="res://sprites/body_parts/Arms/MC/Biceps.png" id="2_ei0c6"]
+[ext_resource type="Texture2D" uid="uid://bwdjo5rtue62q" path="res://sprites/body_parts/Arms/MC/Forearm.png" id="3_vta5r"]
+[ext_resource type="Texture2D" uid="uid://cdc7aqnujvcq0" path="res://sprites/body_parts/Arms/MC/Hand.png" id="4_6yafh"]
 
 [sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_54hrx"]
 target_nodepath = NodePath("../FistTarget")
@@ -24,18 +24,18 @@ modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DFABRIK_54hrx")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ahwjh"]
-diffuse_texture = ExtResource("2_o42ap")
-normal_texture = ExtResource("2_o42ap")
-specular_texture = ExtResource("2_o42ap")
+diffuse_texture = ExtResource("2_ei0c6")
+normal_texture = ExtResource("2_ei0c6")
+specular_texture = ExtResource("2_ei0c6")
 specular_color = Color(0.24030471, 0.24030474, 0.24030471, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ql54a"]
-diffuse_texture = ExtResource("3_ql54a")
-normal_texture = ExtResource("3_ql54a")
-specular_texture = ExtResource("3_ql54a")
+diffuse_texture = ExtResource("3_vta5r")
+normal_texture = ExtResource("3_vta5r")
+specular_texture = ExtResource("3_vta5r")
 
-[node name="ArmR" type="Node2D" unique_id=1972221418]
-script = ExtResource("1_788lw")
+[node name="PlayerArm" type="Node2D" unique_id=1972221418]
+script = ExtResource("1_iofsa")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=408280702]
 modification_stack = SubResource("SkeletonModificationStack2D_54hrx")
@@ -55,7 +55,7 @@ z_index = -1
 position = Vector2(203.63818, -36.062973)
 rotation = -1.1471102
 scale = Vector2(2.7827933, 2.27478)
-texture = ExtResource("2_o42ap")
+texture = ExtResource("2_ei0c6")
 
 [node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1327626244]
 unique_name_in_owner = true
@@ -74,11 +74,11 @@ texture_progress = SubResource("CanvasTexture_ahwjh")
 position = Vector2(486.53796, 0)
 rotation = 0.9078029
 scale = Vector2(1.158101, 2.974173)
-skew = -0.12136257
+skew = -0.121362686
 rest = Transform2D(1.0392241, -0.31928748, 0.7363789, 3.0628166, 265.38428, -1.5258789e-05)
 auto_calculate_length_and_angle = false
 length = 450.0
-bone_angle = -101.73399
+bone_angle = -101.733986
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
@@ -86,7 +86,7 @@ self_modulate = Color(0.42252156, 0.42252156, 0.42252156, 1)
 z_index = 5
 position = Vector2(-22.930237, -90.75108)
 scale = Vector2(1.2209138, 1.0057294)
-texture = ExtResource("3_ql54a")
+texture = ExtResource("3_vta5r")
 
 [node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1618480170]
 unique_name_in_owner = true
@@ -115,7 +115,7 @@ unique_name_in_owner = true
 z_index = 5
 position = Vector2(-48.681885, 41.56602)
 rotation = 1.3533479
-texture = ExtResource("4_ahwjh")
+texture = ExtResource("4_6yafh")
 flip_h = true
 
 [node name="FistTarget" type="Marker2D" parent="." unique_id=702061991]
