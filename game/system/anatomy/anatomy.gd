@@ -22,8 +22,10 @@ var is_hovering := false
 
 var current_color: Color
 
-var sfx_hit: String = "event:/SFX/Hit"
-var sfx_crit: String = "event:/SFX/Crit"
+#AUDIO
+var sfx_block: String = "event:/SFX/Combat/Block"
+var sfx_crit: String = "event:/SFX/Combat/Crit"
+var sfx_hit: String = "event:/SFX/Combat/Hit"
 
 func init_part(body: Character) -> void:
 	body_owner = body
