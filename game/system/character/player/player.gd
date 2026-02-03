@@ -37,7 +37,6 @@ func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
 		return
 	if selected_target != anatomy:
 		if selected_target and selected_target.is_targeted:
-			selected_target.is_targeted = false
 			selected_target._unhighlight_target()
 		selected_target = anatomy
 		_perform_block(anatomy)
