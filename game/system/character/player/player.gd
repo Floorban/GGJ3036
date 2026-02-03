@@ -29,7 +29,7 @@ func _on_block_finished() -> void:
 	blocking_part = null
 	arm.interrupt(func(): 
 		combat_component.reset_attack_timer(action_cooldown)
-		combat_component.combat_timer.start()
+		combat_component.start()
 	)
 
 func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:

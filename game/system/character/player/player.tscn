@@ -30,7 +30,7 @@ size = Vector2(70, 20)
 script = ExtResource("2_b2mth")
 top_down_dir = -1
 attack_damage = 2.0
-action_cooldown = 1.0
+action_cooldown = 4.0
 arm = NodePath("ArmR")
 
 [node name="Face" parent="." index="0" unique_id=1276534686]
@@ -143,3 +143,4 @@ position = Vector2(103, -23)
 [editable path="Face/Features/EarR"]
 [editable path="Face/Features/Nose"]
 [editable path="Face/Features/Mouth"]
+[editable path="CombatComponent"]

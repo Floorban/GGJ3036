@@ -9,6 +9,7 @@
 
 [node name="Enemy" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_l53d7")]
 script = ExtResource("2_26h1w")
+action_cooldown = 5.0
 arm = NodePath("EnemyArmR")
 
 [node name="Noise" type="Sprite2D" parent="." index="0" unique_id=1677025307]
@@ -55,18 +56,28 @@ max_hp = 30.0
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 max_hp = 30.0
 
-[node name="CombatComponent" parent="." index="3" unique_id=823960288]
-offset_left = -219.0
-offset_top = 2.0
-offset_right = -219.0
-offset_bottom = 2.0
-
-[node name="EnemyArmR" parent="." index="4" unique_id=1972221418 instance=ExtResource("3_sopgc")]
+[node name="EnemyArmR" parent="." index="3" unique_id=1972221418 instance=ExtResource("3_sopgc")]
 z_index = 2
 position = Vector2(-97, 28)
 arm_dir = -1
+
+[node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 146.0
+offset_bottom = 199.0
+grow_horizontal = 1
+grow_vertical = 1
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 100
 
 [editable path="Face/Features/EyeR"]
 [editable path="Face/Features/EarL"]
 [editable path="Face/Features/EarR"]
 [editable path="Face/Features/Mouth"]
+[editable path="CombatComponent"]

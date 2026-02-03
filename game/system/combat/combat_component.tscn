@@ -1,19 +1,36 @@
 [gd_scene format=3 uid="uid://ytitdedgqe2j"]
 
 [ext_resource type="Script" uid="uid://dgx3liosox4lw" path="res://game/system/combat/combat_component.gd" id="1_d7a3t"]
+[ext_resource type="Texture2D" uid="uid://egk8mk2xn73u" path="res://sprites/ui/Blood.png" id="2_l4jmk"]
 
-[node name="CombatComponent" type="Control" unique_id=47785056]
-layout_mode = 3
-anchors_preset = 0
+[node name="CombatComponent" type="Node" unique_id=1362772602]
 script = ExtResource("1_d7a3t")
 
 [node name="CombatTimer" type="Timer" parent="." unique_id=971548847]
 unique_name_in_owner = true
 process_callback = 0
 
-[node name="AttackCooldownBar" type="ProgressBar" parent="." unique_id=1458516297]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=296824878]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1187610258]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -146.0
+offset_top = -199.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 100
+
+[node name="ActionCooldownBar" type="TextureProgressBar" parent="CanvasLayer/MarginContainer" unique_id=1817660194]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 0
-offset_right = 100.0
-offset_bottom = 27.0
+modulate = Color(0.73333335, 0.73333335, 0.73333335, 0.7411765)
+layout_mode = 2
+step = 0.1
+value = 100.0
+fill_mode = 8
+radial_initial_angle = 85.8
+texture_progress = ExtResource("2_l4jmk")

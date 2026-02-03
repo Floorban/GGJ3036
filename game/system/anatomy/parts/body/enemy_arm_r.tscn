@@ -64,7 +64,7 @@ offset_top = -360.77582
 offset_right = 280.18924
 offset_bottom = 355.22418
 rotation = 0.003891746
-step = 0.1
+step = 0.01
 fill_mode = 2
 texture_progress = SubResource("CanvasTexture_004is")
 
@@ -94,7 +94,7 @@ offset_top = 316.94818
 offset_right = 395.26935
 offset_bottom = 740.9482
 rotation = -1.9008528
-step = 0.1
+step = 0.01
 texture_progress = SubResource("CanvasTexture_hiita")
 
 [node name="Fist" type="Bone2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1916331396]

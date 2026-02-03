@@ -48,7 +48,7 @@ func _init_anatomy_parts() -> void:
 		)
 
 func get_ready_to_battle() -> void:
-	combat_component.combat_timer.start()
+	combat_component.start()
 
 func _process(_delta: float) -> void:
 	arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
@@ -150,8 +150,7 @@ func _on_successful_block(attacker: Character) -> void:
 	attacker.arm.interrupt(func(): attacker.can_action = false)
 	arm.block_success()
 	combat_component.reset_attack_timer(action_cooldown)
-	combat_component.combat_timer.start()
-	#attacker.combat_component.combat_timer.start()
+	combat_component.start()
 	
 	if blocking_part:
 		blocking_part._highlight_target(true)
@@ -188,7 +187,7 @@ func _on_action_finished(blocking: bool) -> void:
 		_on_attack_finished()
 
 func _on_attack_finished() -> void:
-	combat_component.combat_timer.start()
+	combat_component.start()
 
 func _on_block_finished() -> void:
 	arm.sprite_fist.modulate = Color.DIM_GRAY

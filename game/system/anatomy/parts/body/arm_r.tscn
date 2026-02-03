@@ -64,7 +64,7 @@ offset_top = -353.36325
 offset_right = 283.6075
 offset_bottom = 362.63675
 rotation = 0.008577707
-step = 0.1
+step = 0.01
 fill_mode = 2
 texture_progress = SubResource("CanvasTexture_ahwjh")
 
@@ -76,7 +76,7 @@ skew = 0.07084751
 rest = Transform2D(1.0392241, -0.31928748, 0.7363789, 3.0628166, 265.38428, -1.5258789e-05)
 auto_calculate_length_and_angle = false
 length = 450.0
-bone_angle = 241.15593
+bone_angle = 241.15591
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
@@ -94,7 +94,7 @@ offset_top = -339.63162
 offset_right = 683.4385
 offset_bottom = 84.36838
 rotation = 1.2899597
-step = 0.1
+step = 0.01
 fill_mode = 1
 texture_progress = SubResource("CanvasTexture_ql54a")
 
