@@ -53,6 +53,9 @@ max_hp = 30.0
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 max_hp = 30.0
 
+[node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
+position = Vector2(12.307696, 3.3846195)
+
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 max_hp = 30.0
 
@@ -79,5 +82,6 @@ theme_override_constants/margin_top = 100
 [editable path="Face/Features/EyeR"]
 [editable path="Face/Features/EarL"]
 [editable path="Face/Features/EarR"]
+[editable path="Face/Features/Nose"]
 [editable path="Face/Features/Mouth"]
 [editable path="CombatComponent"]
