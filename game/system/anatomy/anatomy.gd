@@ -1,9 +1,9 @@
 class_name Anatomy extends Node2D
 
 signal anatomy_clicked(anatomy: Anatomy)
-signal anatomy_damaged(amount: float)
+signal anatomy_hit(damage: float)
 
-enum PartState { HEALTHY, DAMAGED, OUT_OF_PLACE, DESTROYED }
+enum PartState { HEALTHY, DESTROYED }
 var state: PartState = PartState.HEALTHY
 
 @export var max_hp : float
@@ -11,6 +11,7 @@ var state: PartState = PartState.HEALTHY
 @export var block_amount : float
 
 @onready var sprite: Sprite2D = $Sprite
+@onready var original_color: Color = sprite.modulate
 @onready var mouse_detect_area: Area2D = $MouseDetectArea
 @onready var anatomy_ui: AnatomyUI = $AnatomyUI
 
@@ -34,6 +35,7 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			anatomy_clicked.emit(self)
 
+
 func _hover_over_part() -> void:
 	anatomy_ui.toggle_panel(true)
 	is_hovering = true
@@ -42,10 +44,25 @@ func _unhover_part() -> void:
 	anatomy_ui.toggle_panel(false)
 	is_hovering = false
 
+func _highlight_target(block_target := false) -> void:
+	if is_part_dead():
+		#sprite.modulate = Color.CHOCOLATE
+		return
+
+	if block_target:
+		if is_blocking:
+			sprite.modulate = Color.SKY_BLUE
+	elif is_targeted:
+		sprite.modulate = Color.RED
+
+func _unhighlight_target() -> void:
+	if is_part_dead():
+		return
+	sprite.modulate = original_color
+
 # refactor later when heal
 func set_hp(changed_amount: float) -> void:
 	current_hp -= changed_amount
-	anatomy_damaged.emit(changed_amount)
 	anatomy_ui.set_hp_bar(current_hp, max_hp)
 	if current_hp <= 0 and state != PartState.DESTROYED:
 		part_dead()

@@ -14,7 +14,6 @@
 [node name="Player" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_obar5")]
 script = ExtResource("2_b2mth")
 attack_damage = 2.0
-attack_cooldown = 3.0
 arm = NodePath("ArmR")
 
 [node name="Noise" type="Sprite2D" parent="." index="0" unique_id=290120544]
@@ -55,6 +54,7 @@ texture = ExtResource("4_ekhjb")
 position = Vector2(-27, 31)
 
 [node name="Sprite" parent="EyeL" index="0" unique_id=500964707]
+position = Vector2(-33, -36)
 texture = ExtResource("5_jme82")
 flip_v = true
 
@@ -62,6 +62,8 @@ flip_v = true
 position = Vector2(28, 29)
 
 [node name="Sprite" parent="EyeR" index="0" unique_id=500964707]
+position = Vector2(-25, -39)
+rotation = 0.16663721
 texture = ExtResource("5_jme82")
 flip_v = true
 

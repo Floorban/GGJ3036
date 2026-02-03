@@ -72,6 +72,7 @@ max_hp = 30.0
 [node name="EnemyArmR" parent="." index="9" unique_id=1972221418 instance=ExtResource("3_sopgc")]
 z_index = 2
 position = Vector2(-85, 24)
+arm_dir = -1
 
 [node name="CombatComponent" parent="." index="10" unique_id=823960288]
 offset_left = -219.0
