@@ -4,3 +4,4 @@
 
 [node name="CombatArea" type="Node2D" unique_id=1259752126]
 script = ExtResource("1_dt2ra")
+sfx_hit = "event:/SFX/Hit"

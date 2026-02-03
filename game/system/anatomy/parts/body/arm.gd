@@ -91,18 +91,18 @@ func block_success() -> void:
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
-	
+
 	var blocking_pos := fist_target.global_position
 	var knock_back_pos := Vector2(randf_range(-10, 10), randf_range(20,25)) * arm_dir
-	
+
 	tween.tween_property(
 		fist_target,
 		"global_position",
 		fist_target.global_position + knock_back_pos,
 		0.2 + randf_range(-0.05,0.15)
 	)
-	
-	
+
+
 	tween.tween_property(
 		fist_target,
 		"global_position",

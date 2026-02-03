@@ -19,18 +19,12 @@ var sfx_bus: FmodBus
 const PLAYING = FmodServer.FMOD_STUDIO_PLAYBACK_PLAYING
 const STOPPED = FmodServer.FMOD_STUDIO_PLAYBACK_STOPPED
 
-## -- Developer Settings --
-@export var developer_mode: bool = false
-@export var test_name: String
-var test_event: FmodEvent = null
-
 ## -- Listener Settings
 #@onready var player: PlayerController
-@onready var listener: FmodListener3D
+#@onready var listener: FmodListener3D
 
 func _ready() -> void: 
 	load_banks()
-	play(test_name)
 	#player = get_tree().get_first_node_in_group("player")
 	#listener = get_node("Essentials/FmodListener3D")
 

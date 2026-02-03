@@ -4,4 +4,9 @@
 
 [node name="AudioManager" type="Node3D" unique_id=1015518348]
 script = ExtResource("1_el7wj")
-test_name = "event:/Music/Melody"
+
+[node name="Ambience" type="FmodEventEmitter2D" parent="." unique_id=451855516]
+event_name = "event:/Music/Melody"
+event_guid = "{076e789f-20fb-433d-90a9-e2041e882d4a}"
+autoplay = true
+auto_release = true
