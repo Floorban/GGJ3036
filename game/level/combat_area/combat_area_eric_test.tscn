@@ -78,12 +78,9 @@ rotation = -0.44854963
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_5nku2")
 
-<<<<<<< Updated upstream
 [node name="BrainOut1" parent="." index="7" unique_id=1533413725 instance=ExtResource("7_b1y20")]
-=======
 [node name="BrainOut1" parent="." index="6" unique_id=1533413725 instance=ExtResource("7_b1y20")]
 visible = false
 
 [node name="FatGuy" parent="." index="7" unique_id=1077317192 instance=ExtResource("8_ett71")]
 position = Vector2(-3, -63)
->>>>>>> Stashed changes
