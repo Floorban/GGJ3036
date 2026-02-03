@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_tfnvl"]
 [ext_resource type="Texture2D" uid="uid://c7hpvptgk40bi" path="res://sprites/body_parts/Noise.png" id="3_a7cdb"]
 [ext_resource type="Texture2D" uid="uid://bodcrd2k4ipjg" path="res://sprites/body_parts/Bodies/FatGuy.png" id="4_clg4v"]
-[ext_resource type="Texture2D" uid="uid://cifygbysy4oeg" path="res://sprites/body_parts/Basehead/FatBaseHead.png" id="5_clg4v"]
+[ext_resource type="Texture2D" uid="uid://cifygbysy4oeg" path="res://sprites/body_parts/FaceAssets/Enemies/FatBoss/FatBaseHead.png" id="5_clg4v"]
 [ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="6_jf7km"]
 [ext_resource type="Texture2D" uid="uid://cmxkg3cvrkfpy" path="res://sprites/body_parts/FaceAssets/Enemies/FatBoss/FatBossEyeOne.png" id="7_clg4v"]
 [ext_resource type="Texture2D" uid="uid://di8n5qdi2pbhd" path="res://sprites/body_parts/FaceAssets/Enemies/FatBoss/FatBossEar2.png" id="8_tfnvl"]
