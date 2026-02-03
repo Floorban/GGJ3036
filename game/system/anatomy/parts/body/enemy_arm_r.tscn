@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://crtjhl3xse5fi" path="res://game/system/anatomy/parts/body/arm.gd" id="1_3tsn6"]
 [ext_resource type="Texture2D" uid="uid://j1ev066edrvp" path="res://sprites/BodyParts/Limbs/Uparm.png" id="2_004is"]
 [ext_resource type="Texture2D" uid="uid://dl2lswog5wtgw" path="res://sprites/BodyParts/Limbs/Forearms.png" id="3_hiita"]
+[ext_resource type="Texture2D" uid="uid://bj25j34mky2ol" path="res://sprites/body_parts/Arms/FatGuy/FatGuyBiceps.png" id="3_nb8xb"]
 [ext_resource type="Texture2D" uid="uid://xwpifbuqrxhe" path="res://sprites/BodyParts/Limbs/Fists.png" id="4_xtb2c"]
+[ext_resource type="Texture2D" uid="uid://pkjwsawiyogi" path="res://sprites/body_parts/Arms/FatGuy/FatGuyForearm.png" id="5_13bbr"]
+[ext_resource type="Texture2D" uid="uid://blxv1h0r70fa5" path="res://sprites/body_parts/Arms/Boxer/BoxerForearm.png" id="6_qt4jy"]
 
 [sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_nb8xb"]
 target_nodepath = NodePath("../FistTarget")
@@ -24,15 +27,14 @@ modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DFABRIK_nb8xb")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_004is"]
-diffuse_texture = ExtResource("2_004is")
-normal_texture = ExtResource("2_004is")
-specular_texture = ExtResource("2_004is")
-specular_color = Color(0.24030471, 0.24030474, 0.24030471, 1)
+diffuse_texture = ExtResource("3_nb8xb")
+normal_texture = ExtResource("3_nb8xb")
+specular_texture = ExtResource("3_nb8xb")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_hiita"]
-diffuse_texture = ExtResource("3_hiita")
-normal_texture = ExtResource("3_hiita")
-specular_texture = ExtResource("3_hiita")
+diffuse_texture = ExtResource("5_13bbr")
+normal_texture = ExtResource("5_13bbr")
+specular_texture = ExtResource("6_qt4jy")
 
 [node name="EnemyArmR" type="Node2D" unique_id=1972221418]
 script = ExtResource("1_3tsn6")
@@ -50,6 +52,7 @@ bone_angle = 0.0
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmUp" type="Sprite2D" parent="Skeleton2D/ArmUp" unique_id=1904858807]
+modulate = Color(0.91545343, 0.435371, 0.5735059, 1)
 self_modulate = Color(0.56032693, 0.560327, 0.56032693, 1)
 z_index = -1
 position = Vector2(192.66234, 10.059482)
@@ -80,6 +83,7 @@ bone_angle = 241.15591
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
+modulate = Color(0.69783163, 0.35847697, 0.38574123, 1)
 self_modulate = Color(0.56032693, 0.560327, 0.56032693, 1)
 z_index = 1
 position = Vector2(-91.80101, -75.66607)

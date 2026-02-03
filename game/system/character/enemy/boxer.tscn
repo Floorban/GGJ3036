@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_26h1w"]
 [ext_resource type="Texture2D" uid="uid://c7hpvptgk40bi" path="res://sprites/body_parts/Noise.png" id="3_0rm70"]
 [ext_resource type="PackedScene" uid="uid://13tkw1wdly0n" path="res://game/system/anatomy/parts/body/enemy_arm_r.tscn" id="3_sopgc"]
-[ext_resource type="Texture2D" uid="uid://c718x58jremuc" path="res://sprites/BodyParts/Limbs/Body.png" id="4_2soic"]
+[ext_resource type="Texture2D" uid="uid://dmj8yhqk8h7s7" path="res://sprites/body_parts/Bodies/BoxerBody.png" id="4_p4nqb"]
 [ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="5_2soic"]
 
 [node name="Boxer" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_l53d7")]
@@ -24,9 +24,10 @@ texture = ExtResource("3_0rm70")
 [node name="Shoulder" type="Sprite2D" parent="." index="1" unique_id=799220475]
 z_index = -3
 texture_filter = 1
-rotation = -3.054326
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_2soic")
+position = Vector2(2, 3.9999986)
+rotation = -3.16503
+scale = Vector2(0.55, 0.45)
+texture = ExtResource("4_p4nqb")
 
 [node name="Face" parent="." index="2" unique_id=1276534686]
 scale = Vector2(0.65, 0.65)

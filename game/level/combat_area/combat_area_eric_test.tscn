@@ -2,11 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://cjeigbydorgdu" path="res://game/level/combat_area/CombatArea.tscn" id="1_231da"]
 [ext_resource type="PackedScene" uid="uid://dvu82xeeb87ff" path="res://game/system/character/player/player.tscn" id="2_27j7o"]
+[ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="2_ett71"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="4_yn5lq"]
 [ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="5_hb3kr"]
 [ext_resource type="Texture2D" uid="uid://bk1awwhg2p6h8" path="res://sprites/Backgrounds/Arena.png" id="6_5nku2"]
 [ext_resource type="Shader" uid="uid://bqqnlybur4rdk" path="res://material/retro.gdshader" id="6_b1y20"]
 [ext_resource type="PackedScene" uid="uid://bavdc803jhh86" path="res://game/system/character/enemy/brain_out_1.tscn" id="7_b1y20"]
+[ext_resource type="PackedScene" uid="uid://c7qftgs4x4ay4" path="res://game/system/character/enemy/fat_guy.tscn" id="8_ett71"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ett71"]
 shader = ExtResource("6_b1y20")
@@ -31,23 +33,25 @@ shader_parameter/warble_speed = 3.3490001590775
 [node name="CombatAreaEricTest" unique_id=1259752126 node_paths=PackedStringArray("player", "enemy") instance=ExtResource("1_231da")]
 battle_ongoing = true
 player = NodePath("Player")
-enemy = NodePath("BrainOut1")
+enemy = NodePath("FatGuy")
 
-[node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_27j7o")]
+[node name="AudioManager" parent="." index="0" unique_id=1015518348 instance=ExtResource("2_ett71")]
+
+[node name="Player" parent="." index="1" unique_id=1861387119 instance=ExtResource("2_27j7o")]
 position = Vector2(-5.790283, 194.79175)
 top_down_dir = 1
 attack_damage = 1.0
 
-[node name="Camera" parent="." index="1" unique_id=1361226820 node_paths=PackedStringArray("follow_node") instance=ExtResource("4_yn5lq")]
+[node name="Camera" parent="." index="2" unique_id=1361226820 node_paths=PackedStringArray("follow_node") instance=ExtResource("4_yn5lq")]
 position = Vector2(25, -1)
 zoom = Vector2(2, 2)
 max_offset = Vector2(50, 100)
 follow_node = NodePath("../Center")
 
-[node name="Center" type="Marker2D" parent="." index="2" unique_id=2695179]
+[node name="Center" type="Marker2D" parent="." index="3" unique_id=2695179]
 position = Vector2(-0.7902832, 97.79175)
 
-[node name="ScreenLayer" type="CanvasLayer" parent="." index="3" unique_id=583922983]
+[node name="ScreenLayer" type="CanvasLayer" parent="." index="4" unique_id=583922983]
 layer = 0
 
 [node name="RetroScreen" type="ColorRect" parent="ScreenLayer" index="0" unique_id=1054094193]
@@ -61,12 +65,12 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.5190886, 0.12432248, 0.21945283, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="4" unique_id=1574395548]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="5" unique_id=1574395548]
 
 [node name="GameUI" parent="CanvasLayer" index="0" unique_id=1770480254 instance=ExtResource("5_hb3kr")]
 unique_name_in_owner = true
 
-[node name="Background" type="Sprite2D" parent="." index="5" unique_id=1879367137]
+[node name="Background" type="Sprite2D" parent="." index="6" unique_id=1879367137]
 modulate = Color(0.22415566, 0.5097198, 0.31566837, 0.78431374)
 z_index = -10
 position = Vector2(-6.790283, 133.79175)
@@ -74,4 +78,9 @@ rotation = -0.44854963
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_5nku2")
 
+[node name="BrainOut1" parent="." index="7" unique_id=1533413725 instance=ExtResource("7_b1y20")]
 [node name="BrainOut1" parent="." index="6" unique_id=1533413725 instance=ExtResource("7_b1y20")]
+visible = false
+
+[node name="FatGuy" parent="." index="7" unique_id=1077317192 instance=ExtResource("8_ett71")]
+position = Vector2(-3, -63)
