@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b0n0jboitaswt"]
+[gd_scene format=3 uid="uid://teuunrq7bxl5"]
 
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_66ayq"]
 [ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_yvqvv"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dqpkhg3vo62qu" path="res://sprites/body_parts/Bodies/EricBody.png" id="4_yvqvv"]
 [ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="5_y8j40"]
 [ext_resource type="Texture2D" uid="uid://cnwj52gow0ixr" path="res://sprites/body_parts/Basehead/EricBaseHead.png" id="5_yvqvv"]
-[ext_resource type="PackedScene" uid="uid://c6ojue1kighsy" path="res://game/system/anatomy/parts/body/eric_arm.tscn" id="6_jemvd"]
+[ext_resource type="PackedScene" path="res://game/system/anatomy/parts/body/eric_arm.tscn" id="6_jemvd"]
 [ext_resource type="Texture2D" uid="uid://ddhgc8fwjs6p" path="res://sprites/body_parts/FaceAssets/Enemies/Eric/EricEye1.png" id="7_16ne6"]
 [ext_resource type="Texture2D" uid="uid://bycmh4dp4kn8j" path="res://sprites/body_parts/FaceAssets/Enemies/Eric/EricEye2.png" id="8_y8j40"]
 [ext_resource type="Texture2D" uid="uid://dfrroulxy08s3" path="res://sprites/body_parts/FaceAssets/Enemies/Eric/EricNose.png" id="9_y8j40"]
@@ -29,6 +29,9 @@ size = Vector2(83.2724, 25.836197)
 
 [node name="Eric" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_66ayq")]
 script = ExtResource("2_yvqvv")
+sfx_die = "event:/SFX/NPC/Eric/Die"
+sfx_entry = "event:/SFX/NPC/Eric/Entry"
+sfx_hurt = "event:/SFX/NPC/Eric/Hit"
 action_cooldown = 0.5
 arm = NodePath("EricArm")
 
@@ -92,22 +95,13 @@ position = Vector2(10.767133, 4.6202765)
 rotation = 0.99918497
 shape = SubResource("CapsuleShape2D_cte70")
 
-[node name="AnatomyUI" parent="Face/Features/EyeR" index="2" unique_id=665909425]
-z_index = 0
-
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 visible = false
 max_hp = 4.0
 
-[node name="AnatomyUI" parent="Face/Features/EarL" index="2" unique_id=665909425]
-z_index = 0
-
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 visible = false
 max_hp = 4.0
-
-[node name="AnatomyUI" parent="Face/Features/EarR" index="2" unique_id=665909425]
-z_index = 0
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 position = Vector2(-3.0769234, -3.0769234)
@@ -120,9 +114,6 @@ texture = ExtResource("9_y8j40")
 [node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
 position = Vector2(29.230774, 18.46154)
 shape = SubResource("RectangleShape2D_1dbei")
-
-[node name="AnatomyUI" parent="Face/Features/Nose" index="2" unique_id=665909425]
-z_index = 0
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 position = Vector2(15.384615, 55.38462)
@@ -141,9 +132,6 @@ shape = SubResource("RectangleShape2D_cte70")
 position = Vector2(36.923084, -1.5384674)
 rotation = -0.67051935
 shape = SubResource("RectangleShape2D_cte70")
-
-[node name="AnatomyUI" parent="Face/Features/Mouth" index="2" unique_id=665909425]
-z_index = 0
 
 [node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
 anchors_preset = 0

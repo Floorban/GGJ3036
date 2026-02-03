@@ -9,6 +9,9 @@
 
 [node name="Boxer" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_l53d7")]
 script = ExtResource("2_26h1w")
+sfx_die = "event:/SFX/NPC/Boxer/Die"
+sfx_entry = "event:/SFX/NPC/Boxer/Entry"
+sfx_hurt = "event:/SFX/NPC/Boxer/Hit"
 action_cooldown = 5.0
 arm = NodePath("BoxerArm")
 
@@ -45,20 +48,11 @@ max_hp = 4.0
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
 max_hp = 4.0
 
-[node name="AnatomyUI" parent="Face/Features/EyeR" index="2" unique_id=665909425]
-z_index = 0
-
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 max_hp = 4.0
 
-[node name="AnatomyUI" parent="Face/Features/EarL" index="2" unique_id=665909425]
-z_index = 0
-
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 max_hp = 4.0
-
-[node name="AnatomyUI" parent="Face/Features/EarR" index="2" unique_id=665909425]
-z_index = 0
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 max_hp = 4.0
@@ -66,14 +60,8 @@ max_hp = 4.0
 [node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
 position = Vector2(12.307696, 3.3846195)
 
-[node name="AnatomyUI" parent="Face/Features/Nose" index="2" unique_id=665909425]
-z_index = 0
-
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 max_hp = 4.0
-
-[node name="AnatomyUI" parent="Face/Features/Mouth" index="2" unique_id=665909425]
-z_index = 0
 
 [node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
 anchors_preset = 0

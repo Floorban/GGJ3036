@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dinutlwchqjrv"
+path="res://.godot/imported/v_Eric_Die.ogg-85070ae940bfc81c8047fe1f9d179656.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/v_Eric_Die.ogg"
+dest_files=["res://.godot/imported/v_Eric_Die.ogg-85070ae940bfc81c8047fe1f9d179656.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

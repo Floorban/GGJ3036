@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cw2h8y8b1byj4"
+path="res://.godot/imported/v_Brain_Hurt.ogg-2ff88632a6c23cc47c1f7083fe0e7bf5.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/v_Brain_Hurt.ogg"
+dest_files=["res://.godot/imported/v_Brain_Hurt.ogg-2ff88632a6c23cc47c1f7083fe0e7bf5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

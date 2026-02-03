@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cri7ght50im7r"
+path="res://.godot/imported/v_Bully_Hurt.ogg-82f586714cb2cf9fc01743d143148141.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/v_Bully_Hurt.ogg"
+dest_files=["res://.godot/imported/v_Bully_Hurt.ogg-82f586714cb2cf9fc01743d143148141.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

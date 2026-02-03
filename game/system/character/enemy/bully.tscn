@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cxo0b3lr3mm6c"]
 
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_ulrfh"]
-[ext_resource type="Script" uid="uid://bekoj2k85xcbh" path="res://game/system/character/enemy/bully.gd" id="2_qjg54"]
+[ext_resource type="Script" path="res://game/system/character/enemy/bully.gd" id="2_qjg54"]
 [ext_resource type="Texture2D" uid="uid://c7hpvptgk40bi" path="res://sprites/body_parts/Noise.png" id="3_1j2w3"]
 [ext_resource type="Texture2D" uid="uid://c718x58jremuc" path="res://sprites/BodyParts/Limbs/Body.png" id="4_mtw3s"]
 [ext_resource type="Texture2D" uid="uid://7v7vtwtknr1v" path="res://sprites/body_parts/Basehead/BullyBasehead.png" id="5_acmvr"]
@@ -33,6 +33,9 @@ size = Vector2(100.15385, 33.846153)
 
 [node name="Bully" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_ulrfh")]
 script = ExtResource("2_qjg54")
+sfx_die = "event:/SFX/NPC/Boxer/Die"
+sfx_entry = "event:/SFX/NPC/Bully/Entry"
+sfx_hurt = "event:/SFX/NPC/Bully/Hit"
 action_cooldown = 7.0
 arm = NodePath("BullyArm")
 
@@ -84,15 +87,6 @@ position = Vector2(1.1290627, -17.599846)
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_1j2w3")
 
-[node name="AnatomyUI" parent="Face/Features/EyeL" index="2" unique_id=665909425]
-visible = false
-z_index = 5
-offset_left = -52.0
-offset_top = 12.0
-offset_right = 148.0
-offset_bottom = 72.0
-mouse_filter = 2
-
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
 position = Vector2(61.53846, -21.53846)
 max_hp = 2.0
@@ -107,14 +101,6 @@ texture = ExtResource("7_vprwn")
 position = Vector2(-19.22763, -10.006214)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_mtw3s")
-
-[node name="AnatomyUI" parent="Face/Features/EyeR" index="2" unique_id=665909425]
-visible = false
-offset_left = -52.0
-offset_top = 12.0
-offset_right = 148.0
-offset_bottom = 72.0
-mouse_filter = 2
 
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 position = Vector2(-92.3077, -7.692308)
@@ -133,14 +119,6 @@ position = Vector2(7.873871, -48.335056)
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_vprwn")
 
-[node name="AnatomyUI" parent="Face/Features/EarL" index="2" unique_id=665909425]
-visible = false
-offset_left = -52.0
-offset_top = 12.0
-offset_right = 148.0
-offset_bottom = 72.0
-mouse_filter = 2
-
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 position = Vector2(92.30769, -6.1538467)
 max_hp = 1.0
@@ -157,28 +135,12 @@ position = Vector2(0.17285156, -41.535606)
 rotation = 0.053586222
 shape = SubResource("RectangleShape2D_qjg54")
 
-[node name="AnatomyUI" parent="Face/Features/EarR" index="2" unique_id=665909425]
-visible = false
-offset_left = -52.0
-offset_top = 12.0
-offset_right = 148.0
-offset_bottom = 72.0
-mouse_filter = 2
-
 [node name="Sprite" parent="Face/Features/Nose" parent_id_path=PackedInt32Array(1350482542) index="0" unique_id=500964707]
 texture = ExtResource("8_mtw3s")
 
 [node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
 position = Vector2(1.5384628, 8.307694)
 shape = SubResource("RectangleShape2D_ci5v1")
-
-[node name="AnatomyUI" parent="Face/Features/Nose" parent_id_path=PackedInt32Array(1350482542) index="2" unique_id=665909425]
-visible = false
-offset_left = -52.0
-offset_top = 12.0
-offset_right = 148.0
-offset_bottom = 72.0
-mouse_filter = 2
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 position = Vector2(3.0769234, 41.538464)
@@ -194,14 +156,6 @@ position = Vector2(3.7692382, 22.23079)
 [node name="CollisionShape2D" parent="Face/Features/Mouth/MouseDetectArea" index="0" unique_id=149295176]
 position = Vector2(-3.076923, -25.384628)
 shape = SubResource("RectangleShape2D_oqmy7")
-
-[node name="AnatomyUI" parent="Face/Features/Mouth" index="2" unique_id=665909425]
-visible = false
-offset_left = -52.0
-offset_top = 12.0
-offset_right = 148.0
-offset_bottom = 72.0
-mouse_filter = 2
 
 [node name="BullyArm" parent="." index="3" unique_id=1972221418 instance=ExtResource("12_qjg54")]
 position = Vector2(-84, 4)

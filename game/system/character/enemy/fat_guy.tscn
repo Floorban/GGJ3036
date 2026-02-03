@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c7qftgs4x4ay4"]
+[gd_scene format=3 uid="uid://dljdyyicgs435"]
 
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_clg4v"]
 [ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_tfnvl"]
@@ -33,6 +33,9 @@ size = Vector2(73.84616, 35.38462)
 
 [node name="FatGuy" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_clg4v")]
 script = ExtResource("2_tfnvl")
+sfx_die = "event:/SFX/NPC/Fatso/Die"
+sfx_entry = "event:/SFX/NPC/Fatso/Entry"
+sfx_hurt = "event:/SFX/NPC/Fatso/Hit"
 max_health = 5.0
 attack_damage = 5.0
 arm = NodePath("FatArm")
@@ -103,9 +106,6 @@ position = Vector2(-10.459438, -5.389021)
 scale = Vector2(0.99999934, 0.99999934)
 shape = SubResource("RectangleShape2D_mtw3s")
 
-[node name="AnatomyUI" parent="Face/Features/EyeR" index="2" unique_id=665909425]
-z_index = 0
-
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 position = Vector2(-96.92309, -12.3076935)
 rotation = -0.07894593
@@ -123,9 +123,6 @@ position = Vector2(-11.101398, 40.74575)
 position = Vector2(15.595009, -35.822727)
 rotation = 0.19848087
 shape = SubResource("RectangleShape2D_tfnvl")
-
-[node name="AnatomyUI" parent="Face/Features/EarL" index="2" unique_id=665909425]
-z_index = 0
 
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 position = Vector2(92.30769, -6.1538467)
@@ -145,9 +142,6 @@ rotation = -0.47124133
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_clg4v")
 
-[node name="AnatomyUI" parent="Face/Features/EarR" index="2" unique_id=665909425]
-z_index = 0
-
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 position = Vector2(1.5384617, -9.23077)
 max_hp = 4.0
@@ -160,9 +154,6 @@ texture = ExtResource("10_clg4v")
 [node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
 position = Vector2(1.5384617, 9.23077)
 shape = SubResource("CircleShape2D_clg4v")
-
-[node name="AnatomyUI" parent="Face/Features/Nose" index="2" unique_id=665909425]
-z_index = 0
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 position = Vector2(3.0769234, 41.538464)
@@ -178,9 +169,6 @@ position = Vector2(4.615385, 29.23077)
 [node name="CollisionShape2D" parent="Face/Features/Mouth/MouseDetectArea" index="0" unique_id=149295176]
 position = Vector2(-1.5384626, -20.769241)
 shape = SubResource("RectangleShape2D_a7cdb")
-
-[node name="AnatomyUI" parent="Face/Features/Mouth" index="2" unique_id=665909425]
-z_index = 0
 
 [node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
 anchors_preset = 0

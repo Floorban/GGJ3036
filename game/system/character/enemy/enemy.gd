@@ -1,8 +1,14 @@
 class_name Enemy extends Character
 
+#AUDIO
+@export var sfx_die: String
+@export var sfx_entry: String
+@export var sfx_hurt: String
+
 var next_target: Anatomy
 
 func get_ready_to_battle() -> void:
+	audio.play(sfx_entry)
 	super.get_ready_to_battle()
 	_perform_attack(next_target)
 	arm.action_finished.connect(func(_blocking: bool): next_target = choose_target())

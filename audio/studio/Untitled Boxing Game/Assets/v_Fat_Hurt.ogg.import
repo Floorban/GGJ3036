@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://djhxufla21env"
+path="res://.godot/imported/v_Fat_Hurt.ogg-da5fdb5e207bd8836ac09082088a2df2.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/v_Fat_Hurt.ogg"
+dest_files=["res://.godot/imported/v_Fat_Hurt.ogg-da5fdb5e207bd8836ac09082088a2df2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
