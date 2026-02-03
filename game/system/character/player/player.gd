@@ -41,11 +41,11 @@ func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
 		selected_target = anatomy
 		_perform_block(anatomy)
 	else:
+		selected_target = null
 		if blocking_part:
 			blocking_part.is_blocking = false
 		blocking_part = null
-		selected_target._unhighlight_target()
-		selected_target = null
+		anatomy._unhighlight_target()
 		arm.rest_pos()
 
 func _on_enemy_anatomy_clicked(anatomy: Anatomy) -> void:
@@ -59,13 +59,10 @@ func _on_enemy_anatomy_clicked(anatomy: Anatomy) -> void:
 		anatomy.is_targeted = true
 		anatomy._highlight_target()
 		if selected_target:
-			selected_target.is_targeted = false
 			selected_target._unhighlight_target()
 		selected_target = anatomy
 		if can_action:
 			_perform_attack(selected_target)
 	else:
-		selected_target.is_targeted = false
-		selected_target._unhighlight_target()
 		selected_target = null
-		
+		anatomy._unhighlight_target()
