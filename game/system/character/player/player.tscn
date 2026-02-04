@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b2ckq0bnxkhvc" path="res://sprites/body_parts/FaceAssets/Eye.png" id="8_388rn"]
 [ext_resource type="Texture2D" uid="uid://b8hrd4p7oqxrv" path="res://sprites/body_parts/FaceAssets/Beard4.png" id="8_eq501"]
 [ext_resource type="Texture2D" uid="uid://dgfbrc3ii8iw6" path="res://sprites/body_parts/FaceAssets/Ear1.png" id="9_eq501"]
-[ext_resource type="PackedScene" uid="uid://bo27tujcgh2id" path="res://game/system/character/player/fix_area.tscn" id="9_hu301"]
+[ext_resource type="PackedScene" uid="uid://cu05fkjh25k63" path="res://game/system/character/player/fix_area.tscn" id="9_hu301"]
 [ext_resource type="Texture2D" uid="uid://b3w53qi4iph3g" path="res://sprites/body_parts/FaceAssets/Ear2.png" id="10_hu301"]
 [ext_resource type="Texture2D" uid="uid://d1r4bn32e30v7" path="res://sprites/body_parts/FaceAssets/MouthPainExp.png" id="11_f2h07"]
 [ext_resource type="Texture2D" uid="uid://defn8lxlh0cq7" path="res://sprites/body_parts/Bodies/MCbody.png" id="12_f2h07"]

@@ -16,6 +16,7 @@ func _ready() -> void:
 func receive_anatomy(anatomy: Anatomy) -> void:
 	if anatomy.anatomy_type != anatomy_type:
 		return
+	anatomy.is_being_dragged = false
 	anatomy.recover_part()
 	anatomy.position = position
 	anatomy.rotation = rotation
@@ -26,7 +27,6 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 		return
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			print("s")
 			var target : Anatomy = player.arm.dragging_obj 
 			receive_anatomy(target)
 			get_viewport().set_input_as_handled()

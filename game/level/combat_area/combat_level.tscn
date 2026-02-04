@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cxo0b3lr3mm6c" path="res://game/system/character/enemy/bully.tscn" id="3_i2c52"]
 [ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/boxer.tscn" id="4_kjrlu"]
 [ext_resource type="PackedScene" uid="uid://bavdc803jhh86" path="res://game/system/character/enemy/brain_out_1.tscn" id="5_ay0ac"]
-[ext_resource type="PackedScene" uid="uid://dljdyyicgs435" path="res://game/system/character/enemy/fat_guy.tscn" id="6_fhe53"]
-[ext_resource type="PackedScene" uid="uid://teuunrq7bxl5" path="res://game/system/character/enemy/eric.tscn" id="7_28xsa"]
-[ext_resource type="PackedScene" uid="uid://c3joaeokc1h1s" path="res://game/system/character/enemy/brain_out_2.tscn" id="8_g1ogi"]
+[ext_resource type="PackedScene" uid="uid://c7qftgs4x4ay4" path="res://game/system/character/enemy/fat_guy.tscn" id="6_fhe53"]
+[ext_resource type="PackedScene" uid="uid://b0n0jboitaswt" path="res://game/system/character/enemy/eric.tscn" id="7_28xsa"]
+[ext_resource type="PackedScene" uid="uid://c07hnykxqlg1x" path="res://game/system/character/enemy/brain_out_2.tscn" id="8_g1ogi"]
 [ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="9_tgsw3"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="10_xaya2"]
 [ext_resource type="Shader" uid="uid://bqqnlybur4rdk" path="res://material/retro.gdshader" id="11_5tn5e"]
@@ -24,7 +24,7 @@ shader_parameter/vignette_darkness = 0.4810000228475
 shader_parameter/vignette_outer_radius = 0.76600003312512
 shader_parameter/vignette_inner_radius = 0.26400001254
 shader_parameter/scanline_intensity = 0.0
-shader_parameter/barrel_distortion = 1.0
+shader_parameter/barrel_distortion = 0.50000002375
 shader_parameter/chromatic_aberration = 0.002000000095
 shader_parameter/crt_vignette_power = 2.98000014155
 shader_parameter/pixel_resolution_x = 400
@@ -45,13 +45,12 @@ battle_duration = 500.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
-position = Vector2(-5.790283, 194.79175)
+position = Vector2(0, 175)
 top_down_dir = 1
 
 [node name="Enemies" type="Node2D" parent="." index="1" unique_id=1222997985]
 
 [node name="Bully" parent="Enemies" index="0" unique_id=1348200660 instance=ExtResource("3_i2c52")]
-visible = false
 
 [node name="Boxer" parent="Enemies" index="1" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false

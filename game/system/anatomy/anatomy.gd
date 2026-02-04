@@ -21,6 +21,7 @@ var body_owner : Character
 var is_targeted := false
 var is_blocking := false
 var is_hovering := false
+var is_being_dragged := false
 
 var current_color: Color
 
@@ -56,11 +57,12 @@ func recover_part() -> void:
 	sprite.modulate = current_color
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
-	if state == PartState.DESTROYED:
+	if state == PartState.DESTROYED or is_being_dragged:
 		return
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			anatomy_clicked.emit(self)
+			is_being_dragged = true
 			get_viewport().set_input_as_handled()
 
 func _hover_over_part() -> void:

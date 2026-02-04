@@ -119,7 +119,7 @@ func _screen_shake(value: float, crit := false) -> void:
 			barrel_distortion = v
 			retro_mat.set_shader_parameter("barrel_distortion", v),
 		barrel_distortion,
-		1.0,
+		0.5,
 		0.3 + randf_range(-0.05, 0.15)
 	)
 	
