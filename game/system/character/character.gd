@@ -64,17 +64,25 @@ func _init_anatomy_parts() -> void:
 		max_health += part.max_hp
 
 func get_ready_to_battle() -> void:
-	combat_component.start()
+	start_round()
 	is_dead = false
-	can_control = true
 	for part in anatomy_parts:
 		part.recover_part()
 	health = max_health
 
 func end_battle() -> void:
+	for part in anatomy_parts:
+		part.is_blocking = false
+		part.is_targeted = false
+		part._unhighlight_target()
 	combat_component.stop()
+	can_action = false
 	can_control = false
-	arm.set_cd_bar(0,0)
+	arm.set_cd_bar(0,1)
+
+func start_round() -> void:
+	combat_component.start()
+	can_control = true
 
 func _process(_delta: float) -> void:
 	if is_dead or not can_control or is_stuned:
@@ -207,6 +215,10 @@ func _on_successful_block(attacker: Character) -> void:
 		blocking_part._highlight_target(true)
 
 func _perform_attack(target: Anatomy) -> void:
+	#if not can_control:
+		#target.is_targeted = false
+		#target._unhighlight_target()
+	#return
 	can_action = false
 	arm._on_arm_charge_finished(punch_strength * 3)
 	await get_tree().create_timer(punch_strength * 2).timeout
@@ -217,6 +229,10 @@ func _perform_attack(target: Anatomy) -> void:
 			punch_strength,
 			target.global_position,
 			func():
+				if not can_control:
+					target.is_targeted = false
+					target._unhighlight_target()
+					return
 				var crit := randf() < critical_chance
 				var dmg := attack_damage
 				if crit: dmg *= 3
@@ -233,12 +249,14 @@ func _perform_block(target: Anatomy) -> void:
 	arm.block(target.global_position)
 
 func _on_action_ready() -> void:
+	if not can_control:
+		return
 	can_action = true
 	if blocking_part:
 		arm._on_arm_charge_finished(punch_strength * 3)
 
 func _on_action_finished(blocking: bool) -> void:
-	if not blocking:
+	if not blocking and can_control:
 		_on_attack_finished()
 
 func _on_attack_finished() -> void:
@@ -254,6 +272,8 @@ func _on_block_finished() -> void:
 	blocking_part = null
 
 func choose_target() -> Anatomy:
+	if not can_control:
+		return
 	if opponent == null:
 		targeting_part = null
 		return null

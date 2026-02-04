@@ -60,7 +60,6 @@ texture = ExtResource("2_ei0c6")
 
 [node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1327626244]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(500, 200)
 offset_left = -95.032974
 offset_top = -152.14166
@@ -94,7 +93,6 @@ texture = ExtResource("3_vta5r")
 
 [node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1618480170]
 unique_name_in_owner = true
-visible = false
 offset_left = -106.78223
 offset_top = -138.12462
 offset_right = 104.21777

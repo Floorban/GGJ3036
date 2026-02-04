@@ -5,13 +5,15 @@ signal battle_end
 
 @onready var arena_center: Marker2D = %ArenaCenter
 @onready var corner: Marker2D = %Corner
+var start_pos : Vector2
 
 @onready var camera: CameraController = $Camera
 @onready var game_ui: GameUI = %GameUI
 @onready var retro_screen: ColorRect = %RetroScreen
 var retro_mat: ShaderMaterial
 @export var battle_duration := 40.0
-var break_duration := 20.0
+var break_duration := 5.0
+var in_break := false
 var battle_time_left: float
 
 # level 0 is tutorial VS bully
@@ -25,13 +27,14 @@ var enemies: Array[Enemy]
 var enemy: Enemy
 
 func _ready() -> void:
+	start_pos = player.position
 	enemies.clear()
 	for e in $Enemies.get_children():
 		if e is Enemy:
 			enemies.append(e)
 	retro_mat = retro_screen.material as ShaderMaterial
-	init_combat_arena(current_level)
-	#start_battle()
+	#init_combat_arena(current_level)
+	start_battle()
 	first_level = false
 
 func init_combat_arena(level : int) -> void:
@@ -56,17 +59,28 @@ func start_battle() -> void:
 	battle_start.emit()
 
 func end_battle() -> void:
-	player.end_battle()
-	enemy.end_battle()
-	battle_time_left = 0
+	in_break = true
+	battle_time_left = 1000
 	battle_end.emit()
 	advance_enemy()
 
 func advance_enemy() -> void:
+	player.opponent = null
 	enemy.visible = false
+	enemy.process_mode = Node.PROCESS_MODE_DISABLED
 	current_level += 1
 
+func next_round() -> void:
+	in_break = false
+	player.arm.movable_by_mouse = false
+	battle_time_left = battle_duration
+	player.global_position = start_pos
+	camera.switch_target(arena_center, 100.0)
+	player.start_round()
+	enemy.start_round()
+
 func end_round() -> void:
+	in_break = true
 	current_round += 1
 	player.end_battle()
 	enemy.end_battle()
@@ -75,10 +89,15 @@ func end_round() -> void:
 		end_battle()
 	else:
 		camera.switch_target(corner, 100.0)
+		player.global_position = corner.global_position
+	player.arm.movable_by_mouse = true
 
 func _process(delta: float) -> void:
 	if battle_time_left <= 0:
-		end_round()
+		if in_break:
+			next_round()
+		else:
+			end_round()
 	else:
 		battle_time_left -= delta
 		game_ui.set_round_ui(battle_time_left)

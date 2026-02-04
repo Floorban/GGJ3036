@@ -21,6 +21,7 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 	anatomy.position = position
 	anatomy.rotation = rotation
 	player.arm.dragging_obj = null
+	is_occupied =  true
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if player.arm.dragging_obj == null:
@@ -28,7 +29,7 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			var target : Anatomy = player.arm.dragging_obj 
-			player.arm.z_index = 0
+			player.arm.z_index = 2
 			receive_anatomy(target)
 			get_viewport().set_input_as_handled()
 

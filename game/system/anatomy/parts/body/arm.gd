@@ -5,7 +5,6 @@ signal action_finished(blocking: bool)
 @export var movable_by_mouse := false
 @export var dragging_obj: Node2D
 
-
 var arm_og_color: Color
 @onready var sprite_arm_up: Sprite2D = %SpriteArmUp
 @onready var sprite_arm_low: Sprite2D = %SpriteArmLow
