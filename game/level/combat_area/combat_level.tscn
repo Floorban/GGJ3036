@@ -41,7 +41,7 @@ glow_strength = 0.74
 glow_bloom = 0.42
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
-battle_duration = 8.0
+battle_duration = 10.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
@@ -51,13 +51,17 @@ top_down_dir = 1
 [node name="Enemies" type="Node2D" parent="." index="1" unique_id=1222997985]
 
 [node name="Bully" parent="Enemies" index="0" unique_id=1348200660 instance=ExtResource("3_i2c52")]
+visible = false
+position = Vector2(0, -13)
 action_cooldown = 2.0
 
 [node name="Boxer" parent="Enemies" index="1" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false
+position = Vector2(0, -13)
 
 [node name="BrainOut1" parent="Enemies" index="2" unique_id=710006968 instance=ExtResource("5_ay0ac")]
 visible = false
+position = Vector2(0, -13)
 
 [node name="FatGuy" parent="Enemies" index="3" unique_id=1388912655 instance=ExtResource("6_fhe53")]
 visible = false
@@ -65,9 +69,11 @@ position = Vector2(-3, -63)
 
 [node name="Eric" parent="Enemies" index="4" unique_id=856538371 instance=ExtResource("7_28xsa")]
 visible = false
+position = Vector2(0, -13)
 
 [node name="BrainOut2" parent="Enemies" index="5" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
 visible = false
+position = Vector2(0, -13)
 
 [node name="AudioManager" parent="." index="2" unique_id=1015518348 instance=ExtResource("9_tgsw3")]
 
@@ -82,7 +88,7 @@ follow_node = NodePath("../ArenaCenter")
 
 [node name="ArenaCenter" type="Marker2D" parent="." index="4" unique_id=404406666]
 unique_name_in_owner = true
-position = Vector2(9, 78)
+position = Vector2(9, 60)
 
 [node name="Corner" type="Marker2D" parent="." index="5" unique_id=1210708224]
 unique_name_in_owner = true

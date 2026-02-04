@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dmj8yhqk8h7s7" path="res://sprites/body_parts/Bodies/BoxerBody.png" id="4_p4nqb"]
 [ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="5_2soic"]
 [ext_resource type="Texture2D" uid="uid://cf7r76jwh0wg3" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerEar1.png" id="6_1b26b"]
-[ext_resource type="Texture2D" uid="uid://b56sq1ns8ntd7" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerAngryEye.png" id="6_oepvl"]
 [ext_resource type="PackedScene" uid="uid://c8e5bllrxa3un" path="res://game/system/anatomy/parts/body/boxer_arm.tscn" id="6_p4nqb"]
 [ext_resource type="Texture2D" uid="uid://daso861gbapgv" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerEye.png" id="6_xh6fd"]
 [ext_resource type="Texture2D" uid="uid://5ksven807827" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerNose.png" id="7_trmn6"]
@@ -68,7 +67,7 @@ shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trmn6"]
 shader = SubResource("Shader_2ro5p")
-shader_parameter/sprite_texture = ExtResource("6_oepvl")
+shader_parameter/sprite_texture = ExtResource("6_xh6fd")
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/glowSize = 4.00000019
 shader_parameter/glowDensity = 30
@@ -110,6 +109,9 @@ shader_parameter/glowAngle = 1.57
 shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oepvl"]
+size = Vector2(76.97929, 25.3265)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xh6fd"]
 shader = SubResource("Shader_2ro5p")
 shader_parameter/sprite_texture = ExtResource("10_xh6fd")
@@ -122,7 +124,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p4nqb"]
-radius = 29.234062
+radius = 30.772518
 height = 132.3141
 
 [node name="Boxer" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_l53d7")]
@@ -171,9 +173,14 @@ texture = ExtResource("6_xh6fd")
 
 [node name="Sprite" parent="Face/Features/EyeR" parent_id_path=PackedInt32Array(584210078) index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_trmn6")
+position = Vector2(27.396702, -26.602942)
+rotation = -3.3744605
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_xh6fd")
 
 [node name="CollisionShape2D" parent="Face/Features/EyeR/MouseDetectArea" parent_id_path=PackedInt32Array(584210078, 1106976729) index="0" unique_id=149295176]
-scale = Vector2(0.99999994, 0.99999994)
+position = Vector2(-5.884514, 3.8146973e-06)
+scale = Vector2(0.9999998, 0.9999998)
 
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 max_hp = 1.0
@@ -188,7 +195,8 @@ max_hp = 1.0
 material = SubResource("ShaderMaterial_6xh16")
 
 [node name="CollisionShape2D" parent="Face/Features/EarR/MouseDetectArea" parent_id_path=PackedInt32Array(959483894, 1106976729) index="0" unique_id=149295176]
-position = Vector2(7.2961884, -29.307701)
+position = Vector2(9.615379, -29.307713)
+rotation = 0.084238775
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 max_hp = 4.0
@@ -197,7 +205,13 @@ max_hp = 4.0
 material = SubResource("ShaderMaterial_oepvl")
 
 [node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
-position = Vector2(12.307696, 1.4615397)
+position = Vector2(9.230772, -3.3461556)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="1" unique_id=1052547492]
+position = Vector2(11.030829, 24.900145)
+rotation = -0.051714513
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_oepvl")
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 max_hp = 4.0
@@ -208,7 +222,7 @@ position = Vector2(-8.769228, -67.92307)
 rotation = 0.03633562
 
 [node name="CollisionShape2D" parent="Face/Features/Mouth/MouseDetectArea" parent_id_path=PackedInt32Array(508432269, 1106976729) index="0" unique_id=149295176]
-position = Vector2(-2.615385, 9.000005)
+position = Vector2(-2.6153865, 16.692312)
 rotation = -1.5729835
 shape = SubResource("CapsuleShape2D_p4nqb")
 
