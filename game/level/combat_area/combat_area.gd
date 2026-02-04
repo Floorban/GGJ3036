@@ -5,6 +5,7 @@ signal battle_end
 
 @onready var arena_center: Marker2D = %ArenaCenter
 @onready var corner: Marker2D = %Corner
+@onready var enemies_container: Node2D = $Enemies
 var start_pos : Vector2
 
 @onready var camera: CameraController = $Camera
@@ -29,7 +30,7 @@ var enemy: Enemy
 func _ready() -> void:
 	start_pos = player.position
 	enemies.clear()
-	for e in $Enemies.get_children():
+	for e in enemies_container.get_children():
 		if e is Enemy:
 			enemies.append(e)
 	retro_mat = retro_screen.material as ShaderMaterial
@@ -74,8 +75,24 @@ func next_round() -> void:
 	in_break = false
 	player.arm.movable_by_mouse = false
 	battle_time_left = battle_duration
-	player.global_position = start_pos
-	camera.switch_target(arena_center, 100.0)
+	camera.switch_target(arena_center, 50)
+	
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_OUT)
+
+	tween.tween_property(
+		enemies_container,
+		"position",
+		Vector2.ZERO,
+		0.3
+	)
+	tween.tween_property(
+		camera,
+		"zoom",
+		Vector2.ONE * 2,
+		0.2
+	)
 	player.start_round()
 	enemy.start_round()
 
@@ -88,8 +105,24 @@ func end_round() -> void:
 	if current_round >= max_round:
 		end_battle()
 	else:
-		camera.switch_target(corner, 100.0)
-		player.global_position = corner.global_position
+		camera.switch_target(player, 50)
+		var tween := create_tween()
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.set_ease(Tween.EASE_IN_OUT)
+
+		tween.tween_property(
+			enemies_container,
+			"position",
+			corner.position,
+			0.5
+		)
+		
+		tween.tween_property(
+			camera,
+			"zoom",
+			Vector2.ONE * 2.8,
+			0.5
+		)
 	player.arm.movable_by_mouse = true
 
 func _process(delta: float) -> void:

@@ -41,7 +41,6 @@ glow_strength = 0.74
 glow_bloom = 0.42
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
-battle_duration = 15.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
@@ -50,30 +49,36 @@ top_down_dir = 1
 
 [node name="Enemies" type="Node2D" parent="." index="1" unique_id=1222997985]
 
-[node name="Bully" parent="Enemies" index="0" unique_id=1348200660 instance=ExtResource("3_i2c52")]
+[node name="Background" type="Sprite2D" parent="Enemies" index="0" unique_id=697461009]
+modulate = Color(0.22415566, 0.5097198, 0.31566837, 0.78431374)
+z_index = -10
+position = Vector2(-6.790283, 133.79175)
+rotation = -0.44854963
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_ldpml")
+
+[node name="Bully" parent="Enemies" index="1" unique_id=1348200660 instance=ExtResource("3_i2c52")]
 visible = false
 position = Vector2(0, -13)
 critical_chance = 0.0
-attack_damage = 2.5
-action_cooldown = 0.5
 
-[node name="Boxer" parent="Enemies" index="1" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
+[node name="Boxer" parent="Enemies" index="2" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false
 position = Vector2(0, -13)
 
-[node name="BrainOut1" parent="Enemies" index="2" unique_id=710006968 instance=ExtResource("5_ay0ac")]
+[node name="BrainOut1" parent="Enemies" index="3" unique_id=710006968 instance=ExtResource("5_ay0ac")]
 visible = false
 position = Vector2(0, -13)
 
-[node name="FatGuy" parent="Enemies" index="3" unique_id=1388912655 instance=ExtResource("6_fhe53")]
+[node name="FatGuy" parent="Enemies" index="4" unique_id=1388912655 instance=ExtResource("6_fhe53")]
 visible = false
 position = Vector2(-3, -63)
 
-[node name="Eric" parent="Enemies" index="4" unique_id=856538371 instance=ExtResource("7_28xsa")]
+[node name="Eric" parent="Enemies" index="5" unique_id=856538371 instance=ExtResource("7_28xsa")]
 visible = false
 position = Vector2(0, -13)
 
-[node name="BrainOut2" parent="Enemies" index="5" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
+[node name="BrainOut2" parent="Enemies" index="6" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
 visible = false
 position = Vector2(0, -13)
 
@@ -85,7 +90,7 @@ zoom = Vector2(2, 2)
 limit_enabled = false
 max_offset = Vector2(300, 100)
 max_roll = 1.0
-follow_speed = 1.0
+follow_speed = 50.0
 follow_node = NodePath("../ArenaCenter")
 
 [node name="ArenaCenter" type="Marker2D" parent="." index="4" unique_id=404406666]
@@ -94,7 +99,7 @@ position = Vector2(9, 60)
 
 [node name="Corner" type="Marker2D" parent="." index="5" unique_id=1210708224]
 unique_name_in_owner = true
-position = Vector2(266, 319)
+position = Vector2(-353, -73)
 
 [node name="ScreenLayer" type="CanvasLayer" parent="." index="6" unique_id=1860965310]
 layer = 0
@@ -117,13 +122,5 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Background" type="Sprite2D" parent="." index="8" unique_id=697461009]
-modulate = Color(0.22415566, 0.5097198, 0.31566837, 0.78431374)
-z_index = -10
-position = Vector2(-6.790283, 133.79175)
-rotation = -0.44854963
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("13_ldpml")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="9" unique_id=1403225730]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="8" unique_id=1403225730]
 environment = SubResource("Environment_8nlnt")
