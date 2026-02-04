@@ -2,10 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crtjhl3xse5fi" path="res://game/system/anatomy/parts/body/arm.gd" id="1_4vnuq"]
 [ext_resource type="Texture2D" uid="uid://cikbwilkp0hvt" path="res://sprites/body_parts/Arms/Eric/EricBiceps2.png" id="2_4vnuq"]
-[ext_resource type="Texture2D" uid="uid://bj25j34mky2ol" path="res://sprites/body_parts/Arms/FatGuy/FatGuyBiceps.png" id="3_88d6j"]
 [ext_resource type="Texture2D" uid="uid://bpnms708k38xn" path="res://sprites/body_parts/Arms/Eric/EricForearms2.png" id="4_4vnuq"]
-[ext_resource type="Texture2D" uid="uid://pkjwsawiyogi" path="res://sprites/body_parts/Arms/FatGuy/FatGuyForearm.png" id="5_8v0fu"]
-[ext_resource type="Texture2D" uid="uid://blxv1h0r70fa5" path="res://sprites/body_parts/Arms/Boxer/BoxerForearm.png" id="6_485l5"]
 [ext_resource type="Texture2D" uid="uid://3imp3acgwgyr" path="res://sprites/body_parts/Arms/Eric/EricHand2.png" id="7_4vnuq"]
 
 [sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_8bs2q"]
@@ -25,16 +22,6 @@ joint_data/2/use_target_rotation = true
 enabled = true
 modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DFABRIK_8bs2q")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_004is"]
-diffuse_texture = ExtResource("3_88d6j")
-normal_texture = ExtResource("3_88d6j")
-specular_texture = ExtResource("3_88d6j")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_hiita"]
-diffuse_texture = ExtResource("5_8v0fu")
-normal_texture = ExtResource("5_8v0fu")
-specular_texture = ExtResource("6_485l5")
 
 [node name="EricArm" type="Node2D" unique_id=1972221418]
 script = ExtResource("1_4vnuq")
@@ -63,17 +50,17 @@ texture = ExtResource("2_4vnuq")
 
 [node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1025545314]
 unique_name_in_owner = true
-visible = false
+self_modulate = Color(1.4776125, 1.4776125, 1.4776125, 1)
 custom_minimum_size = Vector2(500, 200)
-offset_left = -80.22178
-offset_top = -122.55974
-offset_right = 419.77823
-offset_bottom = 593.44025
+offset_left = -62.166855
+offset_top = -127.24684
+offset_right = 437.83313
+offset_bottom = 588.7532
 rotation = 0.003891746
 step = 0.01
 value = 100.0
 fill_mode = 2
-texture_progress = SubResource("CanvasTexture_004is")
+texture_progress = ExtResource("2_4vnuq")
 
 [node name="ArmLow" type="Bone2D" parent="Skeleton2D/ArmUp" unique_id=1966820033]
 position = Vector2(405.22943, 113.73302)
@@ -83,7 +70,7 @@ skew = -0.012645602
 rest = Transform2D(1.0392241, -0.31928748, 0.7363789, 3.0628166, 265.38428, -1.5258789e-05)
 auto_calculate_length_and_angle = false
 length = 500.0
-bone_angle = 41.672993
+bone_angle = 41.67299
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
@@ -95,15 +82,14 @@ texture = ExtResource("4_4vnuq")
 
 [node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1587456585]
 unique_name_in_owner = true
-visible = false
-offset_left = -117.00564
-offset_top = -91.096886
-offset_right = 398.99435
-offset_bottom = 332.9031
+self_modulate = Color(1.4156048, 1.4156048, 1.4156048, 1)
+offset_left = -94.8721
+offset_top = -80.07422
+offset_right = 421.1279
+offset_bottom = 343.92578
 step = 0.01
-value = 100.0
-fill_mode = 2
-texture_progress = SubResource("CanvasTexture_hiita")
+value = 98.73
+texture_progress = ExtResource("4_4vnuq")
 
 [node name="Fist" type="Bone2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1916331396]
 position = Vector2(369.25958, 365.6832)

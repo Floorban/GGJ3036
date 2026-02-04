@@ -38,7 +38,7 @@ func set_cd_bar(current: float, max_value: float) -> void:
 		cd_bar_2.value = current - half
 
 func _on_arm_charge_finished(scale_speed: float) -> void:
-	sprite_fist.modulate = Color.WHITE
+	sprite_fist.modulate = Color.WHITE * 2.0
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)

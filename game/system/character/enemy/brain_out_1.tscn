@@ -150,6 +150,7 @@ sfx_hurt = "event:/SFX/NPC/Brain/Hit"
 critical_chance = 0.3
 punch_strength = 0.07
 attack_damage = 1.5
+action_cooldown = 4.0
 arm = NodePath("DefaultArm")
 
 [node name="Shoulder" type="Sprite2D" parent="." index="0" unique_id=799220475]

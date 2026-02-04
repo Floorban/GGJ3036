@@ -38,7 +38,7 @@ shader_parameter/warble_speed = 1.0000000475
 background_mode = 3
 glow_enabled = true
 glow_strength = 0.74
-glow_bloom = 0.09
+glow_bloom = 0.42
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
 current_level = 5

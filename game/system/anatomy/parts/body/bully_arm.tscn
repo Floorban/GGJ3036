@@ -50,6 +50,7 @@ texture = ExtResource("2_ita1a")
 
 [node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1025545314]
 unique_name_in_owner = true
+self_modulate = Color(1.353256, 1.353256, 1.353256, 1)
 custom_minimum_size = Vector2(500, 200)
 offset_left = -60.59929
 offset_top = -81.84662
@@ -81,6 +82,7 @@ texture = ExtResource("4_ita1a")
 
 [node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1587456585]
 unique_name_in_owner = true
+self_modulate = Color(1.353256, 1.353256, 1.353256, 1)
 offset_left = -77.857704
 offset_top = -85.67804
 offset_right = 438.1423
@@ -94,12 +96,12 @@ texture_progress = ExtResource("4_ita1a")
 [node name="Fist" type="Bone2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1916331396]
 position = Vector2(156.03815, 244.66867)
 rotation = 2.4981952
-scale = Vector2(0.35, 0.33900002)
-skew = 0.098727345
+scale = Vector2(0.35, 0.339)
+skew = 0.09872711
 rest = Transform2D(-0.45176578, -0.24657224, 0.7012968, -0.18903401, 299.9998, 0)
 auto_calculate_length_and_angle = false
 length = 80.0
-bone_angle = -63.20699
+bone_angle = -63.206985
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteFist" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow/Fist" unique_id=520692977]
