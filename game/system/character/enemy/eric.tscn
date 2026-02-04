@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_66ayq"]
 [ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_yvqvv"]
-[ext_resource type="Texture2D" uid="uid://c7hpvptgk40bi" path="res://sprites/body_parts/Noise.png" id="3_0o8re"]
 [ext_resource type="Texture2D" uid="uid://c3aws1pud8ee1" path="res://sprites/body_parts/FaceAssets/Enemies/Eric/EricHair.png" id="4_1dbei"]
 [ext_resource type="Texture2D" uid="uid://dqpkhg3vo62qu" path="res://sprites/body_parts/Bodies/EricBody.png" id="4_yvqvv"]
 [ext_resource type="Texture2D" uid="uid://cnwj52gow0ixr" path="res://sprites/body_parts/Basehead/EricBaseHead.png" id="5_yvqvv"]
+[ext_resource type="Texture2D" uid="uid://n6uqe2633tnv" path="res://sprites/body_parts/EricNoise.png" id="6_cte70"]
 [ext_resource type="PackedScene" uid="uid://c6ojue1kighsy" path="res://game/system/anatomy/parts/body/eric_arm.tscn" id="6_jemvd"]
 [ext_resource type="Texture2D" uid="uid://ddhgc8fwjs6p" path="res://sprites/body_parts/FaceAssets/Enemies/Eric/EricEye1.png" id="7_16ne6"]
 [ext_resource type="PackedScene" uid="uid://dpw0p64fe8sla" path="res://game/system/anatomy/parts/face/eye.tscn" id="8_cte70"]
@@ -169,20 +169,18 @@ position = Vector2(-11, 10)
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("5_yvqvv")
 
-[node name="Noise" type="Sprite2D" parent="Face" index="0" unique_id=1677025307]
-modulate = Color(1, 1, 1, 0.7372549)
-z_index = 5
-texture_filter = 1
-position = Vector2(20.000002, -15.384616)
-rotation = -0.06344986
-scale = Vector2(1.8229848, 1.5360099)
-texture = ExtResource("3_0o8re")
-
-[node name="Hair" type="Sprite2D" parent="Face" index="1" unique_id=1922594991]
+[node name="Hair" type="Sprite2D" parent="Face" index="0" unique_id=1922594991]
 z_index = 1
 position = Vector2(-1.5384617, 4.615383)
 scale = Vector2(1.0769231, 1.0769231)
 texture = ExtResource("4_1dbei")
+
+[node name="Noise" type="Sprite2D" parent="Face" index="1" unique_id=1677025307]
+modulate = Color(1, 1, 1, 0.7372549)
+texture_filter = 1
+position = Vector2(-1.5384655, -1.5384598)
+rotation = -0.06344986
+texture = ExtResource("6_cte70")
 
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 position = Vector2(-46.153847, -38.46154)

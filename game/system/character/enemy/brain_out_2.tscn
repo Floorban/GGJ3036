@@ -322,7 +322,7 @@ shape = SubResource("CapsuleShape2D_wlx3v")
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 position = Vector2(6.153846, 78.46155)
-max_hp = 10.0
+max_hp = 100.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_sihqr")

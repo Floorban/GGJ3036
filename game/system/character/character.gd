@@ -7,6 +7,7 @@ signal die()
 
 var can_control := true
 var is_dead := false
+var is_stuned := false
 var max_health : float
 @export var health : float
 
@@ -76,7 +77,7 @@ func end_battle() -> void:
 	arm.set_cd_bar(0,0)
 
 func _process(_delta: float) -> void:
-	if is_dead or not can_control:
+	if is_dead or not can_control or is_stuned:
 		return
 	arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
 
@@ -179,11 +180,24 @@ func face_return(duration: float) -> void:
 		return_time
 	)
 
+func on_interrupted() -> void:
+	can_action = false
+	is_stuned = true
+	combat_component.stop()
+	arm.toggle_arm(false)
+
+func recover_from_interrupt() -> void:
+	await get_tree().create_timer(action_cooldown / 2).timeout
+	arm.toggle_arm(true)
+	combat_component.start()
+	is_stuned = false
+
 func _on_successful_block(attacker: Character) -> void:
 	blocked.emit(1.0)
 	can_action = false
+	attacker.on_interrupted()
 	attacker.arm.interrupt(func(): 
-		attacker.can_action = false
+		attacker.recover_from_interrupt()
 	)
 	arm.block_success()
 	combat_component.reset_attack_timer(action_cooldown)

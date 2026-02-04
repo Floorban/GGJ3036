@@ -52,6 +52,7 @@ bone_angle = 0.0
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmUp" type="Sprite2D" parent="Skeleton2D/ArmUp" unique_id=1904858807]
+unique_name_in_owner = true
 self_modulate = Color(0.8093322, 0.80933225, 0.8093322, 1)
 z_index = -1
 position = Vector2(242.43018, 0.66143036)
@@ -85,6 +86,7 @@ bone_angle = 74.27897
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
+unique_name_in_owner = true
 self_modulate = Color(0.80784315, 0.80784315, 0.80784315, 1)
 z_index = -2
 position = Vector2(53.256737, 83.71187)

@@ -41,6 +41,7 @@ bone_angle = -8.84
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmUp" type="Sprite2D" parent="Skeleton2D/ArmUp" unique_id=1904858807]
+unique_name_in_owner = true
 self_modulate = Color(0.56032693, 0.560327, 0.56032693, 1)
 z_index = -1
 position = Vector2(136.34525, -7.8194504)
@@ -74,6 +75,7 @@ bone_angle = 54.642998
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
+unique_name_in_owner = true
 self_modulate = Color(0.56032693, 0.560327, 0.56032693, 1)
 z_index = -2
 position = Vector2(106.22629, 134.25246)
@@ -97,7 +99,7 @@ texture_progress = ExtResource("4_ita1a")
 position = Vector2(156.03815, 244.66867)
 rotation = 2.4981952
 scale = Vector2(0.35, 0.339)
-skew = 0.09872711
+skew = 0.098727226
 rest = Transform2D(-0.45176578, -0.24657224, 0.7012968, -0.18903401, 299.9998, 0)
 auto_calculate_length_and_angle = false
 length = 80.0

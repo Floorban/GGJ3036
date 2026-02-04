@@ -27,7 +27,8 @@ func _perform_attack(_target: Anatomy) -> void:
 
 func _on_action_ready() -> void:
 	super._on_action_ready()
-	_perform_attack(next_target)
+	if not is_stuned:
+		_perform_attack(next_target)
 
 func enemy_attack(attack_target: Anatomy) -> void:
 	var crit := randf() < critical_chance
