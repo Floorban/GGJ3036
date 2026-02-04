@@ -68,11 +68,13 @@ visible = false
 [node name="Camera" parent="." index="3" unique_id=1361226820 node_paths=PackedStringArray("follow_node") instance=ExtResource("10_xaya2")]
 position = Vector2(25, -1)
 zoom = Vector2(2, 2)
-max_offset = Vector2(50, 100)
+limit_enabled = false
+max_offset = Vector2(300, 100)
+max_roll = 1.0
 follow_node = NodePath("../Center")
 
 [node name="Center" type="Marker2D" parent="." index="4" unique_id=404406666]
-position = Vector2(-0.7902832, 97.79175)
+position = Vector2(9, 78)
 
 [node name="ScreenLayer" type="CanvasLayer" parent="." index="5" unique_id=1860965310]
 layer = 0

@@ -42,8 +42,8 @@ func recover_part() -> void:
 	sprite.modulate = current_color
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
-	if not is_hovering:
-		return
+	#if not is_hovering:
+		#return
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			anatomy_clicked.emit(self)
@@ -99,8 +99,8 @@ func part_dead() -> void:
 	move_part()
 
 func move_part() -> void:
-	sprite.rotation += randf_range(-0.8, 0.8)
-	sprite.position += Vector2(randf_range(-2, 2), randf_range(-2, 2))
+	rotation += randf_range(-0.8, 0.8)
+	position += Vector2(randf_range(-2, 2), randf_range(-2, 2))
 
 func is_part_dead() -> bool:
 	return state == PartState.DESTROYED

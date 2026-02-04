@@ -7,7 +7,7 @@ signal die()
 
 var can_control := true
 var is_dead := false
-@export var max_health : float
+var max_health : float
 var health : float
 
 @export var critical_chance := 0.2

@@ -7,34 +7,35 @@
 [ext_resource type="Texture2D" uid="uid://c7hpvptgk40bi" path="res://sprites/body_parts/Noise.png" id="5_0fnm0"]
 [ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="5_alke5"]
 [ext_resource type="Texture2D" uid="uid://dq5dyeefodkfo" path="res://sprites/body_parts/FaceAssets/Beard.png" id="6_w1s3x"]
+[ext_resource type="Texture2D" uid="uid://cv1u60umjpb1l" path="res://sprites/body_parts/FaceAssets/Beard2.png" id="7_388rn"]
 [ext_resource type="Texture2D" uid="uid://w4hkk7bw5m48" path="res://sprites/body_parts/FaceAssets/Nose.png" id="7_ka5xu"]
 [ext_resource type="Texture2D" uid="uid://b2ckq0bnxkhvc" path="res://sprites/body_parts/FaceAssets/Eye.png" id="8_388rn"]
+[ext_resource type="Texture2D" uid="uid://b8hrd4p7oqxrv" path="res://sprites/body_parts/FaceAssets/Beard4.png" id="8_eq501"]
 [ext_resource type="Texture2D" uid="uid://dgfbrc3ii8iw6" path="res://sprites/body_parts/FaceAssets/Ear1.png" id="9_eq501"]
 [ext_resource type="Texture2D" uid="uid://b3w53qi4iph3g" path="res://sprites/body_parts/FaceAssets/Ear2.png" id="10_hu301"]
 [ext_resource type="Texture2D" uid="uid://d1r4bn32e30v7" path="res://sprites/body_parts/FaceAssets/MouthPainExp.png" id="11_f2h07"]
 [ext_resource type="Texture2D" uid="uid://defn8lxlh0cq7" path="res://sprites/body_parts/Bodies/MCbody.png" id="12_f2h07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xspq"]
-size = Vector2(30.499966, 10.499966)
+size = Vector2(30.499966, 19.50006)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2h07"]
-size = Vector2(32.52414, 10.156086)
+size = Vector2(34.164482, 18.00142)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu301"]
-size = Vector2(16.340965, 49.123295)
+size = Vector2(21.977163, 54.117477)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqm0g"]
-size = Vector2(13.180496, 50.540962)
+size = Vector2(21.978048, 55.090958)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_388rn"]
-size = Vector2(24, 67)
+size = Vector2(25, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq501"]
-size = Vector2(70, 20)
+size = Vector2(70, 27)
 
 [node name="Player" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_obar5")]
 script = ExtResource("2_b2mth")
-max_health = 10.0
 critical_chance = 0.3
 top_down_dir = -1
 attack_damage = 30.0
@@ -51,9 +52,8 @@ texture = ExtResource("3_jme82")
 modulate = Color(1, 1, 1, 0.7372549)
 z_index = 5
 texture_filter = 1
-position = Vector2(-2.7363005, -4.6857634)
-rotation = 0.08726651
-scale = Vector2(1.18494, 0.99840635)
+position = Vector2(-2.0000002, -2.9999998)
+rotation = -0.053846277
 texture = ExtResource("5_0fnm0")
 
 [node name="Shadow" type="Sprite2D" parent="Face" index="1" unique_id=1034765696]
@@ -63,10 +63,20 @@ rotation = 0.087266445
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("5_alke5")
 
-[node name="Beard" type="Sprite2D" parent="Face" index="2" unique_id=1900917381]
-z_index = 3
+[node name="Beard1" type="Sprite2D" parent="Face" index="2" unique_id=1900917381]
+z_index = 5
 position = Vector2(-3.9999993, 8)
 texture = ExtResource("6_w1s3x")
+
+[node name="Beard2" type="Sprite2D" parent="Face" index="3" unique_id=396302187]
+z_index = 5
+position = Vector2(1.0000017, 20)
+texture = ExtResource("7_388rn")
+
+[node name="Beard3" type="Sprite2D" parent="Face" index="4" unique_id=1251884929]
+z_index = 5
+position = Vector2(-0.99999833, 19)
+texture = ExtResource("8_eq501")
 
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 position = Vector2(16.999996, -35)
@@ -96,7 +106,9 @@ texture = ExtResource("8_388rn")
 position = Vector2(-8.002902, -0.5239539)
 
 [node name="CollisionShape2D" parent="Face/Features/EyeR/MouseDetectArea" index="0" unique_id=149295176]
-position = Vector2(2.2888184e-05, -0.99165344)
+position = Vector2(-0.8089905, -1.1648483)
+rotation = 0.07903791
+scale = Vector2(1.0000004, 1.0000004)
 shape = SubResource("RectangleShape2D_f2h07")
 
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
@@ -113,7 +125,8 @@ flip_h = false
 position = Vector2(8.108372, 33.664528)
 
 [node name="CollisionShape2D" parent="Face/Features/EarL/MouseDetectArea" index="0" unique_id=149295176]
-position = Vector2(2.575756, -35.583675)
+position = Vector2(1.930275, -33.142742)
+rotation = 0.11014061
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_hu301")
 
@@ -130,7 +143,7 @@ texture = ExtResource("10_hu301")
 position = Vector2(-29.469452, 31.13801)
 
 [node name="CollisionShape2D" parent="Face/Features/EarR/MouseDetectArea" index="0" unique_id=149295176]
-position = Vector2(5.749489, -28.680151)
+position = Vector2(5.8763695, -26.400906)
 rotation = -0.13820246
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_wqm0g")
@@ -139,7 +152,7 @@ shape = SubResource("RectangleShape2D_wqm0g")
 texture = ExtResource("7_ka5xu")
 
 [node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
-position = Vector2(-1.0000001, 1.5)
+position = Vector2(-0.5000001, 0.5)
 shape = SubResource("RectangleShape2D_388rn")
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
@@ -151,6 +164,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("11_f2h07")
 
 [node name="CollisionShape2D" parent="Face/Features/Mouth/MouseDetectArea" parent_id_path=PackedInt32Array(508432269, 1106976729) index="0" unique_id=149295176]
+position = Vector2(-1.0000001, 6.5)
 shape = SubResource("RectangleShape2D_eq501")
 
 [node name="Shoulder" type="Sprite2D" parent="." index="1" unique_id=779808539]

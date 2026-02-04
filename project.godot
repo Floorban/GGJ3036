@@ -23,7 +23,6 @@ run/main_scene="uid://c1q6sj2ue5ird"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/image="uid://colhn2sx5admh"
 config/icon="uid://c7f583vqgdmne"
-boot_splash/minimum_display_time=240
 
 [autoload]
 
