@@ -14,7 +14,7 @@ var battle_time_left: float
 @export var current_level := 0
 @export var current_round := 1
 
-var enemies: Array[Enemy]
+@export var enemies: Array[Enemy]
 @export var player: Player
 @export var enemy: Enemy
 
@@ -25,6 +25,7 @@ func _ready() -> void:
 			enemies.append(e)
 	retro_mat = retro_screen.material as ShaderMaterial
 	init_combat_arena(current_level)
+	start_battle()
 
 func init_combat_arena(level : int) -> void:
 	enemy = enemies[level]
@@ -47,12 +48,13 @@ func start_battle() -> void:
 func end_battle() -> void:
 	player.end_battle()
 	enemy.end_battle()
+	battle_end.emit()
+	battle_time_left = 0
 	print("over")
 
 func _process(delta: float) -> void:
 	if battle_time_left <= 0:
-		battle_time_left = 0
-		battle_end.emit()
+		end_battle()
 	else:
 		battle_time_left -= delta
 		game_ui.set_round_ui(battle_time_left)

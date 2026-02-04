@@ -6,12 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://c718x58jremuc" path="res://sprites/BodyParts/Limbs/Body.png" id="4_qlphf"]
 [ext_resource type="Texture2D" uid="uid://bdor0ql34om3" path="res://sprites/body_parts/Basehead/BrainOutBaseHead.png" id="5_j1rto"]
 [ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="6_bca21"]
-[ext_resource type="Texture2D" uid="uid://s6t7fkha0ubq" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/Brain.png" id="6_x88ln"]
+[ext_resource type="Texture2D" uid="uid://cob62d15qm8an" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutBrain1.png" id="6_qlphf"]
+[ext_resource type="Texture2D" uid="uid://dp6b1xrc2jv7" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutBrain2.png" id="7_olhfc"]
+[ext_resource type="Texture2D" uid="uid://br80a6if3cpt6" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutBrain3.png" id="8_bca21"]
 [ext_resource type="Texture2D" uid="uid://cf1h80oopsr5" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutEye.png" id="8_x88ln"]
+[ext_resource type="Texture2D" uid="uid://cp6360rnf4xia" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutBloodied1.png" id="9_wlx3v"]
 [ext_resource type="Texture2D" uid="uid://v1md27ibyvon" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutEye2.png" id="9_x88ln"]
 [ext_resource type="Texture2D" uid="uid://cbm87l305yvl4" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutEar2.png" id="10_sgmir"]
+[ext_resource type="Texture2D" uid="uid://djc4w5yggpqlo" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutBloodied2.png" id="10_vp3t4"]
 [ext_resource type="Texture2D" uid="uid://bwvh15vv7hdu4" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutEar1.png" id="10_x88ln"]
 [ext_resource type="Texture2D" uid="uid://d2lpd12xxlk1c" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutnose.png" id="11_2wmgg"]
+[ext_resource type="Texture2D" uid="uid://bxbjhs1unhirb" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutBloodied3.png" id="11_bojp0"]
 [ext_resource type="PackedScene" uid="uid://13tkw1wdly0n" path="res://game/system/anatomy/parts/body/brain_out_arm.tscn" id="13_3kla3"]
 [ext_resource type="Texture2D" uid="uid://ctavdfwrc32hd" path="res://sprites/body_parts/FaceAssets/Enemies/BrainOut/BrainOutMouth.png" id="13_x88ln"]
 
@@ -62,12 +67,39 @@ texture = ExtResource("4_qlphf")
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("5_j1rto")
 
-[node name="Brain" type="Sprite2D" parent="Face" index="0" unique_id=541389305]
-position = Vector2(7.6923084, -3.0769234)
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("6_x88ln")
+[node name="Brain1" type="Sprite2D" parent="Face" index="0" unique_id=284495848]
+position = Vector2(7.6923094, -3.0769234)
+texture = ExtResource("6_qlphf")
 
-[node name="Shadow" type="Sprite2D" parent="Face" index="1" unique_id=1587950718]
+[node name="Brain2" type="Sprite2D" parent="Face" index="1" unique_id=1759803669]
+position = Vector2(7.69231, -3.0769234)
+texture = ExtResource("7_olhfc")
+
+[node name="Brain3" type="Sprite2D" parent="Face" index="2" unique_id=541389305]
+y_sort_enabled = true
+position = Vector2(7.6923094, -3.0769234)
+texture = ExtResource("8_bca21")
+
+[node name="Blood1" type="Sprite2D" parent="Face" index="3" unique_id=1942500986]
+visible = false
+z_index = 4
+y_sort_enabled = true
+position = Vector2(7.69231, -3.0769234)
+texture = ExtResource("9_wlx3v")
+
+[node name="Blood2" type="Sprite2D" parent="Face" index="4" unique_id=1173892311]
+visible = false
+z_index = 4
+position = Vector2(7.692311, -3.0769234)
+texture = ExtResource("10_vp3t4")
+
+[node name="Blood3" type="Sprite2D" parent="Face" index="5" unique_id=2122480905]
+visible = false
+z_index = 4
+position = Vector2(7.6923094, -3.0769234)
+texture = ExtResource("11_bojp0")
+
+[node name="Shadow" type="Sprite2D" parent="Face" index="6" unique_id=1587950718]
 texture_filter = 1
 position = Vector2(3.999999, -12.000001)
 rotation = 0.087266445

@@ -74,7 +74,7 @@ func end_battle() -> void:
 	arm.set_cd_bar(0,0)
 
 func _process(_delta: float) -> void:
-	if is_dead:
+	if is_dead or not can_control:
 		return
 	arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
 
