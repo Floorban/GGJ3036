@@ -49,7 +49,7 @@ func init_part(body: Character) -> void:
 
 func recover_part() -> void:
 	current_hp = max_hp
-	#state = PartState.HEALTHY
+	state = PartState.HEALTHY
 	#anatomy_ui.set_hp_bar(current_hp, max_hp)
 	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
 	current_color = Color.WHITE
@@ -61,7 +61,6 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			anatomy_clicked.emit(self)
-			is_being_dragged = true
 			get_viewport().set_input_as_handled()
 
 func _hover_over_part() -> void:
@@ -92,8 +91,6 @@ func _highlight_target(block_target := false) -> void:
 		sprite.modulate = Color.RED * 2.0
 
 func _unhighlight_target() -> void:
-	if is_part_dead():
-		return
 	if not is_targeted:
 		sprite.modulate = current_color
 		sprite.use_parent_material = true

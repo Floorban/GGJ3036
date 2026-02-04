@@ -1,6 +1,10 @@
 class_name Bully extends Enemy
 
 func choose_target() -> Anatomy:
+	if not can_control and next_target:
+		next_target.is_targeted = false
+		next_target._unhighlight_target()
+		return
 	if opponent == null:
 		targeting_part = null
 		return null
