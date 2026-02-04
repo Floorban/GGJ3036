@@ -26,10 +26,6 @@ var is_being_dragged := false
 
 var current_color: Color
 
-var sfx_block: String = "event:/SFX/Combat/Block"
-var sfx_crit: String = "event:/SFX/Combat/Crit"
-var sfx_hit: String = "event:/SFX/Combat/Hit"
-
 var outline_mat: ShaderMaterial
 
 func _ready() -> void:
@@ -113,9 +109,9 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 		part_dead()
 	
 	if crit: 
-		audio.play(sfx_crit)
+		audio.play(body_owner.sfx_crit)
 	else: 
-		audio.play(sfx_hit, global_transform, "Intensity", changed_amount / max_hp)
+		audio.play(body_owner.sfx_hit, global_transform, "Intensity", changed_amount / max_hp)
 	PopupPrompt.display_prompt("!", changed_amount, global_position, 2.0)
 
 func part_dead() -> void:

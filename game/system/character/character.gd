@@ -34,6 +34,11 @@ var targeting_part: Anatomy
 @onready var face: Sprite2D = $Face
 @onready var shoulder: Sprite2D = $Shoulder
 
+#AUDIO
+var sfx_block: String = "event:/SFX/Combat/Block"
+var sfx_crit: String = "event:/SFX/Combat/Crit"
+var sfx_hit: String = "event:/SFX/Combat/Hit"
+
 func init_character() -> void:
 	_init_anatomy_parts()
 	_init_combat_component()
@@ -207,6 +212,7 @@ func recover_from_interrupt() -> void:
 	is_stuned = false
 
 func _on_successful_block(attacker: Character) -> void:
+	audio.play(sfx_block, global_transform, "Intensity", 0.75)
 	blocked.emit(1.0)
 	can_action = false
 	attacker.on_interrupted()
