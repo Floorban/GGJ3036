@@ -90,6 +90,10 @@ func _process(_delta: float) -> void:
 	arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
 
 func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
+	if not can_control:
+		target.is_targeted = false
+		target._unhighlight_target()
+		return
 	arm.sprite_fist.modulate = Color.DIM_GRAY
 	
 	if blocking_part == target and can_action:
