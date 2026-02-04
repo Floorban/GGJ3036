@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://7v7vtwtknr1v" path="res://sprites/body_parts/Basehead/BullyBasehead.png" id="5_acmvr"]
 [ext_resource type="Texture2D" uid="uid://cwod6tig7hveh" path="res://sprites/body_parts/BullyNoise.png" id="6_qjg54"]
 [ext_resource type="Texture2D" uid="uid://cyi6mum44ae3p" path="res://sprites/body_parts/FaceAssets/Enemies/Bully/BullyEye1.png" id="7_1j2w3"]
-[ext_resource type="Texture2D" uid="uid://c35mboen8d88w" path="res://sprites/body_parts/FaceAssets/Enemies/Bully/BullyEye2.png" id="7_vprwn"]
 [ext_resource type="Texture2D" uid="uid://dk2jimxvf8eah" path="res://sprites/body_parts/FaceAssets/Enemies/Bully/BullyEar2.png" id="8_ci5v1"]
 [ext_resource type="Texture2D" uid="uid://7kedrmr212j2" path="res://sprites/body_parts/FaceAssets/Enemies/Bully/BullyNose.png" id="8_mtw3s"]
 [ext_resource type="Texture2D" uid="uid://dnjocllndkyvv" path="res://sprites/body_parts/FaceAssets/Enemies/Bully/BullyHappyMouth.png" id="10_vprwn"]
@@ -114,7 +113,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vprwn"]
 shader = SubResource("Shader_lcwbr")
-shader_parameter/sprite_texture = ExtResource("7_vprwn")
+shader_parameter/sprite_texture = ExtResource("7_1j2w3")
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/glowSize = 4.00000019
 shader_parameter/glowDensity = 30
@@ -124,7 +123,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtw3s"]
-size = Vector2(72.30565, 32.310658)
+size = Vector2(76.924545, 46.15249)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qjg54"]
 shader = SubResource("Shader_lcwbr")
@@ -236,14 +235,15 @@ max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_vprwn")
-position = Vector2(-72.32026, 27.659462)
-rotation = 0.012317597
+position = Vector2(49.24824, -38.439175)
+rotation = -2.8982325
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("7_vprwn")
+texture = ExtResource("7_1j2w3")
+flip_h = false
 
 [node name="CollisionShape2D" parent="Face/Features/EyeR/MouseDetectArea" parent_id_path=PackedInt32Array(584210078, 1106976729) index="0" unique_id=149295176]
-position = Vector2(-19.22763, -10.006214)
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(-24.604893, -23.088104)
+scale = Vector2(0.9999988, 0.9999988)
 shape = SubResource("RectangleShape2D_mtw3s")
 
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
