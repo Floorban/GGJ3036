@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/boxer.tscn" id="4_kjrlu"]
 [ext_resource type="PackedScene" uid="uid://bavdc803jhh86" path="res://game/system/character/enemy/brain_out_1.tscn" id="5_ay0ac"]
 [ext_resource type="PackedScene" uid="uid://c7qftgs4x4ay4" path="res://game/system/character/enemy/fat_guy.tscn" id="6_fhe53"]
-[ext_resource type="PackedScene" uid="uid://b0n0jboitaswt" path="res://game/system/character/enemy/eric.tscn" id="7_28xsa"]
+[ext_resource type="PackedScene" uid="uid://teuunrq7bxl5" path="res://game/system/character/enemy/eric.tscn" id="7_28xsa"]
 [ext_resource type="PackedScene" uid="uid://c07hnykxqlg1x" path="res://game/system/character/enemy/brain_out_2.tscn" id="8_g1ogi"]
 [ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="9_tgsw3"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="10_xaya2"]
@@ -41,6 +41,7 @@ glow_strength = 0.74
 glow_bloom = 0.42
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
+current_level = 6
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
