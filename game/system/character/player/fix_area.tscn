@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cu05fkjh25k63"]
 
-[ext_resource type="Script" path="res://game/system/character/player/fix_area.gd" id="1_l7iy3"]
+[ext_resource type="Script" uid="uid://cstplnqxir12s" path="res://game/system/character/player/fix_area.gd" id="1_l7iy3"]
 
 [node name="FixArea" type="Area2D" unique_id=1630340479]
 priority = 2

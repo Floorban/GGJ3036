@@ -8,6 +8,7 @@ var trauma : float = 0.0
 var trauma_power : int = 2 
 
 ## cam follow
+@export var follow_speed : float = 100.0
 @export var follow_node : Node2D 
 const MAX_DIST = 20
 var target_distance = 0
@@ -33,9 +34,13 @@ func _process(delta : float) -> void:
 		trauma = max(trauma - decay * delta, 0) 
 		_shake() 
 
+func switch_target(new_target: Node2D, new_speed: float) -> void:
+	follow_node = new_target
+	follow_speed = new_speed
+
 func _cam_follow(delta: float):
 	if follow_node: 
-		center_pos = lerp(center_pos, follow_node.global_position, delta) 
+		center_pos = lerp(center_pos, follow_node.global_position, delta * follow_speed) 
 
 func _cam_pan(delta: float):
 	var direction = center_pos.direction_to(get_global_mouse_position())
