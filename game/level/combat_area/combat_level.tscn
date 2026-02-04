@@ -34,6 +34,10 @@ shader_parameter/color_quant_steps = 5.6190001719025
 shader_parameter/warble_amount = 0.002000000095
 shader_parameter/warble_speed = 1.0000000475
 
+[sub_resource type="Environment" id="Environment_8nlnt"]
+background_mode = 3
+glow_enabled = true
+
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
@@ -44,6 +48,7 @@ top_down_dir = 1
 [node name="Enemies" type="Node2D" parent="." index="1" unique_id=1222997985]
 
 [node name="Bully" parent="Enemies" index="0" unique_id=1348200660 instance=ExtResource("3_i2c52")]
+visible = false
 
 [node name="Boxer" parent="Enemies" index="1" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false
@@ -102,3 +107,6 @@ position = Vector2(-6.790283, 133.79175)
 rotation = -0.44854963
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("13_ldpml")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="8" unique_id=1403225730]
+environment = SubResource("Environment_8nlnt")

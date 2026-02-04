@@ -1,23 +1,25 @@
 extends Node
 
-func display_prompt(_str : String, value: int,  pos: Vector2, duration: float):
+func display_prompt(_str : String, value: int,  pos: Vector2, scale: float, duration: float = 0.35):
 	var prompt = Label.new()
 	
-	prompt.global_position = pos + Vector2(-_str.length() * 3, -20)
+	prompt.global_position = pos + Vector2(-_str.length() * 3, -30)
 	prompt.z_index = 10
 	prompt.label_settings = LabelSettings.new()
-	prompt.text = _str + " " + str(value)
-	prompt.scale = Vector2.ZERO
-
-	var color = Color.WHITE
-	if value < 0:
-		color = Color.RED
+	prompt.text = str(value) + " " + _str
+	prompt.scale = Vector2.ZERO * scale
 
 	var settings = prompt.label_settings
+	settings.font_size = 32
+
+	var color = Color.RED
+	if scale >= 2.0:
+		color = Color.RED
+		settings.font_size = 48
+
 	settings.font_color = color
-	settings.font_size = 16
 	settings.outline_color = Color.BLACK
-	settings.outline_size = 2
+	settings.outline_size = 8
 	
 	prompt.rotation = randf_range(-0.35, 0.35)
 	prompt.modulate = Color(1, 1, 1, 1)
@@ -38,16 +40,16 @@ func display_prompt(_str : String, value: int,  pos: Vector2, duration: float):
 	).set_ease(Tween.EASE_OUT)
 
 	tween.tween_property(
-		prompt, "position:y", prompt.position.y, duration
+		prompt, "position:y", prompt.position.y + 16, duration / 2
 	).set_ease(Tween.EASE_IN).set_delay(duration / 2)
 
 	tween.tween_property(
 		prompt, "scale", Vector2.ZERO, duration / 3
-	).set_ease(Tween.EASE_IN).set_delay(duration * 2)
+	).set_ease(Tween.EASE_IN).set_delay(duration)
 
 	tween.tween_property(
 		prompt, "modulate:a", 0.0, duration / 3
-	).set_ease(Tween.EASE_IN).set_delay(duration * 1.5)
+	).set_ease(Tween.EASE_IN).set_delay(duration)
 	
 	await tween.finished
 	prompt.queue_free()

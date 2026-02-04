@@ -1,7 +1,18 @@
 [gd_scene format=3 uid="uid://dml04uxtc34nm"]
 
 [ext_resource type="Script" uid="uid://bekkhc07oy7xl" path="res://game/system/anatomy/anatomy.gd" id="1_hstcr"]
+[ext_resource type="Shader" uid="uid://b33dn5pdrsox" path="res://game/system/anatomy/outline_glow.gdshader" id="2_c5p48"]
 [ext_resource type="Texture2D" uid="uid://dina2mpprqa58" path="res://sprites/ui/white.png" id="2_phaok"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ct35d"]
+shader = ExtResource("2_c5p48")
+shader_parameter/line_color = Color(0.8265369, 0.14441961, 0.3664152, 1)
+shader_parameter/glowSize = 6.000000285
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 5.0
+shader_parameter/alphaThreshold = 0.2
 
 [node name="Anatomy" type="Node2D" unique_id=1690948451 groups=["anatomy"]]
 z_index = 2
@@ -9,7 +20,9 @@ script = ExtResource("1_hstcr")
 max_hp = 3.0
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=500964707]
+modulate = Color(0.42734233, 0.42734233, 0.42734227, 1)
 texture_filter = 1
+material = SubResource("ShaderMaterial_ct35d")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_phaok")
 

@@ -1,0 +1,40 @@
+shader_type canvas_item;
+
+uniform sampler2D sprite_texture : source_color, filter_linear;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float glowSize : hint_range(0.0, 300.0) = 15.0;
+uniform int glowDensity : hint_range(0, 30) = 3;
+uniform int glowRadialCoverage : hint_range(0, 32) = 4;
+uniform float glowAngle : hint_range(0.0, 6.283) = 1.57;
+uniform float glowSharpness : hint_range(0.0, 5.0) = 1.0;
+uniform float alphaThreshold : hint_range(0.0, 1.0) = 0.2;
+
+void fragment() {
+	vec4 col = texture(sprite_texture, UV);
+
+	COLOR = col;
+
+	vec2 pixel_size = 1.0 / vec2(textureSize(sprite_texture, 0));
+	float alph = 0.0;
+
+	for (int i = 0; i < glowRadialCoverage; i++) {
+		for (int j = 0; j < glowDensity; j++) {
+			float angle = (TAU / float(glowRadialCoverage)) * float(i + 1) + glowAngle;
+			float dist = glowSize * float(j + 1) / float(glowDensity);
+
+			vec2 offset = vec2(sin(angle), cos(angle)) * pixel_size * dist;
+			vec4 tex = texture(sprite_texture, UV + offset);
+
+			float distFrom = float(glowDensity - j) / float(glowDensity);
+			float sharpness = pow(distFrom, glowSharpness);
+
+			alph += tex.a * line_color.a * sharpness;
+		}
+	}
+
+	if (col.a < alphaThreshold) {
+		COLOR.rgb = line_color.rgb;
+		COLOR.a = alph;
+	}
+}

@@ -92,10 +92,11 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 	if current_hp <= 0 and state != PartState.DESTROYED:
 		part_dead()
 	
-	if crit: audio.play(sfx_crit)
-	else: audio.play(sfx_hit, global_transform, "Intensity", changed_amount / max_hp)
-	#elif current_hp <= max_hp * 0.4:
-		#state = PartState.OUT_OF_PLACE
+	if crit: 
+		audio.play(sfx_crit)
+	else: 
+		audio.play(sfx_hit, global_transform, "Intensity", changed_amount / max_hp)
+	PopupPrompt.display_prompt("!", changed_amount, global_position, 2.0)
 
 func part_dead() -> void:
 	state = PartState.DESTROYED
