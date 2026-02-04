@@ -8,12 +8,12 @@ size = Vector2(110, 46)
 
 [node name="Mouth" unique_id=1690948451 instance=ExtResource("1_q55ig")]
 
-[node name="Sprite" parent="." index="0" unique_id=500964707]
+[node name="Sprite" parent="." index="1" unique_id=500964707]
 position = Vector2(-13, -73)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_p4dd3")
 
-[node name="MouseDetectArea" parent="." index="1" unique_id=1106976729]
+[node name="MouseDetectArea" parent="." index="2" unique_id=1106976729]
 z_index = 1
 priority = 1
 

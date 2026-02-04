@@ -26,6 +26,12 @@ var sfx_block: String = "event:/SFX/Combat/Block"
 var sfx_crit: String = "event:/SFX/Combat/Crit"
 var sfx_hit: String = "event:/SFX/Combat/Hit"
 
+var outline_mat: ShaderMaterial
+
+func _ready() -> void:
+	outline_mat = sprite.material as ShaderMaterial
+	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
+
 func init_part(body: Character) -> void:
 	body_owner = body
 	recover_part()
@@ -55,10 +61,14 @@ func _hover_over_part() -> void:
 	if state == PartState.DESTROYED:
 		return
 	#anatomy_ui.toggle_panel(true)
+	outline_mat.set_shader_parameter("alphaThreshold", 0.1)
+	sprite.use_parent_material = false
 	is_hovering = true
 
 func _unhover_part() -> void:
 	#anatomy_ui.toggle_panel(false)
+	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
+	sprite.use_parent_material = true
 	is_hovering = false
 
 func _highlight_target(block_target := false) -> void:
@@ -71,13 +81,15 @@ func _highlight_target(block_target := false) -> void:
 		#if is_blocking:
 			#sprite.modulate = Color.CADET_BLUE
 	elif is_targeted:
-		sprite.modulate = Color.RED
+		sprite.use_parent_material = true
+		sprite.modulate = Color(1.0, 0.2, 0.2) * 2.0
 
 func _unhighlight_target() -> void:
 	if is_part_dead():
 		return
 	if not is_targeted:
 		sprite.modulate = current_color
+		sprite.use_parent_material = true
 
 # refactor later when heal
 func set_hp(changed_amount: float, crit: bool = false) -> void:
