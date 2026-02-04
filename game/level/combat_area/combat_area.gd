@@ -10,7 +10,7 @@ var start_pos : Vector2
 
 @onready var camera: CameraController = $Camera
 @onready var game_ui: GameUI = %GameUI
-@onready var retro_screen: ColorRect = %RetroScreen
+@onready var retro_screen: RetroScreen = %RetroScreen
 var retro_mat: ShaderMaterial
 @export var battle_duration := 40.0
 var break_duration := 15.0
@@ -80,14 +80,15 @@ func next_round() -> void:
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
+	retro_screen.trans_to_combat()
 
-	tween.tween_property(
+	tween.parallel().tween_property(
 		enemies_container,
 		"position",
 		Vector2.ZERO,
 		0.3
 	)
-	tween.tween_property(
+	tween.parallel().tween_property(
 		camera,
 		"zoom",
 		Vector2.ONE * 2,
@@ -106,6 +107,7 @@ func end_round() -> void:
 		end_battle()
 	else:
 		camera.switch_target(player, 50)
+		retro_screen.trans_to_break()
 		var tween := create_tween()
 		tween.set_trans(Tween.TRANS_QUAD)
 		tween.set_ease(Tween.EASE_IN_OUT)
@@ -114,14 +116,14 @@ func end_round() -> void:
 			enemies_container,
 			"position",
 			corner.position,
-			0.5
+			0.4
 		)
 		
 		tween.tween_property(
 			camera,
 			"zoom",
 			Vector2.ONE * 2.8,
-			0.5
+			0.3
 		)
 	player.arm.movable_by_mouse = true
 

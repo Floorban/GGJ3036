@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cstplnqxir12s" path="res://game/system/character/player/fix_area.gd" id="1_l7iy3"]
 
-[node name="FixArea" type="Area2D" unique_id=1630340479]
+[node name="FixArea" type="Area2D" unique_id=1630340479 groups=["fix_area"]]
 priority = 2
 script = ExtResource("1_l7iy3")
 

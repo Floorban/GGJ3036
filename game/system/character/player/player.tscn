@@ -218,9 +218,9 @@ position = Vector2(16.999996, -35)
 my_anatomy = NodePath("../../Features/EyeL")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEyeL" index="0" unique_id=1542207743]
-modulate = Color(0.59059954, 0.5905996, 0.5905996, 1)
-position = Vector2(13.000001, 10.999999)
+position = Vector2(12.000001, 11.999999)
 rotation = -2.7547193
+scale = Vector2(0.07, 0.07)
 texture = ExtResource("10_ltwwj")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEyeL" index="1" unique_id=32785027]
@@ -234,8 +234,9 @@ rotation = -0.07759997
 my_anatomy = NodePath("../../Features/EyeR")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEyeR" index="0" unique_id=1542207743]
-position = Vector2(-4.82991, -2.3815918)
+position = Vector2(-5.749378, -3.4561045)
 rotation = -1.3151702
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("11_ltwwj")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEyeR" index="1" unique_id=32785027]
@@ -246,11 +247,12 @@ shape = SubResource("CapsuleShape2D_wqm0g")
 [node name="FixAreaEarL" parent="Face/FixAreas" index="2" unique_id=127680847 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
 position = Vector2(51.99999, -10.000007)
 rotation = -0.15707964
+anatomy_type = 1
 my_anatomy = NodePath("../../Features/EarL")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEarL" index="0" unique_id=1542207743]
-position = Vector2(-3.021325, 12.683519)
-rotation = 0.49912816
+position = Vector2(-8.4290695, 14.864412)
+rotation = 0.9391054
 scale = Vector2(0.08593076, 0.12566878)
 texture = ExtResource("12_0eq7q")
 
@@ -262,11 +264,12 @@ shape = SubResource("CapsuleShape2D_xvqmr")
 [node name="FixAreaEarR" parent="Face/FixAreas" index="3" unique_id=865976243 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
 position = Vector2(-39, 2.0000036)
 rotation = 0.08726646
+anatomy_type = 1
 my_anatomy = NodePath("../../Features/EarR")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEarR" index="0" unique_id=1542207743]
-position = Vector2(-7.9695582, 0.6972462)
-rotation = -0.12772363
+position = Vector2(-8.965753, 0.78440225)
+rotation = -0.42811036
 scale = Vector2(0.24624492, 0.39563715)
 texture = ExtResource("13_innbf")
 
@@ -277,12 +280,13 @@ shape = SubResource("CapsuleShape2D_ltwwj")
 
 [node name="FixAreaNose" parent="Face/FixAreas" index="4" unique_id=1860991290 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
 position = Vector2(0.99999934, -8)
+anatomy_type = 2
 my_anatomy = NodePath("../../Features/Nose")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaNose" index="0" unique_id=1542207743]
 position = Vector2(1.9999996, -4.0000005)
 rotation = -1.586368
-scale = Vector2(0.144, 0.104)
+scale = Vector2(0.15, 0.072)
 texture = ExtResource("10_ltwwj")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaNose" index="1" unique_id=32785027]
@@ -291,12 +295,13 @@ shape = SubResource("RectangleShape2D_xvqmr")
 
 [node name="FixAreaMouth" parent="Face/FixAreas" index="5" unique_id=1677497174 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
 position = Vector2(-0.9999968, 37)
+anatomy_type = 3
 my_anatomy = NodePath("../../Features/Mouth")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaMouth" index="0" unique_id=1542207743]
-position = Vector2(9.535955e-08, 1)
+position = Vector2(5.952586e-09, 0)
 rotation = 0.025145605
-scale = Vector2(0.07670979, 0.06510652)
+scale = Vector2(0.06, 0.035)
 texture = ExtResource("15_8ga5m")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaMouth" index="1" unique_id=32785027]

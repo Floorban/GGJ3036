@@ -6,12 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/boxer.tscn" id="4_kjrlu"]
 [ext_resource type="PackedScene" uid="uid://bavdc803jhh86" path="res://game/system/character/enemy/brain_out_1.tscn" id="5_ay0ac"]
 [ext_resource type="PackedScene" uid="uid://c7qftgs4x4ay4" path="res://game/system/character/enemy/fat_guy.tscn" id="6_fhe53"]
-[ext_resource type="PackedScene" uid="uid://teuunrq7bxl5" path="res://game/system/character/enemy/eric.tscn" id="7_28xsa"]
+[ext_resource type="PackedScene" uid="uid://b0n0jboitaswt" path="res://game/system/character/enemy/eric.tscn" id="7_28xsa"]
 [ext_resource type="PackedScene" uid="uid://c07hnykxqlg1x" path="res://game/system/character/enemy/brain_out_2.tscn" id="8_g1ogi"]
 [ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="9_tgsw3"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="10_xaya2"]
 [ext_resource type="Shader" uid="uid://bqqnlybur4rdk" path="res://material/retro.gdshader" id="11_5tn5e"]
 [ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="12_unnlo"]
+[ext_resource type="Script" uid="uid://b6ic2kvjqwmiq" path="res://game/level/combat_area/retro_screen.gd" id="13_i2c52"]
 [ext_resource type="Texture2D" uid="uid://bk1awwhg2p6h8" path="res://sprites/Backgrounds/Arena.png" id="13_ldpml"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_85o0x"]
@@ -31,8 +32,89 @@ shader_parameter/pixel_resolution_x = 400
 shader_parameter/pixel_resolution_y = 225
 shader_parameter/enable_color_quantization = true
 shader_parameter/color_quant_steps = 28.8800012768
-shader_parameter/warble_amount = 0.002000000095
+shader_parameter/warble_amount = 0.002
 shader_parameter/warble_speed = 1.0000000475
+
+[sub_resource type="Animation" id="Animation_i2c52"]
+resource_name = "TransitionToRest"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenLayer/RetroScreen:material:shader_parameter/barrel_distortion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.33333337),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.50000002375, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScreenLayer/RetroScreen:material:shader_parameter/color_quant_steps")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5494903),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [28.8800012768, 12.000000475]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ScreenLayer/RetroScreen:material:shader_parameter/crt_vignette_power")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4391597),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.98000014155, 5.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScreenLayer/RetroScreen:material:shader_parameter/vignette_darkness")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.4810000228475, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ScreenLayer/RetroScreen:material:shader_parameter/warble_amount")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.002, 0.0050000002375]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ScreenLayer/RetroScreen:material:shader_parameter/grain_intensity")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.03600000171, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8nlnt"]
+_data = {
+&"TransitionToRest": SubResource("Animation_i2c52")
+}
 
 [sub_resource type="Environment" id="Environment_8nlnt"]
 background_mode = 3
@@ -41,7 +123,6 @@ glow_strength = 0.74
 glow_bloom = 0.42
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
-current_level = 6
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
@@ -115,7 +196,14 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.5190886, 0.12432248, 0.21945283, 1)
+script = ExtResource("13_i2c52")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenLayer/RetroScreen" index="0" unique_id=1842895541]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_8nlnt")
+playback_auto_capture_transition_type = 4
+playback_auto_capture_ease_type = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="7" unique_id=473815152]
 

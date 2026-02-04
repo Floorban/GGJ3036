@@ -42,12 +42,13 @@ func _process(_delta: float) -> void:
 func pickup_obj(new_obj: Node2D) -> void:
 	if dragging_obj: drop_obj()
 	dragging_obj = new_obj
-	if dragging_obj is Anatomy: dragging_obj.is_being_dragged = true
+	if dragging_obj is Anatomy: 
+		dragging_obj.pickup_part()
 
 func drop_obj() -> void:
 	if dragging_obj:
 		if dragging_obj is Anatomy:
-			dragging_obj.is_being_dragged = false
+			dragging_obj.drop_part()
 		dragging_obj = null
 
 func toggle_arm(enabled: bool) -> void:

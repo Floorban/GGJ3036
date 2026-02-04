@@ -28,10 +28,15 @@ var current_color: Color
 
 var outline_mat: ShaderMaterial
 
+@export var fix_areas : Array[FixArea]
+
+
 func _ready() -> void:
 	outline_mat = sprite.material as ShaderMaterial
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
 	_unhighlight_target()
+	for a : FixArea in get_tree().get_nodes_in_group("fix_area"):
+		if a.anatomy_type == anatomy_type: fix_areas.append(a)
 
 func init_part(body: Character) -> void:
 	body_owner = body
@@ -53,6 +58,17 @@ func recover_part() -> void:
 	current_color = Color.WHITE
 	sprite.modulate = current_color
 
+func pickup_part() -> void:
+	is_being_dragged = true
+	_unhover_part()
+	for area in fix_areas:
+		area.highlight_zone()
+
+func drop_part() -> void:
+	is_being_dragged = false
+	for area in fix_areas:
+		area.unhighlight_zone()
+
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if state == PartState.DESTROYED or is_being_dragged:
 		return
@@ -62,7 +78,9 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 			get_viewport().set_input_as_handled()
 
 func _hover_over_part() -> void:
-	if state == PartState.DESTROYED:
+	if state == PartState.DESTROYED or is_being_dragged:
+		return
+	if state == PartState.HEALTHY and not body_owner.can_control:
 		return
 	#anatomy_ui.toggle_panel(true)
 	#if not is_targeted:
