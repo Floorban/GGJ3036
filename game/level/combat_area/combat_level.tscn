@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="12_unnlo"]
 [ext_resource type="Script" uid="uid://b6ic2kvjqwmiq" path="res://game/level/combat_area/retro_screen.gd" id="13_i2c52"]
 [ext_resource type="Texture2D" uid="uid://bk1awwhg2p6h8" path="res://sprites/Backgrounds/Arena.png" id="13_ldpml"]
+[ext_resource type="PackedScene" uid="uid://dg80hkoj8qolf" path="res://game/level/rest_room.tscn" id="15_kjrlu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_85o0x"]
 shader = ExtResource("11_5tn5e")
@@ -123,6 +124,8 @@ glow_strength = 0.74
 glow_bloom = 0.42
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
+battle_duration = 2.0
+break_duration = 2.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
@@ -132,6 +135,7 @@ top_down_dir = 1
 [node name="Enemies" type="Node2D" parent="." index="1" unique_id=1222997985]
 
 [node name="Background" type="Sprite2D" parent="Enemies" index="0" unique_id=697461009]
+unique_name_in_owner = true
 modulate = Color(0.22415566, 0.5097198, 0.31566837, 0.78431374)
 z_index = -10
 position = Vector2(-6.790283, 133.79175)
@@ -182,7 +186,7 @@ position = Vector2(9, 60)
 
 [node name="Corner" type="Marker2D" parent="." index="5" unique_id=1210708224]
 unique_name_in_owner = true
-position = Vector2(-353, -73)
+position = Vector2(-155, -210)
 
 [node name="ScreenLayer" type="CanvasLayer" parent="." index="6" unique_id=1860965310]
 layer = 0
@@ -214,3 +218,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="8" unique_id=1403225730]
 environment = SubResource("Environment_8nlnt")
+
+[node name="RestRoom" parent="." index="9" unique_id=1662139499 instance=ExtResource("15_kjrlu")]
+z_index = -5

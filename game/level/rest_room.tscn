@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dg80hkoj8qolf"]
+
+[ext_resource type="Texture2D" uid="uid://bn4iu0fq23qsi" path="res://sprites/Backgrounds/Surgery Room.png" id="1_e22fr"]
+[ext_resource type="Script" uid="uid://5n2ghk5tkp7t" path="res://game/level/rest_room.gd" id="1_nbyfe"]
+[ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="3_x4kus"]
+
+[node name="RestRoom" type="Node2D" unique_id=1662139499]
+script = ExtResource("1_nbyfe")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=844428716]
+visible = false
+position = Vector2(22, 121)
+rotation = -3.0379448
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_e22fr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981571717]
+layer = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=919885564]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 374.0
+grow_vertical = 0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="ReadyButton" type="Button" parent="CanvasLayer/MarginContainer" unique_id=108928691]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_x4kus")
+theme_override_font_sizes/font_size = 32
+text = "I'M READY AGAIN"

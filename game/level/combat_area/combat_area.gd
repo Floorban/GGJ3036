@@ -3,6 +3,8 @@ extends Node2D
 signal battle_start
 signal battle_end
 
+@onready var background: Sprite2D = %Background
+@onready var rest_room: RestRoom = $RestRoom
 @onready var arena_center: Marker2D = %ArenaCenter
 @onready var corner: Marker2D = %Corner
 @onready var enemies_container: Node2D = $Enemies
@@ -13,8 +15,9 @@ var start_pos : Vector2
 @onready var retro_screen: RetroScreen = %RetroScreen
 var retro_mat: ShaderMaterial
 @export var battle_duration := 40.0
-var break_duration := 15.0
+@export var break_duration := 15.0
 var in_break := false
+var in_battle := false
 var battle_time_left: float
 
 # level 0 is tutorial VS bully
@@ -28,6 +31,7 @@ var enemies: Array[Enemy]
 var enemy: Enemy
 
 func _ready() -> void:
+	rest_room.ready_to_fight.connect(start_battle)
 	start_pos = player.position
 	enemies.clear()
 	for e in enemies_container.get_children():
@@ -54,16 +58,23 @@ func init_combat_arena(level : int) -> void:
 		player.die.connect(end_battle)
 
 func start_battle() -> void:
+	in_break = false
+	in_battle = true
+	background.visible = true
 	init_combat_arena(current_level)
 	player.get_ready_to_battle()
 	enemy.get_ready_to_battle()
 	battle_start.emit()
 
 func end_battle() -> void:
+	current_round = 0
+	in_battle = false
 	in_break = true
 	battle_time_left = 1000
 	battle_end.emit()
 	advance_enemy()
+	background.visible = false
+	rest_room.enter_rest_room()
 
 func advance_enemy() -> void:
 	player.opponent = null
@@ -133,14 +144,14 @@ func _process(delta: float) -> void:
 			next_round()
 		else:
 			end_round()
-	else:
+	elif in_battle:
 		battle_time_left -= delta
 		game_ui.set_round_ui(battle_time_left)
 
 var distortion_tween: Tween
 var barrel_distortion := 0.0
 
-func _screen_shake(value: float, crit := false) -> void:
+func _screen_shake(value: float, crit := false) -> void:	
 	camera.add_trauma(value / 10)
 
 	var peak : float = clamp(value * 0.15, 0.05, 0.35)
@@ -154,6 +165,10 @@ func _screen_shake(value: float, crit := false) -> void:
 	if crit:
 		Engine.time_scale = 0.4
 
+	Engine.time_scale = 0.0
+	for i in 8:
+		await get_tree().physics_frame
+	Engine.time_scale = 1.0
 	
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
