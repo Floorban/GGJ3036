@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://hsq3up6o08uj"]
+
+[ext_resource type="PackedScene" uid="uid://c1q6sj2ue5ird" path="res://game/level/combat_area/combat_level.tscn" id="1_pn2bh"]
+
+[node name="CombatTest" unique_id=1259752126 instance=ExtResource("1_pn2bh")]

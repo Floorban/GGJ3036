@@ -12,9 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://b2ckq0bnxkhvc" path="res://sprites/body_parts/FaceAssets/Eye.png" id="8_388rn"]
 [ext_resource type="Texture2D" uid="uid://b8hrd4p7oqxrv" path="res://sprites/body_parts/FaceAssets/Beard4.png" id="8_eq501"]
 [ext_resource type="Texture2D" uid="uid://dgfbrc3ii8iw6" path="res://sprites/body_parts/FaceAssets/Ear1.png" id="9_eq501"]
+[ext_resource type="PackedScene" uid="uid://bo27tujcgh2id" path="res://game/system/character/player/fix_area.tscn" id="9_hu301"]
 [ext_resource type="Texture2D" uid="uid://b3w53qi4iph3g" path="res://sprites/body_parts/FaceAssets/Ear2.png" id="10_hu301"]
 [ext_resource type="Texture2D" uid="uid://d1r4bn32e30v7" path="res://sprites/body_parts/FaceAssets/MouthPainExp.png" id="11_f2h07"]
 [ext_resource type="Texture2D" uid="uid://defn8lxlh0cq7" path="res://sprites/body_parts/Bodies/MCbody.png" id="12_f2h07"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvqmr"]
+size = Vector2(34, 72)
 
 [sub_resource type="Shader" id="Shader_2ro5p"]
 code = "shader_type canvas_item;
@@ -143,7 +147,7 @@ shader_parameter/alphaThreshold = 0.2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq501"]
 size = Vector2(70, 27)
 
-[node name="Player" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_obar5")]
+[node name="Player" unique_id=1861387119 node_paths=PackedStringArray("arm") groups=["player"] instance=ExtResource("1_obar5")]
 script = ExtResource("2_b2mth")
 critical_chance = 0.3
 top_down_dir = -1
@@ -185,6 +189,42 @@ texture = ExtResource("7_388rn")
 z_index = 5
 position = Vector2(-0.99999833, 19)
 texture = ExtResource("8_eq501")
+
+[node name="FixAreas" type="Node2D" parent="Face" index="5" unique_id=273804179]
+
+[node name="FixAreaEyeL" parent="Face/FixAreas" index="0" unique_id=1630340479 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
+position = Vector2(27.999998, -21.000002)
+rotation = 3.1415925
+my_anatomy = NodePath("../../Features/EyeL")
+
+[node name="FixAreaEyeR" parent="Face/FixAreas" index="1" unique_id=1521391253 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
+position = Vector2(-31.000002, -20.999996)
+rotation = 3.1415925
+my_anatomy = NodePath("../../Features/EyeR")
+
+[node name="FixAreaEarL" parent="Face/FixAreas" index="2" unique_id=127680847 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
+position = Vector2(60, -14.000006)
+rotation = 3.1415925
+my_anatomy = NodePath("../../Features/EarL")
+
+[node name="FixAreaEarR" parent="Face/FixAreas" index="3" unique_id=865976243 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
+position = Vector2(-63, -3.9999962)
+rotation = 3.1415925
+my_anatomy = NodePath("../../Features/EarR")
+
+[node name="FixAreaNose" parent="Face/FixAreas" index="4" unique_id=1860991290 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
+position = Vector2(-1, -4.9999995)
+rotation = 3.1415925
+my_anatomy = NodePath("../../Features/Nose")
+
+[node name="CollisionShape2D" parent="Face/FixAreas/FixAreaNose" index="1" unique_id=32785027]
+position = Vector2(-1.0000001, 3)
+shape = SubResource("RectangleShape2D_xvqmr")
+
+[node name="FixAreaMouth" parent="Face/FixAreas" index="5" unique_id=1677497174 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
+position = Vector2(-1, -4.9999995)
+rotation = 3.1415925
+my_anatomy = NodePath("../../Features/Mouth")
 
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 position = Vector2(16.999996, -35)
@@ -260,7 +300,11 @@ rotation = -0.13820246
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_wqm0g")
 
-[node name="Sprite" parent="Face/Features/Nose" parent_id_path=PackedInt32Array(1350482542) index="0" unique_id=500964707]
+[node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
+position = Vector2(2, -5)
+state = 1
+
+[node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_ltwwj")
 texture = ExtResource("7_ka5xu")
 
@@ -292,10 +336,12 @@ texture = ExtResource("12_f2h07")
 unique_name_in_owner = true
 z_index = 2
 position = Vector2(103, -23)
+movable_by_mouse = true
 
 [node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
 theme_override_constants/margin_right = 230
 
+[editable path="Face/FixAreas/FixAreaNose"]
 [editable path="Face/Features/EyeL"]
 [editable path="Face/Features/EyeR"]
 [editable path="Face/Features/EarL"]

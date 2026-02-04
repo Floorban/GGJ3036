@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bo27tujcgh2id"]
+
+[ext_resource type="Script" uid="uid://cstplnqxir12s" path="res://game/system/character/player/fix_area.gd" id="1_l7iy3"]
+
+[node name="FixArea" type="Area2D" unique_id=1630340479]
+priority = 2
+script = ExtResource("1_l7iy3")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1542207743]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=32785027]

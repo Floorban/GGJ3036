@@ -2,6 +2,10 @@ class_name Arm extends Node2D
 
 signal action_finished(blocking: bool)
 
+@export var movable_by_mouse := false
+@export var dragging_obj: Node2D
+
+
 var arm_og_color: Color
 @onready var sprite_arm_up: Sprite2D = %SpriteArmUp
 @onready var sprite_arm_low: Sprite2D = %SpriteArmLow
@@ -27,6 +31,14 @@ func _ready() -> void:
 	rest_position = fist_target.global_position
 	windup_position = rest_position
 	sprite_fist.modulate = Color.DIM_GRAY
+
+func _process(_delta: float) -> void:
+	if not movable_by_mouse:
+		return
+	
+	fist_target.global_position = get_global_mouse_position()
+	if dragging_obj:
+		dragging_obj.global_position = fist_target.global_position
 
 func toggle_arm(enabled: bool) -> void:
 	if enabled:
@@ -112,7 +124,6 @@ func block_success() -> void:
 		blocking_pos,
 		0.3 + randf_range(-0.05,0.15)
 	)
-
 
 func block(target_global_pos: Vector2) -> void:
 	var tween := create_tween()

@@ -39,6 +39,10 @@ func _on_block_finished() -> void:
 	)
 
 func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
+	if arm.movable_by_mouse and anatomy.state == Anatomy.PartState.FUCKED:
+		arm.dragging_obj = anatomy
+		
+		return
 	if arm.is_punching or not can_control:
 		return
 	if selected_target != anatomy:

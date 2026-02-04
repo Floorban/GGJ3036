@@ -1,10 +1,13 @@
 class_name Anatomy extends Node2D
 
+enum AnatomyType {Eye, Ear, Nose, Mouth}
+@export var anatomy_type: AnatomyType 
+
 signal anatomy_clicked(anatomy: Anatomy)
 signal anatomy_hit(damage: float)
 
-enum PartState { HEALTHY, DESTROYED }
-var state: PartState = PartState.HEALTHY
+enum PartState { HEALTHY, FUCKED, DESTROYED }
+@export var state: PartState = PartState.HEALTHY
 
 var body_owner : Character
 
@@ -46,6 +49,7 @@ func init_part(body: Character) -> void:
 
 func recover_part() -> void:
 	current_hp = max_hp
+	#state = PartState.HEALTHY
 	#anatomy_ui.set_hp_bar(current_hp, max_hp)
 	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
 	current_color = Color.WHITE
@@ -57,6 +61,7 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			anatomy_clicked.emit(self)
+			get_viewport().set_input_as_handled()
 
 func _hover_over_part() -> void:
 	if state == PartState.DESTROYED:
@@ -98,6 +103,7 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 	#anatomy_ui.set_hp_bar(current_hp, max_hp)
 	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
 	if current_hp <= max_hp / 2 and state != PartState.DESTROYED:
+		state = PartState.FUCKED
 		move_part()
 		current_color = Color.CHOCOLATE
 		if not is_targeted:
