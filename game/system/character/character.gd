@@ -68,7 +68,6 @@ func get_ready_to_battle() -> void:
 	is_dead = false
 	for part in anatomy_parts:
 		part.recover_part()
-	health = max_health
 
 func end_battle() -> void:
 	for part in anatomy_parts:

@@ -49,6 +49,7 @@ func init_part(body: Character) -> void:
 
 func recover_part() -> void:
 	current_hp = max_hp
+	body_owner.health += current_hp
 	state = PartState.HEALTHY
 	#anatomy_ui.set_hp_bar(current_hp, max_hp)
 	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")

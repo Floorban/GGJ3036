@@ -62,7 +62,7 @@ texture = ExtResource("2_ro8a2")
 
 [node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1025545314]
 unique_name_in_owner = true
-self_modulate = Color(3.7013361, 3.7013361, 3.7013361, 1)
+self_modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)
 custom_minimum_size = Vector2(500, 200)
 offset_left = -80.22178
 offset_top = -122.55974
@@ -95,7 +95,7 @@ texture = ExtResource("4_ro8a2")
 
 [node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1587456585]
 unique_name_in_owner = true
-self_modulate = Color(3.7002516, 3.7002516, 3.7002516, 1)
+self_modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)
 offset_left = -117.00564
 offset_top = -91.096886
 offset_right = 398.99435
