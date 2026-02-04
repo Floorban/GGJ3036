@@ -14,7 +14,7 @@ func _ready() -> void:
 	input_event.connect(_on_input_event)
 
 func receive_anatomy(anatomy: Anatomy) -> void:
-	if anatomy.anatomy_type != anatomy_type:
+	if is_occupied or anatomy.anatomy_type != anatomy_type:
 		return
 	anatomy.is_being_dragged = false
 	anatomy.recover_part()
@@ -23,11 +23,12 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 	player.arm.dragging_obj = null
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
-	if is_occupied or player.arm.dragging_obj == null:
+	if player.arm.dragging_obj == null:
 		return
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			var target : Anatomy = player.arm.dragging_obj 
+			player.arm.z_index = 0
 			receive_anatomy(target)
 			get_viewport().set_input_as_handled()
 
