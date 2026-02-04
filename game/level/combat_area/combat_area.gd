@@ -7,16 +7,17 @@ signal battle_end
 @onready var game_ui: GameUI = %GameUI
 @onready var retro_screen: ColorRect = %RetroScreen
 var retro_mat: ShaderMaterial
-@export var battle_duration := 90.0
+@export var battle_duration := 40.0
 var battle_time_left: float
 
 # level 0 is tutorial VS bully
 @export var current_level := 0
 @export var current_round := 1
+var first_level := false
 
-@export var enemies: Array[Enemy]
-@export var player: Player
-@export var enemy: Enemy
+var enemies: Array[Enemy]
+@onready var player: Player = %Player
+var enemy: Enemy
 
 func _ready() -> void:
 	enemies.clear()
@@ -26,6 +27,7 @@ func _ready() -> void:
 	retro_mat = retro_screen.material as ShaderMaterial
 	init_combat_arena(current_level)
 	start_battle()
+	first_level = true
 
 func init_combat_arena(level : int) -> void:
 	enemy = enemies[level]
@@ -33,12 +35,13 @@ func init_combat_arena(level : int) -> void:
 	battle_time_left = battle_duration
 	player.opponent = enemy
 	enemy.opponent = player
-	player.init_character()
 	enemy.init_character()
-	player.hit.connect(_screen_shake)
-	player.blocked.connect(_screen_shake)
-	player.die.connect(end_battle)
 	enemy.die.connect(end_battle)
+	if not first_level:
+		player.init_character()
+		player.hit.connect(_screen_shake)
+		player.blocked.connect(_screen_shake)
+		player.die.connect(end_battle)
 
 func start_battle() -> void:
 	player.get_ready_to_battle()
@@ -51,6 +54,13 @@ func end_battle() -> void:
 	battle_end.emit()
 	battle_time_left = 0
 	print("over")
+	advance_enemy()
+	start_battle()
+
+func advance_enemy() -> void:
+	enemy.visible = false
+	current_level += 1
+	init_combat_arena(current_level)
 
 func _process(delta: float) -> void:
 	if battle_time_left <= 0:

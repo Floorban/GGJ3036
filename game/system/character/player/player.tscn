@@ -38,8 +38,7 @@ size = Vector2(70, 27)
 script = ExtResource("2_b2mth")
 critical_chance = 0.3
 top_down_dir = -1
-attack_damage = 30.0
-action_cooldown = 5.0
+action_cooldown = 4.0
 arm = NodePath("ArmR")
 
 [node name="Face" parent="." index="0" unique_id=1276534686]

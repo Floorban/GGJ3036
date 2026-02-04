@@ -13,6 +13,10 @@ position = Vector2(-13, -73)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_p4dd3")
 
-[node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
+[node name="MouseDetectArea" parent="." index="1" unique_id=1106976729]
+z_index = 1
+priority = 1
+
+[node name="CollisionShape2D" parent="MouseDetectArea" index="0" unique_id=149295176]
 position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_q55ig")

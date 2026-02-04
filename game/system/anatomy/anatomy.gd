@@ -28,11 +28,14 @@ var sfx_hit: String = "event:/SFX/Combat/Hit"
 
 func init_part(body: Character) -> void:
 	body_owner = body
-	mouse_detect_area.mouse_entered.connect(_hover_over_part)
-	mouse_detect_area.mouse_exited.connect(_unhover_part)
-	mouse_detect_area.input_event.connect(_on_input_event)
 	recover_part()
 	#anatomy_ui.toggle_panel(false)
+	if not mouse_detect_area.mouse_entered.is_connected(_hover_over_part):
+		mouse_detect_area.mouse_entered.connect(_hover_over_part)
+	if not mouse_detect_area.mouse_exited.is_connected(_unhover_part):
+		mouse_detect_area.mouse_exited.connect(_unhover_part)
+	if not mouse_detect_area.input_event.is_connected(_on_input_event):
+		mouse_detect_area.input_event.connect(_on_input_event)
 
 func recover_part() -> void:
 	current_hp = max_hp
@@ -42,13 +45,15 @@ func recover_part() -> void:
 	sprite.modulate = current_color
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
-	#if not is_hovering:
-		#return
+	if state == PartState.DESTROYED:
+		return
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			anatomy_clicked.emit(self)
 
 func _hover_over_part() -> void:
+	if state == PartState.DESTROYED:
+		return
 	#anatomy_ui.toggle_panel(true)
 	is_hovering = true
 

@@ -35,6 +35,7 @@ script = ExtResource("2_qjg54")
 sfx_die = "event:/SFX/NPC/Boxer/Die"
 sfx_entry = "event:/SFX/NPC/Bully/Entry"
 sfx_hurt = "event:/SFX/NPC/Bully/Hit"
+punch_strength = 0.12
 action_cooldown = 7.0
 arm = NodePath("BullyArm")
 
@@ -150,7 +151,10 @@ shape = SubResource("RectangleShape2D_oqmy7")
 [node name="BullyArm" parent="." index="2" unique_id=1972221418 instance=ExtResource("12_qjg54")]
 position = Vector2(-84, 4)
 
-[node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
+[node name="CanvasLayer" parent="CombatComponent" parent_id_path=PackedInt32Array(823960288) index="1" unique_id=296824878]
+visible = false
+
+[node name="MarginContainer" parent="CombatComponent/CanvasLayer" index="0" unique_id=1187610258]
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
@@ -162,6 +166,7 @@ offset_right = 146.0
 offset_bottom = 199.0
 grow_horizontal = 1
 grow_vertical = 1
+mouse_filter = 2
 theme_override_constants/margin_left = 230
 theme_override_constants/margin_top = 100
 

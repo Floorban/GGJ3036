@@ -44,12 +44,14 @@ func get_anatomy_references() -> void:
 			opponent_anatomy.append(anatomy)
 
 func _init_combat_component() -> void:
-	combat_component.combat_ready.connect(_on_action_ready)
+	if not combat_component.combat_ready.is_connected(_on_action_ready):
+		combat_component.combat_ready.connect(_on_action_ready)
 	arm.action_finished.connect(func(blocking: bool): _on_action_finished(blocking))
 	combat_component.base_damage = attack_damage
 	combat_component.reset_attack_timer(action_cooldown)
 
 func _init_anatomy_parts() -> void:
+	anatomy_parts.clear()
 	for anatomy in features.get_children():
 		if anatomy.visible:
 			anatomy_parts.append(anatomy)
