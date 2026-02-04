@@ -8,7 +8,7 @@ signal die()
 var can_control := true
 var is_dead := false
 var max_health : float
-var health : float
+@export var health : float
 
 @export var critical_chance := 0.2
 @export var punch_strength := 0.1
@@ -98,7 +98,7 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 	if health <= 0 or dead_anatomy >= anatomy_parts.size():
 		die.emit()
 	hit.emit(damage * 1.5)
-	get_hit_visual_feedback(damage / 15)
+	get_hit_visual_feedback(damage / 10)
 
 var face_tween : Tween
 var face_og_pos : Vector2
@@ -124,7 +124,7 @@ func get_hit_visual_feedback(damage_scale: float) -> void:
 
 	var rot_offset := rand_outside_range(3, 5) * damage_scale
 
-	var hit_time := damage_scale + randf_range(-0.15, 0.05)
+	var hit_time := 0.05 + damage_scale + randf_range(-0.15, 0.05)
 
 	face_tween = create_tween()
 	face_tween.set_trans(Tween.TRANS_QUAD)
@@ -154,10 +154,12 @@ func get_hit_visual_feedback(damage_scale: float) -> void:
 		hit_time
 	)
 
-	face_tween.tween_callback(face_return)
+	face_tween.tween_callback(func():
+		face_return(0.2 * damage_scale)
+		)
 
-func face_return() -> void:
-	var return_time := 0.15 + randf_range(-0.05, 0.12)
+func face_return(duration: float) -> void:
+	var return_time := duration + randf_range(0.05, 0.15)
 
 	face_tween = create_tween()
 	face_tween.set_trans(Tween.TRANS_QUAD)

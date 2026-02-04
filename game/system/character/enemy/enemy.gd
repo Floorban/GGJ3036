@@ -30,6 +30,9 @@ func _on_action_ready() -> void:
 	_perform_attack(next_target)
 
 func enemy_attack(attack_target: Anatomy) -> void:
+	var crit := randf() < critical_chance
+	var dmg := attack_damage
+	if crit: dmg *= 3
 	attack_target._unhighlight_target()
-	attack_target.anatomy_hit.emit(attack_damage)
-	#combat_component.attack(attack_target)
+	attack_target.anatomy_hit.emit(dmg)
+	hit.emit(dmg, crit)

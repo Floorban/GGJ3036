@@ -73,7 +73,7 @@ func _on_enemy_anatomy_clicked(anatomy: Anatomy) -> void:
 		selected_target = anatomy
 		if can_action:
 			_perform_attack(selected_target)
-	else:
-		selected_target = null
-		anatomy.is_targeted = false
-		anatomy._unhighlight_target()
+	#else:
+		#selected_target = null
+		#anatomy.is_targeted = false
+		#anatomy._unhighlight_target()

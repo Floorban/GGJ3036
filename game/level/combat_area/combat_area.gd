@@ -11,7 +11,7 @@ var retro_mat: ShaderMaterial
 var battle_time_left: float
 
 # level 0 is tutorial VS bully
-@export var current_level := 0
+@export_range(1,7) var current_level := 1
 @export var current_round := 1
 var first_level := false
 
@@ -30,7 +30,7 @@ func _ready() -> void:
 	first_level = true
 
 func init_combat_arena(level : int) -> void:
-	enemy = enemies[level]
+	enemy = enemies[level - 1]
 	enemy.visible = true
 	battle_time_left = battle_duration
 	player.opponent = enemy
