@@ -1,4 +1,4 @@
-extends Node3D
+extends Node2D
 
 ## -- Banks Settings -- 
 var bank_list: Dictionary
@@ -37,7 +37,7 @@ func load_banks() -> void:
 
 func play(
 sound_path: String, 
-object_transform: Transform3D = global_transform, 
+object_transform: Transform2D = global_transform, 
 parameter: String = "", 
 value: Variant = null
 ):
@@ -53,7 +53,7 @@ value: Variant = null
 	instance.start()
 	instance.release()
 
-func play_instance(sound_path: String, object_transform: Transform3D) -> FmodEvent:
+func play_instance(sound_path: String, object_transform: Transform2D) -> FmodEvent:
 	if sound_path == null: push_error("audio missing")
 	var instance: FmodEvent = FmodServer.create_event_instance(sound_path)
 	instance.set_3d_attributes(object_transform)

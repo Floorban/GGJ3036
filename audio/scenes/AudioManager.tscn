@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnb4oio35tq1m" path="res://audio/scenes/audio_manager.gd" id="1_el7wj"]
 
-[node name="AudioManager" type="Node3D" unique_id=1015518348]
+[node name="AudioManager" type="Node2D" unique_id=743281956]
 script = ExtResource("1_el7wj")
 
 [node name="Ambience" type="FmodEventEmitter2D" parent="." unique_id=451855516]

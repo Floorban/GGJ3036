@@ -52,6 +52,7 @@ scale = Vector2(0.65, 0.65)
 texture = ExtResource("5_acmvr")
 
 [node name="Noise" type="Sprite2D" parent="Face" index="0" unique_id=215814435]
+visible = false
 texture_filter = 1
 position = Vector2(-1.8626167e-09, -1.5384616)
 rotation = 0.012600459
