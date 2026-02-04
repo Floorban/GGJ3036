@@ -21,7 +21,6 @@ var is_hovering := false
 
 var current_color: Color
 
-#AUDIO
 var sfx_block: String = "event:/SFX/Combat/Block"
 var sfx_crit: String = "event:/SFX/Combat/Crit"
 var sfx_hit: String = "event:/SFX/Combat/Hit"
