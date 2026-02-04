@@ -1,11 +1,11 @@
 class_name Enemy extends Character
 
+var next_target: Anatomy
+
 #AUDIO
 @export var sfx_die: String
 @export var sfx_entry: String
 @export var sfx_hurt: String
-
-var next_target: Anatomy
 
 func get_ready_to_battle() -> void:
 	audio.play(sfx_entry)
