@@ -46,6 +46,7 @@ attack_damage = 1.0
 [node name="Enemies" type="Node2D" parent="." index="1" unique_id=1222997985]
 
 [node name="Bully" parent="Enemies" index="0" unique_id=1348200660 instance=ExtResource("3_i2c52")]
+visible = false
 
 [node name="Boxer" parent="Enemies" index="1" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false

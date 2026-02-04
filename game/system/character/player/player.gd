@@ -1,6 +1,5 @@
 class_name Player extends Character
 
-var can_control := true
 var selected_target: Anatomy
 
 func get_anatomy_references() -> void:
@@ -9,14 +8,6 @@ func get_anatomy_references() -> void:
 		a.anatomy_clicked.connect(_on_self_anatomy_clicked)
 	for a in opponent_anatomy:
 		a.anatomy_clicked.connect(_on_enemy_anatomy_clicked)
-
-func get_ready_to_battle() -> void:
-	super.get_ready_to_battle()
-	can_control = true
-
-func end_battle() -> void:
-	super.end_battle()
-	can_control = false
 
 func choose_target() -> Anatomy:
 	if selected_target and selected_target.state != Anatomy.PartState.DESTROYED:

@@ -21,13 +21,16 @@ Themes: Out of Place & Timing"
 config/version="1.0"
 run/main_scene="uid://c1q6sj2ue5ird"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://sprites/icon.svg"
-boot_splash/minimum_display_time=20
+boot_splash/image="uid://colhn2sx5admh"
+config/icon="uid://c7f583vqgdmne"
+boot_splash/minimum_display_time=240
 
 [autoload]
 
 FmodManager="*uid://cds10pm7hwn3p"
 audio="*uid://bnb4oio35tq1m"
+DialogueManager="*uid://14hrrjqso8mu"
+PopupPrompt="*uid://gmvmwlnyad4c"
 
 [display]
 

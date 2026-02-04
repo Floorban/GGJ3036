@@ -5,6 +5,7 @@ signal blocked(blocked_damage: float)
 
 signal die()
 
+var can_control := true
 var is_dead := false
 @export var max_health : float
 var health : float
@@ -61,14 +62,20 @@ func _init_anatomy_parts() -> void:
 
 func get_ready_to_battle() -> void:
 	combat_component.start()
+	is_dead = false
+	can_control = true
 	for part in anatomy_parts:
 		part.recover_part()
 	health = max_health
 
 func end_battle() -> void:
 	combat_component.stop()
+	can_control = false
+	arm.set_cd_bar(0,0)
 
 func _process(_delta: float) -> void:
+	if is_dead:
+		return
 	arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
 
 func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
@@ -89,7 +96,7 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 	if health <= 0 or dead_anatomy >= anatomy_parts.size():
 		die.emit()
 	hit.emit(damage * 1.5)
-	get_hit_visual_feedback(damage / 5)
+	get_hit_visual_feedback(damage / 15)
 
 var face_tween : Tween
 var face_og_pos : Vector2
@@ -197,7 +204,6 @@ func _perform_attack(target: Anatomy) -> void:
 				if crit: dmg *= 3
 				target.anatomy_hit.emit(dmg)
 				hit.emit(dmg, crit)
-				print(dmg)
 		)
 
 func _perform_block(target: Anatomy) -> void:
