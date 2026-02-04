@@ -31,7 +31,7 @@ shader_parameter/crt_vignette_power = 2.98000014155
 shader_parameter/pixel_resolution_x = 400
 shader_parameter/pixel_resolution_y = 225
 shader_parameter/enable_color_quantization = true
-shader_parameter/color_quant_steps = 28.8800012768
+shader_parameter/color_quant_steps = 40.000001805
 shader_parameter/warble_amount = 0.002
 shader_parameter/warble_speed = 1.0000000475
 
@@ -57,10 +57,10 @@ tracks/1/path = NodePath("ScreenLayer/RetroScreen:material:shader_parameter/colo
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5494903),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [28.8800012768, 12.000000475]
+"values": [40.000001805, 15.0000006175]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -143,6 +143,7 @@ texture = ExtResource("13_ldpml")
 visible = false
 position = Vector2(0, -13)
 critical_chance = 0.0
+action_cooldown = 0.5
 
 [node name="Boxer" parent="Enemies" index="2" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false

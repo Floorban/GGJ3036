@@ -19,7 +19,9 @@ func _perform_attack(_target: Anatomy) -> void:
 		_target._unhighlight_target()
 		return
 	can_action = false
+
 	await get_tree().create_timer(punch_strength * 2).timeout
+	
 	if next_target:
 		next_target.is_targeted = true
 		next_target._highlight_target()
@@ -45,6 +47,8 @@ func enemy_attack(attack_target: Anatomy) -> void:
 	if not can_control:
 		attack_target.is_targeted = false
 		attack_target._unhighlight_target()
+		arm.rest_pos()
+		next_target = null
 		return
 	var crit := randf() < critical_chance
 	var dmg := attack_damage

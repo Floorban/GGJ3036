@@ -284,8 +284,6 @@ func _on_block_finished() -> void:
 	blocking_part = null
 
 func choose_target() -> Anatomy:
-	if not can_control:
-		return
 	if opponent == null:
 		targeting_part = null
 		return null
@@ -299,6 +297,7 @@ func choose_target() -> Anatomy:
 		
 	var new_target: Anatomy = valid_targets.pick_random()
 	targeting_part = new_target
-	targeting_part.is_targeted = true
-	targeting_part._highlight_target()
+	if can_control:
+		targeting_part.is_targeted = true
+		targeting_part._highlight_target()
 	return new_target
