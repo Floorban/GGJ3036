@@ -116,6 +116,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteFist" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow/Fist" unique_id=520692977]
 unique_name_in_owner = true
+modulate = Color(0.42252156, 0.42252156, 0.42252156, 1)
 z_index = 2
 position = Vector2(-48.681885, 41.56602)
 rotation = 1.3533479

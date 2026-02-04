@@ -5,6 +5,7 @@ enum AnatomyType {Eye, Ear, Nose, Mouth}
 
 signal anatomy_clicked(anatomy: Anatomy)
 signal anatomy_hit(damage: float)
+signal anatomy_fucked()
 
 enum PartState { HEALTHY, FUCKED, DESTROYED }
 @export var state: PartState = PartState.HEALTHY
@@ -102,6 +103,7 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 	#anatomy_ui.set_hp_bar(current_hp, max_hp)
 	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
 	if current_hp <= max_hp / 2 and state != PartState.DESTROYED:
+		anatomy_fucked.emit()
 		state = PartState.FUCKED
 		move_part()
 		current_color = Color.CHOCOLATE
@@ -121,6 +123,7 @@ func part_dead() -> void:
 	current_color = Color.WEB_PURPLE
 	sprite.modulate = current_color
 	move_part()
+	anatomy_fucked.emit()
 
 func move_part() -> void:
 	rotation += randf_range(-0.8, 0.8)

@@ -12,7 +12,7 @@ var start_pos : Vector2
 @onready var retro_screen: ColorRect = %RetroScreen
 var retro_mat: ShaderMaterial
 @export var battle_duration := 40.0
-var break_duration := 5.0
+var break_duration := 15.0
 var in_break := false
 var battle_time_left: float
 

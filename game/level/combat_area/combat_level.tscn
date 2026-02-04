@@ -41,8 +41,7 @@ glow_strength = 0.74
 glow_bloom = 0.42
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
-battle_duration = 10.0
-current_level = 2
+battle_duration = 15.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
@@ -54,7 +53,9 @@ top_down_dir = 1
 [node name="Bully" parent="Enemies" index="0" unique_id=1348200660 instance=ExtResource("3_i2c52")]
 visible = false
 position = Vector2(0, -13)
-action_cooldown = 2.0
+critical_chance = 0.0
+attack_damage = 2.5
+action_cooldown = 0.5
 
 [node name="Boxer" parent="Enemies" index="1" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false

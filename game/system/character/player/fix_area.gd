@@ -4,24 +4,43 @@ class_name FixArea extends Area2D
 var anatomy_type: Anatomy.AnatomyType
 @export var my_anatomy: Anatomy
 @onready var sprite: Sprite2D = $Sprite
+var sprite_og_color: Color
 var is_occupied := false
 var is_hovering := false
 
+
 func _ready() -> void:
+	reset_sprite()
 	if my_anatomy: anatomy_type = my_anatomy.anatomy_type
 	mouse_entered.connect(_hover_over_part)
 	mouse_exited.connect(_unhover_part)
 	input_event.connect(_on_input_event)
+	my_anatomy.anatomy_fucked.connect(lose_anatomy)
+	player.start.connect(reset_sprite)
+
+func lose_anatomy() -> void:
+	sprite.visible = true
+	sprite.rotate(randf_range(-0.5,0.5))
+	my_anatomy = null
+	is_occupied = false
 
 func receive_anatomy(anatomy: Anatomy) -> void:
 	if is_occupied or anatomy.anatomy_type != anatomy_type:
 		return
-	anatomy.is_being_dragged = false
+	player.arm.drop_obj()
+	#sprite.visible = false
+	sprite.modulate = Color.WEB_GRAY
+	sprite_og_color = sprite.modulate
 	anatomy.recover_part()
 	anatomy.position = position
 	anatomy.rotation = rotation
-	player.arm.dragging_obj = null
 	is_occupied =  true
+
+func reset_sprite() -> void:
+	sprite.modulate = Color.WHITE
+	sprite_og_color = sprite.modulate
+	sprite.visible = false
+
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if player.arm.dragging_obj == null:
@@ -34,9 +53,13 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 			get_viewport().set_input_as_handled()
 
 func _hover_over_part() -> void:
-	if is_occupied:
+	if is_hovering or is_occupied or player.can_control or player.arm.dragging_obj == null:
 		return
+	var target : Anatomy = player.arm.dragging_obj 
+	if target.anatomy_type == anatomy_type:
+		sprite.modulate *= 2.0
 	is_hovering = true
 
 func _unhover_part() -> void:
+	sprite.modulate = sprite_og_color
 	is_hovering = false

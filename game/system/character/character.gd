@@ -2,7 +2,7 @@ class_name Character extends Node2D
 
 signal hit(damage: float)
 signal blocked(blocked_damage: float)
-
+signal start()
 signal die()
 
 var can_control := true
@@ -62,6 +62,7 @@ func _init_anatomy_parts() -> void:
 		func(dmg): resolve_hit(part, dmg, opponent)
 		)
 		max_health += part.max_hp
+	start.emit()
 
 func get_ready_to_battle() -> void:
 	start_round()
@@ -78,6 +79,8 @@ func end_battle() -> void:
 	can_action = false
 	can_control = false
 	arm.set_cd_bar(0,1)
+	arm.drop_obj()
+	arm.toggle_arm(true)
 
 func start_round() -> void:
 	combat_component.start()

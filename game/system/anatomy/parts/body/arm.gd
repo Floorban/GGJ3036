@@ -39,6 +39,17 @@ func _process(_delta: float) -> void:
 	if dragging_obj:
 		dragging_obj.global_position = fist_target.global_position
 
+func pickup_obj(new_obj: Node2D) -> void:
+	if dragging_obj: drop_obj()
+	dragging_obj = new_obj
+	if dragging_obj is Anatomy: dragging_obj.is_being_dragged = true
+
+func drop_obj() -> void:
+	if dragging_obj:
+		if dragging_obj is Anatomy:
+			dragging_obj.is_being_dragged = false
+		dragging_obj = null
+
 func toggle_arm(enabled: bool) -> void:
 	if enabled:
 		sprite_arm_up.modulate = arm_og_color
