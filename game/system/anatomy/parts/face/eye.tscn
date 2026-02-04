@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b56sq1ns8ntd7" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerAngryEye.png" id="2_kg5hk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg5hk"]
-size = Vector2(66, 28)
+size = Vector2(66, 34.46154)
 
 [node name="Eye" unique_id=1690948451 instance=ExtResource("1_818u1")]
 

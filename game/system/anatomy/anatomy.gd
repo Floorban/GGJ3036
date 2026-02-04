@@ -31,6 +31,7 @@ var outline_mat: ShaderMaterial
 func _ready() -> void:
 	outline_mat = sprite.material as ShaderMaterial
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
+	_unhighlight_target()
 
 func init_part(body: Character) -> void:
 	body_owner = body
@@ -61,6 +62,7 @@ func _hover_over_part() -> void:
 	if state == PartState.DESTROYED:
 		return
 	#anatomy_ui.toggle_panel(true)
+	#if not is_targeted:
 	outline_mat.set_shader_parameter("alphaThreshold", 0.1)
 	sprite.use_parent_material = false
 	is_hovering = true
@@ -73,7 +75,6 @@ func _unhover_part() -> void:
 
 func _highlight_target(block_target := false) -> void:
 	if is_part_dead():
-		#sprite.modulate = Color.CHOCOLATE
 		return
 
 	if block_target:
@@ -82,7 +83,7 @@ func _highlight_target(block_target := false) -> void:
 			#sprite.modulate = Color.CADET_BLUE
 	elif is_targeted:
 		sprite.use_parent_material = true
-		sprite.modulate = Color(1.0, 0.2, 0.2) * 2.0
+		sprite.modulate = Color.RED * 2.0
 
 func _unhighlight_target() -> void:
 	if is_part_dead():
