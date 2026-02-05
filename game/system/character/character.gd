@@ -47,6 +47,7 @@ func init_character() -> void:
 	get_anatomy_references()
 
 func get_anatomy_references() -> void:
+	opponent_anatomy.clear()
 	for anatomy : Anatomy in get_tree().get_nodes_in_group("anatomy"):
 		if anatomy.visible and anatomy.body_owner != self:
 			opponent_anatomy.append(anatomy)
@@ -60,8 +61,8 @@ func _init_combat_component() -> void:
 
 func _init_anatomy_parts() -> void:
 	anatomy_parts.clear()
-	for anatomy in features.get_children():
-		if anatomy.visible:
+	for anatomy: Anatomy in features.get_children():
+		if anatomy.visible and anatomy.state != Anatomy.PartState.OutOfBody:
 			anatomy_parts.append(anatomy)
 	for part in anatomy_parts:
 		part.init_part(self)
@@ -121,7 +122,7 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 	health -= damage
 	var dead_anatomy := 0
 	for a in anatomy_parts:
-		if a.is_part_dead(): dead_anatomy += 1
+		if a and a.is_part_dead(): dead_anatomy += 1
 	if health <= 0 or dead_anatomy >= anatomy_parts.size():
 		die.emit()
 	hit.emit(damage * 1.5)
@@ -300,7 +301,7 @@ func choose_target() -> Anatomy:
 		return null
 
 	var valid_targets := opponent.anatomy_parts.filter(
-		func(part): return part.state != Anatomy.PartState.DESTROYED)
+		func(part): return part and part.state != Anatomy.PartState.DESTROYED)
 
 	if valid_targets.is_empty():
 		targeting_part = null

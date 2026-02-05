@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://s8u8xkowfvjv"]
 
 [ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_jf31p"]
-[ext_resource type="Texture2D" uid="uid://coeymhgmu0be4" path="res://sprites/body_parts/FaceAssets/Enemies/EnemyScaredEye1.png" id="2_4ix6m"]
+[ext_resource type="Texture2D" uid="uid://d4ed875hswbn" path="res://sprites/body_parts/FaceAssets/eye3.png" id="2_4ix6m"]
 
 [sub_resource type="Shader" id="Shader_2ro5p"]
 code = "shader_type canvas_item;
@@ -54,10 +54,11 @@ shader_parameter/glowSize = 4.00000019
 shader_parameter/glowDensity = 30
 shader_parameter/glowRadialCoverage = 32
 shader_parameter/glowAngle = 1.57
-shader_parameter/glowSharpness = 1.0
+shader_parameter/glowSharpness = 5.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hksoh"]
+height = 32.062412
 
 [node name="EyeActionSpeed" unique_id=1690948451 instance=ExtResource("1_jf31p")]
 z_index = 10
@@ -65,10 +66,10 @@ state = 3
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_0b74b")
-position = Vector2(18, 4)
+scale = Vector2(1, 1)
 texture = ExtResource("2_4ix6m")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-position = Vector2(0, 1.0000001)
+position = Vector2(0, -1.1920929e-07)
 rotation = -1.6345505
 shape = SubResource("CapsuleShape2D_hksoh")

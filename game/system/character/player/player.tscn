@@ -216,7 +216,7 @@ texture = ExtResource("8_eq501")
 [node name="FixAreas" type="Node2D" parent="Face" index="5" unique_id=273804179]
 
 [node name="FixAreaEyeL" parent="Face/FixAreas" index="0" unique_id=1630340479 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
-position = Vector2(16.999996, -35)
+position = Vector2(28.999998, -20.000002)
 my_anatomy = NodePath("../../Features/EyeL")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEyeL" index="0" unique_id=1542207743]
@@ -231,8 +231,7 @@ rotation = -1.5443118
 shape = SubResource("CapsuleShape2D_hu301")
 
 [node name="FixAreaEyeR" parent="Face/FixAreas" index="1" unique_id=1521391253 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
-position = Vector2(-22.000002, -19.999998)
-rotation = -0.07759997
+position = Vector2(-31.000002, -19.999998)
 my_anatomy = NodePath("../../Features/EyeR")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEyeR" index="0" unique_id=1542207743]
@@ -313,27 +312,26 @@ shape = SubResource("CapsuleShape2D_0eq7q")
 debug_color = Color(0.828425, 0.3136256, 0.62059414, 0.41960785)
 
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
-position = Vector2(16.999996, -35)
+position = Vector2(28.999998, -20.000002)
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_eq501")
-position = Vector2(-4, 11)
+position = Vector2(2.861023e-06, -1.9073486e-06)
 texture = ExtResource("10_xvqmr")
 
 [node name="MouseDetectArea" parent="Face/Features/EyeL" index="1" unique_id=1106976729]
-position = Vector2(10.949966, 16.24997)
+position = Vector2(2.861023e-06, -1.9073486e-06)
 
 [node name="CollisionShape2D" parent="Face/Features/EyeL/MouseDetectArea" index="0" unique_id=149295176]
 position = Vector2(1.5, -2.000002)
 shape = SubResource("RectangleShape2D_8xspq")
 
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
-position = Vector2(-22.000002, -19.999998)
-rotation = -0.07759997
+position = Vector2(-31.000002, -19.999998)
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_hu301")
-position = Vector2(17.149017, 37.44211)
+position = Vector2(4.7683716e-07, 2.3841858e-07)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("11_wqm0g")
 
@@ -341,7 +339,7 @@ texture = ExtResource("11_wqm0g")
 position = Vector2(-8.002902, -0.5239539)
 
 [node name="CollisionShape2D" parent="Face/Features/EyeR/MouseDetectArea" index="0" unique_id=149295176]
-position = Vector2(-0.8089905, -1.1648483)
+position = Vector2(7.005912, 0.44643235)
 rotation = 0.07903791
 scale = Vector2(1.0000004, 1.0000004)
 shape = SubResource("RectangleShape2D_f2h07")

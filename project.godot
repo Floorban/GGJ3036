@@ -27,6 +27,7 @@ boot_splash/minimum_display_time=20
 
 [autoload]
 
+Global="*uid://bkinrxr7m51q0"
 FmodManager="*uid://cds10pm7hwn3p"
 audio="*uid://bnb4oio35tq1m"
 DialogueManager="*uid://14hrrjqso8mu"

@@ -20,8 +20,19 @@ func enter_rest_room() -> void:
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	audio.muffle(true, false)
 	connect_parts_interact_signal()
+	for part in player.anatomy_parts:
+		if part.state == Anatomy.PartState.DESTROYED or part.state == Anatomy.PartState.FUCKED:
+			part.state = Anatomy.PartState.OutOfBody
+			part.body_owner = null
 
 func leave_rest_room() -> void:
+	for part in player.anatomy_parts:
+		if part.body_owner == null:
+			player.anatomy_parts.erase(part)
+			part.queue_free()
+	if player.anatomy_parts.is_empty():
+		assert("can't start")
+		return
 	player.rest_mode = false
 	background.visible = false
 	ready_button.visible = false

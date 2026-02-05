@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ishblhy8w5qi" path="res://game/system/anatomy/upgrades/ear_attack_damage.tscn" id="5_g01m4"]
 [ext_resource type="PackedScene" uid="uid://egt4qb24ek7n" path="res://game/system/anatomy/upgrades/mouth_taken_damage.tscn" id="6_muymv"]
 
-[node name="RestRoom" type="Node2D" unique_id=1662139499]
+[node name="RestRoom" type="Node2D" unique_id=1662139499 groups=["rest_room"]]
 script = ExtResource("1_nbyfe")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=844428716]

@@ -48,11 +48,11 @@ func init_combat_arena(level : int) -> void:
 	battle_time_left = battle_duration
 	player.opponent = enemy
 	enemy.opponent = player
+	player.init_character()
 	enemy.init_character()
 	enemy.die.connect(end_battle)
 	if first_level:
 		#current_round = 1
-		player.init_character()
 		player.hit.connect(_screen_shake)
 		player.blocked.connect(_screen_shake)
 		player.die.connect(end_battle)
