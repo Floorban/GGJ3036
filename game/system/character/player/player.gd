@@ -5,9 +5,11 @@ var selected_target: Anatomy
 func get_anatomy_references() -> void:
 	super.get_anatomy_references()
 	for a in anatomy_parts:
-		a.anatomy_clicked.connect(_on_self_anatomy_clicked)
+		if not a.anatomy_clicked.is_connected(_on_self_anatomy_clicked):
+			a.anatomy_clicked.connect(_on_self_anatomy_clicked)
 	for a in opponent_anatomy:
-		a.anatomy_clicked.connect(_on_enemy_anatomy_clicked)
+		if not a.anatomy_clicked.is_connected(_on_enemy_anatomy_clicked):
+			a.anatomy_clicked.connect(_on_enemy_anatomy_clicked)
 
 func start_round() -> void:
 	super.start_round()

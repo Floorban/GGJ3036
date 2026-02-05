@@ -48,11 +48,11 @@ func init_combat_arena(level : int) -> void:
 	battle_time_left = battle_duration
 	player.opponent = enemy
 	enemy.opponent = player
+	player.init_character()
 	enemy.init_character()
 	enemy.die.connect(end_battle)
 	if first_level:
 		#current_round = 1
-		player.init_character()
 		player.hit.connect(_screen_shake)
 		player.blocked.connect(_screen_shake)
 		player.die.connect(end_battle)
@@ -95,6 +95,7 @@ func next_round() -> void:
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
 	retro_screen.trans_to_combat()
+	audio.muffle(true, true)
 
 	tween.parallel().tween_property(
 		enemies_container,
@@ -115,6 +116,7 @@ func end_round() -> void:
 	in_break = true
 	current_round += 1
 	battle_time_left = break_duration
+	audio.muffle(true, false)
 	if current_round >= max_round:
 		end_battle()
 	else:

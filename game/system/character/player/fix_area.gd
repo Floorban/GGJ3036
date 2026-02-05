@@ -1,5 +1,6 @@
 class_name FixArea extends Area2D
 
+@onready var rest_room: RestRoom = get_tree().get_first_node_in_group("rest_room")
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 @export var anatomy_type: Anatomy.AnatomyType
 @export var my_anatomy: Anatomy
@@ -23,13 +24,19 @@ func lose_anatomy() -> void:
 	my_anatomy = null
 	is_occupied = false
 
+func reparent_anatomy(target: Node2D, new_parent: Node2D) -> void:
+	if target.get_parent() != new_parent:
+		target.reparent(new_parent)
+
 func receive_anatomy(anatomy: Anatomy) -> void:
 	if is_occupied or anatomy.anatomy_type != anatomy_type or anatomy.state == anatomy.PartState.DESTROYED:
 		return
+	print("?")
 	player.arm.drop_obj()
 	#sprite.visible = false
 	sprite.modulate = Color.WEB_GRAY
 	sprite_og_color = sprite.modulate
+	reparent_anatomy(anatomy, player.features)
 	anatomy.body_owner = player
 	anatomy.recover_part()
 	anatomy.position = position
