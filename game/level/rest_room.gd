@@ -9,6 +9,10 @@ signal ready_to_fight()
 @onready var upgrades: Node2D = %Upgrades
 @export var upgrade_parts : Array[Anatomy]
 
+@onready var label_part_name: Label = %LabelPartName
+@onready var label_part_state: Label = %LabelPartState
+@onready var bar_part_hp: TextureProgressBar = %BarPartHP
+
 func _ready() -> void:
 	ready_button.pressed.connect(leave_rest_room)
 	leave_rest_room()

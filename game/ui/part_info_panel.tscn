@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cok8pvdhh1mbi"]
+
+[ext_resource type="Texture2D" uid="uid://bou2hqbj520kj" path="res://sprites/ui/EnemyStatBG.png" id="1_4o0xb"]
+[ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="2_wb4jn"]
+[ext_resource type="Texture2D" uid="uid://bgs8ei7uqqtnk" path="res://sprites/ui/EnemyStatHealthLine.png" id="3_itwbw"]
+[ext_resource type="Texture2D" uid="uid://7jimgxiewrvo" path="res://sprites/ui/EnemyStatHealthBar.png" id="4_8prx2"]
+
+[node name="PartInfoPanel" type="MarginContainer" unique_id=1985814430]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -460.0
+offset_right = 40.0
+offset_bottom = 324.0
+grow_horizontal = 0
+theme_override_constants/margin_left = -50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 140
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1425424902]
+layout_mode = 2
+
+[node name="BasicInfoBG" type="TextureRect" parent="VBoxContainer" unique_id=455046478]
+custom_minimum_size = Vector2(400, 160)
+layout_mode = 2
+texture = ExtResource("1_4o0xb")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BasicInfoBG" unique_id=2087219104]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/BasicInfoBG/HBoxContainer" unique_id=1274651914]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer" unique_id=858823012]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LabelPartName" type="Label" parent="VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1957691392]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wb4jn")
+theme_override_font_sizes/font_size = 24
+text = "name"
+
+[node name="LabelPartState" type="Label" parent="VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer/VBoxContainer" unique_id=581046000]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wb4jn")
+theme_override_font_sizes/font_size = 24
+text = "healthy"
+
+[node name="BarPartHP" type="TextureProgressBar" parent="VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1551690499]
+unique_name_in_owner = true
+self_modulate = Color(0.7408037, 0.0513897, 0.28799915, 1)
+layout_mode = 2
+step = 0.01
+value = 100.0
+stretch_margin_left = 20
+stretch_margin_right = 20
+texture_under = ExtResource("3_itwbw")
+texture_progress = ExtResource("4_8prx2")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/BasicInfoBG/HBoxContainer" unique_id=265871884]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2" unique_id=142702774]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LabelPartStat1" type="Label" parent="VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=186648421]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wb4jn")
+theme_override_font_sizes/font_size = 24
+text = "Strength + 1"
+
+[node name="LabelPartStat2" type="Label" parent="VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=144845333]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wb4jn")
+theme_override_font_sizes/font_size = 24
+text = "Resist + 1"
+
+[node name="LabelPartStat3" type="Label" parent="VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=70685813]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wb4jn")
+theme_override_font_sizes/font_size = 24
+text = "Agile + 1"
+
+[node name="SpecialInfoBG" type="TextureRect" parent="VBoxContainer" unique_id=1393824123]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+texture = ExtResource("1_4o0xb")
+expand_mode = 1
