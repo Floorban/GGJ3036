@@ -6,8 +6,8 @@ signal ready_to_fight()
 @onready var ready_button: Button = %ReadyButton
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
+@onready var upgrades: Node2D = %Upgrades
 @export var upgrade_parts : Array[Anatomy]
-
 
 func _ready() -> void:
 	ready_button.pressed.connect(leave_rest_room)
@@ -28,6 +28,11 @@ func leave_rest_room() -> void:
 	ready_to_fight.emit()
 
 func connect_parts_interact_signal() -> void:
+	upgrade_parts.clear()
+	for u in upgrades.get_children():
+		if u is Anatomy:
+			u.state = Anatomy.PartState.OutOfBody
+			upgrade_parts.append(u)
 	if upgrade_parts.is_empty():
 		return
 	for part in upgrade_parts:

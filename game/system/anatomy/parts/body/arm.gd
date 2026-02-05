@@ -40,10 +40,16 @@ func _process(_delta: float) -> void:
 		dragging_obj.global_position = fist_target.global_position
 
 func pickup_obj(new_obj: Node2D) -> void:
-	if dragging_obj: drop_obj()
+	var old_obj = dragging_obj
+	if dragging_obj: 
+		drop_obj()
+
 	dragging_obj = new_obj
 	if dragging_obj is Anatomy: 
-		dragging_obj.pickup_part()
+		if not dragging_obj.is_being_dragged:
+			dragging_obj.pickup_part()
+	if old_obj: old_obj.is_being_dragged = false
+
 
 func drop_obj() -> void:
 	if dragging_obj:

@@ -74,7 +74,7 @@ func _on_action_ready() -> void:
 		_perform_attack(next_target)
 
 func enemy_attack(attack_target: Anatomy) -> void:
-	if not can_control:
+	if not can_control or rest_mode:
 		attack_target.is_targeted = false
 		attack_target._unhighlight_target()
 		arm.rest_pos()

@@ -125,7 +125,7 @@ glow_bloom = 0.1
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
 battle_duration = 10.0
-break_duration = 10.0
+break_duration = 1.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true

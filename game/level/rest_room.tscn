@@ -5,10 +5,11 @@
 [ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="3_x4kus"]
 [ext_resource type="PackedScene" uid="uid://dxfudgfq78ixl" path="res://game/system/anatomy/upgrades/nose_max_hp.tscn" id="4_bofgb"]
 [ext_resource type="PackedScene" uid="uid://s8u8xkowfvjv" path="res://game/system/anatomy/upgrades/eye_action_speed.tscn" id="5_46xav"]
+[ext_resource type="PackedScene" uid="uid://ishblhy8w5qi" path="res://game/system/anatomy/upgrades/ear_attack_damage.tscn" id="5_g01m4"]
+[ext_resource type="PackedScene" uid="uid://egt4qb24ek7n" path="res://game/system/anatomy/upgrades/mouth_taken_damage.tscn" id="6_muymv"]
 
-[node name="RestRoom" type="Node2D" unique_id=1662139499 node_paths=PackedStringArray("upgrade_parts")]
+[node name="RestRoom" type="Node2D" unique_id=1662139499]
 script = ExtResource("1_nbyfe")
-upgrade_parts = [NodePath("Background/NoseMaxHP"), NodePath("Background/NoseMaxHP2"), NodePath("Background/EyeActionSpeed"), NodePath("Background/EyeActionSpeed2")]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=844428716]
 position = Vector2(22, 121)
@@ -16,25 +17,38 @@ rotation = -3.0379448
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_e22fr")
 
-[node name="NoseMaxHP" parent="Background" unique_id=1690948451 instance=ExtResource("4_bofgb")]
-position = Vector2(5.4321327, 264.8594)
-rotation = 2.6085186
-scale = Vector2(2, 2)
+[node name="Upgrades" type="Node2D" parent="Background" unique_id=1047918084]
+unique_name_in_owner = true
 
-[node name="NoseMaxHP2" parent="Background" unique_id=97783977 instance=ExtResource("4_bofgb")]
+[node name="NoseMaxHP" parent="Background/Upgrades" unique_id=1690948451 instance=ExtResource("4_bofgb")]
+position = Vector2(5.4321365, 264.85944)
+rotation = 2.6085186
+scale = Vector2(2.0000002, 2.0000002)
+
+[node name="NoseMaxHP2" parent="Background/Upgrades" unique_id=97783977 instance=ExtResource("4_bofgb")]
 position = Vector2(57.04007, 181.07025)
 rotation = 2.6085186
-scale = Vector2(2, 2)
+scale = Vector2(2.0000002, 2.0000002)
 
-[node name="EyeActionSpeed" parent="Background" unique_id=159553951 instance=ExtResource("5_46xav")]
-position = Vector2(80.32352, 230.92886)
+[node name="EyeActionSpeed" parent="Background/Upgrades" unique_id=159553951 instance=ExtResource("5_46xav")]
+position = Vector2(80.32352, 230.9289)
 rotation = 3.0379448
 scale = Vector2(2, 2)
 
-[node name="EyeActionSpeed2" parent="Background" unique_id=71370084 instance=ExtResource("5_46xav")]
-position = Vector2(161.1827, 196.37755)
+[node name="EyeActionSpeed2" parent="Background/Upgrades" unique_id=71370084 instance=ExtResource("5_46xav")]
+position = Vector2(161.18271, 196.37756)
 rotation = -1.9204966
 scale = Vector2(2, 2)
+
+[node name="EarAttackDamage" parent="Background/Upgrades" unique_id=369581676 instance=ExtResource("5_g01m4")]
+position = Vector2(134.60751, 269.5196)
+rotation = -2.7928178
+
+[node name="EarAttackDamage2" parent="Background/Upgrades" unique_id=1521909787 instance=ExtResource("5_g01m4")]
+position = Vector2(-11.6296215, 178.15935)
+
+[node name="MouthTakenDamage" parent="Background/Upgrades" unique_id=1218228508 instance=ExtResource("6_muymv")]
+position = Vector2(143.37321, 121.82003)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981571717]
 layer = 2
