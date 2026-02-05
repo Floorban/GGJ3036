@@ -92,6 +92,8 @@ func _hover_over_part() -> void:
 
 func _unhover_part() -> void:
 	#anatomy_ui.toggle_panel(false)
+	if state == PartState.DESTROYED:
+		return
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
 	sprite.use_parent_material = true
 	is_hovering = false
