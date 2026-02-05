@@ -58,12 +58,17 @@ func recover_part() -> void:
 	sprite.modulate = current_color
 
 func pickup_part() -> void:
+	if is_being_dragged:
+		return
 	is_being_dragged = true
 	_unhover_part()
 	for area in fix_areas:
 		area.highlight_zone()
 
 func drop_part() -> void:
+	if not is_being_dragged:
+		return
+	is_being_dragged = false
 	for area in fix_areas:
 		area.unhighlight_zone()
 

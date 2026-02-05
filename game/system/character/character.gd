@@ -72,6 +72,8 @@ func _init_anatomy_parts() -> void:
 	start.emit()
 
 func get_ready_to_battle() -> void:
+	arm.movable_by_mouse = false
+	arm.rest_pos()
 	start_round()
 	is_dead = false
 	for part in anatomy_parts:

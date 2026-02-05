@@ -46,7 +46,7 @@ func reset_sprite() -> void:
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if player.arm.dragging_obj == null:
 		return
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.is_released():
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			var target : Anatomy = player.arm.dragging_obj 
 			player.arm.z_index = 2
