@@ -12,8 +12,9 @@ func get_anatomy_references() -> void:
 func start_round() -> void:
 	super.start_round()
 	if selected_target:
-		selected_target.is_targeted = true
-		selected_target._highlight_target()
+		if selected_target in opponent_anatomy:
+			selected_target.is_targeted = true
+			selected_target._highlight_target()
 
 func choose_target() -> Anatomy:
 	if selected_target and selected_target.state != Anatomy.PartState.DESTROYED:

@@ -90,6 +90,9 @@ func end_battle() -> void:
 func start_round() -> void:
 	combat_component.start()
 	can_control = true
+	if targeting_part:
+		targeting_part.is_targeted = false
+		targeting_part._unhighlight_target()
 
 func _process(_delta: float) -> void:
 	if is_dead or not can_control or is_stuned:
@@ -212,6 +215,7 @@ func recover_from_interrupt() -> void:
 	is_stuned = false
 
 func _on_successful_block(attacker: Character) -> void:
+	PopupPrompt.display_prompt("BLCOKED !!", -1 ,arm.sprite_fist.global_position, 1.5, 0.5)
 	audio.play(sfx_block, global_transform, "Intensity", 0.75)
 	blocked.emit(1.0)
 	can_action = false
@@ -220,11 +224,13 @@ func _on_successful_block(attacker: Character) -> void:
 		attacker.recover_from_interrupt()
 	)
 	arm.block_success()
+	
 	combat_component.reset_attack_timer(action_cooldown)
 	combat_component.start()
 	
 	if blocking_part:
-		blocking_part._highlight_target(true)
+		blocking_part.is_targeted = false
+		blocking_part._unhighlight_target()
 
 func _perform_attack(target: Anatomy) -> void:
 	#if not can_control:
@@ -237,6 +243,8 @@ func _perform_attack(target: Anatomy) -> void:
 	if target:
 		if blocking_part:
 			blocking_part.is_blocking = false
+			blocking_part.is_targeted = false
+			blocking_part._unhighlight_target()
 		arm.punch(
 			punch_strength,
 			target.global_position,
@@ -257,7 +265,6 @@ func _perform_block(target: Anatomy) -> void:
 		arm._on_arm_charge_finished(punch_strength * 3)
 	blocking_part = target
 	target.is_blocking = true
-	target._highlight_target(true)
 	arm.block(target.global_position)
 
 func _on_action_ready() -> void:
@@ -299,5 +306,18 @@ func choose_target() -> Anatomy:
 	targeting_part = new_target
 	if can_control:
 		targeting_part.is_targeted = true
-		targeting_part._highlight_target()
+		#targeting_part._highlight_target()
 	return new_target
+
+func reveal_target_with_delay(target: Anatomy) -> void:
+	if not target or not can_control:
+		return
+
+	var delay := randf_range(0.0, 0.5) + action_cooldown * 0.5
+	await get_tree().create_timer(delay).timeout
+
+	if target != targeting_part or not can_control:
+		return
+
+	target.is_targeted = true
+	target._highlight_target()

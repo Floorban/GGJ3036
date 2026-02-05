@@ -6,15 +6,18 @@ func display_prompt(_str : String, value: int,  pos: Vector2, scale: float, dura
 	prompt.global_position = pos + Vector2(-_str.length() * 3, -30)
 	prompt.z_index = 10
 	prompt.label_settings = LabelSettings.new()
-	prompt.text = str(value) + " " + _str
+	if value > 0:
+		prompt.text = str(value) + " " + _str
+	else:
+		prompt.text = _str
 	prompt.scale = Vector2.ZERO * scale
 
 	var settings = prompt.label_settings
 	settings.font_size = 32
 
-	var color = Color.RED
+	var color = Color.SKY_BLUE * 1.5
 	if scale >= 2.0:
-		color = Color.RED
+		color = Color.RED * 1.5
 		settings.font_size = 48
 
 	settings.font_color = color

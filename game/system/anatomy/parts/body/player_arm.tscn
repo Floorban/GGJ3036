@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crtjhl3xse5fi" path="res://game/system/anatomy/parts/body/arm.gd" id="1_iofsa"]
 [ext_resource type="Texture2D" uid="uid://bhytlnq3gthah" path="res://sprites/body_parts/Arms/MC/Biceps.png" id="2_ei0c6"]
+[ext_resource type="Shader" uid="uid://dim1ugxl8jwel" path="res://game/system/anatomy/parts/body/sprite_shadow.gdshader" id="2_vta5r"]
 [ext_resource type="Texture2D" uid="uid://bwdjo5rtue62q" path="res://sprites/body_parts/Arms/MC/Forearm.png" id="3_vta5r"]
 [ext_resource type="Texture2D" uid="uid://cdc7aqnujvcq0" path="res://sprites/body_parts/Arms/MC/Hand.png" id="4_6yafh"]
 
@@ -23,11 +24,21 @@ enabled = true
 modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DFABRIK_54hrx")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6yafh"]
+shader = ExtResource("2_vta5r")
+shader_parameter/shadow_offset = Vector2(-35, -10)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.41900003)
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_ahwjh"]
 diffuse_texture = ExtResource("2_ei0c6")
 normal_texture = ExtResource("2_ei0c6")
 specular_texture = ExtResource("2_ei0c6")
 specular_color = Color(0.24030471, 0.24030474, 0.24030471, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ei0c6"]
+shader = ExtResource("2_vta5r")
+shader_parameter/shadow_offset = Vector2(-35, 10)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.3)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ql54a"]
 diffuse_texture = ExtResource("3_vta5r")
@@ -56,6 +67,14 @@ z_index = 4
 position = Vector2(203.63818, -36.062973)
 rotation = -1.1471102
 scale = Vector2(2.7827933, 2.27478)
+texture = ExtResource("2_ei0c6")
+
+[node name="SpriteArmUp2" type="Sprite2D" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=807951697]
+unique_name_in_owner = true
+self_modulate = Color(0.3747318, 0.37473187, 0.37473184, 1)
+z_index = -5
+material = SubResource("ShaderMaterial_6yafh")
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("2_ei0c6")
 
 [node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1327626244]
@@ -89,6 +108,14 @@ self_modulate = Color(0.42252156, 0.42252156, 0.42252156, 1)
 z_index = 2
 position = Vector2(-22.930237, -90.75108)
 scale = Vector2(1.2209138, 1.0057294)
+texture = ExtResource("3_vta5r")
+
+[node name="SpriteArmLow2" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1449476979]
+unique_name_in_owner = true
+self_modulate = Color(0.42252156, 0.42252156, 0.42252156, 1)
+z_index = -5
+material = SubResource("ShaderMaterial_ei0c6")
+rotation = 0.11081152
 texture = ExtResource("3_vta5r")
 
 [node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1618480170]

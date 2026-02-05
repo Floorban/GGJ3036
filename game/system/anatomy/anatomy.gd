@@ -94,15 +94,11 @@ func _unhover_part() -> void:
 	sprite.use_parent_material = true
 	is_hovering = false
 
-func _highlight_target(block_target := false) -> void:
+func _highlight_target() -> void:
 	if is_part_dead():
 		return
 
-	if block_target:
-		pass
-		#if is_blocking:
-			#sprite.modulate = Color.CADET_BLUE
-	elif is_targeted:
+	if is_targeted:
 		sprite.use_parent_material = true
 		sprite.modulate = Color.RED * 2.0
 

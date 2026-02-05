@@ -1,6 +1,7 @@
 class_name CombatComponent extends Node
 
 signal combat_ready
+signal start_counting(duration: float)
 
 var base_damage: float
 
@@ -19,6 +20,7 @@ func _process(_delta: float) -> void:
 
 func start() -> void:
 	combat_timer.start()
+	start_counting.emit(combat_timer.wait_time)
 	action_cd_bar.modulate = Color.WEB_GRAY
 
 func stop() -> void:
