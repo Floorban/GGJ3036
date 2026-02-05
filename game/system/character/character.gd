@@ -49,7 +49,7 @@ func init_character() -> void:
 func get_anatomy_references() -> void:
 	opponent_anatomy.clear()
 	for anatomy : Anatomy in get_tree().get_nodes_in_group("anatomy"):
-		if anatomy.visible and anatomy.body_owner != self:
+		if anatomy.visible and anatomy.body_owner != self and anatomy.state != Anatomy.PartState.OutOfBody:
 			opponent_anatomy.append(anatomy)
 
 func _init_combat_component() -> void:

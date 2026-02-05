@@ -31,6 +31,7 @@ var outline_mat: ShaderMaterial
 @export var fix_areas : Array[FixArea]
 
 func _ready() -> void:
+	current_hp = max_hp
 	if not mouse_detect_area.mouse_entered.is_connected(_hover_over_part):
 		mouse_detect_area.mouse_entered.connect(_hover_over_part)
 	if not mouse_detect_area.mouse_exited.is_connected(_unhover_part):
@@ -62,8 +63,9 @@ func pickup_part() -> void:
 		return
 	is_being_dragged = true
 	_unhover_part()
-	for area in fix_areas:
-		area.highlight_zone()
+	if state != PartState.DESTROYED:
+		for area in fix_areas:
+			area.highlight_zone()
 
 func drop_part() -> void:
 	if not is_being_dragged:
