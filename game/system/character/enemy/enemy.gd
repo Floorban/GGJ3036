@@ -3,11 +3,6 @@ class_name Enemy extends Character
 var next_target: Anatomy
 var can_switch_target := false
 
-#AUDIO
-@export var sfx_die: String
-@export var sfx_entry: String
-@export var sfx_hurt: String
-
 #func _ready() -> void:
 	#combat_component.start_counting.connect(swtic_target_timer)
 

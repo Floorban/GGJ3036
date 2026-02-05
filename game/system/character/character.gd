@@ -37,6 +37,10 @@ var targeting_part: Anatomy
 @onready var shoulder: Sprite2D = $Shoulder
 
 #AUDIO
+@export var sfx_die: String
+@export var sfx_entry: String
+@export var sfx_hurt: String
+
 var sfx_block: String = "event:/SFX/Combat/Block"
 var sfx_crit: String = "event:/SFX/Combat/Crit"
 var sfx_hit: String = "event:/SFX/Combat/Hit"
@@ -131,7 +135,7 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 	get_hit_visual_feedback(damage / 10)
 
 func character_die_sfx() -> void:
-	pass
+	audio.play(sfx_die)
 
 var face_tween : Tween
 var face_og_pos : Vector2

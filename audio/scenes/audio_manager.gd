@@ -51,7 +51,7 @@ parameter: String = "",
 value: Variant = null
 ):
 
-	if(sound_path == ""): return
+	if(sound_path == null): return
 
 	var instance: FmodEvent = FmodServer.create_event_instance(sound_path)
 	instance.set_3d_attributes(object_transform)

@@ -145,6 +145,7 @@ func part_dead() -> void:
 	sprite.modulate = current_color
 	move_part()
 	anatomy_fucked.emit()
+	#audio.play(body_owner.sfx_hurt)
 
 func move_part() -> void:
 	rotation += randf_range(-0.8, 0.8)

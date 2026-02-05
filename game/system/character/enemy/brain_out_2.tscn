@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c07hnykxqlg1x"]
+[gd_scene format=3 uid="uid://c3joaeokc1h1s"]
 
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_j1rto"]
 [ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_x88ln"]
@@ -150,14 +150,14 @@ size = Vector2(143.23077, 56.923084)
 
 [node name="BrainOut2" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_j1rto")]
 script = ExtResource("2_x88ln")
-sfx_die = "event:/SFX/NPC/Brain/Die"
-sfx_entry = "event:/SFX/NPC/Brain/Entry"
-sfx_hurt = "event:/SFX/NPC/Brain/Hurt"
 critical_chance = 0.5
 punch_strength = 0.05
 attack_damage = 2.0
 action_cooldown = 3.0
 arm = NodePath("BrainOutArm")
+sfx_die = "event:/SFX/NPC/Brain/Die"
+sfx_entry = "event:/SFX/NPC/Brain/Entry"
+sfx_hurt = "event:/SFX/NPC/Brain/Hurt"
 
 [node name="Noise" type="Sprite2D" parent="." index="0" unique_id=1677025307]
 modulate = Color(1, 1, 1, 0.7372549)
