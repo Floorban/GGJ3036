@@ -18,6 +18,7 @@ func enter_rest_room() -> void:
 	background.visible = true
 	ready_button.visible = true
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	audio.muffle(true, false)
 	connect_parts_interact_signal()
 
 func leave_rest_room() -> void:
@@ -26,6 +27,7 @@ func leave_rest_room() -> void:
 	ready_button.visible = false
 	ready_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ready_to_fight.emit()
+	audio.muffle(true, true)
 
 func connect_parts_interact_signal() -> void:
 	upgrade_parts.clear()

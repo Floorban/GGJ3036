@@ -95,6 +95,7 @@ func next_round() -> void:
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
 	retro_screen.trans_to_combat()
+	audio.muffle(true, true)
 
 	tween.parallel().tween_property(
 		enemies_container,
@@ -115,6 +116,7 @@ func end_round() -> void:
 	in_break = true
 	current_round += 1
 	battle_time_left = break_duration
+	audio.muffle(true, false)
 	if current_round >= max_round:
 		end_battle()
 	else:
