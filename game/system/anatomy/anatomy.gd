@@ -63,7 +63,7 @@ func pickup_part() -> void:
 		return
 	is_being_dragged = true
 	_unhover_part()
-	if state != PartState.DESTROYED:
+	if current_hp > 0:
 		for area in fix_areas:
 			area.highlight_zone()
 

@@ -109,3 +109,6 @@ func _on_enemy_anatomy_clicked(anatomy: Anatomy) -> void:
 		#selected_target = null
 		#anatomy.is_targeted = false
 		#anatomy._unhighlight_target()
+
+func character_die_sfx() -> void:
+	pass
