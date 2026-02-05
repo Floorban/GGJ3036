@@ -9,15 +9,13 @@ signal ready_to_fight()
 @onready var upgrades: Node2D = %Upgrades
 @export var upgrade_parts : Array[Anatomy]
 
-@onready var label_part_name: Label = %LabelPartName
-@onready var label_part_state: Label = %LabelPartState
-@onready var bar_part_hp: TextureProgressBar = %BarPartHP
-
 func _ready() -> void:
+	Global.rest_room = self
 	ready_button.pressed.connect(leave_rest_room)
 	leave_rest_room()
 
 func enter_rest_room() -> void:
+	part_info_panel.visible = true
 	player.rest_mode = true
 	background.visible = true
 	ready_button.visible = true
@@ -31,6 +29,7 @@ func enter_rest_room() -> void:
 			part.body_owner = null
 
 func leave_rest_room() -> void:
+	part_info_panel.visible = false
 	background.visible = false
 	ready_button.visible = false
 	ready_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -57,3 +56,26 @@ func connect_parts_interact_signal() -> void:
 	for part in upgrade_parts:
 		if not part.anatomy_clicked.is_connected(player._on_self_anatomy_clicked):
 			part.anatomy_clicked.connect(player._on_self_anatomy_clicked)
+
+@onready var part_info_panel: MarginContainer = $CanvasLayer/PartInfoPanel
+@onready var label_part_name: Label = %LabelPartName
+@onready var label_part_state: Label = %LabelPartState
+@onready var bar_part_hp: TextureProgressBar = %BarPartHP
+@onready var label_part_stat_1: Label = %LabelPartStat1
+
+func show_part_info(_name: String, _state: String, _hp: float, _max_hp: float, _stat: String, _stat_val: int) -> void:
+	if not part_info_panel.visible:
+		return
+	
+	label_part_name.text = _name
+	label_part_state.text = _state
+	bar_part_hp.max_value = _max_hp
+	bar_part_hp.value = _hp
+	label_part_stat_1.text = _stat + " " + str(_stat_val)
+
+func hide_part_info() -> void:
+	label_part_name.text = ""
+	label_part_state.text =  ""
+	bar_part_hp.max_value = 1
+	bar_part_hp.value = 0
+	label_part_stat_1.text =  ""

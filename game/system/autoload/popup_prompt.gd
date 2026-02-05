@@ -7,7 +7,7 @@ func display_prompt(_str : String, value: int,  pos: Vector2, scale: float, dura
 	prompt.z_index = 10
 	prompt.label_settings = LabelSettings.new()
 	if value > 0:
-		prompt.text = str(value) + " " + _str
+		prompt.text = str(value*10) + " " + _str
 	else:
 		prompt.text = _str
 	prompt.scale = Vector2.ZERO * scale

@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://s8u8xkowfvjv"]
+[gd_scene format=3 uid="uid://b3g37sa5dgn3s"]
 
-[ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_jf31p"]
-[ext_resource type="Texture2D" uid="uid://cfp7ie5hjaq3h" path="res://sprites/body_parts/FaceAssets/MCfacevariations/eyes/ReallyOpenEye.png" id="2_4ix6m"]
+[ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_o5yqo"]
+[ext_resource type="Texture2D" uid="uid://do7gtknythobb" path="res://sprites/body_parts/FaceAssets/MCfacevariations/Mouths/MissingTeethMouth.png" id="2_awsbw"]
 
 [sub_resource type="Shader" id="Shader_2ro5p"]
 code = "shader_type canvas_item;
@@ -46,31 +46,28 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0b74b"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iujs0"]
 shader = SubResource("Shader_2ro5p")
-shader_parameter/sprite_texture = ExtResource("2_4ix6m")
+shader_parameter/sprite_texture = ExtResource("2_awsbw")
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/glowSize = 4.00000019
 shader_parameter/glowDensity = 30
 shader_parameter/glowRadialCoverage = 32
 shader_parameter/glowAngle = 1.57
-shader_parameter/glowSharpness = 5.0
+shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hksoh"]
-radius = 21.02105
-height = 42.0421
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5yqo"]
+size = Vector2(116, 50)
 
-[node name="EyeActionSpeed" unique_id=1690948451 instance=ExtResource("1_jf31p")]
-z_index = 10
+[node name="Micky Mouth" unique_id=1690948451 instance=ExtResource("1_o5yqo")]
+anatomy_type = 3
 state = 3
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
-material = SubResource("ShaderMaterial_0b74b")
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_4ix6m")
+material = SubResource("ShaderMaterial_iujs0")
+texture = ExtResource("2_awsbw")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-position = Vector2(1, -1.4210858e-14)
-rotation = -1.6345505
-shape = SubResource("CapsuleShape2D_hksoh")
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_o5yqo")

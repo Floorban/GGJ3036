@@ -43,6 +43,10 @@ func _ready() -> void:
 	_unhighlight_target()
 	for a : FixArea in get_tree().get_nodes_in_group("fix_area"):
 		if a.anatomy_type == anatomy_type: fix_areas.append(a)
+	for i in 8:
+		await get_tree().physics_frame
+	hovering.connect(Global.rest_room.show_part_info)
+	unhover.connect(Global.rest_room.hide_part_info)
 
 func init_part(body: Character) -> void:
 	body_owner = body
@@ -82,6 +86,9 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 			anatomy_clicked.emit(self)
 			get_viewport().set_input_as_handled()
 
+signal hovering(_name: String, _state: String, _hp: float, _max_hp: float, _stat: String, _stat_val: int)
+signal unhover()
+
 func _hover_over_part() -> void:
 	if (body_owner and not body_owner.rest_mode) and  (state == PartState.DESTROYED or is_being_dragged):
 		return
@@ -96,6 +103,7 @@ func _hover_over_part() -> void:
 	outline_mat.set_shader_parameter("alphaThreshold", 0.1)
 	sprite.use_parent_material = false
 	is_hovering = true
+	hovering.emit(name, PartState.keys()[state], current_hp, max_hp, "Agile", 1)
 
 func _unhover_part() -> void:
 	#anatomy_ui.toggle_panel(false)
@@ -103,6 +111,7 @@ func _unhover_part() -> void:
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
 	sprite.use_parent_material = true
 	is_hovering = false
+	unhover.emit()
 
 
 func _highlight_target() -> void:

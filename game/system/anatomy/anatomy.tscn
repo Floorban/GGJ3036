@@ -12,7 +12,7 @@ max_hp = 3.0
 [node name="Sprite" type="Sprite2D" parent="." unique_id=500964707]
 texture_filter = 1
 material = ExtResource("2_c5p48")
-scale = Vector2(0.3, 0.3)
+scale = Vector2(1.4, 1.4)
 texture = ExtResource("2_phaok")
 
 [node name="MouseDetectArea" type="Area2D" parent="." unique_id=1106976729]

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bavdc803jhh86" path="res://game/system/character/enemy/brain_out_1.tscn" id="5_ay0ac"]
 [ext_resource type="PackedScene" uid="uid://c7qftgs4x4ay4" path="res://game/system/character/enemy/fat_guy.tscn" id="6_fhe53"]
 [ext_resource type="PackedScene" uid="uid://teuunrq7bxl5" path="res://game/system/character/enemy/eric.tscn" id="7_28xsa"]
-[ext_resource type="PackedScene" uid="uid://c07hnykxqlg1x" path="res://game/system/character/enemy/brain_out_2.tscn" id="8_g1ogi"]
+[ext_resource type="PackedScene" uid="uid://c3joaeokc1h1s" path="res://game/system/character/enemy/brain_out_2.tscn" id="8_g1ogi"]
 [ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="9_tgsw3"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="10_xaya2"]
 [ext_resource type="Shader" uid="uid://bqqnlybur4rdk" path="res://material/retro.gdshader" id="11_5tn5e"]
@@ -29,8 +29,8 @@ shader_parameter/scanline_intensity = 0.0
 shader_parameter/barrel_distortion = 0.50000002375
 shader_parameter/chromatic_aberration = 0.002000000095
 shader_parameter/crt_vignette_power = 2.98000014155
-shader_parameter/pixel_resolution_x = 1600
-shader_parameter/pixel_resolution_y = 900
+shader_parameter/pixel_resolution_x = 960
+shader_parameter/pixel_resolution_y = 540
 shader_parameter/enable_color_quantization = true
 shader_parameter/color_quant_steps = 35.0000015675
 shader_parameter/warble_amount = 0.002
@@ -124,13 +124,16 @@ glow_strength = 0.6
 glow_bloom = 0.1
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
-battle_duration = 6.0
-break_duration = 0.5
+battle_duration = 20.0
+break_duration = 10.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
 position = Vector2(0, 175)
+punch_strength = 0.08
 top_down_dir = 1
+attack_damage = 1.5
+action_cooldown = 2.5
 
 [node name="Enemies" type="Node2D" parent="." index="1" unique_id=1222997985]
 
@@ -148,24 +151,28 @@ visible = false
 position = Vector2(0, -13)
 critical_chance = 0.0
 attack_damage = 2.5
-action_cooldown = 0.2
+action_cooldown = 5.0
 
 [node name="Boxer" parent="Enemies" index="2" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false
 position = Vector2(0, -13)
-action_cooldown = 1.0
+attack_damage = 1.0
+action_cooldown = 4.0
 
 [node name="BrainOut1" parent="Enemies" index="3" unique_id=710006968 instance=ExtResource("5_ay0ac")]
 visible = false
 position = Vector2(0, -13)
+action_cooldown = 3.0
 
 [node name="FatGuy" parent="Enemies" index="4" unique_id=1388912655 instance=ExtResource("6_fhe53")]
 visible = false
 position = Vector2(-3, -63)
+action_cooldown = 7.0
 
 [node name="Eric" parent="Enemies" index="5" unique_id=856538371 instance=ExtResource("7_28xsa")]
 visible = false
 position = Vector2(0, -13)
+action_cooldown = 0.7
 
 [node name="BrainOut2" parent="Enemies" index="6" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
 visible = false
