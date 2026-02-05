@@ -74,6 +74,9 @@ func end_battle() -> void:
 	battle_end.emit()
 	advance_enemy()
 	background.visible = false
+	player.end_battle()
+	enemy.end_battle()
+	player.arm.movable_by_mouse = true
 	rest_room.enter_rest_room()
 
 func advance_enemy() -> void:
@@ -111,12 +114,12 @@ func next_round() -> void:
 func end_round() -> void:
 	in_break = true
 	current_round += 1
-	player.end_battle()
-	enemy.end_battle()
 	battle_time_left = break_duration
 	if current_round >= max_round:
 		end_battle()
 	else:
+		player.end_battle()
+		enemy.end_battle()
 		camera.switch_target(player, 50)
 		retro_screen.trans_to_break()
 		var tween := create_tween()

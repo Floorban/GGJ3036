@@ -5,6 +5,8 @@ signal blocked(blocked_damage: float)
 signal start()
 signal die()
 
+var rest_mode := false
+
 var can_control := true
 var is_dead := false
 var is_stuned := false
@@ -318,6 +320,6 @@ func reveal_target_with_delay(target: Anatomy) -> void:
 
 	if target != targeting_part or not can_control:
 		return
-
-	target.is_targeted = true
-	target._highlight_target()
+	if not rest_mode:
+		target.is_targeted = true
+		target._highlight_target()

@@ -52,23 +52,19 @@ func _on_block_finished() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click") and selected_target:
-		if arm.movable_by_mouse:
-			#arm.drop_obj()
-			pass
-		else:
-			if selected_target in anatomy_parts:
-				selected_target.is_blocking = false
-				if blocking_part:
-					blocking_part.is_blocking = false
-				blocking_part = null
-				arm.rest_pos()
-			elif not can_action:
-				selected_target.is_targeted = false
-				selected_target._unhighlight_target()
-			selected_target = null
+		if selected_target in anatomy_parts:
+			selected_target.is_blocking = false
+			if blocking_part:
+				blocking_part.is_blocking = false
+			blocking_part = null
+			arm.rest_pos()
+		elif not can_action:
+			selected_target.is_targeted = false
+			selected_target._unhighlight_target()
+		selected_target = null
 
 func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
-	if arm.movable_by_mouse and anatomy.state == Anatomy.PartState.FUCKED:
+	if (arm.movable_by_mouse and anatomy.state == Anatomy.PartState.FUCKED) or (rest_mode and anatomy.state != Anatomy.PartState.HEALTHY):
 		arm.pickup_obj(anatomy)
 		arm.z_index = -2
 		return

@@ -204,10 +204,12 @@ position = Vector2(-3.9999993, 8)
 texture = ExtResource("6_w1s3x")
 
 [node name="Beard2" type="Sprite2D" parent="Face" index="3" unique_id=396302187]
+visible = false
 position = Vector2(1.0000017, 20)
 texture = ExtResource("7_388rn")
 
 [node name="Beard3" type="Sprite2D" parent="Face" index="4" unique_id=1251884929]
+visible = false
 position = Vector2(-0.99999833, 19)
 texture = ExtResource("8_eq501")
 
@@ -312,7 +314,6 @@ debug_color = Color(0.828425, 0.3136256, 0.62059414, 0.41960785)
 
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 position = Vector2(16.999996, -35)
-state = 1
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_eq501")
@@ -329,7 +330,6 @@ shape = SubResource("RectangleShape2D_8xspq")
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
 position = Vector2(-22.000002, -19.999998)
 rotation = -0.07759997
-state = 1
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_hu301")
@@ -349,7 +349,6 @@ shape = SubResource("RectangleShape2D_f2h07")
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 position = Vector2(51.99999, -10.000007)
 rotation = -0.15707964
-state = 1
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_wqm0g")
@@ -370,7 +369,6 @@ shape = SubResource("RectangleShape2D_hu301")
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 position = Vector2(-39, 2.0000036)
 rotation = 0.08726646
-state = 1
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_xvqmr")
@@ -389,8 +387,7 @@ shape = SubResource("RectangleShape2D_wqm0g")
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 position = Vector2(0.99999934, -8)
-state = 1
-max_hp = 6.0
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_ltwwj")
@@ -403,7 +400,6 @@ shape = SubResource("RectangleShape2D_388rn")
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 position = Vector2(-0.9999968, 37)
-state = 1
 max_hp = 6.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]

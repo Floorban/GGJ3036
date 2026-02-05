@@ -8,14 +8,13 @@ var sprite_og_color: Color
 var is_occupied := false
 var is_hovering := false
 
-
 func _ready() -> void:
 	reset_sprite()
 	#if my_anatomy: anatomy_type = my_anatomy.anatomy_type
 	#mouse_entered.connect(_hover_over_part)
 	#mouse_exited.connect(_unhover_part)
 	input_event.connect(_on_input_event)
-	my_anatomy.anatomy_fucked.connect(lose_anatomy)
+	if my_anatomy: my_anatomy.anatomy_fucked.connect(lose_anatomy)
 	player.start.connect(reset_sprite)
 
 func lose_anatomy() -> void:
@@ -25,15 +24,18 @@ func lose_anatomy() -> void:
 	is_occupied = false
 
 func receive_anatomy(anatomy: Anatomy) -> void:
-	if is_occupied or anatomy.anatomy_type != anatomy_type:
+	if is_occupied or anatomy.anatomy_type != anatomy_type or anatomy.state == anatomy.PartState.DESTROYED:
 		return
 	player.arm.drop_obj()
 	#sprite.visible = false
 	sprite.modulate = Color.WEB_GRAY
 	sprite_og_color = sprite.modulate
+	anatomy.body_owner = player
 	anatomy.recover_part()
 	anatomy.position = position
 	anatomy.rotation = rotation
+	my_anatomy = anatomy
+	if not my_anatomy.anatomy_fucked.is_connected(lose_anatomy): my_anatomy.anatomy_fucked.connect(lose_anatomy)
 	is_occupied =  true
 
 func reset_sprite() -> void:

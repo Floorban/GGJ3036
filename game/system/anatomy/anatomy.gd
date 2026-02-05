@@ -7,7 +7,7 @@ signal anatomy_clicked(anatomy: Anatomy)
 signal anatomy_hit(damage: float)
 signal anatomy_fucked()
 
-enum PartState { HEALTHY, FUCKED, DESTROYED }
+enum PartState { HEALTHY, FUCKED, DESTROYED, OutOfBody }
 @export var state: PartState = PartState.HEALTHY
 
 var body_owner : Character
@@ -30,8 +30,13 @@ var outline_mat: ShaderMaterial
 
 @export var fix_areas : Array[FixArea]
 
-
 func _ready() -> void:
+	if not mouse_detect_area.mouse_entered.is_connected(_hover_over_part):
+		mouse_detect_area.mouse_entered.connect(_hover_over_part)
+	if not mouse_detect_area.mouse_exited.is_connected(_unhover_part):
+		mouse_detect_area.mouse_exited.connect(_unhover_part)
+	if not mouse_detect_area.input_event.is_connected(_on_input_event):
+		mouse_detect_area.input_event.connect(_on_input_event)
 	outline_mat = sprite.material as ShaderMaterial
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
 	_unhighlight_target()
@@ -42,12 +47,6 @@ func init_part(body: Character) -> void:
 	body_owner = body
 	recover_part()
 	#anatomy_ui.toggle_panel(false)
-	if not mouse_detect_area.mouse_entered.is_connected(_hover_over_part):
-		mouse_detect_area.mouse_entered.connect(_hover_over_part)
-	if not mouse_detect_area.mouse_exited.is_connected(_unhover_part):
-		mouse_detect_area.mouse_exited.connect(_unhover_part)
-	if not mouse_detect_area.input_event.is_connected(_on_input_event):
-		mouse_detect_area.input_event.connect(_on_input_event)
 
 func recover_part() -> void:
 	current_hp = max_hp
@@ -70,7 +69,7 @@ func drop_part() -> void:
 		area.unhighlight_zone()
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
-	if state == PartState.DESTROYED or is_being_dragged:
+	if (body_owner and not body_owner.rest_mode) and (state == PartState.DESTROYED or is_being_dragged):
 		return
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -78,10 +77,13 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 			get_viewport().set_input_as_handled()
 
 func _hover_over_part() -> void:
-	if state == PartState.DESTROYED or is_being_dragged:
+	if (body_owner and not body_owner.rest_mode) and  (state == PartState.DESTROYED or is_being_dragged):
 		return
-	if state == PartState.HEALTHY and not body_owner.can_control:
+	if (state == PartState.HEALTHY and not body_owner.can_control and not body_owner.rest_mode):
 		return
+	if (body_owner and body_owner.rest_mode and state == PartState.HEALTHY):
+		return
+		
 	#anatomy_ui.toggle_panel(true)
 	#if not is_targeted:
 	outline_mat.set_shader_parameter("alphaThreshold", 0.1)
@@ -113,10 +115,10 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 	#anatomy_ui.set_hp_bar(current_hp, max_hp)
 	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
 	if current_hp <= max_hp / 2 and state != PartState.DESTROYED:
-		anatomy_fucked.emit()
 		state = PartState.FUCKED
 		move_part()
 		current_color = Color.CHOCOLATE
+		anatomy_fucked.emit()
 		if not is_targeted:
 			sprite.modulate = current_color
 	if current_hp <= 0 and state != PartState.DESTROYED:
