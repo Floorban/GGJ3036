@@ -3,6 +3,7 @@ class_name FixArea extends Area2D
 @onready var rest_room: RestRoom = get_tree().get_first_node_in_group("rest_room")
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 @export var anatomy_type: Anatomy.AnatomyType
+var last_anatomy: Anatomy
 @export var my_anatomy: Anatomy
 @onready var sprite: Sprite2D = $Sprite
 var sprite_og_color: Color
@@ -15,7 +16,9 @@ func _ready() -> void:
 	#mouse_entered.connect(_hover_over_part)
 	#mouse_exited.connect(_unhover_part)
 	input_event.connect(_on_input_event)
-	if my_anatomy: my_anatomy.anatomy_fucked.connect(lose_anatomy)
+	if my_anatomy: 
+		last_anatomy = my_anatomy
+		my_anatomy.anatomy_fucked.connect(lose_anatomy)
 	player.start.connect(reset_sprite)
 
 func lose_anatomy() -> void:
@@ -31,12 +34,14 @@ func reparent_anatomy(target: Node2D, new_parent: Node2D) -> void:
 func receive_anatomy(anatomy: Anatomy) -> void:
 	if is_occupied or anatomy.anatomy_type != anatomy_type or anatomy.state == anatomy.PartState.DESTROYED:
 		return
-	print("?")
 	player.arm.drop_obj()
 	#sprite.visible = false
 	sprite.modulate = Color.WEB_GRAY
 	sprite_og_color = sprite.modulate
 	reparent_anatomy(anatomy, player.features)
+	last_anatomy.state = Anatomy.PartState.OutOfBody
+	last_anatomy.body_owner = null
+	last_anatomy = my_anatomy
 	anatomy.body_owner = player
 	anatomy.recover_part()
 	anatomy.position = position
