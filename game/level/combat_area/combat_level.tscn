@@ -153,6 +153,7 @@ action_cooldown = 0.2
 [node name="Boxer" parent="Enemies" index="2" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false
 position = Vector2(0, -13)
+action_cooldown = 1.0
 
 [node name="BrainOut1" parent="Enemies" index="3" unique_id=710006968 instance=ExtResource("5_ay0ac")]
 visible = false

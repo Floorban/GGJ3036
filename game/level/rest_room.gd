@@ -20,6 +20,8 @@ func enter_rest_room() -> void:
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	audio.muffle(true, false)
 	connect_parts_interact_signal()
+	for p in background.get_children():
+		p.z_index = 10
 	for part in player.anatomy_parts:
 		if part.state == Anatomy.PartState.DESTROYED:
 			part.body_owner = null
@@ -32,14 +34,13 @@ func leave_rest_room() -> void:
 	for i in range(player.anatomy_parts.size() - 1, -1, -1):
 		var part = player.anatomy_parts[i]
 		if part.body_owner == null or part.state == Anatomy.PartState.OutOfBody or part.state == Anatomy.PartState.DESTROYED:
-			part.queue_free()
+			part.reparent(background)
 			player.anatomy_parts.remove_at(i)
 	if player.anatomy_parts.is_empty():
 		assert("can't start")
 		return
 	player.rest_mode = false
 	ready_to_fight.emit()
-
 
 func connect_parts_interact_signal() -> void:
 	upgrade_parts.clear()

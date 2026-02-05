@@ -81,10 +81,11 @@ func get_ready_to_battle() -> void:
 		part.recover_part()
 
 func end_battle() -> void:
-	for part in anatomy_parts:
-		part.is_blocking = false
-		part.is_targeted = false
-		part._unhighlight_target()
+	if not anatomy_parts.is_empty():
+		for part in anatomy_parts:
+			part.is_blocking = false
+			part.is_targeted = false
+			part._unhighlight_target()
 	combat_component.stop()
 	can_action = false
 	can_control = false
