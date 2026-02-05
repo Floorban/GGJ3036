@@ -32,13 +32,13 @@ shader_parameter/crt_vignette_power = 2.98000014155
 shader_parameter/pixel_resolution_x = 960
 shader_parameter/pixel_resolution_y = 540
 shader_parameter/enable_color_quantization = true
-shader_parameter/color_quant_steps = 35.0000015675
+shader_parameter/color_quant_steps = 64.0
 shader_parameter/warble_amount = 0.002
 shader_parameter/warble_speed = 1.0000000475
 
 [sub_resource type="Animation" id="Animation_i2c52"]
 resource_name = "TransitionToRest"
-length = 0.6
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -58,10 +58,10 @@ tracks/1/path = NodePath("ScreenLayer/RetroScreen:material:shader_parameter/colo
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1.6817929, 1),
 "update": 0,
-"values": [35.0000015675, 15.0000006175]
+"values": [64.0, 15.0000006175]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -119,13 +119,17 @@ _data = {
 
 [sub_resource type="Environment" id="Environment_8nlnt"]
 background_mode = 3
+background_color = Color(0, 0, 0, 0.94500005)
 glow_enabled = true
 glow_strength = 0.6
 glow_bloom = 0.1
+adjustment_enabled = true
+adjustment_contrast = 1.05
+adjustment_saturation = 1.1
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
-battle_duration = 20.0
-break_duration = 10.0
+battle_duration = 2.0
+break_duration = 2.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
@@ -146,35 +150,43 @@ rotation = -0.44854963
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("13_ldpml")
 
-[node name="Bully" parent="Enemies" index="1" unique_id=1348200660 instance=ExtResource("3_i2c52")]
+[node name="Background2" type="Sprite2D" parent="Enemies" index="1" unique_id=1798532950]
+modulate = Color(0.22415566, 0.5097198, 0.31566837, 0.78431374)
+z_index = -100
+position = Vector2(-6.790283, 133.79175)
+rotation = -0.44854963
+scale = Vector2(5, 5)
+texture = ExtResource("13_ldpml")
+
+[node name="Bully" parent="Enemies" index="2" unique_id=1348200660 instance=ExtResource("3_i2c52")]
 visible = false
 position = Vector2(0, -13)
 critical_chance = 0.0
 attack_damage = 2.5
 action_cooldown = 5.0
 
-[node name="Boxer" parent="Enemies" index="2" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
+[node name="Boxer" parent="Enemies" index="3" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false
 position = Vector2(0, -13)
 attack_damage = 1.0
 action_cooldown = 4.0
 
-[node name="BrainOut1" parent="Enemies" index="3" unique_id=710006968 instance=ExtResource("5_ay0ac")]
+[node name="BrainOut1" parent="Enemies" index="4" unique_id=710006968 instance=ExtResource("5_ay0ac")]
 visible = false
 position = Vector2(0, -13)
 action_cooldown = 3.0
 
-[node name="FatGuy" parent="Enemies" index="4" unique_id=1388912655 instance=ExtResource("6_fhe53")]
+[node name="FatGuy" parent="Enemies" index="5" unique_id=1388912655 instance=ExtResource("6_fhe53")]
 visible = false
 position = Vector2(-3, -63)
 action_cooldown = 7.0
 
-[node name="Eric" parent="Enemies" index="5" unique_id=856538371 instance=ExtResource("7_28xsa")]
+[node name="Eric" parent="Enemies" index="6" unique_id=856538371 instance=ExtResource("7_28xsa")]
 visible = false
 position = Vector2(0, -13)
 action_cooldown = 0.7
 
-[node name="BrainOut2" parent="Enemies" index="6" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
+[node name="BrainOut2" parent="Enemies" index="7" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
 visible = false
 position = Vector2(0, -13)
 

@@ -213,22 +213,20 @@ theme_override_font_sizes/font_size = 28
 text = "Strength + 1"
 vertical_alignment = 1
 
-[node name="LabelPartStat2" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=144845333]
+[node name="LabelPartStat2" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=135409307]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_x4kus")
-theme_override_font_sizes/font_size = 24
-text = "Resist + 1"
+theme_override_font_sizes/font_size = 28
+text = "Strength + 1"
 vertical_alignment = 1
 
-[node name="LabelPartStat3" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=70685813]
+[node name="LabelPartStat3" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=957027193]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_x4kus")
-theme_override_font_sizes/font_size = 24
-text = "Agile + 1"
+theme_override_font_sizes/font_size = 28
+text = "Strength + 1"
 vertical_alignment = 1
 
 [node name="SpecialInfoBG" type="TextureRect" parent="CanvasLayer/PartInfoPanel/VBoxContainer" unique_id=1393824123]

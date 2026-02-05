@@ -1,5 +1,53 @@
 class_name Character extends Node2D
 
+@export var base_stats := {
+	Stats.StatType.MAX_HP: 100.0,
+	Stats.StatType.DAMAGE: 10.0,
+	Stats.StatType.ATTACK_SPEED: 1.0,
+	Stats.StatType.CRIT_CHANCE: 1.0,
+	Stats.StatType.COOLDOWN: 1.0
+}
+
+var final_stats := {}
+
+func get_max_hp() -> float:
+	return get_stat(Stats.StatType.MAX_HP)
+
+func get_attack_speed() -> float:
+	return get_stat(Stats.StatType.ATTACK_SPEED)
+
+func get_damage() -> float:
+	return get_stat(Stats.StatType.DAMAGE)
+
+func get_crit_chance() -> float:
+	return get_stat(Stats.StatType.CRIT_CHANCE)
+
+func get_cooldown() -> float:
+	return get_stat(Stats.StatType.COOLDOWN)
+
+func default_value(stat: Stats.StatType) -> float:
+	match stat:
+		Stats.StatType.MAX_HP: return 1.0
+		Stats.StatType.ATTACK_SPEED: return 1.0
+		Stats.StatType.DAMAGE: return 1.0
+		Stats.StatType.CRIT_CHANCE: return 0.0
+		Stats.StatType.COOLDOWN: return 1.0
+		_: return 0.0
+
+func get_stat(stat: Stats.StatType) -> float:
+	return final_stats.get(stat, default_value(stat))
+
+func rebuild_stats():
+	final_stats = base_stats.duplicate(true)
+
+	for part in anatomy_parts:
+		if not is_instance_valid(part):
+			continue
+
+		for stat in part.get_stat_modifiers():
+			final_stats[stat] += part.get_stat_modifiers()[stat]
+
+
 signal hit(damage: float)
 signal blocked(blocked_damage: float)
 signal start()

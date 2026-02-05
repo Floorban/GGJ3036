@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://fiig2nq1387v" path="res://game/system/autoload/dialogue_manager.gd" id="1_qj8b8"]
 
-
 [node name="DialogueManager" type="Control" unique_id=514810625]
 layout_mode = 3
 anchors_preset = 15

@@ -1,5 +1,36 @@
 class_name Anatomy extends Node2D
 
+@export var stat_modifiers := {
+	Stats.StatType.MAX_HP: 2.0,
+	Stats.StatType.DAMAGE: 1.0,
+	Stats.StatType.ATTACK_SPEED: -0.1,
+	Stats.StatType.CRIT_CHANCE: 1.0,
+	Stats.StatType.COOLDOWN: 1.0
+}
+
+func get_stat_modifiers() -> Dictionary:
+	if state == PartState.DESTROYED:
+		return {}
+		
+	var mods := stat_modifiers.duplicate(true)
+	if state == PartState.FUCKED:
+		for stat in mods:
+			mods[stat] *= 0.5
+
+	return mods
+
+func get_stat_strings() -> Array[String]:
+	var lines : Array[String] = []
+	for stat in stat_modifiers:
+		var val = stat_modifiers[stat]
+		var sign = "+" if val >= 0 else ""
+		lines.append("%s %s%s" % [
+			Stats.stat_to_string(stat),
+			sign,
+			val
+		])
+	return lines
+
 enum AnatomyType {Eye, Ear, Nose, Mouth}
 @export var anatomy_type: AnatomyType 
 
@@ -45,8 +76,8 @@ func _ready() -> void:
 		if a.anatomy_type == anatomy_type: fix_areas.append(a)
 	for i in 8:
 		await get_tree().physics_frame
-	hovering.connect(Global.rest_room.show_part_info)
-	unhover.connect(Global.rest_room.hide_part_info)
+	hovering.connect(Stats.rest_room.show_part_info)
+	unhover.connect(Stats.rest_room.hide_part_info)
 
 func init_part(body: Character) -> void:
 	body_owner = body
@@ -86,7 +117,7 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 			anatomy_clicked.emit(self)
 			get_viewport().set_input_as_handled()
 
-signal hovering(_name: String, _state: String, _hp: float, _max_hp: float, _stat: String, _stat_val: int)
+signal hovering(_name: String, _state: String, _hp: float, _max_hp: float, _stats: Array[String])
 signal unhover()
 
 func _hover_over_part() -> void:
@@ -95,6 +126,7 @@ func _hover_over_part() -> void:
 	if (state == PartState.HEALTHY and not body_owner.can_control and not body_owner.rest_mode):
 		return
 	if (body_owner and body_owner.rest_mode and state == PartState.HEALTHY):
+		hovering.emit(name, PartState.keys()[state], current_hp, max_hp, get_stat_strings())
 		return
 	if is_being_dragged:
 		return
@@ -103,7 +135,7 @@ func _hover_over_part() -> void:
 	outline_mat.set_shader_parameter("alphaThreshold", 0.1)
 	sprite.use_parent_material = false
 	is_hovering = true
-	hovering.emit(name, PartState.keys()[state], current_hp, max_hp, "Agile", 1)
+	hovering.emit(name, PartState.keys()[state], current_hp, max_hp, get_stat_strings())
 
 func _unhover_part() -> void:
 	#anatomy_ui.toggle_panel(false)
@@ -111,7 +143,7 @@ func _unhover_part() -> void:
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
 	sprite.use_parent_material = true
 	is_hovering = false
-	unhover.emit()
+	#unhover.emit()
 
 
 func _highlight_target() -> void:

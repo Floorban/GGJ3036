@@ -10,7 +10,7 @@ signal ready_to_fight()
 @export var upgrade_parts : Array[Anatomy]
 
 func _ready() -> void:
-	Global.rest_room = self
+	Stats.rest_room = self
 	ready_button.pressed.connect(leave_rest_room)
 	leave_rest_room()
 
@@ -61,9 +61,9 @@ func connect_parts_interact_signal() -> void:
 @onready var label_part_name: Label = %LabelPartName
 @onready var label_part_state: Label = %LabelPartState
 @onready var bar_part_hp: TextureProgressBar = %BarPartHP
-@onready var label_part_stat_1: Label = %LabelPartStat1
+@onready var stat_labels: Array[Label] = [%LabelPartStat1, %LabelPartStat2, %LabelPartStat3]
 
-func show_part_info(_name: String, _state: String, _hp: float, _max_hp: float, _stat: String, _stat_val: int) -> void:
+func show_part_info(_name: String, _state: String, _hp: float, _max_hp: float, _stats: Array[String]) -> void:
 	if not part_info_panel.visible:
 		return
 	
@@ -71,11 +71,14 @@ func show_part_info(_name: String, _state: String, _hp: float, _max_hp: float, _
 	label_part_state.text = _state
 	bar_part_hp.max_value = _max_hp
 	bar_part_hp.value = _hp
-	label_part_stat_1.text = _stat + " " + str(_stat_val)
+
+	for i in min(_stats.size(), stat_labels.size()):
+		stat_labels[i].text = _stats[i]
 
 func hide_part_info() -> void:
 	label_part_name.text = ""
 	label_part_state.text =  ""
 	bar_part_hp.max_value = 1
 	bar_part_hp.value = 0
-	label_part_stat_1.text =  ""
+	for label in stat_labels:
+		label.text = ""

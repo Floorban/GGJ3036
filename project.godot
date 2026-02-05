@@ -27,7 +27,7 @@ boot_splash/minimum_display_time=20
 
 [autoload]
 
-Global="*uid://bkinrxr7m51q0"
+Stats="*uid://b6h1dletmyv0j"
 FmodManager="*uid://cds10pm7hwn3p"
 audio="*uid://bnb4oio35tq1m"
 DialogueManager="*uid://14hrrjqso8mu"
@@ -37,7 +37,6 @@ PopupPrompt="*uid://gmvmwlnyad4c"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 
 [editor_plugins]
 
