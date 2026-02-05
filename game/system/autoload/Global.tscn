@@ -1,6 +1,28 @@
 [gd_scene format=3 uid="uid://bkinrxr7m51q0"]
 
 [ext_resource type="Script" uid="uid://b6h1dletmyv0j" path="res://game/system/autoload/global.gd" id="1_vhjca"]
+[ext_resource type="Texture2D" uid="uid://bou2hqbj520kj" path="res://sprites/ui/EnemyStatBG.png" id="2_abd1h"]
 
 [node name="Global" type="Node" unique_id=1535342529]
 script = ExtResource("1_vhjca")
+
+[node name="GameUI" type="Control" parent="." unique_id=1032506064]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="GameUI" unique_id=1239557030]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -350.0
+offset_bottom = 200.0
+grow_horizontal = 0
+texture = ExtResource("2_abd1h")
+expand_mode = 1

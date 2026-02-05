@@ -21,3 +21,5 @@ class_name Bully extends Enemy
 	#targeting_part.is_targeted = true
 	#targeting_part._highlight_target()
 	#return new_target
+
+#

@@ -126,8 +126,12 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 		if a and a.is_part_dead(): dead_anatomy += 1
 	if health <= 0 or dead_anatomy >= anatomy_parts.size():
 		die.emit()
+		character_die_sfx()
 	hit.emit(damage * 1.5)
 	get_hit_visual_feedback(damage / 10)
+
+func character_die_sfx() -> void:
+	pass
 
 var face_tween : Tween
 var face_og_pos : Vector2
