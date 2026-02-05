@@ -36,4 +36,5 @@ func connect_parts_interact_signal() -> void:
 	if upgrade_parts.is_empty():
 		return
 	for part in upgrade_parts:
-		part.anatomy_clicked.connect(player._on_self_anatomy_clicked)
+		if not part.anatomy_clicked.is_connected(player._on_self_anatomy_clicked):
+			part.anatomy_clicked.connect(player._on_self_anatomy_clicked)

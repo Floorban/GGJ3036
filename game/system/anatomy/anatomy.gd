@@ -24,7 +24,7 @@ var is_blocking := false
 var is_hovering := false
 var is_being_dragged := false
 
-var current_color: Color
+var current_color: Color = Color.WHITE
 
 var outline_mat: ShaderMaterial
 
