@@ -32,7 +32,7 @@ radius = 10.999722
 height = 39.999
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvqmr"]
-radius = 13.0
+radius = 15.794907
 height = 66.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltwwj"]
@@ -220,13 +220,13 @@ position = Vector2(28.999998, -20.000002)
 my_anatomy = NodePath("../../Features/EyeL")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEyeL" index="0" unique_id=1542207743]
-position = Vector2(12.000001, 11.999999)
+position = Vector2(1.000001, -1.9999981)
 rotation = -2.7547193
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("10_ltwwj")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEyeL" index="1" unique_id=32785027]
-position = Vector2(11.999999, 14.999997)
+position = Vector2(-3.8146973e-06, -1.0000019)
 rotation = -1.5443118
 shape = SubResource("CapsuleShape2D_hu301")
 
@@ -235,13 +235,13 @@ position = Vector2(-31.000002, -19.999998)
 my_anatomy = NodePath("../../Features/EyeR")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEyeR" index="0" unique_id=1542207743]
-position = Vector2(-5.749378, -3.4561045)
+position = Vector2(1.9999995, -2.000001)
 rotation = -1.3151702
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("11_ltwwj")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEyeR" index="1" unique_id=32785027]
-position = Vector2(-8.972917, -0.69769895)
+position = Vector2(1.999999, -0.9999994)
 rotation = -1.5102458
 shape = SubResource("CapsuleShape2D_wqm0g")
 
@@ -252,14 +252,14 @@ anatomy_type = 1
 my_anatomy = NodePath("../../Features/EarL")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEarL" index="0" unique_id=1542207743]
-position = Vector2(-8.4290695, 14.864412)
+position = Vector2(-6.1408243, 13.201904)
 rotation = 0.9391054
 scale = Vector2(0.08593076, 0.12566878)
 texture = ExtResource("12_0eq7q")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEarL" index="1" unique_id=32785027]
-position = Vector2(6.239009, -1.0367668)
-rotation = 0.21657616
+position = Vector2(1.3496497, 4.2636256)
+rotation = 0.43315792
 shape = SubResource("CapsuleShape2D_xvqmr")
 
 [node name="FixAreaEarR" parent="Face/FixAreas" index="3" unique_id=865976243 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
@@ -275,7 +275,7 @@ scale = Vector2(0.24624492, 0.39563715)
 texture = ExtResource("13_innbf")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEarR" index="1" unique_id=32785027]
-position = Vector2(-17.109621, -0.51074016)
+position = Vector2(-15.939115, 1.3944927)
 rotation = -0.08895778
 shape = SubResource("CapsuleShape2D_ltwwj")
 

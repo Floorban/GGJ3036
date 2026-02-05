@@ -22,7 +22,6 @@ func enter_rest_room() -> void:
 	connect_parts_interact_signal()
 	for part in player.anatomy_parts:
 		if part.state == Anatomy.PartState.DESTROYED:
-			part.state = Anatomy.PartState.OutOfBody
 			part.body_owner = null
 
 func leave_rest_room() -> void:
@@ -32,7 +31,7 @@ func leave_rest_room() -> void:
 	audio.muffle(true, true)
 	for i in range(player.anatomy_parts.size() - 1, -1, -1):
 		var part = player.anatomy_parts[i]
-		if part.body_owner == null or part.state == Anatomy.PartState.OutOfBody:
+		if part.body_owner == null or part.state == Anatomy.PartState.OutOfBody or part.state == Anatomy.PartState.DESTROYED:
 			part.queue_free()
 			player.anatomy_parts.remove_at(i)
 	if player.anatomy_parts.is_empty():
