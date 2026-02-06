@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dxfudgfq78ixl"]
+
+[ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_inlgv"]
+[ext_resource type="Texture2D" uid="uid://cpdif6588tb4" path="res://sprites/body_parts/FaceAssets/MCfacevariations/Noses/GoldenNose.png" id="2_nddok"]
+
+[sub_resource type="Shader" id="Shader_2ro5p"]
+code = "shader_type canvas_item;
+
+uniform sampler2D sprite_texture : source_color, filter_linear;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float glowSize : hint_range(0.0, 300.0) = 15.0;
+uniform int glowDensity : hint_range(0, 30) = 3;
+uniform int glowRadialCoverage : hint_range(0, 32) = 4;
+uniform float glowAngle : hint_range(0.0, 6.283) = 1.57;
+uniform float glowSharpness : hint_range(0.0, 5.0) = 1.0;
+uniform float alphaThreshold : hint_range(0.0, 1.0) = 0.2;
+
+void fragment() {
+	vec4 col = texture(sprite_texture, UV);
+
+	COLOR = col;
+
+	vec2 pixel_size = 1.0 / vec2(textureSize(sprite_texture, 0));
+	float alph = 0.0;
+
+	for (int i = 0; i < glowRadialCoverage; i++) {
+		for (int j = 0; j < glowDensity; j++) {
+			float angle = (TAU / float(glowRadialCoverage)) * float(i + 1) + glowAngle;
+			float dist = glowSize * float(j + 1) / float(glowDensity);
+
+			vec2 offset = vec2(sin(angle), cos(angle)) * pixel_size * dist;
+			vec4 tex = texture(sprite_texture, UV + offset);
+
+			float distFrom = float(glowDensity - j) / float(glowDensity);
+			float sharpness = pow(distFrom, glowSharpness);
+
+			alph += tex.a * line_color.a * sharpness;
+		}
+	}
+
+	if (col.a < alphaThreshold) {
+		COLOR.rgb = line_color.rgb;
+		COLOR.a = alph;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qqabs"]
+shader = SubResource("Shader_2ro5p")
+shader_parameter/sprite_texture = ExtResource("2_nddok")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 7.066000335635
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 5.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qr7qf"]
+radius = 17.0
+height = 52.0
+
+[node name="NoseMaxHP" unique_id=1690948451 instance=ExtResource("1_inlgv")]
+z_index = 10
+stat_modifiers = {
+0: 0.0,
+1: 0.3,
+2: 0.0,
+3: 0.0,
+4: 0.3,
+5: 0.0
+}
+anatomy_type = 2
+state = 3
+max_hp = 2.0
+
+[node name="Sprite" parent="." index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_qqabs")
+position = Vector2(-1.25, -2)
+scale = Vector2(1, 1)
+texture = ExtResource("2_nddok")
+
+[node name="MouseDetectArea" parent="." index="1" unique_id=1106976729]
+position = Vector2(-1.25, -2)
+
+[node name="CollisionShape2D" parent="MouseDetectArea" index="0" unique_id=149295176]
+position = Vector2(0.25, 1)
+shape = SubResource("CapsuleShape2D_qr7qf")

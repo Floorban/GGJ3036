@@ -324,9 +324,12 @@ func _perform_attack(target: Anatomy) -> void:
 		#target.is_targeted = false
 		#target._unhighlight_target()
 	#return
+	if is_dead: return
+
 	can_action = false
 	arm._on_arm_charge_finished(punch_strength * 3)
 	await get_tree().create_timer(punch_strength * 2).timeout
+	if is_dead: return
 	if target:
 		if blocking_part:
 			blocking_part.is_blocking = false
@@ -336,6 +339,7 @@ func _perform_attack(target: Anatomy) -> void:
 			punch_strength,
 			target.global_position,
 			func():
+				if is_dead: return
 				if not can_control:
 					target.is_targeted = false
 					target._unhighlight_target()
@@ -362,6 +366,7 @@ func _on_action_ready() -> void:
 		arm._on_arm_charge_finished(punch_strength * 3)
 
 func _on_action_finished(blocking: bool) -> void:
+	if is_dead: return
 	if not blocking and can_control:
 		_on_attack_finished()
 

@@ -70,6 +70,7 @@ var outline_mat: ShaderMaterial
 @export var og_pos : Vector2
 
 func _ready() -> void:
+	og_pos = global_position
 	current_hp = max_hp
 	if not mouse_detect_area.mouse_entered.is_connected(_hover_over_part):
 		mouse_detect_area.mouse_entered.connect(_hover_over_part)
@@ -86,6 +87,19 @@ func _ready() -> void:
 		await get_tree().physics_frame
 	hovering.connect(Stats.rest_room.show_part_info)
 	unhover.connect(Stats.rest_room.hide_part_info)
+
+signal disconnect()
+
+func _process(_delta: float) -> void:
+	var dist := (global_position - og_pos).length()
+	if state == PartState.HEALTHY and dist > 15.0:
+		#drop_part()
+		state = PartState.FUCKED
+		current_color = Color.CHOCOLATE
+		anatomy_fucked.emit()
+		if not is_targeted and sprite:
+			sprite.modulate = current_color
+		disconnect.emit()
 
 func init_part(body: Character) -> void:
 	body_owner = body
@@ -149,11 +163,11 @@ signal unhover()
 func _hover_over_part() -> void:
 	if (body_owner and not body_owner.rest_mode) and  (state == PartState.DESTROYED or is_being_dragged):
 		return
-	if (state == PartState.HEALTHY and not body_owner.can_control and not body_owner.rest_mode):
-		return
-	if (body_owner and body_owner.rest_mode and state == PartState.HEALTHY):
-		hovering.emit(AnatomyType.keys()[anatomy_type], PartState.keys()[state], current_hp, max_hp, get_stat_strings())
-		return
+	#if (state == PartState.HEALTHY and not body_owner.can_control and not body_owner.rest_mode):
+		#return
+	#if (body_owner and body_owner.rest_mode and state == PartState.HEALTHY):
+		#hovering.emit(AnatomyType.keys()[anatomy_type], PartState.keys()[state], current_hp, max_hp, get_stat_strings())
+		#return
 	if is_being_dragged:
 		return
 	#anatomy_ui.toggle_panel(true)
@@ -195,7 +209,7 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 		move_part()
 		current_color = Color.CHOCOLATE
 		anatomy_fucked.emit()
-		if not is_targeted:
+		if not is_targeted and sprite:
 			sprite.modulate = current_color
 	if current_hp <= 0 and state != PartState.DESTROYED:
 		part_dead()

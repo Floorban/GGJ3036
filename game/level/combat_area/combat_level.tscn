@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cxo0b3lr3mm6c" path="res://game/system/character/enemy/boss/bully.tscn" id="3_i2c52"]
 [ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/boss/boxer.tscn" id="4_kjrlu"]
 [ext_resource type="PackedScene" uid="uid://bavdc803jhh86" path="res://game/system/character/enemy/boss/brain_out_1.tscn" id="5_ay0ac"]
-[ext_resource type="PackedScene" uid="uid://dljdyyicgs435" path="res://game/system/character/enemy/boss/fat_guy.tscn" id="6_fhe53"]
+[ext_resource type="PackedScene" uid="uid://dljdyyicgs435" path="res://game/system/character/enemy/fat_guy.tscn" id="6_fhe53"]
 [ext_resource type="PackedScene" uid="uid://teuunrq7bxl5" path="res://game/system/character/enemy/boss/eric.tscn" id="7_28xsa"]
 [ext_resource type="PackedScene" uid="uid://c3joaeokc1h1s" path="res://game/system/character/enemy/boss/brain_out_2.tscn" id="8_g1ogi"]
 [ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="9_tgsw3"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="12_unnlo"]
 [ext_resource type="Script" uid="uid://b6ic2kvjqwmiq" path="res://game/level/combat_area/retro_screen.gd" id="13_i2c52"]
 [ext_resource type="Texture2D" uid="uid://bk1awwhg2p6h8" path="res://sprites/Backgrounds/Arena.png" id="13_ldpml"]
-[ext_resource type="Shader" uid="uid://cq8fiv0wib6gv" path="res://material/burn_dissolve.gdshader" id="14_28xsa"]
+[ext_resource type="Shader" path="res://material/burn_dissolve.gdshader" id="14_28xsa"]
 [ext_resource type="Script" uid="uid://c6m8tdtxaevtk" path="res://game/level/combat_area/transition_screen.gd" id="14_ay0ac"]
 [ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="14_fhe53"]
 [ext_resource type="PackedScene" uid="uid://dg80hkoj8qolf" path="res://game/level/rest_room.tscn" id="15_kjrlu"]
@@ -146,6 +146,7 @@ break_duration = 10.0
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
 position = Vector2(0, 175)
+base_damage = 6.0
 attack_damage = 1.5
 top_down_dir = 1
 
@@ -191,6 +192,7 @@ punch_strength = 0.0
 [node name="FatGuy" parent="Enemies" index="5" unique_id=1388912655 instance=ExtResource("6_fhe53")]
 visible = false
 position = Vector2(-3, -63)
+is_minion = false
 action_cooldown = 0.0
 punch_strength = 0.0
 
