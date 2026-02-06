@@ -53,14 +53,14 @@ func rebuild_stats():
 			final_stats[stat] += part.get_stat_modifiers()[stat]
 	
 	action_cooldown = get_cooldown() * base_cooldown
-	critical_chance = get_crit_chance() + base_crit_chance
+	attack_damage = get_damage() + base_damage
 	punch_strength = base_speed / get_attack_speed()
-	attack_damage
+	critical_chance = get_crit_chance() + base_crit_chance
+	critical_damage = get_crit_damage() + base_crit_damage
 
 @export var base_cooldown: float = 1.0
-@export var base_dmg: float
-@export var base_speed: float = 0.2
 @export var base_damage: float
+@export var base_speed: float = 0.2
 @export var base_crit_chance: float
 @export var base_crit_damage: float = 1.0
 
