@@ -53,13 +53,14 @@ func enter_rest_room(current_level: int) -> void:
 
 func leave_rest_room() -> void:
 	part_info_panel.visible = false
-	#background.visible = false
+	background.visible = false
 	ready_button.visible = false
 	ready_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	audio.muffle(true, true)
 	for i in range(player.anatomy_parts.size() - 1, -1, -1):
 		var part = player.anatomy_parts[i]
-		if part.body_owner == null or part.state == Anatomy.PartState.OutOfBody or part.state == Anatomy.PartState.DESTROYED:
+		if part.body_owner == null or part.state != Anatomy.PartState.HEALTHY:
+			part.body_owner = null
 			part.reparent(background)
 			player.anatomy_parts.remove_at(i)
 	if player.anatomy_parts.is_empty():
@@ -99,9 +100,9 @@ func spawn_parts(level: int) -> void:
 		upgrades.add_child(part)
 		part.global_position = part_spawn_markers[i].global_position + Vector2(randf_range(-1, 1), randf_range(-1, 1))
 		part.rotation = randf_range(-5,5)
-		
 		part.state = Anatomy.PartState.OutOfBody
 		upgrade_parts.append(part)
+		
 
 func connect_parts_interact_signal() -> void:
 	upgrade_parts.clear()

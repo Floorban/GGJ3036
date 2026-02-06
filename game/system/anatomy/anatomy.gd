@@ -65,6 +65,8 @@ var outline_mat: ShaderMaterial
 
 @export var fix_areas : Array[FixArea]
 
+@export var og_pos : Vector2
+
 func _ready() -> void:
 	current_hp = max_hp
 	if not mouse_detect_area.mouse_entered.is_connected(_hover_over_part):
@@ -73,7 +75,7 @@ func _ready() -> void:
 		mouse_detect_area.mouse_exited.connect(_unhover_part)
 	if not mouse_detect_area.input_event.is_connected(_on_input_event):
 		mouse_detect_area.input_event.connect(_on_input_event)
-	outline_mat = sprite.material as ShaderMaterial
+	if sprite: outline_mat = sprite.material as ShaderMaterial
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
 	_unhighlight_target()
 	for a : FixArea in get_tree().get_nodes_in_group("fix_area"):
@@ -94,11 +96,12 @@ func recover_part() -> void:
 	#anatomy_ui.set_hp_bar(current_hp, max_hp)
 	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
 	current_color = Color.WHITE
-	sprite.modulate = current_color
+	if sprite: sprite.modulate = current_color
 
 func pickup_part() -> void:
 	if is_being_dragged:
 		return
+	og_pos = global_position
 	is_being_dragged = true
 	_unhover_part()
 	if current_hp > 0:
@@ -108,9 +111,26 @@ func pickup_part() -> void:
 func drop_part() -> void:
 	if not is_being_dragged:
 		return
-	is_being_dragged = false
 	for area in fix_areas:
 		area.unhighlight_zone()
+		
+	if (state == PartState.OutOfBody) and not body_owner:
+		var tween := create_tween()
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.set_ease(Tween.EASE_OUT)
+		tween.tween_property(
+			self,
+			"global_position",
+			og_pos,
+			0.15
+		)
+		
+		tween.tween_callback(func():
+			global_position = og_pos
+			is_being_dragged = false
+		)
+	else:
+		is_being_dragged = false
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if (body_owner and not body_owner.rest_mode) and (state == PartState.DESTROYED or is_being_dragged):
@@ -136,7 +156,7 @@ func _hover_over_part() -> void:
 	#anatomy_ui.toggle_panel(true)
 	#if not is_targeted:
 	outline_mat.set_shader_parameter("alphaThreshold", 0.1)
-	sprite.use_parent_material = false
+	if sprite: sprite.use_parent_material = false
 	is_hovering = true
 	hovering.emit(AnatomyType.keys()[anatomy_type], PartState.keys()[state], current_hp, max_hp, get_stat_strings())
 
@@ -144,7 +164,7 @@ func _unhover_part() -> void:
 	#anatomy_ui.toggle_panel(false)
 
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
-	sprite.use_parent_material = true
+	if sprite: sprite.use_parent_material = true
 	is_hovering = false
 	#unhover.emit()
 
@@ -153,12 +173,12 @@ func _highlight_target() -> void:
 	if is_part_dead():
 		return
 
-	if is_targeted:
+	if is_targeted and sprite:
 		sprite.use_parent_material = true
 		sprite.modulate = Color.RED * 2.0
 
 func _unhighlight_target() -> void:
-	if not is_targeted:
+	if not is_targeted and sprite:
 		sprite.modulate = current_color
 		sprite.use_parent_material = true
 
@@ -181,7 +201,8 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 		audio.play(body_owner.sfx_crit)
 	else: 
 		audio.play(body_owner.sfx_hit, global_transform, "Intensity", changed_amount / max_hp)
-	PopupPrompt.display_prompt("!", changed_amount, global_position, 2.0)
+	if changed_amount > 0:
+		PopupPrompt.display_prompt("!", int(changed_amount), global_position, 2.0)
 
 func part_dead() -> void:
 	state = PartState.DESTROYED

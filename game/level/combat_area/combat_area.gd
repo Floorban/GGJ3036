@@ -1,4 +1,6 @@
-extends Node2D
+class_name Level extends Node2D
+
+signal game_end
 
 signal battle_start
 signal battle_end
@@ -111,6 +113,13 @@ func player_win() -> void:
 		2.0,
 		2.5
 	)
+	tween.tween_method(
+		func(value: float):
+			Engine.time_scale = value,
+		2.0,
+		1.0,
+		0.3
+	)
 
 	tween.tween_callback(func():
 		Engine.time_scale = 1.0
@@ -120,7 +129,8 @@ func player_win() -> void:
 
 
 func player_lose() -> void:
-	end_battle()
+	game_end.emit()
+	queue_free()
 
 func end_battle() -> void:
 	camera.switch_target(player, 50)
