@@ -30,7 +30,7 @@ func enter_rest_room() -> void:
 
 func leave_rest_room() -> void:
 	part_info_panel.visible = false
-	background.visible = false
+	#background.visible = false
 	ready_button.visible = false
 	ready_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	audio.muffle(true, true)

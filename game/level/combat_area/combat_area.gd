@@ -4,9 +4,10 @@ signal battle_start
 signal battle_end
 
 @onready var background: Sprite2D = %Background
-@onready var rest_room: RestRoom = $RestRoom
+@onready var rest_room: RestRoom = %RestRoom
 @onready var arena_center: Marker2D = %ArenaCenter
 @onready var corner: Marker2D = %Corner
+@onready var rest_room_anchor: Marker2D = %RestRoomAnchor
 @onready var enemies_container: Node2D = $Enemies
 var start_pos : Vector2
 
@@ -14,6 +15,7 @@ var start_pos : Vector2
 @onready var game_ui: GameUI = %GameUI
 @onready var retro_screen: RetroScreen = %RetroScreen
 var retro_mat: ShaderMaterial
+@onready var transition_screen: transition_screen = %TransitionScreen
 @export var battle_duration := 40.0
 @export var break_duration := 15.0
 var in_break := false
@@ -65,6 +67,24 @@ func final_stage() -> void:
 	pass
 
 func start_battle() -> void:
+	camera.switch_target(arena_center, 50)
+	
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.parallel().tween_property(
+		enemies_container,
+		"position",
+		Vector2.ZERO,
+		0.3
+	)
+	
+	tween.tween_property(
+		camera,
+		"zoom",
+		Vector2.ONE * 2,
+		0.2
+	)
 	in_break = false
 	in_battle = true
 	background.visible = true
@@ -72,8 +92,24 @@ func start_battle() -> void:
 	player.get_ready_to_battle()
 	enemy.get_ready_to_battle()
 	battle_start.emit()
+	transition_screen.burn()
 
 func end_battle() -> void:
+	camera.switch_target(player, 50)
+	
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(
+		enemies_container,
+		"position",
+		rest_room_anchor.position,
+		0.3
+	)
+	
+	transition_screen.cover()
+	await get_tree().create_timer(1.5).timeout
+	transition_screen.burn()
 	current_round = 0
 	in_battle = false
 	in_break = true
@@ -177,11 +213,6 @@ func _screen_shake(value: float, crit := false) -> void:
 	if crit:
 		Engine.time_scale = 0.4
 
-	Engine.time_scale = 0.0
-	for i in 10:
-		await get_tree().physics_frame
-	Engine.time_scale = 1.0
-	
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
