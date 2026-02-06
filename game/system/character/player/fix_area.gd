@@ -34,7 +34,6 @@ func reparent_anatomy(target: Node2D, new_parent: Node2D) -> void:
 func receive_anatomy(anatomy: Anatomy) -> void:
 	if is_occupied or anatomy.anatomy_type != anatomy_type or anatomy.state == anatomy.PartState.DESTROYED or anatomy.current_hp <= 0:
 		return
-	player.arm.drop_obj()
 	#sprite.visible = false
 	sprite.modulate = Color.WEB_GRAY
 	sprite_og_color = sprite.modulate
@@ -50,6 +49,7 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 	my_anatomy = anatomy
 	if not my_anatomy.anatomy_fucked.is_connected(lose_anatomy): my_anatomy.anatomy_fucked.connect(lose_anatomy)
 	is_occupied =  true
+	player.arm.drop_obj()
 
 func reset_sprite() -> void:
 	sprite.modulate = Color.WHITE_SMOKE

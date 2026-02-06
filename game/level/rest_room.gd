@@ -59,7 +59,8 @@ func leave_rest_room() -> void:
 	audio.muffle(true, true)
 	for i in range(player.anatomy_parts.size() - 1, -1, -1):
 		var part = player.anatomy_parts[i]
-		if part.body_owner == null or part.state == Anatomy.PartState.OutOfBody or part.state == Anatomy.PartState.DESTROYED:
+		if part.body_owner == null or part.state != Anatomy.PartState.HEALTHY:
+			part.body_owner = null
 			part.reparent(background)
 			player.anatomy_parts.remove_at(i)
 	if player.anatomy_parts.is_empty():
