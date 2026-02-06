@@ -19,7 +19,7 @@ config/name="Unfix"
 config/description="Queble game jam 2026.
 Themes: Out of Place & Timing"
 config/version="1.0"
-run/main_scene="uid://c1q6sj2ue5ird"
+run/main_scene="uid://cqjd3j5jrkthw"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/image="uid://colhn2sx5admh"
 config/icon="uid://c7f583vqgdmne"

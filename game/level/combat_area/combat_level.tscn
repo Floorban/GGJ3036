@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="12_unnlo"]
 [ext_resource type="Script" uid="uid://b6ic2kvjqwmiq" path="res://game/level/combat_area/retro_screen.gd" id="13_i2c52"]
 [ext_resource type="Texture2D" uid="uid://bk1awwhg2p6h8" path="res://sprites/Backgrounds/Arena.png" id="13_ldpml"]
-[ext_resource type="Shader" uid="uid://cq8fiv0wib6gv" path="res://game/level/combat_area/burn_dissolve.gdshader" id="14_28xsa"]
+[ext_resource type="Shader" uid="uid://cq8fiv0wib6gv" path="res://material/burn_dissolve.gdshader" id="14_28xsa"]
 [ext_resource type="Script" uid="uid://c6m8tdtxaevtk" path="res://game/level/combat_area/transition_screen.gd" id="14_ay0ac"]
 [ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="14_fhe53"]
 [ext_resource type="PackedScene" uid="uid://dg80hkoj8qolf" path="res://game/level/rest_room.tscn" id="15_kjrlu"]
@@ -176,6 +176,7 @@ attack_damage = 2.5
 [node name="Boxer" parent="Enemies" index="3" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false
 position = Vector2(0, -13)
+is_minion = false
 action_cooldown = 0.0
 attack_damage = 0.0
 punch_strength = 0.0
@@ -183,6 +184,7 @@ punch_strength = 0.0
 [node name="BrainOut1" parent="Enemies" index="4" unique_id=710006968 instance=ExtResource("5_ay0ac")]
 visible = false
 position = Vector2(0, -13)
+is_minion = false
 action_cooldown = 0.0
 punch_strength = 0.0
 
@@ -195,12 +197,14 @@ punch_strength = 0.0
 [node name="Eric" parent="Enemies" index="6" unique_id=856538371 instance=ExtResource("7_28xsa")]
 visible = false
 position = Vector2(0, -13)
+is_minion = false
 action_cooldown = 0.0
 punch_strength = 0.0
 
 [node name="BrainOut2" parent="Enemies" index="7" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
 visible = false
 position = Vector2(0, -13)
+is_minion = false
 action_cooldown = 0.0
 punch_strength = 0.0
 

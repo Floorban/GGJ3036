@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cqjd3j5jrkthw"]
+
+[ext_resource type="Script" uid="uid://fcx02hc4rwm0" path="res://game/level/menu.gd" id="1_kh04w"]
+[ext_resource type="PackedScene" uid="uid://c1q6sj2ue5ird" path="res://game/level/combat_area/combat_level.tscn" id="2_2nera"]
+
+[node name="Menu" type="Node2D" unique_id=585511827]
+script = ExtResource("1_kh04w")
+level_scene = ExtResource("2_2nera")
+
+[node name="Control" type="Control" parent="." unique_id=752135869]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="BtnStart" type="Button" parent="Control" unique_id=1393666602]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

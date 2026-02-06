@@ -158,7 +158,7 @@ func _highlight_target() -> void:
 		sprite.modulate = Color.RED * 2.0
 
 func _unhighlight_target() -> void:
-	if not is_targeted:
+	if not is_targeted and sprite:
 		sprite.modulate = current_color
 		sprite.use_parent_material = true
 
@@ -181,7 +181,8 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 		audio.play(body_owner.sfx_crit)
 	else: 
 		audio.play(body_owner.sfx_hit, global_transform, "Intensity", changed_amount / max_hp)
-	PopupPrompt.display_prompt("!", changed_amount, global_position, 2.0)
+	if changed_amount > 0:
+		PopupPrompt.display_prompt("!", int(changed_amount), global_position, 2.0)
 
 func part_dead() -> void:
 	state = PartState.DESTROYED

@@ -194,7 +194,7 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 		if a and a.is_part_dead(): dead_anatomy += 1
 	if health <= 0 or dead_anatomy >= anatomy_parts.size():
 		die.emit()
-		PopupPrompt.display_prompt("OUT OF PLACE !!", -1 ,face.global_position, 1.8, 0.85)
+		PopupPrompt.display_prompt("OUT OF PLACE !!", -1 ,face.global_position, 1.95, 0.85)
 		is_dead = true
 		print(name + "dies")
 		character_die_sfx()
