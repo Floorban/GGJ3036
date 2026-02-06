@@ -171,7 +171,6 @@ texture = ExtResource("13_ldpml")
 [node name="Bully" parent="Enemies" index="2" unique_id=1348200660 instance=ExtResource("3_i2c52")]
 visible = false
 position = Vector2(0, -13)
-action_cooldown = 0.0
 attack_damage = 2.5
 
 [node name="Boxer" parent="Enemies" index="3" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
