@@ -220,7 +220,7 @@ stat_modifiers = {
 4: 0.05,
 5: 0.0
 }
-max_hp = 2.0
+max_hp = 0.5
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_0qq5y")
@@ -248,7 +248,7 @@ stat_modifiers = {
 4: 0.05,
 5: 0.0
 }
-max_hp = 2.0
+max_hp = 0.5
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_vprwn")
@@ -274,7 +274,7 @@ stat_modifiers = {
 4: 0.05,
 5: 0.0
 }
-max_hp = 2.0
+max_hp = 0.5
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_qjg54")
@@ -299,7 +299,7 @@ stat_modifiers = {
 4: 0.05,
 5: 0.0
 }
-max_hp = 2.0
+max_hp = 0.5
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_oqmy7")
@@ -323,7 +323,7 @@ stat_modifiers = {
 4: 0.05,
 5: 0.0
 }
-max_hp = 2.0
+max_hp = 0.5
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_rpsbt")
@@ -344,7 +344,7 @@ stat_modifiers = {
 4: 0.05,
 5: 0.0
 }
-max_hp = 2.0
+max_hp = 0.5
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 modulate = Color(0.7567424, 0.18149996, 0.4081871, 1)

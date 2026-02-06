@@ -194,6 +194,8 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 		if a and a.is_part_dead(): dead_anatomy += 1
 	if health <= 0 or dead_anatomy >= anatomy_parts.size():
 		die.emit()
+		PopupPrompt.display_prompt("OUT OF PLACE !!", -1 ,face.global_position, 1.8, 0.85)
+		is_dead = true
 		print(name + "dies")
 		character_die_sfx()
 	hit.emit(damage * 1.5)
@@ -218,15 +220,20 @@ func get_hit_visual_feedback(damage_scale: float) -> void:
 
 	face_og_pos = face.global_position
 	face_og_rot = face.global_rotation
-
+	
 	var pos_offset := Vector2(
 		rand_outside_range(-100, -250),
 		randf_range(-20, -100) * top_down_dir
 	) * damage_scale
 
 	var rot_offset := rand_outside_range(3, 5) * damage_scale
-
 	var hit_time := 0.05 + damage_scale + randf_range(-0.15, 0.05)
+
+	if is_dead:
+		pos_offset *= 5.0
+		print(pos_offset)
+		rot_offset *= 5.0
+		hit_time /= 2.0
 
 	face_tween = create_tween()
 	face_tween.set_trans(Tween.TRANS_QUAD)
@@ -257,7 +264,8 @@ func get_hit_visual_feedback(damage_scale: float) -> void:
 	)
 
 	face_tween.tween_callback(func():
-		face_return(0.2 * damage_scale)
+		if not is_dead:
+			face_return(0.2 * damage_scale)
 		)
 
 func face_return(duration: float) -> void:
