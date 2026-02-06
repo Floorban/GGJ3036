@@ -38,11 +38,12 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 	sprite.modulate = Color.WEB_GRAY
 	sprite_og_color = sprite.modulate
 	reparent_anatomy(anatomy, player.features)
-	if last_anatomy:
+	if last_anatomy and last_anatomy != anatomy:
 		last_anatomy.state = Anatomy.PartState.OutOfBody
 		last_anatomy.body_owner = null
 		last_anatomy = my_anatomy
 	anatomy.body_owner = player
+	print(anatomy.body_owner)
 	anatomy.recover_part()
 	anatomy.position = position
 	anatomy.rotation = rotation

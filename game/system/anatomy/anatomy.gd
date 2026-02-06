@@ -92,14 +92,103 @@ signal disconnect()
 
 func _process(_delta: float) -> void:
 	var dist := (global_position - og_pos).length()
-	if state == PartState.HEALTHY and dist > 15.0:
+	if state == PartState.HEALTHY and dist > 15.0 and not is_being_dragged:
+		despawn_blood_line()
 		#drop_part()
 		state = PartState.FUCKED
+		body_owner = null
 		current_color = Color.CHOCOLATE
 		anatomy_fucked.emit()
 		if not is_targeted and sprite:
 			sprite.modulate = current_color
 		disconnect.emit()
+	if is_being_dragged:
+		update_blood_lines()
+
+func update_blood_lines() -> void:
+	for line in blood_lines:
+		var start := line.get_point_position(0)
+		var target := start + (global_position - og_pos)
+		target += Vector2(
+			randf_range(-5, 5),
+			randf_range(-5, 5)
+		)
+		var current := line.get_point_position(1)
+		line.set_point_position(1, current.lerp(target, 0.9))
+		var stretch := (global_position - og_pos).length()
+		line.width = lerp(30.0, 20.0, clamp(stretch / 10.0, 0, 1))
+
+@export var blood_particle : PackedScene
+@export var blood_line_textres: Array[Texture2D]
+var blood_lines: Array[Line2D] = []
+
+func despawn_blood_line() -> void:
+	for line in blood_lines:
+		_retract_blood_line(line, randf_range(0.2, 0.25))
+	
+	blood_lines.clear()
+	if state == PartState.HEALTHY:
+		var bp : GPUParticles2D = blood_particle.instantiate()
+		bp.emitting = true
+		add_child(bp)
+		bp.global_position = og_pos
+
+func _retract_blood_line(line: Line2D, duration := 0.2) -> void:
+	if not is_instance_valid(line):
+		return
+
+	var start := line.get_point_position(1)
+	var end := line.get_point_position(0)
+
+	var tween := create_tween()
+	#tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.set_trans(Tween.TRANS_BACK)
+	#tween.set_ease(Tween.EASE_OUT_IN)
+	tween.tween_method(
+		func(v: Vector2):
+			if is_instance_valid(line):
+				line.set_point_position(1, v),
+		start,
+		end,
+		duration
+	)
+	tween.parallel().tween_property(
+		line,
+		"width",
+		0.0,
+		duration
+	)
+	tween.tween_callback(func():
+		if is_instance_valid(line):
+			line.queue_free()
+	)
+
+func draw_blood_line() -> void:
+	for line in blood_lines:
+		line.queue_free()
+	blood_lines.clear()
+
+	var count := randi_range(3, 5)
+
+	for i in count:
+		var line := Line2D.new()
+		line.width = randf_range(20.0, 30.0)
+		line.texture_mode = Line2D.LINE_TEXTURE_STRETCH
+		line.texture = blood_line_textres.pick_random()
+
+		var local_offset := Vector2(
+			randf_range(-5, 5),
+			randf_range(-5, 5)
+		)
+
+		add_child(line)
+
+		line.points = [
+			local_offset,
+			local_offset + (global_position - og_pos)
+		]
+
+		blood_lines.append(line)
 
 func init_part(body: Character) -> void:
 	body_owner = body
@@ -118,6 +207,8 @@ func pickup_part() -> void:
 	if is_being_dragged:
 		return
 	og_pos = global_position
+	if body_owner:
+		draw_blood_line()
 	is_being_dragged = true
 	_unhover_part()
 	audio.play(sfx_select)

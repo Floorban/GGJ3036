@@ -2,12 +2,19 @@
 
 [ext_resource type="Script" uid="uid://bekkhc07oy7xl" path="res://game/system/anatomy/anatomy.gd" id="1_hstcr"]
 [ext_resource type="Material" uid="uid://cap1iilxc4i14" path="res://material/sprite_outline.tres" id="2_c5p48"]
+[ext_resource type="Texture2D" uid="uid://cpt26g834qgdn" path="res://sprites/body_parts/Blood/Bloodstring3.png" id="2_ct35d"]
+[ext_resource type="PackedScene" uid="uid://b2ntm1o8xjh4t" path="res://material/blood_particle.tscn" id="2_db6hp"]
 [ext_resource type="Texture2D" uid="uid://dina2mpprqa58" path="res://sprites/ui/white.png" id="2_phaok"]
+[ext_resource type="Texture2D" uid="uid://d2waafy1mk7cs" path="res://sprites/body_parts/Blood/Bloodstring4.png" id="2_spwrl"]
+[ext_resource type="Texture2D" uid="uid://xmh3ua8rtvfc" path="res://sprites/body_parts/Blood/Bloodstring5.png" id="3_gdvos"]
+[ext_resource type="Texture2D" uid="uid://bsnpsbomjeqwx" path="res://sprites/body_parts/Blood/Bloodstring6.png" id="4_db6hp"]
 
 [node name="Anatomy" type="Node2D" unique_id=1690948451 groups=["anatomy"]]
 z_index = 2
 script = ExtResource("1_hstcr")
 max_hp = 3.0
+blood_particle = ExtResource("2_db6hp")
+blood_line_textres = Array[Texture2D]([ExtResource("3_gdvos"), ExtResource("4_db6hp"), ExtResource("2_spwrl"), ExtResource("2_ct35d")])
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=500964707]
 texture_filter = 1

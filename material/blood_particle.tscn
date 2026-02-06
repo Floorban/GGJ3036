@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b2ntm1o8xjh4t"]
+
+[ext_resource type="Texture2D" uid="uid://dfkjr6p0df0on" path="res://sprites/ui/circle.png" id="1_4nmah"]
+
+[sub_resource type="Curve" id="Curve_4nmah"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hia71"]
+curve = SubResource("Curve_4nmah")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hia71"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 300.0
+initial_velocity_max = 350.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -300.0
+linear_accel_max = -200.0
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+damping_min = 100.00001
+damping_max = 100.00001
+scale_min = 0.19999999
+scale_max = 0.19999999
+scale_over_velocity_min = 0.049999997
+scale_over_velocity_max = 0.099999994
+alpha_curve = SubResource("CurveTexture_hia71")
+turbulence_enabled = true
+turbulence_noise_strength = 9.68
+turbulence_influence_min = 0.16100001
+turbulence_influence_max = 0.25800002
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 12.200002
+
+[node name="BloodParticle" type="GPUParticles2D" unique_id=62236315]
+modulate = Color(0.5854551, 0, 0.06643534, 1)
+position = Vector2(0, 1)
+emitting = false
+amount = 20
+texture = ExtResource("1_4nmah")
+lifetime = 4.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.8
+randomness = 0.4
+trail_enabled = true
+trail_lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_hia71")

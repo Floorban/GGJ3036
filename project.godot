@@ -62,5 +62,6 @@ right_click={
 
 [rendering]
 
+textures/canvas_textures/default_texture_repeat=1
 rendering_device/driver.windows="d3d12"
 viewport/hdr_2d=true
