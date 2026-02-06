@@ -2,7 +2,7 @@ class_name Anatomy extends Node2D
 
 @export var stat_modifiers := {
 	Stats.StatType.MAX_HP: 0.0,
-	Stats.StatType.COOLDOWN: -0.5,
+	Stats.StatType.COOLDOWN: -0.1,
 	Stats.StatType.DAMAGE: 0.1,
 	Stats.StatType.ATTACK_SPEED: 0.1,
 	Stats.StatType.CRIT_CHANCE: 0.0,
@@ -85,7 +85,6 @@ func _ready() -> void:
 
 func init_part(body: Character) -> void:
 	body_owner = body
-	recover_part()
 	#anatomy_ui.toggle_panel(false)
 
 func recover_part() -> void:

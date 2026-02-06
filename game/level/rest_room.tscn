@@ -35,21 +35,53 @@ z_index = 5
 position = Vector2(45.838226, 266.68872)
 rotation = 2.6085186
 scale = Vector2(2.0000002, 2.0000002)
+stat_modifiers = {
+0: 0.0,
+1: -0.5,
+2: 1.0,
+3: 0.1,
+4: 0.0,
+5: 0.0
+}
 max_hp = 6.0
 
 [node name="Demon Eye" parent="Background/Upgrades" unique_id=159553951 instance=ExtResource("5_46xav")]
 position = Vector2(120.729614, 232.75818)
 rotation = 3.0379448
 scale = Vector2(2, 2)
+stat_modifiers = {
+0: 0.0,
+1: -0.5,
+2: 1.0,
+3: 0.1,
+4: 0.0,
+5: 0.0
+}
 max_hp = 6.0
 
 [node name="Big Mouth" parent="Background/Upgrades" unique_id=1218228508 instance=ExtResource("6_muymv")]
 position = Vector2(183.77933, 123.64932)
+stat_modifiers = {
+0: 0.0,
+1: -0.5,
+2: 1.0,
+3: 0.1,
+4: 0.0,
+5: 0.0
+}
 max_hp = 6.0
 
 [node name="Crazy Ear" parent="Background/Upgrades" unique_id=1625647803 instance=ExtResource("7_x1e6w")]
 position = Vector2(245.89343, 179.52274)
 rotation = 0.41456676
+stat_modifiers = {
+0: 0.0,
+1: -0.5,
+2: 1.0,
+3: 0.1,
+4: 0.0,
+5: 0.0
+}
 
 [node name="Horn Ear" parent="Background/Upgrades" unique_id=369581676 instance=ExtResource("5_g01m4")]
 position = Vector2(-180.52948, 42.90825)

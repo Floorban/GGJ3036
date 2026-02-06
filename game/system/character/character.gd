@@ -2,11 +2,11 @@ class_name Character extends Node2D
 
 @export var base_stats := {
 	Stats.StatType.MAX_HP: 0.0,
-	Stats.StatType.COOLDOWN: 1.0,
-	Stats.StatType.DAMAGE: 1.0,
-	Stats.StatType.ATTACK_SPEED: 1.0,
-	Stats.StatType.CRIT_CHANCE: 0.0,
-	Stats.StatType.CRIT_DAMAGE: 1.0,
+	Stats.StatType.COOLDOWN: base_cooldown,
+	Stats.StatType.DAMAGE: base_damage,
+	Stats.StatType.ATTACK_SPEED: base_speed,
+	Stats.StatType.CRIT_CHANCE: base_crit_chance,
+	Stats.StatType.CRIT_DAMAGE: base_crit_damage,
 }
 
 @export var final_stats := {}
@@ -52,15 +52,15 @@ func rebuild_stats():
 		for stat in part.get_stat_modifiers():
 			final_stats[stat] += part.get_stat_modifiers()[stat]
 	
-	action_cooldown =  max(0.2, base_cooldown -get_cooldown())
+	action_cooldown =  max(0.2, base_cooldown + get_cooldown())
 	attack_damage = get_damage() + base_damage
-	punch_strength = base_speed / get_attack_speed()
+	punch_strength = max(0.1, base_speed / (get_attack_speed() + 1))
 	critical_chance = get_crit_chance() + base_crit_chance
 	critical_damage = get_crit_damage() + base_crit_damage
 
-@export var base_cooldown: float = 1.0
+@export var base_cooldown: float = 5.0
 @export var base_damage: float
-@export var base_speed: float = 0.2
+@export var base_speed: float = 0.1
 @export var base_crit_chance: float
 @export var base_crit_damage: float = 1.0
 
@@ -132,6 +132,7 @@ func _init_anatomy_parts() -> void:
 		if anatomy.visible and anatomy.state != Anatomy.PartState.OutOfBody:
 			anatomy_parts.append(anatomy)
 	for part in anatomy_parts:
+		part.init_part(self)
 		part.anatomy_hit.connect(
 		func(dmg): resolve_hit(part, dmg, opponent)
 		)
