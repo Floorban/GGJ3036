@@ -40,7 +40,7 @@ func leave_rest_room() -> void:
 			part.reparent(background)
 			player.anatomy_parts.remove_at(i)
 	if player.anatomy_parts.is_empty():
-		assert("can't start")
+		assert(player.anatomy_parts.is_empty(), "can't start with no parts")
 		return
 	player.rest_mode = false
 	ready_to_fight.emit()

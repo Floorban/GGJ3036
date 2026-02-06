@@ -1,7 +1,7 @@
 class_name Anatomy extends Node2D
 
 @export var stat_modifiers := {
-	Stats.StatType.MAX_HP: 2.0,
+	Stats.StatType.MAX_HP: 0.0,
 	Stats.StatType.DAMAGE: 1.0,
 	Stats.StatType.ATTACK_SPEED: -0.1,
 	Stats.StatType.CRIT_CHANCE: 1.0,

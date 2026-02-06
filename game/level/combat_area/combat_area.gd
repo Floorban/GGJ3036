@@ -26,7 +26,7 @@ var current_round := 0
 var max_round := 2
 @export var first_level := true
 
-var enemies: Array[Enemy]
+@export var enemies: Array[Enemy]
 @onready var player: Player = %Player
 var enemy: Enemy
 
@@ -43,6 +43,10 @@ func _ready() -> void:
 	first_level = false
 
 func init_combat_arena(level : int) -> void:
+	if level > enemies.size():
+		final_stage()
+		assert(level >= enemies.size(), "no more enemies")
+		return
 	enemy = enemies[level - 1]
 	enemy.visible = true
 	battle_time_left = battle_duration
@@ -56,6 +60,9 @@ func init_combat_arena(level : int) -> void:
 		player.hit.connect(_screen_shake)
 		player.blocked.connect(_screen_shake)
 		player.die.connect(end_battle)
+
+func final_stage() -> void:
+	pass
 
 func start_battle() -> void:
 	in_break = false
@@ -171,7 +178,7 @@ func _screen_shake(value: float, crit := false) -> void:
 		Engine.time_scale = 0.4
 
 	Engine.time_scale = 0.0
-	for i in 8:
+	for i in 10:
 		await get_tree().physics_frame
 	Engine.time_scale = 1.0
 	
