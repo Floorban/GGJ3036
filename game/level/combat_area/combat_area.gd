@@ -228,7 +228,7 @@ func _screen_shake(value: float, crit := false) -> void:
 		0.0,
 		0.15 + randf_range(-0.05, 0.15)
 	)
-
+	
 	tween.tween_method(
 		func(v):
 			barrel_distortion = v
@@ -237,7 +237,7 @@ func _screen_shake(value: float, crit := false) -> void:
 		0.5,
 		0.3 + randf_range(-0.05, 0.15)
 	)
-
+	
 	tween.tween_callback(func():
 		Engine.time_scale = 1.0
 	)
