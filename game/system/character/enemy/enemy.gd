@@ -23,6 +23,7 @@ func start_round() -> void:
 		next_target._unhighlight_target()
 		
 func _on_action_finished(_blocking: bool) -> void:
+	if is_dead: return
 	super._on_action_finished(_blocking)
 	if targeting_part:
 		targeting_part.is_targeted = false

@@ -66,7 +66,7 @@ func _input(event: InputEvent) -> void:
 		selected_target = null
 
 func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
-	if (arm.movable_by_mouse and anatomy.state == Anatomy.PartState.FUCKED) or (rest_mode and anatomy.state != Anatomy.PartState.HEALTHY):
+	if (arm.movable_by_mouse and anatomy.state == Anatomy.PartState.FUCKED) or (rest_mode): #and anatomy.state != Anatomy.PartState.HEALTHY
 		arm.pickup_obj(anatomy)
 		arm.z_index = -2
 		return

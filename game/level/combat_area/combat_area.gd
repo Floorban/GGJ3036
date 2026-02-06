@@ -5,6 +5,8 @@ signal game_end
 signal battle_start
 signal battle_end
 
+var paused := false
+
 @onready var background: Sprite2D = %Background
 @onready var rest_room: RestRoom = %RestRoom
 @onready var arena_center: Marker2D = %ArenaCenter
@@ -97,6 +99,7 @@ func start_battle() -> void:
 	transition_screen.burn()
 
 func player_win() -> void:
+	paused = true
 	transition_screen.cover()
 	
 	Engine.time_scale = 0.01
@@ -124,6 +127,7 @@ func player_win() -> void:
 	tween.tween_callback(func():
 		Engine.time_scale = 1.0
 		await get_tree().create_timer(1.0).timeout
+		paused = false
 		end_battle()
 	)
 
@@ -224,7 +228,8 @@ func end_round() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		end_battle()
-	
+	if paused:
+		return
 	if battle_time_left <= 0:
 		if in_break:
 			next_round()
