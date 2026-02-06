@@ -187,6 +187,9 @@ func end_round() -> void:
 	player.arm.movable_by_mouse = true
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		end_battle()
+	
 	if battle_time_left <= 0:
 		if in_break:
 			next_round()

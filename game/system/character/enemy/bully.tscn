@@ -183,7 +183,7 @@ size = Vector2(100.15385, 43.076912)
 
 [node name="Bully" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_ulrfh")]
 script = ExtResource("2_qjg54")
-action_cooldown = 7.0
+base_damage = 0.5
 arm = NodePath("BullyArm")
 sfx_die = "event:/SFX/NPC/Bully/Die"
 sfx_entry = "event:/SFX/NPC/Bully/Entry"
@@ -215,7 +215,7 @@ stat_modifiers = {
 0: 0.0,
 1: -0.1,
 2: 0.2,
-3: 0.2,
+3: 0.0,
 4: 0.05,
 5: 0.0
 }
@@ -243,7 +243,7 @@ stat_modifiers = {
 0: 0.0,
 1: -0.1,
 2: 0.2,
-3: 0.2,
+3: 0.0,
 4: 0.05,
 5: 0.0
 }
@@ -269,7 +269,7 @@ stat_modifiers = {
 0: 0.0,
 1: -0.1,
 2: 0.2,
-3: 0.2,
+3: 0.1,
 4: 0.05,
 5: 0.0
 }
@@ -294,7 +294,7 @@ stat_modifiers = {
 0: 0.0,
 1: -0.1,
 2: 0.2,
-3: 0.2,
+3: 0.1,
 4: 0.05,
 5: 0.0
 }
@@ -318,7 +318,7 @@ stat_modifiers = {
 0: 0.0,
 1: -0.1,
 2: 0.2,
-3: 0.2,
+3: 0.1,
 4: 0.05,
 5: 0.0
 }
@@ -338,7 +338,7 @@ stat_modifiers = {
 0: 0.0,
 1: -0.1,
 2: 0.2,
-3: 0.2,
+3: 0.1,
 4: 0.05,
 5: 0.0
 }

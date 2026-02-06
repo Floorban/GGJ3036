@@ -54,7 +54,7 @@ func rebuild_stats():
 	
 	action_cooldown =  max(0.2, base_cooldown + get_cooldown())
 	attack_damage = get_damage() + base_damage
-	punch_strength = max(0.1, base_speed / (get_attack_speed() + 1))
+	punch_strength = max(0.02, base_speed / (get_attack_speed() + 1))
 	critical_chance = get_crit_chance() + base_crit_chance
 	critical_damage = get_crit_damage() + base_crit_damage
 
