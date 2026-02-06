@@ -5,22 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://cxo0b3lr3mm6c" path="res://game/system/character/enemy/boss/bully.tscn" id="3_i2c52"]
 [ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/boss/boxer.tscn" id="4_kjrlu"]
 [ext_resource type="PackedScene" uid="uid://bavdc803jhh86" path="res://game/system/character/enemy/boss/brain_out_1.tscn" id="5_ay0ac"]
-[ext_resource type="PackedScene" uid="uid://dljdyyicgs435" path="res://game/system/character/enemy/boss/fat_guy.tscn" id="6_fhe53"]
+[ext_resource type="PackedScene" uid="uid://dljdyyicgs435" path="res://game/system/character/enemy/fat_guy.tscn" id="6_fhe53"]
 [ext_resource type="PackedScene" uid="uid://teuunrq7bxl5" path="res://game/system/character/enemy/boss/eric.tscn" id="7_28xsa"]
 [ext_resource type="PackedScene" uid="uid://c3joaeokc1h1s" path="res://game/system/character/enemy/boss/brain_out_2.tscn" id="8_g1ogi"]
 [ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="9_tgsw3"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="10_xaya2"]
 [ext_resource type="Shader" uid="uid://bqqnlybur4rdk" path="res://material/retro.gdshader" id="11_5tn5e"]
-[ext_resource type="PackedScene" uid="uid://m6dmohtvw0ri" path="res://game/system/anatomy/upgrades/tier1/crazy_ear.tscn" id="11_unnlo"]
-[ext_resource type="PackedScene" uid="uid://f5k2kjw521t7" path="res://game/system/anatomy/upgrades/tier1/crazy_eye.tscn" id="12_ldpml"]
 [ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="12_unnlo"]
-[ext_resource type="PackedScene" uid="uid://b6t5437f1apxj" path="res://game/system/anatomy/upgrades/tier1/crazy_mouth.tscn" id="13_b7xvh"]
 [ext_resource type="Script" uid="uid://b6ic2kvjqwmiq" path="res://game/level/combat_area/retro_screen.gd" id="13_i2c52"]
 [ext_resource type="Texture2D" uid="uid://bk1awwhg2p6h8" path="res://sprites/Backgrounds/Arena.png" id="13_ldpml"]
-[ext_resource type="Shader" uid="uid://cq8fiv0wib6gv" path="res://material/burn_dissolve.gdshader" id="14_28xsa"]
+[ext_resource type="Shader" path="res://material/burn_dissolve.gdshader" id="14_28xsa"]
 [ext_resource type="Script" uid="uid://c6m8tdtxaevtk" path="res://game/level/combat_area/transition_screen.gd" id="14_ay0ac"]
 [ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="14_fhe53"]
-[ext_resource type="PackedScene" uid="uid://b3wqor540mvul" path="res://game/system/anatomy/upgrades/tier1/crazy_nose.tscn" id="14_p36xc"]
 [ext_resource type="PackedScene" uid="uid://dg80hkoj8qolf" path="res://game/level/rest_room.tscn" id="15_kjrlu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_85o0x"]
@@ -196,6 +192,7 @@ punch_strength = 0.0
 [node name="FatGuy" parent="Enemies" index="5" unique_id=1388912655 instance=ExtResource("6_fhe53")]
 visible = false
 position = Vector2(-3, -63)
+is_minion = false
 action_cooldown = 0.0
 punch_strength = 0.0
 
@@ -217,13 +214,6 @@ punch_strength = 0.0
 unique_name_in_owner = true
 z_index = -5
 position = Vector2(-1172, -28)
-upgrade_scenes_by_tier = {
-1: [ExtResource("11_unnlo"), ExtResource("12_ldpml"), ExtResource("13_b7xvh"), ExtResource("14_p36xc")],
-2: [null, null, null, null],
-3: [],
-4: [],
-5: []
-}
 
 [node name="AudioManager" parent="." index="2" unique_id=1015518348 instance=ExtResource("9_tgsw3")]
 
