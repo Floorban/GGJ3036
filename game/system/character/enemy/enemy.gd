@@ -11,7 +11,8 @@ func get_ready_to_battle() -> void:
 	super.get_ready_to_battle()
 	_perform_attack(next_target)
 	#arm.action_finished.connect(func(_blocking: bool): next_target = choose_target())
-	arm.action_finished.connect(_on_action_finished)
+	if not arm.action_finished.is_connected(_on_action_finished):
+		arm.action_finished.connect(_on_action_finished)
 
 func start_round() -> void:
 	super.start_round()

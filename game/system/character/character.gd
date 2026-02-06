@@ -1,11 +1,11 @@
 class_name Character extends Node2D
 
 @export var base_stats := {
-	Stats.StatType.MAX_HP: 100.0,
-	Stats.StatType.DAMAGE: 10.0,
+	Stats.StatType.MAX_HP: 0.0,
+	Stats.StatType.DAMAGE: 1.0,
 	Stats.StatType.ATTACK_SPEED: 1.0,
-	Stats.StatType.CRIT_CHANCE: 1.0,
-	Stats.StatType.COOLDOWN: 1.0
+	Stats.StatType.CRIT_CHANCE: 0.0,
+	Stats.StatType.COOLDOWN: 5.0
 }
 
 var final_stats := {}
@@ -131,6 +131,7 @@ func get_ready_to_battle() -> void:
 	is_dead = false
 	for part in anatomy_parts:
 		part.recover_part()
+	rebuild_stats()
 
 func end_battle() -> void:
 	if not anatomy_parts.is_empty():
