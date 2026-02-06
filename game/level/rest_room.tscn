@@ -3,22 +3,23 @@
 [ext_resource type="Texture2D" uid="uid://bn4iu0fq23qsi" path="res://sprites/Backgrounds/Surgery Room.png" id="1_e22fr"]
 [ext_resource type="Script" uid="uid://5n2ghk5tkp7t" path="res://game/level/rest_room.gd" id="1_nbyfe"]
 [ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="3_x4kus"]
-[ext_resource type="PackedScene" uid="uid://dxfudgfq78ixl" path="res://game/system/anatomy/upgrades/nose_max_hp.tscn" id="4_bofgb"]
-[ext_resource type="PackedScene" uid="uid://s8u8xkowfvjv" path="res://game/system/anatomy/upgrades/eye_action_speed.tscn" id="5_46xav"]
-[ext_resource type="PackedScene" uid="uid://ishblhy8w5qi" path="res://game/system/anatomy/upgrades/ear_attack_damage.tscn" id="5_g01m4"]
-[ext_resource type="PackedScene" uid="uid://egt4qb24ek7n" path="res://game/system/anatomy/upgrades/mouth_taken_damage.tscn" id="6_muymv"]
 [ext_resource type="PackedScene" uid="uid://m6dmohtvw0ri" path="res://game/system/anatomy/upgrades/crazy_ear.tscn" id="7_x1e6w"]
 [ext_resource type="PackedScene" uid="uid://f5k2kjw521t7" path="res://game/system/anatomy/upgrades/crazy_eye.tscn" id="8_2xwxa"]
 [ext_resource type="Texture2D" uid="uid://bou2hqbj520kj" path="res://sprites/ui/EnemyStatBG.png" id="8_n8ak7"]
-[ext_resource type="PackedScene" uid="uid://b3wqor540mvul" path="res://game/system/anatomy/upgrades/crazy_nose.tscn" id="9_8sk3i"]
 [ext_resource type="Texture2D" uid="uid://bgs8ei7uqqtnk" path="res://sprites/ui/EnemyStatHealthLine.png" id="9_l1uns"]
 [ext_resource type="Texture2D" uid="uid://7jimgxiewrvo" path="res://sprites/ui/EnemyStatHealthBar.png" id="10_563by"]
 [ext_resource type="PackedScene" uid="uid://b6t5437f1apxj" path="res://game/system/anatomy/upgrades/crazy_mouth.tscn" id="10_xisql"]
-[ext_resource type="PackedScene" uid="uid://b3g37sa5dgn3s" path="res://game/system/anatomy/upgrades/micky_mouth.tscn" id="11_2xwxa"]
 [ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="12_8sk3i"]
 
 [node name="RestRoom" type="Node2D" unique_id=1662139499 groups=["rest_room"]]
 script = ExtResource("1_nbyfe")
+upgrade_scenes_by_tier = {
+1: [ExtResource("7_x1e6w"), ExtResource("8_2xwxa"), ExtResource("10_xisql")],
+2: [],
+3: [],
+4: [],
+5: []
+}
 
 [node name="Background" type="Sprite2D" parent="." unique_id=844428716]
 z_index = -6
@@ -31,79 +32,6 @@ texture = ExtResource("1_e22fr")
 unique_name_in_owner = true
 z_index = 5
 
-[node name="Golden Nose" parent="Background/Upgrades" unique_id=1690948451 instance=ExtResource("4_bofgb")]
-position = Vector2(45.838226, 266.68872)
-rotation = 2.6085186
-scale = Vector2(2.0000002, 2.0000002)
-stat_modifiers = {
-0: 0.0,
-1: -0.5,
-2: 1.0,
-3: 0.1,
-4: 0.0,
-5: 0.0
-}
-max_hp = 6.0
-
-[node name="Demon Eye" parent="Background/Upgrades" unique_id=159553951 instance=ExtResource("5_46xav")]
-position = Vector2(120.729614, 232.75818)
-rotation = 3.0379448
-scale = Vector2(2, 2)
-stat_modifiers = {
-0: 0.0,
-1: -0.5,
-2: 1.0,
-3: 0.1,
-4: 0.0,
-5: 0.0
-}
-max_hp = 6.0
-
-[node name="Big Mouth" parent="Background/Upgrades" unique_id=1218228508 instance=ExtResource("6_muymv")]
-position = Vector2(183.77933, 123.64932)
-stat_modifiers = {
-0: 0.0,
-1: -0.5,
-2: 1.0,
-3: 0.1,
-4: 0.0,
-5: 0.0
-}
-max_hp = 6.0
-
-[node name="Crazy Ear" parent="Background/Upgrades" unique_id=1625647803 instance=ExtResource("7_x1e6w")]
-position = Vector2(245.89343, 179.52274)
-rotation = 0.41456676
-stat_modifiers = {
-0: 0.0,
-1: -0.5,
-2: 1.0,
-3: 0.1,
-4: 0.0,
-5: 0.0
-}
-
-[node name="Horn Ear" parent="Background/Upgrades" unique_id=369581676 instance=ExtResource("5_g01m4")]
-position = Vector2(-180.52948, 42.90825)
-rotation = -2.7928178
-max_hp = 6.0
-
-[node name="Crazy Eye" parent="Background/Upgrades" unique_id=890296123 instance=ExtResource("8_2xwxa")]
-position = Vector2(-248.0185, 186.66232)
-rotation = -1.8972211
-
-[node name="Crazy Nose" parent="Background/Upgrades" unique_id=1518562816 instance=ExtResource("9_8sk3i")]
-position = Vector2(-154.06213, 142.70549)
-rotation = -1.9428861
-
-[node name="Crazy Mouth" parent="Background/Upgrades" unique_id=172900730 instance=ExtResource("10_xisql")]
-position = Vector2(-266.94257, 82.05888)
-rotation = -0.35202682
-
-[node name="Micky Mouth" parent="Background/Upgrades" unique_id=2143840483 instance=ExtResource("11_2xwxa")]
-position = Vector2(-169.65637, 224.75923)
-rotation = 0.64096725
-
 [node name="Table1" type="Sprite2D" parent="Background" unique_id=1321632848]
 position = Vector2(-207.2785, 172.37059)
 rotation = 1.2771158
@@ -112,7 +40,7 @@ texture = ExtResource("12_8sk3i")
 
 [node name="SpawnMarker1" type="Marker2D" parent="Background/Table1" unique_id=1327400277]
 unique_name_in_owner = true
-position = Vector2(98.73012, -583.8614)
+position = Vector2(97.51934, -535.2144)
 
 [node name="SpawnMarker2" type="Marker2D" parent="Background/Table1" unique_id=273737345]
 unique_name_in_owner = true
@@ -126,7 +54,7 @@ texture = ExtResource("12_8sk3i")
 
 [node name="SpawnMarker3" type="Marker2D" parent="Background/Table2" unique_id=1915834727]
 unique_name_in_owner = true
-position = Vector2(-407.90012, -219.8741)
+position = Vector2(-378.84424, -186.32512)
 rotation = 1.6664709
 scale = Vector2(1.0000001, 1.0000001)
 

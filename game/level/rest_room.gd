@@ -7,6 +7,26 @@ signal ready_to_fight()
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 @onready var upgrades: Node2D = %Upgrades
+@export var upgrade_scenes_by_tier: Dictionary = {
+	1: [],
+	2: [],
+	3: [],
+	4: [],
+	5: []
+}
+
+func get_allowed_tiers(level: int) -> Array[int]:
+	if level < 2:
+		return [1, 2]
+	elif level < 4:
+		return [1, 2, 3]
+	elif level < 6:
+		return [2, 3, 4]
+	elif level < 8:
+		return [3, 4, 5]
+	else:
+		return [4, 5]
+
 @export var upgrade_parts : Array[Anatomy]
 
 @onready var part_spawn_markers: Array[Marker2D] = [%SpawnMarker1, %SpawnMarker2, %SpawnMarker3, %SpawnMarker4]
@@ -16,13 +36,14 @@ func _ready() -> void:
 	ready_button.pressed.connect(leave_rest_room)
 	leave_rest_room()
 
-func enter_rest_room() -> void:
+func enter_rest_room(current_level: int) -> void:
 	part_info_panel.visible = true
 	player.rest_mode = true
 	background.visible = true
 	ready_button.visible = true
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	audio.muffle(true, false)
+	spawn_parts(current_level)
 	connect_parts_interact_signal()
 	for p in background.get_children():
 		p.z_index = 10
@@ -46,6 +67,41 @@ func leave_rest_room() -> void:
 		return
 	player.rest_mode = false
 	ready_to_fight.emit()
+
+func clear_upgrade_parts() -> void:
+	for slot in upgrade_parts:
+		for child in slot.get_children():
+			child.queue_free()
+
+func get_upgrade_scene_pool(level: int) -> Array[PackedScene]:
+	var allowed_tiers := get_allowed_tiers(level)
+	var pool: Array[PackedScene] = []
+
+	for tier in allowed_tiers:
+		if upgrade_scenes_by_tier.has(tier):
+			for s in upgrade_scenes_by_tier[tier]:
+				if s is PackedScene:
+					pool.append(s)
+
+	return pool
+
+func spawn_parts(level: int) -> void:
+	clear_upgrade_parts()
+
+	var pool := get_upgrade_scene_pool(level)
+	if pool.is_empty():
+		return
+
+	for i in range(min(4, part_spawn_markers.size())):
+		var scene: PackedScene = pool.pick_random()
+		var part := scene.instantiate() as Anatomy
+
+		upgrades.add_child(part)
+		part.global_position = part_spawn_markers[i].global_position + Vector2(randf_range(-1, 1), randf_range(-1, 1))
+		part.rotation = randf_range(-5,5)
+		
+		part.state = Anatomy.PartState.OutOfBody
+		upgrade_parts.append(part)
 
 func connect_parts_interact_signal() -> void:
 	upgrade_parts.clear()
