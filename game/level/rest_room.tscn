@@ -78,11 +78,31 @@ rotation = 1.2771158
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("12_8sk3i")
 
+[node name="SpawnMarker1" type="Marker2D" parent="Background/Table1" unique_id=1327400277]
+unique_name_in_owner = true
+position = Vector2(98.73012, -583.8614)
+
+[node name="SpawnMarker2" type="Marker2D" parent="Background/Table1" unique_id=273737345]
+unique_name_in_owner = true
+position = Vector2(116.74788, -338.71152)
+
 [node name="Table2" type="Sprite2D" parent="Background" unique_id=207262391]
 position = Vector2(130.9768, 157.29297)
 rotation = -0.389355
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("12_8sk3i")
+
+[node name="SpawnMarker3" type="Marker2D" parent="Background/Table2" unique_id=1915834727]
+unique_name_in_owner = true
+position = Vector2(-407.90012, -219.8741)
+rotation = 1.6664709
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="SpawnMarker4" type="Marker2D" parent="Background/Table2" unique_id=410362233]
+unique_name_in_owner = true
+position = Vector2(-428.89508, -6.473855)
+rotation = 1.6664709
+scale = Vector2(1.0000001, 1.0000001)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981571717]
 layer = 2

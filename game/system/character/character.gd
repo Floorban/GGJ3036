@@ -2,36 +2,41 @@ class_name Character extends Node2D
 
 @export var base_stats := {
 	Stats.StatType.MAX_HP: 0.0,
+	Stats.StatType.COOLDOWN: 1.0,
 	Stats.StatType.DAMAGE: 1.0,
 	Stats.StatType.ATTACK_SPEED: 1.0,
 	Stats.StatType.CRIT_CHANCE: 0.0,
-	Stats.StatType.COOLDOWN: 5.0
+	Stats.StatType.CRIT_DAMAGE: 1.0,
 }
 
-var final_stats := {}
+@export var final_stats := {}
 
 func get_max_hp() -> float:
 	return get_stat(Stats.StatType.MAX_HP)
 
-func get_attack_speed() -> float:
-	return get_stat(Stats.StatType.ATTACK_SPEED)
+func get_cooldown() -> float:
+	return get_stat(Stats.StatType.COOLDOWN)
 
 func get_damage() -> float:
 	return get_stat(Stats.StatType.DAMAGE)
 
+func get_attack_speed() -> float:
+	return get_stat(Stats.StatType.ATTACK_SPEED)
+
 func get_crit_chance() -> float:
 	return get_stat(Stats.StatType.CRIT_CHANCE)
 
-func get_cooldown() -> float:
-	return get_stat(Stats.StatType.COOLDOWN)
+func get_crit_damage() -> float:
+	return get_stat(Stats.StatType.CRIT_DAMAGE)
 
 func default_value(stat: Stats.StatType) -> float:
 	match stat:
 		Stats.StatType.MAX_HP: return 1.0
-		Stats.StatType.ATTACK_SPEED: return 1.0
-		Stats.StatType.DAMAGE: return 1.0
-		Stats.StatType.CRIT_CHANCE: return 0.0
 		Stats.StatType.COOLDOWN: return 1.0
+		Stats.StatType.DAMAGE: return 1.0
+		Stats.StatType.ATTACK_SPEED: return 1.0
+		Stats.StatType.CRIT_CHANCE: return 0.0
+		Stats.StatType.CRIT_DAMAGE: return 1.0
 		_: return 0.0
 
 func get_stat(stat: Stats.StatType) -> float:
@@ -46,7 +51,18 @@ func rebuild_stats():
 
 		for stat in part.get_stat_modifiers():
 			final_stats[stat] += part.get_stat_modifiers()[stat]
+	
+	action_cooldown = get_cooldown() * base_cooldown
+	critical_chance = get_crit_chance() + base_crit_chance
+	punch_strength = base_speed / get_attack_speed()
+	attack_damage
 
+@export var base_cooldown: float = 1.0
+@export var base_dmg: float
+@export var base_speed: float = 0.2
+@export var base_damage: float
+@export var base_crit_chance: float
+@export var base_crit_damage: float = 1.0
 
 signal hit(damage: float)
 signal blocked(blocked_damage: float)
@@ -54,23 +70,22 @@ signal start()
 signal die()
 
 var rest_mode := false
-
 var can_control := true
 var is_dead := false
 var is_stuned := false
 var max_health : float
-@export var health : float
 
-@export var critical_chance := 0.2
+@export var health : float
+@export var action_cooldown: float = 2.0
+@export var attack_damage: float = 1.0
 @export var punch_strength := 0.1
+@export var critical_chance := 0.2
+@export var critical_damage := 0.2
 
 @export var top_down_dir := 1
 
 var opponent: Character
 @onready var combat_component: CombatComponent = %CombatComponent
-@export var attack_damage: float = 1.0
-@export var action_cooldown: float = 2.0
-
 @onready var features: Node2D = %Features
 
 @export var anatomy_parts: Array[Anatomy]
@@ -318,7 +333,7 @@ func _perform_attack(target: Anatomy) -> void:
 					return
 				var crit := randf() < critical_chance
 				var dmg := attack_damage
-				if crit: dmg *= 3
+				if crit: dmg *= critical_damage
 				target.anatomy_hit.emit(dmg)
 				hit.emit(dmg, crit)
 		)

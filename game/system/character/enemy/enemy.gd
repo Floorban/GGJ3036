@@ -78,7 +78,7 @@ func enemy_attack(attack_target: Anatomy) -> void:
 		return
 	var crit := randf() < critical_chance
 	var dmg := attack_damage
-	if crit: dmg *= 3
+	if crit: dmg *= critical_damage
 	attack_target.is_targeted = false
 	attack_target._unhighlight_target()
 	attack_target.anatomy_hit.emit(dmg)

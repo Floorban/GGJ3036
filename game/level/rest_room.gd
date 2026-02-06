@@ -9,6 +9,8 @@ signal ready_to_fight()
 @onready var upgrades: Node2D = %Upgrades
 @export var upgrade_parts : Array[Anatomy]
 
+@onready var part_spawn_markers: Array[Marker2D] = [%SpawnMarker1, %SpawnMarker2, %SpawnMarker3, %SpawnMarker4]
+
 func _ready() -> void:
 	Stats.rest_room = self
 	ready_button.pressed.connect(leave_rest_room)

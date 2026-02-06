@@ -2,10 +2,11 @@ class_name Anatomy extends Node2D
 
 @export var stat_modifiers := {
 	Stats.StatType.MAX_HP: 0.0,
-	Stats.StatType.DAMAGE: 1.0,
+	Stats.StatType.COOLDOWN: 1.0,
+	Stats.StatType.DAMAGE: 0.1,
 	Stats.StatType.ATTACK_SPEED: -0.1,
-	Stats.StatType.CRIT_CHANCE: 1.0,
-	Stats.StatType.COOLDOWN: 1.0
+	Stats.StatType.CRIT_CHANCE: 0.0,
+	Stats.StatType.CRIT_DAMAGE: 0.2
 }
 
 func get_stat_modifiers() -> Dictionary:
