@@ -65,6 +65,8 @@ var outline_mat: ShaderMaterial
 
 @export var fix_areas : Array[FixArea]
 
+@export var og_pos : Vector2
+
 func _ready() -> void:
 	current_hp = max_hp
 	if not mouse_detect_area.mouse_entered.is_connected(_hover_over_part):
@@ -99,6 +101,7 @@ func recover_part() -> void:
 func pickup_part() -> void:
 	if is_being_dragged:
 		return
+	og_pos = global_position
 	is_being_dragged = true
 	_unhover_part()
 	if current_hp > 0:
@@ -108,9 +111,26 @@ func pickup_part() -> void:
 func drop_part() -> void:
 	if not is_being_dragged:
 		return
-	is_being_dragged = false
 	for area in fix_areas:
 		area.unhighlight_zone()
+		
+	if state == PartState.OutOfBody:
+		var tween := create_tween()
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.set_ease(Tween.EASE_OUT)
+		tween.tween_property(
+			self,
+			"global_position",
+			og_pos,
+			0.15
+		)
+		
+		tween.tween_callback(func():
+			global_position = og_pos
+			is_being_dragged = false
+		)
+	else:
+		is_being_dragged = false
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if (body_owner and not body_owner.rest_mode) and (state == PartState.DESTROYED or is_being_dragged):

@@ -99,9 +99,9 @@ func spawn_parts(level: int) -> void:
 		upgrades.add_child(part)
 		part.global_position = part_spawn_markers[i].global_position + Vector2(randf_range(-1, 1), randf_range(-1, 1))
 		part.rotation = randf_range(-5,5)
-		
 		part.state = Anatomy.PartState.OutOfBody
 		upgrade_parts.append(part)
+		
 
 func connect_parts_interact_signal() -> void:
 	upgrade_parts.clear()
