@@ -140,16 +140,14 @@ adjustment_contrast = 1.05
 adjustment_saturation = 1.1
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
-battle_duration = 2.0
+battle_duration = 20.0
 break_duration = 2.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
 position = Vector2(0, 175)
-punch_strength = 0.08
-top_down_dir = 1
 attack_damage = 1.5
-action_cooldown = 2.5
+top_down_dir = 1
 
 [node name="Enemies" type="Node2D" parent="." index="1" unique_id=1222997985]
 
@@ -173,34 +171,39 @@ texture = ExtResource("13_ldpml")
 [node name="Bully" parent="Enemies" index="2" unique_id=1348200660 instance=ExtResource("3_i2c52")]
 visible = false
 position = Vector2(0, -13)
-critical_chance = 0.0
+action_cooldown = 0.0
 attack_damage = 2.5
-action_cooldown = 5.0
 
 [node name="Boxer" parent="Enemies" index="3" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false
 position = Vector2(0, -13)
-attack_damage = 1.0
-action_cooldown = 4.0
+action_cooldown = 0.0
+attack_damage = 0.0
+punch_strength = 0.0
 
 [node name="BrainOut1" parent="Enemies" index="4" unique_id=710006968 instance=ExtResource("5_ay0ac")]
 visible = false
 position = Vector2(0, -13)
-action_cooldown = 3.0
+action_cooldown = 0.0
+punch_strength = 0.0
 
 [node name="FatGuy" parent="Enemies" index="5" unique_id=1388912655 instance=ExtResource("6_fhe53")]
 visible = false
 position = Vector2(-3, -63)
-action_cooldown = 7.0
+action_cooldown = 0.0
+punch_strength = 0.0
 
 [node name="Eric" parent="Enemies" index="6" unique_id=856538371 instance=ExtResource("7_28xsa")]
 visible = false
 position = Vector2(0, -13)
-action_cooldown = 0.7
+action_cooldown = 0.0
+punch_strength = 0.0
 
 [node name="BrainOut2" parent="Enemies" index="7" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
 visible = false
 position = Vector2(0, -13)
+action_cooldown = 0.0
+punch_strength = 0.0
 
 [node name="RestRoom" parent="Enemies" index="8" unique_id=1662139499 instance=ExtResource("15_kjrlu")]
 unique_name_in_owner = true

@@ -2,11 +2,11 @@ class_name Anatomy extends Node2D
 
 @export var stat_modifiers := {
 	Stats.StatType.MAX_HP: 0.0,
-	Stats.StatType.COOLDOWN: 1.0,
+	Stats.StatType.COOLDOWN: -0.5,
 	Stats.StatType.DAMAGE: 0.1,
-	Stats.StatType.ATTACK_SPEED: -0.1,
+	Stats.StatType.ATTACK_SPEED: 0.1,
 	Stats.StatType.CRIT_CHANCE: 0.0,
-	Stats.StatType.CRIT_DAMAGE: 0.2
+	Stats.StatType.CRIT_DAMAGE: 0.0
 }
 
 func get_stat_modifiers() -> Dictionary:
@@ -21,10 +21,13 @@ func get_stat_modifiers() -> Dictionary:
 	return mods
 
 func get_stat_strings() -> Array[String]:
-	var lines : Array[String] = []
+	var lines: Array[String] = []
 	for stat in stat_modifiers:
 		var val = stat_modifiers[stat]
-		var sign = "+" if val >= 0 else ""
+		if val == 0:
+			continue
+
+		var sign := "+" if val > 0 else ""
 		lines.append("%s %s%s" % [
 			Stats.stat_to_string(stat),
 			sign,

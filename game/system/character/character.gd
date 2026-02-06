@@ -31,12 +31,12 @@ func get_crit_damage() -> float:
 
 func default_value(stat: Stats.StatType) -> float:
 	match stat:
-		Stats.StatType.MAX_HP: return 1.0
-		Stats.StatType.COOLDOWN: return 1.0
-		Stats.StatType.DAMAGE: return 1.0
-		Stats.StatType.ATTACK_SPEED: return 1.0
+		Stats.StatType.MAX_HP: return 0.0
+		Stats.StatType.COOLDOWN: return 0.0
+		Stats.StatType.DAMAGE: return 0.0
+		Stats.StatType.ATTACK_SPEED: return 0.0
 		Stats.StatType.CRIT_CHANCE: return 0.0
-		Stats.StatType.CRIT_DAMAGE: return 1.0
+		Stats.StatType.CRIT_DAMAGE: return 0.0
 		_: return 0.0
 
 func get_stat(stat: Stats.StatType) -> float:
@@ -52,7 +52,7 @@ func rebuild_stats():
 		for stat in part.get_stat_modifiers():
 			final_stats[stat] += part.get_stat_modifiers()[stat]
 	
-	action_cooldown = get_cooldown() * base_cooldown
+	action_cooldown =  max(0.2, base_cooldown -get_cooldown())
 	attack_damage = get_damage() + base_damage
 	punch_strength = base_speed / get_attack_speed()
 	critical_chance = get_crit_chance() + base_crit_chance
@@ -64,6 +64,13 @@ func rebuild_stats():
 @export var base_crit_chance: float
 @export var base_crit_damage: float = 1.0
 
+@export var health : float
+@export var action_cooldown: float
+@export var attack_damage : float
+@export var punch_strength : float
+@export var critical_chance : float
+@export var critical_damage : float
+
 signal hit(damage: float)
 signal blocked(blocked_damage: float)
 signal start()
@@ -74,13 +81,6 @@ var can_control := true
 var is_dead := false
 var is_stuned := false
 var max_health : float
-
-@export var health : float
-@export var action_cooldown: float = 2.0
-@export var attack_damage: float = 1.0
-@export var punch_strength := 0.1
-@export var critical_chance := 0.2
-@export var critical_damage := 0.2
 
 @export var top_down_dir := 1
 
@@ -132,12 +132,12 @@ func _init_anatomy_parts() -> void:
 		if anatomy.visible and anatomy.state != Anatomy.PartState.OutOfBody:
 			anatomy_parts.append(anatomy)
 	for part in anatomy_parts:
-		part.init_part(self)
 		part.anatomy_hit.connect(
 		func(dmg): resolve_hit(part, dmg, opponent)
 		)
 		max_health += part.max_hp
 	start.emit()
+	rebuild_stats()
 
 func get_ready_to_battle() -> void:
 	arm.movable_by_mouse = false
@@ -146,7 +146,6 @@ func get_ready_to_battle() -> void:
 	is_dead = false
 	for part in anatomy_parts:
 		part.recover_part()
-	rebuild_stats()
 
 func end_battle() -> void:
 	if not anatomy_parts.is_empty():

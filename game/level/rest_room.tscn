@@ -43,11 +43,6 @@ rotation = 3.0379448
 scale = Vector2(2, 2)
 max_hp = 6.0
 
-[node name="Horn Ear" parent="Background/Upgrades" unique_id=369581676 instance=ExtResource("5_g01m4")]
-position = Vector2(-180.52946, 42.908234)
-rotation = -2.7928178
-max_hp = 6.0
-
 [node name="Big Mouth" parent="Background/Upgrades" unique_id=1218228508 instance=ExtResource("6_muymv")]
 position = Vector2(183.77933, 123.64932)
 max_hp = 6.0
@@ -55,6 +50,11 @@ max_hp = 6.0
 [node name="Crazy Ear" parent="Background/Upgrades" unique_id=1625647803 instance=ExtResource("7_x1e6w")]
 position = Vector2(245.89343, 179.52274)
 rotation = 0.41456676
+
+[node name="Horn Ear" parent="Background/Upgrades" unique_id=369581676 instance=ExtResource("5_g01m4")]
+position = Vector2(-180.52948, 42.90825)
+rotation = -2.7928178
+max_hp = 6.0
 
 [node name="Crazy Eye" parent="Background/Upgrades" unique_id=890296123 instance=ExtResource("8_2xwxa")]
 position = Vector2(-248.0185, 186.66232)
