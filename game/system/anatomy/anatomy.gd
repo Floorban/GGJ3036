@@ -9,6 +9,8 @@ class_name Anatomy extends Node2D
 	Stats.StatType.CRIT_DAMAGE: 0.0
 }
 
+var sfx_select: String = "event:/SFX/UI/Select"
+
 func get_stat_modifiers() -> Dictionary:
 	if state == PartState.DESTROYED:
 		return {}
@@ -104,6 +106,7 @@ func pickup_part() -> void:
 	og_pos = global_position
 	is_being_dragged = true
 	_unhover_part()
+	audio.play(sfx_select)
 	if current_hp > 0:
 		for area in fix_areas:
 			area.highlight_zone()

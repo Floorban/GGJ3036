@@ -65,14 +65,15 @@ height = 52.0
 z_index = 10
 stat_modifiers = {
 0: 0.0,
-1: 0.5,
-2: 1.0,
-3: -0.1,
-4: 1.0,
-5: 1.0
+1: 0.3,
+2: 0.0,
+3: 0.0,
+4: 0.3,
+5: 0.0
 }
 anatomy_type = 2
 state = 3
+max_hp = 2.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_qqabs")

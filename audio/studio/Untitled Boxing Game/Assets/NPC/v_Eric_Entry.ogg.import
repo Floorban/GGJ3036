@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dx4y18u68ukh5"
+path="res://.godot/imported/v_Eric_Entry.ogg-bcbe24b47ed93b4adddb237d6c920c44.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/NPC/v_Eric_Entry.ogg"
+dest_files=["res://.godot/imported/v_Eric_Entry.ogg-bcbe24b47ed93b4adddb237d6c920c44.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{bb6fc2ba-134c-4b15-a26d-48aa12b7c9b0}">
 		<property name="assetPath">
-			<value>v_Fat_Die.ogg</value>
+			<value>NPC/v_Fat_Die.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

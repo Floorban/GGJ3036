@@ -3,10 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://bn4iu0fq23qsi" path="res://sprites/Backgrounds/Surgery Room.png" id="1_e22fr"]
 [ext_resource type="Script" uid="uid://5n2ghk5tkp7t" path="res://game/level/rest_room.gd" id="1_nbyfe"]
 [ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="3_x4kus"]
+[ext_resource type="PackedScene" uid="uid://ishblhy8w5qi" path="res://game/system/anatomy/upgrades/tier2/ear_attack_damage.tscn" id="6_2xwxa"]
+[ext_resource type="PackedScene" uid="uid://1hwmwkncudxn" path="res://game/system/anatomy/upgrades/tier2/eye_tier_2.tscn" id="7_8sk3i"]
 [ext_resource type="PackedScene" uid="uid://m6dmohtvw0ri" path="res://game/system/anatomy/upgrades/tier1/crazy_ear.tscn" id="7_x1e6w"]
 [ext_resource type="PackedScene" uid="uid://f5k2kjw521t7" path="res://game/system/anatomy/upgrades/tier1/crazy_eye.tscn" id="8_2xwxa"]
 [ext_resource type="Texture2D" uid="uid://bou2hqbj520kj" path="res://sprites/ui/EnemyStatBG.png" id="8_n8ak7"]
+[ext_resource type="PackedScene" uid="uid://b3g37sa5dgn3s" path="res://game/system/anatomy/upgrades/tier2/micky_mouth.tscn" id="8_xisql"]
 [ext_resource type="PackedScene" uid="uid://b3wqor540mvul" path="res://game/system/anatomy/upgrades/tier1/crazy_nose.tscn" id="9_8sk3i"]
+[ext_resource type="PackedScene" uid="uid://dxfudgfq78ixl" path="res://game/system/anatomy/upgrades/tier2/nose_max_hp.tscn" id="9_byr16"]
 [ext_resource type="Texture2D" uid="uid://bgs8ei7uqqtnk" path="res://sprites/ui/EnemyStatHealthLine.png" id="9_l1uns"]
 [ext_resource type="Texture2D" uid="uid://7jimgxiewrvo" path="res://sprites/ui/EnemyStatHealthBar.png" id="10_563by"]
 [ext_resource type="PackedScene" uid="uid://b6t5437f1apxj" path="res://game/system/anatomy/upgrades/tier1/crazy_mouth.tscn" id="10_xisql"]
@@ -16,7 +20,7 @@
 script = ExtResource("1_nbyfe")
 upgrade_scenes_by_tier = {
 1: [ExtResource("7_x1e6w"), ExtResource("8_2xwxa"), ExtResource("10_xisql"), ExtResource("9_8sk3i")],
-2: [null, null, null, null],
+2: [ExtResource("6_2xwxa"), ExtResource("7_8sk3i"), ExtResource("8_xisql"), ExtResource("9_byr16")],
 3: [],
 4: [],
 5: []

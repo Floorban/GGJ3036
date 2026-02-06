@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{d9fa03a8-6638-4622-984d-39bbeeeaf581}">
 		<property name="assetPath">
-			<value>v_Bully_Entry.ogg</value>
+			<value>NPC/v_Bully_Entry.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
