@@ -3,19 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://bn4iu0fq23qsi" path="res://sprites/Backgrounds/Surgery Room.png" id="1_e22fr"]
 [ext_resource type="Script" uid="uid://5n2ghk5tkp7t" path="res://game/level/rest_room.gd" id="1_nbyfe"]
 [ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="3_x4kus"]
-[ext_resource type="PackedScene" uid="uid://m6dmohtvw0ri" path="res://game/system/anatomy/upgrades/crazy_ear.tscn" id="7_x1e6w"]
-[ext_resource type="PackedScene" uid="uid://f5k2kjw521t7" path="res://game/system/anatomy/upgrades/crazy_eye.tscn" id="8_2xwxa"]
+[ext_resource type="PackedScene" uid="uid://m6dmohtvw0ri" path="res://game/system/anatomy/upgrades/tier1/crazy_ear.tscn" id="7_x1e6w"]
+[ext_resource type="PackedScene" uid="uid://f5k2kjw521t7" path="res://game/system/anatomy/upgrades/tier1/crazy_eye.tscn" id="8_2xwxa"]
 [ext_resource type="Texture2D" uid="uid://bou2hqbj520kj" path="res://sprites/ui/EnemyStatBG.png" id="8_n8ak7"]
+[ext_resource type="PackedScene" uid="uid://b3wqor540mvul" path="res://game/system/anatomy/upgrades/tier1/crazy_nose.tscn" id="9_8sk3i"]
 [ext_resource type="Texture2D" uid="uid://bgs8ei7uqqtnk" path="res://sprites/ui/EnemyStatHealthLine.png" id="9_l1uns"]
 [ext_resource type="Texture2D" uid="uid://7jimgxiewrvo" path="res://sprites/ui/EnemyStatHealthBar.png" id="10_563by"]
-[ext_resource type="PackedScene" uid="uid://b6t5437f1apxj" path="res://game/system/anatomy/upgrades/crazy_mouth.tscn" id="10_xisql"]
+[ext_resource type="PackedScene" uid="uid://b6t5437f1apxj" path="res://game/system/anatomy/upgrades/tier1/crazy_mouth.tscn" id="10_xisql"]
 [ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="12_8sk3i"]
 
 [node name="RestRoom" type="Node2D" unique_id=1662139499 groups=["rest_room"]]
 script = ExtResource("1_nbyfe")
 upgrade_scenes_by_tier = {
-1: [ExtResource("7_x1e6w"), ExtResource("8_2xwxa"), ExtResource("10_xisql")],
-2: [],
+1: [ExtResource("7_x1e6w"), ExtResource("8_2xwxa"), ExtResource("10_xisql"), ExtResource("9_8sk3i")],
+2: [null, null, null, null],
 3: [],
 4: [],
 5: []
@@ -95,13 +96,13 @@ grow_horizontal = 0
 mouse_filter = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_right = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PartInfoPanel" unique_id=1425424902]
 layout_mode = 2
 
 [node name="BasicInfoBG" type="TextureRect" parent="CanvasLayer/PartInfoPanel/VBoxContainer" unique_id=455046478]
-custom_minimum_size = Vector2(400, 160)
+custom_minimum_size = Vector2(450, 200)
 layout_mode = 2
 texture = ExtResource("8_n8ak7")
 expand_mode = 1
@@ -118,25 +119,30 @@ theme_override_constants/separation = 20
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer" unique_id=1274651914]
 layout_mode = 2
 theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer" unique_id=858823012]
 layout_mode = 2
 theme_override_constants/separation = 12
-alignment = 1
 
 [node name="LabelPartName" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1957691392]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_x4kus")
-theme_override_font_sizes/font_size = 24
-text = "name"
+theme_override_font_sizes/font_size = 23
 
-[node name="LabelPartState" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer/VBoxContainer" unique_id=581046000]
+[node name="LabelPartState" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer/VBoxContainer" unique_id=16154558]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_x4kus")
-theme_override_font_sizes/font_size = 24
-text = "healthy"
+theme_override_font_sizes/font_size = 23
+
+[node name="LabelPartHP" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer/VBoxContainer" unique_id=581046000]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47657922, 0.94337994, 0.12835406, 1)
+theme_override_fonts/font = ExtResource("3_x4kus")
+theme_override_font_sizes/font_size = 23
 
 [node name="BarPartHP" type="TextureProgressBar" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1551690499]
 unique_name_in_owner = true
@@ -152,42 +158,40 @@ texture_progress = ExtResource("10_563by")
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer" unique_id=265871884]
 layout_mode = 2
 theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
+theme_override_constants/margin_top = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2" unique_id=142702774]
 layout_mode = 2
 theme_override_constants/separation = 16
-alignment = 1
 
 [node name="LabelPartStat1" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=186648421]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(1.102308, 0.9122238, 0, 1)
+theme_override_colors/font_color = Color(1.781, 0.64, 0.667, 1)
 theme_override_fonts/font = ExtResource("3_x4kus")
-theme_override_font_sizes/font_size = 24
-text = "Strength + 1"
+theme_override_font_sizes/font_size = 23
 vertical_alignment = 1
 
 [node name="LabelPartStat2" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=135409307]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(1.102308, 0.9122238, 0, 1)
+theme_override_colors/font_color = Color(1.781, 0.64, 0.667, 1)
 theme_override_fonts/font = ExtResource("3_x4kus")
-theme_override_font_sizes/font_size = 24
-text = "Strength + 1"
+theme_override_font_sizes/font_size = 23
 vertical_alignment = 1
 
 [node name="LabelPartStat3" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=957027193]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(1.102308, 0.9122238, 0, 1)
+theme_override_colors/font_color = Color(1.781, 0.64, 0.667, 1)
 theme_override_fonts/font = ExtResource("3_x4kus")
-theme_override_font_sizes/font_size = 24
-text = "Strength + 1"
+theme_override_font_sizes/font_size = 23
 vertical_alignment = 1
 
-[node name="SpecialInfoBG" type="TextureRect" parent="CanvasLayer/PartInfoPanel/VBoxContainer" unique_id=1393824123]
-custom_minimum_size = Vector2(0, 70)
+[node name="LabelPartStat4" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1291444281]
+unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("8_n8ak7")
-expand_mode = 1
+theme_override_colors/font_color = Color(1.781, 0.64, 0.667, 1)
+theme_override_fonts/font = ExtResource("3_x4kus")
+theme_override_font_sizes/font_size = 23
+vertical_alignment = 1

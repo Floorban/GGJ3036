@@ -118,15 +118,26 @@ func connect_parts_interact_signal() -> void:
 @onready var part_info_panel: MarginContainer = $CanvasLayer/PartInfoPanel
 @onready var label_part_name: Label = %LabelPartName
 @onready var label_part_state: Label = %LabelPartState
+@onready var label_part_hp: Label = %LabelPartHP
 @onready var bar_part_hp: TextureProgressBar = %BarPartHP
-@onready var stat_labels: Array[Label] = [%LabelPartStat1, %LabelPartStat2, %LabelPartStat3]
+@onready var stat_labels: Array[Label] = [%LabelPartStat1, %LabelPartStat2, %LabelPartStat3, %LabelPartStat4]
 
 func show_part_info(_name: String, _state: String, _hp: float, _max_hp: float, _stats: Array[String]) -> void:
 	if not part_info_panel.visible:
 		return
+		
+	for label in stat_labels:
+		label.text = ""
 	
+	match _stats.size():
+		1: label_part_name.modulate = Color.WHITE
+		2: label_part_name.modulate = Color.DEEP_SKY_BLUE * 1.5
+		3: label_part_name.modulate = Color.PURPLE * 1.5
+		4: label_part_name.modulate = Color.GOLD * 1.5
+		
 	label_part_name.text = _name
 	label_part_state.text = _state
+	label_part_hp.text = "max hp " + str(int(_max_hp))
 	bar_part_hp.max_value = _max_hp
 	bar_part_hp.value = _hp
 
@@ -134,8 +145,12 @@ func show_part_info(_name: String, _state: String, _hp: float, _max_hp: float, _
 		stat_labels[i].text = _stats[i]
 
 func hide_part_info() -> void:
+	for label in stat_labels:
+		label.text = ""
+	label_part_name.modulate = Color.WHITE
 	label_part_name.text = ""
-	label_part_state.text =  ""
+	label_part_state.text = ""
+	label_part_hp.text =  ""
 	bar_part_hp.max_value = 1
 	bar_part_hp.value = 0
 	for label in stat_labels:

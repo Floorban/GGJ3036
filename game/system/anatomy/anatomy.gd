@@ -31,7 +31,7 @@ func get_stat_strings() -> Array[String]:
 		lines.append("%s %s%s" % [
 			Stats.stat_to_string(stat),
 			sign,
-			val
+			val * 10
 		])
 	return lines
 
@@ -129,7 +129,7 @@ func _hover_over_part() -> void:
 	if (state == PartState.HEALTHY and not body_owner.can_control and not body_owner.rest_mode):
 		return
 	if (body_owner and body_owner.rest_mode and state == PartState.HEALTHY):
-		hovering.emit(name, PartState.keys()[state], current_hp, max_hp, get_stat_strings())
+		hovering.emit(AnatomyType.keys()[anatomy_type], PartState.keys()[state], current_hp, max_hp, get_stat_strings())
 		return
 	if is_being_dragged:
 		return
@@ -138,7 +138,7 @@ func _hover_over_part() -> void:
 	outline_mat.set_shader_parameter("alphaThreshold", 0.1)
 	sprite.use_parent_material = false
 	is_hovering = true
-	hovering.emit(name, PartState.keys()[state], current_hp, max_hp, get_stat_strings())
+	hovering.emit(AnatomyType.keys()[anatomy_type], PartState.keys()[state], current_hp, max_hp, get_stat_strings())
 
 func _unhover_part() -> void:
 	#anatomy_ui.toggle_panel(false)
