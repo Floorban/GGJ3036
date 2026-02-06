@@ -1,5 +1,7 @@
 class_name Enemy extends Character
 
+@export var is_minion := false
+
 var next_target: Anatomy
 var can_switch_target := false
 

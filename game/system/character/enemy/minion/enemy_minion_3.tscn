@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://de12n60hbp6yv"]
+
+[ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_fv6l3"]
+[ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_hngob"]
+[ext_resource type="Texture2D" uid="uid://0e11br4awprf" path="res://sprites/body_parts/Basehead/BaseHead.png" id="3_hngob"]
+
+[node name="EnemyMinion3" unique_id=1861387119 instance=ExtResource("1_fv6l3")]
+script = ExtResource("2_hngob")
+is_minion = true
+
+[node name="Face" parent="." index="0" unique_id=1276534686]
+texture = ExtResource("3_hngob")
+
+[editable path="Face/Features/EyeL"]
+[editable path="Face/Features/EyeR"]
+[editable path="Face/Features/EarL"]
+[editable path="Face/Features/EarR"]
+[editable path="Face/Features/Nose"]
+[editable path="Face/Features/Mouth"]

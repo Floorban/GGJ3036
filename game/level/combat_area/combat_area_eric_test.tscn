@@ -1,18 +1,19 @@
 [gd_scene format=3 uid="uid://ci752aldwpxhr"]
 
 [ext_resource type="PackedScene" uid="uid://cjeigbydorgdu" path="res://game/level/combat_area/CombatArea.tscn" id="1_231da"]
-[ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/boxer.tscn" id="2_2ra4k"]
+[ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/boss/boxer.tscn" id="2_2ra4k"]
 [ext_resource type="PackedScene" uid="uid://dvu82xeeb87ff" path="res://game/system/character/player/player.tscn" id="2_27j7o"]
 [ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="2_ett71"]
-[ext_resource type="PackedScene" uid="uid://cxo0b3lr3mm6c" path="res://game/system/character/enemy/bully.tscn" id="2_y4xw1"]
+[ext_resource type="PackedScene" uid="uid://cxo0b3lr3mm6c" path="res://game/system/character/enemy/boss/bully.tscn" id="2_y4xw1"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="4_yn5lq"]
 [ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="5_hb3kr"]
-[ext_resource type="PackedScene" uid="uid://teuunrq7bxl5" path="res://game/system/character/enemy/eric.tscn" id="6_4lpjd"]
+[ext_resource type="PackedScene" uid="uid://teuunrq7bxl5" path="res://game/system/character/enemy/boss/eric.tscn" id="6_4lpjd"]
 [ext_resource type="Texture2D" uid="uid://bk1awwhg2p6h8" path="res://sprites/Backgrounds/Arena.png" id="6_5nku2"]
 [ext_resource type="Shader" uid="uid://bqqnlybur4rdk" path="res://material/retro.gdshader" id="6_b1y20"]
-[ext_resource type="PackedScene" uid="uid://bavdc803jhh86" path="res://game/system/character/enemy/brain_out_1.tscn" id="7_b1y20"]
-[ext_resource type="PackedScene" uid="uid://c3joaeokc1h1s" path="res://game/system/character/enemy/brain_out_2.tscn" id="7_c7avg"]
-[ext_resource type="PackedScene" uid="uid://dljdyyicgs435" path="res://game/system/character/enemy/fat_guy.tscn" id="8_ett71"]
+[ext_resource type="PackedScene" uid="uid://bavdc803jhh86" path="res://game/system/character/enemy/boss/brain_out_1.tscn" id="7_b1y20"]
+[ext_resource type="PackedScene" uid="uid://c3joaeokc1h1s" path="res://game/system/character/enemy/boss/brain_out_2.tscn" id="7_c7avg"]
+[ext_resource type="PackedScene" uid="uid://dljdyyicgs435" path="res://game/system/character/enemy/boss/fat_guy.tscn" id="8_ett71"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ett71"]
 shader = ExtResource("6_b1y20")

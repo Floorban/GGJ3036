@@ -3,10 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://cjeigbydorgdu" path="res://game/level/combat_area/CombatArea.tscn" id="1_vipbd"]
 [ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="2_eno60"]
 [ext_resource type="PackedScene" uid="uid://dvu82xeeb87ff" path="res://game/system/character/player/player.tscn" id="3_4vbmx"]
-[ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/boxer.tscn" id="4_4jxn8"]
+[ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/boss/boxer.tscn" id="4_4jxn8"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="5_utspg"]
 [ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="6_bbatp"]
 [ext_resource type="Texture2D" uid="uid://bk1awwhg2p6h8" path="res://sprites/Backgrounds/Arena.png" id="7_ikyoe"]
+
 
 [node name="CombatAreaEricTest" unique_id=1259752126 instance=ExtResource("1_vipbd")]
 

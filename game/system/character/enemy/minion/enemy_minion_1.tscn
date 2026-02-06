@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://b378v61r0ypsm"]
+
+[ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_f31xm"]
+[ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_0jxle"]
+
+[sub_resource type="Shader" id="Shader_2ro5p"]
+code = "shader_type canvas_item;
+
+uniform sampler2D sprite_texture : source_color, filter_linear;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float glowSize : hint_range(0.0, 300.0) = 15.0;
+uniform int glowDensity : hint_range(0, 30) = 3;
+uniform int glowRadialCoverage : hint_range(0, 32) = 4;
+uniform float glowAngle : hint_range(0.0, 6.283) = 1.57;
+uniform float glowSharpness : hint_range(0.0, 5.0) = 1.0;
+uniform float alphaThreshold : hint_range(0.0, 1.0) = 0.2;
+
+void fragment() {
+	vec4 col = texture(sprite_texture, UV);
+
+	COLOR = col;
+
+	vec2 pixel_size = 1.0 / vec2(textureSize(sprite_texture, 0));
+	float alph = 0.0;
+
+	for (int i = 0; i < glowRadialCoverage; i++) {
+		for (int j = 0; j < glowDensity; j++) {
+			float angle = (TAU / float(glowRadialCoverage)) * float(i + 1) + glowAngle;
+			float dist = glowSize * float(j + 1) / float(glowDensity);
+
+			vec2 offset = vec2(sin(angle), cos(angle)) * pixel_size * dist;
+			vec4 tex = texture(sprite_texture, UV + offset);
+
+			float distFrom = float(glowDensity - j) / float(glowDensity);
+			float sharpness = pow(distFrom, glowSharpness);
+
+			alph += tex.a * line_color.a * sharpness;
+		}
+	}
+
+	if (col.a < alphaThreshold) {
+		COLOR.rgb = line_color.rgb;
+		COLOR.a = alph;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f31xm"]
+shader = SubResource("Shader_2ro5p")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 4.00000019
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0jxle"]
+load_path = "res://.godot/imported/FatBossEyeTwo.png-72e9070fa84e39130573ac1d41d0bfa2.ctex"
+
+[node name="EnemyMinion1" unique_id=1861387119 instance=ExtResource("1_f31xm")]
+script = ExtResource("2_0jxle")
+is_minion = true
+base_stats = {}
+
+[node name="Sprite" parent="Face/Features/EyeL" parent_id_path=PackedInt32Array(1690948451) index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_f31xm")
+texture = SubResource("CompressedTexture2D_0jxle")
+
+[editable path="Face/Features/EyeL"]
+[editable path="Face/Features/EyeR"]
+[editable path="Face/Features/EarL"]
+[editable path="Face/Features/EarR"]
+[editable path="Face/Features/Nose"]
+[editable path="Face/Features/Mouth"]

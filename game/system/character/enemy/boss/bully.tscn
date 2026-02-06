@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cxo0b3lr3mm6c"]
 
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_ulrfh"]
-[ext_resource type="Script" uid="uid://bekoj2k85xcbh" path="res://game/system/character/enemy/bully.gd" id="2_qjg54"]
+[ext_resource type="Script" uid="uid://bekoj2k85xcbh" path="res://game/system/character/enemy/boss/bully.gd" id="2_qjg54"]
 [ext_resource type="Texture2D" uid="uid://c718x58jremuc" path="res://sprites/BodyParts/Limbs/Body.png" id="4_mtw3s"]
 [ext_resource type="Texture2D" uid="uid://7v7vtwtknr1v" path="res://sprites/body_parts/Basehead/BullyBasehead.png" id="5_acmvr"]
 [ext_resource type="Texture2D" uid="uid://cwod6tig7hveh" path="res://sprites/body_parts/BullyNoise.png" id="6_qjg54"]
@@ -183,6 +183,7 @@ size = Vector2(100.15385, 43.076912)
 
 [node name="Bully" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_ulrfh")]
 script = ExtResource("2_qjg54")
+is_minion = false
 base_damage = 0.5
 arm = NodePath("BullyArm")
 sfx_die = "event:/SFX/NPC/Bully/Die"
@@ -273,7 +274,7 @@ stat_modifiers = {
 4: 0.05,
 5: 0.0
 }
-max_hp = 1.0
+max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_qjg54")
@@ -298,7 +299,7 @@ stat_modifiers = {
 4: 0.05,
 5: 0.0
 }
-max_hp = 1.0
+max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_oqmy7")
@@ -322,6 +323,7 @@ stat_modifiers = {
 4: 0.05,
 5: 0.0
 }
+max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_rpsbt")
@@ -342,7 +344,7 @@ stat_modifiers = {
 4: 0.05,
 5: 0.0
 }
-max_hp = 1.0
+max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 modulate = Color(0.7567424, 0.18149996, 0.4081871, 1)

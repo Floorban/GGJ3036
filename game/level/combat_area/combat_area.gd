@@ -94,6 +94,12 @@ func start_battle() -> void:
 	battle_start.emit()
 	transition_screen.burn()
 
+func player_win() -> void:
+	pass
+
+func player_lose() -> void:
+	pass
+
 func end_battle() -> void:
 	camera.switch_target(player, 50)
 	

@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cjeigbydorgdu" path="res://game/level/combat_area/CombatArea.tscn" id="1_57dav"]
 [ext_resource type="PackedScene" uid="uid://dvu82xeeb87ff" path="res://game/system/character/player/player.tscn" id="2_8nlnt"]
-[ext_resource type="PackedScene" uid="uid://cxo0b3lr3mm6c" path="res://game/system/character/enemy/bully.tscn" id="3_i2c52"]
-[ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/boxer.tscn" id="4_kjrlu"]
-[ext_resource type="PackedScene" uid="uid://bavdc803jhh86" path="res://game/system/character/enemy/brain_out_1.tscn" id="5_ay0ac"]
-[ext_resource type="PackedScene" uid="uid://dljdyyicgs435" path="res://game/system/character/enemy/fat_guy.tscn" id="6_fhe53"]
-[ext_resource type="PackedScene" uid="uid://teuunrq7bxl5" path="res://game/system/character/enemy/eric.tscn" id="7_28xsa"]
-[ext_resource type="PackedScene" uid="uid://c3joaeokc1h1s" path="res://game/system/character/enemy/brain_out_2.tscn" id="8_g1ogi"]
+[ext_resource type="PackedScene" uid="uid://cxo0b3lr3mm6c" path="res://game/system/character/enemy/boss/bully.tscn" id="3_i2c52"]
+[ext_resource type="PackedScene" uid="uid://bjmnq3jlda34w" path="res://game/system/character/enemy/boss/boxer.tscn" id="4_kjrlu"]
+[ext_resource type="PackedScene" uid="uid://bavdc803jhh86" path="res://game/system/character/enemy/boss/brain_out_1.tscn" id="5_ay0ac"]
+[ext_resource type="PackedScene" uid="uid://dljdyyicgs435" path="res://game/system/character/enemy/boss/fat_guy.tscn" id="6_fhe53"]
+[ext_resource type="PackedScene" uid="uid://teuunrq7bxl5" path="res://game/system/character/enemy/boss/eric.tscn" id="7_28xsa"]
+[ext_resource type="PackedScene" uid="uid://c3joaeokc1h1s" path="res://game/system/character/enemy/boss/brain_out_2.tscn" id="8_g1ogi"]
 [ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="9_tgsw3"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="10_xaya2"]
 [ext_resource type="Shader" uid="uid://bqqnlybur4rdk" path="res://material/retro.gdshader" id="11_5tn5e"]
@@ -171,7 +171,6 @@ texture = ExtResource("13_ldpml")
 [node name="Bully" parent="Enemies" index="2" unique_id=1348200660 instance=ExtResource("3_i2c52")]
 visible = false
 position = Vector2(0, -13)
-action_cooldown = 0.0
 attack_damage = 2.5
 
 [node name="Boxer" parent="Enemies" index="3" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
