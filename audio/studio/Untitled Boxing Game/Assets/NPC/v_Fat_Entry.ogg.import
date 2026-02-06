@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bm6wkyo20r2nd"
+path="res://.godot/imported/v_Fat_Entry.ogg-2a6c58cbb99858b39599092d603a929a.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/NPC/v_Fat_Entry.ogg"
+dest_files=["res://.godot/imported/v_Fat_Entry.ogg-2a6c58cbb99858b39599092d603a929a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b74i64jsn3nu6"
+path="res://.godot/imported/v_Brain_Talk.ogg-0000cebfc634ffc053fb879583b7d467.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/NPC/v_Brain_Talk.ogg"
+dest_files=["res://.godot/imported/v_Brain_Talk.ogg-0000cebfc634ffc053fb879583b7d467.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

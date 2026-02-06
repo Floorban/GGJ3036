@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{26577984-d168-4c59-b0d2-1878fb28b2f3}">
 		<property name="assetPath">
-			<value>v_Coach_Talk.wav</value>
+			<value>NPC/v_Coach_Talk.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

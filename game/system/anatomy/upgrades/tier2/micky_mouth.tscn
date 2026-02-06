@@ -63,14 +63,15 @@ size = Vector2(116, 50)
 [node name="Micky Mouth" unique_id=1690948451 instance=ExtResource("1_o5yqo")]
 stat_modifiers = {
 0: 0.0,
-1: 1.0,
-2: 0.5,
-3: 0.1,
-4: 0.0,
+1: 0.0,
+2: 0.0,
+3: 0.0,
+4: 0.2,
 5: 0.0
 }
 anatomy_type = 3
 state = 3
+max_hp = 6.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_iujs0")
