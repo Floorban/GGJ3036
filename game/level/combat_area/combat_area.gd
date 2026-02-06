@@ -56,12 +56,12 @@ func init_combat_arena(level : int) -> void:
 	enemy.opponent = player
 	player.init_character()
 	enemy.init_character()
-	enemy.die.connect(end_battle)
+	enemy.die.connect(player_win)
 	if first_level:
 		#current_round = 1
 		player.hit.connect(_screen_shake)
 		player.blocked.connect(_screen_shake)
-		player.die.connect(end_battle)
+		player.die.connect(player_lose)
 
 func final_stage() -> void:
 	pass
@@ -95,10 +95,32 @@ func start_battle() -> void:
 	transition_screen.burn()
 
 func player_win() -> void:
-	pass
+	transition_screen.cover()
+	
+	Engine.time_scale = 0.01
+
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_OUT)
+	Engine.time_scale = 0.1
+
+	tween.tween_method(
+		func(value: float):
+			Engine.time_scale = value,
+		0.01,
+		2.0,
+		2.5
+	)
+
+	tween.tween_callback(func():
+		Engine.time_scale = 1.0
+		await get_tree().create_timer(1.0).timeout
+		end_battle()
+	)
+
 
 func player_lose() -> void:
-	pass
+	end_battle()
 
 func end_battle() -> void:
 	camera.switch_target(player, 50)
@@ -113,9 +135,6 @@ func end_battle() -> void:
 		0.3
 	)
 	
-	transition_screen.cover()
-	await get_tree().create_timer(1.5).timeout
-	transition_screen.burn()
 	current_round = 0
 	in_battle = false
 	in_break = true
