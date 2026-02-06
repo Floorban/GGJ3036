@@ -187,7 +187,7 @@ action_cooldown = 7.0
 arm = NodePath("BullyArm")
 sfx_die = "event:/SFX/NPC/Bully/Die"
 sfx_entry = "event:/SFX/NPC/Bully/Entry"
-sfx_hurt = "event:/SFX/NPC/Bully/Hit"
+sfx_hurt = "event:/SFX/NPC/Bully/Hurt"
 
 [node name="Shoulder" type="Sprite2D" parent="." index="0" unique_id=799220475]
 z_index = -3

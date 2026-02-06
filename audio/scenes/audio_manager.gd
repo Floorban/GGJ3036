@@ -63,6 +63,8 @@ value: Variant = null
 	instance.start()
 	instance.release()
 
+func play_id(sound_id: String) -> void: FmodServer.play_one_shot_using_guid(sound_id)
+
 func play_instance(sound_path: String, object_transform: Transform2D) -> FmodEvent:
 	if sound_path == null: push_error("audio missing")
 

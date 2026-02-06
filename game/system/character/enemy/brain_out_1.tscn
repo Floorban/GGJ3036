@@ -144,14 +144,14 @@ size = Vector2(114.6154, 50.769234)
 
 [node name="BrainOut1" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_2ut17")]
 script = ExtResource("2_5b2wa")
-sfx_die = "event:/SFX/NPC/Brain/Die"
-sfx_entry = "event:/SFX/NPC/Brain/Entry"
-sfx_hurt = "event:/SFX/NPC/Brain/Hit"
 critical_chance = 0.3
 punch_strength = 0.07
 attack_damage = 1.5
 action_cooldown = 4.0
 arm = NodePath("DefaultArm")
+sfx_die = "event:/SFX/NPC/Brain/Die"
+sfx_entry = "event:/SFX/NPC/Brain/Entry"
+sfx_hurt = "event:/SFX/NPC/Brain/Hurt"
 
 [node name="Shoulder" type="Sprite2D" parent="." index="0" unique_id=799220475]
 z_index = -3
