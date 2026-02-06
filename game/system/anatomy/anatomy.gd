@@ -96,7 +96,7 @@ func recover_part() -> void:
 	#anatomy_ui.set_hp_bar(current_hp, max_hp)
 	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
 	current_color = Color.WHITE
-	sprite.modulate = current_color
+	if sprite: sprite.modulate = current_color
 
 func pickup_part() -> void:
 	if is_being_dragged:
@@ -114,7 +114,7 @@ func drop_part() -> void:
 	for area in fix_areas:
 		area.unhighlight_zone()
 		
-	if state == PartState.OutOfBody:
+	if state == PartState.OutOfBody or state == PartState.FUCKED:
 		var tween := create_tween()
 		tween.set_trans(Tween.TRANS_QUAD)
 		tween.set_ease(Tween.EASE_OUT)
