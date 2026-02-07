@@ -14,6 +14,7 @@ var is_hovering := false
 var sfx_attach: String = "event:/SFX/Surgery/Attach"
 
 func _ready() -> void:
+	is_occupied = true
 	reset_sprite()
 	#if my_anatomy: anatomy_type = my_anatomy.anatomy_type
 	#mouse_entered.connect(_hover_over_part)
