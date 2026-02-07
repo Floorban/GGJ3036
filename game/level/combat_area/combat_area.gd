@@ -65,6 +65,7 @@ func init_combat_arena(level : int) -> void:
 	player.init_character()
 	enemy.init_character()
 	enemy.die.connect(player_win)
+	rest_room.attached_index = 0
 	if first_level:
 		#current_round = 1
 		player.hit.connect(_screen_shake)
@@ -105,7 +106,6 @@ func start_battle() -> void:
 	enemy.get_ready_to_battle()
 	battle_start.emit()
 	transition_screen.burn()
-	FixArea.attached_index = 0
 
 func player_win() -> void:
 	paused = true

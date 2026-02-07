@@ -15,6 +15,10 @@ signal ready_to_fight()
 	5: []
 }
 
+static var attaching: bool = false
+static var attached_index: float
+var sfx_attach: String = "event:/SFX/Surgery/Attach"
+
 func get_allowed_tiers(level: int) -> Array[int]:
 	if level < 2:
 		return [1, 2]

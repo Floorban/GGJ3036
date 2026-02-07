@@ -173,9 +173,9 @@ func despawn_blood_line() -> void:
 	
 	audio.clear_instance([i_blood])
 
-	if !fix_areas[0].attaching: 
+	if !fix_areas[0].rest_room.attaching: 
 		audio.play(sfx_squirt)
-		fix_areas[0].attaching = false
+		fix_areas[0].rest_room.attaching = false
 
 	blood_lines.clear()
 	#if state == PartState.HEALTHY:
