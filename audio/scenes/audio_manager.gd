@@ -74,9 +74,8 @@ func play_instance(sound_path: String, object_transform: Transform2D) -> FmodEve
 	return instance
 
 func clear_instance(instances: Array[FmodEvent]) -> void:
-	if instances == null: return
-
 	for instance in instances:
+		if instance == null: return
 		instance.stop(FmodServer.FMOD_STUDIO_STOP_ALLOWFADEOUT)
 		instance.release()
 
@@ -87,15 +86,13 @@ func clear_emitter(instances: Array[FmodEventEmitter2D]) -> void:
 		emitter.stop()
 		emitter.release()
 
-func muffle(force: bool = false, state: bool = false) -> void: 
-	if force and state:
-		FmodServer.set_global_parameter_by_name_with_label(MUFFLE, TRUE)
-		muffled = true
-	if force and !state:
-		FmodServer.set_global_parameter_by_name_with_label(MUFFLE, FALSE)
-		muffled = false
+func playing(instance: FmodEvent) -> bool:
+	if instance == null: pass
+	if instance.get_playback_state() == FmodServer.FMOD_STUDIO_PLAYBACK_PLAYING: return true
+	else: return false
 
-	if !muffled: 
+func muffle(state: bool = false) -> void: 
+	if state:
 		FmodServer.set_global_parameter_by_name_with_label(MUFFLE, TRUE)
 		muffled = true
 	else:

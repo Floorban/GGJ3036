@@ -42,7 +42,7 @@ func enter_rest_room(current_level: int) -> void:
 	background.visible = true
 	ready_button.visible = true
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
-	audio.muffle(true, false)
+	audio.muffle(false)
 
 	for part in player.anatomy_parts:
 		if part.state == Anatomy.PartState.DESTROYED:
@@ -59,7 +59,7 @@ func leave_rest_room() -> void:
 	background.visible = false
 	ready_button.visible = false
 	ready_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	audio.muffle(true, true)
+	audio.muffle(true)
 	for i in range(player.anatomy_parts.size() - 1, -1, -1):
 		var part = player.anatomy_parts[i]
 		if is_instance_valid(part):

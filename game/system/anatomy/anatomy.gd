@@ -9,7 +9,10 @@ class_name Anatomy extends Node2D
 	Stats.StatType.CRIT_DAMAGE: 0.0
 }
 
+#AUDIO
+var sfx_blood: String = "event:/SFX/Surgery/Blood"
 var sfx_select: String = "event:/SFX/Surgery/Select"
+var i_blood: FmodEvent
 
 func get_stat_modifiers() -> Dictionary:
 	if state == PartState.DESTROYED:
@@ -136,6 +139,9 @@ var has_blood := false
 func draw_blood_line() -> void:
 	for line in blood_lines:
 		line.queue_free()
+	
+	i_blood = audio.play_instance(sfx_blood, global_transform)
+	
 	blood_lines.clear()
 	has_blood = true
 	var count := randi_range(3, 5)
@@ -163,6 +169,8 @@ func draw_blood_line() -> void:
 func despawn_blood_line() -> void:
 	for line in blood_lines:
 		_retract_blood_line(line, randf_range(0.26, 0.3))
+	
+	audio.clear_instance([i_blood])
 	
 	blood_lines.clear()
 	#if state == PartState.HEALTHY:
