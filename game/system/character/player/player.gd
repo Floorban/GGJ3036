@@ -52,6 +52,12 @@ func _on_block_finished() -> void:
 			combat_component.start()
 	)
 
+func get_ready_to_battle() -> void:
+	super.get_ready_to_battle()
+	for part: Anatomy in features.get_children():
+		if not part.body_owner or part.body_owner != self:
+			part.reparent(Stats.rest_room.background)
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click") and selected_target:
 		if selected_target in anatomy_parts:

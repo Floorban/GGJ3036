@@ -129,6 +129,11 @@ func spawn_parts(level: int) -> void:
 		if scene == null:
 			break
 		var part := scene.instantiate() as Anatomy
+		part.disconnect.connect(func(): 
+			part.body_owner = null
+			part.reparent(background)
+			part.z_index = 10
+		)
 		var marker := free_markers[i]
 
 		marker.add_child(part)

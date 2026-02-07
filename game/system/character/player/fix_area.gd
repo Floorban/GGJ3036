@@ -26,6 +26,7 @@ func lose_anatomy() -> void:
 	sprite.rotate(randf_range(-0.5,0.5))
 	my_anatomy = null
 	is_occupied = false
+	
 
 func reparent_anatomy(target: Node2D, new_parent: Node2D) -> void:
 	if target.get_parent() != new_parent:

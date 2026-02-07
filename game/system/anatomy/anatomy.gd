@@ -101,10 +101,10 @@ func _process(_delta: float) -> void:
 		body_owner = null
 		current_color = Color.CHOCOLATE
 		anatomy_fucked.emit()
-		if not is_targeted and sprite:
-			sprite.modulate = current_color
 		disconnect.emit()
 		spawn_blood_parc()
+		if not is_targeted and sprite:
+			sprite.modulate = current_color
 	if is_being_dragged:
 		update_blood_lines()
 
