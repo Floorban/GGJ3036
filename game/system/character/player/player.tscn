@@ -31,15 +31,15 @@ radius = 22.020197
 height = 47.912037
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvqmr"]
-radius = 21.125114
-height = 81.032455
+radius = 20.61361
+height = 76.14248
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltwwj"]
-radius = 25.173336
-height = 80.610985
+radius = 23.193264
+height = 74.67079
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvqmr"]
-size = Vector2(33, 74)
+size = Vector2(37, 74)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0eq7q"]
 radius = 15.971291
@@ -259,7 +259,7 @@ scale = Vector2(0.08593076, 0.12566878)
 texture = ExtResource("12_0eq7q")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEarL" index="1" unique_id=32785027]
-position = Vector2(-3.301715, 1.4486718)
+position = Vector2(-1.3321022, 1.7959617)
 rotation = 0.43315792
 shape = SubResource("CapsuleShape2D_xvqmr")
 
@@ -276,7 +276,7 @@ scale = Vector2(0.24624492, 0.39563715)
 texture = ExtResource("13_innbf")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEarR" index="1" unique_id=32785027]
-position = Vector2(6.0441065, -0.68461454)
+position = Vector2(3.0482178, -0.8416222)
 rotation = -0.08895778
 shape = SubResource("CapsuleShape2D_ltwwj")
 

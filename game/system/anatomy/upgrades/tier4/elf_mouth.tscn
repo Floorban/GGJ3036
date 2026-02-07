@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjy44ym3bqqkk"]
 
 [ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_y30ss"]
-[ext_resource type="Texture2D" uid="uid://bym0jqt1yvixv" path="res://sprites/body_parts/FaceAssets/MouthNeutralExp.png" id="2_ri8r1"]
+[ext_resource type="Texture2D" uid="uid://d2m85abwwr1wr" path="res://sprites/body_parts/FaceAssets/Minions/MinionMouth3.png" id="2_ri8r1"]
 
 [sub_resource type="Shader" id="Shader_2ro5p"]
 code = "shader_type canvas_item;
@@ -54,13 +54,15 @@ shader_parameter/glowSize = 4.00000019
 shader_parameter/glowDensity = 30
 shader_parameter/glowRadialCoverage = 32
 shader_parameter/glowAngle = 1.57
-shader_parameter/glowSharpness = 1.0
+shader_parameter/glowSharpness = 5.0
 shader_parameter/alphaThreshold = 0.2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri8r1"]
-size = Vector2(20, 16.426857)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ri8r1"]
+radius = 37.6
+height = 89.59999
 
 [node name="ElfMouth" unique_id=1690948451 instance=ExtResource("1_y30ss")]
+scale = Vector2(1.8, 1.8)
 stat_modifiers = {
 0: 0.0,
 1: -0.3,
@@ -71,13 +73,13 @@ stat_modifiers = {
 }
 anatomy_type = 3
 state = 3
+max_hp = 18.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_hrtnp")
 position = Vector2(0, -0.99999994)
+scale = Vector2(1, 1)
 texture = ExtResource("2_ri8r1")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-position = Vector2(0, -0.83395576)
-scale = Vector2(3.0057185, -0.46679115)
-shape = SubResource("RectangleShape2D_ri8r1")
+shape = SubResource("CapsuleShape2D_ri8r1")

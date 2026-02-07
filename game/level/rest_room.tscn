@@ -38,17 +38,18 @@ upgrade_scenes_by_tier = {
 z_index = -6
 position = Vector2(22, 121)
 rotation = -3.0379448
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_e22fr")
 
 [node name="Upgrades" type="Node2D" parent="Background" unique_id=1047918084]
 unique_name_in_owner = true
 z_index = 5
+scale = Vector2(1.1111112, 1.1111112)
 
 [node name="Table1" type="Sprite2D" parent="Background" unique_id=1321632848]
-position = Vector2(-181.99187, 125.50282)
+position = Vector2(-202.21317, 139.44757)
 rotation = 1.2771158
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.8333334, 0.8333334)
 texture = ExtResource("12_8sk3i")
 
 [node name="SpawnMarker7" type="Marker2D" parent="Background/Table1" unique_id=525682706]
@@ -84,9 +85,9 @@ position = Vector2(-125.49863, 73.61972)
 rotation = 0.7877548
 
 [node name="Table2" type="Sprite2D" parent="Background" unique_id=207262391]
-position = Vector2(130.9768, 157.29297)
+position = Vector2(145.5298, 174.76996)
 rotation = -0.389355
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.8333334, 0.8333334)
 texture = ExtResource("12_8sk3i")
 
 [node name="SpawnMarker1" type="Marker2D" parent="Background/Table2" unique_id=1327400277]

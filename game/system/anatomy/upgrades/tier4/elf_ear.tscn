@@ -58,9 +58,10 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_be7gk"]
-size = Vector2(94, 24.3484)
+size = Vector2(92.78847, 39.003193)
 
 [node name="ElfEar" unique_id=1690948451 instance=ExtResource("1_va7ya")]
+scale = Vector2(2, 2)
 stat_modifiers = {
 0: 0.0,
 1: -0.3,
@@ -71,12 +72,14 @@ stat_modifiers = {
 }
 anatomy_type = 1
 state = 3
+max_hp = 12.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_wb2wf")
+scale = Vector2(1, 1)
 texture = ExtResource("2_2t42n")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-position = Vector2(-2, -4)
+position = Vector2(-1.0308273, -6.5931344)
 rotation = -0.63146317
 shape = SubResource("RectangleShape2D_be7gk")

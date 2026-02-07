@@ -48,8 +48,9 @@ func _on_block_finished() -> void:
 	blocking_part = null
 	arm.interrupt(func(): 
 		if can_control:
-			combat_component.reset_attack_timer(action_cooldown)
-			combat_component.start()
+			pass
+			#combat_component.reset_attack_timer(action_cooldown)
+			#combat_component.start()
 	)
 
 func get_ready_to_battle() -> void:

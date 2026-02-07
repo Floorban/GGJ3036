@@ -72,6 +72,7 @@ stat_modifiers = {
 }
 anatomy_type = 1
 state = 3
+max_hp = 2.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_53frt")

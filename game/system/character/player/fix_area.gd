@@ -19,14 +19,13 @@ func _ready() -> void:
 	if my_anatomy and not my_anatomy.anatomy_fucked.is_connected(lose_anatomy):
 		last_anatomy = my_anatomy
 		my_anatomy.anatomy_fucked.connect(lose_anatomy)
-	player.start.connect(reset_sprite)
+	#player.start.connect(reset_sprite)
 
 func lose_anatomy() -> void:
 	sprite.visible = true
-	sprite.rotate(randf_range(-0.5,0.5))
+	sprite.rotate(randf_range(-0.2,0.2))
 	my_anatomy = null
 	is_occupied = false
-	
 
 func reparent_anatomy(target: Node2D, new_parent: Node2D) -> void:
 	if target.get_parent() != new_parent:
@@ -73,7 +72,7 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 			var target : Anatomy = player.arm.dragging_obj 
 			player.arm.z_index = 2
 			receive_anatomy(target)
-			get_viewport().set_input_as_handled()
+			#get_viewport().set_input_as_handled()
 
 func highlight_zone() -> void:
 	if is_hovering or is_occupied or player.can_control or player.arm.dragging_obj == null:

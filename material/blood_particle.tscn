@@ -36,6 +36,7 @@ turbulence_initial_displacement_max = 12.200002
 
 [node name="BloodParticle" type="GPUParticles2D" unique_id=62236315]
 modulate = Color(0.5854551, 0, 0.06643534, 1)
+z_index = 500
 position = Vector2(0, 1)
 emitting = false
 amount = 20
