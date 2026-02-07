@@ -92,10 +92,8 @@ func _ready() -> void:
 signal disconnect()
 
 func _process(_delta: float) -> void:
-	if body_owner == null:
-		return
 	var dist := (global_position - og_pos).length()
-	if state == PartState.HEALTHY and dist > 20.0 and body_owner.rest_mode:
+	if state == PartState.HEALTHY and dist > 20.0 and has_blood:
 		#drop_part()
 		state = PartState.FUCKED
 		body_owner = null
@@ -105,6 +103,7 @@ func _process(_delta: float) -> void:
 		spawn_blood_parc()
 		if not is_targeted and sprite:
 			sprite.modulate = current_color
+		has_blood = false
 	if is_being_dragged:
 		update_blood_lines()
 
@@ -169,11 +168,13 @@ func _retract_blood_line(line: Line2D, duration := 0.2) -> void:
 			line.queue_free()
 	)
 
+var has_blood := false
+
 func draw_blood_line() -> void:
 	for line in blood_lines:
 		line.queue_free()
 	blood_lines.clear()
-
+	has_blood = true
 	var count := randi_range(3, 5)
 
 	for i in count:
@@ -213,7 +214,7 @@ func pickup_part() -> void:
 	if is_being_dragged:
 		return
 	og_pos = global_position
-	if body_owner:
+	if body_owner and state == PartState.HEALTHY and body_owner.rest_mode:
 		draw_blood_line()
 	is_being_dragged = true
 	_unhover_part()
