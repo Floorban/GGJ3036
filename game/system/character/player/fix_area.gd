@@ -54,6 +54,7 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 	is_occupied =  true
 	player.arm.drop_obj()
 	anatomy.recover_part()
+	PopupPrompt.display_prompt("Fixed", -1 ,sprite.global_position, 0.2, 0.45)
 	if anatomy.anatomy_type == Anatomy.AnatomyType.Ear and is_left_ear:
 		anatomy.sprite.flip_h = false
 	else:
