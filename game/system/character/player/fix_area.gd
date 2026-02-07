@@ -49,7 +49,7 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 		last_anatomy = my_anatomy
 		rest_room.attached_index += 1
 
-	audio.play(rest_room.sfx_attach, global_transform, "Tier", rest_room.attached_index)
+	audio.play(rest_room.sfx_attach, global_transform, "Tier", rest_room.attached_index / 1.5)
 	anatomy.body_owner = player
 	anatomy.position = position
 	anatomy.rotation = rotation
