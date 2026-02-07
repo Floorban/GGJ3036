@@ -58,10 +58,11 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4h5m"]
-size = Vector2(134, 202)
+size = Vector2(59.999996, 99.600006)
 
 [node name="EarAttackDamage" unique_id=1690948451 instance=ExtResource("1_jr0rp")]
 z_index = 10
+scale = Vector2(2, 2)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
@@ -76,11 +77,15 @@ max_hp = 4.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_io25p")
-position = Vector2(1, -2)
-scale = Vector2(2, 2)
+position = Vector2(0, -29.699999)
+scale = Vector2(1, 1)
 texture = ExtResource("2_jr0rp")
 flip_h = true
 
-[node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-position = Vector2(0, -3)
+[node name="MouseDetectArea" parent="." index="1" unique_id=1106976729]
+position = Vector2(0, -27.699999)
+
+[node name="CollisionShape2D" parent="MouseDetectArea" index="0" unique_id=149295176]
+position = Vector2(0, -2.9999995)
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_e4h5m")

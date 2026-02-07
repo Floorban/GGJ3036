@@ -32,6 +32,8 @@ func reparent_anatomy(target: Node2D, new_parent: Node2D) -> void:
 	if target.get_parent() != new_parent:
 		target.reparent(new_parent)
 
+@export var is_left_ear := false
+
 func receive_anatomy(anatomy: Anatomy) -> void:
 	if is_occupied or anatomy.anatomy_type != anatomy_type or anatomy.state == anatomy.PartState.DESTROYED or anatomy.current_hp <= 0:
 		return
@@ -52,6 +54,10 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 	is_occupied =  true
 	player.arm.drop_obj()
 	anatomy.recover_part()
+	if anatomy.anatomy_type == Anatomy.AnatomyType.Ear and is_left_ear:
+		anatomy.sprite.flip_h = false
+	else:
+		anatomy.sprite.flip_h = true
 
 func reset_sprite() -> void:
 	sprite.modulate = Color.WHITE_SMOKE

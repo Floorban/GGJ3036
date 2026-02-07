@@ -246,14 +246,15 @@ rotation = -1.5102458
 shape = SubResource("CapsuleShape2D_wqm0g")
 
 [node name="FixAreaEarL" parent="Face/FixAreas" index="2" unique_id=127680847 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
-position = Vector2(62.999996, -10.000006)
+position = Vector2(60, -10)
 rotation = -0.17453292
 anatomy_type = 1
 my_anatomy = NodePath("../../Features/EarL")
+is_left_ear = true
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEarL" index="0" unique_id=1542207743]
-position = Vector2(-6.1408243, 13.201904)
-rotation = 0.9391054
+position = Vector2(-6.48687, 7.9950237)
+rotation = 0.66424245
 scale = Vector2(0.08593076, 0.12566878)
 texture = ExtResource("12_0eq7q")
 
@@ -263,14 +264,14 @@ rotation = 0.43315792
 shape = SubResource("CapsuleShape2D_xvqmr")
 
 [node name="FixAreaEarR" parent="Face/FixAreas" index="3" unique_id=865976243 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
-position = Vector2(-65.99999, 1.0000056)
+position = Vector2(-59.999992, 1.0000051)
 rotation = -0.05235988
 anatomy_type = 1
 my_anatomy = NodePath("../../Features/EarR")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEarR" index="0" unique_id=1542207743]
-position = Vector2(17.081364, -1.107549)
-rotation = -0.42811036
+position = Vector2(11.29893, -5.4160833)
+rotation = -0.24051821
 scale = Vector2(0.24624492, 0.39563715)
 texture = ExtResource("13_innbf")
 
@@ -363,7 +364,7 @@ scale = Vector2(1.0000004, 1.0000004)
 shape = SubResource("RectangleShape2D_f2h07")
 
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
-position = Vector2(62.999996, -10.000006)
+position = Vector2(59.999996, -10.000005)
 rotation = -0.09759025
 stat_modifiers = {
 0: 0.0,
@@ -391,7 +392,7 @@ scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_hu301")
 
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
-position = Vector2(-65.99999, 1.0000056)
+position = Vector2(-60, 1.0000051)
 rotation = -0.052493285
 stat_modifiers = {
 0: 0.0,

@@ -58,10 +58,11 @@ shader_parameter/glowSharpness = 3.934000186865
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ayoga"]
-radius = 58.068237
-height = 168.08624
+radius = 20.329288
+height = 59.361423
 
 [node name="CrazyMouth" unique_id=1690948451 instance=ExtResource("1_o5jf1")]
+scale = Vector2(3, 3)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
@@ -75,7 +76,7 @@ state = 3
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_ayoga")
-scale = Vector2(3, 3)
+scale = Vector2(1, 1)
 texture = ExtResource("2_me0lf")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]

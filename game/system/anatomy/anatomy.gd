@@ -92,10 +92,8 @@ func _ready() -> void:
 signal disconnect()
 
 func _process(_delta: float) -> void:
-	if body_owner == null:
-		return
 	var dist := (global_position - og_pos).length()
-	if state == PartState.HEALTHY and dist > 20.0 and body_owner.rest_mode:
+	if state == PartState.HEALTHY and dist > 20.0:
 		#drop_part()
 		state = PartState.FUCKED
 		body_owner = null
