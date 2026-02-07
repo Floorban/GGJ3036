@@ -62,10 +62,11 @@ func leave_rest_room() -> void:
 	audio.muffle(true, true)
 	for i in range(player.anatomy_parts.size() - 1, -1, -1):
 		var part = player.anatomy_parts[i]
-		if part.body_owner == null or part.state != Anatomy.PartState.HEALTHY:
-			part.body_owner = null
-			part.reparent(background)
-			player.anatomy_parts.remove_at(i)
+		if is_instance_valid(part):
+			if part.body_owner == null or part.state != Anatomy.PartState.HEALTHY:
+				part.body_owner = null
+				part.reparent(background)
+				player.anatomy_parts.remove_at(i)
 	if player.anatomy_parts.is_empty():
 		assert(player.anatomy_parts.is_empty(), "can't start with no parts")
 		return
@@ -77,8 +78,8 @@ func clear_upgrade_parts() -> void:
 		if not marker.get_children().is_empty():
 			for c in marker.get_children():
 				c.queue_free()
-	for part in upgrade_parts:
-		part.queue_free()
+	#for part in upgrade_parts:
+		#part.queue_free()
 	upgrade_parts.clear()
 
 var remaining_upgrade_pool: Array[PackedScene] = []
@@ -181,11 +182,17 @@ func show_part_info(_name: String, _state: String, _hp: float, _max_hp: float, _
 	for label in stat_labels:
 		label.text = ""
 	
-	match _stats.size():
-		1: label_part_name.modulate = Color.WHITE
-		2: label_part_name.modulate = Color.DEEP_SKY_BLUE * 1.5
-		3: label_part_name.modulate = Color.PURPLE * 1.5
-		4: label_part_name.modulate = Color.GOLD * 1.5
+	if _max_hp <= 4:
+		label_part_name.modulate = Color.WHITE
+	elif _max_hp < 8:
+		label_part_name.modulate = Color.LIME_GREEN * 1.5
+	elif _max_hp < 12:
+		label_part_name.modulate = Color.DEEP_SKY_BLUE * 1.5
+	elif _max_hp < 20:
+		label_part_name.modulate = Color.PURPLE * 1.5
+	elif _max_hp < 100:
+		label_part_name.modulate = Color.GOLD * 1.5
+		
 		
 	label_part_name.text = _name
 	label_part_state.text = _state

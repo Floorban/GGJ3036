@@ -7,7 +7,7 @@ extends CanvasLayer
 
 var dialogues: Array[DialogueBox] = []
 
-func say(text: String, duration := 5.0) -> void:
+func say(text: String, duration := 7.0) -> void:
 	if not dialogue_scene: return
 	
 	var box := dialogue_scene.instantiate() as DialogueBox

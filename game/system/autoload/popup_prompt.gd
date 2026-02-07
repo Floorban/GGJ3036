@@ -4,7 +4,7 @@ func display_prompt(_str : String, value: int,  pos: Vector2, scale: float, dura
 	var prompt = Label.new()
 	
 	prompt.global_position = pos + Vector2(-_str.length() * 3, -30)
-	prompt.z_index = 100
+	prompt.z_index = 1000
 	prompt.label_settings = LabelSettings.new()
 	if value > 0:
 		prompt.text = str(value * 5) + " " + _str

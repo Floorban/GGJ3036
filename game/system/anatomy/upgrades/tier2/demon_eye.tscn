@@ -70,7 +70,7 @@ stat_modifiers = {
 4: 0.0,
 5: 0.0
 }
-max_hp = 4.0
+max_hp = 5.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_pnmsj")

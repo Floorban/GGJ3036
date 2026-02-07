@@ -382,6 +382,7 @@ func _on_attack_finished() -> void:
 	arm.sprite_fist.modulate = Color.DIM_GRAY
 
 func _on_block_finished() -> void:
+	combat_component.pause(1.5)
 	arm.sprite_fist.modulate = Color.DIM_GRAY
 	blocking_part.is_blocking = false
 	blocking_part = null

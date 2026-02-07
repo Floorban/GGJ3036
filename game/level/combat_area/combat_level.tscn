@@ -140,7 +140,8 @@ adjustment_contrast = 1.05
 adjustment_saturation = 1.1
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
-break_duration = 8.0
+battle_duration = 8.0
+break_duration = 1.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
@@ -182,10 +183,6 @@ base_crit_damage = 1.25
 [node name="Eric" parent="Enemies" index="4" unique_id=856538371 instance=ExtResource("7_28xsa")]
 visible = false
 position = Vector2(0, -13)
-switch_chance = 0.5
-min_switch_time = 3.0
-action_cooldown = 0.0
-punch_strength = 0.0
 
 [node name="FatGuy" parent="Enemies" index="5" unique_id=1388912655 instance=ExtResource("6_fhe53")]
 visible = false

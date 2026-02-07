@@ -81,6 +81,7 @@ func _ready() -> void:
 		mouse_detect_area.input_event.connect(_on_input_event)
 	if sprite: outline_mat = sprite.material as ShaderMaterial
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
+	outline_mat.set_shader_parameter("glowSharpness", 4.0)
 	_unhighlight_target()
 	for a : FixArea in get_tree().get_nodes_in_group("fix_area"):
 		if a.anatomy_type == anatomy_type: fix_areas.append(a)
@@ -130,6 +131,34 @@ func update_blood_lines() -> void:
 @export var blood_particle : PackedScene
 @export var blood_line_textres: Array[Texture2D]
 var blood_lines: Array[Line2D] = []
+var has_blood := false
+
+func draw_blood_line() -> void:
+	for line in blood_lines:
+		line.queue_free()
+	blood_lines.clear()
+	has_blood = true
+	var count := randi_range(3, 5)
+
+	for i in count:
+		var line := Line2D.new()
+		line.width = randf_range(20.0, 30.0)
+		line.texture_mode = Line2D.LINE_TEXTURE_STRETCH
+		line.texture = blood_line_textres.pick_random()
+
+		var local_offset := Vector2(
+			randf_range(-5, 5),
+			randf_range(-5, 5)
+		)
+
+		add_child(line)
+
+		line.points = [
+			local_offset,
+			local_offset + (global_position - og_pos)
+		]
+
+		blood_lines.append(line)
 
 func despawn_blood_line() -> void:
 	for line in blood_lines:
@@ -167,35 +196,6 @@ func _retract_blood_line(line: Line2D, duration := 0.2) -> void:
 		if is_instance_valid(line):
 			line.queue_free()
 	)
-
-var has_blood := false
-
-func draw_blood_line() -> void:
-	for line in blood_lines:
-		line.queue_free()
-	blood_lines.clear()
-	has_blood = true
-	var count := randi_range(3, 5)
-
-	for i in count:
-		var line := Line2D.new()
-		line.width = randf_range(20.0, 30.0)
-		line.texture_mode = Line2D.LINE_TEXTURE_STRETCH
-		line.texture = blood_line_textres.pick_random()
-
-		var local_offset := Vector2(
-			randf_range(-5, 5),
-			randf_range(-5, 5)
-		)
-
-		add_child(line)
-
-		line.points = [
-			local_offset,
-			local_offset + (global_position - og_pos)
-		]
-
-		blood_lines.append(line)
 
 func init_part(body: Character) -> void:
 	body_owner = body
@@ -259,7 +259,7 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			anatomy_clicked.emit(self)
-			get_viewport().set_input_as_handled()
+			#get_viewport().set_input_as_handled()
 
 signal hovering(_name: String, _state: String, _hp: float, _max_hp: float, _stats: Array[String])
 signal unhover()

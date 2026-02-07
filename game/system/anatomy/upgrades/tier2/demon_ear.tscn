@@ -66,14 +66,14 @@ scale = Vector2(2, 2)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
-2: 0.3,
+2: 0.2,
 3: 0.0,
 4: 0.2,
 5: 0.0
 }
 anatomy_type = 1
 state = 3
-max_hp = 4.0
+max_hp = 8.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_io25p")

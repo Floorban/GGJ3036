@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dwjlhjh7e48gb"]
 
 [ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_d18ue"]
-[ext_resource type="Texture2D" uid="uid://bm7o5t6rm32a8" path="res://sprites/body_parts/FaceAssets/Eye2.2.png" id="2_ctojp"]
+[ext_resource type="Texture2D" uid="uid://ds6obe24tl7wf" path="res://sprites/body_parts/FaceAssets/Minions/EyeMinion4.png" id="2_ctojp"]
 
 [sub_resource type="Shader" id="Shader_2ro5p"]
 code = "shader_type canvas_item;
@@ -57,9 +57,12 @@ shader_parameter/glowAngle = 1.57
 shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_e863q"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctojp"]
+radius = 43.999905
+height = 118.00002
 
 [node name="ElfEye" unique_id=1690948451 instance=ExtResource("1_d18ue")]
+scale = Vector2(1.5, 1.5)
 stat_modifiers = {
 0: 0.0,
 1: -0.2,
@@ -69,11 +72,13 @@ stat_modifiers = {
 5: 0.0
 }
 state = 3
+max_hp = 15.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_jy5ft")
+scale = Vector2(1, 1)
 texture = ExtResource("2_ctojp")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-scale = Vector2(2.1930265, 1)
-shape = SubResource("CircleShape2D_e863q")
+rotation = -3.1416097
+shape = SubResource("CapsuleShape2D_ctojp")
