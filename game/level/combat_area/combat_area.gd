@@ -38,7 +38,7 @@ var enemy: Enemy
 
 #AUDIO
 var sfx_countdown: String = "event:/SFX/NPC/Coach/Count"
-var sfx_ring: String = ""
+var sfx_ring: String = "event:/SFX/Arena/Ring"
 
 func _ready() -> void:
 	rest_room.ready_to_fight.connect(start_battle)
@@ -57,6 +57,7 @@ func init_combat_arena(level : int) -> void:
 		final_stage()
 		assert(level >= enemies.size(), "no more enemies")
 		return
+	#audio.play(sfx_ring)
 	enemy = enemies[level - 1]
 	enemy.visible = true
 	battle_time_left = battle_duration

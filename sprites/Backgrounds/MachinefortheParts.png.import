@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8uydd7y7mg2t"
-path="res://.godot/imported/bodiesbg1.png-080d57e38e57434ff1d007fdbdb96a2c.ctex"
+uid="uid://m0nfqhbfscxc"
+path="res://.godot/imported/MachinefortheParts.png-de0f9275c40271bee426060245b44313.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Backgrounds/bodiesbg1.png"
-dest_files=["res://.godot/imported/bodiesbg1.png-080d57e38e57434ff1d007fdbdb96a2c.ctex"]
+source_file="res://sprites/Backgrounds/MachinefortheParts.png"
+dest_files=["res://.godot/imported/MachinefortheParts.png-de0f9275c40271bee426060245b44313.ctex"]
 
 [params]
 
