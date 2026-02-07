@@ -12,6 +12,7 @@ class_name Anatomy extends Node2D
 #AUDIO
 var sfx_blood: String = "event:/SFX/Surgery/Blood"
 var sfx_select: String = "event:/SFX/Surgery/Select"
+var sfx_squirt: String = "event:/SFX/Surgery/Squirt"
 var i_blood: FmodEvent
 
 func get_stat_modifiers() -> Dictionary:
@@ -171,6 +172,8 @@ func despawn_blood_line() -> void:
 		_retract_blood_line(line, randf_range(0.26, 0.3))
 	
 	audio.clear_instance([i_blood])
+	
+	audio.play(sfx_squirt)
 	
 	blood_lines.clear()
 	#if state == PartState.HEALTHY:
