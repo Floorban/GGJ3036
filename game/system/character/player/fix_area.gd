@@ -10,6 +10,9 @@ var sprite_og_color: Color
 var is_occupied := false
 var is_hovering := false
 
+#AUDIO
+var sfx_attach: String = "event:/SFX/Surgery/Attach"
+
 func _ready() -> void:
 	reset_sprite()
 	#if my_anatomy: anatomy_type = my_anatomy.anatomy_type
@@ -37,6 +40,7 @@ func reparent_anatomy(target: Node2D, new_parent: Node2D) -> void:
 func receive_anatomy(anatomy: Anatomy) -> void:
 	if is_occupied or anatomy.anatomy_type != anatomy_type or anatomy.state == anatomy.PartState.DESTROYED or anatomy.current_hp <= 0:
 		return
+	audio.play(sfx_attach)
 	#sprite.visible = false
 	sprite.modulate = Color.WEB_GRAY
 	sprite_og_color = sprite.modulate

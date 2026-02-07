@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dj1k2utdnlqui"
+path="res://.godot/imported/s_Attach.ogg-a4e3723befe52071a5c877ea97c6ea96.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/Surgery/s_Attach.ogg"
+dest_files=["res://.godot/imported/s_Attach.ogg-a4e3723befe52071a5c877ea97c6ea96.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

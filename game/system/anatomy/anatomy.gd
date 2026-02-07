@@ -9,7 +9,7 @@ class_name Anatomy extends Node2D
 	Stats.StatType.CRIT_DAMAGE: 0.0
 }
 
-var sfx_select: String = "event:/SFX/UI/Select"
+var sfx_select: String = "event:/SFX/Surgery/Select"
 
 func get_stat_modifiers() -> Dictionary:
 	if state == PartState.DESTROYED:
