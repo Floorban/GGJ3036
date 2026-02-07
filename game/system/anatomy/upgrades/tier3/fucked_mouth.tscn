@@ -58,10 +58,11 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icjdx"]
-size = Vector2(227, 134)
+size = Vector2(93.90002, 55.60001)
 
 [node name="FuckedMouth" unique_id=1690948451 instance=ExtResource("1_bs867")]
 z_index = 10
+scale = Vector2(2.5, 2.5)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
@@ -76,9 +77,10 @@ max_hp = 11.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_wjq13")
-scale = Vector2(2, 2)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_10a7b")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-position = Vector2(-0.5, 0)
+position = Vector2(-3.749999, 2.9999995)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_icjdx")

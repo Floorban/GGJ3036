@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a5g12"]
-radius = 31.0
+radius = 34.333336
 height = 72.66667
 
 [node name="CrazyNose" unique_id=1690948451 instance=ExtResource("1_ctwem")]
@@ -76,7 +76,6 @@ state = 3
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_a5g12")
-scale = Vector2(1, 1)
 texture = ExtResource("2_a5g12")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]

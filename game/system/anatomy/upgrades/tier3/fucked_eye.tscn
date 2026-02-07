@@ -58,11 +58,11 @@ shader_parameter/glowSharpness = 5.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ydtik"]
-radius = 29.719524
+radius = 28.406338
 
 [node name="FuckedEye" unique_id=1690948451 instance=ExtResource("1_ydtik")]
 z_index = 10
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
@@ -76,7 +76,7 @@ max_hp = 8.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_0b74b")
-scale = Vector2(1, 1)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_udo75")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
