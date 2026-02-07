@@ -36,6 +36,10 @@ var max_round := 2
 @onready var player: Player = %Player
 var enemy: Enemy
 
+#AUDIO
+var sfx_countdown: String = "event:/SFX/NPC/Coach/Count"
+var sfx_ring: String = ""
+
 func _ready() -> void:
 	rest_room.ready_to_fight.connect(start_battle)
 	start_pos = player.position
@@ -67,6 +71,10 @@ func init_combat_arena(level : int) -> void:
 		player.blocked.connect(_screen_shake)
 		player.die.connect(player_lose)
 
+	#TODO:
+	#Delay start for 3 seconds
+	#audio.play(sfx_countdown)
+
 func final_stage() -> void:
 	pass
 
@@ -97,6 +105,7 @@ func start_battle() -> void:
 	enemy.get_ready_to_battle()
 	battle_start.emit()
 	transition_screen.burn()
+	FixArea.attached_index = 0
 
 func player_win() -> void:
 	paused = true

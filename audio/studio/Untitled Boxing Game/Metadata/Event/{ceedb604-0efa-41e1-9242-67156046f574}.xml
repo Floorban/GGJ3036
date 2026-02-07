@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{ceedb604-0efa-41e1-9242-67156046f574}">
 		<property name="name">
-			<value>Start</value>
+			<value>Count</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{9ab76ee0-9bcf-405a-aaba-923fd4e3b343}</destination>
+			<destination>{2ef679e1-525b-466c-918e-98e4bf279442}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{2884ed5a-fe76-416a-9263-c3cb06e3af06}</destination>
@@ -110,6 +110,9 @@
 		</property>
 		<property name="timelockedOffset">
 			<value>1.9856115107913668</value>
+		</property>
+		<property name="volume">
+			<value>-6</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{76800fed-b680-4985-ab61-7d4fde1adb8c}</destination>
