@@ -41,6 +41,7 @@ var sfx_countdown: String = "event:/SFX/NPC/Coach/Count"
 var sfx_ring: String = "event:/SFX/Arena/Ring"
 
 func _ready() -> void:
+	battle_time_left = 100.0
 	rest_room.ready_to_fight.connect(start_battle)
 	start_pos = player.position
 	enemies.clear()
@@ -60,7 +61,6 @@ func init_combat_arena(level : int) -> void:
 	#audio.play(sfx_ring)
 	enemy = enemies[level - 1]
 	enemy.visible = true
-	battle_time_left = battle_duration
 	player.opponent = enemy
 	enemy.opponent = player
 	player.init_character()
@@ -99,14 +99,23 @@ func start_battle() -> void:
 		Vector2.ONE * 2,
 		0.2
 	)
+	
 	in_break = false
 	in_battle = true
 	background.visible = true
 	init_combat_arena(current_level)
-	player.get_ready_to_battle()
-	enemy.get_ready_to_battle()
-	battle_start.emit()
-	transition_screen.burn()
+	
+	tween.tween_callback(func():
+		await get_tree().create_timer(2.0).timeout
+		battle_time_left = battle_duration
+		player.get_ready_to_battle()
+		game_ui.timer_panel.visible = true
+		enemy.get_ready_to_battle()
+		battle_start.emit()
+		transition_screen.burn()
+	)
+	
+
 
 func player_win() -> void:
 	paused = true
@@ -147,6 +156,8 @@ func player_lose() -> void:
 	queue_free()
 
 func end_battle() -> void:
+	game_ui.timer_panel.visible = false
+	
 	camera.switch_target(player, 50)
 	
 	var tween := create_tween()
@@ -208,6 +219,7 @@ func next_round() -> void:
 		Vector2.ONE * 2,
 		0.2
 	)
+	
 	player.start_round()
 	enemy.start_round()
 
@@ -216,6 +228,7 @@ func end_round() -> void:
 	current_round += 1
 	battle_time_left = break_duration
 	audio.muffle(true)
+	
 	if current_round >= max_round:
 		end_battle()
 	else:

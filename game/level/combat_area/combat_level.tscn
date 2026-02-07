@@ -140,8 +140,8 @@ adjustment_contrast = 1.05
 adjustment_saturation = 1.1
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
-battle_duration = 30.0
-break_duration = 10.0
+battle_duration = 5.0
+break_duration = 2.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
