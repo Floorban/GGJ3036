@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 4.2030001996425
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ul6j8"]
-radius = 25.0
-height = 66.0
+radius = 25.60872
+height = 70.40799
 
 [node name="ElfNose" unique_id=1690948451 instance=ExtResource("1_dvffy")]
 scale = Vector2(2.5, 2.5)
@@ -70,7 +70,6 @@ max_hp = 13.0
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_oo445")
 position = Vector2(0, -0.99999994)
-scale = Vector2(1, 1)
 texture = ExtResource("2_api7m")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]

@@ -23,6 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://dwjlhjh7e48gb" path="res://game/system/anatomy/upgrades/tier4/elf_eye.tscn" id="15_8idhi"]
 [ext_resource type="PackedScene" uid="uid://bjy44ym3bqqkk" path="res://game/system/anatomy/upgrades/tier4/elf_mouth.tscn" id="16_kxqh5"]
 [ext_resource type="PackedScene" uid="uid://u124wvxpoejt" path="res://game/system/anatomy/upgrades/tier4/elf_nose.tscn" id="17_tn4a5"]
+[ext_resource type="PackedScene" uid="uid://umd7tyqplvls" path="res://game/system/anatomy/upgrades/tier5/lol_ear.tscn" id="18_r5fj8"]
+[ext_resource type="PackedScene" uid="uid://b3tltra7tpupf" path="res://game/system/anatomy/upgrades/tier5/lol_mouth.tscn" id="19_bbuk5"]
+[ext_resource type="PackedScene" uid="uid://b2iw7uva5cuay" path="res://game/system/anatomy/upgrades/tier5/lol_nose.tscn" id="20_8idhi"]
 
 [node name="RestRoom" type="Node2D" unique_id=1662139499 groups=["rest_room"]]
 script = ExtResource("1_nbyfe")
@@ -31,7 +34,7 @@ upgrade_scenes_by_tier = {
 2: [ExtResource("6_2xwxa"), ExtResource("7_8sk3i"), ExtResource("8_xisql"), ExtResource("9_byr16")],
 3: [ExtResource("10_7lyvt"), ExtResource("11_v0ssp"), ExtResource("12_qk48h"), ExtResource("13_r5fj8")],
 4: [ExtResource("14_bbuk5"), ExtResource("15_8idhi"), ExtResource("16_kxqh5"), ExtResource("17_tn4a5")],
-5: []
+5: [ExtResource("18_r5fj8"), ExtResource("18_r5fj8"), ExtResource("19_bbuk5"), ExtResource("20_8idhi")]
 }
 
 [node name="Background" type="Sprite2D" parent="." unique_id=844428716]

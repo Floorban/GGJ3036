@@ -315,8 +315,9 @@ func _on_successful_block(attacker: Character) -> void:
 	)
 	arm.block_success()
 	
-	combat_component.reset_attack_timer(action_cooldown)
-	combat_component.start()
+	combat_component.pause(1.5)
+	#combat_component.reset_attack_timer(action_cooldown)
+	#combat_component.start()
 	
 	if blocking_part:
 		blocking_part.is_targeted = false
