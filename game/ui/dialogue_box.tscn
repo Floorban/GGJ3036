@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dgvd14fqcxkh5"]
+
+[ext_resource type="Script" uid="uid://cwplumbyrjurt" path="res://game/ui/dialogue_box.gd" id="1_8ubs4"]
+[ext_resource type="Texture2D" uid="uid://cmxq4yde836m7" path="res://sprites/ui/DialogueBox.png" id="2_6pf15"]
+[ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="2_h5wvd"]
+
+[node name="DialogueBox" type="Control" unique_id=874600480]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_8ubs4")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=833945746]
+modulate = Color(0.71940374, 0.7194037, 0.7194037, 0.7294118)
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 100.0
+texture = ExtResource("2_6pf15")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect" unique_id=1634941817]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer" unique_id=1927747034]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_h5wvd")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+autowrap_mode = 1

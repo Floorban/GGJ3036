@@ -163,6 +163,7 @@ func end_battle() -> void:
 	arm.toggle_arm(true)
 
 func start_round() -> void:
+	arm.rest_pos()
 	features.z_index = 0
 	combat_component.start()
 	can_control = true

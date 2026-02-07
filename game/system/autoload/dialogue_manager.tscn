@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://14hrrjqso8mu"]
 
 [ext_resource type="Script" uid="uid://fiig2nq1387v" path="res://game/system/autoload/dialogue_manager.gd" id="1_qj8b8"]
+[ext_resource type="PackedScene" uid="uid://dgvd14fqcxkh5" path="res://game/ui/dialogue_box.tscn" id="2_7y0qv"]
 
-[node name="DialogueManager" type="Control" unique_id=514810625]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="DialogueManager" type="CanvasLayer" unique_id=1639550093]
 script = ExtResource("1_qj8b8")
+dialogue_scene = ExtResource("2_7y0qv")
+max_visible = 6
+spacing = 20
+base_offset = Vector2(150, -100)

@@ -16,13 +16,13 @@ signal ready_to_fight()
 }
 
 func get_allowed_tiers(level: int) -> Array[int]:
-	if level < 3:
+	if level < 2:
 		return [1, 2]
-	elif level < 5:
-		return [1, 2, 3]
-	elif level < 7:
-		return [2, 3, 4]
-	elif level < 9:
+	elif level < 4:
+		return [2, 3]
+	elif level < 6:
+		return [3, 4]
+	elif level < 8:
 		return [3, 4, 5]
 	else:
 		return [4, 5]

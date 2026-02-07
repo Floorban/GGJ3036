@@ -66,9 +66,9 @@ scale = Vector2(2, 2)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
-2: 0.7,
+2: 0.3,
 3: 0.0,
-4: 0.1,
+4: 0.2,
 5: 0.0
 }
 anatomy_type = 1
