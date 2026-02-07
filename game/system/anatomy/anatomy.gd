@@ -172,9 +172,11 @@ func despawn_blood_line() -> void:
 		_retract_blood_line(line, randf_range(0.26, 0.3))
 	
 	audio.clear_instance([i_blood])
-	
-	audio.play(sfx_squirt)
-	
+
+	if !fix_areas[0].attaching: 
+		audio.play(sfx_squirt)
+		fix_areas[0].attaching = false
+
 	blood_lines.clear()
 	#if state == PartState.HEALTHY:
 

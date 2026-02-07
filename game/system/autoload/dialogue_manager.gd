@@ -7,6 +7,8 @@ extends CanvasLayer
 
 var dialogues: Array[DialogueBox] = []
 
+var sfx_chat: String = "event:/SFX/UI/Chat"
+
 func say(text: String, duration := 7.0) -> void:
 	if not dialogue_scene: return
 	
@@ -19,6 +21,8 @@ func say(text: String, duration := 7.0) -> void:
 	if dialogues.size() > max_visible:
 		var oldest = dialogues[0]
 		if is_instance_valid(oldest): oldest.fade_out()
+	
+	audio.play(sfx_chat)
 
 	await get_tree().process_frame
 	_reflow()
