@@ -149,6 +149,7 @@ func get_ready_to_battle() -> void:
 		part.recover_part()
 
 func end_battle() -> void:
+	features.z_index = 5
 	if not anatomy_parts.is_empty():
 		for part in anatomy_parts:
 			part.is_blocking = false
@@ -162,6 +163,7 @@ func end_battle() -> void:
 	arm.toggle_arm(true)
 
 func start_round() -> void:
+	features.z_index = 0
 	combat_component.start()
 	can_control = true
 	if targeting_part:
@@ -183,7 +185,6 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 	if blocking_part == target and can_action:
 		_on_successful_block(attacker)
 		return
-
 	# Failed block or no block
 	if arm.is_blocking and blocking_part:
 		_on_block_finished()
@@ -200,6 +201,8 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 		character_die_sfx()
 	hit.emit(damage * 1.5)
 	get_hit_visual_feedback(damage / 10)
+	can_action = false
+	combat_component.pause(1.5)
 
 func character_die_sfx() -> void:
 	audio.play(sfx_die)
@@ -214,7 +217,6 @@ func rand_outside_range(min_abs: float, max_abs: float) -> float:
 	return sign * randf_range(min_abs, max_abs)
 
 func get_hit_visual_feedback(damage_scale: float) -> void:
-	# Kill previous hit reactions
 	if face_tween:
 		face_tween.kill()
 
@@ -230,11 +232,9 @@ func get_hit_visual_feedback(damage_scale: float) -> void:
 	var hit_time := 0.05 + damage_scale + randf_range(-0.15, 0.05)
 
 	if is_dead:
-		pos_offset *= 5.0
-		print(pos_offset)
-		rot_offset *= 5.0
-		hit_time /= 2.0
-
+		pos_offset *= 20.0
+		rot_offset *= 20.0
+		hit_time *= 6.0
 	face_tween = create_tween()
 	face_tween.set_trans(Tween.TRANS_QUAD)
 	face_tween.set_ease(Tween.EASE_OUT)
@@ -295,9 +295,10 @@ func on_interrupted() -> void:
 	combat_component.stop()
 	arm.toggle_arm(false)
 
-func recover_from_interrupt() -> void:
-	await get_tree().create_timer(action_cooldown / 2).timeout
+func recover_from_interrupt(recover_time: float) -> void:
+	await get_tree().create_timer(recover_time).timeout
 	arm.toggle_arm(true)
+	combat_component.reset_attack_timer(action_cooldown)
 	combat_component.start()
 	is_stuned = false
 
@@ -308,7 +309,8 @@ func _on_successful_block(attacker: Character) -> void:
 	can_action = false
 	attacker.on_interrupted()
 	attacker.arm.interrupt(func(): 
-		attacker.recover_from_interrupt()
+		#cooldown multiplier
+		attacker.recover_from_interrupt(attacker.action_cooldown * 1.5)
 	)
 	arm.block_success()
 	
@@ -374,6 +376,7 @@ func _on_attack_finished() -> void:
 	if targeting_part:
 		targeting_part.is_targeted = false
 		targeting_part._unhighlight_target()
+	combat_component.reset_attack_timer(action_cooldown)
 	combat_component.start()
 	arm.sprite_fist.modulate = Color.DIM_GRAY
 
@@ -393,7 +396,7 @@ func choose_target() -> Anatomy:
 	if valid_targets.is_empty():
 		targeting_part = null
 		return null
-		
+	
 	var new_target: Anatomy = valid_targets.pick_random()
 	targeting_part = new_target
 	if can_control:

@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkide"]
-size = Vector2(56, 94)
+size = Vector2(82, 152)
 
 [node name="CrazyEar" unique_id=1690948451 instance=ExtResource("1_mg0fi")]
 stat_modifiers = {
@@ -74,6 +74,7 @@ state = 3
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_53frt")
+scale = Vector2(2, 2)
 texture = ExtResource("2_gd6j8")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]

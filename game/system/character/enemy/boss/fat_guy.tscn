@@ -148,6 +148,10 @@ size = Vector2(98.46155, 49.40748)
 [node name="FatGuy" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_clg4v")]
 script = ExtResource("2_tfnvl")
 is_minion = false
+base_damage = 5.0
+base_speed = 0.05
+base_crit_chance = 0.5
+base_crit_damage = 2.0
 action_cooldown = 10.0
 attack_damage = 2.5
 punch_strength = 0.02

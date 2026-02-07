@@ -2,11 +2,20 @@ class_name Enemy extends Character
 
 @export var is_minion := false
 
+@export var switch_chance := 0.5
+@export var min_switch_time := 3.0
+
 var next_target: Anatomy
 var can_switch_target := false
 
-#func _ready() -> void:
-	#combat_component.start_counting.connect(swtic_target_timer)
+func _ready() -> void:
+	combat_component.start_counting.connect(swtic_target_timer)
+
+func _process(delta: float) -> void:
+	if is_dead or not can_control or is_stuned:
+		return
+	super._process(delta)
+	switch_target()
 
 func get_ready_to_battle() -> void:
 	audio.play(sfx_entry)
@@ -31,17 +40,18 @@ func _on_action_finished(_blocking: bool) -> void:
 	next_target = choose_target()
 	reveal_target_with_delay(next_target)
 
-#func switch_target() -> void:
-	#if not next_target:
-		#return
-	#if next_target.is_blocking and can_switch_target:
-		#next_target.is_targeted = false
-		#next_target._unhighlight_target()
-		#choose_target()
-		#can_switch_target = false
-#
-#func swtic_target_timer(duration: float) -> void:
-	#can_switch_target = true
+func switch_target() -> void:
+	if not next_target:
+		return
+	if next_target.is_blocking and can_switch_target and abs(combat_component.combat_timer.wait_time - combat_component.combat_timer.time_left) < min_switch_time:
+		next_target.is_targeted = false
+		next_target._unhighlight_target()
+		can_switch_target = false
+		next_target = choose_target()
+
+func swtic_target_timer(duration: float) -> void:
+	if randf() < switch_chance:
+		can_switch_target = true
 
 func _perform_attack(_target: Anatomy) -> void:
 	if not can_control:
@@ -73,7 +83,7 @@ func _on_action_ready() -> void:
 		_perform_attack(next_target)
 
 func enemy_attack(attack_target: Anatomy) -> void:
-	if not can_control or rest_mode:
+	if not can_control or rest_mode or is_dead:
 		attack_target.is_targeted = false
 		attack_target._unhighlight_target()
 		arm.rest_pos()

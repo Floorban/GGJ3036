@@ -61,6 +61,14 @@ shader_parameter/alphaThreshold = 0.2
 size = Vector2(94, 24.3484)
 
 [node name="ElfEar" unique_id=1690948451 instance=ExtResource("1_va7ya")]
+stat_modifiers = {
+0: 0.0,
+1: -0.3,
+2: 0.5,
+3: 0.1,
+4: 0.0,
+5: 0.0
+}
 anatomy_type = 1
 state = 3
 

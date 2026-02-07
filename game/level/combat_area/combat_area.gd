@@ -149,6 +149,13 @@ func end_battle() -> void:
 		0.3
 	)
 	
+	tween.tween_property(
+			camera,
+			"zoom",
+			Vector2.ONE * 2.8,
+			0.3
+	)
+	
 	current_round = 0
 	in_battle = false
 	in_break = true
@@ -243,7 +250,7 @@ var distortion_tween: Tween
 var barrel_distortion := 0.0
 
 func _screen_shake(value: float, crit := false) -> void:	
-	camera.add_trauma(value / 10)
+	camera.add_trauma(value / 5)
 
 	var peak : float = clamp(value * 0.15, 0.05, 0.35)
 

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://pqhwmvyq6w28"]
+[gd_scene format=3 uid="uid://rpxbndksegvk"]
 
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_l53d7"]
 [ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_26h1w"]
@@ -65,6 +65,9 @@ shader_parameter/glowAngle = 1.57
 shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4s0o"]
+size = Vector2(55.38462, 31.384619)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trmn6"]
 shader = SubResource("Shader_2ro5p")
 shader_parameter/sprite_texture = ExtResource("6_xh6fd")
@@ -75,6 +78,9 @@ shader_parameter/glowRadialCoverage = 32
 shader_parameter/glowAngle = 1.57
 shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh6fd"]
+size = Vector2(54.230988, 37.85066)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f4s0o"]
 shader = SubResource("Shader_2ro5p")
@@ -172,6 +178,10 @@ position = Vector2(39.384617, 25.84615)
 rotation = 0.15655711
 texture = ExtResource("6_xh6fd")
 
+[node name="CollisionShape2D" parent="Face/Features/EyeL/MouseDetectArea" parent_id_path=PackedInt32Array(1690948451, 1106976729) index="0" unique_id=149295176]
+position = Vector2(-2.1538582, 0)
+shape = SubResource("RectangleShape2D_f4s0o")
+
 [node name="Sprite" parent="Face/Features/EyeR" parent_id_path=PackedInt32Array(584210078) index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_trmn6")
 position = Vector2(27.396702, -26.602942)
@@ -180,8 +190,9 @@ scale = Vector2(0.9, 0.9)
 texture = ExtResource("6_xh6fd")
 
 [node name="CollisionShape2D" parent="Face/Features/EyeR/MouseDetectArea" parent_id_path=PackedInt32Array(584210078, 1106976729) index="0" unique_id=149295176]
-position = Vector2(-5.884514, 3.8146973e-06)
-scale = Vector2(0.9999998, 0.9999998)
+position = Vector2(-5.884514, 1.1444092e-05)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_xh6fd")
 
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 max_hp = 1.0

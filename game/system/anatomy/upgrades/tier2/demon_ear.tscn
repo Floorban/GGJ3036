@@ -58,16 +58,16 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4h5m"]
-size = Vector2(72, 102)
+size = Vector2(134, 202)
 
 [node name="EarAttackDamage" unique_id=1690948451 instance=ExtResource("1_jr0rp")]
 z_index = 10
 stat_modifiers = {
 0: 0.0,
-1: 0.2,
-2: 0.2,
+1: 0.0,
+2: 0.7,
 3: 0.0,
-4: 0.0,
+4: 0.1,
 5: 0.0
 }
 anatomy_type = 1
@@ -77,7 +77,7 @@ max_hp = 4.0
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_io25p")
 position = Vector2(1, -2)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(2, 2)
 texture = ExtResource("2_jr0rp")
 flip_h = true
 

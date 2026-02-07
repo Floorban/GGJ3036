@@ -23,23 +23,23 @@
 [ext_resource type="Texture2D" uid="uid://civr2jgjofjyt" path="res://sprites/body_parts/FaceAssets/MCfacevariations/ears/Ear.png" id="17_innbf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hu301"]
-radius = 14.021568
-height = 44.037544
+radius = 20.04595
+height = 48.036133
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wqm0g"]
-radius = 15.033022
-height = 44.04039
+radius = 22.020197
+height = 47.912037
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvqmr"]
-radius = 17.719166
-height = 74.43643
+radius = 21.125114
+height = 81.032455
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltwwj"]
-radius = 20.99828
-height = 74.01004
+radius = 25.173336
+height = 80.610985
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvqmr"]
-size = Vector2(30, 72)
+size = Vector2(33, 74)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0eq7q"]
 radius = 15.971291
@@ -174,7 +174,9 @@ size = Vector2(70, 26)
 
 [node name="Player" unique_id=1861387119 node_paths=PackedStringArray("arm") groups=["player"] instance=ExtResource("1_obar5")]
 script = ExtResource("2_b2mth")
-critical_chance = 0.3
+base_cooldown = 3.5
+base_damage = 2.0
+base_crit_damage = 1.2
 top_down_dir = -1
 arm = NodePath("ArmR")
 
@@ -273,7 +275,7 @@ scale = Vector2(0.24624492, 0.39563715)
 texture = ExtResource("13_innbf")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEarR" index="1" unique_id=32785027]
-position = Vector2(2.9958706, 0.15700674)
+position = Vector2(6.0441065, -0.68461454)
 rotation = -0.08895778
 shape = SubResource("CapsuleShape2D_ltwwj")
 
@@ -289,7 +291,7 @@ scale = Vector2(0.15, 0.072)
 texture = ExtResource("10_ltwwj")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaNose" index="1" unique_id=32785027]
-position = Vector2(-1.0000001, -1)
+position = Vector2(-0.49999943, -2)
 shape = SubResource("RectangleShape2D_xvqmr")
 
 [node name="FixAreaMouth" parent="Face/FixAreas" index="5" unique_id=1677497174 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
@@ -317,7 +319,7 @@ stat_modifiers = {
 2: 0.1,
 3: 0.0,
 4: 0.05,
-5: 0.1
+5: 0.0
 }
 max_hp = 2.0
 
@@ -341,7 +343,7 @@ stat_modifiers = {
 2: 0.1,
 3: 0.0,
 4: 0.05,
-5: 0.1
+5: 0.0
 }
 max_hp = 2.0
 

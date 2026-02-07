@@ -184,7 +184,10 @@ size = Vector2(100.15385, 43.076912)
 [node name="Bully" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_ulrfh")]
 script = ExtResource("2_qjg54")
 is_minion = false
-base_damage = 0.5
+switch_chance = 0.4
+min_switch_time = 4.0
+base_cooldown = 6.0
+base_damage = 1.0
 arm = NodePath("BullyArm")
 sfx_die = "event:/SFX/NPC/Bully/Die"
 sfx_entry = "event:/SFX/NPC/Bully/Entry"
@@ -214,13 +217,13 @@ position = Vector2(-49.23077, -27.692307)
 rotation = 0.091627955
 stat_modifiers = {
 0: 0.0,
-1: -0.1,
-2: 0.2,
+1: 0.0,
+2: 0.0,
 3: 0.0,
-4: 0.05,
+4: 0.0,
 5: 0.0
 }
-max_hp = 0.5
+max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_0qq5y")
@@ -242,13 +245,13 @@ shape = SubResource("RectangleShape2D_1j2w3")
 position = Vector2(61.53846, -21.53846)
 stat_modifiers = {
 0: 0.0,
-1: -0.1,
-2: 0.2,
+1: 0.0,
+2: 0.0,
 3: 0.0,
-4: 0.05,
+4: 0.0,
 5: 0.0
 }
-max_hp = 0.5
+max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_vprwn")
@@ -268,13 +271,13 @@ position = Vector2(-92.3077, -7.692308)
 rotation = -0.07894593
 stat_modifiers = {
 0: 0.0,
-1: -0.1,
-2: 0.2,
-3: 0.1,
-4: 0.05,
+1: 0.0,
+2: 0.0,
+3: 0.0,
+4: 0.0,
 5: 0.0
 }
-max_hp = 0.5
+max_hp = 1.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_qjg54")
@@ -293,13 +296,13 @@ shape = SubResource("RectangleShape2D_vprwn")
 position = Vector2(92.30769, -6.1538467)
 stat_modifiers = {
 0: 0.0,
-1: -0.1,
-2: 0.2,
-3: 0.1,
-4: 0.05,
+1: 0.0,
+2: 0.0,
+3: 0.0,
+4: 0.0,
 5: 0.0
 }
-max_hp = 0.5
+max_hp = 1.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_oqmy7")
@@ -317,13 +320,13 @@ shape = SubResource("RectangleShape2D_qjg54")
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 stat_modifiers = {
 0: 0.0,
-1: -0.1,
-2: 0.2,
-3: 0.1,
-4: 0.05,
+1: 0.0,
+2: 0.0,
+3: 0.0,
+4: 0.0,
 5: 0.0
 }
-max_hp = 0.5
+max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_rpsbt")
@@ -338,13 +341,13 @@ shape = SubResource("RectangleShape2D_ci5v1")
 position = Vector2(3.0769234, 41.538464)
 stat_modifiers = {
 0: 0.0,
-1: -0.1,
-2: 0.2,
-3: 0.1,
-4: 0.05,
+1: 0.0,
+2: 0.0,
+3: 0.0,
+4: 0.0,
 5: 0.0
 }
-max_hp = 0.5
+max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 modulate = Color(0.7567424, 0.18149996, 0.4081871, 1)

@@ -379,6 +379,7 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 		if not is_targeted and sprite:
 			sprite.modulate = current_color
 	if current_hp <= 0 and state != PartState.DESTROYED:
+		anatomy_fucked.emit()
 		var bp : GPUParticles2D = blood_particle.instantiate()
 		bp.one_shot = false
 		bp.amount_ratio = randf_range(0.2, 1.0)

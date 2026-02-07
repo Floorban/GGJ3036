@@ -58,14 +58,23 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q0pih"]
-radius = 42.190044
+radius = 99.00505
 
 [node name="FuckedEar" unique_id=1690948451 instance=ExtResource("1_i35d8")]
+stat_modifiers = {
+0: 0.0,
+1: -0.2,
+2: 0.2,
+3: 0.1,
+4: 0.0,
+5: 0.0
+}
 anatomy_type = 1
 state = 3
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_og2o3")
+scale = Vector2(3, 3)
 texture = ExtResource("2_dtd01")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]

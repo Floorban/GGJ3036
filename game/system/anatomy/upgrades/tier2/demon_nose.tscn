@@ -58,14 +58,14 @@ shader_parameter/glowSharpness = 5.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qr7qf"]
-radius = 17.0
-height = 52.0
+radius = 57.0
+height = 214.0
 
 [node name="NoseMaxHP" unique_id=1690948451 instance=ExtResource("1_inlgv")]
 z_index = 10
 stat_modifiers = {
 0: 0.0,
-1: 0.3,
+1: -0.3,
 2: 0.0,
 3: 0.0,
 4: 0.3,
@@ -78,12 +78,12 @@ max_hp = 2.0
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_qqabs")
 position = Vector2(-1.25, -2)
-scale = Vector2(1, 1)
+scale = Vector2(3, 3)
 texture = ExtResource("2_nddok")
 
 [node name="MouseDetectArea" parent="." index="1" unique_id=1106976729]
 position = Vector2(-1.25, -2)
 
 [node name="CollisionShape2D" parent="MouseDetectArea" index="0" unique_id=149295176]
-position = Vector2(0.25, 1)
+position = Vector2(3.25, 7)
 shape = SubResource("CapsuleShape2D_qr7qf")

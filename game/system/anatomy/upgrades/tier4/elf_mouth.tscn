@@ -61,6 +61,14 @@ shader_parameter/alphaThreshold = 0.2
 size = Vector2(20, 16.426857)
 
 [node name="ElfMouth" unique_id=1690948451 instance=ExtResource("1_y30ss")]
+stat_modifiers = {
+0: 0.0,
+1: -0.3,
+2: 0.1,
+3: 0.1,
+4: 0.0,
+5: 0.0
+}
 anatomy_type = 3
 state = 3
 
