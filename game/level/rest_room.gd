@@ -28,8 +28,7 @@ func get_allowed_tiers(level: int) -> Array[int]:
 		return [4, 5]
 
 @export var upgrade_parts : Array[Anatomy]
-
-@onready var part_spawn_markers: Array[Marker2D] = [%SpawnMarker1, %SpawnMarker2, %SpawnMarker3, %SpawnMarker4]
+@onready var part_spawn_markers: Array[Marker2D] = [%SpawnMarker1, %SpawnMarker2, %SpawnMarker3, %SpawnMarker4, %SpawnMarker5, %SpawnMarker6, %SpawnMarker7, %SpawnMarker8, %SpawnMarker9, %SpawnMarker10, %SpawnMarker11, %SpawnMarker12]
 
 func _ready() -> void:
 	Stats.rest_room = self
@@ -37,20 +36,23 @@ func _ready() -> void:
 	leave_rest_room()
 
 func enter_rest_room(current_level: int) -> void:
+	if current_level % 2 == 0:
+		clear_upgrade_parts()
 	part_info_panel.visible = true
 	background.visible = true
 	ready_button.visible = true
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	audio.muffle(true, false)
+
+	for part in player.anatomy_parts:
+		if part.state == Anatomy.PartState.DESTROYED:
+			part.body_owner = null
+	await  get_tree().create_timer(0.1).timeout
+	player.rest_mode = true
 	spawn_parts(current_level)
 	connect_parts_interact_signal()
 	for p in background.get_children():
 		p.z_index = 10
-	for part in player.anatomy_parts:
-		if part.state == Anatomy.PartState.DESTROYED:
-			part.body_owner = null
-	await  get_tree().create_timer(1.0).timeout
-	player.rest_mode = true
 
 func leave_rest_room() -> void:
 	part_info_panel.visible = false
@@ -71,51 +73,94 @@ func leave_rest_room() -> void:
 	ready_to_fight.emit()
 
 func clear_upgrade_parts() -> void:
-	for slot in upgrade_parts:
-		for child in slot.get_children():
-			child.queue_free()
+	for marker in part_spawn_markers:
+		if not marker.get_children().is_empty():
+			for c in marker.get_children():
+				c.queue_free()
+	for part in upgrade_parts:
+		part.queue_free()
+	upgrade_parts.clear()
 
-func get_upgrade_scene_pool(level: int) -> Array[PackedScene]:
-	var allowed_tiers := get_allowed_tiers(level)
-	var pool: Array[PackedScene] = []
+var remaining_upgrade_pool: Array[PackedScene] = []
 
-	for tier in allowed_tiers:
-		if upgrade_scenes_by_tier.has(tier):
-			for s in upgrade_scenes_by_tier[tier]:
-				if s is PackedScene:
-					pool.append(s)
-
+func get_upgrade_scene_pool(level: int) -> Array[PackedScene]: 
+	var allowed_tiers := get_allowed_tiers(level) 
+	var pool: Array[PackedScene] = [] 
+	for tier in allowed_tiers: if upgrade_scenes_by_tier.has(tier):
+		for s in upgrade_scenes_by_tier[tier]: 
+			if s is PackedScene: 
+				pool.append(s) 
 	return pool
 
-func spawn_parts(level: int) -> void:
-	#clear_upgrade_parts()
+func build_upgrade_pool(level: int) -> void:
+	remaining_upgrade_pool.clear()
+	remaining_upgrade_pool = get_upgrade_scene_pool(level)
+	remaining_upgrade_pool.shuffle()
 
-	var pool := get_upgrade_scene_pool(level)
-	if pool.is_empty():
+func pick_unique_upgrade(level: int) -> PackedScene:
+	if remaining_upgrade_pool.is_empty():
+		# Refill once all unique options are used
+		build_upgrade_pool(level)
+
+	if remaining_upgrade_pool.is_empty():
+		return null
+
+	return remaining_upgrade_pool.pop_back()
+
+
+func spawn_parts(level: int) -> void:
+	if remaining_upgrade_pool.is_empty():
+		build_upgrade_pool(level)
+
+	var free_markers: Array[Marker2D] = []
+	for marker in part_spawn_markers:
+		if marker.get_child_count() == 0:
+			free_markers.append(marker)
+
+	if free_markers.is_empty():
 		return
 
-	for i in range(min(4, part_spawn_markers.size())):
-		var scene: PackedScene = pool.pick_random()
-		var part := scene.instantiate() as Anatomy
+	free_markers.shuffle()
 
-		upgrades.add_child(part)
-		part.global_position = part_spawn_markers[i].global_position + Vector2(randf_range(-1, 1), randf_range(-1, 1))
-		part.rotation = randf_range(-5,5)
+	var spawn_count : int = min(6, free_markers.size())
+
+	for i in range(spawn_count):
+		var scene := pick_unique_upgrade(level)
+		if scene == null:
+			break
+		var part := scene.instantiate() as Anatomy
+		var marker := free_markers[i]
+
+		marker.add_child(part)
+		part.global_position = marker.global_position + Vector2(
+			randf_range(-3, 3),
+			randf_range(-3, 3)
+		)
+		part.rotation = marker.global_rotation + randf_range(-5, 5)
+
 		part.state = Anatomy.PartState.OutOfBody
 		upgrade_parts.append(part)
 		
+		if part.body_owner == null:
+			part.state = Anatomy.PartState.OutOfBody
+			upgrade_parts.append(part)
+
+
+func is_marker_occupied(marker: Marker2D, radius := 2.0) -> bool:
+	for part in upgrade_parts:
+		if not is_instance_valid(part):
+			continue
+		if part.global_position.distance_to(marker.global_position) <= radius:
+			return true
+	return false
 
 func connect_parts_interact_signal() -> void:
-	upgrade_parts.clear()
-	for u in upgrades.get_children():
-		if u is Anatomy:
-			u.state = Anatomy.PartState.OutOfBody
-			upgrade_parts.append(u)
 	if upgrade_parts.is_empty():
 		return
 	for part in upgrade_parts:
-		if not part.anatomy_clicked.is_connected(player._on_self_anatomy_clicked):
-			part.anatomy_clicked.connect(player._on_self_anatomy_clicked)
+		if is_instance_valid(part):
+			if not part.anatomy_clicked.is_connected(player._on_self_anatomy_clicked):
+				part.anatomy_clicked.connect(player._on_self_anatomy_clicked)
 
 @onready var part_info_panel: MarginContainer = $CanvasLayer/PartInfoPanel
 @onready var label_part_name: Label = %LabelPartName

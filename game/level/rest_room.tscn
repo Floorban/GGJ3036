@@ -53,11 +53,33 @@ texture = ExtResource("12_8sk3i")
 
 [node name="SpawnMarker1" type="Marker2D" parent="Background/Table1" unique_id=1327400277]
 unique_name_in_owner = true
-position = Vector2(97.51934, -535.2144)
+position = Vector2(161.98161, -587.9881)
+rotation = -0.3253111
 
 [node name="SpawnMarker2" type="Marker2D" parent="Background/Table1" unique_id=273737345]
 unique_name_in_owner = true
-position = Vector2(116.74788, -338.71152)
+position = Vector2(172.55011, -431.16876)
+rotation = 0.38675383
+
+[node name="SpawnMarker3" type="Marker2D" parent="Background/Table1" unique_id=694273509]
+unique_name_in_owner = true
+position = Vector2(185.23354, -271.22702)
+rotation = 0.80928206
+
+[node name="SpawnMarker4" type="Marker2D" parent="Background/Table1" unique_id=639704576]
+unique_name_in_owner = true
+position = Vector2(35.88223, -595.9504)
+rotation = 0.19576293
+
+[node name="SpawnMarker5" type="Marker2D" parent="Background/Table1" unique_id=2071331814]
+unique_name_in_owner = true
+position = Vector2(62.76655, -425.13052)
+rotation = -0.5024488
+
+[node name="SpawnMarker6" type="Marker2D" parent="Background/Table1" unique_id=1155857181]
+unique_name_in_owner = true
+position = Vector2(70.21267, -266.19617)
+rotation = 0.65046626
 
 [node name="Table2" type="Sprite2D" parent="Background" unique_id=207262391]
 position = Vector2(130.9768, 157.29297)
@@ -65,16 +87,40 @@ rotation = -0.389355
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("12_8sk3i")
 
-[node name="SpawnMarker3" type="Marker2D" parent="Background/Table2" unique_id=1915834727]
+[node name="SpawnMarker7" type="Marker2D" parent="Background/Table2" unique_id=525682706]
 unique_name_in_owner = true
-position = Vector2(-378.84424, -186.32512)
+position = Vector2(-369.1364, 36.093876)
 rotation = 1.6664709
 scale = Vector2(1.0000001, 1.0000001)
 
-[node name="SpawnMarker4" type="Marker2D" parent="Background/Table2" unique_id=410362233]
+[node name="SpawnMarker8" type="Marker2D" parent="Background/Table2" unique_id=453852570]
 unique_name_in_owner = true
-position = Vector2(-428.89508, -6.473855)
-rotation = 1.6664709
+position = Vector2(-376.10934, -110.479744)
+rotation = 0.70377415
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="SpawnMarker9" type="Marker2D" parent="Background/Table2" unique_id=1915834727]
+unique_name_in_owner = true
+position = Vector2(-347.56625, -254.95872)
+rotation = 2.7420926
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="SpawnMarker10" type="Marker2D" parent="Background/Table2" unique_id=410362233]
+unique_name_in_owner = true
+position = Vector2(-496.00922, 4.384445)
+rotation = 2.660335
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="SpawnMarker11" type="Marker2D" parent="Background/Table2" unique_id=1194343830]
+unique_name_in_owner = true
+position = Vector2(-478.8997, -129.55641)
+rotation = 0.1058532
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="SpawnMarker12" type="Marker2D" parent="Background/Table2" unique_id=1046819135]
+unique_name_in_owner = true
+position = Vector2(-486.17654, -284.55728)
+rotation = 2.4542255
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981571717]
