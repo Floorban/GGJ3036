@@ -1,0 +1,253 @@
+[gd_scene format=3 uid="uid://dg80hkoj8qolf"]
+
+[ext_resource type="Texture2D" uid="uid://bn4iu0fq23qsi" path="res://sprites/Backgrounds/Surgery Room.png" id="1_e22fr"]
+[ext_resource type="Script" uid="uid://5n2ghk5tkp7t" path="res://game/level/rest_room.gd" id="1_nbyfe"]
+[ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="3_x4kus"]
+[ext_resource type="PackedScene" uid="uid://ishblhy8w5qi" path="res://game/system/anatomy/upgrades/tier2/demon_ear.tscn" id="6_2xwxa"]
+[ext_resource type="PackedScene" uid="uid://1hwmwkncudxn" path="res://game/system/anatomy/upgrades/tier2/demon_eye.tscn" id="7_8sk3i"]
+[ext_resource type="PackedScene" uid="uid://m6dmohtvw0ri" path="res://game/system/anatomy/upgrades/tier1/noncha_ear.tscn" id="7_x1e6w"]
+[ext_resource type="PackedScene" uid="uid://f5k2kjw521t7" path="res://game/system/anatomy/upgrades/tier1/noncha_eye.tscn" id="8_2xwxa"]
+[ext_resource type="Texture2D" uid="uid://bou2hqbj520kj" path="res://sprites/ui/EnemyStatBG.png" id="8_n8ak7"]
+[ext_resource type="PackedScene" uid="uid://b3g37sa5dgn3s" path="res://game/system/anatomy/upgrades/tier2/demon_mouth.tscn" id="8_xisql"]
+[ext_resource type="PackedScene" uid="uid://b3wqor540mvul" path="res://game/system/anatomy/upgrades/tier1/noncha_nose.tscn" id="9_8sk3i"]
+[ext_resource type="PackedScene" uid="uid://dxfudgfq78ixl" path="res://game/system/anatomy/upgrades/tier2/demon_nose.tscn" id="9_byr16"]
+[ext_resource type="Texture2D" uid="uid://bgs8ei7uqqtnk" path="res://sprites/ui/EnemyStatHealthLine.png" id="9_l1uns"]
+[ext_resource type="PackedScene" uid="uid://d2va0cs367xx0" path="res://game/system/anatomy/upgrades/tier3/fucked_ear.tscn" id="10_7lyvt"]
+[ext_resource type="Texture2D" uid="uid://7jimgxiewrvo" path="res://sprites/ui/EnemyStatHealthBar.png" id="10_563by"]
+[ext_resource type="PackedScene" uid="uid://b6t5437f1apxj" path="res://game/system/anatomy/upgrades/tier1/noncha_mouth.tscn" id="10_xisql"]
+[ext_resource type="PackedScene" uid="uid://s8u8xkowfvjv" path="res://game/system/anatomy/upgrades/tier3/fucked_eye.tscn" id="11_v0ssp"]
+[ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="12_8sk3i"]
+[ext_resource type="PackedScene" uid="uid://egt4qb24ek7n" path="res://game/system/anatomy/upgrades/tier3/fucked_mouth.tscn" id="12_qk48h"]
+[ext_resource type="PackedScene" uid="uid://cx0kphb1k46bi" path="res://game/system/anatomy/upgrades/tier3/fucked_nose.tscn" id="13_r5fj8"]
+[ext_resource type="PackedScene" uid="uid://b50j8rkhulsb0" path="res://game/system/anatomy/upgrades/tier4/elf_ear.tscn" id="14_bbuk5"]
+[ext_resource type="PackedScene" uid="uid://dwjlhjh7e48gb" path="res://game/system/anatomy/upgrades/tier4/elf_eye.tscn" id="15_8idhi"]
+[ext_resource type="PackedScene" uid="uid://bjy44ym3bqqkk" path="res://game/system/anatomy/upgrades/tier4/elf_mouth.tscn" id="16_kxqh5"]
+[ext_resource type="PackedScene" uid="uid://u124wvxpoejt" path="res://game/system/anatomy/upgrades/tier4/elf_nose.tscn" id="17_tn4a5"]
+
+[node name="RestRoom" type="Node2D" unique_id=1662139499 groups=["rest_room"]]
+script = ExtResource("1_nbyfe")
+upgrade_scenes_by_tier = {
+1: [ExtResource("7_x1e6w"), ExtResource("8_2xwxa"), ExtResource("10_xisql"), ExtResource("9_8sk3i")],
+2: [ExtResource("6_2xwxa"), ExtResource("7_8sk3i"), ExtResource("8_xisql"), ExtResource("9_byr16")],
+3: [ExtResource("10_7lyvt"), ExtResource("11_v0ssp"), ExtResource("12_qk48h"), ExtResource("13_r5fj8")],
+4: [ExtResource("14_bbuk5"), ExtResource("15_8idhi"), ExtResource("16_kxqh5"), ExtResource("17_tn4a5")],
+5: []
+}
+
+[node name="Background" type="Sprite2D" parent="." unique_id=844428716]
+z_index = -6
+position = Vector2(22, 121)
+rotation = -3.0379448
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_e22fr")
+
+[node name="Upgrades" type="Node2D" parent="Background" unique_id=1047918084]
+unique_name_in_owner = true
+z_index = 5
+
+[node name="Table1" type="Sprite2D" parent="Background" unique_id=1321632848]
+position = Vector2(-181.99187, 125.50282)
+rotation = 1.2771158
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("12_8sk3i")
+
+[node name="SpawnMarker7" type="Marker2D" parent="Background/Table1" unique_id=525682706]
+unique_name_in_owner = true
+position = Vector2(182.50539, -73.51648)
+
+[node name="SpawnMarker8" type="Marker2D" parent="Background/Table1" unique_id=453852570]
+unique_name_in_owner = true
+position = Vector2(37.268204, -52.573486)
+rotation = -0.9626968
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="SpawnMarker9" type="Marker2D" parent="Background/Table1" unique_id=1915834727]
+unique_name_in_owner = true
+position = Vector2(-109.2767, -67.18411)
+rotation = 1.0756217
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="SpawnMarker10" type="Marker2D" parent="Background/Table1" unique_id=410362233]
+unique_name_in_owner = true
+position = Vector2(163.06094, 55.805267)
+rotation = 0.9938643
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="SpawnMarker11" type="Marker2D" parent="Background/Table1" unique_id=1194343830]
+unique_name_in_owner = true
+position = Vector2(28.098206, 51.569183)
+rotation = -1.5606177
+
+[node name="SpawnMarker12" type="Marker2D" parent="Background/Table1" unique_id=1046819135]
+unique_name_in_owner = true
+position = Vector2(-125.49863, 73.61972)
+rotation = 0.7877548
+
+[node name="Table2" type="Sprite2D" parent="Background" unique_id=207262391]
+position = Vector2(130.9768, 157.29297)
+rotation = -0.389355
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("12_8sk3i")
+
+[node name="SpawnMarker1" type="Marker2D" parent="Background/Table2" unique_id=1327400277]
+unique_name_in_owner = true
+position = Vector2(144.94296, 64.81072)
+rotation = 1.3411597
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="SpawnMarker2" type="Marker2D" parent="Background/Table2" unique_id=273737345]
+unique_name_in_owner = true
+position = Vector2(-12.168777, 60.350163)
+rotation = 2.0532246
+
+[node name="SpawnMarker3" type="Marker2D" parent="Background/Table2" unique_id=694273509]
+unique_name_in_owner = true
+position = Vector2(-172.5907, 57.696564)
+rotation = 2.4757528
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="SpawnMarker4" type="Marker2D" parent="Background/Table2" unique_id=639704576]
+unique_name_in_owner = true
+position = Vector2(164.91495, -59.951332)
+rotation = 1.8622338
+
+[node name="SpawnMarker5" type="Marker2D" parent="Background/Table2" unique_id=2071331814]
+unique_name_in_owner = true
+position = Vector2(-7.691925, -49.508156)
+rotation = 1.164022
+
+[node name="SpawnMarker6" type="Marker2D" parent="Background/Table2" unique_id=1155857181]
+unique_name_in_owner = true
+position = Vector2(-166.61076, -57.27887)
+rotation = 2.3169372
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981571717]
+layer = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=919885564]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 374.0
+grow_vertical = 0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="ReadyButton" type="Button" parent="CanvasLayer/MarginContainer" unique_id=108928691]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_x4kus")
+theme_override_font_sizes/font_size = 32
+text = "I'M READY AGAIN"
+
+[node name="PartInfoPanel" type="MarginContainer" parent="CanvasLayer" unique_id=1985814430]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -490.0
+offset_bottom = 254.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PartInfoPanel" unique_id=1425424902]
+layout_mode = 2
+
+[node name="BasicInfoBG" type="TextureRect" parent="CanvasLayer/PartInfoPanel/VBoxContainer" unique_id=455046478]
+custom_minimum_size = Vector2(450, 200)
+layout_mode = 2
+texture = ExtResource("8_n8ak7")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG" unique_id=2087219104]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer" unique_id=1274651914]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer" unique_id=858823012]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LabelPartName" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1957691392]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_x4kus")
+theme_override_font_sizes/font_size = 23
+
+[node name="LabelPartState" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer/VBoxContainer" unique_id=16154558]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_x4kus")
+theme_override_font_sizes/font_size = 23
+
+[node name="LabelPartHP" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer/VBoxContainer" unique_id=581046000]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47657922, 0.94337994, 0.12835406, 1)
+theme_override_fonts/font = ExtResource("3_x4kus")
+theme_override_font_sizes/font_size = 23
+
+[node name="BarPartHP" type="TextureProgressBar" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1551690499]
+unique_name_in_owner = true
+self_modulate = Color(0.7408037, 0.0513897, 0.28799915, 1)
+layout_mode = 2
+step = 0.01
+value = 100.0
+stretch_margin_left = 20
+stretch_margin_right = 20
+texture_under = ExtResource("9_l1uns")
+texture_progress = ExtResource("10_563by")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer" unique_id=265871884]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2" unique_id=142702774]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LabelPartStat1" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=186648421]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1.781, 0.64, 0.667, 1)
+theme_override_fonts/font = ExtResource("3_x4kus")
+theme_override_font_sizes/font_size = 23
+vertical_alignment = 1
+
+[node name="LabelPartStat2" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=135409307]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1.781, 0.64, 0.667, 1)
+theme_override_fonts/font = ExtResource("3_x4kus")
+theme_override_font_sizes/font_size = 23
+vertical_alignment = 1
+
+[node name="LabelPartStat3" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=957027193]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1.781, 0.64, 0.667, 1)
+theme_override_fonts/font = ExtResource("3_x4kus")
+theme_override_font_sizes/font_size = 23
+vertical_alignment = 1
+
+[node name="LabelPartStat4" type="Label" parent="CanvasLayer/PartInfoPanel/VBoxContainer/BasicInfoBG/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1291444281]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1.781, 0.64, 0.667, 1)
+theme_override_fonts/font = ExtResource("3_x4kus")
+theme_override_font_sizes/font_size = 23
+vertical_alignment = 1

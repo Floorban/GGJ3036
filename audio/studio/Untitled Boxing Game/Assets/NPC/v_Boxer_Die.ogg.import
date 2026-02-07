@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://36ldt58c5cc8"
+path="res://.godot/imported/v_Boxer_Die.ogg-56d84463511656d74c7a5e8ccdcc95cc.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/NPC/v_Boxer_Die.ogg"
+dest_files=["res://.godot/imported/v_Boxer_Die.ogg-56d84463511656d74c7a5e8ccdcc95cc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

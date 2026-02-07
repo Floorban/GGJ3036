@@ -1,22 +1,22 @@
 class_name Player extends Character
 
-var can_control := true
 var selected_target: Anatomy
 
 func get_anatomy_references() -> void:
 	super.get_anatomy_references()
 	for a in anatomy_parts:
-		a.anatomy_clicked.connect(_on_self_anatomy_clicked)
+		if not a.anatomy_clicked.is_connected(_on_self_anatomy_clicked):
+			a.anatomy_clicked.connect(_on_self_anatomy_clicked)
 	for a in opponent_anatomy:
-		a.anatomy_clicked.connect(_on_enemy_anatomy_clicked)
+		if not a.anatomy_clicked.is_connected(_on_enemy_anatomy_clicked):
+			a.anatomy_clicked.connect(_on_enemy_anatomy_clicked)
 
-func get_ready_to_battle() -> void:
-	super.get_ready_to_battle()
-	can_control = true
-
-func end_battle() -> void:
-	super.end_battle()
-	can_control = false
+func start_round() -> void:
+	super.start_round()
+	if selected_target:
+		if selected_target in opponent_anatomy:
+			selected_target.is_targeted = true
+			selected_target._highlight_target()
 
 func choose_target() -> Anatomy:
 	if selected_target and selected_target.state != Anatomy.PartState.DESTROYED:
@@ -24,6 +24,10 @@ func choose_target() -> Anatomy:
 	return null
 
 func _on_action_ready() -> void:
+	if not can_control:
+		selected_target.is_targeted = false
+		selected_target._unhighlight_target()
+		return
 	super._on_action_ready()
 	if selected_target and can_action and not blocking_part:
 		if selected_target.state != Anatomy.PartState.DESTROYED:
@@ -43,11 +47,36 @@ func _on_block_finished() -> void:
 		blocking_part.is_blocking = false
 	blocking_part = null
 	arm.interrupt(func(): 
-		combat_component.reset_attack_timer(action_cooldown)
-		combat_component.start()
+		if can_control:
+			combat_component.reset_attack_timer(action_cooldown)
+			combat_component.start()
 	)
 
+func get_ready_to_battle() -> void:
+	super.get_ready_to_battle()
+	for part: Anatomy in features.get_children():
+		if not part.body_owner or part.body_owner != self:
+			part.reparent(Stats.rest_room.background)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("right_click") and selected_target:
+		if selected_target in anatomy_parts:
+			selected_target.is_blocking = false
+			if blocking_part:
+				blocking_part.is_blocking = false
+			blocking_part = null
+			arm.rest_pos()
+		elif not can_action:
+			selected_target.is_targeted = false
+			selected_target._unhighlight_target()
+		selected_target = null
+
 func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
+	if (arm.movable_by_mouse and anatomy.state == Anatomy.PartState.FUCKED) or (rest_mode): #and anatomy.state != Anatomy.PartState.HEALTHY
+		arm.pickup_obj(anatomy)
+		arm.z_index = -2
+		return
+
 	if arm.is_punching or not can_control:
 		return
 	if selected_target != anatomy:
@@ -82,7 +111,10 @@ func _on_enemy_anatomy_clicked(anatomy: Anatomy) -> void:
 		selected_target = anatomy
 		if can_action:
 			_perform_attack(selected_target)
-	else:
-		selected_target = null
-		anatomy.is_targeted = false
-		anatomy._unhighlight_target()
+	#else:
+		#selected_target = null
+		#anatomy.is_targeted = false
+		#anatomy._unhighlight_target()
+
+func character_die_sfx() -> void:
+	pass

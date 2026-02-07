@@ -52,7 +52,8 @@ bone_angle = 0.0
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmUp" type="Sprite2D" parent="Skeleton2D/ArmUp" unique_id=1904858807]
-self_modulate = Color(0.56032693, 0.560327, 0.56032693, 1)
+unique_name_in_owner = true
+self_modulate = Color(0.8093322, 0.80933225, 0.8093322, 1)
 z_index = -1
 position = Vector2(242.43018, 0.66143036)
 rotation = -1.7560382
@@ -61,6 +62,7 @@ texture = ExtResource("2_ro8a2")
 
 [node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1025545314]
 unique_name_in_owner = true
+self_modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)
 custom_minimum_size = Vector2(500, 200)
 offset_left = -80.22178
 offset_top = -122.55974
@@ -84,7 +86,8 @@ bone_angle = 74.27897
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
-self_modulate = Color(0.56032693, 0.560327, 0.56032693, 1)
+unique_name_in_owner = true
+self_modulate = Color(0.80784315, 0.80784315, 0.80784315, 1)
 z_index = -2
 position = Vector2(53.256737, 83.71187)
 scale = Vector2(1.5, 1.5)
@@ -92,6 +95,7 @@ texture = ExtResource("4_ro8a2")
 
 [node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1587456585]
 unique_name_in_owner = true
+self_modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)
 offset_left = -117.00564
 offset_top = -91.096886
 offset_right = 398.99435

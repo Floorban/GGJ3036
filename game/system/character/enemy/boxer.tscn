@@ -1,27 +1,151 @@
-[gd_scene format=3 uid="uid://bjmnq3jlda34w"]
+[gd_scene format=3 uid="uid://rpxbndksegvk"]
 
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_l53d7"]
 [ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_26h1w"]
-[ext_resource type="Texture2D" uid="uid://c7hpvptgk40bi" path="res://sprites/body_parts/Noise.png" id="3_0rm70"]
+[ext_resource type="Texture2D" uid="uid://cgfs5spl0ru5e" path="res://sprites/body_parts/BoxerNoise.png" id="4_1b26b"]
 [ext_resource type="Texture2D" uid="uid://dmj8yhqk8h7s7" path="res://sprites/body_parts/Bodies/BoxerBody.png" id="4_p4nqb"]
 [ext_resource type="Texture2D" uid="uid://btk5wola3ox5u" path="res://sprites/body_parts/Shadows/Shadows.png" id="5_2soic"]
+[ext_resource type="Texture2D" uid="uid://cf7r76jwh0wg3" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerEar1.png" id="6_1b26b"]
 [ext_resource type="PackedScene" uid="uid://c8e5bllrxa3un" path="res://game/system/anatomy/parts/body/boxer_arm.tscn" id="6_p4nqb"]
+[ext_resource type="Texture2D" uid="uid://daso861gbapgv" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerEye.png" id="6_xh6fd"]
+[ext_resource type="Texture2D" uid="uid://5ksven807827" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerNose.png" id="7_trmn6"]
+[ext_resource type="Texture2D" uid="uid://bx66efeocb5lk" path="res://sprites/body_parts/FaceAssets/Enemies/Boxer/BoxerAngryMouth.png" id="10_xh6fd"]
+
+[sub_resource type="Shader" id="Shader_2ro5p"]
+code = "shader_type canvas_item;
+
+uniform sampler2D sprite_texture : source_color, filter_linear;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float glowSize : hint_range(0.0, 300.0) = 15.0;
+uniform int glowDensity : hint_range(0, 30) = 3;
+uniform int glowRadialCoverage : hint_range(0, 32) = 4;
+uniform float glowAngle : hint_range(0.0, 6.283) = 1.57;
+uniform float glowSharpness : hint_range(0.0, 5.0) = 1.0;
+uniform float alphaThreshold : hint_range(0.0, 1.0) = 0.2;
+
+void fragment() {
+	vec4 col = texture(sprite_texture, UV);
+
+	COLOR = col;
+
+	vec2 pixel_size = 1.0 / vec2(textureSize(sprite_texture, 0));
+	float alph = 0.0;
+
+	for (int i = 0; i < glowRadialCoverage; i++) {
+		for (int j = 0; j < glowDensity; j++) {
+			float angle = (TAU / float(glowRadialCoverage)) * float(i + 1) + glowAngle;
+			float dist = glowSize * float(j + 1) / float(glowDensity);
+
+			vec2 offset = vec2(sin(angle), cos(angle)) * pixel_size * dist;
+			vec4 tex = texture(sprite_texture, UV + offset);
+
+			float distFrom = float(glowDensity - j) / float(glowDensity);
+			float sharpness = pow(distFrom, glowSharpness);
+
+			alph += tex.a * line_color.a * sharpness;
+		}
+	}
+
+	if (col.a < alphaThreshold) {
+		COLOR.rgb = line_color.rgb;
+		COLOR.a = alph;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvior"]
+shader = SubResource("Shader_2ro5p")
+shader_parameter/sprite_texture = ExtResource("6_xh6fd")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 4.00000019
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4s0o"]
+size = Vector2(55.38462, 31.384619)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trmn6"]
+shader = SubResource("Shader_2ro5p")
+shader_parameter/sprite_texture = ExtResource("6_xh6fd")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 4.00000019
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh6fd"]
+size = Vector2(54.230988, 37.85066)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4s0o"]
+shader = SubResource("Shader_2ro5p")
+shader_parameter/sprite_texture = ExtResource("6_1b26b")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 4.00000019
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6xh16"]
+shader = SubResource("Shader_2ro5p")
+shader_parameter/sprite_texture = ExtResource("6_1b26b")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 4.00000019
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oepvl"]
+shader = SubResource("Shader_2ro5p")
+shader_parameter/sprite_texture = ExtResource("7_trmn6")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 4.00000019
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oepvl"]
+size = Vector2(76.97929, 25.3265)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xh6fd"]
+shader = SubResource("Shader_2ro5p")
+shader_parameter/sprite_texture = ExtResource("10_xh6fd")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 4.00000019
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p4nqb"]
+radius = 30.772518
+height = 132.3141
 
 [node name="Boxer" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_l53d7")]
 script = ExtResource("2_26h1w")
+is_minion = false
 action_cooldown = 5.0
+attack_damage = 1.5
+punch_strength = 0.08
+critical_chance = 0.5
 arm = NodePath("BoxerArm")
+sfx_die = "event:/SFX/NPC/Boxer/Die"
+sfx_entry = "event:/SFX/NPC/Boxer/Entry"
+sfx_hurt = "event:/SFX/NPC/Boxer/Hurt"
 
-[node name="Noise" type="Sprite2D" parent="." index="0" unique_id=1677025307]
-modulate = Color(1, 1, 1, 0.7372549)
-z_index = 5
-texture_filter = 1
-position = Vector2(2, 4.7683716e-07)
-rotation = -0.06344986
-scale = Vector2(1.18494, 0.99840635)
-texture = ExtResource("3_0rm70")
-
-[node name="Shoulder" type="Sprite2D" parent="." index="1" unique_id=799220475]
+[node name="Shoulder" type="Sprite2D" parent="." index="0" unique_id=799220475]
 z_index = -3
 texture_filter = 1
 position = Vector2(2, 3.9999986)
@@ -29,51 +153,90 @@ rotation = -3.16503
 scale = Vector2(0.55, 0.45)
 texture = ExtResource("4_p4nqb")
 
-[node name="Face" parent="." index="2" unique_id=1276534686]
+[node name="Face" parent="." index="1" unique_id=1276534686]
 scale = Vector2(0.65, 0.65)
 
-[node name="Shadow" type="Sprite2D" parent="Face" index="0" unique_id=1587950718]
+[node name="Noise" type="Sprite2D" parent="Face" index="0" unique_id=1677025307]
+modulate = Color(1, 1, 1, 0.7372549)
+z_index = 5
+texture_filter = 1
+position = Vector2(3.0769234, 7.335957e-07)
+rotation = -0.06344986
+texture = ExtResource("4_1b26b")
+
+[node name="Shadow" type="Sprite2D" parent="Face" index="1" unique_id=1587950718]
+visible = false
 texture_filter = 1
 position = Vector2(3.999999, -12.000001)
 rotation = 0.087266445
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("5_2soic")
 
-[node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
-max_hp = 4.0
+[node name="Sprite" parent="Face/Features/EyeL" parent_id_path=PackedInt32Array(1690948451) index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_uvior")
+position = Vector2(39.384617, 25.84615)
+rotation = 0.15655711
+texture = ExtResource("6_xh6fd")
 
-[node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
-max_hp = 4.0
+[node name="CollisionShape2D" parent="Face/Features/EyeL/MouseDetectArea" parent_id_path=PackedInt32Array(1690948451, 1106976729) index="0" unique_id=149295176]
+position = Vector2(-2.1538582, 0)
+shape = SubResource("RectangleShape2D_f4s0o")
 
-[node name="AnatomyUI" parent="Face/Features/EyeR" index="2" unique_id=665909425]
-z_index = 0
+[node name="Sprite" parent="Face/Features/EyeR" parent_id_path=PackedInt32Array(584210078) index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_trmn6")
+position = Vector2(27.396702, -26.602942)
+rotation = -3.3744605
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_xh6fd")
+
+[node name="CollisionShape2D" parent="Face/Features/EyeR/MouseDetectArea" parent_id_path=PackedInt32Array(584210078, 1106976729) index="0" unique_id=149295176]
+position = Vector2(-5.884514, 1.1444092e-05)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_xh6fd")
 
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
-max_hp = 4.0
+max_hp = 1.0
 
-[node name="AnatomyUI" parent="Face/Features/EarL" index="2" unique_id=665909425]
-z_index = 0
+[node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_f4s0o")
 
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
-max_hp = 4.0
+max_hp = 1.0
 
-[node name="AnatomyUI" parent="Face/Features/EarR" index="2" unique_id=665909425]
-z_index = 0
+[node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_6xh16")
+
+[node name="CollisionShape2D" parent="Face/Features/EarR/MouseDetectArea" parent_id_path=PackedInt32Array(959483894, 1106976729) index="0" unique_id=149295176]
+position = Vector2(9.615379, -29.307713)
+rotation = 0.084238775
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 max_hp = 4.0
 
-[node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
-position = Vector2(12.307696, 3.3846195)
+[node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_oepvl")
 
-[node name="AnatomyUI" parent="Face/Features/Nose" index="2" unique_id=665909425]
-z_index = 0
+[node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
+position = Vector2(9.230772, -3.3461556)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="1" unique_id=1052547492]
+position = Vector2(11.030829, 24.900145)
+rotation = -0.051714513
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_oepvl")
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 max_hp = 4.0
 
-[node name="AnatomyUI" parent="Face/Features/Mouth" index="2" unique_id=665909425]
-z_index = 0
+[node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_xh6fd")
+position = Vector2(-8.769228, -67.92307)
+rotation = 0.03633562
+
+[node name="CollisionShape2D" parent="Face/Features/Mouth/MouseDetectArea" parent_id_path=PackedInt32Array(508432269, 1106976729) index="0" unique_id=149295176]
+position = Vector2(-2.6153865, 16.692312)
+rotation = -1.5729835
+shape = SubResource("CapsuleShape2D_p4nqb")
 
 [node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
 anchors_preset = 0
@@ -90,9 +253,10 @@ grow_vertical = 1
 theme_override_constants/margin_left = 230
 theme_override_constants/margin_top = 100
 
-[node name="BoxerArm" parent="." index="4" unique_id=1972221418 instance=ExtResource("6_p4nqb")]
+[node name="BoxerArm" parent="." index="3" unique_id=1972221418 instance=ExtResource("6_p4nqb")]
 position = Vector2(-119, -11)
 
+[editable path="Face/Features/EyeL"]
 [editable path="Face/Features/EyeR"]
 [editable path="Face/Features/EarL"]
 [editable path="Face/Features/EarR"]

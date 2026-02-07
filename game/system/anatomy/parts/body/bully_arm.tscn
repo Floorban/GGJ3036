@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crtjhl3xse5fi" path="res://game/system/anatomy/parts/body/arm.gd" id="1_wpigf"]
 [ext_resource type="Texture2D" uid="uid://klmyj3qqo2mv" path="res://sprites/body_parts/Arms/Bully/BullyBiceps.png" id="2_ita1a"]
+[ext_resource type="Shader" uid="uid://dim1ugxl8jwel" path="res://game/system/anatomy/parts/body/sprite_shadow.gdshader" id="2_wpigf"]
 [ext_resource type="Texture2D" uid="uid://3pyd2dq5e6s1" path="res://sprites/body_parts/Arms/Bully/BullyForearm.png" id="4_ita1a"]
 [ext_resource type="Texture2D" uid="uid://b6wqc8wi4oqxn" path="res://sprites/body_parts/Arms/Bully/BullyHands.png" id="7_ita1a"]
 
@@ -23,6 +24,11 @@ enabled = true
 modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DFABRIK_kibof")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nec5t"]
+shader = ExtResource("2_wpigf")
+shader_parameter/shadow_offset = Vector2(35, 20)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.3)
+
 [node name="BullyArm" type="Node2D" unique_id=1972221418]
 script = ExtResource("1_wpigf")
 windup_distance = 20.0
@@ -41,6 +47,7 @@ bone_angle = -8.84
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmUp" type="Sprite2D" parent="Skeleton2D/ArmUp" unique_id=1904858807]
+unique_name_in_owner = true
 self_modulate = Color(0.56032693, 0.560327, 0.56032693, 1)
 z_index = -1
 position = Vector2(136.34525, -7.8194504)
@@ -48,14 +55,23 @@ rotation = -1.7560382
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_ita1a")
 
+[node name="SpriteArmUp2" type="Sprite2D" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=2103452826]
+unique_name_in_owner = true
+self_modulate = Color(0.56032693, 0.560327, 0.56032693, 1)
+z_index = -5
+material = SubResource("ShaderMaterial_nec5t")
+texture = ExtResource("2_ita1a")
+
 [node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1025545314]
 unique_name_in_owner = true
+self_modulate = Color(1.1638972, 1.1638972, 1.1638972, 1)
 custom_minimum_size = Vector2(500, 200)
 offset_left = -60.59929
 offset_top = -81.84662
 offset_right = 439.4007
 offset_bottom = 634.1534
 rotation = 0.003891746
+mouse_filter = 2
 step = 0.01
 value = 99.79
 fill_mode = 2
@@ -72,18 +88,30 @@ bone_angle = 54.642998
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
+unique_name_in_owner = true
 self_modulate = Color(0.56032693, 0.560327, 0.56032693, 1)
 z_index = -2
 position = Vector2(106.22629, 134.25246)
 scale = Vector2(2, 2)
 texture = ExtResource("4_ita1a")
 
+[node name="SpriteArmLow2" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=585184191]
+unique_name_in_owner = true
+self_modulate = Color(0.56032693, 0.560327, 0.56032693, 1)
+z_index = -5
+material = SubResource("ShaderMaterial_nec5t")
+position = Vector2(-11.425141, -5.271387)
+rotation = 0.25380492
+texture = ExtResource("4_ita1a")
+
 [node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1587456585]
 unique_name_in_owner = true
+self_modulate = Color(1.1638972, 1.1638972, 1.1638972, 1)
 offset_left = -77.857704
 offset_top = -85.67804
 offset_right = 438.1423
 offset_bottom = 338.32196
+mouse_filter = 2
 step = 0.01
 value = 100.0
 fill_mode = 2
@@ -92,12 +120,12 @@ texture_progress = ExtResource("4_ita1a")
 [node name="Fist" type="Bone2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1916331396]
 position = Vector2(156.03815, 244.66867)
 rotation = 2.4981952
-scale = Vector2(0.35, 0.33900002)
-skew = 0.098727465
+scale = Vector2(0.35, 0.339)
+skew = 0.098727226
 rest = Transform2D(-0.45176578, -0.24657224, 0.7012968, -0.18903401, 299.9998, 0)
 auto_calculate_length_and_angle = false
 length = 80.0
-bone_angle = -63.206997
+bone_angle = -63.206985
 metadata/_local_pose_override_enabled_ = true
 
 [node name="SpriteFist" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow/Fist" unique_id=520692977]

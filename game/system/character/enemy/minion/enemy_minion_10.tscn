@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bph1ttuby7iom"]
+
+[ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_nn2wm"]
+[ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_5ivx8"]
+
+[node name="EnemyMinion10" unique_id=1861387119 instance=ExtResource("1_nn2wm")]
+script = ExtResource("2_5ivx8")
+is_minion = true
+
+[editable path="Face/Features/EyeR"]
+[editable path="Face/Features/EarL"]
+[editable path="Face/Features/EarR"]
+[editable path="Face/Features/Mouth"]

@@ -2,6 +2,12 @@ class_name Arm extends Node2D
 
 signal action_finished(blocking: bool)
 
+@export var movable_by_mouse := false
+@export var dragging_obj: Anatomy
+
+var arm_og_color: Color
+@onready var sprite_arm_up: Sprite2D = %SpriteArmUp
+@onready var sprite_arm_low: Sprite2D = %SpriteArmLow
 @onready var cd_bar_1: TextureProgressBar = %CDBar1
 @onready var cd_bar_2: TextureProgressBar = %CDBar2
 @onready var sprite_fist: Sprite2D = %SpriteFist
@@ -20,9 +26,40 @@ var interrupted := false
 @export var arm_dir := 1
 
 func _ready() -> void:
+	arm_og_color = sprite_arm_up.modulate
 	rest_position = fist_target.global_position
 	windup_position = rest_position
 	sprite_fist.modulate = Color.DIM_GRAY
+
+func _process(_delta: float) -> void:
+	if not movable_by_mouse:
+		return
+	if dragging_obj and Input.is_action_just_released("left_click"):
+		drop_obj()
+	fist_target.global_position = get_global_mouse_position()
+	if dragging_obj and dragging_obj.is_being_dragged:
+		dragging_obj.global_position = fist_target.global_position
+
+func pickup_obj(new_obj: Node2D) -> void:
+	dragging_obj = new_obj
+	if not dragging_obj.is_being_dragged:
+		dragging_obj.pickup_part()
+
+func drop_obj() -> void:
+	if dragging_obj:
+		dragging_obj.drop_part()
+		dragging_obj = null
+
+func toggle_arm(enabled: bool) -> void:
+	if enabled:
+		sprite_arm_up.modulate = arm_og_color
+		sprite_arm_low.modulate = arm_og_color
+		sprite_fist.modulate = arm_og_color
+	else:
+		set_cd_bar(0,1)
+		sprite_arm_up.modulate = Color.DARK_SLATE_GRAY
+		sprite_arm_low.modulate = Color.DARK_SLATE_GRAY
+		sprite_fist.modulate = Color.DARK_SLATE_GRAY
 
 func set_cd_bar(current: float, max_value: float) -> void:
 	var half = max_value / 2
@@ -38,7 +75,7 @@ func set_cd_bar(current: float, max_value: float) -> void:
 		cd_bar_2.value = current - half
 
 func _on_arm_charge_finished(scale_speed: float) -> void:
-	sprite_fist.modulate = Color.WHITE
+	sprite_fist.modulate = Color.WHITE * 2.0
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
@@ -97,7 +134,6 @@ func block_success() -> void:
 		blocking_pos,
 		0.3 + randf_range(-0.05,0.15)
 	)
-
 
 func block(target_global_pos: Vector2) -> void:
 	var tween := create_tween()
@@ -168,17 +204,17 @@ func interrupt(on_recover: Callable) -> void:
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
 	
-	var interrupted_pos := Vector2(randf_range(100,200), randf_range(1,2)) * arm_dir
+	var interrupted_pos := Vector2(randf_range(-50,-200), randf_range(-50,-200)) * arm_dir
 	
 	tween.tween_property(
 		fist_target,
 		"global_position",
 		rest_position + interrupted_pos,
-		0.3 + randf_range(-0.05,0.15)
+		0.4 + randf_range(0.05,0.15)
 	)
 
 	tween.tween_callback(func():
 		interrupted = false
 		on_recover.call()
-		rest_pos()
+		#rest_pos()
 	)
