@@ -38,7 +38,6 @@ func _ready() -> void:
 
 func enter_rest_room(current_level: int) -> void:
 	part_info_panel.visible = true
-	player.rest_mode = true
 	background.visible = true
 	ready_button.visible = true
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -50,6 +49,8 @@ func enter_rest_room(current_level: int) -> void:
 	for part in player.anatomy_parts:
 		if part.state == Anatomy.PartState.DESTROYED:
 			part.body_owner = null
+	await  get_tree().create_timer(1.0).timeout
+	player.rest_mode = true
 
 func leave_rest_room() -> void:
 	part_info_panel.visible = false
@@ -87,7 +88,7 @@ func get_upgrade_scene_pool(level: int) -> Array[PackedScene]:
 	return pool
 
 func spawn_parts(level: int) -> void:
-	clear_upgrade_parts()
+	#clear_upgrade_parts()
 
 	var pool := get_upgrade_scene_pool(level)
 	if pool.is_empty():

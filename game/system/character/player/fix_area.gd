@@ -16,7 +16,7 @@ func _ready() -> void:
 	#mouse_entered.connect(_hover_over_part)
 	#mouse_exited.connect(_unhover_part)
 	input_event.connect(_on_input_event)
-	if my_anatomy: 
+	if my_anatomy and not my_anatomy.anatomy_fucked.is_connected(lose_anatomy):
 		last_anatomy = my_anatomy
 		my_anatomy.anatomy_fucked.connect(lose_anatomy)
 	player.start.connect(reset_sprite)
@@ -38,19 +38,19 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 	sprite.modulate = Color.WEB_GRAY
 	sprite_og_color = sprite.modulate
 	reparent_anatomy(anatomy, player.features)
-	if last_anatomy and last_anatomy != anatomy:
+	if last_anatomy:
 		last_anatomy.state = Anatomy.PartState.OutOfBody
 		last_anatomy.body_owner = null
 		last_anatomy = my_anatomy
 	anatomy.body_owner = player
-	print(anatomy.body_owner)
-	anatomy.recover_part()
 	anatomy.position = position
 	anatomy.rotation = rotation
+	anatomy.og_pos = global_position
 	my_anatomy = anatomy
 	if not my_anatomy.anatomy_fucked.is_connected(lose_anatomy): my_anatomy.anatomy_fucked.connect(lose_anatomy)
 	is_occupied =  true
 	player.arm.drop_obj()
+	anatomy.recover_part()
 
 func reset_sprite() -> void:
 	sprite.modulate = Color.WHITE_SMOKE

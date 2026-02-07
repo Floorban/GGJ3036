@@ -70,6 +70,7 @@ var outline_mat: ShaderMaterial
 @export var og_pos : Vector2
 
 func _ready() -> void:
+	var bp : GPUParticles2D = blood_particle.instantiate()
 	og_pos = global_position
 	current_hp = max_hp
 	if not mouse_detect_area.mouse_entered.is_connected(_hover_over_part):
@@ -91,9 +92,10 @@ func _ready() -> void:
 signal disconnect()
 
 func _process(_delta: float) -> void:
+	if body_owner == null:
+		return
 	var dist := (global_position - og_pos).length()
-	if state == PartState.HEALTHY and dist > 15.0 and not is_being_dragged:
-		despawn_blood_line()
+	if state == PartState.HEALTHY and dist > 20.0 and body_owner.rest_mode:
 		#drop_part()
 		state = PartState.FUCKED
 		body_owner = null
@@ -102,8 +104,16 @@ func _process(_delta: float) -> void:
 		if not is_targeted and sprite:
 			sprite.modulate = current_color
 		disconnect.emit()
+		spawn_blood_parc()
 	if is_being_dragged:
 		update_blood_lines()
+
+func spawn_blood_parc(particle_amount: float = 1.0) -> void:
+	var bp : GPUParticles2D = blood_particle.instantiate()
+	bp.amount_ratio = particle_amount
+	bp.emitting = true
+	add_child(bp)
+	bp.global_position = og_pos
 
 func update_blood_lines() -> void:
 	for line in blood_lines:
@@ -124,14 +134,10 @@ var blood_lines: Array[Line2D] = []
 
 func despawn_blood_line() -> void:
 	for line in blood_lines:
-		_retract_blood_line(line, randf_range(0.2, 0.25))
+		_retract_blood_line(line, randf_range(0.26, 0.3))
 	
 	blood_lines.clear()
-	if state == PartState.HEALTHY:
-		var bp : GPUParticles2D = blood_particle.instantiate()
-		bp.emitting = true
-		add_child(bp)
-		bp.global_position = og_pos
+	#if state == PartState.HEALTHY:
 
 func _retract_blood_line(line: Line2D, duration := 0.2) -> void:
 	if not is_instance_valid(line):
@@ -213,16 +219,22 @@ func pickup_part() -> void:
 	_unhover_part()
 	audio.play(sfx_select)
 	if current_hp > 0:
+		start_scared_shake()
 		for area in fix_areas:
 			area.highlight_zone()
 
 func drop_part() -> void:
 	if not is_being_dragged:
 		return
+	stop_scared_shake()
+	despawn_blood_line()
 	for area in fix_areas:
 		area.unhighlight_zone()
 		
-	if (state == PartState.OutOfBody) and not body_owner:
+	if (state == PartState.OutOfBody and not body_owner) or (state == PartState.HEALTHY):
+		for line in blood_lines:
+			line.queue_free()
+		blood_lines.clear()
 		var tween := create_tween()
 		tween.set_trans(Tween.TRANS_QUAD)
 		tween.set_ease(Tween.EASE_OUT)
@@ -251,6 +263,67 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 signal hovering(_name: String, _state: String, _hp: float, _max_hp: float, _stats: Array[String])
 signal unhover()
 
+var scared_tween: Tween
+var scared_og_pos: Vector2
+var scared_og_rot: float
+
+func start_scared_shake(pos_offset: float = 6.0, rot_offset: float = 0.7) -> void:
+	if scared_tween:
+		stop_scared_shake()
+		return
+
+	scared_og_pos = global_position
+	scared_og_rot = rotation
+
+	scared_tween = create_tween()
+	scared_tween.set_loops()
+	scared_tween.set_trans(Tween.TRANS_SINE)
+	scared_tween.set_ease(Tween.EASE_IN_OUT)
+
+	var pos_strength := pos_offset
+	var rot_strength := rot_offset
+
+	scared_tween.tween_property(
+		self,
+		"global_position",
+		scared_og_pos + Vector2(
+			randf_range(-pos_strength, pos_strength),
+			randf_range(-pos_strength, pos_strength)
+		),
+		0.05
+	)
+
+	scared_tween.parallel().tween_property(
+		self,
+		"rotation",
+		scared_og_rot + randf_range(-rot_strength, rot_strength),
+		0.05
+	)
+
+	scared_tween.tween_property(
+		self,
+		"global_position",
+		scared_og_pos,
+		0.05
+	)
+
+	scared_tween.parallel().tween_property(
+		self,
+		"rotation",
+		scared_og_rot,
+		0.05
+	)
+
+func stop_scared_shake() -> void:
+	if not scared_tween:
+		return
+
+	scared_tween.kill()
+	scared_tween = null
+
+	global_position = scared_og_pos
+	rotation = scared_og_rot
+
 func _hover_over_part() -> void:
 	if (body_owner and not body_owner.rest_mode) and  (state == PartState.DESTROYED or is_being_dragged):
 		return
@@ -261,6 +334,8 @@ func _hover_over_part() -> void:
 		#return
 	if is_being_dragged:
 		return
+	if (body_owner and body_owner.rest_mode and state == PartState.HEALTHY):
+		start_scared_shake(1.5, 0.15)
 	#anatomy_ui.toggle_panel(true)
 	#if not is_targeted:
 	outline_mat.set_shader_parameter("alphaThreshold", 0.1)
@@ -270,7 +345,7 @@ func _hover_over_part() -> void:
 
 func _unhover_part() -> void:
 	#anatomy_ui.toggle_panel(false)
-
+	stop_scared_shake()
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
 	if sprite: sprite.use_parent_material = true
 	is_hovering = false
@@ -296,6 +371,7 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 	#anatomy_ui.set_hp_bar(current_hp, max_hp)
 	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
 	if current_hp <= max_hp / 2 and state != PartState.DESTROYED:
+		spawn_blood_parc(0.4)
 		state = PartState.FUCKED
 		move_part()
 		current_color = Color.CHOCOLATE
@@ -303,13 +379,25 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 		if not is_targeted and sprite:
 			sprite.modulate = current_color
 	if current_hp <= 0 and state != PartState.DESTROYED:
+		var bp : GPUParticles2D = blood_particle.instantiate()
+		bp.one_shot = false
+		bp.amount_ratio = randf_range(0.2, 1.0)
+		bp.lifetime = randf_range(0.2, 0.3)
+		bp.speed_scale = randf_range(1.0, 2.0)
+		bp.interp_to_end = 0.05
+		bp.explosiveness = 0.0
+		bp.emitting = true
+		add_child(bp)
+		bp.global_position = og_pos
 		part_dead()
 	
 	if crit: 
-		audio.play(body_owner.sfx_crit)
+		spawn_blood_parc(1.0)
+		if body_owner: audio.play(body_owner.sfx_crit)
 	else: 
-		audio.play(body_owner.sfx_hit, global_transform, "Intensity", changed_amount / max_hp)
+		if body_owner: audio.play(body_owner.sfx_hit, global_transform, "Intensity", changed_amount / max_hp)
 	if changed_amount > 0:
+		spawn_blood_parc(0.4)
 		PopupPrompt.display_prompt("!", int(changed_amount), global_position, 2.0)
 
 func part_dead() -> void:
