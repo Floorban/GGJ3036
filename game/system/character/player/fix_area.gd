@@ -12,6 +12,8 @@ var sprite_og_color: Color
 var is_occupied := false
 var is_hovering := false
 
+var sfx_trash: String = "event:/SFX/Surgery/Trash"
+
 func _ready() -> void:
 	is_occupied = true
 	reset_sprite()
@@ -40,6 +42,7 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 	if is_trach_bin:
 		anatomy.part_dead()
 		anatomy.queue_free()
+		audio.play(sfx_trash)
 		return
 	if is_occupied or anatomy.anatomy_type != anatomy_type or anatomy.state == anatomy.PartState.DESTROYED or anatomy.current_hp <= 0:
 		return
