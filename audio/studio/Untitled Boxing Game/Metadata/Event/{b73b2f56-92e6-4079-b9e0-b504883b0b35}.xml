@@ -100,6 +100,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{326d6abf-3429-4a6c-8838-296a8f7b232e}">
+		<property name="volume">
+			<value>6</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{bcdf351b-41d0-46a0-805a-2964ffa9dad7}</destination>
 		</relationship>
@@ -181,6 +184,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{64b18f99-95f7-421f-9ad2-4b539e06b417}">
+		<property name="volume">
+			<value>10</value>
+		</property>
 		<property name="name">
 			<value>Audio 3</value>
 		</property>
@@ -232,6 +238,7 @@
 			<destination>{50d6e2ab-5928-4bc1-b87d-31295fe30666}</destination>
 			<destination>{6f48b301-f8ae-46a8-b0c9-61684f2416f3}</destination>
 			<destination>{f6c68306-7504-462b-9d7e-b1f7499fa296}</destination>
+			<destination>{8f963dc6-7de8-4713-8907-f7db10ccc0db}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{694f7f60-0dc6-4e5f-9f5d-8ccf4bfe5087}" />
@@ -308,6 +315,11 @@
 		<relationship name="automators">
 			<destination>{b85eab91-3147-4090-bcfc-952d8974f9af}</destination>
 		</relationship>
+	</object>
+	<object class="TremoloEffect" id="{8f963dc6-7de8-4713-8907-f7db10ccc0db}">
+		<property name="frequency">
+			<value>11.5</value>
+		</property>
 	</object>
 	<object class="Automator" id="{200475bc-0568-4895-87f6-33fff0291730}">
 		<property name="nameOfPropertyBeingAutomated">
