@@ -164,6 +164,10 @@ func player_win() -> void:
 		end_battle()
 	)
 
+	if current_level >= enemies.size():
+		print("current level: " + str(current_level) + " > " + str(enemies.size()))
+		i_music_boss.set_parameter_by_name_with_label("Battle State", "Won", true)
+
 func player_lose() -> void:
 	transition_screen.black_screen()
 	await get_tree().create_timer(1.0).timeout
