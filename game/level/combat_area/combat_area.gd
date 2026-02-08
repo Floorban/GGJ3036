@@ -50,7 +50,6 @@ var sfx_countdown: String = "event:/SFX/NPC/Coach/Count"
 var sfx_ring: String = "event:/SFX/Arena/Ring"
 
 func _ready() -> void:
-	transition_screen.burn()
 	game_ui.timer_panel.visible = false
 	battle_time_left = 100.0
 	rest_room.ready_to_fight.connect(start_battle)
@@ -63,6 +62,9 @@ func _ready() -> void:
 	#init_combat_arena(current_level)
 	start_battle()
 	first_level = false
+	await get_tree().create_timer(1.5).timeout
+	transition_screen.burn()
+	
 
 func init_combat_arena(level : int) -> void:
 	if level >= enemies.size():
@@ -324,8 +326,6 @@ func end_round() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("restart"):
 		player_lose()
-	if Input.is_action_just_pressed("ui_accept"):
-		end_battle()
 	if paused:
 		return
 	if battle_time_left <= 0:

@@ -249,7 +249,6 @@ playback_auto_capture_ease_type = 1
 
 [node name="TransitionScreen" type="Sprite2D" parent="ScreenLayer" index="1" unique_id=1288152459]
 unique_name_in_owner = true
-visible = false
 modulate = Color(0, 0, 0, 1)
 z_index = 4010
 material = SubResource("ShaderMaterial_fhe53")

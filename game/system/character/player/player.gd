@@ -18,7 +18,11 @@ var player_health_effect_value := 24.0:
 			value, 
 			0.2
 		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		
+
+var first_level := true
+
+@onready var eye_l: Anatomy = %EyeL
+@onready var nose: Anatomy = %Nose
 
 func _ready() -> void:
 	retro_mat = retro_screen.material as ShaderMaterial
@@ -79,6 +83,11 @@ func get_ready_to_battle() -> void:
 	for part: Anatomy in features.get_children():
 		if not part.body_owner or part.body_owner != self:
 			part.reparent(Stats.rest_room.background)
+	
+	if first_level:
+		first_level = false
+		if eye_l: eye_l.set_hp(1)
+		if nose: nose.set_hp(1)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):

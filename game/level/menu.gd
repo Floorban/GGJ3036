@@ -35,7 +35,6 @@ func discord() -> void:
 func itch() -> void:
 	OS.shell_open("https://eric911.itch.io/unfix")
 
-
 func intro_dialogue() -> void:
 	if tutorial:
 		await get_tree().create_timer(0.8).timeout
