@@ -41,6 +41,7 @@ var sfx_countdown: String = "event:/SFX/NPC/Coach/Count"
 var sfx_ring: String = "event:/SFX/Arena/Ring"
 
 func _ready() -> void:
+	game_ui.timer_panel.visible = false
 	battle_time_left = 100.0
 	rest_room.ready_to_fight.connect(start_battle)
 	start_pos = player.position
@@ -56,8 +57,6 @@ func _ready() -> void:
 func init_combat_arena(level : int) -> void:
 	if level > enemies.size():
 		final_stage()
-		assert(level >= enemies.size(), "no more enemies")
-		return
 	#audio.play(sfx_ring)
 	enemy = enemies[level - 1]
 	enemy.visible = true
@@ -78,7 +77,7 @@ func init_combat_arena(level : int) -> void:
 	#audio.play(sfx_countdown)
 
 func final_stage() -> void:
-	pass
+	print("oo")
 
 func start_battle() -> void:
 	camera.switch_target(arena_center, 50)
@@ -100,13 +99,15 @@ func start_battle() -> void:
 		0.2
 	)
 	
-	in_break = false
-	in_battle = true
 	background.visible = true
 	init_combat_arena(current_level)
-	
+	player.arm.movable_by_mouse = false
 	tween.tween_callback(func():
-		#await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(2.0).timeout
+		in_battle = true
+		in_break = false
+		game_ui.timer_panel.visible = true
+		paused = false
 		battle_time_left = battle_duration
 		player.get_ready_to_battle()
 		game_ui.timer_panel.visible = true
