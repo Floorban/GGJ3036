@@ -289,16 +289,16 @@ func end_round() -> void:
 	if first_time:
 		paused = true
 		await get_tree().create_timer(0.5).timeout
-		DialogueManager.say("IT'S NOT OVER YET BROTHER!")
+		DialogueManager.say("IT'S NOT OVER YET! Corner break time !!")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Lets fix that ugly ass face of yours now !")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Just drag the broken parts to the right place.")
+		DialogueManager.say("Just drag the broken brown parts to the right place.")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("The moron fighting against you, he has very short arms..")
+		DialogueManager.say("The purple ones are too fucked.")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("The motherfucker only have enough range to punch your mouth and your nose.")

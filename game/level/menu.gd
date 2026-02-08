@@ -7,6 +7,9 @@ signal dialogue_end()
 var tutorial := true
 @export var level_scene: PackedScene
 
+@onready var warning: TextureRect = %Warning
+@onready var page_notes: TextureRect = %PageNotes
+
 @onready var transition_screen: transition_screen = %TransitionScreen
 @onready var control: Control = %Control
 @onready var btn_start: TextureButton = %BtnStart
@@ -68,11 +71,16 @@ func intro_dialogue() -> void:
 		DialogueManager.say("Good luck", 1.0)
 		dialogue_end.emit()
 
-func _ready() -> void:
-	transition_screen.burn()
-	btn_start.pressed.connect(start_game)
-	btn_control.pressed.connect(set_control_page)
-	btn_credits.pressed.connect(set_credits_page)
+func _process(_delta: float) -> void:
+	if warning == null:
+		return
+	if Input.is_anything_pressed() and warning:
+		warning.queue_free()
+		await get_tree().create_timer(0.5).timeout
+		transition_screen.burn()
+		btn_start.pressed.connect(start_game)
+		btn_control.pressed.connect(set_control_page)
+		btn_credits.pressed.connect(set_credits_page)
 
 func start_game() -> void:
 	control.visible = false
@@ -117,10 +125,12 @@ func end_game() -> void:
 
 func set_control_page() -> void:
 	page_credits.visible = false
+	page_notes.visible = false
 	pop_page(page_control, !page_control.visible)
 
 func set_credits_page() -> void:
 	page_control.visible = false
+	page_notes.visible = false
 	pop_page(page_credits, !page_credits.visible)
 
 func pop_page(page: Control, show: bool) -> void:
