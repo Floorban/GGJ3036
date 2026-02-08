@@ -32,7 +32,7 @@ func intro_dialogue() -> void:
 		DialogueManager.say("LEFT CLICK to punch his face!!!")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Okay time to go now brother, don't forget to block")
+		DialogueManager.say("Okay time to go now brother")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Brooootheeerrr!!!")
@@ -50,23 +50,23 @@ func intro_dialogue() -> void:
 		dialogue_end.emit()
 	else:
 		await get_tree().create_timer(1.0).timeout
-		DialogueManager.say("Bro I gave you 2 lives and you died?")
-		await get_tree().create_timer(2.0).timeout
-		DialogueManager.say("The items are unbalanced at hell as well lol")
-		await get_tree().create_timer(2.0).timeout
-		DialogueManager.say("Anyway")
-		await get_tree().create_timer(1.0).timeout
 		DialogueManager.say("You noticed how each face part contribute to your stats?")
-		await get_tree().create_timer(2.2).timeout
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Same goes to your opponents")
-		await get_tree().create_timer(1.2).timeout
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Punch their biggest part first would help")
-		await get_tree().create_timer(1.7).timeout
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Alright now you know the drill")
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Oh right just press 'R' to restart if you find any bug")
-		await get_tree().create_timer(1.7).timeout
-		DialogueManager.say("Good luck my brother")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("Good luck")
+		dialogue_end.emit()
 
 func _ready() -> void:
 	transition_screen.burn()
