@@ -336,7 +336,7 @@ func recover_from_interrupt(recover_time: float) -> void:
 	is_stuned = false
 
 func _on_successful_block(attacker: Character) -> void:
-	PopupPrompt.display_prompt("BLCOKED !!", -1 ,arm.sprite_fist.global_position, 1.5, 0.5)
+	PopupPrompt.display_prompt("BLOCKED !!", -1 ,arm.sprite_fist.global_position, 1.5, 0.5)
 	audio.play(sfx_block, global_transform, "Intensity", 0.75)
 	blocked.emit(1.0)
 	can_action = false
@@ -443,7 +443,7 @@ func reveal_target_with_delay(target: Anatomy) -> void:
 	if not target or not can_control:
 		return
 
-	var delay := randf_range(0.0, 0.5) + action_cooldown * 0.5
+	var delay := randf_range(0.1, 0.3) + action_cooldown * 0.5
 	await get_tree().create_timer(delay).timeout
 
 	if target != targeting_part or not can_control:

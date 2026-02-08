@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://fcx02hc4rwm0" path="res://game/level/menu.gd" id="1_kh04w"]
 [ext_resource type="PackedScene" uid="uid://c1q6sj2ue5ird" path="res://game/level/combat_area/combat_level.tscn" id="2_2nera"]
+[ext_resource type="Texture2D" uid="uid://cj23ktpigxni6" path="res://9.png" id="3_3p7wr"]
 [ext_resource type="Shader" uid="uid://cq8fiv0wib6gv" path="res://material/burn_dissolve.gdshader" id="3_utcqo"]
 [ext_resource type="Texture2D" uid="uid://ddodsf7lu4d66" path="res://sprites/Menu/MainMenu1.png" id="3_y3ylt"]
 [ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="4_bw065"]
@@ -14,6 +15,8 @@
 [ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="8_r2yyg"]
 [ext_resource type="Texture2D" uid="uid://cmxq4yde836m7" path="res://sprites/ui/DialogueBox.png" id="10_5wwgj"]
 [ext_resource type="Texture2D" uid="uid://dina2mpprqa58" path="res://sprites/ui/white.png" id="12_utcqo"]
+[ext_resource type="Texture2D" uid="uid://csqf1o6hddoma" path="res://sprites/legalities/FMOD Logo White - Transparent Background.png" id="15_cfrv7"]
+[ext_resource type="FontFile" uid="uid://dvwgkc1qy7gqo" path="res://Kurland-Regular.otf" id="16_s2guv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cfrv7"]
 shader = ExtResource("3_utcqo")
@@ -31,11 +34,22 @@ level_scene = ExtResource("2_2nera")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1106509539]
 layer = -100
 
+[node name="Warning" type="TextureRect" parent="CanvasLayer" unique_id=1781362465]
+unique_name_in_owner = true
+z_index = 4000
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("3_3p7wr")
+
 [node name="TransitionScreen" type="Sprite2D" parent="CanvasLayer" unique_id=1136678645 node_paths=PackedStringArray("menu")]
 unique_name_in_owner = true
 modulate = Color(0, 0, 0, 1)
 top_level = true
-z_index = 4000
+z_index = 3999
 material = SubResource("ShaderMaterial_cfrv7")
 position = Vector2(967.00006, 547)
 scale = Vector2(35, 23.333)
@@ -233,7 +247,7 @@ vertical_alignment = 1
 [node name="Label" type="Label" parent="CanvasLayer/Control/PageControl/VBoxContainer" unique_id=40755614]
 layout_mode = 2
 theme_override_constants/line_spacing = 10
-theme_override_fonts/font = ExtResource("8_r2yyg")
+theme_override_fonts/font = ExtResource("16_s2guv")
 theme_override_font_sizes/font_size = 48
 text = "Left click: select target
 Left hold: drag items
@@ -295,6 +309,51 @@ theme_override_font_sizes/font_size = 48
 text = "Davi: 2d artist, Character Design, cool guy
 Eric li: Tech, Art direction
 rever Ron: sound & music, house support, fastest beaboxer (world record)"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/PageCredits" unique_id=1341110162]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 0
+offset_left = 58.0
+offset_top = 192.0
+offset_right = 258.0
+offset_bottom = 252.0
+texture = ExtResource("15_cfrv7")
+expand_mode = 1
+
+[node name="PageNotes" type="TextureRect" parent="CanvasLayer/Control" unique_id=1138963822]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -450.0
+offset_right = 679.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(400, 450)
+mouse_filter = 2
+texture = ExtResource("10_5wwgj")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/PageNotes" unique_id=1267472456]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 73.5
+offset_right = 780.0
+offset_bottom = 583.5
+theme_override_constants/line_spacing = 20
+theme_override_constants/paragraph_spacing = 0
+theme_override_fonts/font = ExtResource("16_s2guv")
+theme_override_font_sizes/font_size = 48
+text = "The web version doesn't have audio
+we strongly suggest playing form the download"
 vertical_alignment = 1
 autowrap_mode = 3
 
