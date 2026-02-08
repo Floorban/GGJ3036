@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var skip_dialogue : bool
 var tutorial := true
 @export var level_scene: PackedScene
 
@@ -23,7 +24,7 @@ func intro_dialogue() -> void:
 		await get_tree().create_timer(1.8).timeout
 		DialogueManager.say("You still remember how to punch this mf right?")
 		await get_tree().create_timer(3.0).timeout
-		DialogueManager.say("fucking damn it, LEFT CLICK to punch his fucking face !!")
+		DialogueManager.say("Fucking damn it, LEFT CLICK to punch his fucking face !")
 		await get_tree().create_timer(3.0).timeout
 		DialogueManager.say("Okay time to go now brother")
 		await get_tree().create_timer(1.5).timeout
@@ -66,8 +67,9 @@ func _ready() -> void:
 
 func start_game() -> void:
 	transition_screen.cover()
-	intro_dialogue()
-	await get_tree().create_timer(15.0).timeout
+	if not skip_dialogue:
+		intro_dialogue()
+		await get_tree().create_timer(15.0).timeout
 	control.visible = false
 	page_control.visible = false
 	page_credits.visible = false

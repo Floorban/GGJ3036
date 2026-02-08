@@ -211,6 +211,7 @@ func advance_enemy() -> void:
 	current_level += 1
 
 func next_round() -> void:
+	print("aa")
 	paused = false
 	
 	in_break = false
