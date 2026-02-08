@@ -1,5 +1,7 @@
 class_name Enemy extends Character
 
+var round_index := 0
+
 @export var is_minion := false
 
 @export var switch_chance := 0.5

@@ -1,6 +1,6 @@
 extends Node2D
 
-var tutorial := false
+var tutorial := true
 @export var level_scene: PackedScene
 
 @onready var transition_screen: transition_screen = %TransitionScreen

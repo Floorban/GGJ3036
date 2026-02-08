@@ -269,10 +269,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -329.5
-offset_top = -320.0
-offset_right = 329.5
-offset_bottom = 320.0
+offset_left = -336.0
+offset_top = -376.5
+offset_right = 364.0
+offset_bottom = 376.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -293,8 +293,8 @@ theme_override_constants/line_spacing = 18
 theme_override_constants/paragraph_spacing = 50
 theme_override_fonts/font = ExtResource("8_r2yyg")
 theme_override_font_sizes/font_size = 48
-text = "Davi: 2d artist & narrative
-Eric li: Tech & art direction
+text = "Davi: 2d artist, Character Design, cool guy
+Eric li: Tech, Art direction
 rever Ron: sound & music, house support, fastest beaboxer (world record)"
 vertical_alignment = 1
 autowrap_mode = 3
