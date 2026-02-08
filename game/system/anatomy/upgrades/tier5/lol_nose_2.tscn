@@ -62,9 +62,19 @@ size = Vector2(52.800007, 84.80001)
 
 [node name="LolNose2" unique_id=1690948451 instance=ExtResource("1_encgf")]
 scale = Vector2(2.5, 2.5)
+stat_modifiers = {
+0: 0.0,
+1: -1.0,
+2: 0.0,
+3: 3.0,
+4: 0.5,
+5: 0.0,
+6: 0.0,
+7: 0.0
+}
 anatomy_type = 2
 state = 3
-max_hp = 10.0
+max_hp = 15.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_l3etw")

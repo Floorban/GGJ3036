@@ -64,7 +64,8 @@ func init_combat_arena(level : int) -> void:
 	enemy.opponent = player
 	player.init_character()
 	enemy.init_character()
-	enemy.die.connect(player_win)
+	if not enemy.die.is_connected(player_win):
+		enemy.die.connect(player_win)
 	rest_room.attached_index = 0
 	if first_level:
 		#current_round = 1
@@ -261,6 +262,8 @@ func end_round() -> void:
 	player.arm.movable_by_mouse = true
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("restart"):
+		player_lose()
 	if Input.is_action_just_pressed("ui_accept"):
 		end_battle()
 	if Input.is_action_just_pressed("ui_down"):

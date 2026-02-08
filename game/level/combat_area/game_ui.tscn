@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dbhnnqck5fp5t" path="res://game/level/combat_area/game_ui.gd" id="1_sdr4q"]
 [ext_resource type="Shader" uid="uid://e87jkal0sa57" path="res://game/level/combat_area/jittery.gdshader" id="2_d0d35"]
-[ext_resource type="Texture2D" uid="uid://xy6o3qkvwdkp" path="res://sprites/ui/IconBGskills.png" id="3_a2ftv"]
-[ext_resource type="Texture2D" uid="uid://dhbk1rhoa56j5" path="res://sprites/ui/SkillCircle.png" id="4_rwf3v"]
-[ext_resource type="Texture2D" uid="uid://egk8mk2xn73u" path="res://sprites/ui/Blood.png" id="5_hc5ns"]
 [ext_resource type="Texture2D" uid="uid://be6nsc6wnipo3" path="res://sprites/ui/ClockBg.png" id="9_4uape"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a2ftv"]
@@ -48,55 +45,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_sdr4q")
-
-[node name="SkillPanel" type="MarginContainer" parent="." unique_id=90936105]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -20.0
-offset_bottom = 480.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/margin_right = 150
-
-[node name="BG" type="TextureRect" parent="SkillPanel" unique_id=376806588]
-custom_minimum_size = Vector2(200, 300)
-layout_mode = 2
-texture = ExtResource("3_a2ftv")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SkillPanel/BG" unique_id=2034125875]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -162.0
-offset_right = 88.0
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-theme_override_constants/separation = 24
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="SkillPanel/BG/VBoxContainer" unique_id=724808500]
-layout_mode = 2
-fill_mode = 4
-texture_under = ExtResource("4_rwf3v")
-texture_progress = ExtResource("5_hc5ns")
-
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="SkillPanel/BG/VBoxContainer" unique_id=331338717]
-layout_mode = 2
-fill_mode = 4
-texture_under = ExtResource("4_rwf3v")
-texture_progress = ExtResource("5_hc5ns")
 
 [node name="TimerPanel" type="MarginContainer" parent="." unique_id=2025147314]
 unique_name_in_owner = true

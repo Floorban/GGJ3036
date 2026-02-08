@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://egk8mk2xn73u" path="res://sprites/ui/Blood.png" id="13_innbf"]
 [ext_resource type="Texture2D" uid="uid://c2nhffovbgged" path="res://sprites/ui/BloodForSurgeryListItems.png" id="15_8ga5m"]
 [ext_resource type="Texture2D" uid="uid://civr2jgjofjyt" path="res://sprites/body_parts/FaceAssets/MCfacevariations/ears/Ear.png" id="17_innbf"]
+[ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="22_innbf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hu301"]
 radius = 20.04595
@@ -428,6 +429,30 @@ position = Vector2(103, -23)
 
 [node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
 theme_override_constants/margin_right = 230
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4" unique_id=1249316010]
+layer = -10
+
+[node name="Label" type="Label" parent="CanvasLayer" index="0" unique_id=1921301200]
+z_index = -500
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -482.0
+offset_top = -274.0
+offset_right = 482.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("22_innbf")
+theme_override_font_sizes/font_size = 36
+text = "congrats
+I don't know what did you get here
+restart with 'R' and join our discord !!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [editable path="Face/FixAreas/FixAreaEyeL"]
 [editable path="Face/FixAreas/FixAreaEyeR"]

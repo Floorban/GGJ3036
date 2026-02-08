@@ -140,7 +140,6 @@ adjustment_contrast = 1.05
 adjustment_saturation = 1.1
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
-battle_duration = 50.0
 break_duration = 10.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
@@ -153,7 +152,7 @@ top_down_dir = 1
 
 [node name="Background" type="Sprite2D" parent="Enemies" index="0" unique_id=697461009]
 unique_name_in_owner = true
-modulate = Color(0.22415566, 0.5097198, 0.31566837, 0.78431374)
+modulate = Color(0.22376983, 0.50956357, 0.31521547, 1)
 z_index = -10
 position = Vector2(-6.790283, 133.79175)
 rotation = -0.44854963
@@ -162,7 +161,8 @@ texture = ExtResource("13_ldpml")
 
 [node name="Background2" type="Sprite2D" parent="Enemies" index="1" unique_id=1798532950]
 modulate = Color(0.22415566, 0.5097198, 0.31566837, 0.78431374)
-z_index = -100
+z_index = -600
+z_as_relative = false
 position = Vector2(-6.790283, 133.79175)
 rotation = -0.44854963
 scale = Vector2(5, 5)

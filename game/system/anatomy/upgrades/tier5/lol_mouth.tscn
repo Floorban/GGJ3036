@@ -62,8 +62,19 @@ size = Vector2(91.200005, 54.000008)
 
 [node name="LolMouth" unique_id=1690948451 instance=ExtResource("1_epjjt")]
 scale = Vector2(2.5, 2.5)
+stat_modifiers = {
+0: 0.0,
+1: 2.0,
+2: 5.0,
+3: 0.0,
+4: 0.0,
+5: 0.0,
+6: 0.0,
+7: 1.0
+}
 anatomy_type = 3
 state = 3
+max_hp = 13.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_68rgm")

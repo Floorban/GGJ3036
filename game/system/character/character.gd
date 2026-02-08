@@ -221,7 +221,9 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool
 	#can_action = false
 	combat_component.pause(action_cooldown / stun_resist)
 	arm.rest_pos()
-	if crit: audio.play(sfx_crit)
+	if crit: 
+		audio.play(sfx_crit)
+		PopupPrompt.display_prompt("Critical !", -1 ,target.global_position, 2.0, 0.4)
 	else: audio.play(sfx_hit, global_transform, "Intensity", damage / max_health)
 
 

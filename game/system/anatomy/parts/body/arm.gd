@@ -38,7 +38,7 @@ func _process(_delta: float) -> void:
 		drop_obj()
 	fist_target.global_position = get_global_mouse_position()
 	if dragging_obj and dragging_obj.is_being_dragged:
-		dragging_obj.global_position = fist_target.global_position
+		dragging_obj.global_position = get_global_mouse_position()
 
 func pickup_obj(new_obj: Node2D) -> void:
 	dragging_obj = new_obj

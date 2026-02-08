@@ -20,16 +20,16 @@ static var attached_index: float
 var sfx_attach: String = "event:/SFX/Surgery/Attach"
 
 func get_allowed_tiers(level: int) -> Array[int]:
-	if level < 2:
-		return [1, 2, 3]
-	elif level < 4:
+	if level < 1:
+		return [1, 2]
+	elif level < 3:
 		return [2, 3, 4]
-	elif level < 6:
+	elif level < 4:
 		return [3, 4, 5]
-	elif level < 7:
-		return [4, 5, 6]
+	elif level < 5:
+		return [5, 6]
 	else:
-		return [4]
+		return [5, 6]
 
 @export var upgrade_parts : Array[Anatomy]
 @onready var part_spawn_markers: Array[Marker2D] = [%SpawnMarker1, %SpawnMarker2, %SpawnMarker3, %SpawnMarker4, %SpawnMarker5, %SpawnMarker6, %SpawnMarker7, %SpawnMarker8, %SpawnMarker9, %SpawnMarker10, %SpawnMarker11, %SpawnMarker12]
@@ -40,8 +40,6 @@ func _ready() -> void:
 	leave_rest_room()
 
 func enter_rest_room(current_level: int) -> void:
-	#if (current_level - 2) % 3 == 0:
-		#clear_upgrade_parts()
 	part_info_panel.visible = true
 	background.visible = true
 	ready_button.visible = true
@@ -71,12 +69,13 @@ func leave_rest_room() -> void:
 				part.body_owner = null
 				part.reparent(background)
 				player.anatomy_parts.remove_at(i)
-	if player.anatomy_parts.is_empty():
-		assert(player.anatomy_parts.is_empty(), "can't start with no parts")
-		return
+	#if player.anatomy_parts.is_empty():
+		#assert(player.anatomy_parts.is_empty(), "can't start with no parts")
+		#return
 	clear_upgrade_parts()
-	ready_to_fight.emit()
 	player.rest_mode = false
+	await  get_tree().create_timer(0.1).timeout
+	ready_to_fight.emit()
 
 func clear_upgrade_parts() -> void:
 	for marker in part_spawn_markers:
@@ -186,9 +185,9 @@ func show_part_info(_name: String, _state: String, _hp: float, _max_hp: float, _
 		label_part_name.modulate = Color.DEEP_SKY_BLUE * 1.5
 	elif _max_hp <= 12:
 		label_part_name.modulate = Color.PURPLE * 1.5
-	elif _max_hp < 15:
+	elif _max_hp <= 15:
 		label_part_name.modulate = Color.RED * 1.5
-	elif _max_hp < 20:
+	elif _max_hp <= 20:
 		label_part_name.modulate = Color.GOLD * 1.5
 		
 		

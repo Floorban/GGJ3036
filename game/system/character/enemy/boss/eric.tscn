@@ -150,7 +150,7 @@ script = ExtResource("2_yvqvv")
 is_minion = false
 switch_chance = 0.2
 min_switch_time = 0.5
-base_cooldown = 1.8
+base_cooldown = 1.5
 base_damage = 2.0
 base_speed = 0.03
 base_crit_damage = 1.2
@@ -189,7 +189,7 @@ texture = ExtResource("6_cte70")
 
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 position = Vector2(-10.769226, -36.92308)
-max_hp = 2.0
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_cte70")
@@ -207,7 +207,7 @@ shape = SubResource("CapsuleShape2D_1dbei")
 unique_name_in_owner = true
 position = Vector2(46.153854, -69.23077)
 rotation = -3.8661535
-max_hp = 2.0
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/EyeL2" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_cte70")
@@ -225,7 +225,7 @@ shape = SubResource("CapsuleShape2D_dmudr")
 
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=584210078]
 position = Vector2(56.923077, -23.076923)
-max_hp = 2.0
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_dmudr")
@@ -241,7 +241,7 @@ shape = SubResource("CapsuleShape2D_cte70")
 unique_name_in_owner = true
 position = Vector2(-21.538464, -7.6923084)
 rotation = 0.7299963
-max_hp = 2.0
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/EyeR2" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_dmudr")
@@ -269,7 +269,7 @@ material = SubResource("ShaderMaterial_2ov7o")
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="6" unique_id=1350482542]
 position = Vector2(-3.0769234, -3.0769234)
-max_hp = 1.0
+max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_rsswb")
