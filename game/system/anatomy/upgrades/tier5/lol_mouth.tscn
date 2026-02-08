@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt0ym"]
-size = Vector2(44.800007, 21.200003)
+size = Vector2(95.20001, 51.600006)
 
 [node name="LolMouth" unique_id=1690948451 instance=ExtResource("1_epjjt")]
 scale = Vector2(2.5, 2.5)

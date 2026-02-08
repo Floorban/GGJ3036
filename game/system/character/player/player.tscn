@@ -25,19 +25,19 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hu301"]
 radius = 10.969662
-height = 21.939323
+height = 33.988075
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wqm0g"]
 radius = 11.97801
-height = 23.95602
+height = 34.17975
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvqmr"]
-radius = 7.278702
-height = 36.337242
+radius = 18.680122
+height = 61.697605
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltwwj"]
-radius = 9.332825
-height = 41.86301
+radius = 16.122196
+height = 71.84565
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvqmr"]
 size = Vector2(13.000002, 40)

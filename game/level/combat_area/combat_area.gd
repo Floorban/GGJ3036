@@ -1,5 +1,6 @@
 class_name Level extends Node2D
 
+@export var first_time := true
 
 @export var bg_textures : Array[Texture2D]
 
@@ -260,6 +261,37 @@ func end_round() -> void:
 			0.3
 		)
 	player.arm.movable_by_mouse = true
+	
+	if first_time:
+		paused = true
+		await get_tree().create_timer(0.5).timeout
+		DialogueManager.say("IT'S NOT OVER YET BROTHER!")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("Lets fix that ugly ass face of yours now !")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("Just drag the broken parts to the right place.")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("The moron fighting against you, he has very short arms..")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("The motherfucker only have enough range to punch your mouth and your nose.")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("Be smart and use that to your advantage.")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("Block his attacks, and then punch his face loose.")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("Now you go, and beat the shit out of this baldhead.")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		paused = false
+	
+	first_time = false
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("restart"):

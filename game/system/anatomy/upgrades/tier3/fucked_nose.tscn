@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ve7k"]
-radius = 11.599999
-height = 50.799995
+radius = 19.599998
+height = 73.2
 
 [node name="FuckedNose" unique_id=1690948451 instance=ExtResource("1_6jrix")]
 scale = Vector2(2.5, 2.5)

@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kontq"]
-radius = 16.670666
+radius = 28.8729
 
 [node name="CrazyEye" unique_id=1690948451 instance=ExtResource("1_i8j0k")]
 scale = Vector2(2.5, 2.5)

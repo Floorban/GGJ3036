@@ -1,5 +1,7 @@
 class_name RestRoom extends Node2D
 
+@export var first_time := true
+
 signal ready_to_fight()
 
 @onready var background: Sprite2D = $Background
@@ -47,6 +49,26 @@ func enter_rest_room(current_level: int) -> void:
 	background.visible = true
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	audio.muffle(true)
+	
+	if first_time:
+		await get_tree().create_timer(0.5).timeout
+		DialogueManager.say("YOU GOT EM, GOOD FUCKING JOB DUDE! I KNEW YOU HAD THE SPIRIT!")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("SO, this is the surgery room, all fancy and stuff.")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("If your parts are too fucked up, you can throw em away and get new ones.")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("there might be some shitty parts, but some of them will make you feel stronger.")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("maybe you can even look a bit less ugly after fixing it.")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+	
+	first_time = false
 
 	for part in player.anatomy_parts:
 		if part.state == Anatomy.PartState.DESTROYED:

@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4h5m"]
-size = Vector2(22.400003, 48.800007)
+size = Vector2(48.800007, 74.40001)
 
 [node name="EarAttackDamage" unique_id=1690948451 instance=ExtResource("1_jr0rp")]
 z_index = 10

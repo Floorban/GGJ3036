@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jsyx6"]
-radius = 15.686936
+radius = 27.226458
 
 [node name="NonchaEye2" unique_id=1690948451 instance=ExtResource("1_nmuot")]
 scale = Vector2(2.5, 2.5)

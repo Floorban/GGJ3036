@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ymma1"]
-radius = 10.405953
-height = 31.928898
+radius = 16.812721
+height = 50.954826
 
 [node name="FuryEye" unique_id=1690948451 instance=ExtResource("1_mk6l7")]
 scale = Vector2(2.5, 2.5)

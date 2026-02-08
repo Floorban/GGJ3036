@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 4.2030001996425
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ul6j8"]
-radius = 8.404433
-height = 38.385654
+radius = 19.199684
+height = 67.22632
 
 [node name="ElfNose" unique_id=1690948451 instance=ExtResource("1_dvffy")]
 scale = Vector2(2.5, 2.5)

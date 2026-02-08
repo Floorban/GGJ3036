@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjah7"]
-size = Vector2(17.600002, 48.000008)
+size = Vector2(48.800007, 79.20001)
 
 [node name="LolNose2" unique_id=1690948451 instance=ExtResource("1_encgf")]
 scale = Vector2(2.5, 2.5)

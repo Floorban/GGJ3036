@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 5.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ri8r1"]
-radius = 10.799999
-height = 38.399998
+radius = 19.599998
+height = 53.6
 
 [node name="ElfMouth" unique_id=1690948451 instance=ExtResource("1_y30ss")]
 scale = Vector2(2.5, 2.5)

@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 5.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qr7qf"]
-radius = 13.533332
-height = 42.533333
+radius = 21.933332
+height = 76.13333
 
 [node name="NoseMaxHP" unique_id=1690948451 instance=ExtResource("1_inlgv")]
 z_index = 10

@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkide"]
-size = Vector2(24.000004, 55.32728)
+size = Vector2(48.800007, 81.47274)
 
 [node name="CrazyEar" unique_id=1690948451 instance=ExtResource("1_mg0fi")]
 scale = Vector2(2.5, 2.5)
