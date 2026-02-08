@@ -13,6 +13,7 @@ class_name Anatomy extends Node2D
 
 #AUDIO
 var sfx_blood: String = "event:/SFX/Surgery/Blood"
+var sfx_scream: String = "event:/SFX/NPC/Player/Scream"
 var sfx_select: String = "event:/SFX/Surgery/Select"
 var sfx_squirt: String = "event:/SFX/Surgery/Squirt"
 var i_blood: FmodEvent
@@ -143,6 +144,7 @@ func draw_blood_line() -> void:
 	for line in blood_lines:
 		line.queue_free()
 	
+	
 	i_blood = audio.play_instance(sfx_blood, global_transform)
 	
 	blood_lines.clear()
@@ -230,6 +232,7 @@ func pickup_part() -> void:
 		return
 	og_pos = global_position
 	if body_owner and state == PartState.HEALTHY and body_owner.rest_mode:
+		if randf() < 0.8: audio.play(sfx_scream)
 		draw_blood_line()
 	is_being_dragged = true
 	_unhover_part()
