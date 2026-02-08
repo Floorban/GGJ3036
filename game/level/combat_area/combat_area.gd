@@ -150,21 +150,11 @@ func player_win() -> void:
 		end_battle()
 	)
 
-var lose_counter := 0
-
 func player_lose() -> void:
 	transition_screen.black_screen()
-	
-	if lose_counter == 1:
-		await get_tree().create_timer(1.0).timeout
-		game_end.emit()
-		queue_free()
-	else:
-		end_battle()
-		await get_tree().create_timer(1.5).timeout
-		transition_screen.burn()
-		
-	lose_counter += 1
+	await get_tree().create_timer(1.0).timeout
+	game_end.emit()
+	queue_free()
 
 
 func end_battle() -> void:
