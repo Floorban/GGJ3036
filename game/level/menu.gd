@@ -1,4 +1,7 @@
-extends Node2D
+class_name Menu extends Node2D
+
+signal dialogue_end()
+
 
 @export var skip_dialogue : bool
 var tutorial := true
@@ -44,6 +47,7 @@ func intro_dialogue() -> void:
 		DialogueManager.say("FUCK")	
 		await get_tree().create_timer(0.5).timeout
 		DialogueManager.say("INNNNNNNNNN !!!")
+		dialogue_end.emit()
 	else:
 		await get_tree().create_timer(1.0).timeout
 		DialogueManager.say("Bro I gave you 2 lives and you died?")

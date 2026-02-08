@@ -31,7 +31,7 @@ level_scene = ExtResource("2_2nera")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1106509539]
 layer = -100
 
-[node name="TransitionScreen" type="Sprite2D" parent="CanvasLayer" unique_id=1136678645]
+[node name="TransitionScreen" type="Sprite2D" parent="CanvasLayer" unique_id=1136678645 node_paths=PackedStringArray("menu")]
 unique_name_in_owner = true
 modulate = Color(0, 0, 0, 1)
 top_level = true
@@ -41,6 +41,7 @@ position = Vector2(967.00006, 547)
 scale = Vector2(35, 23.333)
 texture = ExtResource("12_utcqo")
 script = ExtResource("5_3p7wr")
+menu = NodePath("../..")
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=752135869]
 unique_name_in_owner = true

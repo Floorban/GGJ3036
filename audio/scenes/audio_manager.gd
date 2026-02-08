@@ -73,16 +73,17 @@ func play_instance(sound_path: String, object_transform: Transform2D) -> FmodEve
 	instance.start()
 	return instance
 
-func clear_instance(instances: Array[FmodEvent]) -> void:
+func clear_instance(instances: Array[FmodEvent], timer: float = 0) -> void:
+	if timer != 0: await get_tree().create_timer(timer).timeout
 	for instance in instances:
 		if instance == null: return
 		instance.stop(FmodServer.FMOD_STUDIO_STOP_ALLOWFADEOUT)
 		instance.release()
 
-func clear_emitter(instances: Array[FmodEventEmitter2D]) -> void:
-	if instances == null: return
-
-	for emitter in instances:
+func clear_emitter(emitters: Array[FmodEventEmitter2D], timer: float = 0) -> void:
+	if timer != 0: await get_tree().create_timer(timer).timeout
+	for emitter in emitters:
+		if emitter == null: return
 		emitter.stop()
 		emitter.release()
 
