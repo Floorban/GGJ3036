@@ -137,14 +137,16 @@ height = 132.3141
 
 [node name="Boxer" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_l53d7")]
 script = ExtResource("2_26h1w")
+boss_name = ""
 is_minion = false
 switch_chance = 0.6
 min_switch_time = 2.0
 base_cooldown = 4.0
-base_damage = 1.5
+base_damage = 1.8
 base_speed = 0.08
-base_crit_chance = 0.3
-base_crit_damage = 1.3
+base_crit_chance = 0.6
+base_crit_damage = 1.5
+base_stun_resist = 4.0
 arm = NodePath("BoxerArm")
 sfx_die = "event:/SFX/NPC/Boxer/Die"
 sfx_entry = "event:/SFX/NPC/Boxer/Entry"

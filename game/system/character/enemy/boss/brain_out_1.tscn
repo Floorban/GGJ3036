@@ -144,10 +144,11 @@ size = Vector2(114.6154, 50.769234)
 
 [node name="BrainOut1" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_2ut17")]
 script = ExtResource("2_5b2wa")
+boss_name = ""
 is_minion = false
 switch_chance = 0.8
 min_switch_time = 2.0
-base_cooldown = 2.5
+base_cooldown = 3.0
 base_damage = 1.5
 base_speed = 0.08
 base_crit_chance = 0.2

@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bgs8ei7uqqtnk" path="res://sprites/ui/EnemyStatHealthLine.png" id="9_l1uns"]
 [ext_resource type="PackedScene" uid="uid://d2va0cs367xx0" path="res://game/system/anatomy/upgrades/tier3/fucked_ear.tscn" id="10_7lyvt"]
 [ext_resource type="Texture2D" uid="uid://7jimgxiewrvo" path="res://sprites/ui/EnemyStatHealthBar.png" id="10_563by"]
-[ext_resource type="PackedScene" uid="uid://j3wao5bil4nh" path="res://game/system/anatomy/upgrades/tier2/demon_nose_2.tscn" id="10_kxqh5"]
+[ext_resource type="PackedScene" uid="uid://j3wao5bil4nh" path="res://game/system/anatomy/upgrades/tier2/demon_ear_2.tscn" id="10_kxqh5"]
 [ext_resource type="PackedScene" uid="uid://b6t5437f1apxj" path="res://game/system/anatomy/upgrades/tier1/noncha_mouth.tscn" id="10_xisql"]
 [ext_resource type="PackedScene" uid="uid://s8u8xkowfvjv" path="res://game/system/anatomy/upgrades/tier3/fucked_eye.tscn" id="11_v0ssp"]
 [ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="12_8sk3i"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://dppwuvorymkwk" path="res://game/system/anatomy/upgrades/tier6/fury_mouth_2.tscn" id="29_e21xm"]
 [ext_resource type="Texture2D" uid="uid://cdmnrh3w5ji0d" path="res://sprites/ui/BandageImReadyopacity.png" id="34_e21xm"]
 [ext_resource type="Texture2D" uid="uid://d0alrljy0et8o" path="res://sprites/ui/BandageImReady.png" id="34_u3s1c"]
+
 
 [node name="RestRoom" type="Node2D" unique_id=1662139499 groups=["rest_room"]]
 script = ExtResource("1_nbyfe")
