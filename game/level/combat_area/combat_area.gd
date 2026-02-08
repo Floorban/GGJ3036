@@ -88,6 +88,7 @@ func init_combat_arena(level : int) -> void:
 func final_stage() -> void:
 	audio.clear_instance([i_music])
 	i_music_boss = audio.play_instance(sfx_music_boss)
+	Stats.main_menu.end()
 
 func start_battle() -> void:
 	
