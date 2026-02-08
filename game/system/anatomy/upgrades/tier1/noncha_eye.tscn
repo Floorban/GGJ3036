@@ -61,7 +61,7 @@ shader_parameter/alphaThreshold = 0.2
 radius = 27.3841
 
 [node name="CrazyEye" unique_id=1690948451 instance=ExtResource("1_i8j0k")]
-scale = Vector2(3, 3)
+scale = Vector2(2.5, 2.5)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,

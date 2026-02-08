@@ -58,11 +58,11 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctojp"]
-radius = 48.66668
-height = 131.99991
+radius = 26.400053
+height = 72.79996
 
 [node name="ElfEye" unique_id=1690948451 instance=ExtResource("1_d18ue")]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2.5, 2.5)
 stat_modifiers = {
 0: 0.0,
 1: -0.2,
@@ -76,6 +76,7 @@ max_hp = 15.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_jy5ft")
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ctojp")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]

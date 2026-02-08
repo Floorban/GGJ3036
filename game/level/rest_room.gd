@@ -20,16 +20,16 @@ static var attached_index: float
 var sfx_attach: String = "event:/SFX/Surgery/Attach"
 
 func get_allowed_tiers(level: int) -> Array[int]:
-	if level < 2:
-		return [1, 2]
-	elif level < 4:
-		return [2, 3]
-	elif level < 6:
-		return [3, 4]
-	elif level < 8:
+	if level < 4:
+		return [1, 2, 3]
+	elif level < 7:
+		return [2, 3, 4]
+	elif level < 10:
 		return [3, 4, 5]
+	elif level < 13:
+		return [4, 5, 6]
 	else:
-		return [4, 5]
+		return [4]
 
 @export var upgrade_parts : Array[Anatomy]
 @onready var part_spawn_markers: Array[Marker2D] = [%SpawnMarker1, %SpawnMarker2, %SpawnMarker3, %SpawnMarker4, %SpawnMarker5, %SpawnMarker6, %SpawnMarker7, %SpawnMarker8, %SpawnMarker9, %SpawnMarker10, %SpawnMarker11, %SpawnMarker12]
@@ -40,7 +40,7 @@ func _ready() -> void:
 	leave_rest_room()
 
 func enter_rest_room(current_level: int) -> void:
-	if current_level % 2 == 0:
+	if (current_level - 2) % 3 == 0:
 		clear_upgrade_parts()
 	part_info_panel.visible = true
 	background.visible = true
@@ -53,7 +53,7 @@ func enter_rest_room(current_level: int) -> void:
 			part.body_owner = null
 	await  get_tree().create_timer(0.1).timeout
 	player.rest_mode = true
-	spawn_parts(current_level)
+	spawn_parts(current_level - 2)
 	connect_parts_interact_signal()
 	for p in background.get_children():
 		p.z_index = 10
@@ -127,7 +127,7 @@ func spawn_parts(level: int) -> void:
 
 	free_markers.shuffle()
 
-	var spawn_count : int = min(6, free_markers.size())
+	var spawn_count : int = min(4, free_markers.size())
 
 	for i in range(spawn_count):
 		var scene := pick_unique_upgrade(level)
@@ -155,15 +155,6 @@ func spawn_parts(level: int) -> void:
 			part.state = Anatomy.PartState.OutOfBody
 			upgrade_parts.append(part)
 
-
-func is_marker_occupied(marker: Marker2D, radius := 2.0) -> bool:
-	for part in upgrade_parts:
-		if not is_instance_valid(part):
-			continue
-		if part.global_position.distance_to(marker.global_position) <= radius:
-			return true
-	return false
-
 func connect_parts_interact_signal() -> void:
 	if upgrade_parts.is_empty():
 		return
@@ -186,13 +177,13 @@ func show_part_info(_name: String, _state: String, _hp: float, _max_hp: float, _
 	for label in stat_labels:
 		label.text = ""
 	
-	if _max_hp <= 4:
+	if _max_hp <= 3:
 		label_part_name.modulate = Color.WHITE
-	elif _max_hp < 8:
+	elif _max_hp <= 6:
 		label_part_name.modulate = Color.LIME_GREEN * 1.5
-	elif _max_hp < 12:
+	elif _max_hp <= 9:
 		label_part_name.modulate = Color.DEEP_SKY_BLUE * 1.5
-	elif _max_hp < 20:
+	elif _max_hp <= 12:
 		label_part_name.modulate = Color.PURPLE * 1.5
 	elif _max_hp < 100:
 		label_part_name.modulate = Color.GOLD * 1.5

@@ -2,21 +2,77 @@
 
 [ext_resource type="Script" uid="uid://fcx02hc4rwm0" path="res://game/level/menu.gd" id="1_kh04w"]
 [ext_resource type="PackedScene" uid="uid://c1q6sj2ue5ird" path="res://game/level/combat_area/combat_level.tscn" id="2_2nera"]
+[ext_resource type="Texture2D" uid="uid://ddodsf7lu4d66" path="res://sprites/Menu/MainMenu1.png" id="3_y3ylt"]
+[ext_resource type="Texture2D" uid="uid://b3533pphjxsty" path="res://sprites/Menu/MainMenu.png" id="4_tq4mx"]
+[ext_resource type="Texture2D" uid="uid://d1a0mfnl4lr57" path="res://sprites/Menu/ButtonBlack.png" id="5_3fmpq"]
+[ext_resource type="Texture2D" uid="uid://danri7r14iuv7" path="res://sprites/Menu/ButtonNormal.png" id="6_8r4xe"]
+[ext_resource type="Script" uid="uid://fo46442ke6ab" path="res://game/level/btn_menu.gd" id="7_8r4xe"]
 
 [node name="Menu" type="Node2D" unique_id=585511827]
 script = ExtResource("1_kh04w")
 level_scene = ExtResource("2_2nera")
 
-[node name="Control" type="Control" parent="." unique_id=752135869]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1106509539]
+layer = 0
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=752135869]
+unique_name_in_owner = true
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
-[node name="BtnStart" type="Button" parent="Control" unique_id=1393666602]
+[node name="BG1" type="TextureRect" parent="CanvasLayer/Control" unique_id=1270985161]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_y3ylt")
+
+[node name="BG2" type="TextureRect" parent="CanvasLayer/Control" unique_id=2065341762]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_tq4mx")
+
+[node name="BtnStart" type="TextureButton" parent="CanvasLayer/Control" unique_id=1112619378]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 211.0
+offset_top = 143.0
+offset_right = 811.0
+offset_bottom = 411.0
+texture_normal = ExtResource("5_3fmpq")
+texture_pressed = ExtResource("6_8r4xe")
+texture_hover = ExtResource("6_8r4xe")
+texture_disabled = ExtResource("5_3fmpq")
+texture_focused = ExtResource("6_8r4xe")
+script = ExtResource("7_8r4xe")
+
+[node name="BtnCredits" type="TextureButton" parent="CanvasLayer/Control" unique_id=1111390605]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 185.99998
+offset_top = 414.0
+offset_right = 786.0
+offset_bottom = 682.0
+rotation = -0.11344353
+texture_normal = ExtResource("5_3fmpq")
+texture_pressed = ExtResource("6_8r4xe")
+texture_hover = ExtResource("6_8r4xe")
+texture_disabled = ExtResource("5_3fmpq")
+texture_focused = ExtResource("6_8r4xe")
+script = ExtResource("7_8r4xe")

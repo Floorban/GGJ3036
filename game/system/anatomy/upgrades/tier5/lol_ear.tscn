@@ -58,14 +58,16 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pjars"]
-radius = 51.199997
-height = 134.4
+radius = 26.799997
+height = 73.59999
 
 [node name="LolEar" unique_id=1690948451 instance=ExtResource("1_cwlpb")]
 scale = Vector2(2.5, 2.5)
+anatomy_type = 1
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_56ss5")
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_dp70k")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]

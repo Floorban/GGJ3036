@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i35d8"]
-radius = 31.666668
-height = 95.333336
+radius = 29.199999
+height = 81.6
 
 [node name="FuckedEar" unique_id=1690948451 instance=ExtResource("1_i35d8")]
 scale = Vector2(2.5, 2.5)
@@ -80,4 +80,5 @@ material = SubResource("ShaderMaterial_og2o3")
 texture = ExtResource("2_dtd01")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
+position = Vector2(-0.79999995, -1.1999999)
 shape = SubResource("CapsuleShape2D_i35d8")

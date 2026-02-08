@@ -106,7 +106,7 @@ func start_battle() -> void:
 	init_combat_arena(current_level)
 	
 	tween.tween_callback(func():
-		await get_tree().create_timer(2.0).timeout
+		#await get_tree().create_timer(2.0).timeout
 		battle_time_left = battle_duration
 		player.get_ready_to_battle()
 		game_ui.timer_panel.visible = true

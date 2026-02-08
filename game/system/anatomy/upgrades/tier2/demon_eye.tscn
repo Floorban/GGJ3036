@@ -58,10 +58,10 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ufhrk"]
-radius = 41.88602
+radius = 35.027985
 
 [node name="EyeTier2" unique_id=1690948451 instance=ExtResource("1_krlul")]
-scale = Vector2(2.3, 2.3)
+scale = Vector2(2.5, 2.5)
 stat_modifiers = {
 0: 0.0,
 1: -0.2,
@@ -74,7 +74,7 @@ max_hp = 5.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_pnmsj")
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_gqedb")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
