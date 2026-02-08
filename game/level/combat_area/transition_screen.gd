@@ -1,5 +1,17 @@
 class_name transition_screen extends Sprite2D
 
+@export var menu: Menu
+
+var sfx_fire: String = "event:/Ambient/Fire"
+var i_fire: FmodEvent
+
+func _ready() -> void:
+	if menu:
+		menu.dialogue_end.connect(func():
+			i_fire.set_parameter_by_name_with_label("Transition", "Combat", true)
+			audio.clear_instance([i_fire], 5)
+			)
+
 func burn():
 	if material and material is ShaderMaterial:
 		var tween = create_tween()
@@ -11,6 +23,7 @@ func cover():
 		var tween = create_tween()
 		material.set_shader_parameter("position", Vector2.ZERO)
 		tween.tween_method(update_radius, 2.0, 0.0, 0.7)
+		i_fire = audio.play_instance(sfx_fire, global_transform)
 
 func black_screen():
 	if material and material is ShaderMaterial:
