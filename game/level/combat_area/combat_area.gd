@@ -42,7 +42,7 @@ var enemy: Enemy
 
 #AUDIO
 var sfx_music: String = "event:/Music/Melody"
-var sfx_music_boss: String = "event:/Music/DnB"
+var sfx_music_boss: String = "event:/Music/Boss"
 var i_music: FmodEvent
 var i_music_boss: FmodEvent
 
