@@ -37,6 +37,8 @@
 [ext_resource type="PackedScene" uid="uid://vfskt7y0pkwf" path="res://game/system/anatomy/upgrades/tier6/fury_eye_2.tscn" id="27_ayd62"]
 [ext_resource type="PackedScene" uid="uid://cwmjhk1edv11v" path="res://game/system/anatomy/upgrades/tier6/fury_mouth.tscn" id="28_u3s1c"]
 [ext_resource type="PackedScene" uid="uid://dppwuvorymkwk" path="res://game/system/anatomy/upgrades/tier6/fury_mouth_2.tscn" id="29_e21xm"]
+[ext_resource type="Texture2D" uid="uid://cdmnrh3w5ji0d" path="res://sprites/ui/BandageImReadyopacity.png" id="34_e21xm"]
+[ext_resource type="Texture2D" uid="uid://d0alrljy0et8o" path="res://sprites/ui/BandageImReady.png" id="34_u3s1c"]
 
 [node name="RestRoom" type="Node2D" unique_id=1662139499 groups=["rest_room"]]
 script = ExtResource("1_nbyfe")
@@ -140,22 +142,41 @@ rotation = 2.3169372
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981571717]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=919885564]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -150.0
 offset_right = 374.0
-grow_vertical = 0
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_bottom = 50
+offset_bottom = 280.0
+mouse_filter = 0
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 180
 
-[node name="ReadyButton" type="Button" parent="CanvasLayer/MarginContainer" unique_id=108928691]
+[node name="ReadyButton" type="TextureButton" parent="CanvasLayer/MarginContainer" unique_id=378972776]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+texture_normal = ExtResource("34_e21xm")
+texture_pressed = ExtResource("34_u3s1c")
+texture_hover = ExtResource("34_u3s1c")
+texture_disabled = ExtResource("34_e21xm")
+ignore_texture_size = true
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/ReadyButton" unique_id=10984678]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 23.0
+offset_right = 22.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_x4kus")
-theme_override_font_sizes/font_size = 32
-text = "I'M READY AGAIN"
+theme_override_font_sizes/font_size = 36
+text = "Next Round"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PartInfoPanel" type="MarginContainer" parent="CanvasLayer" unique_id=1985814430]
 anchors_preset = 1

@@ -3,7 +3,7 @@ class_name RestRoom extends Node2D
 signal ready_to_fight()
 
 @onready var background: Sprite2D = $Background
-@onready var ready_button: Button = %ReadyButton
+@onready var ready_button: TextureButton = %ReadyButton
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 @onready var upgrades: Node2D = %Upgrades

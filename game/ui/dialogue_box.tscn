@@ -259,14 +259,14 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_8ubs4")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=833945746]
+[node name="TextureRect" type="NinePatchRect" parent="." unique_id=360028976]
 custom_minimum_size = Vector2(400, 150)
 layout_mode = 0
-offset_right = 300.0
-offset_bottom = 100.0
+offset_right = 400.0
+offset_bottom = 150.0
 pivot_offset = Vector2(200, 75)
 texture = ExtResource("2_6pf15")
-expand_mode = 1
+region_rect = Rect2(16, -24, 880, 944)
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect" unique_id=1634941817]
 layout_mode = 1
