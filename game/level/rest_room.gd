@@ -58,15 +58,16 @@ func enter_rest_room(current_level: int) -> void:
 		DialogueManager.say("SO, this is the surgery room, all fancy and stuff.")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("If your parts are too fucked up, you can throw em away and get new ones.", 12.0)
+		DialogueManager.say("If your parts are destroyed (purple), you can throw em away and get new ones.", 12.0)
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("there might be some shitty parts, but some of them will make you feel stronger.", 15.0)
+		DialogueManager.say("You can still reattach the brown parts, they're not too fucked up.", 15.0)
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("Gotta remove the healthy part from your face first if there's not enough spot for it.")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("maybe you can even look a bit less ugly after fixing it.")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
 	
 	first_time = false
 

@@ -9,7 +9,6 @@ var health_tween: Tween
 
 var player_health_effect_value := 24.0:
 	set(value):
-		print(value)
 		player_health_effect_value = value
 		if health_tween: health_tween.kill()
 		health_tween = create_tween()

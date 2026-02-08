@@ -147,13 +147,14 @@ size = Vector2(98.46155, 49.40748)
 
 [node name="FatGuy" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_clg4v")]
 script = ExtResource("2_tfnvl")
+boss_name = ""
 is_minion = false
 switch_chance = 0.2
 min_switch_time = 3.0
 base_cooldown = 4.0
 base_damage = 5.0
 base_speed = 0.05
-base_crit_chance = 1.0
+base_crit_chance = 0.8
 base_crit_damage = 2.0
 base_stun_strength = 2.0
 base_stun_resist = 5.0
@@ -193,6 +194,7 @@ texture = ExtResource("6_jf7km")
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 position = Vector2(-44.615387, -20)
 rotation = 0.091627955
+max_hp = 5.0
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_clg4v")
@@ -214,6 +216,7 @@ shape = SubResource("CapsuleShape2D_tfnvl")
 
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
 position = Vector2(61.53846, -21.53846)
+max_hp = 5.0
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_tfnvl")
@@ -231,7 +234,7 @@ shape = SubResource("RectangleShape2D_mtw3s")
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 position = Vector2(-96.92309, -12.3076935)
 rotation = -0.07894593
-max_hp = 4.0
+max_hp = 5.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_a7cdb")
@@ -250,7 +253,7 @@ shape = SubResource("RectangleShape2D_tfnvl")
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 position = Vector2(92.30769, -6.1538467)
 rotation = 0.04252911
-max_hp = 4.0
+max_hp = 5.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_evlni")
@@ -268,6 +271,16 @@ shape = SubResource("RectangleShape2D_clg4v")
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 position = Vector2(3.0769234, -13.846154)
+stat_modifiers = {
+0: 0.0,
+1: -0.5,
+2: 0.5,
+3: 0.0,
+4: 0.0,
+5: 0.0,
+6: 0.0,
+7: 0.0
+}
 max_hp = 6.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
@@ -287,6 +300,16 @@ shape = SubResource("CapsuleShape2D_clg4v")
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 position = Vector2(3.0769234, 41.538464)
+stat_modifiers = {
+0: 0.0,
+1: 0.0,
+2: 0.0,
+3: 0.0,
+4: 0.0,
+5: 0.0,
+6: 0.0,
+7: 0.5
+}
 max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]

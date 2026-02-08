@@ -187,7 +187,7 @@ boss_name = ""
 is_minion = false
 switch_chance = 0.6
 min_switch_time = 2.0
-base_damage = 1.5
+base_damage = 1.2
 base_speed = 0.09
 base_stun_strength = 1.5
 base_stun_resist = 3.0
@@ -289,6 +289,16 @@ rotation = 0.053586222
 shape = SubResource("RectangleShape2D_qjg54")
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
+stat_modifiers = {
+0: 0.0,
+1: -0.2,
+2: 0.2,
+3: 0.0,
+4: 0.0,
+5: 0.2,
+6: 0.0,
+7: 0.0
+}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
@@ -302,6 +312,16 @@ shape = SubResource("RectangleShape2D_ci5v1")
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 position = Vector2(3.0769234, 41.538464)
+stat_modifiers = {
+0: 0.0,
+1: 0.0,
+2: 0.2,
+3: 0.0,
+4: 0.0,
+5: 0.0,
+6: 0.2,
+7: 0.2
+}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]

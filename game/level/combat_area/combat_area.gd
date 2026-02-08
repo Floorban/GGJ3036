@@ -120,7 +120,11 @@ func start_battle() -> void:
 	game_ui.show_boss_name(enemy.boss_name)
 	player.arm.movable_by_mouse = false
 	tween.tween_callback(func():
-		await get_tree().create_timer(2.0).timeout
+		if enemy: 
+			await enemy.enemy_dialogue_end
+		else:
+			await player.enemy_dialogue_end
+		#await get_tree().create_timer(2.0).timeout
 		in_battle = true
 		in_break = false
 		game_ui.timer_panel.visible = true
@@ -333,7 +337,6 @@ var distortion_tween: Tween
 var barrel_distortion := 0.0
 
 func _screen_shake(value: float, crit := false) -> void:
-	print("f")
 	camera.add_trauma(value / 5)
 
 	var peak : float = clamp(value * 0.15, 0.05, 0.35)

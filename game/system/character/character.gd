@@ -124,10 +124,14 @@ var sfx_block: String = "event:/SFX/Combat/Block"
 var sfx_crit: String = "event:/SFX/Combat/Crit"
 var sfx_hit: String = "event:/SFX/Combat/Hit"
 
+signal enemy_dialogue_end()
+
 func init_character() -> void:
 	_init_anatomy_parts()
 	_init_combat_component()
 	get_anatomy_references()
+	await get_tree().create_timer(1.0).timeout
+	enemy_dialogue_end.emit()
 
 func get_anatomy_references() -> void:
 	opponent_anatomy.clear()

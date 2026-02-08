@@ -141,12 +141,11 @@ boss_name = ""
 is_minion = false
 switch_chance = 0.6
 min_switch_time = 2.0
-base_cooldown = 4.0
-base_damage = 1.8
+base_damage = 1.5
 base_speed = 0.08
-base_crit_chance = 0.6
-base_crit_damage = 1.5
-base_stun_resist = 4.0
+base_crit_chance = 0.5
+base_crit_damage = 1.2
+base_stun_resist = 3.0
 arm = NodePath("BoxerArm")
 sfx_die = "event:/SFX/NPC/Boxer/Die"
 sfx_entry = "event:/SFX/NPC/Boxer/Entry"
@@ -179,7 +178,19 @@ rotation = 0.087266445
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("5_2soic")
 
-[node name="Sprite" parent="Face/Features/EyeL" parent_id_path=PackedInt32Array(1690948451) index="0" unique_id=500964707]
+[node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
+stat_modifiers = {
+0: 0.0,
+1: -0.1,
+2: 0.0,
+3: 0.0,
+4: 0.0,
+5: 0.0,
+6: 0.0,
+7: 0.2
+}
+
+[node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_uvior")
 position = Vector2(39.384617, 25.84615)
 rotation = 0.15655711
@@ -190,7 +201,19 @@ position = Vector2(-2.1538486, -1.8461545)
 rotation = -1.3761905
 shape = SubResource("CapsuleShape2D_6jrna")
 
-[node name="Sprite" parent="Face/Features/EyeR" parent_id_path=PackedInt32Array(584210078) index="0" unique_id=500964707]
+[node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
+stat_modifiers = {
+0: 0.0,
+1: -0.1,
+2: 0.0,
+3: 0.0,
+4: 0.0,
+5: 0.0,
+6: 0.0,
+7: 0.2
+}
+
+[node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_trmn6")
 position = Vector2(27.396702, -26.602942)
 rotation = -3.3744605
@@ -204,13 +227,33 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("CapsuleShape2D_oq05j")
 
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
-max_hp = 1.0
+stat_modifiers = {
+0: 0.0,
+1: 0.0,
+2: 0.0,
+3: 0.0,
+4: 0.2,
+5: 0.2,
+6: 0.0,
+7: 0.0
+}
+max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_f4s0o")
 
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
-max_hp = 1.0
+stat_modifiers = {
+0: 0.0,
+1: 0.0,
+2: 0.0,
+3: 0.0,
+4: 0.2,
+5: 0.2,
+6: 0.0,
+7: 0.0
+}
+max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_6xh16")
@@ -219,7 +262,20 @@ material = SubResource("ShaderMaterial_6xh16")
 position = Vector2(9.615379, -29.307713)
 rotation = 0.084238775
 
-[node name="Sprite" parent="Face/Features/Nose" parent_id_path=PackedInt32Array(1350482542) index="0" unique_id=500964707]
+[node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
+stat_modifiers = {
+0: 0.0,
+1: -0.3,
+2: 0.0,
+3: 0.0,
+4: 0.0,
+5: 0.0,
+6: 0.0,
+7: 0.0
+}
+max_hp = 4.0
+
+[node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_oepvl")
 
 [node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
@@ -231,7 +287,20 @@ rotation = -0.051714513
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_oepvl")
 
-[node name="Sprite" parent="Face/Features/Mouth" parent_id_path=PackedInt32Array(508432269) index="0" unique_id=500964707]
+[node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
+stat_modifiers = {
+0: 0.0,
+1: 0.0,
+2: 0.3,
+3: 0.0,
+4: 0.0,
+5: 0.0,
+6: 0.0,
+7: 0.0
+}
+max_hp = 4.0
+
+[node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_xh6fd")
 position = Vector2(-8.769228, -67.92307)
 rotation = 0.03633562
