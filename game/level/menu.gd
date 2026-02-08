@@ -24,9 +24,9 @@ func intro_dialogue() -> void:
 		await get_tree().create_timer(1.8).timeout
 		DialogueManager.say("You still remember how to punch this mf right?")
 		await get_tree().create_timer(3.0).timeout
-		DialogueManager.say("Fucking damn it, LEFT CLICK to punch his fucking face !")
+		DialogueManager.say("Fucking damn it, LEFT CLICK to punch his face !!!")
 		await get_tree().create_timer(3.0).timeout
-		DialogueManager.say("Okay time to go now brother")
+		DialogueManager.say("Okay time to go now brother, don't forget to block")
 		await get_tree().create_timer(1.5).timeout
 		DialogueManager.say("Brooootheeerrr !!!")
 		await get_tree().create_timer(3.0).timeout

@@ -52,7 +52,6 @@ func _ready() -> void:
 			enemies.append(e)
 	retro_mat = retro_screen.material as ShaderMaterial
 	#init_combat_arena(current_level)
-	start_battle()
 	first_level = false
 
 func init_combat_arena(level : int) -> void:
@@ -116,7 +115,6 @@ func start_battle() -> void:
 		enemy.get_ready_to_battle()
 		battle_start.emit()
 	)
-	
 
 
 func player_win() -> void:
@@ -211,7 +209,6 @@ func advance_enemy() -> void:
 	current_level += 1
 
 func next_round() -> void:
-	print("aa")
 	paused = false
 	
 	in_break = false
