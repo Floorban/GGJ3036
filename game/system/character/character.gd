@@ -190,7 +190,8 @@ func start_round() -> void:
 func _process(_delta: float) -> void:
 	if is_dead or not can_control or is_stuned:
 		return
-	arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
+	if arm:
+		arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
 
 func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool) -> void:
 	if not can_control:

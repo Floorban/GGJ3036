@@ -91,6 +91,7 @@ func final_stage() -> void:
 
 func start_battle() -> void:
 	camera.switch_target(arena_center, 50)
+	game_ui.show_boss_name("Eric The CHIN")
 	
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
