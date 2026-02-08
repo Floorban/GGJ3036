@@ -2,7 +2,6 @@ class_name Menu extends Node2D
 
 signal dialogue_end()
 
-
 @export var skip_dialogue : bool
 var tutorial := true
 @export var level_scene: PackedScene
@@ -21,6 +20,9 @@ var tutorial := true
 
 @onready var bg_1: TextureRect = %BG1
 @onready var bg_2: TextureRect = %BG2
+
+var sfx_menu: String = "event:/Ambient/Menu"
+var i_menu: FmodEvent
 
 func intro_dialogue() -> void:
 	if tutorial:
@@ -70,6 +72,9 @@ func intro_dialogue() -> void:
 		DialogueManager.say("Good luck", 1.0)
 		dialogue_end.emit()
 
+func _ready() -> void:
+	if i_menu == null: i_menu = audio.play_instance(sfx_menu)
+
 func _process(_delta: float) -> void:
 	if warning == null:
 		return
@@ -82,6 +87,7 @@ func _process(_delta: float) -> void:
 		btn_credits.pressed.connect(set_credits_page)
 
 func start_game() -> void:
+	audio.clear_instance([i_menu])
 	control.visible = false
 	page_control.visible = false
 	page_credits.visible = false
@@ -98,12 +104,10 @@ func start_game() -> void:
 	if not skip_dialogue:
 		await intro_dialogue()   
 
-
 	var level := level_scene.instantiate()
 	add_child(level)
 	if level is Level:
 		level.game_end.connect(end_game)
-	
 
 func end_game() -> void:
 	tutorial = false
