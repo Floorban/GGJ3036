@@ -15,8 +15,13 @@
 		<property name="parameterType">
 			<value>2</value>
 		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
 		<property name="enumerationLabels">
 			<value>Fatal</value>
+			<value>Fatal L</value>
+			<value>Fatal R</value>
 		</property>
 		<property name="initialValue">
 			<value>0</value>

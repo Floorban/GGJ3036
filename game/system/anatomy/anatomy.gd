@@ -45,7 +45,10 @@ func get_stat_strings() -> Array[String]:
 	return lines
 
 enum AnatomyType {Eye, Ear, Nose, Mouth}
-@export var anatomy_type: AnatomyType 
+@export var anatomy_type: AnatomyType
+
+enum AnatomySide {Left, Right, Misc}
+var anatomy_side: AnatomySide
 
 signal anatomy_clicked(anatomy: Anatomy)
 signal anatomy_hit(damage: float, is_crit: bool)
@@ -96,6 +99,7 @@ func _ready() -> void:
 		await get_tree().physics_frame
 	hovering.connect(Stats.rest_room.show_part_info)
 	unhover.connect(Stats.rest_room.hide_part_info)
+	check_side()
 
 signal disconnect()
 
@@ -270,6 +274,13 @@ func drop_part() -> void:
 		)
 	else:
 		is_being_dragged = false
+
+func check_side() -> AnatomySide:
+	if global_position.x < 0: 
+		return AnatomySide.Left
+	else:
+		anatomy_side = AnatomySide.Right
+		return AnatomySide.Right
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if (body_owner and not body_owner.rest_mode) and (state == PartState.DESTROYED or is_being_dragged):
