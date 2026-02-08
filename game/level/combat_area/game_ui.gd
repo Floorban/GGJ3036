@@ -23,7 +23,7 @@ func show_boss_name(boss_name: String) -> void:
 	var size := boss_name_banner.size
 
 	var start_pos := Vector2(-size.x, -size.y)
-	var mid_pos := start_pos + Vector2(100, 0)
+	var mid_pos := Vector2(64, 0)
 	var end_pos := Vector2(viewport.x + size.x, mid_pos.y)
 
 	boss_name_banner.position = start_pos
@@ -37,23 +37,30 @@ func show_boss_name(boss_name: String) -> void:
 		"position",
 		mid_pos,
 		1.2
-	)
+	).set_ease(Tween.EASE_OUT)
 
-	banner_tween.tween_interval(0.4)
+	var drift_pos := mid_pos + Vector2(25, 0)
+
+	banner_tween.tween_property(
+		boss_name_banner,
+		"position",
+		drift_pos,
+		5.0
+	).set_ease(Tween.EASE_IN_OUT)
 
 	banner_tween.parallel().tween_property(
 		boss_name_banner,
 		"position",
 		end_pos,
-		2.0
-	)
+		4.0
+	).set_ease(Tween.EASE_IN)
 
 	banner_tween.parallel().tween_property(
 		boss_name_banner,
 		"modulate:a",
 		0.0,
-		1.5
-	)
+		0.6
+	).set_delay(1.2)
 
 	banner_tween.finished.connect(func():
 		boss_name_banner.visible = false

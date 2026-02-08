@@ -7,5 +7,6 @@
 layer = 7
 script = ExtResource("1_qj8b8")
 dialogue_scene = ExtResource("2_7y0qv")
+max_visible = 3
 spacing = 30
 base_offset = Vector2(250, -200)

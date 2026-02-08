@@ -29,24 +29,24 @@ func intro_dialogue() -> void:
 		DialogueManager.say("You still remember how to punch this mf right?")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Left click on his face parts, but try to defend youself first !")
+		DialogueManager.say("Left click on his face parts to attack, but click on yours to defend youself first !")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Okay time to go now brother")
+		DialogueManager.say("Okay time to go now brother", 3.0)
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Brooootheeerrr!!!")
+		DialogueManager.say("Brooootheeerrr!!!", 1.0)
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Bro wake up wake up !!!")
+		DialogueManager.say("Bro wake up wake up !!!", 2.0)
 		await get_tree().create_timer(2.0).timeout
-		DialogueManager.say("LOOOOOOOOCK")
+		DialogueManager.say("LOOOOOOOOCK", 1.0)
 		await get_tree().create_timer(0.5).timeout
-		DialogueManager.say("THE")
+		DialogueManager.say("THE", 1.0)
 		await get_tree().create_timer(0.5).timeout
-		DialogueManager.say("FUCK")	
+		DialogueManager.say("FUCK", 1.0)
 		await get_tree().create_timer(0.5).timeout
-		DialogueManager.say("INNNNNNNNNN !!!")
+		DialogueManager.say("INNNNNNNNNN !!!", 1.0)
 		dialogue_end.emit()
 	else:
 		await get_tree().create_timer(1.0).timeout
@@ -59,13 +59,13 @@ func intro_dialogue() -> void:
 		DialogueManager.say("Punch their biggest part first would help")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Alright now you know the drill")
+		DialogueManager.say("Alright now you know the drill", 1.5)
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Oh right just press 'R' to restart if you find any bug")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Good luck")
+		DialogueManager.say("Good luck", 1.0)
 		dialogue_end.emit()
 
 func _ready() -> void:

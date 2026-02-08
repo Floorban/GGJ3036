@@ -26,7 +26,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_85o0x"]
 shader = ExtResource("11_5tn5e")
-shader_parameter/grain_intensity = 0.03600000171
+shader_parameter/grain_intensity = 0.2490000118275
 shader_parameter/min_lum = 0.1990000094525
 shader_parameter/max_lum = 0.3600000171
 shader_parameter/time_scale = 0.05600000266
@@ -117,7 +117,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.03600000171, 1.0]
+"values": [0.2490000118275, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8nlnt"]
@@ -175,28 +175,34 @@ texture = ExtResource("13_ldpml")
 [node name="Bully" parent="Enemies" index="2" unique_id=1348200660 instance=ExtResource("3_i2c52")]
 visible = false
 position = Vector2(0, -13)
+boss_name = "Brad short arms"
 attack_damage = 2.5
 
 [node name="Boxer" parent="Enemies" index="3" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false
 position = Vector2(0, -13)
+boss_name = "Tyke the Myson"
 switch_chance = 0.5
 
 [node name="BrainOut1" parent="Enemies" index="4" unique_id=710006968 instance=ExtResource("5_ay0ac")]
 visible = false
 position = Vector2(0, -13)
+boss_name = "Ron 7 mouths"
 
 [node name="FatGuy" parent="Enemies" index="5" unique_id=1388912655 instance=ExtResource("6_fhe53")]
 visible = false
 position = Vector2(-3, -63)
+boss_name = "THE FAAAAAAAAAAH "
 
 [node name="Eric" parent="Enemies" index="6" unique_id=856538371 instance=ExtResource("7_28xsa")]
 visible = false
 position = Vector2(0, -13)
+boss_name = "Eric the Chin"
 
 [node name="BrainOut2" parent="Enemies" index="7" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
 visible = false
 position = Vector2(0, -13)
+boss_name = "Ron 7 mouths prime"
 
 [node name="RestRoom" parent="Enemies" index="8" unique_id=1662139499 instance=ExtResource("15_kjrlu")]
 unique_name_in_owner = true
@@ -206,8 +212,8 @@ position = Vector2(-1172, -28)
 [node name="AudioManager" parent="." index="2" unique_id=1015518348 instance=ExtResource("9_tgsw3")]
 
 [node name="Camera" parent="." index="3" unique_id=1361226820 node_paths=PackedStringArray("follow_node") instance=ExtResource("10_xaya2")]
-position = Vector2(25, -1)
-zoom = Vector2(2, 2)
+position = Vector2(959, 544)
+zoom = Vector2(1, 1)
 limit_enabled = false
 max_offset = Vector2(300, 100)
 max_roll = 1.0
@@ -250,7 +256,6 @@ playback_auto_capture_ease_type = 1
 
 [node name="TransitionScreen" type="Sprite2D" parent="ScreenLayer" index="1" unique_id=1288152459]
 unique_name_in_owner = true
-visible = false
 modulate = Color(0, 0, 0, 1)
 z_index = 4010
 material = SubResource("ShaderMaterial_fhe53")

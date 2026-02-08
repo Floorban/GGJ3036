@@ -91,7 +91,6 @@ func final_stage() -> void:
 
 func start_battle() -> void:
 	camera.switch_target(arena_center, 50)
-	game_ui.show_boss_name("Eric The CHIN")
 	
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
@@ -112,16 +111,16 @@ func start_battle() -> void:
 	
 	background.visible = true
 	init_combat_arena(current_level)
+	game_ui.show_boss_name(enemy.boss_name)
 	player.arm.movable_by_mouse = false
 	tween.tween_callback(func():
-		#await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		in_battle = true
 		in_break = false
 		game_ui.timer_panel.visible = true
 		paused = false
 		battle_time_left = battle_duration
 		player.get_ready_to_battle()
-		game_ui.timer_panel.visible = true
 		enemy.get_ready_to_battle()
 		battle_start.emit()
 	)
