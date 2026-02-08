@@ -224,11 +224,11 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool
 	audio.play(sfx_hit, global_transform, "Intensity", damage / max_health)
 	
 	if crit: 
-		if target.check_side() == target.AnatomySide.Left:
-			audio.play(sfx_crit, global_transform, "Impact", "Fatal L")
-		if target.check_side() == target.AnatomySide.Right:
-			audio.play(sfx_crit, global_transform, "Impact", "Fatal R")
-		else: audio.play(sfx_crit)
+		#if target.check_side() == target.AnatomySide.Left:
+			#audio.play(sfx_crit, global_transform, "Impact", "Fatal L")
+		#if target.check_side() == target.AnatomySide.Right:
+			#audio.play(sfx_crit, global_transform, "Impact", "Fatal R")
+		#else: audio.play(sfx_crit)
 		PopupPrompt.display_prompt("Critical !", -1 ,target.global_position, 2.0, 0.4)
 
 

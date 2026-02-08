@@ -276,11 +276,9 @@ func drop_part() -> void:
 		is_being_dragged = false
 
 func check_side() -> AnatomySide:
-	if global_position.x < 0: 
-		return AnatomySide.Left
-	else:
-		anatomy_side = AnatomySide.Right
-		return AnatomySide.Right
+	if anatomy_type == AnatomyType.Ear or AnatomyType.Eye and global_position.x < 0: return AnatomySide.Left
+	if anatomy_type == AnatomyType.Ear or AnatomyType.Eye and global_position.x > 0: return AnatomySide.Right
+	else: return AnatomySide.Misc
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if (body_owner and not body_owner.rest_mode) and (state == PartState.DESTROYED or is_being_dragged):
