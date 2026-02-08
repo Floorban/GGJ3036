@@ -9,7 +9,7 @@ var dialogues: Array[DialogueBox] = []
 
 var sfx_chat: String = "event:/SFX/UI/Chat"
 
-func say(text: String, duration := 7.0) -> void:
+func say(text: String, duration := 10.0) -> void:
 	if not dialogue_scene: return
 	
 	var box := dialogue_scene.instantiate() as DialogueBox

@@ -1,5 +1,6 @@
 extends Node2D
 
+var tutorial := false
 @export var level_scene: PackedScene
 
 @onready var transition_screen: transition_screen = %TransitionScreen
@@ -15,6 +16,48 @@ extends Node2D
 @onready var bg_1: TextureRect = %BG1
 @onready var bg_2: TextureRect = %BG2
 
+func intro_dialogue() -> void:
+	if tutorial:
+		await get_tree().create_timer(0.8).timeout
+		DialogueManager.say("Let me fix your nose first come here")
+		await get_tree().create_timer(1.8).timeout
+		DialogueManager.say("You still remember how to punch this mf right?")
+		await get_tree().create_timer(3.0).timeout
+		DialogueManager.say("fucking damn it, LEFT CLICK to punch his fucking face !!")
+		await get_tree().create_timer(3.0).timeout
+		DialogueManager.say("Okay time to go now brother")
+		await get_tree().create_timer(1.5).timeout
+		DialogueManager.say("Brooootheeerrr !!!")
+		await get_tree().create_timer(3.0).timeout
+		DialogueManager.say("Bro wake up wake up !!!")
+		await get_tree().create_timer(2.0).timeout
+		DialogueManager.say("LOOOOOOOOCK", 380)
+		await get_tree().create_timer(0.5).timeout
+		DialogueManager.say("THE", 38)
+		await get_tree().create_timer(0.5).timeout
+		DialogueManager.say("FUCK", 38)	
+		await get_tree().create_timer(0.5).timeout
+		DialogueManager.say("INNNNNNNNNN !!!", 38)
+	else:
+		await get_tree().create_timer(1.0).timeout
+		DialogueManager.say("Bro I gave you 2 lives and you died?")
+		await get_tree().create_timer(2.0).timeout
+		DialogueManager.say("The items are unbalanced at hell as well lol")
+		await get_tree().create_timer(2.0).timeout
+		DialogueManager.say("Anyway")
+		await get_tree().create_timer(1.0).timeout
+		DialogueManager.say("You noticed how each face part contribute to your stats?")
+		await get_tree().create_timer(2.2).timeout
+		DialogueManager.say("Same goes to your opponents")
+		await get_tree().create_timer(1.2).timeout
+		DialogueManager.say("Punch their biggest part first would help")
+		await get_tree().create_timer(1.7).timeout
+		DialogueManager.say("Alright now you know the drill")
+		await get_tree().create_timer(1.5).timeout
+		DialogueManager.say("Oh right just press 'R' to restart if you find any bug")
+		await get_tree().create_timer(1.7).timeout
+		DialogueManager.say("Good luck my brother")
+
 func _ready() -> void:
 	transition_screen.burn()
 	btn_start.pressed.connect(start_game)
@@ -23,7 +66,8 @@ func _ready() -> void:
 
 func start_game() -> void:
 	transition_screen.cover()
-	await get_tree().create_timer(1.5).timeout
+	intro_dialogue()
+	await get_tree().create_timer(15.0).timeout
 	control.visible = false
 	page_control.visible = false
 	page_credits.visible = false
@@ -44,6 +88,7 @@ func start_game() -> void:
 	
 
 func end_game() -> void:
+	tutorial = false
 	label_start.text = "TRY AGAIN"
 	transition_screen.burn()
 	bg_1.visible = false

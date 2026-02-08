@@ -8,7 +8,7 @@ func _ready() -> void:
 	modulate.a = 0
 	get_tree().create_timer(lifetime).timeout.connect(fade_out)
 
-func set_text(text: String) -> void:
+func set_text(text: String, _font_size: int = 28) -> void:
 	label.text = text
 
 func fade_out() -> void:

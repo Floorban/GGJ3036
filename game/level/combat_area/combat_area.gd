@@ -277,8 +277,6 @@ func _process(delta: float) -> void:
 		player_lose()
 	if Input.is_action_just_pressed("ui_accept"):
 		end_battle()
-	if Input.is_action_just_pressed("ui_down"):
-		DialogueManager.say("broooooo, come ondsdsssssssssssssssssssssssssssssssssssssssssssss")
 	if paused:
 		return
 	if battle_time_left <= 0:
