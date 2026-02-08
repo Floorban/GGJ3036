@@ -341,7 +341,7 @@ func stop_scared_shake() -> void:
 	rotation = scared_og_rot
 
 func _hover_over_part() -> void:
-	if (body_owner and not body_owner.rest_mode) and  (state == PartState.DESTROYED or is_being_dragged):
+	if (body_owner and not body_owner.rest_mode) and (state == PartState.DESTROYED or is_being_dragged):
 		return
 	#if (state == PartState.HEALTHY and not body_owner.can_control and not body_owner.rest_mode):
 		#return
@@ -350,8 +350,17 @@ func _hover_over_part() -> void:
 		#return
 	if is_being_dragged:
 		return
+	if body_owner:
+		if body_owner is Player:
+			if body_owner.rest_mode:
+				MouseCursor.choose_unvalid()
+			else:
+				MouseCursor.choose_block()
+		else:
+			MouseCursor.choose_attack()
 	if (body_owner and body_owner.rest_mode and state == PartState.HEALTHY):
 		start_scared_shake(1.5, 0.15)
+		
 	#anatomy_ui.toggle_panel(true)
 	#if not is_targeted:
 	outline_mat.set_shader_parameter("alphaThreshold", 0.1)
@@ -360,6 +369,9 @@ func _hover_over_part() -> void:
 	hovering.emit(AnatomyType.keys()[anatomy_type], PartState.keys()[state], current_hp, max_hp, get_stat_strings())
 
 func _unhover_part() -> void:
+	if not MouseCursor.hovering:
+		MouseCursor.choose_normal()
+	MouseCursor.hovering = false
 	#anatomy_ui.toggle_panel(false)
 	stop_scared_shake()
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)

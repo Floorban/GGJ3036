@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://j8pslei8vmrv"]
+
+[ext_resource type="PackedScene" uid="uid://cm38m8rombbxs" path="res://game/ui/mouse_cursor.tscn" id="1_g6yno"]
+
+[node name="CanvasMouseCursor" type="CanvasLayer" unique_id=1175954673]
+layer = 128
+
+[node name="MouseCursor" parent="." unique_id=1316371847 instance=ExtResource("1_g6yno")]
+script = null
