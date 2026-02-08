@@ -61,12 +61,12 @@ func get_ready_to_battle() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click") and selected_target:
+		arm.rest_pos()
 		if selected_target in anatomy_parts:
 			selected_target.is_blocking = false
 			if blocking_part:
 				blocking_part.is_blocking = false
 			blocking_part = null
-			arm.rest_pos()
 		elif not can_action:
 			selected_target.is_targeted = false
 			selected_target._unhighlight_target()

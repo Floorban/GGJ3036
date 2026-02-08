@@ -156,6 +156,7 @@ func player_lose() -> void:
 	queue_free()
 
 func end_battle() -> void:
+	paused = true
 	game_ui.timer_panel.visible = false
 	
 	camera.switch_target(player, 50)
@@ -197,6 +198,8 @@ func advance_enemy() -> void:
 	current_level += 1
 
 func next_round() -> void:
+	paused = false
+	
 	in_break = false
 	player.arm.movable_by_mouse = false
 	battle_time_left = battle_duration

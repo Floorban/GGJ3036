@@ -66,14 +66,16 @@ scale = Vector2(2.5, 2.5)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
-2: 0.4,
+2: 0.0,
 3: 0.4,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.2,
+7: 0.5
 }
 anatomy_type = 1
 state = 3
-max_hp = 10.0
+max_hp = 9.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_og2o3")

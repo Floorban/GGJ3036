@@ -61,7 +61,7 @@ func _perform_attack(_target: Anatomy) -> void:
 	can_action = false
 	await get_tree().create_timer(punch_strength * 2).timeout
 	
-	if next_target:
+	if next_target and not is_dead:
 		next_target.is_targeted = true
 		next_target._highlight_target()
 		arm._on_arm_charge_finished(punch_strength * 3)
@@ -94,5 +94,5 @@ func enemy_attack(attack_target: Anatomy) -> void:
 	if crit: dmg *= critical_damage
 	attack_target.is_targeted = false
 	attack_target._unhighlight_target()
-	attack_target.anatomy_hit.emit(dmg)
+	attack_target.anatomy_hit.emit(dmg, crit)
 	hit.emit(dmg, crit)

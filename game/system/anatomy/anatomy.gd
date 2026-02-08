@@ -47,7 +47,7 @@ enum AnatomyType {Eye, Ear, Nose, Mouth}
 @export var anatomy_type: AnatomyType 
 
 signal anatomy_clicked(anatomy: Anatomy)
-signal anatomy_hit(damage: float)
+signal anatomy_hit(damage: float, is_crit: bool)
 signal anatomy_fucked()
 
 enum PartState { HEALTHY, FUCKED, DESTROYED, OutOfBody }
@@ -100,7 +100,7 @@ signal disconnect()
 
 func _process(_delta: float) -> void:
 	var dist := (global_position - og_pos).length()
-	if state == PartState.HEALTHY and dist > 20.0 and has_blood:
+	if state == PartState.HEALTHY and dist > 50.0 and has_blood:
 		#drop_part()
 		state = PartState.FUCKED
 		body_owner = null
@@ -367,7 +367,6 @@ func _unhover_part() -> void:
 	is_hovering = false
 	#unhover.emit()
 
-
 func _highlight_target() -> void:
 	if is_part_dead():
 		return
@@ -408,11 +407,7 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 		bp.global_position = og_pos
 		part_dead()
 	
-	if crit: 
-		spawn_blood_parc(1.0)
-		if body_owner: audio.play(body_owner.sfx_crit)
-	else: 
-		if body_owner: audio.play(body_owner.sfx_hit, global_transform, "Intensity", changed_amount / max_hp)
+	if crit: spawn_blood_parc(1.0)
 	if changed_amount > 0:
 		spawn_blood_parc(0.4)
 		PopupPrompt.display_prompt("!", int(changed_amount), global_position, 2.0)

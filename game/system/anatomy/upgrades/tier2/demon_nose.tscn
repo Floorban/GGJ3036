@@ -70,11 +70,13 @@ stat_modifiers = {
 2: 0.0,
 3: 0.5,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.0,
+7: 0.0
 }
 anatomy_type = 2
 state = 3
-max_hp = 6.0
+max_hp = 4.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_qqabs")

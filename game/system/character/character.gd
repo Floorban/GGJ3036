@@ -150,7 +150,7 @@ func _init_anatomy_parts() -> void:
 	for part in anatomy_parts:
 		part.init_part(self)
 		part.anatomy_hit.connect(
-		func(dmg): resolve_hit(part, dmg, opponent)
+		func(dmg, crit): resolve_hit(part, dmg, opponent, crit)
 		)
 		max_health += part.max_hp
 	start.emit()
@@ -192,7 +192,7 @@ func _process(_delta: float) -> void:
 		return
 	arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
 
-func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
+func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool) -> void:
 	if not can_control:
 		target.is_targeted = false
 		target._unhighlight_target()
@@ -218,8 +218,12 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 		character_die_sfx()
 	hit.emit(damage * 1.5)
 	get_hit_visual_feedback(damage / 10)
-	can_action = false
+	#can_action = false
 	combat_component.pause(action_cooldown / stun_resist)
+	arm.rest_pos()
+	if crit: audio.play(sfx_crit)
+	else: audio.play(sfx_hit, global_transform, "Intensity", damage / max_health)
+
 
 func character_die_sfx() -> void:
 	audio.play(sfx_die)
@@ -367,7 +371,7 @@ func _perform_attack(target: Anatomy) -> void:
 				var crit := randf() < critical_chance
 				var dmg := attack_damage
 				if crit: dmg *= critical_damage
-				target.anatomy_hit.emit(dmg)
+				target.anatomy_hit.emit(dmg, crit)
 				hit.emit(dmg, crit)
 		)
 
@@ -399,7 +403,7 @@ func _on_attack_finished() -> void:
 	arm.sprite_fist.modulate = Color.DIM_GRAY
 
 func _on_block_finished() -> void:
-	combat_component.pause(action_cooldown / stun_resist)
+	#combat_component.pause(action_cooldown / stun_resist)
 	arm.sprite_fist.modulate = Color.DIM_GRAY
 	blocking_part.is_blocking = false
 	blocking_part = null

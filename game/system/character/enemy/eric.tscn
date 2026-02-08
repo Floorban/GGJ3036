@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://xdhugailxq5n"]
+[gd_scene format=3 uid="uid://bxto3efce2q2j"]
 
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_66ayq"]
 [ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_yvqvv"]
@@ -148,9 +148,13 @@ size = Vector2(90.22403, 29.422552)
 [node name="Eric" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_66ayq")]
 script = ExtResource("2_yvqvv")
 is_minion = false
-action_cooldown = 0.5
-attack_damage = 0.5
-punch_strength = 0.02
+switch_chance = 0.5
+min_switch_time = 3.0
+base_cooldown = 2.0
+base_damage = 1.5
+base_speed = 0.03
+base_stun_strength = 0.2
+base_stun_resist = 0.5
 arm = NodePath("EricArm")
 sfx_die = "event:/SFX/NPC/Eric/Die"
 sfx_entry = "event:/SFX/NPC/Eric/Entry"

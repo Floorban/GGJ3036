@@ -20,13 +20,13 @@ static var attached_index: float
 var sfx_attach: String = "event:/SFX/Surgery/Attach"
 
 func get_allowed_tiers(level: int) -> Array[int]:
-	if level < 4:
+	if level < 2:
 		return [1, 2, 3]
-	elif level < 7:
+	elif level < 4:
 		return [2, 3, 4]
-	elif level < 10:
+	elif level < 6:
 		return [3, 4, 5]
-	elif level < 13:
+	elif level < 7:
 		return [4, 5, 6]
 	else:
 		return [4]
@@ -40,8 +40,8 @@ func _ready() -> void:
 	leave_rest_room()
 
 func enter_rest_room(current_level: int) -> void:
-	if (current_level - 2) % 3 == 0:
-		clear_upgrade_parts()
+	#if (current_level - 2) % 3 == 0:
+		#clear_upgrade_parts()
 	part_info_panel.visible = true
 	background.visible = true
 	ready_button.visible = true
@@ -74,8 +74,9 @@ func leave_rest_room() -> void:
 	if player.anatomy_parts.is_empty():
 		assert(player.anatomy_parts.is_empty(), "can't start with no parts")
 		return
-	player.rest_mode = false
+	clear_upgrade_parts()
 	ready_to_fight.emit()
+	player.rest_mode = false
 
 func clear_upgrade_parts() -> void:
 	for marker in part_spawn_markers:
@@ -127,7 +128,7 @@ func spawn_parts(level: int) -> void:
 
 	free_markers.shuffle()
 
-	var spawn_count : int = min(4, free_markers.size())
+	var spawn_count : int = min(12, free_markers.size())
 
 	for i in range(spawn_count):
 		var scene := pick_unique_upgrade(level)
@@ -185,7 +186,9 @@ func show_part_info(_name: String, _state: String, _hp: float, _max_hp: float, _
 		label_part_name.modulate = Color.DEEP_SKY_BLUE * 1.5
 	elif _max_hp <= 12:
 		label_part_name.modulate = Color.PURPLE * 1.5
-	elif _max_hp < 100:
+	elif _max_hp < 15:
+		label_part_name.modulate = Color.RED * 1.5
+	elif _max_hp < 20:
 		label_part_name.modulate = Color.GOLD * 1.5
 		
 		
