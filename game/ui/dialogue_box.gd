@@ -31,10 +31,13 @@ func fade_out() -> void:
 
 
 var float_tween: Tween
-var float_offset := 4.0
-var float_duration := 2.0
+var float_offset := 11.0
+var float_duration := 2.6
 
 func start_floating() -> void:
+	if float_tween:
+		float_tween.kill()
+
 	float_tween = create_tween()
 	float_tween.set_loops()
 	float_tween.set_trans(Tween.TRANS_SINE)
@@ -43,12 +46,13 @@ func start_floating() -> void:
 	float_tween.tween_property(
 		float_root,
 		"position:y",
-		-4.0,
-		1.8
+		-float_offset,
+		float_duration
 	)
+
 	float_tween.tween_property(
 		float_root,
 		"position:y",
-		0.0,
-		1.8
+		float_offset,
+		float_duration
 	)
