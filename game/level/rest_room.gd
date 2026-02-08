@@ -37,7 +37,11 @@ func get_allowed_tiers(level: int) -> Array[int]:
 func _ready() -> void:
 	Stats.rest_room = self
 	ready_button.pressed.connect(leave_rest_room)
-	leave_rest_room()
+	part_info_panel.visible = false
+	background.visible = false
+	ready_button.visible = false
+	ready_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	player.rest_mode = false
 
 func enter_rest_room(current_level: int) -> void:
 	background.visible = true

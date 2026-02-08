@@ -52,6 +52,7 @@ func _ready() -> void:
 			enemies.append(e)
 	retro_mat = retro_screen.material as ShaderMaterial
 	#init_combat_arena(current_level)
+	start_battle()
 	first_level = false
 
 func init_combat_arena(level : int) -> void:
@@ -286,7 +287,8 @@ func _process(delta: float) -> void:
 var distortion_tween: Tween
 var barrel_distortion := 0.0
 
-func _screen_shake(value: float, crit := false) -> void:	
+func _screen_shake(value: float, crit := false) -> void:
+	print("f")
 	camera.add_trauma(value / 5)
 
 	var peak : float = clamp(value * 0.15, 0.05, 0.35)
