@@ -245,7 +245,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.0
 }
-max_hp = 40.0
+max_hp = 30.0
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_wlx3v")
@@ -276,7 +276,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.0
 }
-max_hp = 40.0
+max_hp = 30.0
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_vp3t4")
@@ -389,7 +389,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.0
 }
-max_hp = 30.0
+max_hp = 25.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_sihqr")
