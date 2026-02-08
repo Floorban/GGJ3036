@@ -151,13 +151,11 @@ boss_name = ""
 is_minion = false
 switch_chance = 0.2
 min_switch_time = 3.0
-base_cooldown = 4.0
-base_damage = 5.0
+base_damage = 2.0
 base_speed = 0.05
-base_crit_chance = 0.8
-base_crit_damage = 2.0
-base_stun_strength = 2.0
-base_stun_resist = 5.0
+base_crit_chance = 0.6
+base_crit_damage = 1.55
+base_stun_resist = 3.0
 arm = NodePath("FatArm")
 sfx_die = "event:/SFX/NPC/Fatso/Die"
 sfx_entry = "event:/SFX/NPC/Fatso/Entry"
@@ -194,6 +192,16 @@ texture = ExtResource("6_jf7km")
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 position = Vector2(-44.615387, -20)
 rotation = 0.091627955
+stat_modifiers = {
+0: 0.0,
+1: -0.3,
+2: 1.0,
+3: 0.0,
+4: 0.0,
+5: 0.0,
+6: 0.0,
+7: 0.0
+}
 max_hp = 5.0
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
@@ -216,6 +224,16 @@ shape = SubResource("CapsuleShape2D_tfnvl")
 
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
 position = Vector2(61.53846, -21.53846)
+stat_modifiers = {
+0: 0.0,
+1: -0.3,
+2: 1.0,
+3: 0.0,
+4: 0.0,
+5: 0.0,
+6: 0.0,
+7: 0.0
+}
 max_hp = 5.0
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
@@ -234,6 +252,16 @@ shape = SubResource("RectangleShape2D_mtw3s")
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 position = Vector2(-96.92309, -12.3076935)
 rotation = -0.07894593
+stat_modifiers = {
+0: 0.0,
+1: 0.0,
+2: 0.0,
+3: 0.0,
+4: 0.2,
+5: 0.0,
+6: 0.5,
+7: 0.5
+}
 max_hp = 5.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
@@ -253,6 +281,16 @@ shape = SubResource("RectangleShape2D_tfnvl")
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 position = Vector2(92.30769, -6.1538467)
 rotation = 0.04252911
+stat_modifiers = {
+0: 0.0,
+1: 0.0,
+2: 0.0,
+3: 0.0,
+4: 0.2,
+5: 0.0,
+6: 0.5,
+7: 0.5
+}
 max_hp = 5.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
@@ -303,7 +341,7 @@ position = Vector2(3.0769234, 41.538464)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
-2: 0.0,
+2: 1.0,
 3: 0.0,
 4: 0.0,
 5: 0.0,

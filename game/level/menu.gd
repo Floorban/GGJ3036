@@ -8,7 +8,6 @@ var tutorial := true
 @export var level_scene: PackedScene
 
 @onready var warning: TextureRect = %Warning
-@onready var page_notes: TextureRect = %PageNotes
 
 @onready var transition_screen: transition_screen = %TransitionScreen
 @onready var control: Control = %Control
@@ -125,12 +124,10 @@ func end_game() -> void:
 
 func set_control_page() -> void:
 	page_credits.visible = false
-	page_notes.visible = false
 	pop_page(page_control, !page_control.visible)
 
 func set_credits_page() -> void:
 	page_control.visible = false
-	page_notes.visible = false
 	pop_page(page_credits, !page_credits.visible)
 
 func pop_page(page: Control, show: bool) -> void:
