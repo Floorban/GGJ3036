@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ccaivs2oifotw"
+path="res://.godot/imported/p_D4(o).ogg-72d1abca790400ad0a9def935092c9a0.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/Patterns/p_D4(o).ogg"
+dest_files=["res://.godot/imported/p_D4(o).ogg-72d1abca790400ad0a9def935092c9a0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
