@@ -161,7 +161,7 @@ unique_name_in_owner = true
 z_index = -10
 position = Vector2(-6.790283, 133.79175)
 rotation = -0.44854963
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 
 [node name="Background2" type="Sprite2D" parent="Enemies" index="1" unique_id=1798532950]
 modulate = Color(0.22415566, 0.5097198, 0.31566837, 0.78431374)

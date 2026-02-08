@@ -254,7 +254,7 @@ func drop_part() -> void:
 	for area in fix_areas:
 		area.unhighlight_zone()
 		
-	if (state == PartState.OutOfBody and not body_owner) or (state == PartState.HEALTHY):
+	if (state == PartState.HEALTHY): #(state == PartState.OutOfBody and not body_owner) or 
 		for line in blood_lines:
 			line.queue_free()
 		blood_lines.clear()
