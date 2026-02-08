@@ -187,6 +187,7 @@ func end_battle() -> void:
 	player.end_battle()
 	enemy.end_battle()
 	player.arm.movable_by_mouse = true
+	print(current_level)
 	rest_room.enter_rest_room(current_level)
 
 func advance_enemy() -> void:

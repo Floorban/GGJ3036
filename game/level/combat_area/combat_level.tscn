@@ -140,8 +140,8 @@ adjustment_contrast = 1.05
 adjustment_saturation = 1.1
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
-battle_duration = 5.0
-break_duration = 2.0
+battle_duration = 20.0
+break_duration = 10.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
@@ -178,39 +178,26 @@ visible = false
 position = Vector2(0, -13)
 switch_chance = 0.5
 base_damage = 1.0
+base_crit_chance = 0.4
 base_crit_damage = 1.25
 
-[node name="Eric" parent="Enemies" index="4" unique_id=856538371 instance=ExtResource("7_28xsa")]
+[node name="BrainOut1" parent="Enemies" index="4" unique_id=710006968 instance=ExtResource("5_ay0ac")]
 visible = false
 position = Vector2(0, -13)
 
 [node name="FatGuy" parent="Enemies" index="5" unique_id=1388912655 instance=ExtResource("6_fhe53")]
 visible = false
 position = Vector2(-3, -63)
-switch_chance = 0.5
-min_switch_time = 3.0
-action_cooldown = 0.0
-punch_strength = 0.0
 
-[node name="BrainOut1" parent="Enemies" index="6" unique_id=710006968 instance=ExtResource("5_ay0ac")]
+[node name="Eric" parent="Enemies" index="6" unique_id=856538371 instance=ExtResource("7_28xsa")]
 visible = false
 position = Vector2(0, -13)
-is_minion = false
-switch_chance = 0.5
-min_switch_time = 3.0
-base_cooldown = 4.0
-base_speed = 0.08
-action_cooldown = 0.0
-punch_strength = 0.0
 
 [node name="BrainOut2" parent="Enemies" index="7" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
 visible = false
 position = Vector2(0, -13)
-is_minion = false
 switch_chance = 0.5
 min_switch_time = 3.0
-action_cooldown = 0.0
-punch_strength = 0.0
 
 [node name="RestRoom" parent="Enemies" index="8" unique_id=1662139499 instance=ExtResource("15_kjrlu")]
 unique_name_in_owner = true

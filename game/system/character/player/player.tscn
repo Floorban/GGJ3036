@@ -314,14 +314,6 @@ debug_color = Color(0.828425, 0.3136256, 0.62059414, 0.41960785)
 
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 position = Vector2(28.999998, -20.000002)
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.1,
-3: 0.0,
-4: 0.05,
-5: 0.0
-}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
@@ -338,14 +330,6 @@ shape = SubResource("RectangleShape2D_8xspq")
 
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
 position = Vector2(-31.000002, -19.999998)
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.1,
-3: 0.0,
-4: 0.05,
-5: 0.0
-}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
@@ -366,14 +350,6 @@ shape = SubResource("RectangleShape2D_f2h07")
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 position = Vector2(59.999996, -10.000005)
 rotation = -0.09759025
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.1,
-3: 0.0,
-4: 0.05,
-5: 0.0
-}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
@@ -394,14 +370,6 @@ shape = SubResource("RectangleShape2D_hu301")
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 position = Vector2(-60, 1.0000051)
 rotation = -0.052493285
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.1,
-3: 0.0,
-4: 0.05,
-5: 0.0
-}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
@@ -421,14 +389,6 @@ shape = SubResource("RectangleShape2D_wqm0g")
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 position = Vector2(0.99999934, -8)
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.1,
-3: 0.0,
-4: 0.05,
-5: 0.0
-}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
@@ -442,14 +402,6 @@ shape = SubResource("RectangleShape2D_388rn")
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 position = Vector2(-0.9999968, 37)
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.1,
-3: 0.0,
-4: 0.05,
-5: 0.0
-}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]

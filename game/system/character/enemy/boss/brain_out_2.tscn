@@ -150,10 +150,14 @@ size = Vector2(143.23077, 56.923084)
 
 [node name="BrainOut2" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_j1rto")]
 script = ExtResource("2_x88ln")
-critical_chance = 0.5
-punch_strength = 0.05
-attack_damage = 2.0
-action_cooldown = 3.0
+is_minion = false
+switch_chance = 0.8
+min_switch_time = 2.0
+base_cooldown = 2.0
+base_damage = 2.0
+base_speed = 0.04
+base_crit_chance = 0.5
+base_crit_damage = 2.0
 arm = NodePath("BrainOutArm")
 sfx_die = "event:/SFX/NPC/Brain/Die"
 sfx_entry = "event:/SFX/NPC/Brain/Entry"
@@ -228,7 +232,7 @@ texture = ExtResource("6_bca21")
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 position = Vector2(-50.76923, -12.307692)
 rotation = -0.066466406
-max_hp = 6.0
+max_hp = 10.0
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_wlx3v")
@@ -249,7 +253,7 @@ shape = SubResource("CircleShape2D_2ut17")
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
 position = Vector2(80, -18.461538)
 rotation = -0.2574762
-max_hp = 6.0
+max_hp = 10.0
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_vp3t4")
@@ -267,7 +271,7 @@ shape = SubResource("CircleShape2D_5b2wa")
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 position = Vector2(-113.84616, 18.46154)
 rotation = -0.13597997
-max_hp = 4.0
+max_hp = 6.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_bojp0")
@@ -287,7 +291,7 @@ shape = SubResource("RectangleShape2D_x88ln")
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 position = Vector2(130.76924, -3.0769224)
 rotation = -0.022997413
-max_hp = 4.0
+max_hp = 6.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_sgmir")
@@ -306,7 +310,7 @@ shape = SubResource("RectangleShape2D_qjg54")
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 position = Vector2(1.5384617, 16.923077)
-max_hp = 4.0
+max_hp = 10.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_2wmgg")
@@ -322,7 +326,7 @@ shape = SubResource("CapsuleShape2D_wlx3v")
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 position = Vector2(6.153846, 78.46155)
-max_hp = 100.0
+max_hp = 10.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_sihqr")

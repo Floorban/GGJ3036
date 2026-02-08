@@ -7,6 +7,8 @@ class_name Character extends Node2D
 	Stats.StatType.ATTACK_SPEED: base_speed,
 	Stats.StatType.CRIT_CHANCE: base_crit_chance,
 	Stats.StatType.CRIT_DAMAGE: base_crit_damage,
+	Stats.StatType.STUN_STRENGTH: base_stun_strength,
+	Stats.StatType.STUN_RESIST: base_stun_resist
 }
 
 @export var final_stats := {}
@@ -29,6 +31,12 @@ func get_crit_chance() -> float:
 func get_crit_damage() -> float:
 	return get_stat(Stats.StatType.CRIT_DAMAGE)
 
+func get_stun_strength() -> float:
+	return get_stat(Stats.StatType.STUN_STRENGTH) + 1
+
+func get_stun_resist() -> float:
+	return get_stat(Stats.StatType.STUN_RESIST) + 1
+
 func default_value(stat: Stats.StatType) -> float:
 	match stat:
 		Stats.StatType.MAX_HP: return 0.0
@@ -37,6 +45,8 @@ func default_value(stat: Stats.StatType) -> float:
 		Stats.StatType.ATTACK_SPEED: return 0.0
 		Stats.StatType.CRIT_CHANCE: return 0.0
 		Stats.StatType.CRIT_DAMAGE: return 0.0
+		Stats.StatType.STUN_STRENGTH: return 1.0
+		Stats.StatType.STUN_RESIST: return 2.0
 		_: return 0.0
 
 func get_stat(stat: Stats.StatType) -> float:
@@ -57,12 +67,16 @@ func rebuild_stats():
 	punch_strength = max(0.02, base_speed / (get_attack_speed() + 1))
 	critical_chance = get_crit_chance() + base_crit_chance
 	critical_damage = get_crit_damage() + base_crit_damage
+	stun_strength = get_stun_strength() * base_stun_strength
+	stun_resist = get_stun_resist() * base_stun_resist
 
 @export var base_cooldown: float = 5.0
 @export var base_damage: float
 @export var base_speed: float = 0.1
 @export var base_crit_chance: float
 @export var base_crit_damage: float = 1.0
+@export var base_stun_strength: float = 1.0
+@export var base_stun_resist: float = 2.0
 
 @export var health : float
 @export var action_cooldown: float
@@ -70,6 +84,8 @@ func rebuild_stats():
 @export var punch_strength : float
 @export var critical_chance : float
 @export var critical_damage : float
+@export var stun_strength: float = 1.0
+@export var stun_resist: float = 1.0
 
 signal hit(damage: float)
 signal blocked(blocked_damage: float)
@@ -203,7 +219,7 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 	hit.emit(damage * 1.5)
 	get_hit_visual_feedback(damage / 10)
 	can_action = false
-	combat_component.pause(1.5)
+	combat_component.pause(action_cooldown / stun_resist)
 
 func character_die_sfx() -> void:
 	audio.play(sfx_die)
@@ -311,13 +327,13 @@ func _on_successful_block(attacker: Character) -> void:
 	attacker.on_interrupted()
 	attacker.arm.interrupt(func(): 
 		#cooldown multiplier
-		attacker.recover_from_interrupt(attacker.action_cooldown * 1.5)
+		attacker.recover_from_interrupt(attacker.action_cooldown * stun_strength)
 	)
 	arm.block_success()
 	
-	combat_component.pause(1.5)
-	#combat_component.reset_attack_timer(action_cooldown)
-	#combat_component.start()
+	#combat_component.pause(stun_strength)
+	combat_component.reset_attack_timer(action_cooldown)
+	combat_component.start()
 	
 	if blocking_part:
 		blocking_part.is_targeted = false
@@ -383,7 +399,7 @@ func _on_attack_finished() -> void:
 	arm.sprite_fist.modulate = Color.DIM_GRAY
 
 func _on_block_finished() -> void:
-	combat_component.pause(1.5)
+	combat_component.pause(action_cooldown / stun_resist)
 	arm.sprite_fist.modulate = Color.DIM_GRAY
 	blocking_part.is_blocking = false
 	blocking_part = null

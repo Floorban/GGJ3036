@@ -11,7 +11,6 @@ anatomy_type = 1
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 position = Vector2(-101, -31)
-scale = Vector2(1, 1)
 texture = ExtResource("2_03vvk")
 flip_v = true
 

@@ -8,7 +8,9 @@ enum StatType {
 	DAMAGE,
 	ATTACK_SPEED,
 	CRIT_CHANCE,
-	CRIT_DAMAGE
+	CRIT_DAMAGE,
+	STUN_STRENGTH,
+	STUN_RESIST
 }
 
 static func stat_to_string(stat: StatType) -> String:
@@ -19,4 +21,6 @@ static func stat_to_string(stat: StatType) -> String:
 		StatType.ATTACK_SPEED: return "Punch Speed "
 		StatType.CRIT_CHANCE: return "Crit Chance "
 		StatType.CRIT_DAMAGE: return "Crit Damage "
+		StatType.STUN_STRENGTH: return "Stun Duration "
+		StatType.STUN_RESIST: return "Stun Resist "
 	return "? ? ?"
