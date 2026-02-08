@@ -1,5 +1,7 @@
 class_name Enemy extends Character
 
+signal enemy_dialogue_end()
+
 @export var boss_name: String
 
 var round_index := 0
@@ -34,7 +36,8 @@ func start_round() -> void:
 	if next_target:
 		next_target.is_targeted = false
 		next_target._unhighlight_target()
-		
+	enemy_dialogue_end.emit()
+
 func _on_action_finished(_blocking: bool) -> void:
 	if is_dead: return
 	super._on_action_finished(_blocking)
