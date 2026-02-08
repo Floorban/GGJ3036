@@ -43,6 +43,7 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 		anatomy.part_dead()
 		anatomy.queue_free()
 		audio.play(sfx_trash)
+		if anatomy.i_blood != null: audio.clear_instance([anatomy.i_blood])
 		return
 	if is_occupied or anatomy.anatomy_type != anatomy_type or anatomy.state == anatomy.PartState.DESTROYED or anatomy.current_hp <= 0:
 		return
