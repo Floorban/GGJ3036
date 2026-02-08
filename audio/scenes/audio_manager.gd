@@ -65,7 +65,7 @@ value: Variant = null
 
 func play_id(sound_id: String) -> void: FmodServer.play_one_shot_using_guid(sound_id)
 
-func play_instance(sound_path: String, object_transform: Transform2D) -> FmodEvent:
+func play_instance(sound_path: String, object_transform: Transform2D = global_transform) -> FmodEvent:
 	if sound_path == null: push_error("audio missing")
 
 	var instance: FmodEvent = FmodServer.create_event_instance(sound_path)
@@ -87,11 +87,6 @@ func clear_emitter(emitters: Array[FmodEventEmitter2D], timer: float = 0) -> voi
 		emitter.stop()
 		emitter.release()
 
-func playing(instance: FmodEvent) -> bool:
-	if instance == null: pass
-	if instance.get_playback_state() == FmodServer.FMOD_STUDIO_PLAYBACK_PLAYING: return true
-	else: return false
-
 func muffle(state: bool = false) -> void: 
 	if state:
 		FmodServer.set_global_parameter_by_name_with_label(MUFFLE, TRUE)
@@ -99,5 +94,3 @@ func muffle(state: bool = false) -> void:
 	else:
 		FmodServer.set_global_parameter_by_name_with_label(MUFFLE, FALSE)
 		muffled = false
-
-func free() -> void: clear_emitter(emitter_list)

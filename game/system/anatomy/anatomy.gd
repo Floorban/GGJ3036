@@ -149,7 +149,7 @@ func draw_blood_line() -> void:
 		line.queue_free()
 	
 	
-	i_blood = audio.play_instance(sfx_blood, global_transform)
+	i_blood = audio.play_instance(sfx_blood)
 	
 	blood_lines.clear()
 	has_blood = true

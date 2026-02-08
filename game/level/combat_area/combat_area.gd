@@ -41,6 +41,11 @@ var max_round := 2
 var enemy: Enemy
 
 #AUDIO
+var sfx_music: String = "event:/Music/Melody"
+var sfx_music_boss: String = "event:/Music/DnB"
+var i_music: FmodEvent
+var i_music_boss: FmodEvent
+
 var sfx_countdown: String = "event:/SFX/NPC/Coach/Count"
 var sfx_ring: String = "event:/SFX/Arena/Ring"
 
@@ -60,9 +65,8 @@ func _ready() -> void:
 	first_level = false
 
 func init_combat_arena(level : int) -> void:
-	if level > enemies.size():
+	if level >= enemies.size():
 		final_stage()
-	#audio.play(sfx_ring)
 	background.texture = bg_textures[level - 1]
 	enemy = enemies[level - 1]
 	enemy.visible = true
@@ -79,8 +83,11 @@ func init_combat_arena(level : int) -> void:
 		player.blocked.connect(_screen_shake)
 		player.die.connect(player_lose)
 
+	if i_music == null: i_music = audio.play_instance(sfx_music)
+
 func final_stage() -> void:
-	print("oo")
+	audio.clear_instance([i_music])
+	i_music_boss = audio.play_instance(sfx_music_boss)
 
 func start_battle() -> void:
 	camera.switch_target(arena_center, 50)
