@@ -2,14 +2,27 @@
 
 [ext_resource type="Script" uid="uid://fcx02hc4rwm0" path="res://game/level/menu.gd" id="1_kh04w"]
 [ext_resource type="PackedScene" uid="uid://c1q6sj2ue5ird" path="res://game/level/combat_area/combat_level.tscn" id="2_2nera"]
+[ext_resource type="Shader" uid="uid://cq8fiv0wib6gv" path="res://material/burn_dissolve.gdshader" id="3_utcqo"]
 [ext_resource type="Texture2D" uid="uid://ddodsf7lu4d66" path="res://sprites/Menu/MainMenu1.png" id="3_y3ylt"]
+[ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="4_bw065"]
 [ext_resource type="Texture2D" uid="uid://b3533pphjxsty" path="res://sprites/Menu/MainMenu.png" id="4_tq4mx"]
 [ext_resource type="Texture2D" uid="uid://d1a0mfnl4lr57" path="res://sprites/Menu/ButtonBlack.png" id="5_3fmpq"]
+[ext_resource type="Script" uid="uid://c6m8tdtxaevtk" path="res://game/level/combat_area/transition_screen.gd" id="5_3p7wr"]
 [ext_resource type="Texture2D" uid="uid://danri7r14iuv7" path="res://sprites/Menu/ButtonNormal.png" id="6_8r4xe"]
 [ext_resource type="Script" uid="uid://fo46442ke6ab" path="res://game/level/btn_menu.gd" id="7_8r4xe"]
 [ext_resource type="Texture2D" uid="uid://xy6o3qkvwdkp" path="res://sprites/ui/IconBGskills.png" id="8_5wwgj"]
 [ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="8_r2yyg"]
 [ext_resource type="Texture2D" uid="uid://cmxq4yde836m7" path="res://sprites/ui/DialogueBox.png" id="10_5wwgj"]
+[ext_resource type="Texture2D" uid="uid://dina2mpprqa58" path="res://sprites/ui/white.png" id="12_utcqo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cfrv7"]
+shader = ExtResource("3_utcqo")
+shader_parameter/position = Vector2(0, 0)
+shader_parameter/radius = 0.0
+shader_parameter/borderWidth = 0.025
+shader_parameter/burnMult = 0.2
+shader_parameter/noiseTexture = ExtResource("4_bw065")
+shader_parameter/burnColor = Color(0.6039216, 0.12941177, 0.1764706, 1)
 
 [node name="Menu" type="Node2D" unique_id=585511827]
 script = ExtResource("1_kh04w")
@@ -17,6 +30,17 @@ level_scene = ExtResource("2_2nera")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1106509539]
 layer = -100
+
+[node name="TransitionScreen" type="Sprite2D" parent="CanvasLayer" unique_id=1136678645]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+top_level = true
+z_index = 4096
+material = SubResource("ShaderMaterial_cfrv7")
+position = Vector2(967.00006, 547)
+scale = Vector2(35, 23.333)
+texture = ExtResource("12_utcqo")
+script = ExtResource("5_3p7wr")
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=752135869]
 unique_name_in_owner = true
@@ -68,7 +92,8 @@ texture_disabled = ExtResource("5_3fmpq")
 texture_focused = ExtResource("6_8r4xe")
 script = ExtResource("7_8r4xe")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/BtnStart" unique_id=486676311]
+[node name="LabelStart" type="Label" parent="CanvasLayer/Control/BtnStart" unique_id=486676311]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -175,6 +200,7 @@ offset_right = 679.0
 offset_bottom = 450.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(400, 450)
 mouse_filter = 2
 texture = ExtResource("10_5wwgj")
 expand_mode = 1
@@ -231,6 +257,7 @@ offset_right = 679.0
 offset_bottom = 450.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(400, 450)
 mouse_filter = 2
 texture = ExtResource("10_5wwgj")
 expand_mode = 1

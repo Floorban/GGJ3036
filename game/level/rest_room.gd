@@ -40,9 +40,7 @@ func _ready() -> void:
 	leave_rest_room()
 
 func enter_rest_room(current_level: int) -> void:
-	part_info_panel.visible = true
 	background.visible = true
-	ready_button.visible = true
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	audio.muffle(true)
 
@@ -55,6 +53,10 @@ func enter_rest_room(current_level: int) -> void:
 	connect_parts_interact_signal()
 	for p in background.get_children():
 		p.z_index = 10
+	
+	await get_tree().create_timer(2.0).timeout
+	part_info_panel.visible = true
+	ready_button.visible = true
 
 func leave_rest_room() -> void:
 	part_info_panel.visible = false

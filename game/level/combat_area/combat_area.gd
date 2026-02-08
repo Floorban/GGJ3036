@@ -41,6 +41,7 @@ var sfx_countdown: String = "event:/SFX/NPC/Coach/Count"
 var sfx_ring: String = "event:/SFX/Arena/Ring"
 
 func _ready() -> void:
+	transition_screen.burn()
 	game_ui.timer_panel.visible = false
 	battle_time_left = 100.0
 	rest_room.ready_to_fight.connect(start_battle)
@@ -114,14 +115,12 @@ func start_battle() -> void:
 		game_ui.timer_panel.visible = true
 		enemy.get_ready_to_battle()
 		battle_start.emit()
-		transition_screen.burn()
 	)
 	
 
 
 func player_win() -> void:
 	paused = true
-	transition_screen.cover()
 	
 	Engine.time_scale = 0.01
 
@@ -152,10 +151,22 @@ func player_win() -> void:
 		end_battle()
 	)
 
+var lose_counter := 0
 
 func player_lose() -> void:
-	game_end.emit()
-	queue_free()
+	transition_screen.black_screen()
+	
+	if lose_counter == 1:
+		await get_tree().create_timer(1.0).timeout
+		game_end.emit()
+		queue_free()
+	else:
+		end_battle()
+		await get_tree().create_timer(1.5).timeout
+		transition_screen.burn()
+		
+	lose_counter += 1
+
 
 func end_battle() -> void:
 	paused = true

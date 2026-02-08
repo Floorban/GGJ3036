@@ -122,12 +122,12 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fhe53"]
 shader = ExtResource("14_28xsa")
-shader_parameter/noise_tex_normal = ExtResource("14_fhe53")
-shader_parameter/noise_tex = ExtResource("14_fhe53")
-shader_parameter/progress = 0.0
-shader_parameter/strength = 3.01
-shader_parameter/pixel_count = 512.0
-shader_parameter/alpha_threshold = 0.1
+shader_parameter/position = Vector2(0, 0)
+shader_parameter/radius = 0.0
+shader_parameter/borderWidth = 0.025
+shader_parameter/burnMult = 0.2
+shader_parameter/noiseTexture = ExtResource("14_fhe53")
+shader_parameter/burnColor = Color(0.6039216, 0.12941177, 0.1764706, 1)
 
 [sub_resource type="Environment" id="Environment_8nlnt"]
 background_mode = 3
@@ -249,11 +249,10 @@ libraries/ = SubResource("AnimationLibrary_8nlnt")
 playback_auto_capture_transition_type = 4
 playback_auto_capture_ease_type = 1
 
-[node name="TransitionScreen" type="Sprite2D" parent="ScreenLayer" index="1" unique_id=1537113897]
+[node name="TransitionScreen" type="Sprite2D" parent="ScreenLayer" index="1" unique_id=1288152459]
 unique_name_in_owner = true
-visible = false
-modulate = Color(0.46654034, 0.16573513, 0.095699914, 1)
-z_index = 100
+modulate = Color(0, 0, 0, 1)
+z_index = 4096
 material = SubResource("ShaderMaterial_fhe53")
 position = Vector2(975.99994, 547)
 scale = Vector2(5, 5)
