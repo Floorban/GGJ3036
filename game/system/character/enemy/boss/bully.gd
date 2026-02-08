@@ -1,18 +1,18 @@
 class_name Bully extends Enemy
 
-func start_round() -> void:
-	super.start_round()
-	if round_index == 0:
-		await get_tree().create_timer(2.8).timeout
-		DialogueManager.say("Wait till your arm charges up")
-		await get_tree().create_timer(5.8).timeout
-		DialogueManager.say("Then you can punch him or block")
-		await get_tree().create_timer(5.0).timeout
-		DialogueManager.say("Don't always block at one place")
-		await get_tree().create_timer(5.0).timeout
-		DialogueManager.say("This mf would change the target")
-	else:
-		pass
+#func start_round() -> void:
+	#super.start_round()
+	#if round_index == 0:
+		#await get_tree().create_timer(2.8).timeout
+		#DialogueManager.say("Wait till your arm charges up")
+		#await get_tree().create_timer(5.8).timeout
+		#DialogueManager.say("Then you can punch him or block")
+		#await get_tree().create_timer(5.0).timeout
+		#DialogueManager.say("Don't always block at one place")
+		#await get_tree().create_timer(5.0).timeout
+		#DialogueManager.say("This mf would change the target")
+	#else:
+		#pass
 
 func choose_target() -> Anatomy:
 	if not can_control and next_target:

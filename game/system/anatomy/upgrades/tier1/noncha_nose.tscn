@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a5g12"]
-radius = 34.333336
-height = 72.66667
+radius = 13.599999
+height = 42.799995
 
 [node name="CrazyNose" unique_id=1690948451 instance=ExtResource("1_ctwem")]
 scale = Vector2(2.5, 2.5)

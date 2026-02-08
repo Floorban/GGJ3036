@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cky8c"]
-radius = 26.996317
-height = 95.20256
+radius = 14.39814
+height = 48.834084
 
 [node name="LolNose" unique_id=1690948451 instance=ExtResource("1_4g3ho")]
 scale = Vector2(2.5, 2.5)
@@ -82,6 +82,6 @@ scale = Vector2(1.4, 1.4)
 texture = ExtResource("2_if6vj")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-position = Vector2(0.4, 3.2)
+position = Vector2(0.4, 5.2)
 rotation = -1.5751133
 shape = SubResource("CapsuleShape2D_cky8c")

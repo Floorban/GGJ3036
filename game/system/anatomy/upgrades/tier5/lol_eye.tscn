@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r8nq0"]
-radius = 33.23853
+radius = 15.533189
 
 [node name="LolEye" unique_id=1690948451 instance=ExtResource("1_25l2j")]
 scale = Vector2(2.5, 2.5)

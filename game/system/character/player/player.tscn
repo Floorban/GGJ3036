@@ -24,27 +24,27 @@
 [ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="22_innbf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hu301"]
-radius = 20.04595
-height = 48.036133
+radius = 10.969662
+height = 21.939323
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wqm0g"]
-radius = 22.020197
-height = 47.912037
+radius = 11.97801
+height = 23.95602
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvqmr"]
-radius = 20.61361
-height = 76.14248
+radius = 7.278702
+height = 36.337242
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltwwj"]
-radius = 23.193264
-height = 74.67079
+radius = 9.332825
+height = 41.86301
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvqmr"]
-size = Vector2(37, 74)
+size = Vector2(13.000002, 40)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0eq7q"]
-radius = 15.971291
-height = 82.33055
+radius = 11.020887
+height = 50.129955
 
 [sub_resource type="Shader" id="Shader_2ro5p"]
 code = "shader_type canvas_item;
@@ -277,7 +277,7 @@ scale = Vector2(0.24624492, 0.39563715)
 texture = ExtResource("13_innbf")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEarR" index="1" unique_id=32785027]
-position = Vector2(3.0482178, -0.8416222)
+position = Vector2(0.052329063, -0.9986298)
 rotation = -0.08895778
 shape = SubResource("CapsuleShape2D_ltwwj")
 
@@ -446,8 +446,9 @@ offset_right = 482.0
 offset_bottom = -103.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/line_spacing = -6
 theme_override_fonts/font = ExtResource("22_innbf")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 48
 text = "congrats
 I don't know what did you get here
 restart with 'R' and join our discord !!"

@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbg8r"]
-size = Vector2(81.2, 74.40001)
+size = Vector2(27.599997, 30.400005)
 
 [node name="FuryEar" unique_id=1690948451 instance=ExtResource("1_sbg8r")]
 scale = Vector2(2.5, 2.5)
