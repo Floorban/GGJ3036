@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sw7ep"]
-size = Vector2(95.20001, 46.000008)
+size = Vector2(54.40001, 17.200005)
 
 [node name="FuryMouth" unique_id=1690948451 instance=ExtResource("1_6bas2")]
 scale = Vector2(2.5, 2.5)

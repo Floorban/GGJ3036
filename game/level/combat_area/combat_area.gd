@@ -1,5 +1,8 @@
 class_name Level extends Node2D
 
+
+@export var bg_textures : Array[Texture2D]
+
 signal game_end
 
 signal battle_start
@@ -59,6 +62,7 @@ func init_combat_arena(level : int) -> void:
 	if level > enemies.size():
 		final_stage()
 	#audio.play(sfx_ring)
+	background.texture = bg_textures[level - 1]
 	enemy = enemies[level - 1]
 	enemy.visible = true
 	player.opponent = enemy

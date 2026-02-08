@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 5.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ydtik"]
-radius = 28.406338
+radius = 14.035669
 
 [node name="FuckedEye" unique_id=1690948451 instance=ExtResource("1_ydtik")]
 z_index = 10

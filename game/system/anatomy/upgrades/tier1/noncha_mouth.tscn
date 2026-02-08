@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 3.934000186865
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ayoga"]
-radius = 23.348637
-height = 72.0495
+radius = 13.229286
+height = 48.949852
 
 [node name="CrazyMouth" unique_id=1690948451 instance=ExtResource("1_o5jf1")]
 scale = Vector2(2.5, 2.5)

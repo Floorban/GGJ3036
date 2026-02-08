@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svit6"]
-radius = 22.836828
-height = 103.41191
+radius = 18.015635
+height = 62.65231
 
 [node name="FuckedMouth2" unique_id=1690948451 instance=ExtResource("1_svit6")]
 scale = Vector2(2.5, 2.5)

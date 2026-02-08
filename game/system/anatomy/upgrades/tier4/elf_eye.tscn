@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctojp"]
-radius = 26.400053
-height = 72.79996
+radius = 10.400006
+height = 42.399998
 
 [node name="ElfEye" unique_id=1690948451 instance=ExtResource("1_d18ue")]
 scale = Vector2(2.5, 2.5)
