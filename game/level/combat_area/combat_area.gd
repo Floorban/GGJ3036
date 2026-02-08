@@ -67,7 +67,7 @@ func _ready() -> void:
 	
 
 func init_combat_arena(level : int) -> void:
-	if level >= enemies.size():
+	if level > enemies.size():
 		final_stage()
 	background.texture = bg_textures[level - 1]
 	enemy = enemies[level - 1]

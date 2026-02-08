@@ -150,6 +150,7 @@ rotation = -2.9608033
 is_trach_bin = true
 
 [node name="Sprite" parent="Background/FixArea" index="0" unique_id=1542207743]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(126.268036, -67.01455)
 scale = Vector2(1, 1)
 texture = ExtResource("35_wkcso")

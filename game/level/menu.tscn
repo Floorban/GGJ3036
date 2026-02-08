@@ -47,6 +47,26 @@ grow_vertical = 2
 mouse_filter = 0
 texture = ExtResource("3_3p7wr")
 
+[node name="ItchButton2" type="TextureButton" parent="CanvasLayer" unique_id=1976899193]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 1726.0
+offset_top = 32.0
+offset_right = 1876.0
+offset_bottom = 182.0
+texture_normal = ExtResource("5_g37v0")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="DiscordButton2" type="TextureButton" parent="CanvasLayer" unique_id=1170590568]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 1728.0
+offset_top = 214.0
+offset_right = 1878.0
+offset_bottom = 364.0
+texture_normal = ExtResource("6_krs0x")
+ignore_texture_size = true
+stretch_mode = 4
+
 [node name="Ending" type="TextureRect" parent="CanvasLayer" unique_id=226232266]
 unique_name_in_owner = true
 visible = false
@@ -460,5 +480,7 @@ scale = Vector2(0.8, 0.8)
 mouse_filter = 2
 theme_override_constants/separation = 24
 
+[connection signal="pressed" from="CanvasLayer/ItchButton2" to="." method="itch"]
+[connection signal="pressed" from="CanvasLayer/DiscordButton2" to="." method="discord"]
 [connection signal="pressed" from="CanvasLayer/Ending/ItchButton" to="." method="itch"]
 [connection signal="pressed" from="CanvasLayer/Ending/DiscordButton" to="." method="discord"]

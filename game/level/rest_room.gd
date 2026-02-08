@@ -65,8 +65,7 @@ func enter_rest_room(current_level: int) -> void:
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Gotta remove the healthy part from your face first if there's not enough spot for it.")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
+		await get_tree().create_timer(1.5).timeout
 		DialogueManager.say("maybe you can even look a bit less ugly after fixing it.")
 	
 	first_time = false
