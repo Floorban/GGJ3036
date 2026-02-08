@@ -78,7 +78,6 @@ func final_stage() -> void:
 	print("oo")
 
 func start_battle() -> void:
-	audio.play(sfx_countdown)
 	camera.switch_target(arena_center, 50)
 	
 	var tween := create_tween()
@@ -102,7 +101,7 @@ func start_battle() -> void:
 	init_combat_arena(current_level)
 	player.arm.movable_by_mouse = false
 	tween.tween_callback(func():
-		await get_tree().create_timer(2.0).timeout
+		#await get_tree().create_timer(2.0).timeout
 		in_battle = true
 		in_break = false
 		game_ui.timer_panel.visible = true

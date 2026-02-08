@@ -232,7 +232,7 @@ func pickup_part() -> void:
 		return
 	og_pos = global_position
 	if body_owner and state == PartState.HEALTHY and body_owner.rest_mode:
-		if randf() < 0.8: audio.play(sfx_scream)
+		if randf() < 0.4: audio.play(sfx_scream)
 		draw_blood_line()
 	is_being_dragged = true
 	_unhover_part()
