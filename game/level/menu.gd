@@ -26,7 +26,7 @@ func intro_dialogue() -> void:
 		DialogueManager.say("Let me fix your nose first, come here")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("You still remember how to punch this mf right?")
+		DialogueManager.say("You still remember how to punch this motherfucker right?")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Left click on his face parts to attack, but click on yours to defend youself first !")

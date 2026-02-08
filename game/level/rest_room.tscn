@@ -39,7 +39,11 @@
 [ext_resource type="PackedScene" uid="uid://dppwuvorymkwk" path="res://game/system/anatomy/upgrades/tier6/fury_mouth_2.tscn" id="29_e21xm"]
 [ext_resource type="Texture2D" uid="uid://cdmnrh3w5ji0d" path="res://sprites/ui/BandageImReadyopacity.png" id="34_e21xm"]
 [ext_resource type="Texture2D" uid="uid://d0alrljy0et8o" path="res://sprites/ui/BandageImReady.png" id="34_u3s1c"]
+[ext_resource type="PackedScene" uid="uid://cu05fkjh25k63" path="res://game/system/character/player/fix_area.tscn" id="34_u4uef"]
+[ext_resource type="Texture2D" uid="uid://cdjjjvon41702" path="res://sprites/Backgrounds/pipe2.png" id="35_wkcso"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wkcso"]
+radius = 187.11588
 
 [node name="RestRoom" type="Node2D" unique_id=1662139499 groups=["rest_room"]]
 script = ExtResource("1_nbyfe")
@@ -139,6 +143,30 @@ rotation = 1.164022
 unique_name_in_owner = true
 position = Vector2(-166.61076, -57.27887)
 rotation = 2.3169372
+
+[node name="FixArea" parent="Background" unique_id=1630340479 instance=ExtResource("34_u4uef")]
+position = Vector2(529.32153, -66.23141)
+rotation = -2.9608033
+is_trach_bin = true
+
+[node name="Sprite" parent="Background/FixArea" index="0" unique_id=1542207743]
+position = Vector2(126.268036, -67.01455)
+scale = Vector2(1, 1)
+texture = ExtResource("35_wkcso")
+
+[node name="CollisionShape2D" parent="Background/FixArea" index="1" unique_id=32785027]
+position = Vector2(125.61661, 25.785883)
+shape = SubResource("CircleShape2D_wkcso")
+
+[node name="Label" type="Label" parent="Background/FixArea" unique_id=1981100686]
+offset_left = 8.043158
+offset_top = 67.10595
+offset_right = 262.04315
+offset_bottom = 144.10596
+theme_override_font_sizes/font_size = 56
+text = "Trash Bin"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981571717]
 
@@ -288,3 +316,5 @@ theme_override_colors/font_color = Color(1.781, 0.64, 0.667, 1)
 theme_override_fonts/font = ExtResource("3_x4kus")
 theme_override_font_sizes/font_size = 23
 vertical_alignment = 1
+
+[editable path="Background/FixArea"]

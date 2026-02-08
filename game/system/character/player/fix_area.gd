@@ -1,5 +1,7 @@
 class_name FixArea extends Area2D
 
+@export var is_trach_bin := false
+
 @onready var rest_room: RestRoom = get_tree().get_first_node_in_group("rest_room")
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 @export var anatomy_type: Anatomy.AnatomyType
@@ -35,6 +37,10 @@ func reparent_anatomy(target: Node2D, new_parent: Node2D) -> void:
 @export var is_left_ear := false
 
 func receive_anatomy(anatomy: Anatomy) -> void:
+	if is_trach_bin:
+		anatomy.part_dead()
+		anatomy.queue_free()
+		return
 	if is_occupied or anatomy.anatomy_type != anatomy_type or anatomy.state == anatomy.PartState.DESTROYED or anatomy.current_hp <= 0:
 		return
 	rest_room.attaching = true
