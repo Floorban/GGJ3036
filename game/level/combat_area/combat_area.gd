@@ -177,6 +177,9 @@ func player_lose() -> void:
 	await get_tree().create_timer(1.0).timeout
 	game_end.emit()
 	queue_free()
+	if i_music_boss != null:
+		print("current level: " + str(current_level) + " > " + str(enemies.size()))
+		i_music_boss.set_parameter_by_name_with_label("Battle State", "Won", true)
 
 
 func end_battle() -> void:
@@ -231,7 +234,7 @@ func next_round() -> void:
 	player.arm.movable_by_mouse = false
 	battle_time_left = battle_duration
 	camera.switch_target(arena_center, 50)
-	
+
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
