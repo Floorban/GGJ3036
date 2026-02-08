@@ -39,7 +39,7 @@ shader_parameter/barrel_distortion = 0.2000000095
 shader_parameter/chromatic_aberration = 0.002000000095
 shader_parameter/crt_vignette_power = 2.98000014155
 shader_parameter/enable_color_quantization = true
-shader_parameter/color_quant_steps = 16.000000665
+shader_parameter/color_quant_steps = 14.00000057
 shader_parameter/warble_amount = 0.002
 shader_parameter/warble_speed = 1.0000000475
 
@@ -68,7 +68,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1.6817929, 1),
 "update": 0,
-"values": [16.000000665, 4.000000095]
+"values": [14.00000057, 64.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false

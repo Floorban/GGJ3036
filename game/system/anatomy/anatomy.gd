@@ -364,7 +364,7 @@ func _hover_over_part() -> void:
 		return
 	if body_owner:
 		if body_owner is Player:
-			if body_owner.rest_mode or state == PartState.FUCKED:
+			if body_owner.rest_mode:
 				MouseCursor.choose_unvalid()
 			else:
 				MouseCursor.choose_block()
