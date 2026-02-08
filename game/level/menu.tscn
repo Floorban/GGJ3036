@@ -26,7 +26,6 @@ shader_parameter/burnColor = Color(0.6039216, 0.12941177, 0.1764706, 1)
 
 [node name="Menu" type="Node2D" unique_id=585511827]
 script = ExtResource("1_kh04w")
-skip_dialogue = true
 level_scene = ExtResource("2_2nera")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1106509539]

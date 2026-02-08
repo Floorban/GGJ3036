@@ -20,25 +20,30 @@ var tutorial := true
 func intro_dialogue() -> void:
 	if tutorial:
 		await get_tree().create_timer(0.8).timeout
-		DialogueManager.say("Let me fix your nose first come here")
-		await get_tree().create_timer(1.8).timeout
+		DialogueManager.say("Let me fix your nose first, come here")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("You still remember how to punch this mf right?")
-		await get_tree().create_timer(3.0).timeout
-		DialogueManager.say("Fucking damn it, LEFT CLICK to punch his face !!!")
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("LEFT CLICK to punch his face!!!")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Okay time to go now brother, don't forget to block")
-		await get_tree().create_timer(1.5).timeout
-		DialogueManager.say("Brooootheeerrr !!!")
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("Brooootheeerrr!!!")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Bro wake up wake up !!!")
 		await get_tree().create_timer(2.0).timeout
-		DialogueManager.say("LOOOOOOOOCK", 380)
+		DialogueManager.say("LOOOOOOOOCK")
 		await get_tree().create_timer(0.5).timeout
-		DialogueManager.say("THE", 38)
+		DialogueManager.say("THE")
 		await get_tree().create_timer(0.5).timeout
-		DialogueManager.say("FUCK", 38)	
+		DialogueManager.say("FUCK")	
 		await get_tree().create_timer(0.5).timeout
-		DialogueManager.say("INNNNNNNNNN !!!", 38)
+		DialogueManager.say("INNNNNNNNNN !!!")
 	else:
 		await get_tree().create_timer(1.0).timeout
 		DialogueManager.say("Bro I gave you 2 lives and you died?")
@@ -66,10 +71,6 @@ func _ready() -> void:
 	btn_credits.pressed.connect(set_credits_page)
 
 func start_game() -> void:
-	transition_screen.cover()
-	if not skip_dialogue:
-		intro_dialogue()
-		await get_tree().create_timer(15.0).timeout
 	control.visible = false
 	page_control.visible = false
 	page_credits.visible = false
@@ -82,6 +83,10 @@ func start_game() -> void:
 	btn_credits.disabled = true
 	btn_credits.visible = false
 	btn_credits.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	transition_screen.cover()
+	if not skip_dialogue:
+		await intro_dialogue()   
+
 
 	var level := level_scene.instantiate()
 	add_child(level)

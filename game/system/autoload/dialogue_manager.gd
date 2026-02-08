@@ -9,6 +9,12 @@ var dialogues: Array[DialogueBox] = []
 
 var sfx_chat: String = "event:/SFX/UI/Chat"
 
+func wait_for_dialogue_continue() -> void:
+	while true:
+		await get_tree().process_frame
+		if Input.is_action_just_pressed("left_click"):
+			return
+
 func say(text: String, duration := 10.0) -> void:
 	if not dialogue_scene: return
 	
