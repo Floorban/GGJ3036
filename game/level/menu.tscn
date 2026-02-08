@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b3533pphjxsty" path="res://sprites/Menu/MainMenu.png" id="4_tq4mx"]
 [ext_resource type="Texture2D" uid="uid://d1a0mfnl4lr57" path="res://sprites/Menu/ButtonBlack.png" id="5_3fmpq"]
 [ext_resource type="Script" uid="uid://c6m8tdtxaevtk" path="res://game/level/combat_area/transition_screen.gd" id="5_3p7wr"]
+[ext_resource type="Texture2D" uid="uid://o63hjotkwyrc" path="res://8b33ab221257b074d1d967042ad1d9d0.png" id="5_g37v0"]
 [ext_resource type="Texture2D" uid="uid://danri7r14iuv7" path="res://sprites/Menu/ButtonNormal.png" id="6_8r4xe"]
+[ext_resource type="Texture2D" uid="uid://cgw5n5qq5cqjm" path="res://discord-logo-icon-editorial-free-vector.jpg" id="6_krs0x"]
 [ext_resource type="Script" uid="uid://fo46442ke6ab" path="res://game/level/btn_menu.gd" id="7_8r4xe"]
 [ext_resource type="Texture2D" uid="uid://xy6o3qkvwdkp" path="res://sprites/ui/IconBGskills.png" id="8_5wwgj"]
 [ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="8_r2yyg"]
@@ -44,6 +46,103 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
 texture = ExtResource("3_3p7wr")
+
+[node name="Ending" type="TextureRect" parent="CanvasLayer" unique_id=226232266]
+unique_name_in_owner = true
+visible = false
+z_index = 4000
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_tq4mx")
+
+[node name="ItchButton" type="TextureButton" parent="CanvasLayer/Ending" unique_id=2078280224]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 0
+offset_left = 935.0
+offset_top = 210.0
+offset_right = 1185.0
+offset_bottom = 460.0
+texture_normal = ExtResource("5_g37v0")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="DiscordButton" type="TextureButton" parent="CanvasLayer/Ending" unique_id=831605042]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 0
+offset_left = 1379.0
+offset_top = 369.0
+offset_right = 1629.0
+offset_bottom = 619.0
+texture_normal = ExtResource("6_krs0x")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Ending" unique_id=1838925468]
+layout_mode = 0
+offset_left = 238.00003
+offset_top = 346.99997
+offset_right = 821.0
+offset_bottom = 472.99997
+rotation = -0.05820715
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("16_s2guv")
+theme_override_font_sizes/font_size = 120
+text = "Join Us ! ! !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Ending" unique_id=1490551353]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 477.00003
+offset_right = 842.0
+offset_bottom = 603.0
+rotation = -0.027326167
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("16_s2guv")
+theme_override_font_sizes/font_size = 120
+text = "Comment"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/Ending" unique_id=1190064096]
+layout_mode = 0
+offset_left = 233.00002
+offset_top = 589.0
+offset_right = 816.0
+offset_bottom = 715.0
+rotation = 0.14693399
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("16_s2guv")
+theme_override_font_sizes/font_size = 120
+text = "Review ! !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="CanvasLayer/Ending" unique_id=767245296]
+layout_mode = 0
+offset_left = 246.99998
+offset_top = 820.99994
+offset_right = 1719.0
+offset_bottom = 983.99994
+rotation = -0.006903127
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("16_s2guv")
+theme_override_font_sizes/font_size = 156
+text = "Thanks for Playing : D"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TransitionScreen" type="Sprite2D" parent="CanvasLayer" unique_id=1136678645 node_paths=PackedStringArray("menu")]
 unique_name_in_owner = true
@@ -360,3 +459,6 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 mouse_filter = 2
 theme_override_constants/separation = 24
+
+[connection signal="pressed" from="CanvasLayer/Ending/ItchButton" to="." method="itch"]
+[connection signal="pressed" from="CanvasLayer/Ending/DiscordButton" to="." method="discord"]

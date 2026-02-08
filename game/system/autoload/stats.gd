@@ -1,6 +1,7 @@
 extends Node
 
 var rest_room : RestRoom
+var main_menu : Menu
 
 enum StatType {
 	MAX_HP,

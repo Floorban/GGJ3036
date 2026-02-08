@@ -24,6 +24,18 @@ var tutorial := true
 var sfx_menu: String = "event:/Ambient/Menu"
 var i_menu: FmodEvent
 
+@onready var ending: TextureRect = %Ending
+
+func end() -> void:
+	ending.visible = true
+
+func discord() -> void:
+	OS.shell_open("https://discord.gg/Mpgaqru9hc")
+
+func itch() -> void:
+	OS.shell_open("https://eric911.itch.io/unfix")
+
+
 func intro_dialogue() -> void:
 	if tutorial:
 		await get_tree().create_timer(0.8).timeout
@@ -73,6 +85,7 @@ func intro_dialogue() -> void:
 		dialogue_end.emit()
 
 func _ready() -> void:
+	Stats.main_menu = self
 	if i_menu == null: i_menu = audio.play_instance(sfx_menu)
 
 func _process(_delta: float) -> void:
