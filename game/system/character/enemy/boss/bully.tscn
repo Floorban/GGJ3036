@@ -183,9 +183,11 @@ size = Vector2(100.15385, 43.076912)
 
 [node name="Bully" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_ulrfh")]
 script = ExtResource("2_qjg54")
+boss_name = ""
 is_minion = false
 switch_chance = 0.6
 min_switch_time = 2.0
+base_cooldown = 1.0
 base_damage = 1.5
 base_speed = 0.09
 base_stun_strength = 1.5

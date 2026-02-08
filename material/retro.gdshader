@@ -26,7 +26,7 @@ uniform float crt_vignette_power : hint_range(0.0, 5.0) = 2.0;
 
 // Quantization
 uniform bool enable_color_quantization = true;
-uniform float color_quant_steps : hint_range(2.0, 64.0) = 32.0;
+uniform float color_quant_steps : hint_range(5.0, 24.0) = 20.0;
 
 // Warble
 uniform float warble_amount : hint_range(0.0, 0.01) = 0.002;

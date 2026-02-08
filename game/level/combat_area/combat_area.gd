@@ -90,17 +90,23 @@ func final_stage() -> void:
 	i_music_boss = audio.play_instance(sfx_music_boss)
 
 func start_battle() -> void:
+	
 	camera.switch_target(arena_center, 50)
 	
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
+	
+
 	tween.parallel().tween_property(
 		enemies_container,
 		"position",
 		Vector2.ZERO,
 		0.3
 	)
+	
+	var current_val = retro_mat.get_shader_parameter("color_quant_steps")
+	tween.tween_property(retro_mat, "shader_parameter/color_quant_steps", player.player_health_effect_value, 0.3).from(current_val)
 	
 	tween.tween_property(
 		camera,
@@ -180,6 +186,9 @@ func end_battle() -> void:
 		rest_room_anchor.position,
 		0.3
 	)
+	
+	var current_val = retro_mat.get_shader_parameter("color_quant_steps")
+	tween.tween_property(retro_mat, "shader_parameter/color_quant_steps", 12.0, 0.3).from(current_val)
 	
 	tween.tween_property(
 			camera,

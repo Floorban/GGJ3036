@@ -2,6 +2,28 @@ class_name Player extends Character
 
 var selected_target: Anatomy
 
+@onready var retro_screen: RetroScreen = %RetroScreen
+var retro_mat: ShaderMaterial
+
+var health_tween: Tween
+
+var player_health_effect_value := 24.0:
+	set(value):
+		print(value)
+		player_health_effect_value = value
+		if health_tween: health_tween.kill()
+		health_tween = create_tween()
+		health_tween.tween_property(
+			retro_mat, 
+			"shader_parameter/color_quant_steps", 
+			value, 
+			0.2
+		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		
+
+func _ready() -> void:
+	retro_mat = retro_screen.material as ShaderMaterial
+
 func get_anatomy_references() -> void:
 	super.get_anatomy_references()
 	for a in anatomy_parts:
