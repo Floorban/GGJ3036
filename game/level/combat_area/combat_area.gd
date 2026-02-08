@@ -73,14 +73,11 @@ func init_combat_arena(level : int) -> void:
 		player.blocked.connect(_screen_shake)
 		player.die.connect(player_lose)
 
-	#TODO:
-	#Delay start for 3 seconds
-	#audio.play(sfx_countdown)
-
 func final_stage() -> void:
 	print("oo")
 
 func start_battle() -> void:
+	audio.play(sfx_countdown)
 	camera.switch_target(arena_center, 50)
 	
 	var tween := create_tween()
