@@ -149,9 +149,9 @@ is_minion = false
 switch_chance = 0.8
 min_switch_time = 2.0
 base_cooldown = 3.8
-base_damage = 1.3
+base_damage = 1.2
 base_speed = 0.08
-base_crit_chance = 0.2
+base_crit_chance = 0.5
 base_crit_damage = 1.5
 base_stun_strength = 0.5
 base_stun_resist = 1.5
@@ -312,7 +312,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.0
 }
-max_hp = 5.0
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_sirja")
@@ -337,7 +337,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.0
 }
-max_hp = 5.0
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_tsu08")

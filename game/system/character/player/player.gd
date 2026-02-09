@@ -7,7 +7,7 @@ var retro_mat: ShaderMaterial
 
 var health_tween: Tween
 
-var player_health_effect_value := 24.0:
+var player_health_effect_value := 28.0:
 	set(value):
 		player_health_effect_value = value
 		if health_tween: health_tween.kill()
@@ -16,7 +16,7 @@ var player_health_effect_value := 24.0:
 			retro_mat, 
 			"shader_parameter/color_quant_steps", 
 			value, 
-			0.2
+			0.4
 		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 var first_level := true
@@ -89,9 +89,6 @@ func get_ready_to_battle() -> void:
 	if first_level:
 		first_level = false
 		if eye_l: eye_l.set_hp(1)
-		if nose: nose.set_hp(1)
-		if ear_l: ear_l.set_hp(1)
-		if ear_r: ear_l.set_hp(1)
 		if ear_r: ear_l.set_hp(1)
 
 func _input(event: InputEvent) -> void:

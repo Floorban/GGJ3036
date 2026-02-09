@@ -256,7 +256,7 @@ rotation = -0.07894593
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
-2: 0.0,
+2: 0.5,
 3: 0.0,
 4: 0.2,
 5: 0.0,
@@ -285,7 +285,7 @@ rotation = 0.04252911
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
-2: 0.0,
+2: 0.5,
 3: 0.0,
 4: 0.2,
 5: 0.0,
@@ -320,7 +320,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.0
 }
-max_hp = 6.0
+max_hp = 8.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_8i0x1")
@@ -349,7 +349,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.5
 }
-max_hp = 4.0
+max_hp = 6.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_jf7km")

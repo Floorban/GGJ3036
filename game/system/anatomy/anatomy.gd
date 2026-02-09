@@ -226,7 +226,7 @@ func recover_part() -> void:
 	current_hp = max_hp
 	body_owner.health += current_hp
 	if body_owner:
-		if body_owner is Player: body_owner.player_health_effect_value = clamp(body_owner.player_health_effect_value + 2.0, 5, 24)
+		if body_owner is Player: body_owner.player_health_effect_value = clamp(body_owner.player_health_effect_value + 2.0, 6, 28)
 	state = PartState.HEALTHY
 	#anatomy_ui.set_hp_bar(current_hp, max_hp)
 	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
@@ -411,7 +411,7 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 	current_hp -= changed_amount
 	var effect_val = clamp(changed_amount, 2, 5)
 	if body_owner:
-		if body_owner is Player: body_owner.player_health_effect_value = clamp(body_owner.player_health_effect_value - effect_val, 5, 24)
+		if body_owner is Player: body_owner.player_health_effect_value = clamp(body_owner.player_health_effect_value - effect_val, 6, 28)
 	#anatomy_ui.set_hp_bar(current_hp, max_hp)
 	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
 	if current_hp <= max_hp / 2 and state != PartState.DESTROYED:

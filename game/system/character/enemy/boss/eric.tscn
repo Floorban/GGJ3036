@@ -151,6 +151,11 @@ boss_name = "Eric the Chin"
 is_minion = false
 switch_chance = 0.5
 min_switch_time = 3.0
+base_cooldown = 2.5
+base_damage = 1.0
+base_speed = 0.07
+base_stun_strength = 0.2
+base_stun_resist = 1.0
 arm = NodePath("EricArm")
 sfx_die = "event:/SFX/NPC/Eric/Die"
 sfx_entry = "event:/SFX/NPC/Eric/Entry"
@@ -186,7 +191,7 @@ texture = ExtResource("6_cte70")
 position = Vector2(-10.769226, -36.92308)
 stat_modifiers = {
 0: 0.0,
-1: -0.25,
+1: -0.2,
 2: 0.0,
 3: 0.0,
 4: 0.0,
@@ -214,7 +219,7 @@ position = Vector2(46.153854, -69.23077)
 rotation = -3.8661535
 stat_modifiers = {
 0: 0.0,
-1: -0.25,
+1: -0.2,
 2: 0.0,
 3: 0.0,
 4: 0.0,
@@ -242,7 +247,7 @@ shape = SubResource("CapsuleShape2D_dmudr")
 position = Vector2(56.923077, -23.076923)
 stat_modifiers = {
 0: 0.0,
-1: -0.25,
+1: -0.2,
 2: 0.0,
 3: 0.0,
 4: 0.0,
@@ -268,7 +273,7 @@ position = Vector2(-21.538464, -7.6923084)
 rotation = 0.7299963
 stat_modifiers = {
 0: 0.0,
-1: -0.25,
+1: -0.2,
 2: 0.0,
 3: 0.0,
 4: 0.0,
@@ -300,6 +305,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.0
 }
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_ex3ds")
@@ -316,6 +322,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.0
 }
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_2ov7o")
@@ -329,9 +336,10 @@ stat_modifiers = {
 3: 0.0,
 4: 0.0,
 5: 0.0,
-6: 0.1,
+6: 0.0,
 7: 0.3
 }
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_rsswb")
@@ -351,9 +359,10 @@ stat_modifiers = {
 3: 0.0,
 4: 0.0,
 5: 0.0,
-6: 0.3,
+6: 0.0,
 7: 0.3
 }
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_bb6qk")

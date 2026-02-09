@@ -67,8 +67,12 @@ func _ready() -> void:
 	
 
 func init_combat_arena(level : int) -> void:
-	if level > enemies.size():
+	if level == enemies.size():
+		audio.clear_instance([i_music])
+		i_music_boss = audio.play_instance(sfx_music_boss)
+	elif level > enemies.size():
 		final_stage()
+
 	background.texture = bg_textures[level - 1]
 	enemy = enemies[level - 1]
 	enemy.visible = true
@@ -326,7 +330,8 @@ func end_round() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("restart"):
 		player_lose()
-		
+	if Input.is_action_just_pressed("ui_accept"):
+		end_battle()
 	if paused:
 		return
 	if battle_time_left <= 0:
