@@ -165,7 +165,6 @@ texture = ExtResource("13_ldpml")
 visible = false
 position = Vector2(0, -13)
 boss_name = "Brad short arms"
-attack_damage = 2.5
 
 [node name="Boxer" parent="Enemies" index="3" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false
@@ -190,7 +189,6 @@ switch_chance = 0.5
 [node name="Eric" parent="Enemies" index="6" unique_id=856538371 instance=ExtResource("7_28xsa")]
 visible = false
 position = Vector2(0, -13)
-boss_name = "Eric the Chin"
 
 [node name="BrainOut2" parent="Enemies" index="7" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
 visible = false

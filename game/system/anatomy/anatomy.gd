@@ -182,7 +182,7 @@ func despawn_blood_line() -> void:
 	audio.clear_instance([i_blood])
 
 	if !fix_areas[0].rest_room.attaching: 
-		audio.play(sfx_squirt)
+		audio.play(self, sfx_squirt)
 		fix_areas[0].rest_room.attaching = false
 
 	blood_lines.clear()
@@ -238,11 +238,11 @@ func pickup_part() -> void:
 		return
 	og_pos = global_position
 	if body_owner and state == PartState.HEALTHY and body_owner.rest_mode:
-		if randf() < 0.4: audio.play(sfx_scream)
+		if randf() < 0.4: audio.play(self, sfx_scream)
 		draw_blood_line()
 	is_being_dragged = true
 	_unhover_part()
-	audio.play(sfx_select)
+	audio.play(self, sfx_select)
 	if current_hp > 0:
 		start_scared_shake()
 		for area in fix_areas:

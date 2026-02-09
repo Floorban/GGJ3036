@@ -226,7 +226,7 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool
 	#can_action = false
 	combat_component.pause(action_cooldown / stun_resist)
 	arm.rest_pos()
-	audio.play(sfx_hit, global_transform, "Intensity", damage / max_health)
+	audio.play(self, sfx_hit, global_transform, "Intensity", damage / max_health)
 	
 	if crit: 
 		#if target.check_side() == target.AnatomySide.Left:
@@ -238,7 +238,7 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool
 
 
 func character_die_sfx() -> void:
-	audio.play(sfx_die)
+	audio.play(self, sfx_die)
 
 var face_tween : Tween
 var face_og_pos : Vector2
@@ -337,7 +337,7 @@ func recover_from_interrupt(recover_time: float) -> void:
 
 func _on_successful_block(attacker: Character) -> void:
 	PopupPrompt.display_prompt("BLOCKED !!", -1 ,arm.sprite_fist.global_position, 1.5, 0.5)
-	audio.play(sfx_block, global_transform, "Intensity", 0.75)
+	audio.play(self, sfx_block, global_transform, "Intensity", 0.75)
 	blocked.emit(1.0)
 	can_action = false
 	attacker.on_interrupted()

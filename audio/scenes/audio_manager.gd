@@ -45,20 +45,21 @@ func load_emitters() -> void:
 			emitter_list.append(emitter)
 
 func play(
+caller: Node,
 sound_path: String, 
 object_transform: Transform2D = global_transform, 
 parameter: String = "", 
 value: Variant = null
 ):
-
-	if(sound_path == null): return
+	if(sound_path == ""): 
+		print("no valid audio path from " + caller.name)
+		return
 
 	var instance: FmodEvent = FmodServer.create_event_instance(sound_path)
 	instance.set_3d_attributes(object_transform)
 
 	if value is float: instance.set_parameter_by_name(parameter, value)
 	if value is String: instance.set_parameter_by_name_with_label(parameter, value, false)
-	else: pass
 
 	instance.start()
 	instance.release()

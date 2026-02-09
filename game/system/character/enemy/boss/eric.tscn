@@ -145,12 +145,16 @@ shader_parameter/alphaThreshold = 0.2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cte70"]
 size = Vector2(90.22403, 29.422552)
 
-[node name="Eric" unique_id=1861387119 instance=ExtResource("1_66ayq")]
+[node name="Eric" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_66ayq")]
 script = ExtResource("2_70ffv")
-boss_name = ""
+boss_name = "Eric the Chin"
 is_minion = false
 switch_chance = 0.5
 min_switch_time = 3.0
+arm = NodePath("EricArm")
+sfx_die = "event:/SFX/NPC/Eric/Die"
+sfx_entry = "event:/SFX/NPC/Eric/Entry"
+sfx_hurt = "event:/SFX/NPC/Eric/Hurt"
 
 [node name="Shoulder" type="Sprite2D" parent="." index="0" unique_id=799220475]
 z_index = -3

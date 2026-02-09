@@ -28,7 +28,7 @@ func say(text: String, duration := 10.0) -> void:
 		var oldest = dialogues[0]
 		if is_instance_valid(oldest): oldest.fade_out()
 	
-	audio.play(sfx_chat)
+	audio.play(self, sfx_chat)
 
 	await get_tree().process_frame
 	_reflow()

@@ -42,7 +42,7 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 	if is_trach_bin:
 		anatomy.part_dead()
 		anatomy.queue_free()
-		audio.play(sfx_trash)
+		audio.play(self, sfx_trash)
 		if anatomy.i_blood != null: audio.clear_instance([anatomy.i_blood])
 		return
 	if is_occupied or anatomy.anatomy_type != anatomy_type or anatomy.state == anatomy.PartState.DESTROYED or anatomy.current_hp <= 0:
@@ -59,7 +59,7 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 		last_anatomy = my_anatomy
 		rest_room.attached_index += 1
 
-	audio.play(rest_room.sfx_attach, global_transform, "Tier", rest_room.attached_index)
+	audio.play(rest_room, rest_room.sfx_attach, global_transform, "Tier", rest_room.attached_index)
 	anatomy.body_owner = player
 	anatomy.position = position
 	anatomy.rotation = rotation

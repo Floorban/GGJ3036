@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	switch_target()
 
 func get_ready_to_battle() -> void:
-	audio.play(sfx_entry)
+	audio.play(self, sfx_entry)
 	super.get_ready_to_battle()
 	_perform_attack(next_target)
 	#arm.action_finished.connect(func(_blocking: bool): next_target = choose_target())
