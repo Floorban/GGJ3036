@@ -27,9 +27,13 @@ var i_menu: FmodEvent
 @onready var ending: TextureRect = %Ending
 
 func end() -> void:
+	
 	if not ending:
 		return
+	transition_screen.cover()
 	ending.visible = true
+	await get_tree().create_timer(1.5).timeout
+	transition_screen.burn()
 	await get_tree().create_timer(8.0).timeout
 	ending.visible = false
 

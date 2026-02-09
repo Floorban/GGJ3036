@@ -183,7 +183,7 @@ func player_lose() -> void:
 	audio.clear_instance([i_music])
 	Stats.main_menu.end()
 	transition_screen.black_screen()
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	game_end.emit()
 	queue_free()
 	if i_music_boss != null:
@@ -348,9 +348,9 @@ var distortion_tween: Tween
 var barrel_distortion := 0.0
 
 func _screen_shake(value: float, crit := false) -> void:
-	camera.add_trauma(value / 5)
+	camera.add_trauma(value / 5.5)
 
-	var peak : float = clamp(value * 0.15, 0.05, 0.35)
+	var peak : float = clamp(value * 0.15, 0.07, 0.3)
 
 	if distortion_tween and distortion_tween.is_running():
 		distortion_tween.kill()

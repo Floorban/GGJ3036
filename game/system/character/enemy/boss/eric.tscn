@@ -150,7 +150,7 @@ script = ExtResource("2_70ffv")
 boss_name = "Eric the Chin"
 is_minion = false
 switch_chance = 0.5
-min_switch_time = 3.0
+min_switch_time = 1.5
 base_cooldown = 2.5
 base_damage = 1.2
 base_speed = 0.07
@@ -339,7 +339,6 @@ stat_modifiers = {
 6: 0.0,
 7: 0.3
 }
-max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_rsswb")

@@ -3,8 +3,12 @@ extends Enemy
 var eric_start := false
 
 func start_round() -> void:
-	await get_tree().create_timer(15.0).timeout
-	super.start_round()
+	if eric_start:
+		eric_start = false
+		await get_tree().create_timer(15.0).timeout
+		super.start_round()
+	else:
+		super.start_round()
 
 func init_character() -> void:
 	_init_anatomy_parts()

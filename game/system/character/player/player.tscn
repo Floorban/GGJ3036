@@ -313,10 +313,7 @@ rotation = -1.5948731
 shape = SubResource("CapsuleShape2D_0eq7q")
 debug_color = Color(0.828425, 0.3136256, 0.62059414, 0.41960785)
 
-[node name="Features" parent="Face" index="6" unique_id=2130456873]
-visible = false
-
-[node name="EyeL" parent="Face/Features" index="0" unique_id=1690948451]
+[node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 position = Vector2(28.999998, -20.000002)
 max_hp = 2.0
 
@@ -332,7 +329,7 @@ position = Vector2(2.861023e-06, -1.9073486e-06)
 position = Vector2(1.5, -2.000002)
 shape = SubResource("RectangleShape2D_8xspq")
 
-[node name="EyeR" parent="Face/Features" index="1" unique_id=584210078]
+[node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
 position = Vector2(-31.000002, -19.999998)
 max_hp = 2.0
 
@@ -351,7 +348,7 @@ rotation = 0.07903791
 scale = Vector2(1.0000004, 1.0000004)
 shape = SubResource("RectangleShape2D_f2h07")
 
-[node name="EarL" parent="Face/Features" index="2" unique_id=1222327045]
+[node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 position = Vector2(59.999996, -10.000005)
 rotation = -0.09759025
 max_hp = 2.0
@@ -371,7 +368,7 @@ rotation = 0.11014061
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_hu301")
 
-[node name="EarR" parent="Face/Features" index="3" unique_id=959483894]
+[node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 position = Vector2(-60, 1.0000051)
 rotation = -0.052493285
 max_hp = 2.0
@@ -391,7 +388,7 @@ rotation = -0.14349334
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_wqm0g")
 
-[node name="Nose" parent="Face/Features" index="4" unique_id=1350482542]
+[node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 position = Vector2(0.99999934, -8)
 max_hp = 4.0
 
@@ -404,7 +401,7 @@ texture = ExtResource("7_ka5xu")
 position = Vector2(-0.5000001, 1)
 shape = SubResource("RectangleShape2D_388rn")
 
-[node name="Mouth" parent="Face/Features" index="5" unique_id=508432269]
+[node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 position = Vector2(-0.9999968, 37)
 max_hp = 4.0
 

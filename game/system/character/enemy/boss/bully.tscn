@@ -299,7 +299,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.0
 }
-max_hp = 1.0
+max_hp = 2.5
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_rpsbt")

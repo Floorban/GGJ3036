@@ -41,7 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://cdjjjvon41702" path="res://sprites/Backgrounds/pipe2.png" id="35_wkcso"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wkcso"]
-radius = 187.11588
+radius = 212.92781
 
 [node name="RestRoom" type="Node2D" unique_id=1662139499 groups=["rest_room"]]
 script = ExtResource("1_nbyfe")
@@ -143,7 +143,7 @@ position = Vector2(-166.61076, -57.27887)
 rotation = 2.3169372
 
 [node name="FixArea" parent="Background" unique_id=1630340479 instance=ExtResource("34_u4uef")]
-position = Vector2(529.32153, -66.23141)
+position = Vector2(589.7416, -108.26372)
 rotation = -2.9608033
 is_trach_bin = true
 
