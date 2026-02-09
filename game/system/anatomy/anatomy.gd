@@ -11,12 +11,12 @@ class_name Anatomy extends Node2D
 	Stats.StatType.STUN_RESIST: 1.0
 }
 
-#AUDIO
-var sfx_blood: String = "event:/SFX/Surgery/Blood"
-var sfx_scream: String = "event:/SFX/NPC/Player/Scream"
-var sfx_select: String = "event:/SFX/Surgery/Select"
-var sfx_squirt: String = "event:/SFX/Surgery/Squirt"
-var i_blood: FmodEvent
+##AUDIO
+#var sfx_blood: String = "event:/SFX/Surgery/Blood"
+#var sfx_scream: String = "event:/SFX/NPC/Player/Scream"
+#var sfx_select: String = "event:/SFX/Surgery/Select"
+#var sfx_squirt: String = "event:/SFX/Surgery/Squirt"
+#var i_blood: FmodEvent
 
 func get_stat_modifiers() -> Dictionary:
 	if state == PartState.DESTROYED:
@@ -149,7 +149,7 @@ func draw_blood_line() -> void:
 		line.queue_free()
 	
 	
-	i_blood = audio.play_instance(sfx_blood)
+	#i_blood = audio.play_instance(sfx_blood)
 	
 	blood_lines.clear()
 	has_blood = true
@@ -179,10 +179,10 @@ func despawn_blood_line() -> void:
 	for line in blood_lines:
 		_retract_blood_line(line, randf_range(0.26, 0.3))
 	
-	audio.clear_instance([i_blood])
+	#audio.clear_instance([i_blood])
 
 	if !fix_areas[0].rest_room.attaching: 
-		audio.play(self, sfx_squirt)
+		#audio.play(self, sfx_squirt)
 		fix_areas[0].rest_room.attaching = false
 
 	blood_lines.clear()
@@ -238,11 +238,11 @@ func pickup_part() -> void:
 		return
 	og_pos = global_position
 	if body_owner and state == PartState.HEALTHY and body_owner.rest_mode:
-		if randf() < 0.4: audio.play(self, sfx_scream)
+		#if randf() < 0.4: audio.play(self, sfx_scream)
 		draw_blood_line()
 	is_being_dragged = true
 	_unhover_part()
-	audio.play(self, sfx_select)
+	#audio.play(self, sfx_select)
 	if current_hp > 0:
 		start_scared_shake()
 		for area in fix_areas:

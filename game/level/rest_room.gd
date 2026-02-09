@@ -19,7 +19,7 @@ signal ready_to_fight()
 
 static var attaching: bool = false
 static var attached_index: float
-var sfx_attach: String = "event:/SFX/Surgery/Attach"
+#var sfx_attach: String = "event:/SFX/Surgery/Attach"
 
 func get_allowed_tiers(level: int) -> Array[int]:
 	if level < 1:
@@ -48,7 +48,7 @@ func _ready() -> void:
 func enter_rest_room(current_level: int) -> void:
 	background.visible = true
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
-	audio.muffle(true)
+	#audio.muffle(true)
 	
 	if first_time:
 		await get_tree().create_timer(0.5).timeout
@@ -89,7 +89,7 @@ func leave_rest_room() -> void:
 	background.visible = false
 	ready_button.visible = false
 	ready_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	audio.muffle(false)
+	#audio.muffle(false)
 	for i in range(player.anatomy_parts.size() - 1, -1, -1):
 		var part = player.anatomy_parts[i]
 		if is_instance_valid(part):

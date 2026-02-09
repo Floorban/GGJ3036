@@ -21,8 +21,8 @@ var tutorial := true
 @onready var bg_1: TextureRect = %BG1
 @onready var bg_2: TextureRect = %BG2
 
-var sfx_menu: String = "event:/Ambient/Menu"
-var i_menu: FmodEvent
+#var sfx_menu: String = "event:/Ambient/Menu"
+#var i_menu: FmodEvent
 
 @onready var ending: TextureRect = %Ending
 
@@ -93,7 +93,7 @@ func intro_dialogue() -> void:
 
 func _ready() -> void:
 	Stats.main_menu = self
-	if i_menu == null: i_menu = audio.play_instance(sfx_menu)
+	#if i_menu == null: i_menu = audio.play_instance(sfx_menu)
 
 func _process(_delta: float) -> void:
 	if warning == null or ending == null:
@@ -107,7 +107,7 @@ func _process(_delta: float) -> void:
 		btn_credits.pressed.connect(set_credits_page)
 
 func start_game() -> void:
-	audio.clear_instance([i_menu])
+	#audio.clear_instance([i_menu])
 	control.visible = false
 	page_control.visible = false
 	page_credits.visible = false

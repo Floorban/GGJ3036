@@ -40,14 +40,14 @@ var max_round := 2
 @onready var player: Player = %Player
 var enemy: Enemy
 
-#AUDIO
-var sfx_music: String = "event:/Music/Melody"
-var sfx_music_boss: String = "event:/Music/DnB"
-var i_music: FmodEvent
-var i_music_boss: FmodEvent
-
-var sfx_countdown: String = "event:/SFX/NPC/Coach/Count"
-var sfx_ring: String = "event:/SFX/Arena/Ring"
+##AUDIO
+#var sfx_music: String = "event:/Music/Melody"
+#var sfx_music_boss: String = "event:/Music/DnB"
+#var i_music: FmodEvent
+#var i_music_boss: FmodEvent
+#
+#var sfx_countdown: String = "event:/SFX/NPC/Coach/Count"
+#var sfx_ring: String = "event:/SFX/Arena/Ring"
 
 func _ready() -> void:
 	game_ui.timer_panel.visible = false
@@ -67,10 +67,10 @@ func _ready() -> void:
 	
 
 func init_combat_arena(level : int) -> void:
-	if level == enemies.size():
-		audio.clear_instance([i_music])
-		i_music_boss = audio.play_instance(sfx_music_boss)
-	elif level > enemies.size():
+	#if level == enemies.size():
+		#audio.clear_instance([i_music])
+		#i_music_boss = audio.play_instance(sfx_music_boss)
+	if level > enemies.size():
 		final_stage()
 
 	background.texture = bg_textures[level - 1]
@@ -89,11 +89,11 @@ func init_combat_arena(level : int) -> void:
 		player.blocked.connect(_screen_shake)
 		player.die.connect(player_lose)
 
-	if i_music == null: i_music = audio.play_instance(sfx_music)
+	#if i_music == null: i_music = audio.play_instance(sfx_music)
 
 func final_stage() -> void:
-	audio.clear_instance([i_music])
-	i_music_boss = audio.play_instance(sfx_music_boss)
+	#audio.clear_instance([i_music])
+	#i_music_boss = audio.play_instance(sfx_music_boss)
 	Stats.main_menu.end()
 
 func start_battle() -> void:
@@ -177,18 +177,18 @@ func player_win() -> void:
 
 	if current_level >= enemies.size():
 		print("current level: " + str(current_level) + " > " + str(enemies.size()))
-		i_music_boss.set_parameter_by_name_with_label("Battle State", "Won", true)
+		#i_music_boss.set_parameter_by_name_with_label("Battle State", "Won", true)
 
 func player_lose() -> void:
-	audio.clear_instance([i_music])
+	#audio.clear_instance([i_music])
 	Stats.main_menu.end()
 	transition_screen.black_screen()
 	await get_tree().create_timer(3.0).timeout
 	game_end.emit()
 	queue_free()
-	if i_music_boss != null:
-		print("current level: " + str(current_level) + " > " + str(enemies.size()))
-		i_music_boss.set_parameter_by_name_with_label("Battle State", "Won", true)
+	#if i_music_boss != null:
+		#print("current level: " + str(current_level) + " > " + str(enemies.size()))
+		#i_music_boss.set_parameter_by_name_with_label("Battle State", "Won", true)
 
 
 func end_battle() -> void:
@@ -248,7 +248,7 @@ func next_round() -> void:
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
 	retro_screen.trans_to_combat()
-	audio.muffle(false)
+	#audio.muffle(false)
 
 	tween.parallel().tween_property(
 		enemies_container,
@@ -271,7 +271,7 @@ func end_round() -> void:
 	in_break = true
 	current_round += 1
 	battle_time_left = break_duration
-	audio.muffle(true)
+	#audio.muffle(true)
 	
 	if current_round >= max_round:
 		end_battle()
