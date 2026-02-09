@@ -180,6 +180,8 @@ func player_win() -> void:
 		i_music_boss.set_parameter_by_name_with_label("Battle State", "Won", true)
 
 func player_lose() -> void:
+	audio.clear_instance([i_music])
+	Stats.main_menu.end()
 	transition_screen.black_screen()
 	await get_tree().create_timer(1.0).timeout
 	game_end.emit()
@@ -330,8 +332,6 @@ func end_round() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("restart"):
 		player_lose()
-	if Input.is_action_just_pressed("ui_accept"):
-		end_battle()
 	if paused:
 		return
 	if battle_time_left <= 0:

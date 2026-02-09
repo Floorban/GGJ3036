@@ -320,7 +320,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.0
 }
-max_hp = 8.0
+max_hp = 10.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_8i0x1")
@@ -349,7 +349,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.5
 }
-max_hp = 6.0
+max_hp = 5.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_jf7km")

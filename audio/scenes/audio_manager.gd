@@ -51,7 +51,7 @@ object_transform: Transform2D = global_transform,
 parameter: String = "", 
 value: Variant = null
 ):
-	if(sound_path == ""): 
+	if(sound_path == ""):
 		print("no valid audio path from " + caller.name)
 		return
 

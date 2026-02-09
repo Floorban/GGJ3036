@@ -27,7 +27,11 @@ var i_menu: FmodEvent
 @onready var ending: TextureRect = %Ending
 
 func end() -> void:
+	if not ending:
+		return
 	ending.visible = true
+	await get_tree().create_timer(8.0).timeout
+	ending.visible = false
 
 func discord() -> void:
 	OS.shell_open("https://discord.gg/Mpgaqru9hc")
@@ -88,9 +92,9 @@ func _ready() -> void:
 	if i_menu == null: i_menu = audio.play_instance(sfx_menu)
 
 func _process(_delta: float) -> void:
-	if warning == null:
+	if warning == null or ending == null:
 		return
-	if Input.is_anything_pressed() and warning:
+	if Input.is_anything_pressed() and warning and ending:
 		warning.queue_free()
 		await get_tree().create_timer(0.5).timeout
 		transition_screen.burn()
