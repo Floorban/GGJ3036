@@ -16,5 +16,5 @@ func init_character() -> void:
 	DialogueManager.say("but dont give him the chance, once he starts attacking")
 	await DialogueManager.wait_for_dialogue_continue()
 	DialogueManager.say("HE WON'T STOP")
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	enemy_dialogue_end.emit()
