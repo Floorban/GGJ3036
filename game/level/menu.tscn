@@ -67,6 +67,74 @@ texture_normal = ExtResource("6_krs0x")
 ignore_texture_size = true
 stretch_mode = 4
 
+[node name="PageCredits2" type="TextureRect" parent="CanvasLayer" unique_id=2122318432]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -450.0
+offset_right = 679.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(400, 450)
+mouse_filter = 2
+texture = ExtResource("10_5wwgj")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PageCredits2" unique_id=683364248]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -376.5
+offset_right = 364.0
+offset_bottom = 376.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 128
+
+[node name="Label2" type="Label" parent="CanvasLayer/PageCredits2/VBoxContainer" unique_id=2083539085]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9731639, 0, 0.2634054, 1)
+theme_override_fonts/font = ExtResource("8_r2yyg")
+theme_override_font_sizes/font_size = 64
+text = "No audio on web ! !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PageCredits2/VBoxContainer" unique_id=208079633]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = 15
+theme_override_constants/paragraph_spacing = 0
+theme_override_fonts/font = ExtResource("16_s2guv")
+theme_override_font_sizes/font_size = 48
+text = "Fmod doens't support web export
+
+PLEASE download and play for the BEST EXPERIENCE
+
+(OUR SOUND IS GOATED)"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PageCredits2" unique_id=379896148]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 0
+offset_left = 58.0
+offset_top = 192.0
+offset_right = 258.0
+offset_bottom = 252.0
+texture = ExtResource("15_cfrv7")
+expand_mode = 1
+
 [node name="Ending" type="TextureRect" parent="CanvasLayer" unique_id=226232266]
 unique_name_in_owner = true
 visible = false
