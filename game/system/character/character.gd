@@ -227,7 +227,7 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool
 		is_dead = true
 		print(name + "dies")
 		character_die_sfx()
-	hit.emit(damage * 1.4)
+	hit.emit(damage * 1.2)
 	get_hit_visual_feedback(damage / 11)
 	#can_action = false
 	combat_component.pause(action_cooldown / stun_resist)
@@ -268,7 +268,7 @@ func get_hit_visual_feedback(damage_scale: float) -> void:
 	) * damage_scale
 
 	var rot_offset := rand_outside_range(4, 6) * damage_scale
-	var hit_time := 0.025 + damage_scale + randf_range(-0.05, 0.03)
+	var hit_time := 0.03 + damage_scale + randf_range(-0.05, 0.03)
 
 	if is_dead:
 		pos_offset *= 20.0
@@ -304,7 +304,7 @@ func get_hit_visual_feedback(damage_scale: float) -> void:
 
 	face_tween.tween_callback(func():
 		if not is_dead:
-			face_return(0.15 * damage_scale)
+			face_return(0.13 * damage_scale)
 		)
 
 func face_return(duration: float) -> void:

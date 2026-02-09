@@ -7,7 +7,7 @@ var retro_mat: ShaderMaterial
 
 var health_tween: Tween
 
-var player_health_effect_value := 28.0:
+var player_health_effect_value := 30.0:
 	set(value):
 		player_health_effect_value = value
 		if health_tween: health_tween.kill()

@@ -432,6 +432,7 @@ theme_override_constants/margin_right = 230
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="4" unique_id=1249316010]
 layer = -10
+visible = false
 
 [node name="Label" type="Label" parent="CanvasLayer" index="0" unique_id=1921301200]
 z_index = -500
