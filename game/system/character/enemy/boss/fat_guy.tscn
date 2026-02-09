@@ -147,15 +147,16 @@ size = Vector2(98.46155, 49.40748)
 
 [node name="FatGuy" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_clg4v")]
 script = ExtResource("2_tfnvl")
-boss_name = ""
+boss_name = "THE FAAAAAAAAAAH "
 is_minion = false
 switch_chance = 0.2
 min_switch_time = 3.0
-base_damage = 2.0
+base_damage = 3.0
 base_speed = 0.05
-base_crit_chance = 0.6
+base_crit_chance = 1.0
 base_crit_damage = 1.55
-base_stun_resist = 3.0
+base_stun_strength = 2.0
+base_stun_resist = 4.0
 arm = NodePath("FatArm")
 sfx_die = "event:/SFX/NPC/Fatso/Die"
 sfx_entry = "event:/SFX/NPC/Fatso/Entry"
@@ -202,7 +203,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.0
 }
-max_hp = 5.0
+max_hp = 6.0
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_clg4v")
@@ -234,7 +235,7 @@ stat_modifiers = {
 6: 0.0,
 7: 0.0
 }
-max_hp = 5.0
+max_hp = 6.0
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_tfnvl")
@@ -262,7 +263,7 @@ stat_modifiers = {
 6: 0.5,
 7: 0.5
 }
-max_hp = 5.0
+max_hp = 6.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_a7cdb")
@@ -291,7 +292,7 @@ stat_modifiers = {
 6: 0.5,
 7: 0.5
 }
-max_hp = 5.0
+max_hp = 6.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_evlni")

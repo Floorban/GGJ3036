@@ -23,6 +23,8 @@ var first_level := true
 
 @onready var eye_l: Anatomy = %EyeL
 @onready var nose: Anatomy = %Nose
+@onready var ear_l: Anatomy = %EarL
+@onready var ear_r: Anatomy = %EarR
 
 func _ready() -> void:
 	retro_mat = retro_screen.material as ShaderMaterial
@@ -88,6 +90,9 @@ func get_ready_to_battle() -> void:
 		first_level = false
 		if eye_l: eye_l.set_hp(1)
 		if nose: nose.set_hp(1)
+		if ear_l: ear_l.set_hp(1)
+		if ear_r: ear_l.set_hp(1)
+		if ear_r: ear_l.set_hp(1)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):

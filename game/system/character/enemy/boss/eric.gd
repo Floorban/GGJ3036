@@ -2,10 +2,6 @@ extends Enemy
 
 var eric_start := false
 
-func start_round() -> void:
-	await get_tree().create_timer(10.0).timeout
-	super.start_round()
-
 func init_character() -> void:
 	_init_anatomy_parts()
 	_init_combat_component()
@@ -18,3 +14,5 @@ func init_character() -> void:
 	DialogueManager.say("HE WON'T STOP")
 	await get_tree().create_timer(2.0).timeout
 	enemy_dialogue_end.emit()
+	await get_tree().create_timer(10.0).timeout
+	start_round()

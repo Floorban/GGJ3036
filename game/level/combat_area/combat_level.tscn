@@ -164,13 +164,11 @@ texture = ExtResource("13_ldpml")
 [node name="Bully" parent="Enemies" index="2" unique_id=1348200660 instance=ExtResource("3_i2c52")]
 visible = false
 position = Vector2(0, -13)
-boss_name = "Brad short arms"
 
 [node name="Boxer" parent="Enemies" index="3" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 visible = false
 position = Vector2(0, -13)
 script = ExtResource("11_b7xvh")
-boss_name = "Tyke the Myson"
 switch_chance = 0.5
 min_switch_time = 3.0
 
@@ -183,7 +181,6 @@ boss_name = "Ron 7 mouths"
 visible = false
 position = Vector2(-3, -63)
 script = ExtResource("14_p36xc")
-boss_name = "THE FAAAAAAAAAAH "
 switch_chance = 0.5
 
 [node name="Eric" parent="Enemies" index="6" unique_id=856538371 instance=ExtResource("7_28xsa")]

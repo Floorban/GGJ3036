@@ -443,7 +443,7 @@ func reveal_target_with_delay(target: Anatomy) -> void:
 	if not target or not can_control:
 		return
 
-	var delay := randf_range(0.1, 0.3) + action_cooldown * 0.5
+	var delay := randf_range(0.2, 0.4) + action_cooldown * 0.6
 	await get_tree().create_timer(delay).timeout
 
 	if target != targeting_part or not can_control:

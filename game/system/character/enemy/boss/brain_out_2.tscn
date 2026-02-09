@@ -150,7 +150,7 @@ size = Vector2(143.23077, 56.923084)
 
 [node name="BrainOut2" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_j1rto")]
 script = ExtResource("2_pya1k")
-boss_name = ""
+boss_name = "Ron 7 Mouths PRIME"
 is_minion = false
 switch_chance = 0.8
 min_switch_time = 2.0

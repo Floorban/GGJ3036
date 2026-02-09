@@ -79,12 +79,12 @@ max_hp = 6.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_io25p")
-position = Vector2(0, -29.699999)
+position = Vector2(0, -1)
 texture = ExtResource("2_vcbng")
 flip_h = true
 
 [node name="MouseDetectArea" parent="." index="1" unique_id=1106976729]
-position = Vector2(0, -27.699999)
+position = Vector2(0, 1)
 
 [node name="CollisionShape2D" parent="MouseDetectArea" index="0" unique_id=149295176]
 position = Vector2(0, -1.1000004)

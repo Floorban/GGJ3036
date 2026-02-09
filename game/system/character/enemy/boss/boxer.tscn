@@ -137,7 +137,7 @@ height = 132.3141
 
 [node name="Boxer" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_l53d7")]
 script = ExtResource("2_26h1w")
-boss_name = ""
+boss_name = "Tyke the Myson"
 is_minion = false
 switch_chance = 0.6
 min_switch_time = 2.0
