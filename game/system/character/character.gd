@@ -1,5 +1,8 @@
 class_name Character extends Node2D
 
+
+var corner_mode := false
+
 @export var base_stats := {
 	Stats.StatType.MAX_HP: 0.0,
 	Stats.StatType.COOLDOWN: base_cooldown,
@@ -183,6 +186,7 @@ func end_battle() -> void:
 	arm.toggle_arm(true)
 
 func start_round() -> void:
+	corner_mode = false
 	arm.rest_pos()
 	features.z_index = 0
 	combat_component.start()
@@ -198,6 +202,8 @@ func _process(_delta: float) -> void:
 		arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
 
 func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool) -> void:
+	if is_dead:
+		return
 	if not can_control:
 		target.is_targeted = false
 		target._unhighlight_target()
@@ -257,8 +263,8 @@ func get_hit_visual_feedback(damage_scale: float) -> void:
 	face_og_rot = face.global_rotation
 	
 	var pos_offset := Vector2(
-		rand_outside_range(-100, -250),
-		randf_range(-20, -100) * top_down_dir
+		rand_outside_range(-250, -150),
+		randf_range(-100, -200) * top_down_dir
 	) * damage_scale
 
 	var rot_offset := rand_outside_range(3, 5) * damage_scale
@@ -298,11 +304,11 @@ func get_hit_visual_feedback(damage_scale: float) -> void:
 
 	face_tween.tween_callback(func():
 		if not is_dead:
-			face_return(0.2 * damage_scale)
+			face_return(0.15 * damage_scale)
 		)
 
 func face_return(duration: float) -> void:
-	var return_time := duration + randf_range(0.05, 0.15)
+	var return_time := duration + randf_range(0.05, 0.1)
 
 	face_tween = create_tween()
 	face_tween.set_trans(Tween.TRANS_QUAD)

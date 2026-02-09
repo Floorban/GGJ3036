@@ -267,6 +267,7 @@ func next_round() -> void:
 	enemy.start_round()
 
 func end_round() -> void:
+	player.corner_mode = true
 	in_break = true
 	current_round += 1
 	battle_time_left = break_duration

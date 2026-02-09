@@ -175,7 +175,7 @@ size = Vector2(70, 26)
 
 [node name="Player" unique_id=1861387119 node_paths=PackedStringArray("arm") groups=["player"] instance=ExtResource("1_obar5")]
 script = ExtResource("2_b2mth")
-base_cooldown = 3.5
+base_cooldown = 3.3
 base_damage = 2.0
 base_crit_damage = 1.2
 top_down_dir = -1
@@ -221,9 +221,9 @@ position = Vector2(28.999998, -20.000002)
 my_anatomy = NodePath("../../Features/EyeL")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEyeL" index="0" unique_id=1542207743]
-position = Vector2(1.000001, -1.9999981)
+position = Vector2(0.999999, -3)
 rotation = -2.7547193
-scale = Vector2(0.07, 0.07)
+scale = Vector2(0.07760587, 0.07760587)
 texture = ExtResource("10_ltwwj")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEyeL" index="1" unique_id=32785027]
@@ -236,9 +236,9 @@ position = Vector2(-31.000002, -19.999998)
 my_anatomy = NodePath("../../Features/EyeR")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEyeR" index="0" unique_id=1542207743]
-position = Vector2(1.9999995, -2.000001)
+position = Vector2(1.9999993, -4.000001)
 rotation = -1.3151702
-scale = Vector2(0.08, 0.08)
+scale = Vector2(0.09261521, 0.09261521)
 texture = ExtResource("11_ltwwj")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEyeR" index="1" unique_id=32785027]
@@ -287,9 +287,9 @@ anatomy_type = 2
 my_anatomy = NodePath("../../Features/Nose")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaNose" index="0" unique_id=1542207743]
-position = Vector2(1.9999996, -4.0000005)
+position = Vector2(2.0892315, 1.729943)
 rotation = -1.586368
-scale = Vector2(0.15, 0.072)
+scale = Vector2(0.10016347, 0.072)
 texture = ExtResource("10_ltwwj")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaNose" index="1" unique_id=32785027]
@@ -313,7 +313,10 @@ rotation = -1.5948731
 shape = SubResource("CapsuleShape2D_0eq7q")
 debug_color = Color(0.828425, 0.3136256, 0.62059414, 0.41960785)
 
-[node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
+[node name="Features" parent="Face" index="6" unique_id=2130456873]
+visible = false
+
+[node name="EyeL" parent="Face/Features" index="0" unique_id=1690948451]
 position = Vector2(28.999998, -20.000002)
 max_hp = 2.0
 
@@ -329,7 +332,7 @@ position = Vector2(2.861023e-06, -1.9073486e-06)
 position = Vector2(1.5, -2.000002)
 shape = SubResource("RectangleShape2D_8xspq")
 
-[node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
+[node name="EyeR" parent="Face/Features" index="1" unique_id=584210078]
 position = Vector2(-31.000002, -19.999998)
 max_hp = 2.0
 
@@ -348,7 +351,7 @@ rotation = 0.07903791
 scale = Vector2(1.0000004, 1.0000004)
 shape = SubResource("RectangleShape2D_f2h07")
 
-[node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
+[node name="EarL" parent="Face/Features" index="2" unique_id=1222327045]
 position = Vector2(59.999996, -10.000005)
 rotation = -0.09759025
 max_hp = 2.0
@@ -368,7 +371,7 @@ rotation = 0.11014061
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_hu301")
 
-[node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
+[node name="EarR" parent="Face/Features" index="3" unique_id=959483894]
 position = Vector2(-60, 1.0000051)
 rotation = -0.052493285
 max_hp = 2.0
@@ -388,7 +391,7 @@ rotation = -0.14349334
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_wqm0g")
 
-[node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
+[node name="Nose" parent="Face/Features" index="4" unique_id=1350482542]
 position = Vector2(0.99999934, -8)
 max_hp = 4.0
 
@@ -401,7 +404,7 @@ texture = ExtResource("7_ka5xu")
 position = Vector2(-0.5000001, 1)
 shape = SubResource("RectangleShape2D_388rn")
 
-[node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
+[node name="Mouth" parent="Face/Features" index="5" unique_id=508432269]
 position = Vector2(-0.9999968, 37)
 max_hp = 4.0
 

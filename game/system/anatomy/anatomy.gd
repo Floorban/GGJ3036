@@ -366,9 +366,9 @@ func _hover_over_part() -> void:
 		return
 	if body_owner:
 		if body_owner is Player:
-			if body_owner.rest_mode:
+			if body_owner.rest_mode or (body_owner.corner_mode and state == PartState.FUCKED):
 				MouseCursor.choose_unvalid()
-			else:
+			elif not body_owner.corner_mode:
 				MouseCursor.choose_block()
 		else:
 			MouseCursor.choose_attack()
@@ -383,9 +383,9 @@ func _hover_over_part() -> void:
 	hovering.emit(AnatomyType.keys()[anatomy_type], PartState.keys()[state], current_hp, max_hp, get_stat_strings())
 
 func _unhover_part() -> void:
+	MouseCursor.hovering = false
 	if not MouseCursor.hovering:
 		MouseCursor.choose_normal()
-	MouseCursor.hovering = false
 	#anatomy_ui.toggle_panel(false)
 	stop_scared_shake()
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
@@ -408,6 +408,8 @@ func _unhighlight_target() -> void:
 
 # refactor later when heal
 func set_hp(changed_amount: float, crit: bool = false) -> void:
+	if body_owner and body_owner.is_dead:
+		return
 	current_hp -= changed_amount
 	var effect_val = clamp(changed_amount, 2, 5)
 	if body_owner:
