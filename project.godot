@@ -32,7 +32,6 @@ audio="uid://bnb4oio35tq1m"
 DialogueManager="*uid://14hrrjqso8mu"
 PopupPrompt="*uid://gmvmwlnyad4c"
 MouseCursor="*uid://cm38m8rombbxs"
-FmodManager="uid://cds10pm7hwn3p"
 
 [display]
 
@@ -41,10 +40,6 @@ window/size/viewport_height=1080
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="canvas_items"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
 
 [input]
 
