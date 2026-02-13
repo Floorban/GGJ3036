@@ -14,7 +14,7 @@ var next_target: Anatomy
 var can_switch_target := false
 
 func _ready() -> void:
-	combat_component.start_counting.connect(swtic_target_timer)
+	combat_component.start_counting.connect(_switch_target_timer)
 
 func _process(delta: float) -> void:
 	if is_dead or not can_control or is_stuned:
@@ -54,7 +54,7 @@ func switch_target() -> void:
 		can_switch_target = false
 		next_target = choose_target()
 
-func swtic_target_timer(duration: float) -> void:
+func _switch_target_timer(duration: float) -> void:
 	if randf() < switch_chance:
 		can_switch_target = true
 

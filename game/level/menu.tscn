@@ -69,6 +69,7 @@ stretch_mode = 4
 
 [node name="PageCredits2" type="TextureRect" parent="CanvasLayer" unique_id=2122318432]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

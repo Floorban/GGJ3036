@@ -39,12 +39,11 @@ FmodManager="*uid://cds10pm7hwn3p"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/resizable=false
-window/size/borderless=true
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
+enabled=PackedStringArray("res://addons/fmod/plugin.cfg", "res://addons/nhb_functions_on_the_fly/plugin.cfg")
 
 [input]
 
