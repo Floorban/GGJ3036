@@ -56,5 +56,5 @@ func _on_combat_timer_out() -> void:
 	)
 
 func reset_attack_timer(cooldown: float) -> void:
-	combat_timer.wait_time = cooldown / Stats.game_speed_multiplier
+	combat_timer.wait_time = cooldown
 	action_cd_bar.max_value = combat_timer.wait_time

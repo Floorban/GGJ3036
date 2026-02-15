@@ -25,7 +25,7 @@ var start_pos : Vector2
 var retro_mat: ShaderMaterial
 @onready var transition_screen: TransitionScreen = %TransitionScreen
 @export var battle_duration := 40.0
-@export var break_duration := 15.0
+#@export var break_duration := 15.0
 var in_break := false
 var in_battle := false
 var battle_time_left: float
@@ -70,14 +70,13 @@ func _process(delta: float) -> void:
 		player_lose()
 	if Input.is_action_just_pressed("ui_accept"):
 		end_battle()
-	if paused:
-		return
-	if battle_time_left <= 0:
-		audio.muffle(true)
-		end_battle()
-	elif in_battle:
-		battle_time_left -= delta
-		game_ui.set_round_ui(battle_time_left)
+	#if paused:
+		#return
+	#if battle_time_left <= 0:
+		#end_battle()
+	#elif in_battle:
+		#battle_time_left -= delta
+		#game_ui.set_round_ui(battle_time_left)
 
 
 func init_combat_arena(level : int) -> void:
@@ -107,6 +106,7 @@ func init_combat_arena(level : int) -> void:
 
 
 func start_battle() -> void:
+	game_ui.set_round_ui(current_level)
 	camera.switch_target(arena_center, 50)
 	
 	var tween := create_tween()
@@ -143,6 +143,7 @@ func start_battle() -> void:
 
 
 func end_battle() -> void:
+	audio.muffle(true)
 	paused = true
 	game_ui.timer_panel.visible = false
 	

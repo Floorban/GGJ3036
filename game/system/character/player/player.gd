@@ -45,10 +45,16 @@ func start_round() -> void:
 			selected_target.is_targeted = true
 			selected_target._highlight_target()
 
-func choose_target() -> Anatomy:
-	if selected_target and selected_target.state != Anatomy.PartState.DESTROYED:
-		return selected_target
-	return null
+#func choose_target() -> Anatomy:
+	#if selected_target and selected_target.state != Anatomy.PartState.DESTROYED:
+		#return selected_target
+	#return null
+
+func _on_attack_finished() -> void:
+	super._on_attack_finished()
+	selected_target.is_targeted = false
+	selected_target._unhighlight_target()
+	selected_target = null
 
 func _on_action_ready() -> void:
 	if not can_control:
