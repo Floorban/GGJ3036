@@ -1,4 +1,4 @@
-class_name transition_screen extends Sprite2D
+class_name TransitionScreen extends Sprite2D
 
 @export var menu: Menu
 

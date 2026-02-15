@@ -22,6 +22,11 @@ func _process(delta: float) -> void:
 	super._process(delta)
 	switch_target()
 
+func init_character() -> void:
+	super.init_character()
+	await get_tree().create_timer(1.0).timeout
+	enemy_dialogue_end.emit()
+
 func get_ready_to_battle() -> void:
 	audio.play(self, sfx_entry)
 	super.get_ready_to_battle()

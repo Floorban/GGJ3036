@@ -50,7 +50,7 @@ func enter_rest_room(current_level: int) -> void:
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	audio.muffle(true)
 	
-	if first_time:
+	if first_time and not DialogueManager.hide_dialogue:
 		await get_tree().create_timer(0.5).timeout
 		DialogueManager.say("YOU GOT EM, GOOD FUCKING JOB DUDE !!")
 		await get_tree().create_timer(0.25).timeout

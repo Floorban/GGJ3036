@@ -8,7 +8,7 @@ var tutorial := true
 
 @onready var warning: TextureRect = %Warning
 
-@onready var transition_screen: transition_screen = %TransitionScreen
+@onready var transition_screen: TransitionScreen = %TransitionScreen
 @onready var control: Control = %Control
 @onready var btn_start: TextureButton = %BtnStart
 @onready var label_start: Label = %LabelStart

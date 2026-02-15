@@ -23,14 +23,13 @@ var start_pos : Vector2
 @onready var game_ui: GameUI = %GameUI
 @onready var retro_screen: RetroScreen = %RetroScreen
 var retro_mat: ShaderMaterial
-@onready var transition_screen: transition_screen = %TransitionScreen
+@onready var transition_screen: TransitionScreen = %TransitionScreen
 @export var battle_duration := 40.0
 @export var break_duration := 15.0
 var in_break := false
 var in_battle := false
 var battle_time_left: float
 
-# level 0 is tutorial VS bully
 @export_range(1,7) var current_level := 1
 var current_round := 0
 var max_round := 2
@@ -64,7 +63,22 @@ func _ready() -> void:
 	first_level = false
 	await get_tree().create_timer(1.5).timeout
 	transition_screen.burn()
-	
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("restart"):
+		player_lose()
+	if Input.is_action_just_pressed("ui_accept"):
+		end_battle()
+	if paused:
+		return
+	if battle_time_left <= 0:
+		audio.muffle(true)
+		end_battle()
+	elif in_battle:
+		battle_time_left -= delta
+		game_ui.set_round_ui(battle_time_left)
+
 
 func init_combat_arena(level : int) -> void:
 	if level == enemies.size():
@@ -91,26 +105,14 @@ func init_combat_arena(level : int) -> void:
 
 	if i_music == null: i_music = audio.play_instance(sfx_music)
 
-func final_stage() -> void:
-	audio.clear_instance([i_music])
-	i_music_boss = audio.play_instance(sfx_music_boss)
-	Stats.main_menu.end()
 
 func start_battle() -> void:
-	
 	camera.switch_target(arena_center, 50)
 	
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
-	
-
-	tween.parallel().tween_property(
-		enemies_container,
-		"position",
-		Vector2.ZERO,
-		0.3
-	)
+	tween.parallel().tween_property(enemies_container, "position", Vector2.ZERO, 0.3)
 	
 	var current_val = retro_mat.get_shader_parameter("color_quant_steps")
 	tween.tween_property(retro_mat, "shader_parameter/color_quant_steps", player.player_health_effect_value, 0.3).from(current_val)
@@ -127,11 +129,8 @@ func start_battle() -> void:
 	game_ui.show_boss_name(enemy.boss_name)
 	player.arm.movable_by_mouse = false
 	tween.tween_callback(func():
-		if enemy: 
+		if enemy and not DialogueManager.hide_dialogue: 
 			await enemy.enemy_dialogue_end
-		else:
-			await player.enemy_dialogue_end
-		#await get_tree().create_timer(2.0).timeout
 		in_battle = true
 		in_break = false
 		game_ui.timer_panel.visible = true
@@ -141,6 +140,141 @@ func start_battle() -> void:
 		enemy.get_ready_to_battle()
 		battle_start.emit()
 	)
+
+
+func end_battle() -> void:
+	paused = true
+	game_ui.timer_panel.visible = false
+	
+	camera.switch_target(player, 50)
+	
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(
+		enemies_container,
+		"position",
+		rest_room_anchor.position,
+		0.3
+	)
+	
+	var current_val = retro_mat.get_shader_parameter("color_quant_steps")
+	tween.tween_property(retro_mat, "shader_parameter/color_quant_steps", 10.0, 0.3).from(current_val)
+	tween.tween_property(camera, "zoom", Vector2.ONE * 2.5, 0.3)
+	
+	current_round = 0
+	in_battle = false
+	in_break = true
+	battle_time_left = 1000
+	battle_end.emit()
+	advance_enemy()
+	background.visible = false
+	player.end_battle()
+	enemy.end_battle()
+	player.arm.movable_by_mouse = true
+	rest_room.enter_rest_room(current_level)
+
+
+func advance_enemy() -> void:
+	player.opponent = null
+	enemy.visible = false
+	enemy.process_mode = Node.PROCESS_MODE_DISABLED
+	current_level += 1
+
+
+#func next_round() -> void:
+	#paused = false
+	#
+	#in_break = false
+	#player.arm.movable_by_mouse = false
+	#battle_time_left = battle_duration
+	#camera.switch_target(arena_center, 50)
+#
+	#var tween := create_tween()
+	#tween.set_trans(Tween.TRANS_QUAD)
+	#tween.set_ease(Tween.EASE_OUT)
+	#retro_screen.trans_to_combat()
+	#audio.muffle(false)
+#
+	#tween.parallel().tween_property(
+		#enemies_container,
+		#"position",
+		#Vector2.ZERO,
+		#0.3
+	#)
+	#tween.parallel().tween_property(
+		#camera,
+		#"zoom",
+		#Vector2.ONE * 2,
+		#0.2
+	#)
+	#
+	#player.start_round()
+	#enemy.start_round()
+#
+##func end_round() -> void:
+	##player.corner_mode = true
+	##in_break = true
+	##current_round += 1
+	##battle_time_left = break_duration
+	##audio.muffle(true)
+	##
+	##if current_round >= max_round:
+		##end_battle()
+	##else:
+		##player.end_battle()
+		##enemy.end_battle()
+		##camera.switch_target(player, 50)
+		##retro_screen.trans_to_break()
+		##var tween := create_tween()
+		##tween.set_trans(Tween.TRANS_QUAD)
+		##tween.set_ease(Tween.EASE_IN_OUT)
+##
+		##tween.tween_property(
+			##enemies_container,
+			##"position",
+			##corner.position,
+			##0.4
+		##)
+		##
+		##tween.tween_property(
+			##camera,
+			##"zoom",
+			##Vector2.ONE * 2.8,
+			##0.3
+		##)
+	##player.arm.movable_by_mouse = true
+	##
+	##if first_time:
+		##paused = true
+		##await get_tree().create_timer(0.5).timeout
+		##DialogueManager.say("IT'S NOT OVER YET! Corner break time !!")
+		##await get_tree().create_timer(0.25).timeout
+		##await DialogueManager.wait_for_dialogue_continue()
+		##DialogueManager.say("Lets fix that ugly ass face of yours now !")
+		##await get_tree().create_timer(0.25).timeout
+		##await DialogueManager.wait_for_dialogue_continue()
+		##DialogueManager.say("Just drag the broken brown parts to the right place.")
+		##await get_tree().create_timer(0.25).timeout
+		##await DialogueManager.wait_for_dialogue_continue()
+		##DialogueManager.say("The purple ones are too fucked.")
+		##await get_tree().create_timer(0.25).timeout
+		##await DialogueManager.wait_for_dialogue_continue()
+		##DialogueManager.say("The motherfucker only have enough range to punch your mouth and your nose.")
+		##await get_tree().create_timer(0.25).timeout
+		##await DialogueManager.wait_for_dialogue_continue()
+		##DialogueManager.say("Be smart and use that to your advantage.")
+		##await get_tree().create_timer(0.25).timeout
+		##await DialogueManager.wait_for_dialogue_continue()
+		##DialogueManager.say("Block his attacks, and then punch his face loose.")
+		##await get_tree().create_timer(0.25).timeout
+		##await DialogueManager.wait_for_dialogue_continue()
+		##DialogueManager.say("Now you go, and beat the shit out of this baldhead.")
+		##await get_tree().create_timer(0.25).timeout
+		##await DialogueManager.wait_for_dialogue_continue()
+		##paused = false
+	##
+	##first_time = false
 
 
 func player_win() -> void:
@@ -179,6 +313,7 @@ func player_win() -> void:
 		print("current level: " + str(current_level) + " > " + str(enemies.size()))
 		i_music_boss.set_parameter_by_name_with_label("Battle State", "Won", true)
 
+
 func player_lose() -> void:
 	audio.clear_instance([i_music])
 	Stats.main_menu.end()
@@ -191,161 +326,15 @@ func player_lose() -> void:
 		i_music_boss.set_parameter_by_name_with_label("Battle State", "Won", true)
 
 
-func end_battle() -> void:
-	paused = true
-	game_ui.timer_panel.visible = false
-	
-	camera.switch_target(player, 50)
-	
-	var tween := create_tween()
-	tween.set_trans(Tween.TRANS_QUAD)
-	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(
-		enemies_container,
-		"position",
-		rest_room_anchor.position,
-		0.3
-	)
-	
-	var current_val = retro_mat.get_shader_parameter("color_quant_steps")
-	tween.tween_property(retro_mat, "shader_parameter/color_quant_steps", 10.0, 0.3).from(current_val)
-	
-	tween.tween_property(
-			camera,
-			"zoom",
-			Vector2.ONE * 2.5,
-			0.3
-	)
-	
-	current_round = 0
-	in_battle = false
-	in_break = true
-	battle_time_left = 1000
-	battle_end.emit()
-	advance_enemy()
-	background.visible = false
-	player.end_battle()
-	enemy.end_battle()
-	player.arm.movable_by_mouse = true
-	print(current_level)
-	rest_room.enter_rest_room(current_level)
+func final_stage() -> void:
+	audio.clear_instance([i_music])
+	i_music_boss = audio.play_instance(sfx_music_boss)
+	Stats.main_menu.end()
 
-func advance_enemy() -> void:
-	player.opponent = null
-	enemy.visible = false
-	enemy.process_mode = Node.PROCESS_MODE_DISABLED
-	current_level += 1
-
-func next_round() -> void:
-	paused = false
-	
-	in_break = false
-	player.arm.movable_by_mouse = false
-	battle_time_left = battle_duration
-	camera.switch_target(arena_center, 50)
-
-	var tween := create_tween()
-	tween.set_trans(Tween.TRANS_QUAD)
-	tween.set_ease(Tween.EASE_OUT)
-	retro_screen.trans_to_combat()
-	audio.muffle(false)
-
-	tween.parallel().tween_property(
-		enemies_container,
-		"position",
-		Vector2.ZERO,
-		0.3
-	)
-	tween.parallel().tween_property(
-		camera,
-		"zoom",
-		Vector2.ONE * 2,
-		0.2
-	)
-	
-	player.start_round()
-	enemy.start_round()
-
-func end_round() -> void:
-	player.corner_mode = true
-	in_break = true
-	current_round += 1
-	battle_time_left = break_duration
-	audio.muffle(true)
-	
-	if current_round >= max_round:
-		end_battle()
-	else:
-		player.end_battle()
-		enemy.end_battle()
-		camera.switch_target(player, 50)
-		retro_screen.trans_to_break()
-		var tween := create_tween()
-		tween.set_trans(Tween.TRANS_QUAD)
-		tween.set_ease(Tween.EASE_IN_OUT)
-
-		tween.tween_property(
-			enemies_container,
-			"position",
-			corner.position,
-			0.4
-		)
-		
-		tween.tween_property(
-			camera,
-			"zoom",
-			Vector2.ONE * 2.8,
-			0.3
-		)
-	player.arm.movable_by_mouse = true
-	
-	if first_time:
-		paused = true
-		await get_tree().create_timer(0.5).timeout
-		DialogueManager.say("IT'S NOT OVER YET! Corner break time !!")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Lets fix that ugly ass face of yours now !")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Just drag the broken brown parts to the right place.")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("The purple ones are too fucked.")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("The motherfucker only have enough range to punch your mouth and your nose.")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Be smart and use that to your advantage.")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Block his attacks, and then punch his face loose.")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Now you go, and beat the shit out of this baldhead.")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		paused = false
-	
-	first_time = false
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("restart"):
-		player_lose()
-	if paused:
-		return
-	if battle_time_left <= 0:
-		if in_break:
-			next_round()
-		else:
-			end_round()
-	elif in_battle:
-		battle_time_left -= delta
-		game_ui.set_round_ui(battle_time_left)
 
 var distortion_tween: Tween
 var barrel_distortion := 0.0
+
 
 func _screen_shake(value: float, crit := false) -> void:
 	camera.add_trauma(value / 5.5)

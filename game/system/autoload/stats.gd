@@ -1,5 +1,7 @@
 extends Node
 
+var game_speed_multiplier := 1.0
+
 var rest_room : RestRoom
 var main_menu : Menu
 

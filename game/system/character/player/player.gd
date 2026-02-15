@@ -88,8 +88,8 @@ func get_ready_to_battle() -> void:
 	
 	if first_level:
 		first_level = false
-		if eye_l: eye_l.set_hp(1)
-		if ear_r: ear_l.set_hp(1)
+		#if eye_l: eye_l.set_hp(1)
+		#if ear_r: ear_l.set_hp(1)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):

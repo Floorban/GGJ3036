@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+@export var hide_dialogue := false
 @export var dialogue_scene: PackedScene
 @export var max_visible := 5
 @export var spacing := 10
@@ -16,7 +17,7 @@ func wait_for_dialogue_continue() -> void:
 			return
 
 func say(text: String, duration := 10.0) -> void:
-	if not dialogue_scene: return
+	if not dialogue_scene or hide_dialogue: return
 	
 	var box := dialogue_scene.instantiate() as DialogueBox
 	add_child(box)

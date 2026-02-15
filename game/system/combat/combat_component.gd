@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 
 func pause(pause_duration: float) -> void:
 	combat_timer.wait_time = combat_timer.time_left + pause_duration
-	action_cd_bar.max_value = combat_timer.wait_time
+	action_cd_bar.max_value = combat_timer.wait_time 
 	combat_timer.stop()
 	combat_timer.start()
 
@@ -56,5 +56,5 @@ func _on_combat_timer_out() -> void:
 	)
 
 func reset_attack_timer(cooldown: float) -> void:
-	combat_timer.wait_time = cooldown
+	combat_timer.wait_time = cooldown / Stats.game_speed_multiplier
 	action_cd_bar.max_value = combat_timer.wait_time
