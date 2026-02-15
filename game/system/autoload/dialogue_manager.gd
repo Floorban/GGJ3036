@@ -17,7 +17,7 @@ func wait_for_dialogue_continue() -> void:
 			return
 
 func say(text: String, duration := 10.0) -> void:
-	if not dialogue_scene or hide_dialogue: return
+	if not dialogue_scene: return
 	
 	var box := dialogue_scene.instantiate() as DialogueBox
 	add_child(box)
@@ -42,14 +42,14 @@ func _reflow() -> void:
 	
 	for i in range(dialogues.size() - 1, -1, -1):
 		var box = dialogues[i]
-		
+		dialogues[dialogues.size()-1].global_position.y = view_h
 		var box_height = box.get_child(0).size.y 
 		current_y -= box_height
 		
 		var target_pos = Vector2(base_offset.x, current_y)
 		var tween = create_tween().set_parallel(true)
-		tween.tween_property(box, "position", target_pos, 0.3).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-		tween.tween_property(box, "modulate:a", 1.0, 0.2)
+		tween.tween_property(box, "position", target_pos, 0.35).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		tween.tween_property(box, "modulate:a", 1.0, 0.5)
 		
 		current_y -= spacing
 
