@@ -140,7 +140,6 @@ battle_duration = 10.0
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
 position = Vector2(0, 175)
-base_damage = 1.0
 top_down_dir = 1
 
 [node name="Enemies" type="Node2D" parent="." index="1" unique_id=1222997985]
@@ -162,30 +161,36 @@ scale = Vector2(5, 5)
 texture = ExtResource("13_ldpml")
 
 [node name="Bully" parent="Enemies" index="2" unique_id=1348200660 instance=ExtResource("3_i2c52")]
+process_mode = 4
 visible = false
 position = Vector2(0, -13)
 
 [node name="Boxer" parent="Enemies" index="3" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
+process_mode = 4
 visible = false
 position = Vector2(0, -13)
 script = ExtResource("11_b7xvh")
 min_switch_time = 3.0
 
 [node name="BrainOut1" parent="Enemies" index="4" unique_id=710006968 instance=ExtResource("5_ay0ac")]
+process_mode = 4
 visible = false
 position = Vector2(0, -13)
 boss_name = "Ron 7 mouths"
 
 [node name="FatGuy" parent="Enemies" index="5" unique_id=1388912655 instance=ExtResource("6_fhe53")]
+process_mode = 4
 visible = false
 position = Vector2(-3, -63)
 script = ExtResource("14_p36xc")
 
 [node name="Eric" parent="Enemies" index="6" unique_id=856538371 instance=ExtResource("7_28xsa")]
+process_mode = 4
 visible = false
 position = Vector2(0, -13)
 
 [node name="BrainOut2" parent="Enemies" index="7" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
+process_mode = 4
 visible = false
 position = Vector2(0, -13)
 
@@ -211,7 +216,7 @@ position = Vector2(9, 60)
 
 [node name="Corner" type="Marker2D" parent="." index="5" unique_id=1210708224]
 unique_name_in_owner = true
-position = Vector2(-155, -210)
+position = Vector2(0, 130)
 
 [node name="RestRoomAnchor" type="Marker2D" parent="." index="6" unique_id=748088609]
 unique_name_in_owner = true

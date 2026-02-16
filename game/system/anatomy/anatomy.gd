@@ -100,7 +100,7 @@ func _ready() -> void:
 
 func _on_fix_area_entered(area: Area2D) -> void:
 	if area is FixArea:
-		if area.is_occupied or area.anatomy_type != anatomy_type:
+		if area.anatomy_type != anatomy_type:
 			return
 		pending_fix_area = area
 
@@ -389,6 +389,7 @@ func _hover_over_part() -> void:
 	
 	if is_being_dragged:
 		return
+
 	if body_owner:
 		if body_owner is Player:
 			if body_owner.rest_mode or (body_owner.corner_mode and state == PartState.FUCKED):

@@ -28,6 +28,7 @@ func init_character() -> void:
 	enemy_dialogue_end.emit()
 
 func get_ready_to_battle() -> void:
+	process_mode = Node.PROCESS_MODE_INHERIT 
 	audio.play(self, sfx_entry)
 	super.get_ready_to_battle()
 	_perform_attack(next_target)

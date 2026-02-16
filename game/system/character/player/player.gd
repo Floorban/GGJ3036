@@ -52,6 +52,8 @@ func start_round() -> void:
 
 func _on_attack_finished() -> void:
 	super._on_attack_finished()
+	if selected_target == null:
+		return
 	selected_target.is_targeted = false
 	selected_target._unhighlight_target()
 	selected_target = null
