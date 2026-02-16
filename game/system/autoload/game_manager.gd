@@ -3,17 +3,21 @@ extends Node2D
 var dragging_part: Anatomy = null
 var hovered_part: Anatomy = null
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_hover()
+	if Input.is_action_just_pressed("left_click"):
+		if hovered_part:
+			hovered_part.click_part()
 
 func update_hover():
 	var space_state = get_viewport().get_world_2d().direct_space_state
 	var mouse_pos = get_global_mouse_position()
 
 	var query = PhysicsPointQueryParameters2D.new()
+	query.collision_mask = 1 << 0
 	query.position = mouse_pos
 	query.collide_with_areas = true
-	query.collide_with_bodies = true
+	query.collide_with_bodies = false
 
 	var result = space_state.intersect_point(query)
 

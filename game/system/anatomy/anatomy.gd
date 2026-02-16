@@ -64,7 +64,7 @@ var body_owner : Character
 @export var block_amount : float
 
 @onready var sprite: Sprite2D = $Sprite
-@onready var mouse_detect_area: Area2D = $MouseDetectArea
+@onready var fix_area_detect_area: Area2D = $MouseDetectArea
 
 var is_targeted := false
 var is_blocking := false
@@ -76,19 +76,13 @@ var current_color: Color = Color.WHITE
 var outline_mat: ShaderMaterial
 
 @export var fix_areas : Array[FixArea]
-
+var pending_fix_area: FixArea
 @export var og_pos : Vector2
 
 func _ready() -> void:
 	var bp : GPUParticles2D = blood_particle.instantiate()
 	og_pos = global_position
 	current_hp = max_hp
-	#if not mouse_detect_area.mouse_entered.is_connected(_hover_over_part):
-		#mouse_detect_area.mouse_entered.connect(_hover_over_part)
-	#if not mouse_detect_area.mouse_exited.is_connected(_unhover_part):
-		#mouse_detect_area.mouse_exited.connect(_unhover_part)
-	if not mouse_detect_area.input_event.is_connected(_on_input_event):
-		mouse_detect_area.input_event.connect(_on_input_event)
 	if sprite: outline_mat = sprite.material as ShaderMaterial
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
 	outline_mat.set_shader_parameter("glowSharpness", 4.0)
@@ -99,7 +93,24 @@ func _ready() -> void:
 		await get_tree().physics_frame
 	hovering.connect(Stats.rest_room.show_part_info)
 	unhover.connect(Stats.rest_room.hide_part_info)
+	fix_area_detect_area.area_entered.connect(_on_fix_area_entered)
+	fix_area_detect_area.area_exited.connect(_on_fix_area_exited)
 	check_side()
+
+
+func _on_fix_area_entered(area: Area2D) -> void:
+	if area is FixArea:
+		if area.is_occupied or area.anatomy_type != anatomy_type:
+			return
+		pending_fix_area = area
+
+
+func _on_fix_area_exited(area: Area2D) -> void:
+	if pending_fix_area == null:
+		return
+	if area is FixArea:
+		if area == pending_fix_area:
+			pending_fix_area = null
 
 signal disconnect()
 
@@ -256,7 +267,8 @@ func pickup_part() -> void:
 func drop_part() -> void:
 	if not is_being_dragged:
 		return
-	GameManager.dragging_part = null
+	if GameManager.dragging_part and GameManager.dragging_part == self:
+		GameManager.dragging_part = null
 	stop_scared_shake()
 	despawn_blood_line()
 	for area in fix_areas:
@@ -284,6 +296,9 @@ func drop_part() -> void:
 	else:
 		is_being_dragged = false
 		_hover_over_part()
+	
+	if pending_fix_area:
+		pending_fix_area.receive_anatomy(self)
 
 
 func check_side() -> AnatomySide:
@@ -291,13 +306,11 @@ func check_side() -> AnatomySide:
 	if anatomy_type == AnatomyType.Ear or AnatomyType.Eye and global_position.x > 0: return AnatomySide.Right
 	else: return AnatomySide.Misc
 
-func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
+
+func click_part() -> void:
 	if (body_owner and not body_owner.rest_mode) and (state == PartState.DESTROYED or is_being_dragged):
 		return
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			anatomy_clicked.emit(self)
-			#get_viewport().set_input_as_handled()
+	anatomy_clicked.emit(self)
 
 signal hovering(_name: String, _state: String, _hp: float, _max_hp: float, _stats: Array[String])
 signal unhover()
@@ -374,13 +387,6 @@ func _hover_over_part() -> void:
 	if GameManager.dragging_part:
 		return
 	
-	#if GameManager.hovered_part == self:
-		#return
-	#if GameManager.hovered_part:
-		#GameManager.hovered_part.is_being_dragged = false
-		#GameManager.hovered_part._remove_hover_visual()
-	#GameManager.hovered_part = self
-	
 	if is_being_dragged:
 		return
 	if body_owner:
@@ -407,9 +413,7 @@ func _unhover_part() -> void:
 	stop_scared_shake()
 	_remove_hover_visual()
 	#unhover.emit()
-	
-	#if GameManager.hovered_part == self:
-		#GameManager.hovered_part = null
+
 
 func _remove_hover_visual() -> void:
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)

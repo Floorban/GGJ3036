@@ -179,7 +179,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqmy7"]
-size = Vector2(100.15385, 43.076912)
+size = Vector2(100.15385, 55.38461)
 
 [node name="Bully" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_ulrfh")]
 script = ExtResource("2_qjg54")
@@ -334,7 +334,7 @@ texture = ExtResource("10_vprwn")
 position = Vector2(3.7692382, 22.23079)
 
 [node name="CollisionShape2D" parent="Face/Features/Mouth/MouseDetectArea" index="0" unique_id=149295176]
-position = Vector2(-3.076923, -19.153873)
+position = Vector2(-3.769238, -22.230791)
 shape = SubResource("RectangleShape2D_oqmy7")
 
 [node name="BullyArm" parent="." index="2" unique_id=1972221418 instance=ExtResource("12_qjg54")]

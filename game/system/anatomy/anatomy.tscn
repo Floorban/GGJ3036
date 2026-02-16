@@ -32,6 +32,6 @@ material = ExtResource("2_c5p48")
 texture = ExtResource("2_phaok")
 
 [node name="MouseDetectArea" type="Area2D" parent="." unique_id=1106976729]
-collision_mask = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDetectArea" unique_id=149295176]
