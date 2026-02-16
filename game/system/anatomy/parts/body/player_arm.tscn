@@ -45,6 +45,9 @@ diffuse_texture = ExtResource("3_vta5r")
 normal_texture = ExtResource("3_vta5r")
 specular_texture = ExtResource("3_vta5r")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ei0c6"]
+radius = 20.0
+
 [node name="PlayerArm" type="Node2D" unique_id=1972221418]
 script = ExtResource("1_iofsa")
 
@@ -153,3 +156,12 @@ flip_h = true
 [node name="FistTarget" type="Marker2D" parent="." unique_id=702061991]
 unique_name_in_owner = true
 position = Vector2(101, -160)
+
+[node name="FixAreaDetector" type="Area2D" parent="FistTarget" unique_id=2106042545]
+collision_layer = 0
+collision_mask = 2
+collision_priority = 10.0
+priority = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FistTarget/FixAreaDetector" unique_id=1356125102]
+shape = SubResource("CircleShape2D_ei0c6")

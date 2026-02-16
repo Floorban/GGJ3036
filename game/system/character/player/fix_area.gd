@@ -18,7 +18,7 @@ func _ready() -> void:
 	is_occupied = true
 	reset_sprite()
 	#if my_anatomy: anatomy_type = my_anatomy.anatomy_type
-	#mouse_entered.connect(_hover_over_part)
+	#mouse_entered.connect(_on_input_event)
 	#mouse_exited.connect(_unhover_part)
 	input_event.connect(_on_input_event)
 	if my_anatomy and not my_anatomy.anatomy_fucked.is_connected(lose_anatomy):

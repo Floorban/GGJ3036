@@ -83,10 +83,10 @@ func _ready() -> void:
 	var bp : GPUParticles2D = blood_particle.instantiate()
 	og_pos = global_position
 	current_hp = max_hp
-	if not mouse_detect_area.mouse_entered.is_connected(_hover_over_part):
-		mouse_detect_area.mouse_entered.connect(_hover_over_part)
-	if not mouse_detect_area.mouse_exited.is_connected(_unhover_part):
-		mouse_detect_area.mouse_exited.connect(_unhover_part)
+	#if not mouse_detect_area.mouse_entered.is_connected(_hover_over_part):
+		#mouse_detect_area.mouse_entered.connect(_hover_over_part)
+	#if not mouse_detect_area.mouse_exited.is_connected(_unhover_part):
+		#mouse_detect_area.mouse_exited.connect(_unhover_part)
 	if not mouse_detect_area.input_event.is_connected(_on_input_event):
 		mouse_detect_area.input_event.connect(_on_input_event)
 	if sprite: outline_mat = sprite.material as ShaderMaterial
@@ -236,6 +236,10 @@ func recover_part() -> void:
 func pickup_part() -> void:
 	if is_being_dragged:
 		return
+	if GameManager.hovered_part and GameManager.hovered_part != self:
+		GameManager.hovered_part.is_being_dragged = false
+		GameManager.hovered_part._unhover_part()
+	GameManager.dragging_part = self
 	og_pos = global_position
 	if body_owner and state == PartState.HEALTHY and body_owner.rest_mode:
 		if randf() < 0.4: audio.play(self, sfx_scream)
@@ -243,19 +247,21 @@ func pickup_part() -> void:
 	is_being_dragged = true
 	_unhover_part()
 	audio.play(self, sfx_select)
-	if current_hp > 0:
-		start_scared_shake()
+	if current_hp > 0 :
+		if body_owner:
+			start_scared_shake()
 		for area in fix_areas:
 			area.highlight_zone()
 
 func drop_part() -> void:
 	if not is_being_dragged:
 		return
+	GameManager.dragging_part = null
 	stop_scared_shake()
 	despawn_blood_line()
 	for area in fix_areas:
 		area.unhighlight_zone()
-		
+	
 	if (state == PartState.HEALTHY): #(state == PartState.OutOfBody and not body_owner) or 
 		for line in blood_lines:
 			line.queue_free()
@@ -267,15 +273,18 @@ func drop_part() -> void:
 			self,
 			"global_position",
 			og_pos,
-			0.15
+			0.08
 		)
 		
 		tween.tween_callback(func():
 			global_position = og_pos
 			is_being_dragged = false
+			_hover_over_part()
 		)
 	else:
 		is_being_dragged = false
+		_hover_over_part()
+
 
 func check_side() -> AnatomySide:
 	if anatomy_type == AnatomyType.Ear or AnatomyType.Eye and global_position.x < 0: return AnatomySide.Left
@@ -362,6 +371,16 @@ func _hover_over_part() -> void:
 	#if (body_owner and body_owner.rest_mode and state == PartState.HEALTHY):
 		#hovering.emit(AnatomyType.keys()[anatomy_type], PartState.keys()[state], current_hp, max_hp, get_stat_strings())
 		#return
+	if GameManager.dragging_part:
+		return
+	
+	#if GameManager.hovered_part == self:
+		#return
+	#if GameManager.hovered_part:
+		#GameManager.hovered_part.is_being_dragged = false
+		#GameManager.hovered_part._remove_hover_visual()
+	#GameManager.hovered_part = self
+	
 	if is_being_dragged:
 		return
 	if body_owner:
@@ -374,9 +393,7 @@ func _hover_over_part() -> void:
 			MouseCursor.choose_attack()
 	if (body_owner and body_owner.rest_mode and state == PartState.HEALTHY):
 		start_scared_shake(1.5, 0.15)
-		
-	#anatomy_ui.toggle_panel(true)
-	#if not is_targeted:
+
 	outline_mat.set_shader_parameter("alphaThreshold", 0.1)
 	if sprite: sprite.use_parent_material = false
 	is_hovering = true
@@ -388,10 +405,17 @@ func _unhover_part() -> void:
 		MouseCursor.choose_normal()
 	#anatomy_ui.toggle_panel(false)
 	stop_scared_shake()
-	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
-	if sprite: sprite.use_parent_material = true
-	is_hovering = false
+	_remove_hover_visual()
 	#unhover.emit()
+	
+	#if GameManager.hovered_part == self:
+		#GameManager.hovered_part = null
+
+func _remove_hover_visual() -> void:
+	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
+	if sprite:
+		sprite.use_parent_material = true
+	is_hovering = false
 
 func _highlight_target() -> void:
 	if is_part_dead():

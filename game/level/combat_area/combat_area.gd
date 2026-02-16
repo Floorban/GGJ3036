@@ -161,7 +161,7 @@ func end_battle() -> void:
 	
 	var current_val = retro_mat.get_shader_parameter("color_quant_steps")
 	tween.tween_property(retro_mat, "shader_parameter/color_quant_steps", 10.0, 0.3).from(current_val)
-	tween.tween_property(camera, "zoom", Vector2.ONE * 2.5, 0.3)
+	tween.tween_property(camera, "zoom", Vector2.ONE * 4, 0.3)
 	
 	current_round = 0
 	in_battle = false

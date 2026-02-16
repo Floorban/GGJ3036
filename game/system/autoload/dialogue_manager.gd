@@ -42,8 +42,8 @@ func _reflow() -> void:
 	
 	for i in range(dialogues.size() - 1, -1, -1):
 		var box = dialogues[i]
-		dialogues[dialogues.size()-1].global_position.y = view_h
 		var box_height = box.get_child(0).size.y 
+		dialogues[dialogues.size() - 1].global_position.y = view_h + base_offset.y - box_height
 		current_y -= box_height
 		
 		var target_pos = Vector2(base_offset.x, current_y)

@@ -27,6 +27,7 @@ boot_splash/minimum_display_time=20
 
 [autoload]
 
+GameManager="*uid://07lrjqv6uxy4"
 Stats="*uid://b6h1dletmyv0j"
 audio="*uid://bnb4oio35tq1m"
 DialogueManager="*uid://14hrrjqso8mu"
