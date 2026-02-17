@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 5.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ri8r1"]
-radius = 21.599998
-height = 58.399998
+radius = 20.4
+height = 56.799995
 
 [node name="ElfMouth" unique_id=1690948451 instance=ExtResource("1_y30ss")]
 scale = Vector2(2.5, 2.5)
@@ -84,4 +84,5 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_ri8r1")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
+position = Vector2(0.79999995, -0.79999995)
 shape = SubResource("CapsuleShape2D_ri8r1")

@@ -58,8 +58,8 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gqedb"]
-radius = 20.198053
-height = 68.3991
+radius = 18.199583
+height = 62.396828
 
 [node name="EyeTier2" unique_id=1690948451 instance=ExtResource("1_krlul")]
 scale = Vector2(2.5, 2.5)
@@ -82,6 +82,6 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_gqedb")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-position = Vector2(-1, -1)
+position = Vector2(-1.1920929e-07, -0.4000001)
 rotation = -1.5688893
 shape = SubResource("CapsuleShape2D_gqedb")

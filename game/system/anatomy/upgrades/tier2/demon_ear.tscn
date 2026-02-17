@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4h5m"]
-size = Vector2(48.800007, 74.40001)
+size = Vector2(39.200005, 63.400013)
 
 [node name="EarAttackDamage" unique_id=1690948451 instance=ExtResource("1_jr0rp")]
 z_index = 10
@@ -87,6 +87,6 @@ flip_h = true
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" parent="MouseDetectArea" index="0" unique_id=149295176]
-position = Vector2(0, -1.1000004)
+position = Vector2(-1.1999996, -1.1000003)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_e4h5m")

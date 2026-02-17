@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5yqo"]
-size = Vector2(90.24349, 43.426094)
+size = Vector2(87.84349, 40.573917)
 
 [node name="Micky Mouth" unique_id=1690948451 instance=ExtResource("1_o5yqo")]
 scale = Vector2(2.5, 2.5)

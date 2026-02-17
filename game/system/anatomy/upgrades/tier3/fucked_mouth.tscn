@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icjdx"]
-size = Vector2(88.30001, 52.40001)
+size = Vector2(85.10001, 48.400005)
 
 [node name="FuckedMouth" unique_id=1690948451 instance=ExtResource("1_bs867")]
 z_index = 10

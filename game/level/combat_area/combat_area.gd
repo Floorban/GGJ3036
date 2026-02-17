@@ -349,7 +349,7 @@ func _screen_shake(value: float, crit := false) -> void:
 	retro_mat.set_shader_parameter("barrel_distortion", barrel_distortion)
 	
 	if crit:
-		Engine.time_scale = 0.4
+		Engine.time_scale = 0.6
 
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
@@ -361,7 +361,7 @@ func _screen_shake(value: float, crit := false) -> void:
 			retro_mat.set_shader_parameter("barrel_distortion", v),
 		barrel_distortion,
 		0.0,
-		0.15 + randf_range(-0.05, 0.15)
+		0.1 + randf_range(-0.05, 0.15)
 	)
 	
 	tween.tween_method(
@@ -370,7 +370,7 @@ func _screen_shake(value: float, crit := false) -> void:
 			retro_mat.set_shader_parameter("barrel_distortion", v),
 		barrel_distortion,
 		0.5,
-		0.3 + randf_range(-0.05, 0.15)
+		0.2 + randf_range(-0.05, 0.15)
 	)
 	
 	tween.tween_callback(func():

@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kontq"]
-radius = 28.8729
+radius = 22.88852
 
 [node name="CrazyEye" unique_id=1690948451 instance=ExtResource("1_i8j0k")]
 scale = Vector2(2.5, 2.5)
@@ -79,5 +79,5 @@ material = SubResource("ShaderMaterial_j6rxi")
 texture = ExtResource("2_kontq")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-position = Vector2(-1.6666667, 1)
+position = Vector2(-2.3999999, 1.2)
 shape = SubResource("CircleShape2D_kontq")

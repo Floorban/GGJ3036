@@ -24,27 +24,27 @@
 [ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="22_innbf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hu301"]
-radius = 20.992636
-height = 47.98317
+radius = 17.020517
+height = 39.985977
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wqm0g"]
-radius = 21.143053
-height = 48.033062
+radius = 17.029362
+height = 42.04406
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvqmr"]
-radius = 21.836105
-height = 71.87653
+radius = 17.457634
+height = 65.963554
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltwwj"]
-radius = 21.072353
-height = 78.63092
+radius = 18.10226
+height = 72.690735
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvqmr"]
-size = Vector2(43, 76)
+size = Vector2(35, 68)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0eq7q"]
-radius = 19.01857
-height = 83.92751
+radius = 17.01915
+height = 76.02613
 
 [sub_resource type="Shader" id="Shader_2ro5p"]
 code = "shader_type canvas_item;
@@ -278,7 +278,7 @@ scale = Vector2(0.24624492, 0.39563715)
 texture = ExtResource("13_innbf")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEarR" index="1" unique_id=32785027]
-position = Vector2(0.052329063, -0.9986298)
+position = Vector2(-6.7949295e-06, -2.3841858e-07)
 rotation = -0.08895778
 shape = SubResource("CapsuleShape2D_ltwwj")
 

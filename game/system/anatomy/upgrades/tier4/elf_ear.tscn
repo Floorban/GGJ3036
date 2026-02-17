@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_be7gk"]
-size = Vector2(32.000004, 59.20001)
+size = Vector2(28.000006, 56.80001)
 
 [node name="ElfEar" unique_id=1690948451 instance=ExtResource("1_va7ya")]
 scale = Vector2(2.5, 2.5)

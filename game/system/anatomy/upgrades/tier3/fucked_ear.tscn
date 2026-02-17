@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i35d8"]
-radius = 23.599998
+radius = 21.599998
 height = 77.6
 
 [node name="FuckedEar" unique_id=1690948451 instance=ExtResource("1_i35d8")]

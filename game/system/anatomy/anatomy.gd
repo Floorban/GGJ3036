@@ -100,7 +100,7 @@ func _ready() -> void:
 
 func _on_fix_area_entered(area: Area2D) -> void:
 	if area is FixArea:
-		if area.anatomy_type != anatomy_type:
+		if not area.is_trach_bin and area.anatomy_type != anatomy_type:
 			return
 		pending_fix_area = area
 

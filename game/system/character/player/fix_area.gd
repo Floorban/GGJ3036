@@ -27,8 +27,12 @@ func _ready() -> void:
 	#player.start.connect(reset_sprite)
 
 func lose_anatomy() -> void:
+	if my_anatomy == null:
+		return
 	sprite.visible = true
 	sprite.rotate(randf_range(-0.2,0.2))
+	if my_anatomy.anatomy_fucked.is_connected(lose_anatomy):
+		my_anatomy.anatomy_fucked.disconnect(lose_anatomy)
 	my_anatomy = null
 	is_occupied = false
 
@@ -47,6 +51,7 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 		return
 	if is_occupied or anatomy.anatomy_type != anatomy_type or anatomy.state == anatomy.PartState.DESTROYED or anatomy.current_hp <= 0:
 		return
+	is_occupied =  true
 	rest_room.attaching = true
 	#sprite.visible = false
 	sprite.modulate = Color.WEB_GRAY
@@ -66,7 +71,6 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 	anatomy.og_pos = global_position
 	my_anatomy = anatomy
 	if not my_anatomy.anatomy_fucked.is_connected(lose_anatomy): my_anatomy.anatomy_fucked.connect(lose_anatomy)
-	is_occupied =  true
 	player.arm.drop_obj()
 	anatomy.recover_part()
 	PopupPrompt.display_prompt("Fixed", -1 ,sprite.global_position, 0.2, 0.45)
@@ -92,7 +96,7 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 			#get_viewport().set_input_as_handled()
 
 func highlight_zone() -> void:
-	if is_hovering or is_occupied or player.can_control or player.arm.dragging_obj == null:
+	if is_hovering or player.can_control or player.arm.dragging_obj == null:
 		return
 	sprite.modulate *= 2.0
 	is_hovering = true
