@@ -92,7 +92,7 @@ func intro_dialogue() -> void:
 		dialogue_end.emit()
 
 func _ready() -> void:
-	Stats.main_menu = self
+	GameManager.main_menu = self
 	if i_menu == null: i_menu = audio.play_instance(sfx_menu)
 
 func _process(_delta: float) -> void:

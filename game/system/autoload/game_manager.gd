@@ -39,3 +39,11 @@ func update_hover():
 
 		if hovered_part:
 			hovered_part._hover_over_part()
+
+var main_menu : Menu
+
+
+func return_to_main_menu() -> void:
+	if main_menu == null:
+		return
+	main_menu.end()

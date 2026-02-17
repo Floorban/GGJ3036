@@ -317,7 +317,7 @@ func player_win() -> void:
 
 func player_lose() -> void:
 	audio.clear_instance([i_music])
-	Stats.main_menu.end()
+	GameManager.return_to_main_menu()
 	transition_screen.black_screen()
 	await get_tree().create_timer(3.0).timeout
 	game_end.emit()
@@ -330,7 +330,8 @@ func player_lose() -> void:
 func final_stage() -> void:
 	audio.clear_instance([i_music])
 	i_music_boss = audio.play_instance(sfx_music_boss)
-	Stats.main_menu.end()
+	GameManager.return_to_main_menu()
+	
 
 
 var distortion_tween: Tween
