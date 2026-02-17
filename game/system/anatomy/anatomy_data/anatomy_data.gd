@@ -1,8 +1,11 @@
+@abstract
 class_name AnatomyData extends Resource
 
-@export var anatomy_type: Anatomy.AnatomyType
 @export var anatomy_sprite: Texture2D
 @export var anatomy_hp: int
+
+@abstract
+func get_anatomy_type() -> Anatomy.AnatomyType
 
 @export var anatomy_stats := {
 	Stats.StatType.MAX_HP: 0.0,

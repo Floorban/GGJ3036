@@ -486,3 +486,19 @@ func move_part() -> void:
 
 func is_part_dead() -> bool:
 	return state == PartState.DESTROYED
+
+func apply_data(data: AnatomyData) -> void:
+	if data == null or sprite == null:
+		return
+		
+	stat_modifiers = data.anatomy_stats.duplicate(true)
+	
+	if data.anatomy_sprite:
+		sprite.texture = data.anatomy_sprite
+	
+	max_hp = data.anatomy_hp
+	current_hp = max_hp
+	state = PartState.HEALTHY
+	current_color = Color.WHITE
+	sprite.modulate = current_color
+	

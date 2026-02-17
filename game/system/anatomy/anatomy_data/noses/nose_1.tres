@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NoseData" format=3 uid="uid://dpetbman3pmpf"]
+
+[ext_resource type="Script" uid="uid://bgmfe0u6jdw3j" path="res://game/system/anatomy/anatomy_data/nose_data.gd" id="1_p7ts5"]
+
+[resource]
+script = ExtResource("1_p7ts5")
+metadata/_custom_type_script = "uid://bgmfe0u6jdw3j"

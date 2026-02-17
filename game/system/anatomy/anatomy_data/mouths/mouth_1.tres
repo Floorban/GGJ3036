@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MouthData" format=3 uid="uid://d6ixon3t1iha"]
+
+[ext_resource type="Script" uid="uid://b4w42ei3axoe5" path="res://game/system/anatomy/anatomy_data/mouth_data.gd" id="1_6twm4"]
+
+[resource]
+script = ExtResource("1_6twm4")
+metadata/_custom_type_script = "uid://b4w42ei3axoe5"
