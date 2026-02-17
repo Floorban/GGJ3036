@@ -202,7 +202,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_vhm8w")
 
 [node name="Face" parent="." index="1" unique_id=1276534686]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.55, 0.55)
 texture = ExtResource("3_4pvfs")
 
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
@@ -293,7 +293,7 @@ shape = SubResource("RectangleShape2D_s18kw")
 
 [node name="MinionArm" parent="." index="2" unique_id=1972221418 instance=ExtResource("9_qlcty")]
 z_index = 10
-position = Vector2(-111.999985, 8.999998)
+position = Vector2(-106.99999, 9.999999)
 rotation = -0.09027928
 
 [editable path="Face/Features/EyeL"]

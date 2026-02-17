@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var coach_head: TextureRect = $CoachHead
+
 @export var hide_dialogue := false
 @export var dialogue_scene: PackedScene
 @export var max_visible := 5
@@ -10,6 +12,9 @@ var dialogues: Array[DialogueBox] = []
 
 var sfx_chat: String = "event:/SFX/UI/Chat"
 
+func _ready() -> void:
+	coach_head_idle()
+
 func wait_for_dialogue_continue() -> void:
 	while true:
 		await get_tree().process_frame
@@ -18,7 +23,7 @@ func wait_for_dialogue_continue() -> void:
 
 func say(text: String, duration := 10.0) -> void:
 	if not dialogue_scene: return
-	
+	coach_head_talk()
 	var box := dialogue_scene.instantiate() as DialogueBox
 	add_child(box)
 	box.set_text(text)
@@ -57,3 +62,43 @@ func remove_box(box: DialogueBox) -> void:
 	if box in dialogues:
 		dialogues.erase(box)
 		_reflow()
+		
+	if dialogues.is_empty():
+		coach_head_idle()
+
+var talking_tween: Tween
+var idle_modulate := Color(0.132, 0.132, 0.132, 0.0)
+var talking_modulate := Color(1, 1, 1, 1)
+
+func coach_head_talk() -> void:
+	if talking_tween:
+		talking_tween.kill()
+	
+	talking_tween = create_tween()
+	talking_tween.set_parallel(true)
+	
+	coach_head.scale = Vector2.ONE
+	talking_tween.tween_property(coach_head, "scale", Vector2(1.15, 1.15), 0.2)\
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	
+	coach_head.rotation_degrees = 0
+	talking_tween.tween_property(coach_head, "rotation_degrees", randf_range(-15, 15), 0.15)\
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	
+	talking_tween.tween_property(coach_head, "modulate", talking_modulate, 0.15)
+	talking_tween.tween_property(coach_head, "rotation_degrees", 0, 0.3)\
+		.set_delay(0.12)\
+		.set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+
+func coach_head_idle() -> void:
+	if talking_tween:
+		talking_tween.kill()
+	
+	var tween = create_tween()
+	tween.set_parallel(true)
+	
+	tween.tween_property(coach_head, "scale", Vector2.ONE, 0.25)\
+		.set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	
+	tween.tween_property(coach_head, "rotation_degrees", 0, 0.25)
+	tween.tween_property(coach_head, "modulate", idle_modulate, 0.3)
