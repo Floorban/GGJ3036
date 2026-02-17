@@ -35,14 +35,18 @@ shader_parameter/outline_thickness = 1.946000068685
 shader_parameter/chromatic_aberration = false
 shader_parameter/aberration_strength = 1.0
 
-[node name="MouseCursor" type="Sprite2D" unique_id=1316371847]
-z_index = 4096
-texture_filter = 1
-material = SubResource("ShaderMaterial_yaayk")
-texture = ExtResource("1_1qclk")
-offset = Vector2(2, 5)
+[node name="CanvasLayer" type="CanvasLayer" unique_id=268268142]
+layer = 20
 script = ExtResource("1_my8m6")
 normal_texture = ExtResource("1_1qclk")
 attack_texture = ExtResource("4_ujqt4")
 block_texture = ExtResource("5_5htn0")
 cross_texture = ExtResource("6_at865")
+
+[node name="MouseCursor" type="Sprite2D" parent="." unique_id=1316371847]
+show_behind_parent = true
+z_index = 4096
+texture_filter = 1
+material = SubResource("ShaderMaterial_yaayk")
+texture = ExtResource("1_1qclk")
+offset = Vector2(2, 5)

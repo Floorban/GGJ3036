@@ -26,8 +26,6 @@ func _randomize_minion() -> void:
 	var chosen_arm = mouth_variants.pick_random()
 	var chosen_leg = nose_variants.pick_random()
 	_assign_part(chosen_ear)
-	_assign_part(chosen_ear)
-	_assign_part(chosen_eye)
 	_assign_part(chosen_eye)
 	_assign_part(chosen_arm)
 	_assign_part(chosen_leg)

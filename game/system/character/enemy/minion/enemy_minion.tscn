@@ -231,6 +231,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_vhm8w")
 
 [node name="Face" parent="." index="1" unique_id=1276534686]
+self_modulate = Color(0.6752505, 0.67525053, 0.67525053, 1)
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("3_4pvfs")
 

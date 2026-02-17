@@ -8,5 +8,5 @@ load_path = "res://.godot/imported/MinionEar5.png-f687ca0591eb8357aee8403f477980
 [resource]
 script = ExtResource("1_8yvod")
 anatomy_sprite = SubResource("CompressedTexture2D_8yvod")
-anatomy_hp = 5
+anatomy_hp = 1
 metadata/_custom_type_script = "uid://chk7qjlisad38"

@@ -39,6 +39,7 @@ FmodManager="*uid://cds10pm7hwn3p"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=2
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 
