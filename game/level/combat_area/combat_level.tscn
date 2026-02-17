@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://teuunrq7bxl5" path="res://game/system/character/enemy/boss/eric.tscn" id="7_28xsa"]
 [ext_resource type="Texture2D" uid="uid://bgq6adkp7rc51" path="res://sprites/Backgrounds/CarpetBg.png" id="7_oxeqc"]
 [ext_resource type="PackedScene" uid="uid://c3joaeokc1h1s" path="res://game/system/character/enemy/boss/brain_out_2.tscn" id="8_g1ogi"]
+[ext_resource type="PackedScene" uid="uid://b378v61r0ypsm" path="res://game/system/character/enemy/minion/enemy_minion.tscn" id="9_p36xc"]
 [ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="9_tgsw3"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="10_xaya2"]
 [ext_resource type="Shader" uid="uid://bqqnlybur4rdk" path="res://material/retro.gdshader" id="11_5tn5e"]
@@ -160,41 +161,45 @@ rotation = -0.44854963
 scale = Vector2(5, 5)
 texture = ExtResource("13_ldpml")
 
-[node name="Bully" parent="Enemies" index="2" unique_id=1348200660 instance=ExtResource("3_i2c52")]
+[node name="EnemyMinion" parent="Enemies" index="2" unique_id=927994861 instance=ExtResource("9_p36xc")]
 process_mode = 4
-visible = false
-position = Vector2(0, -13)
+position = Vector2(0, -40)
 
 [node name="Boxer" parent="Enemies" index="3" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 process_mode = 4
 visible = false
-position = Vector2(0, -13)
+position = Vector2(0, -34)
 script = ExtResource("11_b7xvh")
 min_switch_time = 3.0
 
-[node name="BrainOut1" parent="Enemies" index="4" unique_id=710006968 instance=ExtResource("5_ay0ac")]
+[node name="Bully" parent="Enemies" index="4" unique_id=1348200660 instance=ExtResource("3_i2c52")]
+process_mode = 4
+visible = false
+position = Vector2(0, -5)
+
+[node name="BrainOut1" parent="Enemies" index="5" unique_id=710006968 instance=ExtResource("5_ay0ac")]
 process_mode = 4
 visible = false
 position = Vector2(0, -13)
 boss_name = "Ron 7 mouths"
 
-[node name="FatGuy" parent="Enemies" index="5" unique_id=1388912655 instance=ExtResource("6_fhe53")]
+[node name="FatGuy" parent="Enemies" index="6" unique_id=1388912655 instance=ExtResource("6_fhe53")]
 process_mode = 4
 visible = false
 position = Vector2(-3, -63)
 script = ExtResource("14_p36xc")
 
-[node name="Eric" parent="Enemies" index="6" unique_id=856538371 instance=ExtResource("7_28xsa")]
+[node name="Eric" parent="Enemies" index="7" unique_id=856538371 instance=ExtResource("7_28xsa")]
 process_mode = 4
 visible = false
 position = Vector2(0, -13)
 
-[node name="BrainOut2" parent="Enemies" index="7" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
+[node name="BrainOut2" parent="Enemies" index="8" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
 process_mode = 4
 visible = false
 position = Vector2(0, -13)
 
-[node name="RestRoom" parent="Enemies" index="8" unique_id=1662139499 instance=ExtResource("15_kjrlu")]
+[node name="RestRoom" parent="Enemies" index="9" unique_id=1662139499 instance=ExtResource("15_kjrlu")]
 unique_name_in_owner = true
 z_index = -5
 position = Vector2(-1172, -28)
@@ -212,7 +217,7 @@ follow_node = NodePath("../ArenaCenter")
 
 [node name="ArenaCenter" type="Marker2D" parent="." index="4" unique_id=404406666]
 unique_name_in_owner = true
-position = Vector2(9, 60)
+position = Vector2(9, 65)
 
 [node name="Corner" type="Marker2D" parent="." index="5" unique_id=1210708224]
 unique_name_in_owner = true
@@ -246,6 +251,7 @@ playback_auto_capture_ease_type = 1
 
 [node name="TransitionScreen" type="Sprite2D" parent="ScreenLayer" index="1" unique_id=1288152459]
 unique_name_in_owner = true
+visible = false
 modulate = Color(0, 0, 0, 1)
 z_index = 4010
 material = SubResource("ShaderMaterial_fhe53")

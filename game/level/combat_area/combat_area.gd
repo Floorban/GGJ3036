@@ -120,7 +120,7 @@ func start_battle() -> void:
 	tween.tween_property(
 		camera,
 		"zoom",
-		Vector2.ONE * 2,
+		Vector2.ONE * 2.2,
 		0.2
 	)
 	

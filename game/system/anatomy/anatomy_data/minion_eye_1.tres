@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AnatomyData" format=3 uid="uid://d1i3ai1rnvvof"]
+
+[ext_resource type="Texture2D" uid="uid://cgb7kko056i60" path="res://sprites/body_parts/FaceAssets/Minions/EyeMinion1.png" id="1_2wvxn"]
+[ext_resource type="Script" uid="uid://cyavxqhgshvv7" path="res://game/system/anatomy/anatomy_data/anatomy_data.gd" id="1_mchjd"]
+
+[resource]
+script = ExtResource("1_mchjd")
+anatomy_sprite = ExtResource("1_2wvxn")
+anatomy_hp = 3
+metadata/_custom_type_script = "uid://cyavxqhgshvv7"

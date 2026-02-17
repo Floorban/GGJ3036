@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://crx0mik0fvikf"]
+
+[ext_resource type="Script" uid="uid://crtjhl3xse5fi" path="res://game/system/anatomy/parts/body/arm.gd" id="1_lhpph"]
+[ext_resource type="Texture2D" uid="uid://j1ev066edrvp" path="res://sprites/BodyParts/Limbs/Uparm.png" id="2_3ujwa"]
+[ext_resource type="Texture2D" uid="uid://dl2lswog5wtgw" path="res://sprites/BodyParts/Limbs/Forearms.png" id="3_acajb"]
+[ext_resource type="Texture2D" uid="uid://xwpifbuqrxhe" path="res://sprites/BodyParts/Limbs/Fists.png" id="4_bmbew"]
+
+[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_f4hwt"]
+target_nodepath = NodePath("../FistTarget")
+fabrik_data_chain_length = 3
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("ArmUp")
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("ArmUp/ArmLow")
+joint_data/1/magnet_position = Vector2(-4000, -2000)
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("ArmUp/ArmLow/Fist")
+joint_data/2/magnet_position = Vector2(0, 0)
+joint_data/2/use_target_rotation = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_a15me"]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DFABRIK_f4hwt")
+
+[node name="MinionArm" type="Node2D" unique_id=1972221418]
+script = ExtResource("1_lhpph")
+windup_distance = 20.0
+windup_strength = 2.0
+
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=408280702]
+modification_stack = SubResource("SkeletonModificationStack2D_a15me")
+
+[node name="ArmUp" type="Bone2D" parent="Skeleton2D" unique_id=1789155330]
+rotation = 2.3146648
+scale = Vector2(0.20312573, 0.17968778)
+rest = Transform2D(0.20219468, 0.019423341, -0.01718216, 0.17886423, 0, 40.5)
+auto_calculate_length_and_angle = false
+length = 500.0
+bone_angle = 9.521
+metadata/_local_pose_override_enabled_ = true
+
+[node name="SpriteArmUp" type="Sprite2D" parent="Skeleton2D/ArmUp" unique_id=1904858807]
+unique_name_in_owner = true
+self_modulate = Color(0.12887797, 0.46139085, 0.47018778, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(232.66965, 39.89037)
+rotation = -1.7560382
+texture = ExtResource("2_3ujwa")
+flip_h = true
+
+[node name="CDBar1" type="TextureProgressBar" parent="Skeleton2D/ArmUp/SpriteArmUp" unique_id=1025545314]
+unique_name_in_owner = true
+self_modulate = Color(0.77156055, 1.8636858, 1.707876, 1)
+custom_minimum_size = Vector2(500, 200)
+offset_left = 220.30554
+offset_top = -361.46924
+offset_right = 720.3056
+offset_bottom = 354.53076
+rotation = 6.285494
+scale = Vector2(-1, 1)
+step = 0.01
+value = 100.0
+fill_mode = 2
+texture_progress = ExtResource("2_3ujwa")
+
+[node name="ArmLow" type="Bone2D" parent="Skeleton2D/ArmUp" unique_id=1966820033]
+position = Vector2(532.56274, 153.69292)
+rotation = -0.7845081
+scale = Vector2(1.057321, 0.9648122)
+skew = 0.12136817
+rest = Transform2D(1.0392241, -0.31928748, 0.7363789, 3.0628166, 265.38428, -1.5258789e-05)
+auto_calculate_length_and_angle = false
+length = 480.0
+bone_angle = 39.061
+metadata/_local_pose_override_enabled_ = true
+
+[node name="SpriteArmLow" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1575779853]
+unique_name_in_owner = true
+self_modulate = Color(0.12887797, 0.46139085, 0.47018778, 1)
+z_index = -2
+texture_filter = 1
+position = Vector2(167.8259, 137.0739)
+texture = ExtResource("3_acajb")
+flip_h = true
+
+[node name="CDBar2" type="TextureProgressBar" parent="Skeleton2D/ArmUp/ArmLow/SpriteArmLow" unique_id=1587456585]
+unique_name_in_owner = true
+self_modulate = Color(0.77156055, 1.8636858, 1.707876, 1)
+offset_left = 254.11917
+offset_top = -214.37973
+offset_right = 770.11914
+offset_bottom = 209.62027
+rotation = -0.0048572933
+scale = Vector2(-1, 1)
+step = 0.01
+value = 100.0
+fill_mode = 2
+texture_progress = ExtResource("3_acajb")
+metadata/_edit_use_anchors_ = true
+
+[node name="Fist" type="Bone2D" parent="Skeleton2D/ArmUp/ArmLow" unique_id=1916331396]
+position = Vector2(349.3297, 316.18042)
+rotation = -0.62652665
+scale = Vector2(1.0177363, 0.9215074)
+skew = 0.09738207
+rest = Transform2D(-0.45176578, -0.24657224, 0.7012968, -0.18903401, 299.9998, 0)
+auto_calculate_length_and_angle = false
+length = 80.0
+bone_angle = -60.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="SpriteFist" type="Sprite2D" parent="Skeleton2D/ArmUp/ArmLow/Fist" unique_id=520692977]
+unique_name_in_owner = true
+self_modulate = Color(0.12887797, 0.46139085, 0.47018778, 1)
+texture_filter = 1
+position = Vector2(-45.420822, -53.96486)
+rotation = -2.6641662
+texture = ExtResource("4_bmbew")
+flip_h = true
+
+[node name="FistTarget" type="Marker2D" parent="." unique_id=702061991]
+unique_name_in_owner = true
+position = Vector2(-46, 165.00002)
+rotation = 1.864747
