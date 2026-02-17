@@ -116,7 +116,7 @@ var blocking_part: Anatomy
 var targeting_part: Anatomy
 
 @onready var face: Sprite2D = $Face
-@onready var shoulder: Sprite2D = $Shoulder
+#@onready var shoulder: Sprite2D = $Shoulder
 
 #AUDIO
 @export var sfx_die: String
