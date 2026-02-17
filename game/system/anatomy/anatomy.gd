@@ -495,6 +495,7 @@ func apply_data(data: AnatomyData) -> void:
 	
 	if data.anatomy_sprite:
 		sprite.texture = data.anatomy_sprite
+		outline_mat.set_shader_parameter("sprite_texture", sprite.texture)
 	
 	max_hp = data.anatomy_hp
 	current_hp = max_hp

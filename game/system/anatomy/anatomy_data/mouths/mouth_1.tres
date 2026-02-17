@@ -1,7 +1,10 @@
 [gd_resource type="Resource" script_class="MouthData" format=3 uid="uid://d6ixon3t1iha"]
 
+[ext_resource type="Texture2D" uid="uid://tybprqgj6c3p" path="res://sprites/body_parts/FaceAssets/MCfacevariations/Mouths/GoldenMetalTeethMouth.png" id="1_5m24v"]
 [ext_resource type="Script" uid="uid://b4w42ei3axoe5" path="res://game/system/anatomy/anatomy_data/mouth_data.gd" id="1_6twm4"]
 
 [resource]
 script = ExtResource("1_6twm4")
+anatomy_sprite = ExtResource("1_5m24v")
+anatomy_hp = 5
 metadata/_custom_type_script = "uid://b4w42ei3axoe5"

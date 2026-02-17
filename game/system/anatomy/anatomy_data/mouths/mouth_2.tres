@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MouthData" format=3 uid="uid://sls8ofco7idm"]
+
+[ext_resource type="Texture2D" uid="uid://cogri4m4h45v8" path="res://sprites/body_parts/FaceAssets/MCfacevariations/Mouths/BigSmileMouth.png" id="1_0pxsv"]
+[ext_resource type="Script" uid="uid://b4w42ei3axoe5" path="res://game/system/anatomy/anatomy_data/mouth_data.gd" id="2_ieb5t"]
+
+[resource]
+script = ExtResource("2_ieb5t")
+anatomy_sprite = ExtResource("1_0pxsv")
+anatomy_hp = 5
+metadata/_custom_type_script = "uid://b4w42ei3axoe5"

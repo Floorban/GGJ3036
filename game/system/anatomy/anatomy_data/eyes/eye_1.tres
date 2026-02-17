@@ -1,7 +1,10 @@
 [gd_resource type="Resource" script_class="EyeData" format=3 uid="uid://d1ijlfyya2e81"]
 
+[ext_resource type="Texture2D" uid="uid://dq4iw55ucp80d" path="res://sprites/body_parts/FaceAssets/Minions/EyeMinion5.png" id="1_oquvm"]
 [ext_resource type="Script" uid="uid://b1t6nh57l0ts4" path="res://game/system/anatomy/anatomy_data/eye_data.gd" id="1_yxrxj"]
 
 [resource]
 script = ExtResource("1_yxrxj")
+anatomy_sprite = ExtResource("1_oquvm")
+anatomy_hp = 5
 metadata/_custom_type_script = "uid://b1t6nh57l0ts4"

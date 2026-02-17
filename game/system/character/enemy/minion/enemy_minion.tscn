@@ -4,12 +4,35 @@
 [ext_resource type="Script" uid="uid://daoseetidxs1i" path="res://game/system/character/enemy/minion/enemy_minion.gd" id="2_1oes0"]
 [ext_resource type="Texture2D" uid="uid://cgb7kko056i60" path="res://sprites/body_parts/FaceAssets/Minions/EyeMinion1.png" id="3_2onau"]
 [ext_resource type="Texture2D" uid="uid://d1qh4lsnucnce" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead3.png" id="3_4pvfs"]
+[ext_resource type="Texture2D" uid="uid://btgglbikviq5i" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead1.png" id="3_fngwm"]
 [ext_resource type="Script" uid="uid://cyavxqhgshvv7" path="res://game/system/anatomy/anatomy_data/anatomy_data.gd" id="3_nyfvi"]
 [ext_resource type="Texture2D" uid="uid://c718x58jremuc" path="res://sprites/BodyParts/Limbs/Body.png" id="3_vhm8w"]
+[ext_resource type="Resource" uid="uid://0jmjwgv64pla" path="res://game/system/anatomy/anatomy_data/ears/ear_1.tres" id="4_01wt2"]
+[ext_resource type="Texture2D" uid="uid://cq0kudm6oa75c" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead2.png" id="4_m4835"]
+[ext_resource type="Resource" uid="uid://d1ijlfyya2e81" path="res://game/system/anatomy/anatomy_data/eyes/eye_1.tres" id="5_cxa37"]
 [ext_resource type="Texture2D" uid="uid://dvwx1qrh3voa6" path="res://sprites/body_parts/FaceAssets/Minions/MinionEar3.png" id="5_ogfbv"]
+[ext_resource type="Resource" uid="uid://whw0ngktt85q" path="res://game/system/anatomy/anatomy_data/ears/ear_2.tres" id="5_vh0p1"]
+[ext_resource type="Resource" uid="uid://d6ixon3t1iha" path="res://game/system/anatomy/anatomy_data/mouths/mouth_1.tres" id="6_3cs33"]
+[ext_resource type="Texture2D" uid="uid://c5h63abronlgd" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead4.png" id="6_6mgf2"]
+[ext_resource type="Resource" uid="uid://df551hcuv2knr" path="res://game/system/anatomy/anatomy_data/ears/ear_3.tres" id="6_elfxy"]
 [ext_resource type="Texture2D" uid="uid://cpdif6588tb4" path="res://sprites/body_parts/FaceAssets/MCfacevariations/Noses/GoldenNose.png" id="6_jfqqk"]
+[ext_resource type="Resource" uid="uid://xn8tofgfmve1" path="res://game/system/anatomy/anatomy_data/ears/ear_4.tres" id="7_g12dy"]
 [ext_resource type="Texture2D" uid="uid://cj6p7ulmlsv8t" path="res://sprites/body_parts/FaceAssets/Minions/MouthMinion1.png" id="7_s18kw"]
+[ext_resource type="Resource" uid="uid://dpetbman3pmpf" path="res://game/system/anatomy/anatomy_data/noses/nose_1.tres" id="7_viho1"]
+[ext_resource type="Resource" uid="uid://nw047vl0jvia" path="res://game/system/anatomy/anatomy_data/ears/ear_5.tres" id="8_fngwm"]
 [ext_resource type="PackedScene" uid="uid://crx0mik0fvikf" path="res://game/system/anatomy/parts/body/minion_arm.tscn" id="9_qlcty"]
+[ext_resource type="Resource" uid="uid://be4w00l0xfgfy" path="res://game/system/anatomy/anatomy_data/eyes/eye_2.tres" id="10_m4835"]
+[ext_resource type="Resource" uid="uid://djelb2ai7rmts" path="res://game/system/anatomy/anatomy_data/eyes/eye_3.tres" id="11_6mgf2"]
+[ext_resource type="Resource" uid="uid://dm4j8gf0i2ua0" path="res://game/system/anatomy/anatomy_data/eyes/eye_4.tres" id="12_v43dc"]
+[ext_resource type="Resource" uid="uid://bls6j1d24v8sj" path="res://game/system/anatomy/anatomy_data/eyes/eye_5.tres" id="13_tdr4f"]
+[ext_resource type="Resource" uid="uid://sls8ofco7idm" path="res://game/system/anatomy/anatomy_data/mouths/mouth_2.tres" id="15_gljal"]
+[ext_resource type="Resource" uid="uid://bjgd6lht4mryd" path="res://game/system/anatomy/anatomy_data/mouths/mouth_3.tres" id="16_3bd15"]
+[ext_resource type="Resource" uid="uid://bbhs1ye8sv4ks" path="res://game/system/anatomy/anatomy_data/mouths/mouth_4.tres" id="17_fidl0"]
+[ext_resource type="Resource" uid="uid://tds2w2lqssd2" path="res://game/system/anatomy/anatomy_data/mouths/mouth_5.tres" id="18_plc2l"]
+[ext_resource type="Resource" uid="uid://6yfxo4d3hr60" path="res://game/system/anatomy/anatomy_data/noses/nose_2.tres" id="20_6xx7n"]
+[ext_resource type="Resource" uid="uid://w0xl2fkhx70q" path="res://game/system/anatomy/anatomy_data/noses/nose_3.tres" id="21_53y4o"]
+[ext_resource type="Resource" uid="uid://durreys6pu6p3" path="res://game/system/anatomy/anatomy_data/noses/nose_4.tres" id="22_fmp5j"]
+[ext_resource type="Resource" uid="uid://cthnphp2qe0k3" path="res://game/system/anatomy/anatomy_data/noses/nose_5.tres" id="23_sgu7f"]
 
 [sub_resource type="Shader" id="Shader_2ro5p"]
 code = "shader_type canvas_item;
@@ -188,10 +211,11 @@ size = Vector2(128, 50)
 
 [node name="EnemyMinion" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_1oes0")]
 script = ExtResource("2_1oes0")
-ear_variants = Array[ExtResource("3_nyfvi")]([])
-eye_variants = Array[ExtResource("3_nyfvi")]([])
-arm_variants = Array[ExtResource("3_nyfvi")]([])
-leg_variants = Array[ExtResource("3_nyfvi")]([])
+face_varuabts = Array[Texture2D]([ExtResource("3_fngwm"), ExtResource("4_m4835"), ExtResource("3_4pvfs"), ExtResource("6_6mgf2")])
+ear_variants = Array[ExtResource("3_nyfvi")]([ExtResource("4_01wt2"), ExtResource("5_vh0p1"), ExtResource("6_elfxy"), ExtResource("7_g12dy"), ExtResource("8_fngwm")])
+eye_variants = Array[ExtResource("3_nyfvi")]([ExtResource("5_cxa37"), ExtResource("10_m4835"), ExtResource("11_6mgf2"), ExtResource("12_v43dc"), ExtResource("13_tdr4f")])
+mouth_variants = Array[ExtResource("3_nyfvi")]([ExtResource("6_3cs33"), ExtResource("15_gljal"), ExtResource("16_3bd15"), ExtResource("17_fidl0"), ExtResource("18_plc2l")])
+nose_variants = Array[ExtResource("3_nyfvi")]([ExtResource("7_viho1"), ExtResource("20_6xx7n"), ExtResource("21_53y4o"), ExtResource("22_fmp5j"), ExtResource("23_sgu7f")])
 boss_name = "Minion1"
 is_minion = true
 switch_chance = 0.5
