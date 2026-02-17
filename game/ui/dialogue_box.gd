@@ -1,7 +1,7 @@
 class_name DialogueBox extends Control
 
 @onready var float_root: NinePatchRect = %FloatRoot
-@onready var label: Label = %Label
+@onready var label: RichTextLabel = $FloatRoot/MarginContainer/Label
 var lifetime := 5.0
 var is_fading := false
 
