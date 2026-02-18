@@ -33,11 +33,6 @@ var sfx_chat: String = "event:/SFX/UI/Chat"
 func _ready() -> void:
 	npc_idle()
 
-func wait_for_dialogue_continue() -> void:
-	while true:
-		await get_tree().process_frame
-		if Input.is_action_just_pressed("left_click"):
-			return
 
 func say(text: String, npc: NPC = NPC.COACH, duration := 10.0) -> void:
 	if not dialogue_scene: return

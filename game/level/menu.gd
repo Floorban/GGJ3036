@@ -47,37 +47,33 @@ func itch() -> void:
 
 func intro_dialogue() -> void:
 	if tutorial:
-		await get_tree().create_timer(0.8).timeout
+		await get_tree().create_timer(1.0).timeout
 		DialogueManager.say("Let me fix your nose first, come here.", DialogueManager.NPC.UNKNOWN)
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
+		await Tutorial.wait_for_action()
 		DialogueManager.say("(Hover over the text boxes to keep them stayed)", DialogueManager.NPC.UNKNOWN)
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
+		await Tutorial.wait_for_action()
 		DialogueManager.say("You signed up for this! Now tough it out.", DialogueManager.NPC.UNKNOWN)
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
+		await Tutorial.wait_for_action()
 		DialogueManager.say("Now get up... and go get that money back.", DialogueManager.NPC.UNKNOWN)
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
+		await Tutorial.wait_for_action()
 		await get_tree().create_timer(0.5).timeout
 		DialogueManager.clear_all_text_boxes()
 		dialogue_end.emit()
 	else:
 		await get_tree().create_timer(1.0).timeout
-		DialogueManager.say("You noticed how each face part contribute to your stats?")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Same goes to your opponents")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("What that means is that, if you break their most valuable part")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Oh right just press 'R' to restart if you find any bug")
-		await get_tree().create_timer(0.5).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Good luck")
+		#DialogueManager.say("You noticed how each face part contribute to your stats?")
+		#await get_tree().create_timer(0.25).timeout
+		#await DialogueManager.wait_for_dialogue_continue()
+		#DialogueManager.say("Same goes to your opponents")
+		#await get_tree().create_timer(0.25).timeout
+		#await DialogueManager.wait_for_dialogue_continue()
+		#DialogueManager.say("What that means is that, if you break their most valuable part")
+		#await get_tree().create_timer(0.25).timeout
+		#await DialogueManager.wait_for_dialogue_continue()
+		#DialogueManager.say("Oh right just press 'R' to restart if you find any bug")
+		#await get_tree().create_timer(0.5).timeout
+		#await DialogueManager.wait_for_dialogue_continue()
+		#DialogueManager.say("Good luck")
 		dialogue_end.emit()
 
 
