@@ -189,7 +189,7 @@ scale = Vector2(1.1, 1.1)
 texture = ExtResource("6_sirja")
 
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
-position = Vector2(-44.615383, -12.307694)
+position = Vector2(-53.846146, -21.53846)
 rotation = -0.066466406
 stat_modifiers = {
 0: 0.0,
@@ -203,7 +203,7 @@ max_hp = 6.0
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_5b2wa")
-position = Vector2(38.68551, 21.077475)
+position = Vector2(47.505814, 27.04589)
 rotation = -2.9323409
 scale = Vector2(0.85, 0.85)
 texture = ExtResource("7_2ut17")
@@ -211,14 +211,14 @@ flip_h = true
 flip_v = true
 
 [node name="MouseDetectArea" parent="Face/Features/EyeL" index="1" unique_id=1106976729]
-position = Vector2(-1.4675083, 12.378658)
+position = Vector2(7.3527946, 18.347075)
 
 [node name="CollisionShape2D" parent="Face/Features/EyeL/MouseDetectArea" index="0" unique_id=149295176]
 position = Vector2(-7.436342, -17.596935)
 shape = SubResource("CircleShape2D_2ut17")
 
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
-position = Vector2(73.84616, -18.461538)
+position = Vector2(67.69231, -21.538462)
 rotation = -0.2574762
 stat_modifiers = {
 0: 0.0,
@@ -232,19 +232,22 @@ max_hp = 6.0
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_a4lc5")
-position = Vector2(-72.30907, 3.044074)
+position = Vector2(-63.181107, 5.165457)
 rotation = 0.12570071
 scale = Vector2(0.85, 0.85)
 texture = ExtResource("8_5b2wa")
 flip_h = false
 
-[node name="CollisionShape2D" parent="Face/Features/EyeR/MouseDetectArea" parent_id_path=PackedInt32Array(584210078, 1106976729) index="0" unique_id=149295176]
+[node name="MouseDetectArea" parent="Face/Features/EyeR" index="1" unique_id=1106976729]
+position = Vector2(9.12796, 2.1213832)
+
+[node name="CollisionShape2D" parent="Face/Features/EyeR/MouseDetectArea" index="0" unique_id=149295176]
 position = Vector2(-10.414238, -2.7422874)
 scale = Vector2(0.99999934, 0.99999934)
 shape = SubResource("CircleShape2D_5b2wa")
 
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
-position = Vector2(-92.3077, -7.692308)
+position = Vector2(-104.615395, 1.5384612)
 rotation = -0.07894593
 stat_modifiers = {
 0: 0.0,
@@ -260,12 +263,12 @@ max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_ohoc6")
-position = Vector2(106.750244, 16.161392)
+position = Vector2(119.20897, 11.278578)
 rotation = 0.17692009
 texture = ExtResource("9_5b2wa")
 
 [node name="MouseDetectArea" parent="Face/Features/EarL" index="1" unique_id=1106976729]
-position = Vector2(-11.101398, 40.74575)
+position = Vector2(1.3573277, 35.862934)
 
 [node name="CollisionShape2D" parent="Face/Features/EarL/MouseDetectArea" index="0" unique_id=149295176]
 position = Vector2(-5.9509583, -38.831062)
@@ -273,7 +276,7 @@ scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_vprwn")
 
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
-position = Vector2(109.230774, -9.23077)
+position = Vector2(112.30769, -10.769231)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
@@ -288,12 +291,12 @@ max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_hda83")
-position = Vector2(-103.07693, -3.076923)
+position = Vector2(-111.94643, -10.156356)
 rotation = -0.12990488
 texture = ExtResource("10_5b2wa")
 
 [node name="MouseDetectArea" parent="Face/Features/EarR" index="1" unique_id=1106976729]
-position = Vector2(-15.25412, 29.382114)
+position = Vector2(-24.123621, 22.302681)
 
 [node name="CollisionShape2D" parent="Face/Features/EarR/MouseDetectArea" index="0" unique_id=149295176]
 position = Vector2(26.349586, -20.660942)
@@ -301,7 +304,7 @@ rotation = 0.23272005
 shape = SubResource("RectangleShape2D_qjg54")
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
-position = Vector2(3.0769234, 16.923079)
+position = Vector2(4.615385, 1.5384598)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
@@ -316,17 +319,20 @@ max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_sirja")
-position = Vector2(-4.615385, -23.230772)
+position = Vector2(-4.4230776, -6.1538496)
 scale = Vector2(1, 1)
 texture = ExtResource("10_a4lc5")
 
-[node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" parent_id_path=PackedInt32Array(1350482542, 1106976729) index="0" unique_id=149295176]
+[node name="MouseDetectArea" parent="Face/Features/Nose" index="1" unique_id=1106976729]
+position = Vector2(0.19230771, 17.076923)
+
+[node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" index="0" unique_id=149295176]
 position = Vector2(1.1920929e-07, -21.538465)
 rotation = -0.043125633
 shape = SubResource("CapsuleShape2D_5b2wa")
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
-position = Vector2(9.23077, 69.230774)
+position = Vector2(9.23077, 70.76923)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
