@@ -1,5 +1,9 @@
 extends Node
 
+
+
+
+
 @export var left_click: Tooltip
 @export var right_click: Tooltip
 @export var left_hold: Tooltip
@@ -21,18 +25,42 @@ func combat_intro() -> void:
 	var box1 = await DialogueManager.say("Remember how to punch this motherfucker right?")
 	await wait_for_action()
 	DialogueManager.remove_static_box(box1)
-	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his face parts to attack")
-	await wait_for_action()
+	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to block your opponent's attack")
+	await wait_for_first_block()
 	DialogueManager.say("(Hover over the icon to see detailed description)")
 	await wait_for_action()
 	#var box4 = await DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack")
 	#await wait_for_action()
 	#DialogueManager.remove_static_box(box4)
-	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to block your opponent's attack")
+	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his face parts to attack")
+	await wait_for_first_attack()
+	DialogueManager.say("The arm will perform the attack when it finishes its cooldown")
 	await wait_for_action()
 	DialogueManager.say("NOW LOCK INNN ! ! !")
 	await get_tree().create_timer(2.0).timeout
 	GameManager.combat_area.enemy.begin_enemy()
+
+
+var block_done := false
+var attack_done := false
+
+
+func wait_for_first_block() -> void:
+	while not block_done:
+		await get_tree().process_frame
+
+
+func wait_for_first_attack() -> void:
+	while not attack_done:
+		await get_tree().process_frame
+
+
+func on_first_block():
+	block_done = true
+
+
+func on_first_attack():
+	attack_done = true
 
 
 func self_broken_part() -> void:
