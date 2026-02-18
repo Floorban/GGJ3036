@@ -250,6 +250,9 @@ position = Vector2(0, 1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_jfqqk")
 
+[node name="Lock" parent="Face/Features/EyeL" index="2" unique_id=840420285]
+unique_name_in_owner = false
+
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
 position = Vector2(50, -26.666666)
 
@@ -267,6 +270,9 @@ position = Vector2(2.9795806, -0.52907646)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_qlcty")
 
+[node name="Lock" parent="Face/Features/EyeR" index="2" unique_id=840420285]
+unique_name_in_owner = false
+
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 position = Vector2(-109.00001, 12)
 
@@ -280,6 +286,9 @@ texture = ExtResource("5_ogfbv")
 position = Vector2(-1.5136031, -3.272457)
 rotation = -0.0432691
 shape = SubResource("CapsuleShape2D_5k8n0")
+
+[node name="Lock" parent="Face/Features/EarL" index="2" unique_id=840420285]
+unique_name_in_owner = false
 
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 position = Vector2(109.99999, -9)
@@ -296,6 +305,9 @@ position = Vector2(-0.23479381, -3.6591413)
 rotation = 0.037718114
 shape = SubResource("CapsuleShape2D_s18kw")
 
+[node name="Lock" parent="Face/Features/EarR" index="2" unique_id=840420285]
+unique_name_in_owner = false
+
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 position = Vector2(-4, 5)
 
@@ -311,6 +323,9 @@ position = Vector2(2, -1)
 position = Vector2(0, -0.33333373)
 shape = SubResource("CapsuleShape2D_vhm8w")
 
+[node name="Lock" parent="Face/Features/Nose" index="2" unique_id=840420285]
+unique_name_in_owner = false
+
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 position = Vector2(0, 73.33333)
 
@@ -323,6 +338,9 @@ texture = ExtResource("7_s18kw")
 [node name="CollisionShape2D" parent="Face/Features/Mouth/MouseDetectArea" parent_id_path=PackedInt32Array(508432269, 1106976729) index="0" unique_id=149295176]
 position = Vector2(-1, 6)
 shape = SubResource("RectangleShape2D_s18kw")
+
+[node name="Lock" parent="Face/Features/Mouth" index="2" unique_id=840420285]
+unique_name_in_owner = false
 
 [node name="MinionArm" parent="." index="2" unique_id=1972221418 instance=ExtResource("9_qlcty")]
 z_index = 10

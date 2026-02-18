@@ -38,7 +38,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDetectArea" unique_id=149295176]
 
 [node name="Lock" type="Sprite2D" parent="." unique_id=840420285]
-unique_name_in_owner = true
 visible = false
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.09, 0.09)
 texture = ExtResource("9_6f6en")

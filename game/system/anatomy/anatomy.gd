@@ -74,7 +74,7 @@ var is_being_dragged := false
 var current_color: Color = Color.WHITE
 
 var outline_mat: ShaderMaterial
-@onready var lock: Sprite2D = %Lock
+@onready var lock: Sprite2D = $Lock
 
 
 @export var fix_areas : Array[FixArea]
