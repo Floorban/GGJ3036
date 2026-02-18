@@ -55,7 +55,7 @@ func intro_dialogue() -> void:
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say(DialogueManager.tooltip(left_click) + "on his face parts to attack")
-		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
 		#DialogueManager.say("Okay time to go now brother", 3.0)
 		#await get_tree().create_timer(0.25).timeout
 		#await DialogueManager.wait_for_dialogue_continue()

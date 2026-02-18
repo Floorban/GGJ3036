@@ -7,6 +7,9 @@ class_name EnemyMinion extends Enemy
 @export var nose_variants: Array[AnatomyData]
 
 
+func switch_target() -> void:
+	pass
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		_randomize_minion()
