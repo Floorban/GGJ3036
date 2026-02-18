@@ -192,11 +192,7 @@ boss_name = ""
 is_minion = true
 switch_chance = 0.5
 min_switch_time = 3.0
-base_cooldown = 4.0
 arm = NodePath("MinionArm")
-sfx_die = "event:/SFX/NPC/Eric/Die"
-sfx_entry = "event:/SFX/NPC/Eric/Entry"
-sfx_hurt = "event:/SFX/NPC/Eric/Hurt"
 
 [node name="Shoulder" type="Sprite2D" parent="." index="0" unique_id=1191182705]
 z_index = -3

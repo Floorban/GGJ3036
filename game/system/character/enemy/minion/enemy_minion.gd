@@ -7,8 +7,6 @@ func init_character() -> void:
 	_init_combat_component()
 	get_anatomy_references()
 
-func switch_target() -> void:
-	pass
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -17,10 +15,30 @@ func _input(event: InputEvent) -> void:
 
 func _init_anatomy_parts() -> void:
 	super._init_anatomy_parts()
+	set_up_minion()
+
+
+func set_up_minion() -> void:
+	if minion_data == null:
+		return
+	sfx_die = minion_data.sfx_die
+	sfx_entry = minion_data.sfx_entry
+	sfx_hurt = minion_data.sfx_hurt
+	
+	base_cooldown = minion_data.base_cooldown
+	base_damage = minion_data.base_damage
+	base_speed = minion_data.base_speed
+	base_crit_chance = minion_data.base_crit_chance
+	base_crit_damage = minion_data.base_stun_strength
+	base_stun_resist = minion_data.base_stun_resist
+	switch_chance = minion_data.switch_chance
+	min_switch_time = minion_data.min_switch_time
 	_randomize_minion()
 
 
 func _randomize_minion() -> void:
+	if minion_data == null:
+		return
 	max_health = 0
 	var chosen_face = minion_data.face_varuabts.pick_random()
 	face.texture = chosen_face
@@ -32,11 +50,13 @@ func _randomize_minion() -> void:
 	_assign_part(chosen_eye)
 	_assign_part(chosen_arm)
 	_assign_part(chosen_leg)
-	
+	# max hp is assigned here after parts are assigned
 	rebuild_stats()
 
 
 func _assign_part(chosen_part: AnatomyData) -> void:
+	if chosen_part == null:
+		return
 	for part in anatomy_parts:
 		if part.anatomy_type == chosen_part.get_anatomy_type():
 			part.apply_data(chosen_part)

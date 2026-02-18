@@ -15,3 +15,7 @@ class_name MinionData extends Resource
 @export var base_stun_resist: float
 @export var switch_chance: float
 @export var min_switch_time: float
+
+@export var sfx_die: String
+@export var sfx_entry: String
+@export var sfx_hurt: String

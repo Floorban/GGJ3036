@@ -28,6 +28,7 @@ func _ready() -> void:
 
 func lose_anatomy() -> void:
 	if my_anatomy == null:
+		is_occupied = false
 		return
 	sprite.visible = true
 	sprite.rotate(randf_range(-0.2,0.2))

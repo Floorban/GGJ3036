@@ -307,7 +307,13 @@ func drop_part() -> void:
 	
 	if pending_fix_area:
 		pending_fix_area.receive_anatomy(self)
-	
+	else:
+		var area = fix_area_detect_area.get_overlapping_areas()
+		if area is FixArea:
+			pending_fix_area = area
+			pending_fix_area.receive_anatomy(self)
+			print("pp")
+			
 	if state != PartState.OutOfBody:
 		_remove_hover_visual()
 
