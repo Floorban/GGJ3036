@@ -135,6 +135,7 @@ func wait_for_action(action: ACTION_TYPES = ACTION_TYPES.ANY) -> void:
 var block_done := false
 var block_success := false
 var attack_done := false
+var attack_lock := false
 var part_pickup_done := false
 var part_drop_done := false
 var surgery_done := false
@@ -143,14 +144,13 @@ var surgery_done := false
 func wait_for_first_block() -> void:
 	while Input.is_action_pressed("left_click"):
 		await get_tree().process_frame
-	
 	while not block_done:
 		await get_tree().process_frame
+
 
 func wait_for_block_success() -> void:
 	while Input.is_action_pressed("left_click"):
 		await get_tree().process_frame
-	
 	while not block_success:
 		await get_tree().process_frame
 
@@ -159,6 +159,13 @@ func wait_for_first_attack() -> void:
 	while Input.is_action_pressed("left_click"):
 		await get_tree().process_frame
 	while not attack_done:
+		await get_tree().process_frame
+
+
+func wait_for_attack_lock() -> void:
+	while Input.is_action_pressed("left_click"):
+		await get_tree().process_frame
+	while not attack_lock:
 		await get_tree().process_frame
 
 
@@ -184,14 +191,28 @@ func wait_for_first_surgery() -> void:
 func on_first_block():
 	block_done = true
 
+
 func on_block_success():
 	block_success = true
+
 
 func on_first_attack():
 	if block_done:
 		attack_done = true
 		block_done = false
 
+
+func on_attack_lock():
+	if attack_lock:
+		return
+	if block_success:
+		attack_lock = true
+		DialogueManager.say("Double click on the part let you lock on it.")
+		await wait_for_action()
+		DialogueManager.say("That means you're gonna attack it till it's dead")
+		await wait_for_action()
+		await get_tree().create_timer(2.0).timeout
+		DialogueManager.clear_all_text_boxes()
 
 func on_first_pickup():
 	part_pickup_done = true

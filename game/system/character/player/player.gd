@@ -54,13 +54,16 @@ func set_hp(amount: float) -> void:
 	super.set_hp(amount)
 	Tutorial.self_broken_part()
 
+var locking_on_target := false
+
 func _on_attack_finished() -> void:
 	super._on_attack_finished()
 	if selected_target == null:
 		return
-	selected_target.is_targeted = false
-	selected_target._unhighlight_target()
-	selected_target = null
+	if not locking_on_target:
+		selected_target.is_targeted = false
+		selected_target._unhighlight_target()
+		selected_target = null
 
 func _on_action_ready() -> void:
 	if not can_control:
@@ -110,6 +113,7 @@ func get_ready_to_battle() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
+		locking_on_target = false
 		if arm.is_punching:
 			return
 		arm.rest_pos()
@@ -135,6 +139,7 @@ func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
 		return
 	
 	Tutorial.on_first_block()
+	locking_on_target = false
 		
 	if selected_target != anatomy:
 		if selected_target:
@@ -151,12 +156,30 @@ func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
 		anatomy._unhighlight_target()
 		arm.rest_pos()
 
+var animating_target := false
+
 func _on_enemy_anatomy_clicked(anatomy: Anatomy) -> void:
 	if anatomy.state == Anatomy.PartState.DESTROYED or not can_control:
 		return
 	
 	Tutorial.on_first_attack()
-		
+	locking_on_target = false
+	if anatomy.is_targeted:
+		locking_on_target = true
+		Tutorial.on_attack_lock()
+		var target_scale := anatomy.scale
+		if not animating_target:
+			animating_target = true
+			var tween := create_tween()
+			tween.set_trans(Tween.TRANS_SINE)
+			tween.set_ease(Tween.EASE_OUT)
+			tween.tween_property(anatomy, "scale", target_scale * 1.35, 0.08)
+			tween.tween_property(anatomy, "scale", target_scale * 0.8, 0.05)
+			tween.tween_property(anatomy, "scale", target_scale, 0.08)
+			tween.tween_callback(func(): 
+				anatomy.scale = target_scale
+				animating_target = false
+			)
 	if selected_target != anatomy:
 		if arm.is_blocking and blocking_part:
 			blocking_part.is_blocking = false
@@ -164,6 +187,7 @@ func _on_enemy_anatomy_clicked(anatomy: Anatomy) -> void:
 			arm.rest_pos()
 		anatomy.is_targeted = true
 		anatomy._highlight_target()
+			
 		if selected_target:
 			if selected_target in opponent_anatomy:
 				selected_target.is_targeted = false
