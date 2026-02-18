@@ -140,6 +140,9 @@ func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
 	
 	Tutorial.on_first_block()
 	locking_on_target = false
+	if selected_target and selected_target.lock.visible:
+		selected_target.lock.visible = false
+		
 		
 	if selected_target != anatomy:
 		if selected_target:
@@ -164,8 +167,11 @@ func _on_enemy_anatomy_clicked(anatomy: Anatomy) -> void:
 	
 	Tutorial.on_first_attack()
 	locking_on_target = false
+	if selected_target and selected_target.lock.visible:
+		selected_target.lock.visible = false
 	if anatomy.is_targeted:
 		locking_on_target = true
+		anatomy.lock.visible = true
 		Tutorial.on_attack_lock()
 		var target_scale := anatomy.scale
 		if not animating_target:
