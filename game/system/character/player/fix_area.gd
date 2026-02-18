@@ -14,6 +14,8 @@ var is_hovering := false
 
 var sfx_trash: String = "event:/SFX/Surgery/Trash"
 
+var first_surgery := false
+
 func _ready() -> void:
 	is_occupied = true
 	reset_sprite()
@@ -51,6 +53,10 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 		return
 	if is_occupied or anatomy.anatomy_type != anatomy_type or anatomy.state == anatomy.PartState.DESTROYED or anatomy.current_hp <= 0:
 		return
+	if not first_surgery:
+		first_surgery = true
+		Tutorial.on_first_surgery()
+	
 	is_occupied =  true
 	rest_room.attaching = true
 	#sprite.visible = false

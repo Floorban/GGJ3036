@@ -41,28 +41,6 @@ func combat_intro() -> void:
 	GameManager.combat_area.enemy.begin_enemy()
 
 
-var block_done := false
-var attack_done := false
-
-
-func wait_for_first_block() -> void:
-	while not block_done:
-		await get_tree().process_frame
-
-
-func wait_for_first_attack() -> void:
-	while not attack_done:
-		await get_tree().process_frame
-
-
-func on_first_block():
-	block_done = true
-
-
-func on_first_attack():
-	attack_done = true
-
-
 func self_broken_part() -> void:
 	if DialogueManager.hide_dialogue: return
 	
@@ -104,20 +82,24 @@ func surgery_intro() -> void:
 	
 	entered_surgery = true
 	await get_tree().create_timer(0.5).timeout
-	DialogueManager.say("YOU GOT EM, GOOD FUCKING JOB DUDE !!")
+	DialogueManager.say("YOU GOT EM, GOOD FUCKING JOB DUDE !!", DialogueManager.NPC.COACH, false)
 	await wait_for_action()
-	DialogueManager.say("SO, this is the surgery room, all fancy and stuff.")
+	DialogueManager.say("SO, this is the surgery room, all fancy and stuff.", DialogueManager.NPC.COACH, false)
 	await wait_for_action()
 	DialogueManager.say("If your parts are destroyed (purple), you can throw em away and get new ones.")
 	await wait_for_action()
 	DialogueManager.say("You can still reattach the brown parts, they're not too fucked up.")
 	await wait_for_action()
-	DialogueManager.say("Remove the part from your face first if there's not enough spot for it.")
+	var box1 = await DialogueManager.say(DialogueManager.tooltip_text(left_hold) + "the parts to move them around")
 	await wait_for_action()
-	DialogueManager.say(DialogueManager.tooltip_text(left_hold) + "the parts to move them around")
-	await wait_for_action()
-	DialogueManager.say(DialogueManager.tooltip_text(left_release) + "to drop the part")
+	DialogueManager.remove_static_box(box1)
+	var box2 = await DialogueManager.say(DialogueManager.tooltip_text(left_release) + "to drop the part")
 	await wait_for_action(ACTION_TYPES.LEFT_RELEASE)
+	DialogueManager.remove_static_box(box2)
+	DialogueManager.say("Try replacing an old part on your face now.")
+	await wait_for_action()
+	DialogueManager.say("Remove the part from your face first if there's not enough spot for it.")
+	await wait_for_first_surgery()
 	DialogueManager.say("maybe you can even look a bit less ugly after fixing it.")
 	await get_tree().create_timer(3.0).timeout
 	DialogueManager.clear_all_text_boxes()
@@ -147,3 +129,56 @@ func wait_for_action(action: ACTION_TYPES = ACTION_TYPES.ANY) -> void:
 		elif action == ACTION_TYPES.RIGHT_PRESS:
 			if Input.is_action_just_pressed("right_click"):
 				return
+
+
+var block_done := false
+var attack_done := false
+var part_pickup_done := false
+var part_drop_done := false
+var surgery_done := false
+
+
+func wait_for_first_block() -> void:
+	while not block_done:
+		await get_tree().process_frame
+
+
+func wait_for_first_attack() -> void:
+	while not attack_done:
+		await get_tree().process_frame
+
+
+func wait_for_first_pickup() -> void:
+	while not part_pickup_done:
+		await get_tree().process_frame
+
+
+func wait_for_first_drop() -> void:
+	while not part_drop_done:
+		await get_tree().process_frame
+
+
+
+func wait_for_first_surgery() -> void:
+	while not surgery_done:
+		await get_tree().process_frame
+
+
+func on_first_block():
+	block_done = true
+
+
+func on_first_attack():
+	attack_done = true
+
+
+func on_first_pickup():
+	part_pickup_done = true
+
+
+func on_first_drop():
+	part_drop_done = true
+
+
+func on_first_surgery():
+	surgery_done = true

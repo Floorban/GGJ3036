@@ -162,7 +162,6 @@ scale = Vector2(5, 5)
 texture = ExtResource("13_ldpml")
 
 [node name="EnemyMinion" parent="Enemies" index="2" unique_id=927994861 instance=ExtResource("9_p36xc")]
-process_mode = 4
 visible = false
 position = Vector2(0, -40)
 
