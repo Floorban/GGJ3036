@@ -110,6 +110,8 @@ func get_ready_to_battle() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
+		if arm.is_punching:
+			return
 		arm.rest_pos()
 		if selected_target:
 			if selected_target in anatomy_parts:

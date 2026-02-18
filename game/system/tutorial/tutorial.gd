@@ -29,7 +29,7 @@ func combat_intro() -> void:
 	await wait_for_first_attack()
 	DialogueManager.say("The arm will perform the attack when it finishes its cooldown")
 	await get_tree().create_timer(1.5).timeout
-	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack")
+	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack / block")
 	await wait_for_action(ACTION_TYPES.RIGHT_PRESS)
 	DialogueManager.say("NOW LOCK INNN ! ! !")
 	await get_tree().create_timer(1.0).timeout
@@ -53,6 +53,7 @@ func self_broken_part() -> void:
 	DialogueManager.say("Have to hold your arm on the right part to block his attack")
 	await wait_for_block_success()
 	DialogueManager.say("Here we go! Nice Block! !")
+	await wait_for_action()
 	await get_tree().create_timer(1.5).timeout
 	DialogueManager.clear_all_text_boxes()
 

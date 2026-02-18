@@ -233,7 +233,8 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool
 	get_hit_visual_feedback(damage / 11)
 	#can_action = false
 	combat_component.pause(action_cooldown / stun_resist)
-	arm.rest_pos()
+	if not arm.is_punching:
+		arm.rest_pos()
 	audio.play(self, sfx_hit, global_transform, "Intensity", damage / max_health)
 	
 	if crit: 

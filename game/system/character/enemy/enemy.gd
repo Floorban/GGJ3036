@@ -91,7 +91,7 @@ func _on_action_ready() -> void:
 			next_target.is_targeted = false
 			next_target._unhighlight_target()
 		return
-	if not is_stuned:
+	if not is_stuned and not arm.is_punching and combat_component.combat_timer.time_left == 0:
 		_perform_attack(next_target)
 
 
