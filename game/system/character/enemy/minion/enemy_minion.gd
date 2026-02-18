@@ -7,6 +7,11 @@ class_name EnemyMinion extends Enemy
 @export var nose_variants: Array[AnatomyData]
 
 
+func init_character() -> void:
+	_init_anatomy_parts()
+	_init_combat_component()
+	get_anatomy_references()
+
 func switch_target() -> void:
 	pass
 

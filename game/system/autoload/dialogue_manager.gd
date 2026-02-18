@@ -7,6 +7,7 @@ extends CanvasLayer
 @export var spacing := 10
 @export var base_offset := Vector2(100, -100)
 var dialogues: Array[DialogueBox] = []
+var freeze_dialogue_boxes := false
 
 ## NPCs
 const UNKNOWN: String = "res://sprites/body_parts/Basehead/Unknown.png"
@@ -35,6 +36,7 @@ func say(text: String, duration := 10.0, npc: String = UNKNOWN) -> void:
 	box.lifetime = duration
 	dialogues.append(box)
 
+	_start_lifetime(box, duration)
 	if dialogues.size() > max_visible:
 		var oldest = dialogues[0]
 		if is_instance_valid(oldest): oldest.fade_out()
@@ -43,6 +45,17 @@ func say(text: String, duration := 10.0, npc: String = UNKNOWN) -> void:
 
 	await get_tree().process_frame
 	_reflow()
+
+
+func _start_lifetime(box: DialogueBox, duration: float) -> void:
+	var timer := get_tree().create_timer(duration)
+	timer.timeout.connect(func():
+		if freeze_dialogue_boxes:
+			_start_lifetime(box, duration / 2)
+		elif box in dialogues:
+			box.fade_out()
+	)
+
 
 func tooltip(tooltip: Tooltip) -> String:
 	var text_image = "[img=32x32]" + tooltip.icon.resource_path + "[/img] "

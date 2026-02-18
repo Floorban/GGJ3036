@@ -48,6 +48,7 @@ var i_music_boss: FmodEvent
 var sfx_countdown: String = "event:/SFX/NPC/Coach/Count"
 var sfx_ring: String = "event:/SFX/Arena/Ring"
 
+
 func _ready() -> void:
 	game_ui.timer_panel.visible = false
 	battle_time_left = 100.0
@@ -61,7 +62,7 @@ func _ready() -> void:
 	#init_combat_arena(current_level)
 	start_battle()
 	first_level = false
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.0).timeout
 	transition_screen.burn()
 
 

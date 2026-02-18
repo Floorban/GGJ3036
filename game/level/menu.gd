@@ -29,7 +29,6 @@ var i_menu: FmodEvent
 @export var left_click: Tooltip
 
 func end() -> void:
-	
 	if not ending:
 		return
 	transition_screen.cover()
@@ -56,19 +55,15 @@ func intro_dialogue() -> void:
 		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say(DialogueManager.tooltip(left_click) + "on his face parts to attack")
 		await DialogueManager.wait_for_dialogue_continue()
-		#DialogueManager.say("Okay time to go now brother", 3.0)
-		#await get_tree().create_timer(0.25).timeout
-		#await DialogueManager.wait_for_dialogue_continue()
-		#DialogueManager.say("Bro wake up wake up !!!", 2.0)
-		#await get_tree().create_timer(2.0).timeout
-		#DialogueManager.say("LOOOOOOOOCK", 1.0)
-		#await get_tree().create_timer(0.5).timeout
-		#DialogueManager.say("THE", 1.0)
-		#await get_tree().create_timer(0.5).timeout
-		#DialogueManager.say("FUCK", 1.0)
-		#await get_tree().create_timer(0.5).timeout
-		#DialogueManager.say("INNNNNNNNNN !!!", 1.0)
-		#dialogue_end.emit()
+		DialogueManager.say("Let me fix your nose first, come here")
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say("You still remember how to punch this motherfucker right?")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		DialogueManager.say(DialogueManager.tooltip(left_click) + "on his face parts to attack")
+		await DialogueManager.wait_for_dialogue_continue()
+
+		dialogue_end.emit()
 	else:
 		await get_tree().create_timer(1.0).timeout
 		DialogueManager.say("You noticed how each face part contribute to your stats?")

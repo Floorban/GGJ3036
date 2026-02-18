@@ -1,14 +1,18 @@
 class_name DialogueBox extends Control
 
 @onready var float_root: NinePatchRect = %FloatRoot
-@onready var label: RichTextLabel = $FloatRoot/MarginContainer/Label
+@onready var label: RichTextLabel = %Label
 var lifetime := 5.0
 var is_fading := false
+@onready var container: MarginContainer = %Container
+
 
 func _ready() -> void:
+	container.mouse_entered.connect(_on_mouse_hover)
+	container.mouse_exited.connect(_on_mouse_unhover)
 	modulate.a = 0
 	start_floating()
-	get_tree().create_timer(lifetime).timeout.connect(fade_out)
+
 
 func set_text(text: String, _font_size: int = 28) -> void:
 	label.text = text
@@ -29,7 +33,7 @@ func fade_out() -> void:
 	tween.tween_property(self, "scale", Vector2(0.9, 0.9), 0.2)
 	tween.chain().tween_callback(queue_free)
 
-
+ 
 var float_tween: Tween
 var float_offset := 11.0
 var float_duration := 2.6
@@ -56,3 +60,12 @@ func start_floating() -> void:
 		float_offset,
 		float_duration
 	)
+
+
+func _on_mouse_hover() -> void:
+	DialogueManager.freeze_dialogue_boxes = true
+	print("as")
+
+
+func _on_mouse_unhover() -> void:
+	DialogueManager.freeze_dialogue_boxes = false

@@ -163,6 +163,7 @@ texture = ExtResource("13_ldpml")
 
 [node name="EnemyMinion" parent="Enemies" index="2" unique_id=927994861 instance=ExtResource("9_p36xc")]
 process_mode = 4
+visible = false
 position = Vector2(0, -40)
 
 [node name="Boxer" parent="Enemies" index="3" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
@@ -251,7 +252,6 @@ playback_auto_capture_ease_type = 1
 
 [node name="TransitionScreen" type="Sprite2D" parent="ScreenLayer" index="1" unique_id=1288152459]
 unique_name_in_owner = true
-visible = false
 modulate = Color(0, 0, 0, 1)
 z_index = 4010
 material = SubResource("ShaderMaterial_fhe53")

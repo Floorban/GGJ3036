@@ -257,7 +257,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(200, 70)
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("1_8ubs4")
 
 [node name="FloatRoot" type="NinePatchRect" parent="." unique_id=360028976]
@@ -270,7 +270,8 @@ pivot_offset = Vector2(200, 75)
 texture = ExtResource("2_6pf15")
 region_rect = Rect2(16, -24, 880, 944)
 
-[node name="MarginContainer" type="MarginContainer" parent="FloatRoot" unique_id=1634941817]
+[node name="Container" type="MarginContainer" parent="FloatRoot" unique_id=1634941817]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -282,7 +283,8 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="RichTextLabel" parent="FloatRoot/MarginContainer" unique_id=1757622654]
+[node name="Label" type="RichTextLabel" parent="FloatRoot/Container" unique_id=1757622654]
+unique_name_in_owner = true
 texture_filter = 1
 material = SubResource("ShaderMaterial_uwqpd")
 clip_contents = false
