@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://cq8fiv0wib6gv" path="res://material/burn_dissolve.gdshader" id="3_utcqo"]
 [ext_resource type="Resource" uid="uid://bv5g14v1f23cg" path="res://game/ui/Tooltip/UI/left_click.tres" id="3_xlot1"]
 [ext_resource type="Texture2D" uid="uid://ddodsf7lu4d66" path="res://sprites/Menu/MainMenu1.png" id="3_y3ylt"]
+[ext_resource type="Resource" uid="uid://4x1fr6vf7r03" path="res://game/ui/Tooltip/UI/right_click.tres" id="4_6k2im"]
 [ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="4_bw065"]
 [ext_resource type="Texture2D" uid="uid://b3533pphjxsty" path="res://sprites/Menu/MainMenu.png" id="4_tq4mx"]
 [ext_resource type="Texture2D" uid="uid://d1a0mfnl4lr57" path="res://sprites/Menu/ButtonBlack.png" id="5_3fmpq"]
@@ -34,6 +35,7 @@ shader_parameter/burnColor = Color(0.6039216, 0.12941177, 0.1764706, 1)
 script = ExtResource("1_kh04w")
 level_scene = ExtResource("2_2nera")
 left_click = ExtResource("3_xlot1")
+right_click = ExtResource("4_6k2im")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1106509539]
 layer = -100

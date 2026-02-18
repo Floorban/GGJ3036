@@ -64,7 +64,6 @@ func start_floating() -> void:
 
 func _on_mouse_hover() -> void:
 	DialogueManager.freeze_dialogue_boxes = true
-	print("as")
 
 
 func _on_mouse_unhover() -> void:

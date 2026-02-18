@@ -7,5 +7,5 @@
 script = ExtResource("2_g1rr2")
 icon = ExtResource("1_tv14n")
 text = "LEFT CLICK"
-dropdown = "left click"
+description = "Press the LEFT button on your mouse : )"
 metadata/_custom_type_script = "uid://d0v37d0d6w03m"

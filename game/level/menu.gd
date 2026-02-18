@@ -27,6 +27,7 @@ var i_menu: FmodEvent
 @onready var ending: TextureRect = %Ending
 
 @export var left_click: Tooltip
+@export var right_click: Tooltip
 
 func end() -> void:
 	if not ending:
@@ -82,15 +83,18 @@ func intro_dialogue() -> void:
 
 func tutorial_dialogue() -> void:
 	await get_tree().create_timer(2.0).timeout
-	DialogueManager.say("You remember how to punch this motherfucker right?", DialogueManager.NPC.COACH)
+	DialogueManager.say("You still remember how to punch this motherfucker right?", DialogueManager.NPC.COACH)
 	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say(DialogueManager.tooltip(left_click) + "on his face parts to attack", DialogueManager.NPC.COACH)
+	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his face parts to attack", DialogueManager.NPC.COACH)
 	await get_tree().create_timer(0.25).timeout
 	await DialogueManager.wait_for_dialogue_continue()
 	DialogueManager.say("(Hover over the icon to see detailed description)", DialogueManager.NPC.COACH)
 	await get_tree().create_timer(0.25).timeout
 	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say(DialogueManager.tooltip(left_click) + "on your face parts to defend", DialogueManager.NPC.COACH)
+	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack", DialogueManager.NPC.COACH)
+	await get_tree().create_timer(0.25).timeout
+	await DialogueManager.wait_for_dialogue_continue()
+	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to defend", DialogueManager.NPC.COACH)
 	await get_tree().create_timer(0.2).timeout
 	GameManager.combat_area.enemy.begin_enemy()
 
