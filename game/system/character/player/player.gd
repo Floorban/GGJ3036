@@ -113,6 +113,11 @@ func _input(event: InputEvent) -> void:
 				selected_target._unhighlight_target()
 			selected_target = null
 
+
+var first_block := false
+var first_attack := false
+
+
 func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
 	if (arm.movable_by_mouse and anatomy.state == Anatomy.PartState.FUCKED) or (rest_mode): #and anatomy.state != Anatomy.PartState.HEALTHY
 		arm.pickup_obj(anatomy)
@@ -121,6 +126,11 @@ func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
 
 	if arm.is_punching or not can_control:
 		return
+	
+	if not first_block:
+		first_block = true
+		Tutorial.on_first_block()
+		
 	if selected_target != anatomy:
 		if selected_target:
 			if selected_target in opponent_anatomy:
@@ -139,6 +149,11 @@ func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
 func _on_enemy_anatomy_clicked(anatomy: Anatomy) -> void:
 	if anatomy.state == Anatomy.PartState.DESTROYED or not can_control:
 		return
+	
+	if not first_attack:
+		first_attack = true
+		Tutorial.on_first_attack()
+		
 	if selected_target != anatomy:
 		if arm.is_blocking and blocking_part:
 			blocking_part.is_blocking = false
