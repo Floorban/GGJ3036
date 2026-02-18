@@ -48,16 +48,16 @@ func itch() -> void:
 func intro_dialogue() -> void:
 	if tutorial:
 		await get_tree().create_timer(0.8).timeout
-		DialogueManager.say("Let me fix your nose first, come here.")
+		DialogueManager.say("Let me fix your nose first, come here.", DialogueManager.NPC.UNKNOWN)
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("(Hover over the text boxes to keep them stayed)")
+		DialogueManager.say("(Hover over the text boxes to keep them stayed)", DialogueManager.NPC.UNKNOWN)
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("You signed up for this! Now tough it out.")
+		DialogueManager.say("You signed up for this! Now tough it out.", DialogueManager.NPC.UNKNOWN)
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Now get up... and go get that money back.")
+		DialogueManager.say("Now get up... and go get that money back.", DialogueManager.NPC.UNKNOWN)
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
 		await get_tree().create_timer(0.5).timeout
@@ -83,18 +83,18 @@ func intro_dialogue() -> void:
 
 func tutorial_dialogue() -> void:
 	await get_tree().create_timer(2.0).timeout
-	DialogueManager.say("You still remember how to punch this motherfucker right?", DialogueManager.NPC.COACH)
+	DialogueManager.say("You still remember how to punch this motherfucker right?")
 	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his face parts to attack", DialogueManager.NPC.COACH)
+	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his face parts to attack")
 	await get_tree().create_timer(0.25).timeout
 	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say("(Hover over the icon to see detailed description)", DialogueManager.NPC.COACH)
+	DialogueManager.say("(Hover over the icon to see detailed description)")
 	await get_tree().create_timer(0.25).timeout
 	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack", DialogueManager.NPC.COACH)
+	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack")
 	await get_tree().create_timer(0.25).timeout
 	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to defend", DialogueManager.NPC.COACH)
+	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to defend")
 	await get_tree().create_timer(0.2).timeout
 	GameManager.combat_area.enemy.begin_enemy()
 

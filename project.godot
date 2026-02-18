@@ -34,6 +34,7 @@ DialogueManager="*uid://14hrrjqso8mu"
 PopupPrompt="*uid://gmvmwlnyad4c"
 MouseCursor="*uid://cm38m8rombbxs"
 FmodManager="*uid://cds10pm7hwn3p"
+Tutorial="*uid://bkubpjagrypqj"
 
 [display]
 

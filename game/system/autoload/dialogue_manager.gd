@@ -39,7 +39,7 @@ func wait_for_dialogue_continue() -> void:
 		if Input.is_action_just_pressed("left_click"):
 			return
 
-func say(text: String, npc: NPC = NPC.UNKNOWN, duration := 10.0) -> void:
+func say(text: String, npc: NPC = NPC.COACH, duration := 10.0) -> void:
 	if not dialogue_scene: return
 	npc_icon.texture = npc_icons.get(npc, npc_icons[NPC.UNKNOWN])
 	
