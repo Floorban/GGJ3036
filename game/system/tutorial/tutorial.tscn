@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://bkubpjagrypqj"]
 
 [ext_resource type="Script" uid="uid://wfgfjd0j3cjt" path="res://game/system/tutorial/tutorial.gd" id="1_aut6k"]
+[ext_resource type="Resource" uid="uid://bv5g14v1f23cg" path="res://game/ui/Tooltip/UI/left_click.tres" id="2_mp4kn"]
+[ext_resource type="Resource" uid="uid://4x1fr6vf7r03" path="res://game/ui/Tooltip/UI/right_click.tres" id="3_c3lwg"]
+[ext_resource type="Resource" uid="uid://chsd5rtbwcenb" path="res://game/ui/Tooltip/UI/left_hold.tres" id="4_ekwj3"]
+[ext_resource type="Resource" uid="uid://di3h425ljklgh" path="res://game/ui/Tooltip/UI/left_release.tres" id="5_mbhsv"]
 
 [node name="Tutorial" type="Node2D" unique_id=1219308028 groups=["tutorial"]]
 script = ExtResource("1_aut6k")
+left_click = ExtResource("2_mp4kn")
+right_click = ExtResource("3_c3lwg")
+left_hold = ExtResource("4_ekwj3")
+left_release = ExtResource("5_mbhsv")

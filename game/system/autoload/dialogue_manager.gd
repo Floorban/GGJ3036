@@ -114,7 +114,7 @@ func clear_all_text_boxes() -> void:
 		if box in lifetime_timers:
 			lifetime_timers.erase(box)
 		await get_tree().create_timer(0.3).timeout
-		box.fade_out()
+		if is_instance_valid(box): box.fade_out()
 	dialogues.clear()
 	lifetime_timers.clear()
 

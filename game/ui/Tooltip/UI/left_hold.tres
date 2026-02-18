@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Tooltip" format=3 uid="uid://chsd5rtbwcenb"]
+
+[ext_resource type="Texture2D" uid="uid://dkbip1vo2onae" path="res://sprites/icons/left.png" id="1_1cmax"]
+[ext_resource type="Script" uid="uid://d0v37d0d6w03m" path="res://game/ui/Tooltip/tooltip.gd" id="2_w18pu"]
+
+[resource]
+script = ExtResource("2_w18pu")
+icon = ExtResource("1_1cmax")
+text = "HOLD"
+description = "Keep pressing the LEFT button"
+metadata/_custom_type_script = "uid://d0v37d0d6w03m"

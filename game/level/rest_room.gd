@@ -1,7 +1,5 @@
 class_name RestRoom extends Node2D
 
-@onready var tutorial: Tutorial = get_tree().get_first_node_in_group("tutorial")
-
 signal ready_to_fight()
 
 @onready var background: Sprite2D = $Background
@@ -50,7 +48,7 @@ func enter_rest_room(current_level: int) -> void:
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	audio.muffle(true)
 	
-	if !tutorial.entered_surgery: tutorial.tutorial_enter_surgery()
+	Tutorial.surgery_intro()
 
 	for part in player.anatomy_parts:
 		if part.state == Anatomy.PartState.DESTROYED:

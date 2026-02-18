@@ -81,27 +81,9 @@ func intro_dialogue() -> void:
 		dialogue_end.emit()
 
 
-func tutorial_dialogue() -> void:
-	await get_tree().create_timer(2.0).timeout
-	DialogueManager.say("You still remember how to punch this motherfucker right?")
-	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his face parts to attack")
-	await get_tree().create_timer(0.25).timeout
-	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say("(Hover over the icon to see detailed description)")
-	await get_tree().create_timer(0.25).timeout
-	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack")
-	await get_tree().create_timer(0.25).timeout
-	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to defend")
-	await get_tree().create_timer(0.2).timeout
-	GameManager.combat_area.enemy.begin_enemy()
-
-
 func _ready() -> void:
 	GameManager.main_menu = self
-	if i_menu == null: i_menu = audio.play_instance(sfx_menu)
+	if i_menu == null: i_menu = audio.play_instance(self, sfx_menu)
 
 func _process(_delta: float) -> void:
 	if warning == null or ending == null:
@@ -138,7 +120,7 @@ func start_game() -> void:
 		level.game_end.connect(end_game)
 
 	if not skip_dialogue:
-		await tutorial_dialogue()
+		await Tutorial.combat_intro()
 
 func end_game() -> void:
 	tutorial = false
