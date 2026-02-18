@@ -41,7 +41,7 @@ func update_hover():
 			hovered_part._hover_over_part()
 
 var main_menu : Menu
-
+var combat_area: Level
 
 func return_to_main_menu() -> void:
 	if main_menu == null:

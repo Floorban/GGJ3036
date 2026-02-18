@@ -50,6 +50,7 @@ var sfx_ring: String = "event:/SFX/Arena/Ring"
 
 
 func _ready() -> void:
+	GameManager.combat_area = self
 	game_ui.timer_panel.visible = false
 	battle_time_left = 100.0
 	rest_room.ready_to_fight.connect(start_battle)

@@ -54,13 +54,7 @@ func intro_dialogue() -> void:
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say(DialogueManager.tooltip(left_click) + "on his face parts to attack")
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Let me fix your nose first, come here")
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("You still remember how to punch this motherfucker right?")
 		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say(DialogueManager.tooltip(left_click) + "on his face parts to attack")
 		await DialogueManager.wait_for_dialogue_continue()
 
 		dialogue_end.emit()
@@ -83,6 +77,20 @@ func intro_dialogue() -> void:
 		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Good luck", 1.0)
 		dialogue_end.emit()
+
+
+func tutorial_dialogue() -> void:
+	await get_tree().create_timer(2.0).timeout
+	DialogueManager.say("tutoral test 1111")
+	await DialogueManager.wait_for_dialogue_continue()
+	DialogueManager.say("tutoral test222222222222222222")
+	await get_tree().create_timer(0.25).timeout
+	await DialogueManager.wait_for_dialogue_continue()
+	DialogueManager.say("tutoral test 1333333333333333333")
+	await get_tree().create_timer(0.25).timeout
+	await DialogueManager.wait_for_dialogue_continue()
+	GameManager.combat_area.enemy.begin_enemy()
+
 
 func _ready() -> void:
 	GameManager.main_menu = self
@@ -121,6 +129,9 @@ func start_game() -> void:
 	add_child(level)
 	if level is Level:
 		level.game_end.connect(end_game)
+
+	if not skip_dialogue:
+		await tutorial_dialogue()
 
 func end_game() -> void:
 	tutorial = false

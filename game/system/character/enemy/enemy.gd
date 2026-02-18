@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 	super._process(delta)
 	switch_target()
 
+
 func init_character() -> void:
 	super.init_character()
 	await get_tree().create_timer(1.0).timeout
@@ -107,3 +108,6 @@ func enemy_attack(attack_target: Anatomy) -> void:
 	attack_target._unhighlight_target()
 	attack_target.anatomy_hit.emit(dmg, crit)
 	hit.emit(dmg, crit)
+
+func begin_enemy() -> void:
+	enemy_dialogue_end.emit()
