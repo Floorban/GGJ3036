@@ -84,7 +84,7 @@ func _process(delta: float) -> void:
 func init_combat_arena(level : int) -> void:
 	if level == enemies.size():
 		audio.clear_instance([i_music])
-		i_music_boss = audio.play_instance(sfx_music_boss)
+		i_music_boss = audio.play_instance(self, sfx_music_boss)
 	elif level > enemies.size():
 		final_stage()
 
@@ -104,7 +104,7 @@ func init_combat_arena(level : int) -> void:
 		player.blocked.connect(_screen_shake)
 		player.die.connect(player_lose)
 
-	if i_music == null: i_music = audio.play_instance(sfx_music)
+	if i_music == null: i_music = audio.play_instance(self, sfx_music)
 
 
 func start_battle() -> void:
@@ -331,7 +331,7 @@ func player_lose() -> void:
 
 func final_stage() -> void:
 	audio.clear_instance([i_music])
-	i_music_boss = audio.play_instance(sfx_music_boss)
+	i_music_boss = audio.play_instance(self, sfx_music_boss)
 	GameManager.return_to_main_menu()
 	
 

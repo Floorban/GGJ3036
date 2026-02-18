@@ -78,8 +78,21 @@ value: Variant = null
 	instance.start()
 	instance.release()
 
-func play_instance(sound_path: String, object_transform: Transform2D = global_transform) -> FmodEvent:
-	if sound_path == null: push_error("audio missing")
+func play_instance(
+	caller: Node, 
+	sound_path: String, 
+	object_transform: Transform2D = global_transform
+	) -> FmodEvent:
+
+	if(sound_path == ""):
+		if caller.get_parent():
+			push_error("no valid audio path from " + caller.get_parent().name)
+			return
+		else: push_error("no valid audio path from: " + caller.name)
+
+	if not FmodServer.check_event_path(sound_path):
+		push_error("invalid FMOD event path: " + sound_path + " FROM " + caller.name)
+		return
 
 	var instance: FmodEvent = FmodServer.create_event_instance(sound_path)
 	instance.set_2d_attributes(object_transform)
