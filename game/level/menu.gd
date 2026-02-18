@@ -59,7 +59,7 @@ func intro_dialogue() -> void:
 		DialogueManager.say("Now get up... and go get that money back.")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.5).timeout
 		DialogueManager.clear_all_text_boxes()
 		dialogue_end.emit()
 	else:
@@ -73,30 +73,25 @@ func intro_dialogue() -> void:
 		DialogueManager.say("What that means is that, if you break their most valuable part")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Alright now you know the drill", 1.5)
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Oh right just press 'R' to restart if you find any bug")
-		await get_tree().create_timer(0.25).timeout
+		await get_tree().create_timer(0.5).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Good luck", 1.0)
-		
+		DialogueManager.say("Good luck")
 		dialogue_end.emit()
 
 
 func tutorial_dialogue() -> void:
 	await get_tree().create_timer(2.0).timeout
-	DialogueManager.say("You remember how to punch this motherfucker right?")
+	DialogueManager.say("You remember how to punch this motherfucker right?", DialogueManager.NPC.COACH)
 	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say(DialogueManager.tooltip(left_click) + "on his face parts to attack")
+	DialogueManager.say(DialogueManager.tooltip(left_click) + "on his face parts to attack", DialogueManager.NPC.COACH)
 	await get_tree().create_timer(0.25).timeout
 	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say("(Hover over the icon to see detailed description)")
+	DialogueManager.say("(Hover over the icon to see detailed description)", DialogueManager.NPC.COACH)
 	await get_tree().create_timer(0.25).timeout
 	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say(DialogueManager.tooltip(left_click) + "on your face parts to defend")
-	await get_tree().create_timer(0.25).timeout
-	await DialogueManager.wait_for_dialogue_continue()
+	DialogueManager.say(DialogueManager.tooltip(left_click) + "on your face parts to defend", DialogueManager.NPC.COACH)
+	await get_tree().create_timer(0.2).timeout
 	GameManager.combat_area.enemy.begin_enemy()
 
 

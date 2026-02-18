@@ -111,3 +111,5 @@ func enemy_attack(attack_target: Anatomy) -> void:
 
 func begin_enemy() -> void:
 	enemy_dialogue_end.emit()
+	await get_tree().create_timer(2.0).timeout
+	DialogueManager.clear_all_text_boxes()

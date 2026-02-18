@@ -11,7 +11,20 @@ var lifetime_timers := {} # dictionary<DialogueBox, SceneTreeTimer>
 var freeze_dialogue_boxes := false
 
 ## NPCs
-const UNKNOWN: String = "res://sprites/body_parts/Basehead/Unknown.png"
+enum NPC {
+	UNKNOWN,
+	COACH,
+	DOCTOR,
+	RON
+}
+
+var npc_icons := {
+	NPC.UNKNOWN: preload("uid://blr3c8tlciihf"),
+	NPC.COACH: preload("uid://7dj7ie6h0j7n"),
+	NPC.DOCTOR: preload("res://sprites/body_parts/Basehead/Unknown.png"),
+	NPC.RON: preload("res://sprites/body_parts/Basehead/Unknown.png"),
+}
+
 @onready var npc_icon: TextureRect = $NPC
 
 ## Sound
@@ -26,9 +39,9 @@ func wait_for_dialogue_continue() -> void:
 		if Input.is_action_just_pressed("left_click"):
 			return
 
-func say(text: String, duration := 10.0, npc: String = UNKNOWN) -> void:
+func say(text: String, npc: NPC = NPC.UNKNOWN, duration := 10.0) -> void:
 	if not dialogue_scene: return
-	if npc != UNKNOWN: npc_icon.texture = load(npc)
+	npc_icon.texture = npc_icons.get(npc, npc_icons[NPC.UNKNOWN])
 	
 	npc_talk()
 	var box := dialogue_scene.instantiate() as DialogueBox
@@ -49,20 +62,23 @@ func say(text: String, duration := 10.0, npc: String = UNKNOWN) -> void:
 
 
 func _start_lifetime(box: DialogueBox, duration: float) -> void:
-	if box in lifetime_timers:
-		lifetime_timers.erase(box)
-
+	var weak_box : WeakRef  = weakref(box)
 	var timer := get_tree().create_timer(duration)
 	lifetime_timers[box] = timer
+
 	timer.timeout.connect(func():
-		if box not in dialogues:
-			lifetime_timers.erase(box)
+		var strong_box = weak_box.get_ref()
+		if strong_box == null:
 			return
+		if strong_box not in dialogues:
+			lifetime_timers.erase(strong_box)
+			return
+
 		if freeze_dialogue_boxes:
-			_start_lifetime(box, 0.5)
+			_start_lifetime(strong_box, duration / 2)
 		else:
-			lifetime_timers.erase(box)
-			box.fade_out()
+			lifetime_timers.erase(strong_box)
+			strong_box.fade_out()
 	)
 
 
@@ -97,7 +113,7 @@ func clear_all_text_boxes() -> void:
 	for box in dialogues.duplicate():
 		if box in lifetime_timers:
 			lifetime_timers.erase(box)
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.3).timeout
 		box.fade_out()
 	dialogues.clear()
 	lifetime_timers.clear()
