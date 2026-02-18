@@ -1,11 +1,6 @@
 class_name EnemyMinion extends Enemy
 
-@export var face_varuabts: Array[Texture2D]
-@export var ear_variants: Array[AnatomyData]
-@export var eye_variants: Array[AnatomyData]
-@export var mouth_variants: Array[AnatomyData]
-@export var nose_variants: Array[AnatomyData]
-
+@export var minion_data : MinionData
 
 func init_character() -> void:
 	_init_anatomy_parts()
@@ -27,12 +22,12 @@ func _init_anatomy_parts() -> void:
 
 func _randomize_minion() -> void:
 	max_health = 0
-	var chosen_face = face_varuabts.pick_random()
+	var chosen_face = minion_data.face_varuabts.pick_random()
 	face.texture = chosen_face
-	var chosen_ear = ear_variants.pick_random()
-	var chosen_eye = eye_variants.pick_random()
-	var chosen_arm = mouth_variants.pick_random()
-	var chosen_leg = nose_variants.pick_random()
+	var chosen_ear = minion_data.ear_variants.pick_random()
+	var chosen_eye = minion_data.eye_variants.pick_random()
+	var chosen_arm = minion_data.mouth_variants.pick_random()
+	var chosen_leg = minion_data.nose_variants.pick_random()
 	_assign_part(chosen_ear)
 	_assign_part(chosen_eye)
 	_assign_part(chosen_arm)

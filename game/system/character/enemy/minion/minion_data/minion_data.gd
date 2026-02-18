@@ -1,4 +1,10 @@
-class_name MinionData extends Node
+class_name MinionData extends Resource
+
+@export var face_varuabts: Array[Texture2D]
+@export var ear_variants: Array[AnatomyData]
+@export var eye_variants: Array[AnatomyData]
+@export var mouth_variants: Array[AnatomyData]
+@export var nose_variants: Array[AnatomyData]
 
 @export var base_cooldown: float
 @export var base_damage: float

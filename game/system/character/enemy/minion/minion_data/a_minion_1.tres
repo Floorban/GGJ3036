@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MinionData" format=3 uid="uid://d4dqrfx1hujr6"]
+
+[ext_resource type="Script" uid="uid://bgerbi5bslcmt" path="res://game/system/character/enemy/minion/minion_data/minion_data.gd" id="1_5hkdn"]
+[ext_resource type="Script" uid="uid://cyavxqhgshvv7" path="res://game/system/anatomy/anatomy_data/anatomy_data.gd" id="1_r6otd"]
+
+[resource]
+script = ExtResource("1_5hkdn")
+metadata/_custom_type_script = "uid://bgerbi5bslcmt"

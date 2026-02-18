@@ -1,6 +1,5 @@
 class_name Enemy extends Character
 
-
 @export var boss_name: String
 
 var round_index := 0

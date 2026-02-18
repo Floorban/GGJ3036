@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MinionData" format=3 uid="uid://bpvih2pls82gm"]
+
+[ext_resource type="Script" uid="uid://bgerbi5bslcmt" path="res://game/system/character/enemy/minion/minion_data/minion_data.gd" id="1_jthem"]
+
+[resource]
+script = ExtResource("1_jthem")
+metadata/_custom_type_script = "uid://bgerbi5bslcmt"
