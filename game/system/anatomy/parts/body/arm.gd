@@ -6,8 +6,8 @@ signal action_finished(blocking: bool)
 @export var dragging_obj: Anatomy
 
 var arm_og_color: Color
-@onready var sprite_arm_up: Sprite2D = %SpriteArmUp
-@onready var sprite_arm_low: Sprite2D = %SpriteArmLow
+@onready var sprite_arm_up: Sprite2D = $Skeleton2D/ArmUp/SpriteArmUp
+@onready var sprite_arm_low: Sprite2D = $Skeleton2D/ArmUp/ArmLow/SpriteArmLow
 @onready var cd_bar_1: TextureProgressBar = %CDBar1
 @onready var cd_bar_2: TextureProgressBar = %CDBar2
 @onready var sprite_fist: Sprite2D = %SpriteFist
