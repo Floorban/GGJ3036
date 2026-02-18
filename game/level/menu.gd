@@ -2,8 +2,6 @@ class_name Menu extends Node2D
 
 signal dialogue_end()
 
-@export var skip_dialogue : bool
-var tutorial := true
 @export var level_scene: PackedScene
 
 @onready var warning: TextureRect = %Warning
@@ -46,7 +44,7 @@ func itch() -> void:
 	OS.shell_open("https://eric911.itch.io/unfix")
 
 func intro_dialogue() -> void:
-	if tutorial:
+	if not DialogueManager.hide_dialogue:
 		await get_tree().create_timer(1.0).timeout
 		var box1 = await DialogueManager.say("Let me fix your nose first, come here.", DialogueManager.NPC.UNKNOWN)
 		await Tutorial.wait_for_action()
@@ -64,19 +62,6 @@ func intro_dialogue() -> void:
 		dialogue_end.emit()
 	else:
 		await get_tree().create_timer(1.0).timeout
-		#DialogueManager.say("You noticed how each face part contribute to your stats?")
-		#await get_tree().create_timer(0.25).timeout
-		#await DialogueManager.wait_for_dialogue_continue()
-		#DialogueManager.say("Same goes to your opponents")
-		#await get_tree().create_timer(0.25).timeout
-		#await DialogueManager.wait_for_dialogue_continue()
-		#DialogueManager.say("What that means is that, if you break their most valuable part")
-		#await get_tree().create_timer(0.25).timeout
-		#await DialogueManager.wait_for_dialogue_continue()
-		#DialogueManager.say("Oh right just press 'R' to restart if you find any bug")
-		#await get_tree().create_timer(0.5).timeout
-		#await DialogueManager.wait_for_dialogue_continue()
-		#DialogueManager.say("Good luck")
 		dialogue_end.emit()
 
 
@@ -110,7 +95,7 @@ func start_game() -> void:
 	btn_credits.visible = false
 	btn_credits.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	transition_screen.cover()
-	if not skip_dialogue:
+	if not DialogueManager.hide_dialogue:
 		await intro_dialogue()   
 
 	var level := level_scene.instantiate()
@@ -118,11 +103,11 @@ func start_game() -> void:
 	if level is Level:
 		level.game_end.connect(end_game)
 
-	if not skip_dialogue:
+	if not DialogueManager.hide_dialogue:
 		await Tutorial.combat_intro()
 
 func end_game() -> void:
-	tutorial = false
+	DialogueManager.hide_dialogue = true
 	label_start.text = "TRY AGAIN"
 	transition_screen.burn()
 	bg_1.visible = false
