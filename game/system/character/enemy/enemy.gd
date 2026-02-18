@@ -95,11 +95,6 @@ func _on_action_ready() -> void:
 		_perform_attack(next_target)
 
 
-func set_hp(amount: float) -> void:
-	super.set_hp(amount)
-	Tutorial.enemy_broken_part()
-
-
 func enemy_attack(attack_target: Anatomy) -> void:
 	if not can_control or rest_mode or is_dead:
 		attack_target.is_targeted = false
@@ -117,5 +112,5 @@ func enemy_attack(attack_target: Anatomy) -> void:
 
 func begin_enemy() -> void:
 	enemy_dialogue_end.emit()
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	DialogueManager.clear_all_text_boxes()

@@ -50,6 +50,9 @@ func start_round() -> void:
 		#return selected_target
 	#return null
 
+func set_hp(amount: float) -> void:
+	super.set_hp(amount)
+	Tutorial.self_broken_part()
 
 func _on_attack_finished() -> void:
 	super._on_attack_finished()
@@ -73,6 +76,11 @@ func _on_action_ready() -> void:
 			selected_target._unhighlight_target()
 			selected_target = null
 			arm.rest_pos()
+
+
+func _on_successful_block(attacker: Character) -> void:
+	super._on_successful_block(attacker)
+	Tutorial.on_block_success()
 
 func _on_block_finished() -> void:
 	super._on_block_finished()

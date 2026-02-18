@@ -32,7 +32,7 @@ func combat_intro() -> void:
 	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack")
 	await wait_for_action(ACTION_TYPES.RIGHT_PRESS)
 	DialogueManager.say("NOW LOCK INNN ! ! !")
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.0).timeout
 	GameManager.combat_area.enemy.begin_enemy()
 
 
@@ -42,16 +42,18 @@ func self_broken_part() -> void:
 	if self_part_broken:
 		return
 	self_part_broken = true
-	await get_tree().create_timer(0.5).timeout
-	DialogueManager.say("OHH NO! Where's your defense bro? !")
-	await wait_for_action()
-	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to defend")
-	await wait_for_action()
+	var box1 = await DialogueManager.say("OHH NO! Where's your defense bro? !")
+	await get_tree().create_timer(1.0).timeout
+	DialogueManager.remove_static_box(box1)
+	var box2 = await DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to defend")
+	await wait_for_first_block()
+	DialogueManager.remove_static_box(box2)
 	DialogueManager.say("You can see his attacking intent in red on your parts")
-	await wait_for_action()
-	DialogueManager.say("Have to hold your arm on the right part to block his attack")
-	await wait_for_action()
 	await get_tree().create_timer(2.0).timeout
+	DialogueManager.say("Have to hold your arm on the right part to block his attack")
+	await wait_for_block_success()
+	DialogueManager.say("Here we go! Nice Block! !")
+	await get_tree().create_timer(1.5).timeout
 	DialogueManager.clear_all_text_boxes()
 
 
@@ -130,6 +132,7 @@ func wait_for_action(action: ACTION_TYPES = ACTION_TYPES.ANY) -> void:
 
 
 var block_done := false
+var block_success := false
 var attack_done := false
 var part_pickup_done := false
 var part_drop_done := false
@@ -141,6 +144,13 @@ func wait_for_first_block() -> void:
 		await get_tree().process_frame
 	
 	while not block_done:
+		await get_tree().process_frame
+
+func wait_for_block_success() -> void:
+	while Input.is_action_pressed("left_click"):
+		await get_tree().process_frame
+	
+	while not block_success:
 		await get_tree().process_frame
 
 
@@ -173,10 +183,13 @@ func wait_for_first_surgery() -> void:
 func on_first_block():
 	block_done = true
 
+func on_block_success():
+	block_success = true
 
 func on_first_attack():
 	if block_done:
 		attack_done = true
+		block_done = false
 
 
 func on_first_pickup():
