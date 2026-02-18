@@ -5,4 +5,3 @@ func start_round() -> void:
 
 func character_die_sfx() -> void:
 	super.character_die_sfx()
-	

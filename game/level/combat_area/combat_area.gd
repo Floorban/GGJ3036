@@ -128,7 +128,8 @@ func start_battle() -> void:
 	
 	background.visible = true
 	init_combat_arena(current_level)
-	game_ui.show_boss_name(enemy.boss_name)
+	if enemy and not enemy.is_minion:
+		game_ui.show_boss_name(enemy.boss_name)
 	player.arm.movable_by_mouse = false
 	tween.tween_callback(func():
 		if enemy and not DialogueManager.hide_dialogue: 
