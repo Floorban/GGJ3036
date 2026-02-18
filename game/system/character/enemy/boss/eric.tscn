@@ -157,9 +157,9 @@ base_speed = 0.07
 base_stun_strength = 0.2
 base_stun_resist = 1.0
 arm = NodePath("EricArm")
-sfx_die = "event:/SFX/NPC/Eric/Die"
-sfx_entry = "event:/SFX/NPC/Eric/Entry"
-sfx_hurt = "event:/SFX/NPC/Eric/Hurt"
+sfx_die = "event:/NPC/Hostile/Bosses/Eric/Die"
+sfx_entry = "event:/NPC/Hostile/Bosses/Eric/Entry"
+sfx_hurt = "event:/NPC/Hostile/Bosses/Eric/Hurt"
 
 [node name="Shoulder" type="Sprite2D" parent="." index="0" unique_id=799220475]
 z_index = -3

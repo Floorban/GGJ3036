@@ -5,4 +5,7 @@
 
 [resource]
 script = ExtResource("2_xbpl6")
+sfx_die = "event:/NPC/Hostile/Minions/Die"
+sfx_entry = "event:/NPC/Hostile/Minions/Entry"
+sfx_hurt = "event:/NPC/Hostile/Minions/Hurt"
 metadata/_custom_type_script = "uid://bgerbi5bslcmt"

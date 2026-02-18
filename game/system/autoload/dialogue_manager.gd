@@ -29,7 +29,7 @@ var npc_icons := {
 @onready var npc_icon: TextureRect = $NPC
 
 ## Sound
-var sfx_chat: String = "event:/SFX/UI/Chat"
+var sfx_chat: String = "event:/NPC/Default/Chat"
 
 func _ready() -> void:
 	npc_idle()

@@ -161,9 +161,9 @@ base_crit_damage = 2.0
 base_stun_strength = 0.5
 base_stun_resist = 5.0
 arm = NodePath("BrainOutArm")
-sfx_die = "event:/SFX/NPC/Brain/Die"
-sfx_entry = "event:/SFX/NPC/Brain/Entry"
-sfx_hurt = "event:/SFX/NPC/Brain/Hurt"
+sfx_die = "event:/NPC/Hostile/Bosses/Brain/Die"
+sfx_entry = "event:/NPC/Hostile/Bosses/Brain/Entry"
+sfx_hurt = "event:/NPC/Hostile/Bosses/Brain/Hurt"
 
 [node name="Noise" type="Sprite2D" parent="." index="0" unique_id=1677025307]
 modulate = Color(1, 1, 1, 0.7372549)

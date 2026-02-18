@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{5a69f238-aa6e-4460-b7d5-8a68038691b5}">
 		<property name="name">
-			<value>Hit</value>
+			<value>Hurt</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{9e0c0eba-302b-4831-ab18-7d972ddb62f6}</destination>
+			<destination>{a0c006a0-1a9c-4dbb-9723-188ff4b6bc45}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{998df053-444c-4c18-8aa4-d1658b74233e}</destination>
@@ -53,7 +53,7 @@
 			<destination>{278d414d-0e74-4a6e-8cb8-549ceb392b09}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{a0f3faae-5985-4b73-b58b-f6912fa13ce2}</destination>
+			<destination>{b3764c78-ab6b-406f-97e1-4419a9364426}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{820d1872-d19e-4c97-9f6e-41f978b61372}">

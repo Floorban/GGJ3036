@@ -147,9 +147,9 @@ base_crit_chance = 0.5
 base_crit_damage = 1.2
 base_stun_resist = 3.0
 arm = NodePath("BoxerArm")
-sfx_die = "event:/SFX/NPC/Boxer/Die"
-sfx_entry = "event:/SFX/NPC/Boxer/Entry"
-sfx_hurt = "event:/SFX/NPC/Boxer/Hurt"
+sfx_die = "event:/NPC/Hostile/Bosses/Boxer/Die"
+sfx_entry = "event:/NPC/Hostile/Bosses/Boxer/Entry"
+sfx_hurt = "event:/NPC/Hostile/Bosses/Boxer/Hurt"
 
 [node name="Shoulder" type="Sprite2D" parent="." index="0" unique_id=799220475]
 z_index = -3

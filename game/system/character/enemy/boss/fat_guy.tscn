@@ -159,9 +159,9 @@ base_crit_damage = 1.55
 base_stun_strength = 2.0
 base_stun_resist = 4.0
 arm = NodePath("FatArm")
-sfx_die = "event:/SFX/NPC/Fatso/Die"
-sfx_entry = "event:/SFX/NPC/Fatso/Entry"
-sfx_hurt = "event:/SFX/NPC/Fatso/Hurt"
+sfx_die = "event:/NPC/Hostile/Bosses/Fatso/Die"
+sfx_entry = "event:/NPC/Hostile/Bosses/Fatso/Entry"
+sfx_hurt = "event:/NPC/Hostile/Bosses/Fatso/Hurt"
 
 [node name="Noise" type="Sprite2D" parent="." index="0" unique_id=1677025307]
 modulate = Color(1, 1, 1, 0.7372549)

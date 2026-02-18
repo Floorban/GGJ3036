@@ -13,7 +13,7 @@ class_name Anatomy extends Node2D
 
 #AUDIO
 var sfx_blood: String = "event:/SFX/Surgery/Blood"
-var sfx_scream: String = "event:/SFX/NPC/Player/Scream"
+var sfx_scream: String = "event:/NPC/Non-Hostile/Player/Scream"
 var sfx_select: String = "event:/SFX/Surgery/Select"
 var sfx_squirt: String = "event:/SFX/Surgery/Squirt"
 var i_blood: FmodEvent
