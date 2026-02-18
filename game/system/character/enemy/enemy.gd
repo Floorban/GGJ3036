@@ -99,6 +99,7 @@ func set_hp(amount: float) -> void:
 	super.set_hp(amount)
 	Tutorial.enemy_broken_part()
 
+
 func enemy_attack(attack_target: Anatomy) -> void:
 	if not can_control or rest_mode or is_dead:
 		attack_target.is_targeted = false

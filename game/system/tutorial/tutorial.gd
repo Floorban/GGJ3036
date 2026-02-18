@@ -55,21 +55,21 @@ func self_broken_part() -> void:
 	DialogueManager.clear_all_text_boxes()
 
 
-func enemy_broken_part() -> void:
-	if DialogueManager.hide_dialogue: return
-	
-	if enemy_part_broken:
-		return
-	enemy_part_broken = true
-	await get_tree().create_timer(0.5).timeout
-	DialogueManager.say("YESS Keep punching him!")
-	await wait_for_action()
-	DialogueManager.say("You gotta punch that part out out place!")
-	await wait_for_action()
-	DialogueManager.say("There can only be one winner! ! Kill him or wait to be killed")
-	await wait_for_action()
-	await get_tree().create_timer(2.0).timeout
-	DialogueManager.clear_all_text_boxes()
+#func enemy_broken_part() -> void:
+	#if DialogueManager.hide_dialogue: return
+	#
+	#if enemy_part_broken:
+		#return
+	#enemy_part_broken = true
+	#await get_tree().create_timer(0.5).timeout
+	#DialogueManager.say("YESS Keep punching him!")
+	#await wait_for_action()
+	#DialogueManager.say("You gotta punch that part out out place!")
+	#await wait_for_action()
+	#DialogueManager.say("There can only be one winner! ! Kill him or wait to be killed")
+	#await wait_for_action()
+	#await get_tree().create_timer(2.0).timeout
+	#DialogueManager.clear_all_text_boxes()
 
 
 func surgery_intro() -> void:

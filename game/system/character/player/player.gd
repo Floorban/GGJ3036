@@ -50,9 +50,6 @@ func start_round() -> void:
 		#return selected_target
 	#return null
 
-func set_hp(amount: float) -> void:
-	super.set_hp(amount)
-	Tutorial.self_broken_part()
 
 func _on_attack_finished() -> void:
 	super._on_attack_finished()
