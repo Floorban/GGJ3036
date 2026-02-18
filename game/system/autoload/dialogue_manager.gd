@@ -7,6 +7,7 @@ extends CanvasLayer
 @export var spacing := 10
 @export var base_offset := Vector2(100, -100)
 var dialogues: Array[DialogueBox] = []
+var static_boxes: Array[DialogueBox] = []
 var lifetime_timers := {} # dictionary<DialogueBox, SceneTreeTimer>
 var freeze_dialogue_boxes := false
 
@@ -34,26 +35,32 @@ func _ready() -> void:
 	npc_idle()
 
 
-func say(text: String, npc: NPC = NPC.COACH, duration := 10.0) -> void:
-	if not dialogue_scene: return
-	npc_icon.texture = npc_icons.get(npc, npc_icons[NPC.UNKNOWN])
+func say(text: String, npc: NPC = NPC.COACH, stay: bool = true, duration := 10.0) -> DialogueBox:
+	if not dialogue_scene: return null
 	
+	npc_icon.texture = npc_icons.get(npc, npc_icons[NPC.UNKNOWN])
 	npc_talk()
+	
 	var box := dialogue_scene.instantiate() as DialogueBox
 	add_child(box)
 	box.set_text(text)
 	box.lifetime = duration
 	dialogues.append(box)
-
-	_start_lifetime(box, duration)
+		
+	if stay:
+		static_boxes.append(box)
+	else:
+		_start_lifetime(box, duration)
+	
 	if dialogues.size() > max_visible:
 		var oldest = dialogues[0]
-		if is_instance_valid(oldest): oldest.fade_out()
-
+		if is_instance_valid(oldest) and oldest not in static_boxes:
+			oldest.fade_out()
+	
 	audio.play(self, sfx_chat)
-
 	await get_tree().process_frame
 	_reflow()
+	return box
 
 
 func _start_lifetime(box: DialogueBox, duration: float) -> void:
@@ -65,11 +72,7 @@ func _start_lifetime(box: DialogueBox, duration: float) -> void:
 		var strong_box = weak_box.get_ref()
 		if strong_box == null:
 			return
-		if strong_box not in dialogues:
-			lifetime_timers.erase(strong_box)
-			return
-
-		if freeze_dialogue_boxes:
+		if freeze_dialogue_boxes or strong_box in static_boxes:
 			_start_lifetime(strong_box, duration / 2)
 		else:
 			lifetime_timers.erase(strong_box)
@@ -108,10 +111,13 @@ func clear_all_text_boxes() -> void:
 	for box in dialogues.duplicate():
 		if box in lifetime_timers:
 			lifetime_timers.erase(box)
+		if box in static_boxes:
+			static_boxes.erase(box)
 		await get_tree().create_timer(0.3).timeout
 		if is_instance_valid(box): box.fade_out()
 	dialogues.clear()
 	lifetime_timers.clear()
+	static_boxes.clear()
 
 
 func remove_box(box: DialogueBox) -> void:
@@ -122,6 +128,14 @@ func remove_box(box: DialogueBox) -> void:
 		_reflow()
 		
 	if dialogues.is_empty(): npc_idle()
+
+
+func remove_static_box(box: DialogueBox, duration := 5.0) -> void:
+	if box in static_boxes:
+		static_boxes.erase(box)
+	if box in dialogues:
+		_start_lifetime(box, duration)
+
 
 var talking_tween: Tween
 var idle_modulate := Color(0.132, 0.132, 0.132, 0.0)

@@ -18,15 +18,17 @@ func combat_intro() -> void:
 	if DialogueManager.hide_dialogue: return
 	
 	await get_tree().create_timer(2.0).timeout
-	DialogueManager.say("Remember how to punch this motherfucker right?")
+	var box1 = await DialogueManager.say("Remember how to punch this motherfucker right?")
 	await wait_for_action()
+	DialogueManager.remove_static_box(box1)
 	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his face parts to attack")
 	await wait_for_action()
 	DialogueManager.say("(Hover over the icon to see detailed description)")
 	await wait_for_action()
-	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack")
-	await wait_for_action()
-	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to defend")
+	#var box4 = await DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack")
+	#await wait_for_action()
+	#DialogueManager.remove_static_box(box4)
+	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to block your opponent's attack")
 	await wait_for_action()
 	DialogueManager.say("NOW LOCK INNN ! ! !")
 	await get_tree().create_timer(2.0).timeout

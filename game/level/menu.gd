@@ -48,12 +48,15 @@ func itch() -> void:
 func intro_dialogue() -> void:
 	if tutorial:
 		await get_tree().create_timer(1.0).timeout
-		DialogueManager.say("Let me fix your nose first, come here.", DialogueManager.NPC.UNKNOWN)
+		var box1 = await DialogueManager.say("Let me fix your nose first, come here.", DialogueManager.NPC.UNKNOWN)
 		await Tutorial.wait_for_action()
-		DialogueManager.say("(Hover over the text boxes to keep them stayed)", DialogueManager.NPC.UNKNOWN)
+		DialogueManager.remove_static_box(box1)
+		var box2 = await DialogueManager.say("(Hover over the text boxes to keep them stayed)", DialogueManager.NPC.UNKNOWN)
 		await Tutorial.wait_for_action()
-		DialogueManager.say("You signed up for this! Now tough it out.", DialogueManager.NPC.UNKNOWN)
+		DialogueManager.remove_static_box(box2)
+		var box3 = await DialogueManager.say("You signed up for this! Now tough it out.", DialogueManager.NPC.UNKNOWN)
 		await Tutorial.wait_for_action()
+		DialogueManager.remove_static_box(box3)
 		DialogueManager.say("Now get up... and go get that money back.", DialogueManager.NPC.UNKNOWN)
 		await Tutorial.wait_for_action()
 		await get_tree().create_timer(0.5).timeout
