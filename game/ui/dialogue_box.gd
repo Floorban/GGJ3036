@@ -25,8 +25,8 @@ func fade_out() -> void:
 	if float_tween:
 		float_tween.kill()
 
-	if get_parent().has_method("remove_box"):
-		get_parent().remove_box(self)
+	if self in DialogueManager.dialogues:
+		DialogueManager.remove_box(self)
 
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(self, "modulate:a", 0.0, 0.2)

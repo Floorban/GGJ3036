@@ -7,6 +7,7 @@ extends CanvasLayer
 @export var spacing := 10
 @export var base_offset := Vector2(100, -100)
 var dialogues: Array[DialogueBox] = []
+var lifetime_timers := {} # dictionary<DialogueBox, SceneTreeTimer>
 var freeze_dialogue_boxes := false
 
 ## NPCs
@@ -48,11 +49,19 @@ func say(text: String, duration := 10.0, npc: String = UNKNOWN) -> void:
 
 
 func _start_lifetime(box: DialogueBox, duration: float) -> void:
+	if box in lifetime_timers:
+		lifetime_timers.erase(box)
+
 	var timer := get_tree().create_timer(duration)
+	lifetime_timers[box] = timer
 	timer.timeout.connect(func():
+		if box not in dialogues:
+			lifetime_timers.erase(box)
+			return
 		if freeze_dialogue_boxes:
-			_start_lifetime(box, duration / 2)
-		elif box in dialogues:
+			_start_lifetime(box, 0.5)
+		else:
+			lifetime_timers.erase(box)
 			box.fade_out()
 	)
 
@@ -83,7 +92,20 @@ func _reflow() -> void:
 		
 		current_y -= spacing
 
+
+func clear_all_text_boxes() -> void:
+	for box in dialogues.duplicate():
+		if box in lifetime_timers:
+			lifetime_timers.erase(box)
+		await get_tree().create_timer(0.2).timeout
+		box.fade_out()
+	dialogues.clear()
+	lifetime_timers.clear()
+
+
 func remove_box(box: DialogueBox) -> void:
+	if box in lifetime_timers:
+		lifetime_timers.erase(box)
 	if box in dialogues:
 		dialogues.erase(box)
 		_reflow()

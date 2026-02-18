@@ -47,16 +47,20 @@ func itch() -> void:
 func intro_dialogue() -> void:
 	if tutorial:
 		await get_tree().create_timer(0.8).timeout
-		DialogueManager.say("Let me fix your nose first, come here")
+		DialogueManager.say("Let me fix your nose first, come here.")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("You still remember how to punch this motherfucker right?")
+		DialogueManager.say("(Hover over the text boxes to keep them stayed)")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say(DialogueManager.tooltip(left_click) + "on his face parts to attack")
+		DialogueManager.say("You signed up for this! Now tough it out.")
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
-
+		DialogueManager.say("Now get up... and go get that money back.")
+		await get_tree().create_timer(0.25).timeout
+		await DialogueManager.wait_for_dialogue_continue()
+		await get_tree().create_timer(0.2).timeout
+		DialogueManager.clear_all_text_boxes()
 		dialogue_end.emit()
 	else:
 		await get_tree().create_timer(1.0).timeout
@@ -76,17 +80,21 @@ func intro_dialogue() -> void:
 		await get_tree().create_timer(0.25).timeout
 		await DialogueManager.wait_for_dialogue_continue()
 		DialogueManager.say("Good luck", 1.0)
+		
 		dialogue_end.emit()
 
 
 func tutorial_dialogue() -> void:
 	await get_tree().create_timer(2.0).timeout
-	DialogueManager.say("tutoral test 1111")
+	DialogueManager.say("You remember how to punch this motherfucker right?")
 	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say("tutoral test222222222222222222")
+	DialogueManager.say(DialogueManager.tooltip(left_click) + "on his face parts to attack")
 	await get_tree().create_timer(0.25).timeout
 	await DialogueManager.wait_for_dialogue_continue()
-	DialogueManager.say("tutoral test 1333333333333333333")
+	DialogueManager.say("(Hover over the icon to see detailed description)")
+	await get_tree().create_timer(0.25).timeout
+	await DialogueManager.wait_for_dialogue_continue()
+	DialogueManager.say(DialogueManager.tooltip(left_click) + "on your face parts to defend")
 	await get_tree().create_timer(0.25).timeout
 	await DialogueManager.wait_for_dialogue_continue()
 	GameManager.combat_area.enemy.begin_enemy()
