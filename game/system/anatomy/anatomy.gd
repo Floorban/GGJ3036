@@ -244,17 +244,11 @@ func recover_part() -> void:
 	current_color = Color.WHITE
 	if sprite: sprite.modulate = current_color
 
-var first_pickup := false
-var first_drop := false
-
-
 func pickup_part() -> void:
 	if is_being_dragged:
 		return
 	
-	if not first_pickup:
-		first_pickup = true
-		Tutorial.on_first_pickup()
+	Tutorial.on_first_pickup()
 		
 	if GameManager.hovered_part and GameManager.hovered_part != self:
 		GameManager.hovered_part.is_being_dragged = false
@@ -277,9 +271,7 @@ func drop_part() -> void:
 	if not is_being_dragged:
 		return
 	
-	if not first_drop:
-		first_drop = true
-		Tutorial.on_first_drop()
+	Tutorial.on_first_drop()
 		
 	if GameManager.dragging_part and GameManager.dragging_part == self:
 		GameManager.dragging_part = null
