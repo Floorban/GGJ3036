@@ -1,9 +1,5 @@
 extends Node
 
-
-
-
-
 @export var left_click: Tooltip
 @export var right_click: Tooltip
 @export var left_hold: Tooltip
@@ -32,11 +28,11 @@ func combat_intro() -> void:
 	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his face parts to attack")
 	await wait_for_first_attack()
 	DialogueManager.say("The arm will perform the attack when it finishes its cooldown")
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack")
 	await wait_for_action(ACTION_TYPES.RIGHT_PRESS)
 	DialogueManager.say("NOW LOCK INNN ! ! !")
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	GameManager.combat_area.enemy.begin_enemy()
 
 

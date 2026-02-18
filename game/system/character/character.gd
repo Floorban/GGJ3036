@@ -199,6 +199,10 @@ func _process(_delta: float) -> void:
 	if arm:
 		arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
 
+func set_hp(amount: float) -> void:
+	health -= amount
+	
+
 func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool) -> void:
 	if is_dead:
 		return
@@ -215,7 +219,7 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool
 	if arm.is_blocking and blocking_part:
 		_on_block_finished()
 	target.set_hp(damage)
-	health -= damage
+	set_hp(damage)
 	var dead_anatomy := 0
 	for a in anatomy_parts:
 		if a and a.is_part_dead(): dead_anatomy += 1
