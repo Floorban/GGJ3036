@@ -306,7 +306,8 @@ func drop_part() -> void:
 	if pending_fix_area:
 		pending_fix_area.receive_anatomy(self)
 	
-	_remove_hover_visual()
+	if state != PartState.OutOfBody:
+		_remove_hover_visual()
 
 
 func check_side() -> AnatomySide:
