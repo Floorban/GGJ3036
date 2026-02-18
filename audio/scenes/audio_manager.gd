@@ -68,7 +68,7 @@ value: Variant = null
 	if not FmodServer.check_event_path(sound_path):
 		push_error("invalid FMOD event path: " + sound_path + " FROM " + caller.name)
 		return
-		
+
 	var instance: FmodEvent = FmodServer.create_event_instance(sound_path)
 	instance.set_2d_attributes(object_transform)
 

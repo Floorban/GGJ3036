@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bkubpjagrypqj"]
+
+[ext_resource type="Script" uid="uid://wfgfjd0j3cjt" path="res://game/system/tutorial/tutorial.gd" id="1_aut6k"]
+
+[node name="Tutorial" type="Node2D" unique_id=1219308028 groups=["tutorial"]]
+script = ExtResource("1_aut6k")

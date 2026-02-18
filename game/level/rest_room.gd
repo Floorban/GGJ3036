@@ -1,6 +1,6 @@
 class_name RestRoom extends Node2D
 
-@export var first_time := true
+@onready var tutorial: Tutorial = get_tree().get_first_node_in_group("tutorial")
 
 signal ready_to_fight()
 
@@ -50,25 +50,7 @@ func enter_rest_room(current_level: int) -> void:
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	audio.muffle(true)
 	
-	if first_time and not DialogueManager.hide_dialogue:
-		await get_tree().create_timer(0.5).timeout
-		DialogueManager.say("YOU GOT EM, GOOD FUCKING JOB DUDE !!")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("SO, this is the surgery room, all fancy and stuff.")
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("If your parts are destroyed (purple), you can throw em away and get new ones.", 12.0)
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("You can still reattach the brown parts, they're not too fucked up.", 15.0)
-		await get_tree().create_timer(0.25).timeout
-		await DialogueManager.wait_for_dialogue_continue()
-		DialogueManager.say("Gotta remove the healthy part from your face first if there's not enough spot for it.")
-		await get_tree().create_timer(1.5).timeout
-		DialogueManager.say("maybe you can even look a bit less ugly after fixing it.")
-	
-	first_time = false
+	if !tutorial.entered_surgery: tutorial.tutorial_enter_surgery()
 
 	for part in player.anatomy_parts:
 		if part.state == Anatomy.PartState.DESTROYED:

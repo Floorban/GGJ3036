@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://d0alrljy0et8o" path="res://sprites/ui/BandageImReady.png" id="34_u3s1c"]
 [ext_resource type="PackedScene" uid="uid://cu05fkjh25k63" path="res://game/system/character/player/fix_area.tscn" id="34_u4uef"]
 [ext_resource type="Texture2D" uid="uid://cdjjjvon41702" path="res://sprites/Backgrounds/pipe2.png" id="35_wkcso"]
+[ext_resource type="PackedScene" uid="uid://bkubpjagrypqj" path="res://game/system/tutorial/tutorial.tscn" id="40_u4uef"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e21xm"]
 radius = 100.08496
@@ -327,5 +328,7 @@ theme_override_colors/font_color = Color(1.781, 0.64, 0.667, 1)
 theme_override_fonts/font = ExtResource("3_x4kus")
 theme_override_font_sizes/font_size = 23
 vertical_alignment = 1
+
+[node name="Tutorial" parent="." unique_id=1219308028 instance=ExtResource("40_u4uef")]
 
 [editable path="Background/TrashBin"]
