@@ -114,4 +114,6 @@ func muffle(state: bool = false) -> void:
 		FmodServer.set_global_parameter_by_name_with_label(MUFFLE, FALSE)
 		muffled = false
 
+#hi
+
 #endregion
