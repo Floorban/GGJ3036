@@ -1,0 +1,337 @@
+[gd_scene format=3 uid="uid://b378v61r0ypsm"]
+
+[ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_1oes0"]
+[ext_resource type="Script" uid="uid://daoseetidxs1i" path="res://game/system/character/enemy/minion/enemy_minion.gd" id="2_1oes0"]
+[ext_resource type="Texture2D" uid="uid://cgb7kko056i60" path="res://sprites/body_parts/FaceAssets/Minions/EyeMinion1.png" id="3_2onau"]
+[ext_resource type="Texture2D" uid="uid://d1qh4lsnucnce" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead3.png" id="3_4pvfs"]
+[ext_resource type="Texture2D" uid="uid://btgglbikviq5i" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead1.png" id="3_fngwm"]
+[ext_resource type="Script" uid="uid://cyavxqhgshvv7" path="res://game/system/anatomy/anatomy_data/anatomy_data.gd" id="3_nyfvi"]
+[ext_resource type="Texture2D" uid="uid://c718x58jremuc" path="res://sprites/BodyParts/Limbs/Body.png" id="3_vhm8w"]
+[ext_resource type="Resource" uid="uid://0jmjwgv64pla" path="res://game/system/anatomy/anatomy_data/ears/ear_1.tres" id="4_01wt2"]
+[ext_resource type="Texture2D" uid="uid://cq0kudm6oa75c" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead2.png" id="4_m4835"]
+[ext_resource type="Resource" uid="uid://d1ijlfyya2e81" path="res://game/system/anatomy/anatomy_data/eyes/eye_1.tres" id="5_cxa37"]
+[ext_resource type="Texture2D" uid="uid://dvwx1qrh3voa6" path="res://sprites/body_parts/FaceAssets/Minions/MinionEar3.png" id="5_ogfbv"]
+[ext_resource type="Resource" uid="uid://whw0ngktt85q" path="res://game/system/anatomy/anatomy_data/ears/ear_2.tres" id="5_vh0p1"]
+[ext_resource type="Resource" uid="uid://d6ixon3t1iha" path="res://game/system/anatomy/anatomy_data/mouths/mouth_1.tres" id="6_3cs33"]
+[ext_resource type="Texture2D" uid="uid://c5h63abronlgd" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead4.png" id="6_6mgf2"]
+[ext_resource type="Resource" uid="uid://df551hcuv2knr" path="res://game/system/anatomy/anatomy_data/ears/ear_3.tres" id="6_elfxy"]
+[ext_resource type="Texture2D" uid="uid://cpdif6588tb4" path="res://sprites/body_parts/FaceAssets/MCfacevariations/Noses/GoldenNose.png" id="6_jfqqk"]
+[ext_resource type="Resource" uid="uid://xn8tofgfmve1" path="res://game/system/anatomy/anatomy_data/ears/ear_4.tres" id="7_g12dy"]
+[ext_resource type="Texture2D" uid="uid://cj6p7ulmlsv8t" path="res://sprites/body_parts/FaceAssets/Minions/MouthMinion1.png" id="7_s18kw"]
+[ext_resource type="Resource" uid="uid://dpetbman3pmpf" path="res://game/system/anatomy/anatomy_data/noses/nose_1.tres" id="7_viho1"]
+[ext_resource type="Resource" uid="uid://nw047vl0jvia" path="res://game/system/anatomy/anatomy_data/ears/ear_5.tres" id="8_fngwm"]
+[ext_resource type="PackedScene" uid="uid://crx0mik0fvikf" path="res://game/system/anatomy/parts/body/minion_arm.tscn" id="9_qlcty"]
+[ext_resource type="Resource" uid="uid://be4w00l0xfgfy" path="res://game/system/anatomy/anatomy_data/eyes/eye_2.tres" id="10_m4835"]
+[ext_resource type="Resource" uid="uid://djelb2ai7rmts" path="res://game/system/anatomy/anatomy_data/eyes/eye_3.tres" id="11_6mgf2"]
+[ext_resource type="Resource" uid="uid://dm4j8gf0i2ua0" path="res://game/system/anatomy/anatomy_data/eyes/eye_4.tres" id="12_v43dc"]
+[ext_resource type="Resource" uid="uid://bls6j1d24v8sj" path="res://game/system/anatomy/anatomy_data/eyes/eye_5.tres" id="13_tdr4f"]
+[ext_resource type="Resource" uid="uid://sls8ofco7idm" path="res://game/system/anatomy/anatomy_data/mouths/mouth_2.tres" id="15_gljal"]
+[ext_resource type="Resource" uid="uid://bjgd6lht4mryd" path="res://game/system/anatomy/anatomy_data/mouths/mouth_3.tres" id="16_3bd15"]
+[ext_resource type="Resource" uid="uid://bbhs1ye8sv4ks" path="res://game/system/anatomy/anatomy_data/mouths/mouth_4.tres" id="17_fidl0"]
+[ext_resource type="Resource" uid="uid://tds2w2lqssd2" path="res://game/system/anatomy/anatomy_data/mouths/mouth_5.tres" id="18_plc2l"]
+[ext_resource type="Resource" uid="uid://6yfxo4d3hr60" path="res://game/system/anatomy/anatomy_data/noses/nose_2.tres" id="20_6xx7n"]
+[ext_resource type="Resource" uid="uid://w0xl2fkhx70q" path="res://game/system/anatomy/anatomy_data/noses/nose_3.tres" id="21_53y4o"]
+[ext_resource type="Resource" uid="uid://durreys6pu6p3" path="res://game/system/anatomy/anatomy_data/noses/nose_4.tres" id="22_fmp5j"]
+[ext_resource type="Resource" uid="uid://cthnphp2qe0k3" path="res://game/system/anatomy/anatomy_data/noses/nose_5.tres" id="23_sgu7f"]
+
+[sub_resource type="Shader" id="Shader_2ro5p"]
+code = "shader_type canvas_item;
+
+uniform sampler2D sprite_texture : source_color, filter_linear;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float glowSize : hint_range(0.0, 300.0) = 15.0;
+uniform int glowDensity : hint_range(0, 30) = 3;
+uniform int glowRadialCoverage : hint_range(0, 32) = 4;
+uniform float glowAngle : hint_range(0.0, 6.283) = 1.57;
+uniform float glowSharpness : hint_range(0.0, 5.0) = 1.0;
+uniform float alphaThreshold : hint_range(0.0, 1.0) = 0.2;
+
+void fragment() {
+	vec4 col = texture(sprite_texture, UV);
+
+	COLOR = col;
+
+	vec2 pixel_size = 1.0 / vec2(textureSize(sprite_texture, 0));
+	float alph = 0.0;
+
+	for (int i = 0; i < glowRadialCoverage; i++) {
+		for (int j = 0; j < glowDensity; j++) {
+			float angle = (TAU / float(glowRadialCoverage)) * float(i + 1) + glowAngle;
+			float dist = glowSize * float(j + 1) / float(glowDensity);
+
+			vec2 offset = vec2(sin(angle), cos(angle)) * pixel_size * dist;
+			vec4 tex = texture(sprite_texture, UV + offset);
+
+			float distFrom = float(glowDensity - j) / float(glowDensity);
+			float sharpness = pow(distFrom, glowSharpness);
+
+			alph += tex.a * line_color.a * sharpness;
+		}
+	}
+
+	if (col.a < alphaThreshold) {
+		COLOR.rgb = line_color.rgb;
+		COLOR.a = alph;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f31xm"]
+shader = SubResource("Shader_2ro5p")
+shader_parameter/sprite_texture = ExtResource("3_2onau")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 6.000000285
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfqqk"]
+radius = 27.0
+height = 82.0
+
+[sub_resource type="Shader" id="Shader_s18kw"]
+code = "shader_type canvas_item;
+
+uniform sampler2D sprite_texture : source_color, filter_linear;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float glowSize : hint_range(0.0, 300.0) = 15.0;
+uniform int glowDensity : hint_range(0, 30) = 3;
+uniform int glowRadialCoverage : hint_range(0, 32) = 4;
+uniform float glowAngle : hint_range(0.0, 6.283) = 1.57;
+uniform float glowSharpness : hint_range(0.0, 5.0) = 1.0;
+uniform float alphaThreshold : hint_range(0.0, 1.0) = 0.2;
+
+void fragment() {
+	vec4 col = texture(sprite_texture, UV);
+
+	COLOR = col;
+
+	vec2 pixel_size = 1.0 / vec2(textureSize(sprite_texture, 0));
+	float alph = 0.0;
+
+	for (int i = 0; i < glowRadialCoverage; i++) {
+		for (int j = 0; j < glowDensity; j++) {
+			float angle = (TAU / float(glowRadialCoverage)) * float(i + 1) + glowAngle;
+			float dist = glowSize * float(j + 1) / float(glowDensity);
+
+			vec2 offset = vec2(sin(angle), cos(angle)) * pixel_size * dist;
+			vec4 tex = texture(sprite_texture, UV + offset);
+
+			float distFrom = float(glowDensity - j) / float(glowDensity);
+			float sharpness = pow(distFrom, glowSharpness);
+
+			alph += tex.a * line_color.a * sharpness;
+		}
+	}
+
+	if (col.a < alphaThreshold) {
+		COLOR.rgb = line_color.rgb;
+		COLOR.a = alph;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vhm8w"]
+shader = SubResource("Shader_s18kw")
+shader_parameter/sprite_texture = ExtResource("3_2onau")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 6.000000285
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlcty"]
+radius = 27.000454
+height = 80.00091
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nyfvi"]
+shader = SubResource("Shader_s18kw")
+shader_parameter/sprite_texture = ExtResource("5_ogfbv")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 6.000000285
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5k8n0"]
+radius = 25.495087
+height = 104.72829
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ogfbv"]
+shader = SubResource("Shader_s18kw")
+shader_parameter/sprite_texture = ExtResource("5_ogfbv")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 6.000000285
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s18kw"]
+radius = 25.141571
+height = 106.143
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s18kw"]
+shader = SubResource("Shader_s18kw")
+shader_parameter/sprite_texture = ExtResource("6_jfqqk")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 6.000000285
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhm8w"]
+radius = 25.333332
+height = 99.33333
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qlcty"]
+shader = SubResource("Shader_s18kw")
+shader_parameter/sprite_texture = ExtResource("7_s18kw")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 6.000000285
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s18kw"]
+size = Vector2(128, 50)
+
+[node name="EnemyMinion" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_1oes0")]
+script = ExtResource("2_1oes0")
+face_varuabts = Array[Texture2D]([ExtResource("3_fngwm"), ExtResource("4_m4835"), ExtResource("3_4pvfs"), ExtResource("6_6mgf2")])
+ear_variants = Array[ExtResource("3_nyfvi")]([ExtResource("4_01wt2"), ExtResource("5_vh0p1"), ExtResource("6_elfxy"), ExtResource("7_g12dy"), ExtResource("8_fngwm")])
+eye_variants = Array[ExtResource("3_nyfvi")]([ExtResource("5_cxa37"), ExtResource("10_m4835"), ExtResource("11_6mgf2"), ExtResource("12_v43dc"), ExtResource("13_tdr4f")])
+mouth_variants = Array[ExtResource("3_nyfvi")]([ExtResource("6_3cs33"), ExtResource("15_gljal"), ExtResource("16_3bd15"), ExtResource("17_fidl0"), ExtResource("18_plc2l")])
+nose_variants = Array[ExtResource("3_nyfvi")]([ExtResource("7_viho1"), ExtResource("20_6xx7n"), ExtResource("21_53y4o"), ExtResource("22_fmp5j"), ExtResource("23_sgu7f")])
+boss_name = "Minion1"
+is_minion = true
+switch_chance = 0.5
+min_switch_time = 3.0
+base_cooldown = 2.0
+arm = NodePath("MinionArm")
+sfx_die = "event:/SFX/NPC/Eric/Die"
+sfx_entry = "event:/SFX/NPC/Eric/Entry"
+sfx_hurt = "event:/SFX/NPC/Eric/Hurt"
+
+[node name="Shoulder" type="Sprite2D" parent="." index="0" unique_id=1191182705]
+z_index = -3
+texture_filter = 1
+rotation = -3.054326
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_vhm8w")
+
+[node name="Face" parent="." index="1" unique_id=1276534686]
+self_modulate = Color(0.6752505, 0.67525053, 0.67525053, 1)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("3_4pvfs")
+
+[node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
+position = Vector2(-59.999996, -26.666666)
+
+[node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_f31xm")
+texture = ExtResource("3_2onau")
+
+[node name="CollisionShape2D" parent="Face/Features/EyeL/MouseDetectArea" parent_id_path=PackedInt32Array(1690948451, 1106976729) index="0" unique_id=149295176]
+position = Vector2(0, 1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jfqqk")
+
+[node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
+position = Vector2(50, -26.666666)
+
+[node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_vhm8w")
+position = Vector2(1.6681762, -3.3325772)
+rotation = 0.12853974
+texture = ExtResource("3_2onau")
+
+[node name="MouseDetectArea" parent="Face/Features/EyeR" index="1" unique_id=1106976729]
+position = Vector2(0.0208776, -0.46956027)
+
+[node name="CollisionShape2D" parent="Face/Features/EyeR/MouseDetectArea" index="0" unique_id=149295176]
+position = Vector2(2.9795806, -0.52907646)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qlcty")
+
+[node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
+position = Vector2(-109.00001, 12)
+
+[node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_nyfvi")
+position = Vector2(-0.8338795, -1.1422043)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_ogfbv")
+
+[node name="CollisionShape2D" parent="Face/Features/EarL/MouseDetectArea" parent_id_path=PackedInt32Array(1222327045, 1106976729) index="0" unique_id=149295176]
+position = Vector2(-1.5136031, -3.272457)
+rotation = -0.0432691
+shape = SubResource("CapsuleShape2D_5k8n0")
+
+[node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
+position = Vector2(109.99999, -9)
+rotation = 0.06407964
+
+[node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_ogfbv")
+position = Vector2(0, -1)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_ogfbv")
+
+[node name="CollisionShape2D" parent="Face/Features/EarR/MouseDetectArea" parent_id_path=PackedInt32Array(959483894, 1106976729) index="0" unique_id=149295176]
+position = Vector2(-0.23479381, -3.6591413)
+rotation = 0.037718114
+shape = SubResource("CapsuleShape2D_s18kw")
+
+[node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
+position = Vector2(-4, 5)
+
+[node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_s18kw")
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("6_jfqqk")
+
+[node name="MouseDetectArea" parent="Face/Features/Nose" index="1" unique_id=1106976729]
+position = Vector2(2, -1)
+
+[node name="CollisionShape2D" parent="Face/Features/Nose/MouseDetectArea" index="0" unique_id=149295176]
+position = Vector2(0, -0.33333373)
+shape = SubResource("CapsuleShape2D_vhm8w")
+
+[node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
+position = Vector2(0, 73.33333)
+
+[node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
+material = SubResource("ShaderMaterial_qlcty")
+position = Vector2(-1, 2)
+scale = Vector2(1, 1)
+texture = ExtResource("7_s18kw")
+
+[node name="CollisionShape2D" parent="Face/Features/Mouth/MouseDetectArea" parent_id_path=PackedInt32Array(508432269, 1106976729) index="0" unique_id=149295176]
+position = Vector2(-1, 6)
+shape = SubResource("RectangleShape2D_s18kw")
+
+[node name="MinionArm" parent="." index="2" unique_id=1972221418 instance=ExtResource("9_qlcty")]
+z_index = 10
+position = Vector2(-106.99999, 9.999999)
+rotation = -0.09027928
+
+[editable path="Face/Features/EyeL"]
+[editable path="Face/Features/EyeR"]
+[editable path="Face/Features/EarL"]
+[editable path="Face/Features/EarR"]
+[editable path="Face/Features/Nose"]
+[editable path="Face/Features/Mouth"]

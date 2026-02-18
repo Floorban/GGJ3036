@@ -1,5 +1,10 @@
 class_name Enemy extends Character
 
+
+@export var boss_name: String
+
+var round_index := 0
+
 @export var is_minion := false
 
 @export var switch_chance := 0.5
@@ -9,7 +14,7 @@ var next_target: Anatomy
 var can_switch_target := false
 
 func _ready() -> void:
-	combat_component.start_counting.connect(swtic_target_timer)
+	combat_component.start_counting.connect(_switch_target_timer)
 
 func _process(delta: float) -> void:
 	if is_dead or not can_control or is_stuned:
@@ -17,8 +22,15 @@ func _process(delta: float) -> void:
 	super._process(delta)
 	switch_target()
 
+
+func init_character() -> void:
+	super.init_character()
+	await get_tree().create_timer(1.0).timeout
+	enemy_dialogue_end.emit()
+
 func get_ready_to_battle() -> void:
-	audio.play(sfx_entry)
+	process_mode = Node.PROCESS_MODE_INHERIT 
+	audio.play(self, sfx_entry)
 	super.get_ready_to_battle()
 	_perform_attack(next_target)
 	#arm.action_finished.connect(func(_blocking: bool): next_target = choose_target())
@@ -30,7 +42,7 @@ func start_round() -> void:
 	if next_target:
 		next_target.is_targeted = false
 		next_target._unhighlight_target()
-		
+
 func _on_action_finished(_blocking: bool) -> void:
 	if is_dead: return
 	super._on_action_finished(_blocking)
@@ -49,7 +61,7 @@ func switch_target() -> void:
 		can_switch_target = false
 		next_target = choose_target()
 
-func swtic_target_timer(duration: float) -> void:
+func _switch_target_timer(duration: float) -> void:
 	if randf() < switch_chance:
 		can_switch_target = true
 
@@ -61,7 +73,7 @@ func _perform_attack(_target: Anatomy) -> void:
 	can_action = false
 	await get_tree().create_timer(punch_strength * 2).timeout
 	
-	if next_target:
+	if next_target and not is_dead:
 		next_target.is_targeted = true
 		next_target._highlight_target()
 		arm._on_arm_charge_finished(punch_strength * 3)
@@ -94,5 +106,10 @@ func enemy_attack(attack_target: Anatomy) -> void:
 	if crit: dmg *= critical_damage
 	attack_target.is_targeted = false
 	attack_target._unhighlight_target()
-	attack_target.anatomy_hit.emit(dmg)
+	attack_target.anatomy_hit.emit(dmg, crit)
 	hit.emit(dmg, crit)
+
+func begin_enemy() -> void:
+	enemy_dialogue_end.emit()
+	await get_tree().create_timer(2.0).timeout
+	DialogueManager.clear_all_text_boxes()

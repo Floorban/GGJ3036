@@ -1,39 +1,10 @@
 [gd_scene format=3 uid="uid://b52dof6t0f114"]
 
 [ext_resource type="Script" uid="uid://dbhnnqck5fp5t" path="res://game/level/combat_area/game_ui.gd" id="1_sdr4q"]
-[ext_resource type="Shader" uid="uid://e87jkal0sa57" path="res://game/level/combat_area/jittery.gdshader" id="2_d0d35"]
-[ext_resource type="Texture2D" uid="uid://xy6o3qkvwdkp" path="res://sprites/ui/IconBGskills.png" id="3_a2ftv"]
-[ext_resource type="Texture2D" uid="uid://dhbk1rhoa56j5" path="res://sprites/ui/SkillCircle.png" id="4_rwf3v"]
-[ext_resource type="Texture2D" uid="uid://egk8mk2xn73u" path="res://sprites/ui/Blood.png" id="5_hc5ns"]
+[ext_resource type="Material" uid="uid://pp7otq316p4e" path="res://game/ui/text_jiggle_material.tres" id="3_db2jq"]
+[ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="4_db2jq"]
+[ext_resource type="Texture2D" uid="uid://dl5wch7kb3nqo" path="res://sprites/ui/BossNameTag.png" id="5_rwf3v"]
 [ext_resource type="Texture2D" uid="uid://be6nsc6wnipo3" path="res://sprites/ui/ClockBg.png" id="9_4uape"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a2ftv"]
-shader = ExtResource("2_d0d35")
-shader_parameter/jitter_strength = 7.20800034238
-shader_parameter/jitter_speed = 10.10900047691762
-shader_parameter/jitter_frequency = 21.31000100896512
-shader_parameter/separate_xy = true
-shader_parameter/time_offset = 0.0
-shader_parameter/enable_rotation = true
-shader_parameter/rotation_strength = 3.0070001428325
-shader_parameter/rotation_speed = 1.83100008371262
-shader_parameter/rotation_frequency = 4.0
-shader_parameter/enable_scaling = true
-shader_parameter/scale_strength = 0.1
-shader_parameter/scale_speed = 2.5
-shader_parameter/scale_frequency = 6.0
-shader_parameter/base_scale = 1.0
-shader_parameter/text_color = Color(0, 0, 0, 1)
-shader_parameter/use_custom_color = false
-shader_parameter/shake_intensity = 0.11200000532
-shader_parameter/enable_pixelation = true
-shader_parameter/pixel_size = 4.0
-shader_parameter/adaptive_pixels = true
-shader_parameter/enable_outline = true
-shader_parameter/outline_color = Color(0, 0, 0, 1)
-shader_parameter/outline_thickness = 1.946000068685
-shader_parameter/chromatic_aberration = true
-shader_parameter/aberration_strength = 1.0
 
 [node name="GameUI" type="Control" unique_id=1770480254]
 layout_mode = 3
@@ -49,56 +20,8 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_sdr4q")
 
-[node name="SkillPanel" type="MarginContainer" parent="." unique_id=90936105]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -20.0
-offset_bottom = 480.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/margin_right = 150
-
-[node name="BG" type="TextureRect" parent="SkillPanel" unique_id=376806588]
-custom_minimum_size = Vector2(200, 300)
-layout_mode = 2
-texture = ExtResource("3_a2ftv")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SkillPanel/BG" unique_id=2034125875]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -162.0
-offset_right = 88.0
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-theme_override_constants/separation = 24
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="SkillPanel/BG/VBoxContainer" unique_id=724808500]
-layout_mode = 2
-fill_mode = 4
-texture_under = ExtResource("4_rwf3v")
-texture_progress = ExtResource("5_hc5ns")
-
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="SkillPanel/BG/VBoxContainer" unique_id=331338717]
-layout_mode = 2
-fill_mode = 4
-texture_under = ExtResource("4_rwf3v")
-texture_progress = ExtResource("5_hc5ns")
-
 [node name="TimerPanel" type="MarginContainer" parent="." unique_id=2025147314]
+unique_name_in_owner = true
 layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
@@ -125,13 +48,49 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 50
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 5
 
 [node name="LabelRoundTimeLeft" type="Label" parent="TimerPanel/BG/MarginContainer" unique_id=2120461771]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_a2ftv")
+material = ExtResource("3_db2jq")
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8627451, 0.65882355, 0.007843138, 1)
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("4_db2jq")
+theme_override_font_sizes/font_size = 72
 text = "90"
 horizontal_alignment = 1
+
+[node name="BossNameBanner" type="TextureRect" parent="." unique_id=780067171]
+unique_name_in_owner = true
+visible = false
+z_index = 4000
+z_as_relative = false
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 1
+offset_left = -72.0
+offset_right = 528.0
+offset_bottom = 200.0
+pivot_offset = Vector2(300, 100)
+texture = ExtResource("5_rwf3v")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="BossNameBanner" unique_id=833488262]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = 2.0
+offset_right = -28.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(300, 100)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_db2jq")
+theme_override_font_sizes/font_size = 48
+text = "Brad short arms"
+horizontal_alignment = 1
+vertical_alignment = 1

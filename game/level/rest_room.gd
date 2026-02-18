@@ -3,7 +3,7 @@ class_name RestRoom extends Node2D
 signal ready_to_fight()
 
 @onready var background: Sprite2D = $Background
-@onready var ready_button: Button = %ReadyButton
+@onready var ready_button: TextureButton = %ReadyButton
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 @onready var upgrades: Node2D = %Upgrades
@@ -15,17 +15,21 @@ signal ready_to_fight()
 	5: []
 }
 
+static var attaching: bool = false
+static var attached_index: float
+var sfx_attach: String = "event:/SFX/Surgery/Attach"
+
 func get_allowed_tiers(level: int) -> Array[int]:
-	if level < 3:
+	if level < 1:
 		return [1, 2]
-	elif level < 5:
-		return [1, 2, 3]
-	elif level < 7:
+	elif level < 3:
 		return [2, 3, 4]
-	elif level < 9:
+	elif level < 4:
 		return [3, 4, 5]
+	elif level < 5:
+		return [5, 6]
 	else:
-		return [4, 5]
+		return [5, 6]
 
 @export var upgrade_parts : Array[Anatomy]
 @onready var part_spawn_markers: Array[Marker2D] = [%SpawnMarker1, %SpawnMarker2, %SpawnMarker3, %SpawnMarker4, %SpawnMarker5, %SpawnMarker6, %SpawnMarker7, %SpawnMarker8, %SpawnMarker9, %SpawnMarker10, %SpawnMarker11, %SpawnMarker12]
@@ -33,43 +37,52 @@ func get_allowed_tiers(level: int) -> Array[int]:
 func _ready() -> void:
 	Stats.rest_room = self
 	ready_button.pressed.connect(leave_rest_room)
-	leave_rest_room()
+	part_info_panel.visible = false
+	background.visible = false
+	ready_button.visible = false
+	ready_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	player.rest_mode = false
 
 func enter_rest_room(current_level: int) -> void:
-	if current_level % 2 == 0:
-		clear_upgrade_parts()
-	part_info_panel.visible = true
 	background.visible = true
-	ready_button.visible = true
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
-	audio.muffle(true, false)
+	audio.muffle(true)
+	
+	Tutorial.surgery_intro()
 
 	for part in player.anatomy_parts:
 		if part.state == Anatomy.PartState.DESTROYED:
 			part.body_owner = null
 	await  get_tree().create_timer(0.1).timeout
 	player.rest_mode = true
-	spawn_parts(current_level)
+	spawn_parts(current_level - 2)
 	connect_parts_interact_signal()
 	for p in background.get_children():
 		p.z_index = 10
+	
+	await get_tree().create_timer(2.0).timeout
+	part_info_panel.visible = true
+	ready_button.visible = true
 
 func leave_rest_room() -> void:
 	part_info_panel.visible = false
 	background.visible = false
 	ready_button.visible = false
 	ready_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	audio.muffle(true, true)
+	audio.muffle(false)
 	for i in range(player.anatomy_parts.size() - 1, -1, -1):
 		var part = player.anatomy_parts[i]
-		if part.body_owner == null or part.state != Anatomy.PartState.HEALTHY:
-			part.body_owner = null
-			part.reparent(background)
-			player.anatomy_parts.remove_at(i)
-	if player.anatomy_parts.is_empty():
-		assert(player.anatomy_parts.is_empty(), "can't start with no parts")
-		return
+		if is_instance_valid(part):
+			if part.body_owner == null or part.state != Anatomy.PartState.HEALTHY:
+				part.body_owner = null
+				part.reparent(background)
+				player.anatomy_parts.remove_at(i)
+	#if player.anatomy_parts.is_empty():
+		#assert(player.anatomy_parts.is_empty(), "can't start with no parts")
+		#return
+	clear_upgrade_parts()
 	player.rest_mode = false
+	await  get_tree().create_timer(0.1).timeout
 	ready_to_fight.emit()
 
 func clear_upgrade_parts() -> void:
@@ -77,8 +90,8 @@ func clear_upgrade_parts() -> void:
 		if not marker.get_children().is_empty():
 			for c in marker.get_children():
 				c.queue_free()
-	for part in upgrade_parts:
-		part.queue_free()
+	#for part in upgrade_parts:
+		#part.queue_free()
 	upgrade_parts.clear()
 
 var remaining_upgrade_pool: Array[PackedScene] = []
@@ -122,7 +135,7 @@ func spawn_parts(level: int) -> void:
 
 	free_markers.shuffle()
 
-	var spawn_count : int = min(6, free_markers.size())
+	var spawn_count : int = min(12, free_markers.size())
 
 	for i in range(spawn_count):
 		var scene := pick_unique_upgrade(level)
@@ -150,15 +163,6 @@ func spawn_parts(level: int) -> void:
 			part.state = Anatomy.PartState.OutOfBody
 			upgrade_parts.append(part)
 
-
-func is_marker_occupied(marker: Marker2D, radius := 2.0) -> bool:
-	for part in upgrade_parts:
-		if not is_instance_valid(part):
-			continue
-		if part.global_position.distance_to(marker.global_position) <= radius:
-			return true
-	return false
-
 func connect_parts_interact_signal() -> void:
 	if upgrade_parts.is_empty():
 		return
@@ -181,11 +185,19 @@ func show_part_info(_name: String, _state: String, _hp: float, _max_hp: float, _
 	for label in stat_labels:
 		label.text = ""
 	
-	match _stats.size():
-		1: label_part_name.modulate = Color.WHITE
-		2: label_part_name.modulate = Color.DEEP_SKY_BLUE * 1.5
-		3: label_part_name.modulate = Color.PURPLE * 1.5
-		4: label_part_name.modulate = Color.GOLD * 1.5
+	if _max_hp <= 3:
+		label_part_name.modulate = Color.WHITE
+	elif _max_hp <= 6:
+		label_part_name.modulate = Color.LIME_GREEN * 1.5
+	elif _max_hp <= 9:
+		label_part_name.modulate = Color.DEEP_SKY_BLUE * 1.5
+	elif _max_hp <= 12:
+		label_part_name.modulate = Color.PURPLE * 1.5
+	elif _max_hp <= 15:
+		label_part_name.modulate = Color.RED * 1.5
+	elif _max_hp <= 20:
+		label_part_name.modulate = Color.GOLD * 1.5
+		
 		
 	label_part_name.text = _name
 	label_part_state.text = _state

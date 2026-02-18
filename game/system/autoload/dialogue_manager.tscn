@@ -1,13 +1,29 @@
 [gd_scene format=3 uid="uid://14hrrjqso8mu"]
 
 [ext_resource type="Script" uid="uid://fiig2nq1387v" path="res://game/system/autoload/dialogue_manager.gd" id="1_qj8b8"]
+[ext_resource type="PackedScene" uid="uid://daxtt8mrrpkg0" path="res://game/ui/dialogue_box.tscn" id="2_7y0qv"]
+[ext_resource type="Texture2D" uid="uid://blr3c8tlciihf" path="res://sprites/body_parts/Basehead/Unknown.png" id="3_7oyqp"]
 
-[node name="DialogueManager" type="Control" unique_id=514810625]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="DialogueManager" type="CanvasLayer" unique_id=1639550093]
+layer = 7
 script = ExtResource("1_qj8b8")
+dialogue_scene = ExtResource("2_7y0qv")
+max_visible = 3
+spacing = 30
+base_offset = Vector2(250, -200)
+
+[node name="NPC" type="TextureRect" parent="." unique_id=1623745074]
+custom_minimum_size = Vector2(300, 300)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -400.0
+offset_right = 266.0
+offset_bottom = -100.0
+grow_vertical = 0
+rotation = -0.20236829
+pivot_offset = Vector2(150, 150)
+texture = ExtResource("3_7oyqp")
+expand_mode = 2
+stretch_mode = 5

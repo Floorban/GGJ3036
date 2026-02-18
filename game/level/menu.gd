@@ -1,22 +1,168 @@
-extends Node2D
+class_name Menu extends Node2D
 
+signal dialogue_end()
+
+@export var skip_dialogue : bool
+var tutorial := true
 @export var level_scene: PackedScene
 
-@onready var btn_start: Button = %BtnStart
+@onready var warning: TextureRect = %Warning
+
+@onready var transition_screen: TransitionScreen = %TransitionScreen
+@onready var control: Control = %Control
+@onready var btn_start: TextureButton = %BtnStart
+@onready var label_start: Label = %LabelStart
+@onready var btn_control: TextureButton = %BtnControl
+@onready var btn_credits: TextureButton = %BtnCredits
+
+@onready var page_control: TextureRect = %PageControl
+@onready var page_credits: TextureRect = %PageCredits
+
+@onready var bg_1: TextureRect = %BG1
+@onready var bg_2: TextureRect = %BG2
+
+var sfx_menu: String = "event:/Ambient/Menu"
+var i_menu: FmodEvent
+
+@onready var ending: TextureRect = %Ending
+
+@export var left_click: Tooltip
+@export var right_click: Tooltip
+
+func end() -> void:
+	if not ending:
+		return
+	transition_screen.cover()
+	ending.visible = true
+	await get_tree().create_timer(1.5).timeout
+	transition_screen.burn()
+	await get_tree().create_timer(8.0).timeout
+	ending.visible = false
+
+func discord() -> void:
+	OS.shell_open("https://discord.gg/Mpgaqru9hc")
+
+func itch() -> void:
+	OS.shell_open("https://eric911.itch.io/unfix")
+
+func intro_dialogue() -> void:
+	if tutorial:
+		await get_tree().create_timer(1.0).timeout
+		var box1 = await DialogueManager.say("Let me fix your nose first, come here.", DialogueManager.NPC.UNKNOWN)
+		await Tutorial.wait_for_action()
+		DialogueManager.remove_static_box(box1)
+		var box2 = await DialogueManager.say("(Hover over the text boxes to keep them stayed)", DialogueManager.NPC.UNKNOWN)
+		await Tutorial.wait_for_action()
+		DialogueManager.remove_static_box(box2)
+		var box3 = await DialogueManager.say("You signed up for this! Now tough it out.", DialogueManager.NPC.UNKNOWN)
+		await Tutorial.wait_for_action()
+		DialogueManager.remove_static_box(box3)
+		DialogueManager.say("Now get up... and go get that money back.", DialogueManager.NPC.UNKNOWN)
+		await Tutorial.wait_for_action()
+		await get_tree().create_timer(0.5).timeout
+		DialogueManager.clear_all_text_boxes()
+		dialogue_end.emit()
+	else:
+		await get_tree().create_timer(1.0).timeout
+		#DialogueManager.say("You noticed how each face part contribute to your stats?")
+		#await get_tree().create_timer(0.25).timeout
+		#await DialogueManager.wait_for_dialogue_continue()
+		#DialogueManager.say("Same goes to your opponents")
+		#await get_tree().create_timer(0.25).timeout
+		#await DialogueManager.wait_for_dialogue_continue()
+		#DialogueManager.say("What that means is that, if you break their most valuable part")
+		#await get_tree().create_timer(0.25).timeout
+		#await DialogueManager.wait_for_dialogue_continue()
+		#DialogueManager.say("Oh right just press 'R' to restart if you find any bug")
+		#await get_tree().create_timer(0.5).timeout
+		#await DialogueManager.wait_for_dialogue_continue()
+		#DialogueManager.say("Good luck")
+		dialogue_end.emit()
+
 
 func _ready() -> void:
-	btn_start.pressed.connect(start_game)
+	GameManager.main_menu = self
+	if i_menu == null: i_menu = audio.play_instance(self, sfx_menu)
+
+func _process(_delta: float) -> void:
+	if warning == null or ending == null:
+		return
+	if Input.is_anything_pressed() and warning and ending:
+		warning.queue_free()
+		await get_tree().create_timer(0.5).timeout
+		transition_screen.burn()
+		btn_start.pressed.connect(start_game)
+		btn_control.pressed.connect(set_control_page)
+		btn_credits.pressed.connect(set_credits_page)
 
 func start_game() -> void:
+	audio.clear_instance([i_menu])
+	control.visible = false
+	page_control.visible = false
+	page_credits.visible = false
 	btn_start.disabled = true
 	btn_start.visible = false
 	btn_start.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	btn_control.disabled = true
+	btn_control.visible = false
+	btn_control.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	btn_credits.disabled = true
+	btn_credits.visible = false
+	btn_credits.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	transition_screen.cover()
+	if not skip_dialogue:
+		await intro_dialogue()   
+
 	var level := level_scene.instantiate()
 	add_child(level)
 	if level is Level:
 		level.game_end.connect(end_game)
 
+	if not skip_dialogue:
+		await Tutorial.combat_intro()
+
 func end_game() -> void:
+	tutorial = false
+	label_start.text = "TRY AGAIN"
+	transition_screen.burn()
+	bg_1.visible = false
+	bg_2.visible = true
+	control.visible = true
 	btn_start.disabled = false
 	btn_start.visible = true
+	btn_control.disabled = false
+	btn_control.visible = true
+	btn_credits.disabled = false
+	btn_credits.visible = true
 	btn_start.mouse_filter = Control.MOUSE_FILTER_STOP
+	btn_control.mouse_filter = Control.MOUSE_FILTER_STOP
+	btn_credits.mouse_filter = Control.MOUSE_FILTER_STOP
+
+func set_control_page() -> void:
+	page_credits.visible = false
+	pop_page(page_control, !page_control.visible)
+
+func set_credits_page() -> void:
+	page_control.visible = false
+	pop_page(page_credits, !page_credits.visible)
+
+func pop_page(page: Control, show: bool) -> void:
+	if show:
+		page.visible = true
+		page.scale = Vector2(0.8, 0.8)
+		page.modulate.a = 0.0
+
+		var tween := create_tween()
+		tween.set_trans(Tween.TRANS_BACK)
+		tween.set_ease(Tween.EASE_OUT)
+		tween.tween_property(page, "scale", Vector2.ONE, 0.35)
+		tween.parallel().tween_property(page, "modulate:a", 1.0, 0.3)
+	else:
+		var tween := create_tween()
+		tween.set_trans(Tween.TRANS_BACK)
+		tween.set_ease(Tween.EASE_IN)
+		tween.tween_property(page, "scale", Vector2(0.3, 0.3), 0.28)
+		tween.parallel().tween_property(page, "modulate:a", 0.0, 0.23)
+		tween.finished.connect(func():
+			page.visible = false
+		)

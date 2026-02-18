@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EarData" format=3 uid="uid://xn8tofgfmve1"]
+
+[ext_resource type="Texture2D" uid="uid://b1m8irpy6o87m" path="res://sprites/body_parts/FaceAssets/MCfacevariations/ears/MetallicEar.png" id="1_l40q1"]
+[ext_resource type="Script" uid="uid://chk7qjlisad38" path="res://game/system/anatomy/anatomy_data/ear_data.gd" id="2_glnpi"]
+
+[resource]
+script = ExtResource("2_glnpi")
+anatomy_sprite = ExtResource("1_l40q1")
+anatomy_hp = 5
+metadata/_custom_type_script = "uid://chk7qjlisad38"

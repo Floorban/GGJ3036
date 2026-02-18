@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MouthData" format=3 uid="uid://bjgd6lht4mryd"]
+
+[ext_resource type="Texture2D" uid="uid://do7gtknythobb" path="res://sprites/body_parts/FaceAssets/MCfacevariations/Mouths/MissingTeethMouth.png" id="1_e0f72"]
+[ext_resource type="Script" uid="uid://b4w42ei3axoe5" path="res://game/system/anatomy/anatomy_data/mouth_data.gd" id="2_1q4ja"]
+
+[resource]
+script = ExtResource("2_1q4ja")
+anatomy_sprite = ExtResource("1_e0f72")
+anatomy_hp = 5
+metadata/_custom_type_script = "uid://b4w42ei3axoe5"

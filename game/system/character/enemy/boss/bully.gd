@@ -1,5 +1,5 @@
 class_name Bully extends Enemy
-#
+
 #func choose_target() -> Anatomy:
 	#if not can_control and next_target:
 		#next_target.is_targeted = false
@@ -18,8 +18,8 @@ class_name Bully extends Enemy
 		#
 	#var new_target: Anatomy = valid_targets.pick_random()
 	#targeting_part = new_target
+	#if can_control:
+		#targeting_part.is_targeted = true
 	#targeting_part.is_targeted = true
 	#targeting_part._highlight_target()
 	#return new_target
-
-#

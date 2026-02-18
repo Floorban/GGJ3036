@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://5n2ghk5tkp7t" path="res://game/level/rest_room.gd" id="1_nbyfe"]
 [ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="3_x4kus"]
 [ext_resource type="PackedScene" uid="uid://ishblhy8w5qi" path="res://game/system/anatomy/upgrades/tier2/demon_ear.tscn" id="6_2xwxa"]
+[ext_resource type="PackedScene" uid="uid://bu32lc2sraruq" path="res://game/system/anatomy/upgrades/tier1/noncha_eye_2.tscn" id="6_uy6j2"]
 [ext_resource type="PackedScene" uid="uid://1hwmwkncudxn" path="res://game/system/anatomy/upgrades/tier2/demon_eye.tscn" id="7_8sk3i"]
 [ext_resource type="PackedScene" uid="uid://m6dmohtvw0ri" path="res://game/system/anatomy/upgrades/tier1/noncha_ear.tscn" id="7_x1e6w"]
 [ext_resource type="PackedScene" uid="uid://f5k2kjw521t7" path="res://game/system/anatomy/upgrades/tier1/noncha_eye.tscn" id="8_2xwxa"]
@@ -14,41 +15,63 @@
 [ext_resource type="Texture2D" uid="uid://bgs8ei7uqqtnk" path="res://sprites/ui/EnemyStatHealthLine.png" id="9_l1uns"]
 [ext_resource type="PackedScene" uid="uid://d2va0cs367xx0" path="res://game/system/anatomy/upgrades/tier3/fucked_ear.tscn" id="10_7lyvt"]
 [ext_resource type="Texture2D" uid="uid://7jimgxiewrvo" path="res://sprites/ui/EnemyStatHealthBar.png" id="10_563by"]
+[ext_resource type="PackedScene" uid="uid://j3wao5bil4nh" path="res://game/system/anatomy/upgrades/tier2/demon_ear_2.tscn" id="10_kxqh5"]
 [ext_resource type="PackedScene" uid="uid://b6t5437f1apxj" path="res://game/system/anatomy/upgrades/tier1/noncha_mouth.tscn" id="10_xisql"]
 [ext_resource type="PackedScene" uid="uid://s8u8xkowfvjv" path="res://game/system/anatomy/upgrades/tier3/fucked_eye.tscn" id="11_v0ssp"]
 [ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="12_8sk3i"]
-[ext_resource type="PackedScene" uid="uid://egt4qb24ek7n" path="res://game/system/anatomy/upgrades/tier3/fucked_mouth.tscn" id="12_qk48h"]
 [ext_resource type="PackedScene" uid="uid://cx0kphb1k46bi" path="res://game/system/anatomy/upgrades/tier3/fucked_nose.tscn" id="13_r5fj8"]
 [ext_resource type="PackedScene" uid="uid://b50j8rkhulsb0" path="res://game/system/anatomy/upgrades/tier4/elf_ear.tscn" id="14_bbuk5"]
 [ext_resource type="PackedScene" uid="uid://dwjlhjh7e48gb" path="res://game/system/anatomy/upgrades/tier4/elf_eye.tscn" id="15_8idhi"]
+[ext_resource type="PackedScene" uid="uid://c8q1qwe75dlkf" path="res://game/system/anatomy/upgrades/tier3/fucked_mouth_2.tscn" id="16_ayd62"]
 [ext_resource type="PackedScene" uid="uid://bjy44ym3bqqkk" path="res://game/system/anatomy/upgrades/tier4/elf_mouth.tscn" id="16_kxqh5"]
 [ext_resource type="PackedScene" uid="uid://u124wvxpoejt" path="res://game/system/anatomy/upgrades/tier4/elf_nose.tscn" id="17_tn4a5"]
+[ext_resource type="PackedScene" uid="uid://umd7tyqplvls" path="res://game/system/anatomy/upgrades/tier5/lol_ear.tscn" id="18_r5fj8"]
+[ext_resource type="PackedScene" uid="uid://dhbymb1l68vck" path="res://game/system/anatomy/upgrades/tier5/lol_eye.tscn" id="19_8idhi"]
+[ext_resource type="PackedScene" uid="uid://b3tltra7tpupf" path="res://game/system/anatomy/upgrades/tier5/lol_mouth.tscn" id="19_bbuk5"]
+[ext_resource type="PackedScene" uid="uid://b2iw7uva5cuay" path="res://game/system/anatomy/upgrades/tier5/lol_nose.tscn" id="20_8idhi"]
+[ext_resource type="PackedScene" uid="uid://dil04dd37e0mu" path="res://game/system/anatomy/upgrades/tier5/lol_nose_2.tscn" id="21_bbuk5"]
+[ext_resource type="PackedScene" uid="uid://1m5taxlp60cd" path="res://game/system/anatomy/upgrades/tier6/fury_ear.tscn" id="25_wjcb5"]
+[ext_resource type="PackedScene" uid="uid://bcoca4w2gblqw" path="res://game/system/anatomy/upgrades/tier6/fury_eye.tscn" id="26_uy6j2"]
+[ext_resource type="PackedScene" uid="uid://vfskt7y0pkwf" path="res://game/system/anatomy/upgrades/tier6/fury_eye_2.tscn" id="27_ayd62"]
+[ext_resource type="PackedScene" uid="uid://cwmjhk1edv11v" path="res://game/system/anatomy/upgrades/tier6/fury_mouth.tscn" id="28_u3s1c"]
+[ext_resource type="PackedScene" uid="uid://dppwuvorymkwk" path="res://game/system/anatomy/upgrades/tier6/fury_mouth_2.tscn" id="29_e21xm"]
+[ext_resource type="Texture2D" uid="uid://cdmnrh3w5ji0d" path="res://sprites/ui/BandageImReadyopacity.png" id="34_e21xm"]
+[ext_resource type="Texture2D" uid="uid://d0alrljy0et8o" path="res://sprites/ui/BandageImReady.png" id="34_u3s1c"]
+[ext_resource type="PackedScene" uid="uid://cu05fkjh25k63" path="res://game/system/character/player/fix_area.tscn" id="34_u4uef"]
+[ext_resource type="Texture2D" uid="uid://cdjjjvon41702" path="res://sprites/Backgrounds/pipe2.png" id="35_wkcso"]
+[ext_resource type="PackedScene" uid="uid://bkubpjagrypqj" path="res://game/system/tutorial/tutorial.tscn" id="40_u4uef"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e21xm"]
+radius = 100.08496
+height = 328.5431
 
 [node name="RestRoom" type="Node2D" unique_id=1662139499 groups=["rest_room"]]
 script = ExtResource("1_nbyfe")
 upgrade_scenes_by_tier = {
-1: [ExtResource("7_x1e6w"), ExtResource("8_2xwxa"), ExtResource("10_xisql"), ExtResource("9_8sk3i")],
-2: [ExtResource("6_2xwxa"), ExtResource("7_8sk3i"), ExtResource("8_xisql"), ExtResource("9_byr16")],
-3: [ExtResource("10_7lyvt"), ExtResource("11_v0ssp"), ExtResource("12_qk48h"), ExtResource("13_r5fj8")],
+1: [ExtResource("7_x1e6w"), ExtResource("8_2xwxa"), ExtResource("10_xisql"), ExtResource("9_8sk3i"), ExtResource("6_uy6j2")],
+2: [ExtResource("6_2xwxa"), ExtResource("7_8sk3i"), ExtResource("8_xisql"), ExtResource("9_byr16"), ExtResource("10_kxqh5")],
+3: [ExtResource("10_7lyvt"), ExtResource("11_v0ssp"), ExtResource("13_r5fj8"), ExtResource("16_ayd62")],
 4: [ExtResource("14_bbuk5"), ExtResource("15_8idhi"), ExtResource("16_kxqh5"), ExtResource("17_tn4a5")],
-5: []
+5: [ExtResource("18_r5fj8"), ExtResource("19_8idhi"), ExtResource("19_bbuk5"), ExtResource("20_8idhi"), ExtResource("21_bbuk5")],
+6: [ExtResource("25_wjcb5"), ExtResource("26_uy6j2"), ExtResource("27_ayd62"), ExtResource("28_u3s1c"), ExtResource("29_e21xm")]
 }
 
 [node name="Background" type="Sprite2D" parent="." unique_id=844428716]
 z_index = -6
 position = Vector2(22, 121)
 rotation = -3.0379448
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_e22fr")
 
 [node name="Upgrades" type="Node2D" parent="Background" unique_id=1047918084]
 unique_name_in_owner = true
 z_index = 5
+scale = Vector2(1.1111112, 1.1111112)
 
 [node name="Table1" type="Sprite2D" parent="Background" unique_id=1321632848]
-position = Vector2(-181.99187, 125.50282)
+position = Vector2(-202.21317, 139.44757)
 rotation = 1.2771158
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.8333334, 0.8333334)
 texture = ExtResource("12_8sk3i")
 
 [node name="SpawnMarker7" type="Marker2D" parent="Background/Table1" unique_id=525682706]
@@ -84,9 +107,9 @@ position = Vector2(-125.49863, 73.61972)
 rotation = 0.7877548
 
 [node name="Table2" type="Sprite2D" parent="Background" unique_id=207262391]
-position = Vector2(130.9768, 157.29297)
+position = Vector2(145.5298, 174.76996)
 rotation = -0.389355
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.8333334, 0.8333334)
 texture = ExtResource("12_8sk3i")
 
 [node name="SpawnMarker1" type="Marker2D" parent="Background/Table2" unique_id=1327400277]
@@ -121,26 +144,80 @@ unique_name_in_owner = true
 position = Vector2(-166.61076, -57.27887)
 rotation = 2.3169372
 
+[node name="TrashBin" parent="Background" unique_id=1630340479 instance=ExtResource("34_u4uef")]
+position = Vector2(589.7416, -108.26372)
+rotation = -2.9608033
+is_trach_bin = true
+
+[node name="Sprite" parent="Background/TrashBin" index="0" unique_id=1542207743]
+modulate = Color(1, 1, 1, 1)
+z_index = 4096
+z_as_relative = false
+position = Vector2(126.268036, -67.01455)
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" parent="Background/TrashBin" index="1" unique_id=32785027]
+position = Vector2(125.31887, -22.747272)
+shape = SubResource("CapsuleShape2D_e21xm")
+
+[node name="Label" type="Label" parent="Background/TrashBin" unique_id=1981100686]
+offset_left = 8.043158
+offset_top = 67.10595
+offset_right = 262.04315
+offset_bottom = 144.10596
+theme_override_font_sizes/font_size = 56
+text = "Trash Bin"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Background/TrashBin/Label" unique_id=1274575618]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 0
+offset_left = -85.14227
+offset_top = -394.16754
+offset_right = 314.85773
+offset_bottom = 5.8324585
+texture = ExtResource("35_wkcso")
+expand_mode = 1
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981571717]
-layer = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=919885564]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -150.0
 offset_right = 374.0
-grow_vertical = 0
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_bottom = 50
+offset_bottom = 280.0
+mouse_filter = 0
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 180
 
-[node name="ReadyButton" type="Button" parent="CanvasLayer/MarginContainer" unique_id=108928691]
+[node name="ReadyButton" type="TextureButton" parent="CanvasLayer/MarginContainer" unique_id=378972776]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+texture_normal = ExtResource("34_e21xm")
+texture_pressed = ExtResource("34_u3s1c")
+texture_hover = ExtResource("34_u3s1c")
+texture_disabled = ExtResource("34_e21xm")
+ignore_texture_size = true
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/ReadyButton" unique_id=10984678]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 23.0
+offset_right = 22.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_x4kus")
-theme_override_font_sizes/font_size = 32
-text = "I'M READY AGAIN"
+theme_override_font_sizes/font_size = 36
+text = "Next Round"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PartInfoPanel" type="MarginContainer" parent="CanvasLayer" unique_id=1985814430]
 anchors_preset = 1
@@ -251,3 +328,7 @@ theme_override_colors/font_color = Color(1.781, 0.64, 0.667, 1)
 theme_override_fonts/font = ExtResource("3_x4kus")
 theme_override_font_sizes/font_size = 23
 vertical_alignment = 1
+
+[node name="Tutorial" parent="." unique_id=1219308028 instance=ExtResource("40_u4uef")]
+
+[editable path="Background/TrashBin"]

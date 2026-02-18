@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EarData" format=3 uid="uid://df551hcuv2knr"]
+
+[ext_resource type="Texture2D" uid="uid://dvwx1qrh3voa6" path="res://sprites/body_parts/FaceAssets/Minions/MinionEar3.png" id="1_cglcl"]
+[ext_resource type="Script" uid="uid://chk7qjlisad38" path="res://game/system/anatomy/anatomy_data/ear_data.gd" id="2_wwpbq"]
+
+[resource]
+script = ExtResource("2_wwpbq")
+anatomy_sprite = ExtResource("1_cglcl")
+anatomy_hp = 3
+metadata/_custom_type_script = "uid://chk7qjlisad38"

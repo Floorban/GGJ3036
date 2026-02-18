@@ -137,14 +137,15 @@ height = 132.3141
 
 [node name="Boxer" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_l53d7")]
 script = ExtResource("2_26h1w")
+boss_name = "Tyke the Myson"
 is_minion = false
 switch_chance = 0.6
-min_switch_time = 3.0
-base_cooldown = 4.0
+min_switch_time = 2.0
 base_damage = 1.5
 base_speed = 0.08
-base_crit_chance = 0.3
-base_crit_damage = 1.3
+base_crit_chance = 0.5
+base_crit_damage = 1.2
+base_stun_resist = 3.0
 arm = NodePath("BoxerArm")
 sfx_die = "event:/SFX/NPC/Boxer/Die"
 sfx_entry = "event:/SFX/NPC/Boxer/Entry"
@@ -180,11 +181,13 @@ texture = ExtResource("5_2soic")
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 stat_modifiers = {
 0: 0.0,
-1: 0.0,
+1: -0.2,
 2: 0.0,
 3: 0.0,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.0,
+7: 0.2
 }
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
@@ -201,11 +204,13 @@ shape = SubResource("CapsuleShape2D_6jrna")
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
 stat_modifiers = {
 0: 0.0,
-1: 0.0,
+1: -0.2,
 2: 0.0,
 3: 0.0,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.0,
+7: 0.2
 }
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
@@ -227,10 +232,12 @@ stat_modifiers = {
 1: 0.0,
 2: 0.0,
 3: 0.0,
-4: 0.0,
-5: 0.0
+4: 0.2,
+5: 0.2,
+6: 0.0,
+7: 0.0
 }
-max_hp = 1.0
+max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_f4s0o")
@@ -241,10 +248,12 @@ stat_modifiers = {
 1: 0.0,
 2: 0.0,
 3: 0.0,
-4: 0.0,
-5: 0.0
+4: 0.2,
+5: 0.2,
+6: 0.0,
+7: 0.0
 }
-max_hp = 1.0
+max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_6xh16")
@@ -256,12 +265,15 @@ rotation = 0.084238775
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 stat_modifiers = {
 0: 0.0,
-1: 0.0,
+1: -0.3,
 2: 0.0,
 3: 0.0,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.0,
+7: 0.3
 }
+max_hp = 3.5
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_oepvl")
@@ -279,11 +291,14 @@ shape = SubResource("RectangleShape2D_oepvl")
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
-2: 0.0,
+2: 0.3,
 3: 0.0,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.3,
+7: 0.0
 }
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_xh6fd")

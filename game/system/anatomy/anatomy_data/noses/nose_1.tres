@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NoseData" format=3 uid="uid://dpetbman3pmpf"]
+
+[ext_resource type="Texture2D" uid="uid://cpdif6588tb4" path="res://sprites/body_parts/FaceAssets/MCfacevariations/Noses/GoldenNose.png" id="1_43niy"]
+[ext_resource type="Script" uid="uid://bgmfe0u6jdw3j" path="res://game/system/anatomy/anatomy_data/nose_data.gd" id="1_p7ts5"]
+
+[resource]
+script = ExtResource("1_p7ts5")
+anatomy_sprite = ExtResource("1_43niy")
+anatomy_hp = 5
+metadata/_custom_type_script = "uid://bgmfe0u6jdw3j"

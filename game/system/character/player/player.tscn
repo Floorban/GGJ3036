@@ -21,29 +21,30 @@
 [ext_resource type="Texture2D" uid="uid://egk8mk2xn73u" path="res://sprites/ui/Blood.png" id="13_innbf"]
 [ext_resource type="Texture2D" uid="uid://c2nhffovbgged" path="res://sprites/ui/BloodForSurgeryListItems.png" id="15_8ga5m"]
 [ext_resource type="Texture2D" uid="uid://civr2jgjofjyt" path="res://sprites/body_parts/FaceAssets/MCfacevariations/ears/Ear.png" id="17_innbf"]
+[ext_resource type="FontFile" uid="uid://bmbirc8o7gkmw" path="res://GlitchGoblin.otf" id="22_innbf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hu301"]
-radius = 20.04595
-height = 48.036133
+radius = 17.020517
+height = 39.985977
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wqm0g"]
-radius = 22.020197
-height = 47.912037
+radius = 17.029362
+height = 42.04406
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvqmr"]
-radius = 21.125114
-height = 81.032455
+radius = 17.457634
+height = 65.963554
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltwwj"]
-radius = 25.173336
-height = 80.610985
+radius = 18.10226
+height = 72.690735
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvqmr"]
-size = Vector2(33, 74)
+size = Vector2(35, 68)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0eq7q"]
-radius = 15.971291
-height = 82.33055
+radius = 17.01915
+height = 76.02613
 
 [sub_resource type="Shader" id="Shader_2ro5p"]
 code = "shader_type canvas_item;
@@ -174,8 +175,9 @@ size = Vector2(70, 26)
 
 [node name="Player" unique_id=1861387119 node_paths=PackedStringArray("arm") groups=["player"] instance=ExtResource("1_obar5")]
 script = ExtResource("2_b2mth")
-base_cooldown = 3.5
-base_damage = 2.0
+base_cooldown = 2.0
+base_damage = 1.0
+base_speed = 0.05
 base_crit_damage = 1.2
 top_down_dir = -1
 arm = NodePath("ArmR")
@@ -220,9 +222,9 @@ position = Vector2(28.999998, -20.000002)
 my_anatomy = NodePath("../../Features/EyeL")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEyeL" index="0" unique_id=1542207743]
-position = Vector2(1.000001, -1.9999981)
+position = Vector2(0.999999, -3)
 rotation = -2.7547193
-scale = Vector2(0.07, 0.07)
+scale = Vector2(0.07760587, 0.07760587)
 texture = ExtResource("10_ltwwj")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEyeL" index="1" unique_id=32785027]
@@ -235,13 +237,13 @@ position = Vector2(-31.000002, -19.999998)
 my_anatomy = NodePath("../../Features/EyeR")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaEyeR" index="0" unique_id=1542207743]
-position = Vector2(1.9999995, -2.000001)
+position = Vector2(1.9999993, -4.000001)
 rotation = -1.3151702
-scale = Vector2(0.08, 0.08)
+scale = Vector2(0.09261521, 0.09261521)
 texture = ExtResource("11_ltwwj")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEyeR" index="1" unique_id=32785027]
-position = Vector2(0.9999991, 7.1525574e-07)
+position = Vector2(-8.940697e-07, 8.009374e-07)
 rotation = -1.5102458
 shape = SubResource("CapsuleShape2D_wqm0g")
 
@@ -259,7 +261,7 @@ scale = Vector2(0.08593076, 0.12566878)
 texture = ExtResource("12_0eq7q")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEarL" index="1" unique_id=32785027]
-position = Vector2(-3.301715, 1.4486718)
+position = Vector2(-1.3321022, 1.7959617)
 rotation = 0.43315792
 shape = SubResource("CapsuleShape2D_xvqmr")
 
@@ -276,7 +278,7 @@ scale = Vector2(0.24624492, 0.39563715)
 texture = ExtResource("13_innbf")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaEarR" index="1" unique_id=32785027]
-position = Vector2(6.0441065, -0.68461454)
+position = Vector2(-6.7949295e-06, -2.3841858e-07)
 rotation = -0.08895778
 shape = SubResource("CapsuleShape2D_ltwwj")
 
@@ -286,13 +288,13 @@ anatomy_type = 2
 my_anatomy = NodePath("../../Features/Nose")
 
 [node name="Sprite" parent="Face/FixAreas/FixAreaNose" index="0" unique_id=1542207743]
-position = Vector2(1.9999996, -4.0000005)
+position = Vector2(2.0892315, 1.729943)
 rotation = -1.586368
-scale = Vector2(0.15, 0.072)
+scale = Vector2(0.10016347, 0.072)
 texture = ExtResource("10_ltwwj")
 
 [node name="CollisionShape2D" parent="Face/FixAreas/FixAreaNose" index="1" unique_id=32785027]
-position = Vector2(-0.49999943, -2)
+position = Vector2(-0.49999934, -1)
 shape = SubResource("RectangleShape2D_xvqmr")
 
 [node name="FixAreaMouth" parent="Face/FixAreas" index="5" unique_id=1677497174 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
@@ -314,14 +316,6 @@ debug_color = Color(0.828425, 0.3136256, 0.62059414, 0.41960785)
 
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 position = Vector2(28.999998, -20.000002)
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.1,
-3: 0.0,
-4: 0.05,
-5: 0.0
-}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
@@ -338,14 +332,6 @@ shape = SubResource("RectangleShape2D_8xspq")
 
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
 position = Vector2(-31.000002, -19.999998)
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.1,
-3: 0.0,
-4: 0.05,
-5: 0.0
-}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
@@ -366,14 +352,6 @@ shape = SubResource("RectangleShape2D_f2h07")
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 position = Vector2(59.999996, -10.000005)
 rotation = -0.09759025
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.1,
-3: 0.0,
-4: 0.05,
-5: 0.0
-}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
@@ -394,14 +372,6 @@ shape = SubResource("RectangleShape2D_hu301")
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 position = Vector2(-60, 1.0000051)
 rotation = -0.052493285
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.1,
-3: 0.0,
-4: 0.05,
-5: 0.0
-}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
@@ -421,15 +391,7 @@ shape = SubResource("RectangleShape2D_wqm0g")
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 position = Vector2(0.99999934, -8)
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.1,
-3: 0.0,
-4: 0.05,
-5: 0.0
-}
-max_hp = 2.0
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_ltwwj")
@@ -442,15 +404,7 @@ shape = SubResource("RectangleShape2D_388rn")
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
 position = Vector2(-0.9999968, 37)
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.1,
-3: 0.0,
-4: 0.05,
-5: 0.0
-}
-max_hp = 2.0
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_0eq7q")
@@ -476,6 +430,32 @@ position = Vector2(103, -23)
 
 [node name="MarginContainer" parent="CombatComponent/CanvasLayer" parent_id_path=PackedInt32Array(823960288, 296824878) index="0" unique_id=1187610258]
 theme_override_constants/margin_right = 230
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4" unique_id=1249316010]
+layer = -10
+visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer" index="0" unique_id=1921301200]
+z_index = -500
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -482.0
+offset_top = -274.0
+offset_right = 482.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = -6
+theme_override_fonts/font = ExtResource("22_innbf")
+theme_override_font_sizes/font_size = 48
+text = "congrats
+I don't know what did you get here
+restart with 'R' and join our discord !!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [editable path="Face/FixAreas/FixAreaEyeL"]
 [editable path="Face/FixAreas/FixAreaEyeR"]

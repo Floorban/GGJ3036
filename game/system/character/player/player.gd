@@ -2,6 +2,33 @@ class_name Player extends Character
 
 var selected_target: Anatomy
 
+@onready var retro_screen: RetroScreen = %RetroScreen
+var retro_mat: ShaderMaterial
+
+var health_tween: Tween
+
+var player_health_effect_value := 30.0:
+	set(value):
+		player_health_effect_value = value
+		if health_tween: health_tween.kill()
+		health_tween = create_tween()
+		health_tween.tween_property(
+			retro_mat, 
+			"shader_parameter/color_quant_steps", 
+			value, 
+			0.4
+		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+var first_level := true
+
+@onready var eye_l: Anatomy = %EyeL
+@onready var nose: Anatomy = %Nose
+@onready var ear_l: Anatomy = %EarL
+@onready var ear_r: Anatomy = %EarR
+
+func _ready() -> void:
+	retro_mat = retro_screen.material as ShaderMaterial
+
 func get_anatomy_references() -> void:
 	super.get_anatomy_references()
 	for a in anatomy_parts:
@@ -18,10 +45,18 @@ func start_round() -> void:
 			selected_target.is_targeted = true
 			selected_target._highlight_target()
 
-func choose_target() -> Anatomy:
-	if selected_target and selected_target.state != Anatomy.PartState.DESTROYED:
-		return selected_target
-	return null
+#func choose_target() -> Anatomy:
+	#if selected_target and selected_target.state != Anatomy.PartState.DESTROYED:
+		#return selected_target
+	#return null
+
+func _on_attack_finished() -> void:
+	super._on_attack_finished()
+	if selected_target == null:
+		return
+	selected_target.is_targeted = false
+	selected_target._unhighlight_target()
+	selected_target = null
 
 func _on_action_ready() -> void:
 	if not can_control:
@@ -48,8 +83,9 @@ func _on_block_finished() -> void:
 	blocking_part = null
 	arm.interrupt(func(): 
 		if can_control:
-			combat_component.reset_attack_timer(action_cooldown)
-			combat_component.start()
+			pass
+			#combat_component.reset_attack_timer(action_cooldown)
+			#combat_component.start()
 	)
 
 func get_ready_to_battle() -> void:
@@ -57,19 +93,25 @@ func get_ready_to_battle() -> void:
 	for part: Anatomy in features.get_children():
 		if not part.body_owner or part.body_owner != self:
 			part.reparent(Stats.rest_room.background)
+	
+	if first_level:
+		first_level = false
+		#if eye_l: eye_l.set_hp(1)
+		#if ear_r: ear_l.set_hp(1)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("right_click") and selected_target:
-		if selected_target in anatomy_parts:
-			selected_target.is_blocking = false
-			if blocking_part:
-				blocking_part.is_blocking = false
-			blocking_part = null
-			arm.rest_pos()
-		elif not can_action:
-			selected_target.is_targeted = false
-			selected_target._unhighlight_target()
-		selected_target = null
+	if event.is_action_pressed("right_click"):
+		arm.rest_pos()
+		if selected_target:
+			if selected_target in anatomy_parts:
+				selected_target.is_blocking = false
+				if blocking_part:
+					blocking_part.is_blocking = false
+				blocking_part = null
+			elif not can_action:
+				selected_target.is_targeted = false
+				selected_target._unhighlight_target()
+			selected_target = null
 
 func _on_self_anatomy_clicked(anatomy: Anatomy) -> void:
 	if (arm.movable_by_mouse and anatomy.state == Anatomy.PartState.FUCKED) or (rest_mode): #and anatomy.state != Anatomy.PartState.HEALTHY

@@ -6,10 +6,17 @@ class_name Anatomy extends Node2D
 	Stats.StatType.DAMAGE: 0.1,
 	Stats.StatType.ATTACK_SPEED: 0.1,
 	Stats.StatType.CRIT_CHANCE: 0.0,
-	Stats.StatType.CRIT_DAMAGE: 0.0
+	Stats.StatType.CRIT_DAMAGE: 0.0,
+	Stats.StatType.STUN_STRENGTH: 1.0,
+	Stats.StatType.STUN_RESIST: 1.0
 }
 
-var sfx_select: String = "event:/SFX/UI/Select"
+#AUDIO
+var sfx_blood: String = "event:/SFX/Surgery/Blood"
+var sfx_scream: String = "event:/SFX/NPC/Player/Scream"
+var sfx_select: String = "event:/SFX/Surgery/Select"
+var sfx_squirt: String = "event:/SFX/Surgery/Squirt"
+var i_blood: FmodEvent
 
 func get_stat_modifiers() -> Dictionary:
 	if state == PartState.DESTROYED:
@@ -38,10 +45,13 @@ func get_stat_strings() -> Array[String]:
 	return lines
 
 enum AnatomyType {Eye, Ear, Nose, Mouth}
-@export var anatomy_type: AnatomyType 
+@export var anatomy_type: AnatomyType
+
+enum AnatomySide {Left, Right, Misc}
+var anatomy_side: AnatomySide
 
 signal anatomy_clicked(anatomy: Anatomy)
-signal anatomy_hit(damage: float)
+signal anatomy_hit(damage: float, is_crit: bool)
 signal anatomy_fucked()
 
 enum PartState { HEALTHY, FUCKED, DESTROYED, OutOfBody }
@@ -54,7 +64,7 @@ var body_owner : Character
 @export var block_amount : float
 
 @onready var sprite: Sprite2D = $Sprite
-@onready var mouse_detect_area: Area2D = $MouseDetectArea
+@onready var fix_area_detect_area: Area2D = $MouseDetectArea
 
 var is_targeted := false
 var is_blocking := false
@@ -66,21 +76,16 @@ var current_color: Color = Color.WHITE
 var outline_mat: ShaderMaterial
 
 @export var fix_areas : Array[FixArea]
-
+var pending_fix_area: FixArea
 @export var og_pos : Vector2
 
 func _ready() -> void:
 	var bp : GPUParticles2D = blood_particle.instantiate()
 	og_pos = global_position
 	current_hp = max_hp
-	if not mouse_detect_area.mouse_entered.is_connected(_hover_over_part):
-		mouse_detect_area.mouse_entered.connect(_hover_over_part)
-	if not mouse_detect_area.mouse_exited.is_connected(_unhover_part):
-		mouse_detect_area.mouse_exited.connect(_unhover_part)
-	if not mouse_detect_area.input_event.is_connected(_on_input_event):
-		mouse_detect_area.input_event.connect(_on_input_event)
 	if sprite: outline_mat = sprite.material as ShaderMaterial
 	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
+	outline_mat.set_shader_parameter("glowSharpness", 4.0)
 	_unhighlight_target()
 	for a : FixArea in get_tree().get_nodes_in_group("fix_area"):
 		if a.anatomy_type == anatomy_type: fix_areas.append(a)
@@ -88,14 +93,30 @@ func _ready() -> void:
 		await get_tree().physics_frame
 	hovering.connect(Stats.rest_room.show_part_info)
 	unhover.connect(Stats.rest_room.hide_part_info)
+	fix_area_detect_area.area_entered.connect(_on_fix_area_entered)
+	fix_area_detect_area.area_exited.connect(_on_fix_area_exited)
+	check_side()
+
+
+func _on_fix_area_entered(area: Area2D) -> void:
+	if area is FixArea:
+		if not area.is_trach_bin and area.anatomy_type != anatomy_type:
+			return
+		pending_fix_area = area
+
+
+func _on_fix_area_exited(area: Area2D) -> void:
+	if pending_fix_area == null:
+		return
+	if area is FixArea:
+		if area == pending_fix_area:
+			pending_fix_area = null
 
 signal disconnect()
 
 func _process(_delta: float) -> void:
-	if body_owner == null:
-		return
 	var dist := (global_position - og_pos).length()
-	if state == PartState.HEALTHY and dist > 20.0 and body_owner.rest_mode:
+	if state == PartState.HEALTHY and dist > 50.0 and has_blood:
 		#drop_part()
 		state = PartState.FUCKED
 		body_owner = null
@@ -105,6 +126,7 @@ func _process(_delta: float) -> void:
 		spawn_blood_parc()
 		if not is_targeted and sprite:
 			sprite.modulate = current_color
+		has_blood = false
 	if is_being_dragged:
 		update_blood_lines()
 
@@ -131,11 +153,49 @@ func update_blood_lines() -> void:
 @export var blood_particle : PackedScene
 @export var blood_line_textres: Array[Texture2D]
 var blood_lines: Array[Line2D] = []
+var has_blood := false
+
+func draw_blood_line() -> void:
+	for line in blood_lines:
+		line.queue_free()
+	
+	
+	i_blood = audio.play_instance(self, sfx_blood)
+	
+	blood_lines.clear()
+	has_blood = true
+	var count := randi_range(3, 5)
+
+	for i in count:
+		var line := Line2D.new()
+		line.width = randf_range(20.0, 30.0)
+		line.texture_mode = Line2D.LINE_TEXTURE_STRETCH
+		line.texture = blood_line_textres.pick_random()
+
+		var local_offset := Vector2(
+			randf_range(-5, 5),
+			randf_range(-5, 5)
+		)
+
+		add_child(line)
+
+		line.points = [
+			local_offset,
+			local_offset + (global_position - og_pos)
+		]
+
+		blood_lines.append(line)
 
 func despawn_blood_line() -> void:
 	for line in blood_lines:
 		_retract_blood_line(line, randf_range(0.26, 0.3))
 	
+	audio.clear_instance([i_blood])
+
+	if !fix_areas[0].rest_room.attaching: 
+		audio.play(self, sfx_squirt)
+		fix_areas[0].rest_room.attaching = false
+
 	blood_lines.clear()
 	#if state == PartState.HEALTHY:
 
@@ -169,33 +229,6 @@ func _retract_blood_line(line: Line2D, duration := 0.2) -> void:
 			line.queue_free()
 	)
 
-func draw_blood_line() -> void:
-	for line in blood_lines:
-		line.queue_free()
-	blood_lines.clear()
-
-	var count := randi_range(3, 5)
-
-	for i in count:
-		var line := Line2D.new()
-		line.width = randf_range(20.0, 30.0)
-		line.texture_mode = Line2D.LINE_TEXTURE_STRETCH
-		line.texture = blood_line_textres.pick_random()
-
-		var local_offset := Vector2(
-			randf_range(-5, 5),
-			randf_range(-5, 5)
-		)
-
-		add_child(line)
-
-		line.points = [
-			local_offset,
-			local_offset + (global_position - og_pos)
-		]
-
-		blood_lines.append(line)
-
 func init_part(body: Character) -> void:
 	body_owner = body
 	#anatomy_ui.toggle_panel(false)
@@ -203,6 +236,8 @@ func init_part(body: Character) -> void:
 func recover_part() -> void:
 	current_hp = max_hp
 	body_owner.health += current_hp
+	if body_owner:
+		if body_owner is Player: body_owner.player_health_effect_value = clamp(body_owner.player_health_effect_value + 3.0, 6, 30)
 	state = PartState.HEALTHY
 	#anatomy_ui.set_hp_bar(current_hp, max_hp)
 	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
@@ -212,26 +247,34 @@ func recover_part() -> void:
 func pickup_part() -> void:
 	if is_being_dragged:
 		return
+	if GameManager.hovered_part and GameManager.hovered_part != self:
+		GameManager.hovered_part.is_being_dragged = false
+		GameManager.hovered_part._unhover_part()
+	GameManager.dragging_part = self
 	og_pos = global_position
-	if body_owner:
+	if body_owner and state == PartState.HEALTHY and body_owner.rest_mode:
+		if randf() < 0.4: audio.play(self, sfx_scream)
 		draw_blood_line()
 	is_being_dragged = true
 	_unhover_part()
-	audio.play(sfx_select)
-	if current_hp > 0:
-		start_scared_shake()
+	audio.play(self, sfx_select)
+	if current_hp > 0 :
+		if body_owner:
+			start_scared_shake()
 		for area in fix_areas:
 			area.highlight_zone()
 
 func drop_part() -> void:
 	if not is_being_dragged:
 		return
+	if GameManager.dragging_part and GameManager.dragging_part == self:
+		GameManager.dragging_part = null
 	stop_scared_shake()
 	despawn_blood_line()
 	for area in fix_areas:
 		area.unhighlight_zone()
-		
-	if (state == PartState.OutOfBody and not body_owner) or (state == PartState.HEALTHY):
+	
+	if (state == PartState.HEALTHY): #(state == PartState.OutOfBody and not body_owner) or 
 		for line in blood_lines:
 			line.queue_free()
 		blood_lines.clear()
@@ -242,23 +285,32 @@ func drop_part() -> void:
 			self,
 			"global_position",
 			og_pos,
-			0.15
+			0.08
 		)
 		
 		tween.tween_callback(func():
 			global_position = og_pos
 			is_being_dragged = false
+			_hover_over_part()
 		)
 	else:
 		is_being_dragged = false
+		_hover_over_part()
+	
+	if pending_fix_area:
+		pending_fix_area.receive_anatomy(self)
 
-func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
+
+func check_side() -> AnatomySide:
+	if anatomy_type == AnatomyType.Ear or AnatomyType.Eye and global_position.x < 0: return AnatomySide.Left
+	if anatomy_type == AnatomyType.Ear or AnatomyType.Eye and global_position.x > 0: return AnatomySide.Right
+	else: return AnatomySide.Misc
+
+
+func click_part() -> void:
 	if (body_owner and not body_owner.rest_mode) and (state == PartState.DESTROYED or is_being_dragged):
 		return
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			anatomy_clicked.emit(self)
-			get_viewport().set_input_as_handled()
+	anatomy_clicked.emit(self)
 
 signal hovering(_name: String, _state: String, _hp: float, _max_hp: float, _stats: Array[String])
 signal unhover()
@@ -325,32 +377,50 @@ func stop_scared_shake() -> void:
 	rotation = scared_og_rot
 
 func _hover_over_part() -> void:
-	if (body_owner and not body_owner.rest_mode) and  (state == PartState.DESTROYED or is_being_dragged):
+	if (body_owner and not body_owner.rest_mode) and (state == PartState.DESTROYED or is_being_dragged):
 		return
 	#if (state == PartState.HEALTHY and not body_owner.can_control and not body_owner.rest_mode):
 		#return
 	#if (body_owner and body_owner.rest_mode and state == PartState.HEALTHY):
 		#hovering.emit(AnatomyType.keys()[anatomy_type], PartState.keys()[state], current_hp, max_hp, get_stat_strings())
 		#return
+	if GameManager.dragging_part:
+		return
+	
 	if is_being_dragged:
 		return
+
+	if body_owner:
+		if body_owner is Player:
+			if body_owner.rest_mode or (body_owner.corner_mode and state == PartState.FUCKED):
+				MouseCursor.choose_unvalid()
+			elif not body_owner.corner_mode:
+				MouseCursor.choose_block()
+		else:
+			MouseCursor.choose_attack()
 	if (body_owner and body_owner.rest_mode and state == PartState.HEALTHY):
 		start_scared_shake(1.5, 0.15)
-	#anatomy_ui.toggle_panel(true)
-	#if not is_targeted:
+
 	outline_mat.set_shader_parameter("alphaThreshold", 0.1)
 	if sprite: sprite.use_parent_material = false
 	is_hovering = true
 	hovering.emit(AnatomyType.keys()[anatomy_type], PartState.keys()[state], current_hp, max_hp, get_stat_strings())
 
 func _unhover_part() -> void:
+	MouseCursor.hovering = false
+	if not MouseCursor.hovering:
+		MouseCursor.choose_normal()
 	#anatomy_ui.toggle_panel(false)
 	stop_scared_shake()
-	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
-	if sprite: sprite.use_parent_material = true
-	is_hovering = false
+	_remove_hover_visual()
 	#unhover.emit()
 
+
+func _remove_hover_visual() -> void:
+	outline_mat.set_shader_parameter("alphaThreshold", 0.0)
+	if sprite:
+		sprite.use_parent_material = true
+	is_hovering = false
 
 func _highlight_target() -> void:
 	if is_part_dead():
@@ -367,7 +437,12 @@ func _unhighlight_target() -> void:
 
 # refactor later when heal
 func set_hp(changed_amount: float, crit: bool = false) -> void:
+	if body_owner and body_owner.is_dead:
+		return
 	current_hp -= changed_amount
+	var effect_val = clamp(changed_amount, 2, 5)
+	if body_owner:
+		if body_owner is Player: body_owner.player_health_effect_value = clamp(body_owner.player_health_effect_value - effect_val, 6, 30)
 	#anatomy_ui.set_hp_bar(current_hp, max_hp)
 	#anatomy_ui.set_stats_ui(name, PartState.keys()[state], int(block_amount), "nothing now")
 	if current_hp <= max_hp / 2 and state != PartState.DESTROYED:
@@ -392,11 +467,7 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 		bp.global_position = og_pos
 		part_dead()
 	
-	if crit: 
-		spawn_blood_parc(1.0)
-		if body_owner: audio.play(body_owner.sfx_crit)
-	else: 
-		if body_owner: audio.play(body_owner.sfx_hit, global_transform, "Intensity", changed_amount / max_hp)
+	if crit: spawn_blood_parc(1.0)
 	if changed_amount > 0:
 		spawn_blood_parc(0.4)
 		PopupPrompt.display_prompt("!", int(changed_amount), global_position, 2.0)
@@ -415,3 +486,20 @@ func move_part() -> void:
 
 func is_part_dead() -> bool:
 	return state == PartState.DESTROYED
+
+func apply_data(data: AnatomyData) -> void:
+	if data == null or sprite == null:
+		return
+		
+	stat_modifiers = data.anatomy_stats.duplicate(true)
+	
+	if data.anatomy_sprite:
+		sprite.texture = data.anatomy_sprite
+		outline_mat.set_shader_parameter("sprite_texture", sprite.texture)
+	
+	max_hp = data.anatomy_hp
+	current_hp = max_hp
+	state = PartState.HEALTHY
+	current_color = Color.WHITE
+	sprite.modulate = current_color
+	

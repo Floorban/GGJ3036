@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 
 func pause(pause_duration: float) -> void:
 	combat_timer.wait_time = combat_timer.time_left + pause_duration
-	action_cd_bar.max_value = combat_timer.wait_time
+	action_cd_bar.max_value = combat_timer.wait_time 
 	combat_timer.stop()
 	combat_timer.start()
 

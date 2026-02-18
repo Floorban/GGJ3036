@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EarData" format=3 uid="uid://0jmjwgv64pla"]
+
+[ext_resource type="Script" uid="uid://chk7qjlisad38" path="res://game/system/anatomy/anatomy_data/ear_data.gd" id="1_8yvod"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8yvod"]
+load_path = "res://.godot/imported/MinionEar5.png-f687ca0591eb8357aee8403f4779808c.ctex"
+
+[resource]
+script = ExtResource("1_8yvod")
+anatomy_sprite = SubResource("CompressedTexture2D_8yvod")
+anatomy_hp = 1
+metadata/_custom_type_script = "uid://chk7qjlisad38"

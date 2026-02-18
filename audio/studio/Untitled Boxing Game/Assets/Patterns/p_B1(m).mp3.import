@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chmxqb2wlcr8h"
+path="res://.godot/imported/p_B1(m).mp3-ae712cce5aabafd7056a094cba2e7008.mp3str"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/Patterns/p_B1(m).mp3"
+dest_files=["res://.godot/imported/p_B1(m).mp3-ae712cce5aabafd7056a094cba2e7008.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

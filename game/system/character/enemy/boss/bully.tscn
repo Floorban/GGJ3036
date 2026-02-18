@@ -179,15 +179,19 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqmy7"]
-size = Vector2(100.15385, 43.076912)
+size = Vector2(100.15385, 55.38461)
 
 [node name="Bully" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_ulrfh")]
 script = ExtResource("2_qjg54")
+boss_name = "Brad short arms"
 is_minion = false
-switch_chance = 0.4
-min_switch_time = 4.0
-base_cooldown = 6.0
+switch_chance = 0.6
+min_switch_time = 2.0
+base_cooldown = 2.0
 base_damage = 1.2
+base_speed = 0.09
+base_stun_strength = 1.5
+base_stun_resist = 3.0
 arm = NodePath("BullyArm")
 sfx_die = "event:/SFX/NPC/Bully/Die"
 sfx_entry = "event:/SFX/NPC/Bully/Entry"
@@ -215,14 +219,6 @@ texture = ExtResource("6_qjg54")
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 position = Vector2(-49.23077, -27.692307)
 rotation = 0.091627955
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.0,
-3: 0.0,
-4: 0.0,
-5: 0.0
-}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
@@ -243,14 +239,6 @@ shape = SubResource("RectangleShape2D_1j2w3")
 
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
 position = Vector2(61.53846, -21.53846)
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.0,
-3: 0.0,
-4: 0.0,
-5: 0.0
-}
 max_hp = 2.0
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
@@ -269,14 +257,6 @@ shape = SubResource("RectangleShape2D_mtw3s")
 [node name="EarL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="2" unique_id=1222327045]
 position = Vector2(-92.3077, -7.692308)
 rotation = -0.07894593
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.0,
-3: 0.0,
-4: 0.0,
-5: 0.0
-}
 max_hp = 1.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
@@ -294,14 +274,6 @@ shape = SubResource("RectangleShape2D_vprwn")
 
 [node name="EarR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="3" unique_id=959483894]
 position = Vector2(92.30769, -6.1538467)
-stat_modifiers = {
-0: 0.0,
-1: 0.0,
-2: 0.0,
-3: 0.0,
-4: 0.0,
-5: 0.0
-}
 max_hp = 1.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
@@ -320,13 +292,15 @@ shape = SubResource("RectangleShape2D_qjg54")
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
 stat_modifiers = {
 0: 0.0,
-1: 0.0,
-2: 0.0,
+1: -0.2,
+2: 0.2,
 3: 0.0,
 4: 0.0,
-5: 0.0
+5: 0.2,
+6: 0.0,
+7: 0.0
 }
-max_hp = 2.0
+max_hp = 2.5
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_rpsbt")
@@ -342,12 +316,14 @@ position = Vector2(3.0769234, 41.538464)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
-2: 0.0,
+2: 0.2,
 3: 0.0,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.2,
+7: 0.2
 }
-max_hp = 2.0
+max_hp = 1.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 modulate = Color(0.7567424, 0.18149996, 0.4081871, 1)
@@ -359,7 +335,7 @@ texture = ExtResource("10_vprwn")
 position = Vector2(3.7692382, 22.23079)
 
 [node name="CollisionShape2D" parent="Face/Features/Mouth/MouseDetectArea" index="0" unique_id=149295176]
-position = Vector2(-3.076923, -19.153873)
+position = Vector2(-3.769238, -22.230791)
 shape = SubResource("RectangleShape2D_oqmy7")
 
 [node name="BullyArm" parent="." index="2" unique_id=1972221418 instance=ExtResource("12_qjg54")]

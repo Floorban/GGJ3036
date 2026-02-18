@@ -1,5 +1,8 @@
 class_name Character extends Node2D
 
+
+var corner_mode := false
+
 @export var base_stats := {
 	Stats.StatType.MAX_HP: 0.0,
 	Stats.StatType.COOLDOWN: base_cooldown,
@@ -7,6 +10,8 @@ class_name Character extends Node2D
 	Stats.StatType.ATTACK_SPEED: base_speed,
 	Stats.StatType.CRIT_CHANCE: base_crit_chance,
 	Stats.StatType.CRIT_DAMAGE: base_crit_damage,
+	Stats.StatType.STUN_STRENGTH: base_stun_strength,
+	Stats.StatType.STUN_RESIST: base_stun_resist
 }
 
 @export var final_stats := {}
@@ -29,6 +34,12 @@ func get_crit_chance() -> float:
 func get_crit_damage() -> float:
 	return get_stat(Stats.StatType.CRIT_DAMAGE)
 
+func get_stun_strength() -> float:
+	return get_stat(Stats.StatType.STUN_STRENGTH) + 1
+
+func get_stun_resist() -> float:
+	return get_stat(Stats.StatType.STUN_RESIST) + 1
+
 func default_value(stat: Stats.StatType) -> float:
 	match stat:
 		Stats.StatType.MAX_HP: return 0.0
@@ -37,6 +48,8 @@ func default_value(stat: Stats.StatType) -> float:
 		Stats.StatType.ATTACK_SPEED: return 0.0
 		Stats.StatType.CRIT_CHANCE: return 0.0
 		Stats.StatType.CRIT_DAMAGE: return 0.0
+		Stats.StatType.STUN_STRENGTH: return 1.0
+		Stats.StatType.STUN_RESIST: return 2.0
 		_: return 0.0
 
 func get_stat(stat: Stats.StatType) -> float:
@@ -57,12 +70,16 @@ func rebuild_stats():
 	punch_strength = max(0.02, base_speed / (get_attack_speed() + 1))
 	critical_chance = get_crit_chance() + base_crit_chance
 	critical_damage = get_crit_damage() + base_crit_damage
+	stun_strength = get_stun_strength() * base_stun_strength
+	stun_resist = get_stun_resist() * base_stun_resist
 
 @export var base_cooldown: float = 5.0
 @export var base_damage: float
 @export var base_speed: float = 0.1
 @export var base_crit_chance: float
 @export var base_crit_damage: float = 1.0
+@export var base_stun_strength: float = 1.0
+@export var base_stun_resist: float = 2.0
 
 @export var health : float
 @export var action_cooldown: float
@@ -70,6 +87,8 @@ func rebuild_stats():
 @export var punch_strength : float
 @export var critical_chance : float
 @export var critical_damage : float
+@export var stun_strength: float = 1.0
+@export var stun_resist: float = 1.0
 
 signal hit(damage: float)
 signal blocked(blocked_damage: float)
@@ -97,7 +116,7 @@ var blocking_part: Anatomy
 var targeting_part: Anatomy
 
 @onready var face: Sprite2D = $Face
-@onready var shoulder: Sprite2D = $Shoulder
+#@onready var shoulder: Sprite2D = $Shoulder
 
 #AUDIO
 @export var sfx_die: String
@@ -107,6 +126,8 @@ var targeting_part: Anatomy
 var sfx_block: String = "event:/SFX/Combat/Block"
 var sfx_crit: String = "event:/SFX/Combat/Crit"
 var sfx_hit: String = "event:/SFX/Combat/Hit"
+
+signal enemy_dialogue_end()
 
 func init_character() -> void:
 	_init_anatomy_parts()
@@ -134,7 +155,7 @@ func _init_anatomy_parts() -> void:
 	for part in anatomy_parts:
 		part.init_part(self)
 		part.anatomy_hit.connect(
-		func(dmg): resolve_hit(part, dmg, opponent)
+		func(dmg, crit): resolve_hit(part, dmg, opponent, crit)
 		)
 		max_health += part.max_hp
 	start.emit()
@@ -163,6 +184,8 @@ func end_battle() -> void:
 	arm.toggle_arm(true)
 
 func start_round() -> void:
+	corner_mode = false
+	arm.rest_pos()
 	features.z_index = 0
 	combat_component.start()
 	can_control = true
@@ -173,9 +196,12 @@ func start_round() -> void:
 func _process(_delta: float) -> void:
 	if is_dead or not can_control or is_stuned:
 		return
-	arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
+	if arm:
+		arm.set_cd_bar(action_cooldown - combat_component.combat_timer.time_left, action_cooldown)
 
-func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
+func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool) -> void:
+	if is_dead:
+		return
 	if not can_control:
 		target.is_targeted = false
 		target._unhighlight_target()
@@ -195,17 +221,28 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character) -> void:
 		if a and a.is_part_dead(): dead_anatomy += 1
 	if health <= 0 or dead_anatomy >= anatomy_parts.size():
 		die.emit()
-		PopupPrompt.display_prompt("OUT OF PLACE !!", -1 ,face.global_position, 1.95, 0.85)
+		#PopupPrompt.display_prompt("OUT OF PLACE !!", -1 ,face.global_position, 1.95, 0.85)
 		is_dead = true
 		print(name + "dies")
 		character_die_sfx()
-	hit.emit(damage * 1.5)
-	get_hit_visual_feedback(damage / 10)
-	can_action = false
-	combat_component.pause(1.5)
+	hit.emit(damage * 1.2)
+	get_hit_visual_feedback(damage / 11)
+	#can_action = false
+	combat_component.pause(action_cooldown / stun_resist)
+	arm.rest_pos()
+	audio.play(self, sfx_hit, global_transform, "Intensity", damage / max_health)
+	
+	if crit: 
+		#if target.check_side() == target.AnatomySide.Left:
+			#audio.play(sfx_crit, global_transform, "Impact", "Fatal L")
+		#if target.check_side() == target.AnatomySide.Right:
+			#audio.play(sfx_crit, global_transform, "Impact", "Fatal R")
+		#else: audio.play(sfx_crit)
+		PopupPrompt.display_prompt("Critical !", -1 ,target.global_position, 2.0, 0.4)
+
 
 func character_die_sfx() -> void:
-	audio.play(sfx_die)
+	audio.play(self, sfx_die)
 
 var face_tween : Tween
 var face_og_pos : Vector2
@@ -224,17 +261,17 @@ func get_hit_visual_feedback(damage_scale: float) -> void:
 	face_og_rot = face.global_rotation
 	
 	var pos_offset := Vector2(
-		rand_outside_range(-100, -250),
-		randf_range(-20, -100) * top_down_dir
+		rand_outside_range(-150, -80),
+		randf_range(-150, -80) * top_down_dir
 	) * damage_scale
 
-	var rot_offset := rand_outside_range(3, 5) * damage_scale
-	var hit_time := 0.05 + damage_scale + randf_range(-0.15, 0.05)
+	var rot_offset := rand_outside_range(4, 6) * damage_scale
+	var hit_time := 0.03 + damage_scale + randf_range(-0.05, 0.03)
 
 	if is_dead:
 		pos_offset *= 20.0
 		rot_offset *= 20.0
-		hit_time *= 6.0
+		hit_time *= 5.0
 	face_tween = create_tween()
 	face_tween.set_trans(Tween.TRANS_QUAD)
 	face_tween.set_ease(Tween.EASE_OUT)
@@ -265,11 +302,11 @@ func get_hit_visual_feedback(damage_scale: float) -> void:
 
 	face_tween.tween_callback(func():
 		if not is_dead:
-			face_return(0.2 * damage_scale)
+			face_return(0.13 * damage_scale)
 		)
 
 func face_return(duration: float) -> void:
-	var return_time := duration + randf_range(0.05, 0.15)
+	var return_time := duration + randf_range(0.05, 0.1)
 
 	face_tween = create_tween()
 	face_tween.set_trans(Tween.TRANS_QUAD)
@@ -303,17 +340,18 @@ func recover_from_interrupt(recover_time: float) -> void:
 	is_stuned = false
 
 func _on_successful_block(attacker: Character) -> void:
-	PopupPrompt.display_prompt("BLCOKED !!", -1 ,arm.sprite_fist.global_position, 1.5, 0.5)
-	audio.play(sfx_block, global_transform, "Intensity", 0.75)
+	PopupPrompt.display_prompt("BLOCKED !!", -1 ,arm.sprite_fist.global_position, 1.5, 0.5)
+	audio.play(self, sfx_block, global_transform, "Intensity", 0.75)
 	blocked.emit(1.0)
 	can_action = false
 	attacker.on_interrupted()
 	attacker.arm.interrupt(func(): 
 		#cooldown multiplier
-		attacker.recover_from_interrupt(attacker.action_cooldown * 1.5)
+		attacker.recover_from_interrupt(attacker.action_cooldown * stun_strength)
 	)
 	arm.block_success()
 	
+	#combat_component.pause(stun_strength)
 	combat_component.reset_attack_timer(action_cooldown)
 	combat_component.start()
 	
@@ -349,7 +387,7 @@ func _perform_attack(target: Anatomy) -> void:
 				var crit := randf() < critical_chance
 				var dmg := attack_damage
 				if crit: dmg *= critical_damage
-				target.anatomy_hit.emit(dmg)
+				target.anatomy_hit.emit(dmg, crit)
 				hit.emit(dmg, crit)
 		)
 
@@ -381,6 +419,7 @@ func _on_attack_finished() -> void:
 	arm.sprite_fist.modulate = Color.DIM_GRAY
 
 func _on_block_finished() -> void:
+	#combat_component.pause(action_cooldown / stun_resist)
 	arm.sprite_fist.modulate = Color.DIM_GRAY
 	blocking_part.is_blocking = false
 	blocking_part = null
@@ -408,7 +447,7 @@ func reveal_target_with_delay(target: Anatomy) -> void:
 	if not target or not can_control:
 		return
 
-	var delay := randf_range(0.0, 0.5) + action_cooldown * 0.5
+	var delay := randf_range(0.2, 0.4) + action_cooldown * 0.6
 	await get_tree().create_timer(delay).timeout
 
 	if target != targeting_part or not can_control:

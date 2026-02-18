@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://teuunrq7bxl5"]
 
 [ext_resource type="PackedScene" uid="uid://cqk4twm4sfdyp" path="res://game/system/character/Character.tscn" id="1_66ayq"]
-[ext_resource type="Script" uid="uid://dnppvxac4pdxj" path="res://game/system/character/enemy/enemy.gd" id="2_yvqvv"]
+[ext_resource type="Script" uid="uid://dpntpsxyxvivr" path="res://game/system/character/enemy/boss/eric.gd" id="2_70ffv"]
 [ext_resource type="Texture2D" uid="uid://c3aws1pud8ee1" path="res://sprites/body_parts/FaceAssets/Enemies/Eric/EricHair.png" id="4_1dbei"]
 [ext_resource type="Texture2D" uid="uid://dqpkhg3vo62qu" path="res://sprites/body_parts/Bodies/EricBody.png" id="4_yvqvv"]
 [ext_resource type="Texture2D" uid="uid://cnwj52gow0ixr" path="res://sprites/body_parts/Basehead/EricBaseHead.png" id="5_yvqvv"]
@@ -146,15 +146,16 @@ shader_parameter/alphaThreshold = 0.2
 size = Vector2(90.22403, 29.422552)
 
 [node name="Eric" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_66ayq")]
-script = ExtResource("2_yvqvv")
+script = ExtResource("2_70ffv")
+boss_name = "Eric the Chin"
 is_minion = false
 switch_chance = 0.5
-min_switch_time = 3.0
-base_cooldown = 1.5
-base_damage = 1.0
-base_speed = 0.03
-base_crit_chance = 0.15
-base_crit_damage = 1.2
+min_switch_time = 1.5
+base_cooldown = 2.5
+base_damage = 1.5
+base_speed = 0.07
+base_stun_strength = 0.2
+base_stun_resist = 1.0
 arm = NodePath("EricArm")
 sfx_die = "event:/SFX/NPC/Eric/Die"
 sfx_entry = "event:/SFX/NPC/Eric/Entry"
@@ -190,13 +191,15 @@ texture = ExtResource("6_cte70")
 position = Vector2(-10.769226, -36.92308)
 stat_modifiers = {
 0: 0.0,
-1: 0.0,
+1: -0.2,
 2: 0.0,
 3: 0.0,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.0,
+7: 0.2
 }
-max_hp = 2.0
+max_hp = 5.0
 
 [node name="Sprite" parent="Face/Features/EyeL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_cte70")
@@ -216,13 +219,15 @@ position = Vector2(46.153854, -69.23077)
 rotation = -3.8661535
 stat_modifiers = {
 0: 0.0,
-1: 0.0,
+1: -0.2,
 2: 0.0,
 3: 0.0,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.0,
+7: 0.2
 }
-max_hp = 2.0
+max_hp = 5.0
 
 [node name="Sprite" parent="Face/Features/EyeL2" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_cte70")
@@ -242,13 +247,15 @@ shape = SubResource("CapsuleShape2D_dmudr")
 position = Vector2(56.923077, -23.076923)
 stat_modifiers = {
 0: 0.0,
-1: 0.0,
+1: -0.2,
 2: 0.0,
 3: 0.0,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.0,
+7: 0.2
 }
-max_hp = 2.0
+max_hp = 5.0
 
 [node name="Sprite" parent="Face/Features/EyeR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_dmudr")
@@ -266,13 +273,15 @@ position = Vector2(-21.538464, -7.6923084)
 rotation = 0.7299963
 stat_modifiers = {
 0: 0.0,
-1: 0.0,
+1: -0.2,
 2: 0.0,
 3: 0.0,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.0,
+7: 0.2
 }
-max_hp = 2.0
+max_hp = 5.0
 
 [node name="Sprite" parent="Face/Features/EyeR2" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_dmudr")
@@ -289,12 +298,14 @@ visible = false
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
-2: 0.0,
-3: 0.0,
+2: 0.4,
+3: 0.8,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.0,
+7: 0.0
 }
-max_hp = 2.0
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/EarL" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_ex3ds")
@@ -305,11 +316,13 @@ stat_modifiers = {
 0: 0.0,
 1: 0.0,
 2: 0.0,
-3: 0.0,
+3: 0.8,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.0,
+7: 0.0
 }
-max_hp = 2.0
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/EarR" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_2ov7o")
@@ -319,12 +332,14 @@ position = Vector2(-3.0769234, -3.0769234)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
-2: 0.0,
+2: 0.3,
 3: 0.0,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.0,
+7: 0.3
 }
-max_hp = 1.0
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_rsswb")
@@ -340,11 +355,14 @@ position = Vector2(15.384615, 53.846157)
 stat_modifiers = {
 0: 0.0,
 1: 0.0,
-2: 0.0,
+2: 0.3,
 3: 0.0,
 4: 0.0,
-5: 0.0
+5: 0.0,
+6: 0.0,
+7: 0.3
 }
+max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_bb6qk")
