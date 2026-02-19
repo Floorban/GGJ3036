@@ -15,6 +15,7 @@ var can_switch_target := false
 func _ready() -> void:
 	combat_component.start_counting.connect(_switch_target_timer)
 
+
 func _process(delta: float) -> void:
 	if is_dead or not can_control or is_stuned:
 		return

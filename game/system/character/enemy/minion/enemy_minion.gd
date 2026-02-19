@@ -3,6 +3,13 @@ class_name EnemyMinion extends Enemy
 @export var minion_data : MinionData
 @onready var arm_origin: Marker2D = %ArmOrigin
 
+@onready var eye_l: Anatomy = %EyeL
+@onready var eye_r: Anatomy = %EyeR
+@onready var ear_l: Anatomy = %EarL
+@onready var ear_r: Anatomy = %EarR
+@onready var nose: Anatomy = %Nose
+@onready var mouth: Anatomy = %Mouth
+
 func init_character() -> void:
 	_init_anatomy_parts()
 	_init_combat_component()
@@ -48,8 +55,16 @@ func _randomize_minion() -> void:
 	if minion_data == null:
 		return
 	max_health = 0
-	var chosen_face = minion_data.face_varuabts.pick_random()
-	face.texture = chosen_face
+	var chosen_face = minion_data.face_variants.pick_random()
+	if chosen_face and chosen_face is Face:
+		face.texture = chosen_face.face_sprite.texture
+		eye_l.global_transform = chosen_face.eye_marker_l.global_transform
+		eye_r.global_transform = chosen_face.eye_marker_r.global_transform
+		ear_l.global_transform = chosen_face.ear_marker_l.global_transform
+		ear_r.global_transform = chosen_face.ear_marker_r.global_transform
+		nose.global_transform = chosen_face.nose_marker.global_transform
+		mouth.global_transform = chosen_face.mouth_marker.global_transform
+	
 	var chosen_ear = minion_data.ear_variants.pick_random()
 	var chosen_eye = minion_data.eye_variants.pick_random()
 	var chosen_arm = minion_data.mouth_variants.pick_random()

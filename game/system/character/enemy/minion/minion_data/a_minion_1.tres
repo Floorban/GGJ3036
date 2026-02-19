@@ -3,14 +3,12 @@
 [ext_resource type="Script" uid="uid://bgerbi5bslcmt" path="res://game/system/character/enemy/minion/minion_data/minion_data.gd" id="1_5hkdn"]
 [ext_resource type="PackedScene" uid="uid://crx0mik0fvikf" path="res://game/system/anatomy/parts/body/minion_arm.tscn" id="1_hlsw5"]
 [ext_resource type="Script" uid="uid://cyavxqhgshvv7" path="res://game/system/anatomy/anatomy_data/anatomy_data.gd" id="1_r6otd"]
-[ext_resource type="Texture2D" uid="uid://c5h63abronlgd" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead4.png" id="2_gfkb7"]
 [ext_resource type="Resource" uid="uid://0jmjwgv64pla" path="res://game/system/anatomy/anatomy_data/ears/ear_1.tres" id="2_rbtog"]
-[ext_resource type="Texture2D" uid="uid://d1qh4lsnucnce" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead3.png" id="3_g4tic"]
 [ext_resource type="Resource" uid="uid://whw0ngktt85q" path="res://game/system/anatomy/anatomy_data/ears/ear_2.tres" id="3_ogg58"]
 [ext_resource type="Resource" uid="uid://d1ijlfyya2e81" path="res://game/system/anatomy/anatomy_data/eyes/eye_1.tres" id="4_71t7t"]
-[ext_resource type="Texture2D" uid="uid://cq0kudm6oa75c" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead2.png" id="4_rbtog"]
 [ext_resource type="Resource" uid="uid://be4w00l0xfgfy" path="res://game/system/anatomy/anatomy_data/eyes/eye_2.tres" id="5_0k8xh"]
-[ext_resource type="Texture2D" uid="uid://btgglbikviq5i" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead1.png" id="5_ogg58"]
+[ext_resource type="PackedScene" uid="uid://bmwre5sbii0x1" path="res://game/system/anatomy/anatomy_data/faces/minion_face_1.tscn" id="7_y5plg"]
+[ext_resource type="PackedScene" uid="uid://bfwf71h76qlt3" path="res://game/system/anatomy/anatomy_data/faces/minion_face_2.tscn" id="8_obqqq"]
 [ext_resource type="Resource" uid="uid://d6ixon3t1iha" path="res://game/system/anatomy/anatomy_data/mouths/mouth_1.tres" id="10_0k8xh"]
 [ext_resource type="Resource" uid="uid://sls8ofco7idm" path="res://game/system/anatomy/anatomy_data/mouths/mouth_2.tres" id="11_5cich"]
 [ext_resource type="Resource" uid="uid://dpetbman3pmpf" path="res://game/system/anatomy/anatomy_data/noses/nose_1.tres" id="12_obqqq"]
@@ -20,7 +18,7 @@
 script = ExtResource("1_5hkdn")
 arm_scene = ExtResource("1_hlsw5")
 arm_gesture = Vector2(-120, 140)
-face_varuabts = Array[Texture2D]([ExtResource("2_gfkb7"), ExtResource("3_g4tic"), ExtResource("4_rbtog"), ExtResource("5_ogg58")])
+face_variants = Array[PackedScene]([ExtResource("7_y5plg"), ExtResource("8_obqqq")])
 ear_variants = Array[ExtResource("1_r6otd")]([ExtResource("2_rbtog"), ExtResource("3_ogg58")])
 eye_variants = Array[ExtResource("1_r6otd")]([ExtResource("4_71t7t"), ExtResource("5_0k8xh")])
 mouth_variants = Array[ExtResource("1_r6otd")]([ExtResource("10_0k8xh"), ExtResource("11_5cich")])

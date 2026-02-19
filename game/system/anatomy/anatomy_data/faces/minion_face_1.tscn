@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bmwre5sbii0x1"]
+
+[ext_resource type="PackedScene" uid="uid://ctpj25g6whpfo" path="res://game/system/anatomy/parts/face/face.tscn" id="1_fga3f"]
+
+[node name="MinionFace1" unique_id=234493914 instance=ExtResource("1_fga3f")]

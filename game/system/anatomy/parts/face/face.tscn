@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ctpj25g6whpfo"]
+
+[ext_resource type="Script" uid="uid://ukm4sna5khym" path="res://face.gd" id="1_88y01"]
+[ext_resource type="Texture2D" uid="uid://btgglbikviq5i" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead1.png" id="2_637b6"]
+
+[node name="Face" type="Node2D" unique_id=234493914]
+script = ExtResource("1_88y01")
+
+[node name="FaceSprite" type="Sprite2D" parent="." unique_id=1327698800]
+unique_name_in_owner = true
+texture = ExtResource("2_637b6")
+
+[node name="EyeMarkerL" type="Marker2D" parent="." unique_id=1736944223]
+unique_name_in_owner = true
+position = Vector2(-54, -16)
+
+[node name="EyeMarkerR" type="Marker2D" parent="." unique_id=474784035]
+unique_name_in_owner = true
+position = Vector2(47, -19)
+
+[node name="EarMarkerL" type="Marker2D" parent="." unique_id=1066107856]
+unique_name_in_owner = true
+position = Vector2(-127, 6)
+
+[node name="EarMarkerR" type="Marker2D" parent="." unique_id=530276236]
+unique_name_in_owner = true
+position = Vector2(108, 1)
+
+[node name="NoseMarker" type="Marker2D" parent="." unique_id=1386996071]
+unique_name_in_owner = true
+position = Vector2(3, 11)
+
+[node name="MouthMarker" type="Marker2D" parent="." unique_id=1820897015]
+unique_name_in_owner = true
+position = Vector2(-5, 88)

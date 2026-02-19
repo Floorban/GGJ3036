@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://2mhw2o7sq4cq"]
+
+[ext_resource type="PackedScene" uid="uid://ctpj25g6whpfo" path="res://game/system/anatomy/parts/face/face.tscn" id="1_iqc18"]
+[ext_resource type="Texture2D" uid="uid://d1qh4lsnucnce" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead3.png" id="2_lg4d5"]
+
+[node name="MinionFace3" unique_id=234493914 instance=ExtResource("1_iqc18")]
+
+[node name="FaceSprite" parent="." index="0" unique_id=1327698800]
+texture = ExtResource("2_lg4d5")
+
+[node name="EyeMarkerL" parent="." index="1" unique_id=1736944223]
+position = Vector2(-55, -22)
