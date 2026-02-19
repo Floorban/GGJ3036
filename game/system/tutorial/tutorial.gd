@@ -102,6 +102,23 @@ func surgery_intro() -> void:
 	await get_tree().create_timer(3.0).timeout
 	DialogueManager.clear_all_text_boxes()
 
+var is_teaching_start_with_parts := false
+
+func start_with_no_parts() -> void:
+	if is_teaching_start_with_parts:
+		return
+	is_teaching_start_with_parts = true
+	DialogueManager.say(".........................")
+	await get_tree().create_timer(1.0).timeout
+	DialogueManager.say("Where do you want your opponent to punch on your face?")
+	await get_tree().create_timer(2.0).timeout
+	DialogueManager.say("Get some new parts to your face now")
+	await wait_for_first_surgery()
+	DialogueManager.say("Yeeyy, that doesn't hurt too much right : D")
+	await get_tree().create_timer(2.0).timeout
+	DialogueManager.clear_all_text_boxes()
+	is_teaching_start_with_parts = false
+
 
 enum ACTION_TYPES{
 	ANY,
@@ -213,6 +230,7 @@ func on_attack_lock():
 		await wait_for_action()
 		await get_tree().create_timer(2.0).timeout
 		DialogueManager.clear_all_text_boxes()
+
 
 func on_first_pickup():
 	part_pickup_done = true

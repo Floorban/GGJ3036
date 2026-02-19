@@ -189,6 +189,7 @@ minion_data = ExtResource("12_tvx5p")
 process_mode = 4
 visible = false
 position = Vector2(0, -5)
+base_cooldown = 4.0
 
 [node name="EnemyMinion3" parent="Enemies" index="5" unique_id=1108674998 instance=ExtResource("9_p36xc")]
 process_mode = 4
@@ -208,6 +209,7 @@ visible = false
 position = Vector2(0, -34)
 script = ExtResource("11_b7xvh")
 min_switch_time = 3.0
+base_cooldown = 4.0
 
 [node name="EnemyMinion5" parent="Enemies" index="8" unique_id=1132810370 instance=ExtResource("9_p36xc")]
 process_mode = 4
