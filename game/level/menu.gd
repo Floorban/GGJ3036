@@ -55,7 +55,7 @@ func intro_dialogue() -> void:
 		var box3 = await DialogueManager.say("You signed up for this! Now tough it out.", DialogueManager.NPC.UNKNOWN)
 		await Tutorial.wait_for_action()
 		DialogueManager.remove_static_box(box3)
-		DialogueManager.say("Now get up... and go get that money back.", DialogueManager.NPC.UNKNOWN)
+		DialogueManager.say("Now get up. . . and go get that money back.", DialogueManager.NPC.UNKNOWN)
 		await Tutorial.wait_for_action()
 		await get_tree().create_timer(0.5).timeout
 		DialogueManager.clear_all_text_boxes()

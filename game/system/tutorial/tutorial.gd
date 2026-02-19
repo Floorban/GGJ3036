@@ -87,7 +87,7 @@ func surgery_intro() -> void:
 	await wait_for_action()
 	DialogueManager.say("You can still reattach the brown parts, they're not too fucked up.", DialogueManager.NPC.COACH, false)
 	await wait_for_action()
-	DialogueManager.say(DialogueManager.tooltip_text(left_hold) + "the parts to move them around")
+	DialogueManager.say(DialogueManager.tooltip_text(left_hold) + "parts to move them around")
 	await wait_for_action()
 	await DialogueManager.say(DialogueManager.tooltip_text(left_release) + "to drop the part")
 	await wait_for_first_drop()
