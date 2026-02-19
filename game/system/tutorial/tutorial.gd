@@ -49,7 +49,7 @@ func self_broken_part() -> void:
 	await wait_for_first_block()
 	DialogueManager.remove_static_box(box2)
 	DialogueManager.say("You can see his attacking intent in red on your parts")
-	await get_tree().create_timer(2.0).timeout
+	await wait_for_action()
 	DialogueManager.say("Have to hold your arm on the right part to block his attack")
 	await wait_for_block_success()
 	DialogueManager.say("Here we go! Nice Block! !")
@@ -88,18 +88,16 @@ func surgery_intro() -> void:
 	await wait_for_action()
 	DialogueManager.say("You can still reattach the brown parts, they're not too fucked up.", DialogueManager.NPC.COACH, false)
 	await wait_for_action()
-	var box1 = await DialogueManager.say(DialogueManager.tooltip_text(left_hold) + "the parts to move them around")
+	DialogueManager.say(DialogueManager.tooltip_text(left_hold) + "the parts to move them around")
 	await wait_for_action()
-	DialogueManager.remove_static_box(box1)
-	var box2 = await DialogueManager.say(DialogueManager.tooltip_text(left_release) + "to drop the part")
+	await DialogueManager.say(DialogueManager.tooltip_text(left_release) + "to drop the part")
 	await wait_for_first_drop()
-	DialogueManager.remove_static_box(box2)
 	DialogueManager.say("Try replacing an old part on your face now.")
 	await wait_for_action()
 	DialogueManager.say("Remove the part from your face first if there's not enough spot for it.")
 	await wait_for_first_surgery()
 	DialogueManager.say("maybe you can even look a bit less ugly after fixing it.")
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	DialogueManager.clear_all_text_boxes()
 	surgery_done = false
 
@@ -109,7 +107,7 @@ func start_with_no_parts() -> void:
 	if is_teaching_start_with_parts:
 		return
 	is_teaching_start_with_parts = true
-	DialogueManager.say(".........................")
+	DialogueManager.say(". . . . . . . . . . . . . . . . . . . . . . .")
 	await get_tree().create_timer(1.0).timeout
 	DialogueManager.say("Where do you want your opponent to punch on your face?")
 	await get_tree().create_timer(2.0).timeout
