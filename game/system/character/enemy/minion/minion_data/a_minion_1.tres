@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="MinionData" format=3 uid="uid://d4dqrfx1hujr6"]
 
 [ext_resource type="Script" uid="uid://bgerbi5bslcmt" path="res://game/system/character/enemy/minion/minion_data/minion_data.gd" id="1_5hkdn"]
+[ext_resource type="PackedScene" uid="uid://crx0mik0fvikf" path="res://game/system/anatomy/parts/body/minion_arm.tscn" id="1_hlsw5"]
 [ext_resource type="Script" uid="uid://cyavxqhgshvv7" path="res://game/system/anatomy/anatomy_data/anatomy_data.gd" id="1_r6otd"]
 [ext_resource type="Texture2D" uid="uid://c5h63abronlgd" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead4.png" id="2_gfkb7"]
 [ext_resource type="Resource" uid="uid://0jmjwgv64pla" path="res://game/system/anatomy/anatomy_data/ears/ear_1.tres" id="2_rbtog"]
@@ -17,17 +18,18 @@
 
 [resource]
 script = ExtResource("1_5hkdn")
+arm_scene = ExtResource("1_hlsw5")
+arm_gesture = Vector2(-120, 140)
 face_varuabts = Array[Texture2D]([ExtResource("2_gfkb7"), ExtResource("3_g4tic"), ExtResource("4_rbtog"), ExtResource("5_ogg58")])
 ear_variants = Array[ExtResource("1_r6otd")]([ExtResource("2_rbtog"), ExtResource("3_ogg58")])
 eye_variants = Array[ExtResource("1_r6otd")]([ExtResource("4_71t7t"), ExtResource("5_0k8xh")])
 mouth_variants = Array[ExtResource("1_r6otd")]([ExtResource("10_0k8xh"), ExtResource("11_5cich")])
 nose_variants = Array[ExtResource("1_r6otd")]([ExtResource("12_obqqq"), ExtResource("13_hlsw5")])
 base_cooldown = 5.0
-base_damage = 1.0
-base_speed = 0.1
-base_crit_damage = 1.0
-base_stun_strength = 1.0
-base_stun_resist = 1.0
+base_damage = 0.5
+base_speed = 0.12
+base_stun_strength = 0.3
+base_stun_resist = 0.3
 sfx_die = "event:/NPC/Hostile/Minions/Die"
 sfx_entry = "event:/NPC/Hostile/Minions/Entry"
 sfx_hurt = "event:/NPC/Hostile/Minions/Hurt"

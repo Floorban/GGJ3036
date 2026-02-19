@@ -45,6 +45,13 @@ func start_round() -> void:
 			selected_target.is_targeted = true
 			selected_target._highlight_target()
 
+func end_battle() -> void:
+	super.end_battle()
+	if selected_target:
+		selected_target.is_targeted = false
+		selected_target._unhighlight_target()
+		selected_target = null
+
 #func choose_target() -> Anatomy:
 	#if selected_target and selected_target.state != Anatomy.PartState.DESTROYED:
 		#return selected_target
@@ -206,5 +213,5 @@ func _on_enemy_anatomy_clicked(anatomy: Anatomy) -> void:
 		#anatomy.is_targeted = false
 		#anatomy._unhighlight_target()
 
-func character_die_sfx() -> void:
+func character_die() -> void:
 	pass

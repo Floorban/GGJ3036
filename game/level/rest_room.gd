@@ -60,7 +60,7 @@ func enter_rest_room(current_level: int) -> void:
 	for p in background.get_children():
 		p.z_index = 10
 	
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	part_info_panel.visible = true
 	ready_button.visible = true
 

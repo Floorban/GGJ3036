@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dvwx1qrh3voa6" path="res://sprites/body_parts/FaceAssets/Minions/MinionEar3.png" id="5_ogfbv"]
 [ext_resource type="Texture2D" uid="uid://cpdif6588tb4" path="res://sprites/body_parts/FaceAssets/MCfacevariations/Noses/GoldenNose.png" id="6_jfqqk"]
 [ext_resource type="Texture2D" uid="uid://cj6p7ulmlsv8t" path="res://sprites/body_parts/FaceAssets/Minions/MouthMinion1.png" id="7_s18kw"]
-[ext_resource type="PackedScene" uid="uid://crx0mik0fvikf" path="res://game/system/anatomy/parts/body/minion_arm.tscn" id="9_qlcty"]
 
 [sub_resource type="Shader" id="Shader_2ro5p"]
 code = "shader_type canvas_item;
@@ -187,11 +186,10 @@ size = Vector2(128, 50)
 
 [node name="EnemyMinion" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_1oes0")]
 script = ExtResource("2_1oes0")
-arm_scene = ExtResource("9_qlcty")
 minion_data = null
 boss_name = ""
 is_minion = true
-switch_chance = 0.5
+switch_chance = 0.0
 min_switch_time = 3.0
 arm = NodePath("")
 

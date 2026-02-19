@@ -1,5 +1,8 @@
 class_name MinionData extends Resource
 
+@export var arm_scene: PackedScene
+@export var arm_gesture: Vector2 = Vector2(-50, 100)
+
 @export var face_varuabts: Array[Texture2D]
 @export var ear_variants: Array[AnatomyData]
 @export var eye_variants: Array[AnatomyData]

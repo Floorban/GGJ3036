@@ -229,7 +229,7 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool
 		#PopupPrompt.display_prompt("OUT OF PLACE !!", -1 ,face.global_position, 1.95, 0.85)
 		is_dead = true
 		print(name + "dies")
-		character_die_sfx()
+		character_die()
 	hit.emit(damage * 1.2)
 	get_hit_visual_feedback(damage / 11)
 	#can_action = false
@@ -247,7 +247,7 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool
 		PopupPrompt.display_prompt("Critical !", -1 ,target.global_position, 2.0, 0.4)
 
 
-func character_die_sfx() -> void:
+func character_die() -> void:
 	audio.play(self, sfx_die)
 
 var face_tween : Tween
