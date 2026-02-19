@@ -77,12 +77,13 @@ func leave_rest_room() -> void:
 				part.body_owner = null
 				part.reparent(background)
 				player.anatomy_parts.remove_at(i)
-	#if player.anatomy_parts.is_empty():
-		#assert(player.anatomy_parts.is_empty(), "can't start with no parts")
-		#return
+	if player.anatomy_parts.is_empty():
+		push_error("can't start with no parts")
+		return
+	print(player.anatomy_parts)
 	clear_upgrade_parts()
 	player.rest_mode = false
-	await  get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.1).timeout
 	ready_to_fight.emit()
 
 func clear_upgrade_parts() -> void:

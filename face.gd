@@ -1,4 +1,4 @@
-class_name Face extends Node2D
+class_name Face extends Sprite2D
 
 @onready var face_sprite: Sprite2D = %FaceSprite
 @onready var eye_marker_l: Marker2D = %EyeMarkerL

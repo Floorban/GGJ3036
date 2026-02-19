@@ -9,10 +9,10 @@
 texture = ExtResource("2_lifyi")
 
 [node name="EyeMarkerL" parent="." index="1" unique_id=1736944223]
-position = Vector2(-56, -34)
+position = Vector2(-56, -38)
 
 [node name="EyeMarkerR" parent="." index="2" unique_id=474784035]
-position = Vector2(56, -38)
+position = Vector2(56, -42)
 
 [node name="EarMarkerL" parent="." index="3" unique_id=1066107856]
 position = Vector2(-116, -9)

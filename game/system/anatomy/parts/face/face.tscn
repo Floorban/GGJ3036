@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://ukm4sna5khym" path="res://face.gd" id="1_88y01"]
 [ext_resource type="Texture2D" uid="uid://btgglbikviq5i" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead1.png" id="2_637b6"]
 
-[node name="Face" type="Node2D" unique_id=234493914]
+[node name="Face" type="Sprite2D" unique_id=1662835439]
 script = ExtResource("1_88y01")
 
 [node name="FaceSprite" type="Sprite2D" parent="." unique_id=1327698800]
 unique_name_in_owner = true
+visible = false
 texture = ExtResource("2_637b6")
 
 [node name="EyeMarkerL" type="Marker2D" parent="." unique_id=1736944223]

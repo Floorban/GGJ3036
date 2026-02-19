@@ -55,8 +55,10 @@ func _randomize_minion() -> void:
 	if minion_data == null:
 		return
 	max_health = 0
-	var chosen_face = minion_data.face_variants.pick_random()
-	if chosen_face and chosen_face is Face:
+	
+	var chosen_face = minion_data.face_variants.pick_random().instantiate() as Face
+	if chosen_face:
+		face.add_child(chosen_face)
 		face.texture = chosen_face.face_sprite.texture
 		eye_l.global_transform = chosen_face.eye_marker_l.global_transform
 		eye_r.global_transform = chosen_face.eye_marker_r.global_transform

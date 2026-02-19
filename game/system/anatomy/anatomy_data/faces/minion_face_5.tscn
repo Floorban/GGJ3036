@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bdadtqaevulet"]
+
+[ext_resource type="PackedScene" uid="uid://ctpj25g6whpfo" path="res://game/system/anatomy/parts/face/face.tscn" id="1_wt683"]
+[ext_resource type="Texture2D" uid="uid://b7ngna1oxjcwl" path="res://sprites/body_parts/NewStyle/NewHeads/NewHead1.png" id="2_b84ga"]
+
+[node name="MinionFace5" unique_id=234493914 instance=ExtResource("1_wt683")]
+
+[node name="FaceSprite" parent="." index="0" unique_id=1327698800]
+texture = ExtResource("2_b84ga")
+
+[node name="EyeMarkerL" parent="." index="1" unique_id=1736944223]
+position = Vector2(-47, 6)
+
+[node name="EyeMarkerR" parent="." index="2" unique_id=474784035]
+position = Vector2(49, -2)
+
+[node name="EarMarkerL" parent="." index="3" unique_id=1066107856]
+position = Vector2(-104, 6)
+rotation = -0.06622334
+
+[node name="EarMarkerR" parent="." index="4" unique_id=530276236]
+position = Vector2(100, -3)
+
+[node name="NoseMarker" parent="." index="5" unique_id=1386996071]
+position = Vector2(6, 36)
+
+[node name="MouthMarker" parent="." index="6" unique_id=1820897015]
+position = Vector2(11, 98)

@@ -3,3 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://ctpj25g6whpfo" path="res://game/system/anatomy/parts/face/face.tscn" id="1_fga3f"]
 
 [node name="MinionFace1" unique_id=234493914 instance=ExtResource("1_fga3f")]
+
+[node name="EyeMarkerL" parent="." index="1" unique_id=1736944223]
+position = Vector2(-54, -19)
+
+[node name="EyeMarkerR" parent="." index="2" unique_id=474784035]
+position = Vector2(52, -21)
+
+[node name="EarMarkerL" parent="." index="3" unique_id=1066107856]
+rotation = -0.07936173
+
+[node name="EarMarkerR" parent="." index="4" unique_id=530276236]
+position = Vector2(113.00001, 3)
+rotation = 0.227477
