@@ -4,6 +4,7 @@ extends Node
 @export var right_click: Tooltip
 @export var left_hold: Tooltip
 @export var left_release: Tooltip
+@export var red_intent: Tooltip
 
 ## Combat Tutorial
 var entered_combat: bool = false
@@ -47,9 +48,10 @@ func self_broken_part() -> void:
 	DialogueManager.remove_static_box(box1)
 	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to defend")
 	await wait_for_action()
-	DialogueManager.say("You can see his attacking intent in red on your parts")
+	DialogueManager.say("You can see his attacking intent in " + DialogueManager.tooltip_text(red_intent) +" on your parts")
 	await wait_for_action()
 	DialogueManager.say("Have to hold your arm on the right part to block his attack")
+	can_block_sucess = true
 	await wait_for_block_success()
 	DialogueManager.say("Here we go! Nice Block! !")
 	await wait_for_action()
@@ -207,9 +209,11 @@ func wait_for_first_surgery() -> void:
 func on_first_block():
 	block_done = true
 
+var can_block_sucess = false
 
 func on_block_success():
-	block_success = true
+	if can_block_sucess:
+		block_success = true
 
 
 func on_first_attack():

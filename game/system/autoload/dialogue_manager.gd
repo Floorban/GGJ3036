@@ -161,6 +161,7 @@ func npc_talk() -> void:
 		.set_delay(0.12)\
 		.set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 
+
 func npc_idle() -> void:
 	if talking_tween:
 		talking_tween.kill()
