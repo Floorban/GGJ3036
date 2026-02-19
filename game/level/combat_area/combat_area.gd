@@ -347,7 +347,6 @@ var barrel_distortion := 0.0
 
 
 func _screen_shake(value: float, crit := false) -> void:
-	print("shaky")
 	camera.add_trauma(value / 8)
 
 	var peak : float = clamp(value * 0.15, 0.08, 0.3)

@@ -111,7 +111,7 @@ func get_ready_to_battle() -> void:
 	super.get_ready_to_battle()
 	for part: Anatomy in features.get_children():
 		if not part.body_owner or part.body_owner != self:
-			part.reparent(Stats.rest_room.background)
+			part.reparent(GameManager.rest_room.background)
 	
 	if first_level:
 		first_level = false

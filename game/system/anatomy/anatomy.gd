@@ -93,8 +93,8 @@ func _ready() -> void:
 		if a.anatomy_type == anatomy_type: fix_areas.append(a)
 	for i in 8:
 		await get_tree().physics_frame
-	hovering.connect(Stats.rest_room.show_part_info)
-	unhover.connect(Stats.rest_room.hide_part_info)
+	hovering.connect(GameManager.rest_room.show_part_info)
+	unhover.connect(GameManager.rest_room.hide_part_info)
 	fix_area_detect_area.area_entered.connect(_on_fix_area_entered)
 	fix_area_detect_area.area_exited.connect(_on_fix_area_exited)
 	check_side()
@@ -490,6 +490,7 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 		PopupPrompt.display_prompt("!", int(changed_amount), global_position, 2.0)
 
 func part_dead() -> void:
+	lock.visible = false
 	state = PartState.DESTROYED
 	current_color = Color.WEB_PURPLE
 	sprite.modulate = current_color

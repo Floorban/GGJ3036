@@ -42,6 +42,7 @@ func update_hover():
 
 var main_menu : Menu
 var combat_area: Level
+var rest_room : RestRoom
 
 func return_to_main_menu() -> void:
 	if main_menu == null:

@@ -30,6 +30,9 @@ func lose_anatomy() -> void:
 	if my_anatomy == null:
 		is_occupied = false
 		return
+	if my_anatomy in player.anatomy_parts:
+		player.anatomy_parts.erase(my_anatomy)
+		my_anatomy.reparent(rest_room.background)
 	sprite.visible = true
 	sprite.rotate(randf_range(-0.2,0.2))
 	if my_anatomy.anatomy_fucked.is_connected(lose_anatomy):
@@ -63,11 +66,15 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 	reparent_anatomy(anatomy, player.features)
 
 	if last_anatomy:
+		if last_anatomy in player.anatomy_parts:
+			player.anatomy_parts.erase(last_anatomy)
+			last_anatomy.reparent(rest_room.background)
 		last_anatomy.state = Anatomy.PartState.OutOfBody
 		last_anatomy.body_owner = null
 		last_anatomy = my_anatomy
 		rest_room.attached_index += 1
-
+	
+	player.anatomy_parts.append(anatomy)
 	audio.play(rest_room, rest_room.sfx_attach, global_transform, "Tier", rest_room.attached_index)
 	anatomy.body_owner = player
 	anatomy.position = position

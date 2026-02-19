@@ -35,7 +35,7 @@ func get_allowed_tiers(level: int) -> Array[int]:
 @onready var part_spawn_markers: Array[Marker2D] = [%SpawnMarker1, %SpawnMarker2, %SpawnMarker3, %SpawnMarker4, %SpawnMarker5, %SpawnMarker6, %SpawnMarker7, %SpawnMarker8, %SpawnMarker9, %SpawnMarker10, %SpawnMarker11, %SpawnMarker12]
 
 func _ready() -> void:
-	Stats.rest_room = self
+	GameManager.rest_room = self
 	ready_button.pressed.connect(leave_rest_room)
 	part_info_panel.visible = false
 	background.visible = false
@@ -65,6 +65,9 @@ func enter_rest_room(current_level: int) -> void:
 	ready_button.visible = true
 
 func leave_rest_room() -> void:
+	if player.anatomy_parts.is_empty():
+		Tutorial.start_with_no_parts()
+		return
 	part_info_panel.visible = false
 	background.visible = false
 	ready_button.visible = false
@@ -77,10 +80,6 @@ func leave_rest_room() -> void:
 				part.body_owner = null
 				part.reparent(background)
 				player.anatomy_parts.remove_at(i)
-	if player.anatomy_parts.is_empty():
-		push_error("player can't start with no parts")
-		return
-	print(player.anatomy_parts)
 	clear_upgrade_parts()
 	player.rest_mode = false
 	await get_tree().create_timer(0.1).timeout
