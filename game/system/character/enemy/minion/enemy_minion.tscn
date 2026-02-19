@@ -187,21 +187,26 @@ size = Vector2(128, 50)
 
 [node name="EnemyMinion" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_1oes0")]
 script = ExtResource("2_1oes0")
+arm_scene = ExtResource("9_qlcty")
 minion_data = null
 boss_name = ""
 is_minion = true
 switch_chance = 0.5
 min_switch_time = 3.0
-arm = NodePath("MinionArm")
+arm = NodePath("")
 
-[node name="Shoulder" type="Sprite2D" parent="." index="0" unique_id=1191182705]
+[node name="ArmOrigin" type="Marker2D" parent="." index="0" unique_id=827438594]
+unique_name_in_owner = true
+position = Vector2(-105, 10)
+
+[node name="Shoulder" type="Sprite2D" parent="." index="1" unique_id=1191182705]
 z_index = -3
 texture_filter = 1
 rotation = -3.054326
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_vhm8w")
 
-[node name="Face" parent="." index="1" unique_id=1276534686]
+[node name="Face" parent="." index="2" unique_id=1276534686]
 self_modulate = Color(0.6752505, 0.67525053, 0.67525053, 1)
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("3_4pvfs")
@@ -291,11 +296,6 @@ texture = ExtResource("7_s18kw")
 [node name="CollisionShape2D" parent="Face/Features/Mouth/MouseDetectArea" parent_id_path=PackedInt32Array(508432269, 1106976729) index="0" unique_id=149295176]
 position = Vector2(-1, 6)
 shape = SubResource("RectangleShape2D_s18kw")
-
-[node name="MinionArm" parent="." index="2" unique_id=1972221418 instance=ExtResource("9_qlcty")]
-z_index = 10
-position = Vector2(-106.99999, 9.999999)
-rotation = -0.09027928
 
 [editable path="Face/Features/EyeL"]
 [editable path="Face/Features/EyeR"]

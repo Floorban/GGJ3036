@@ -1,5 +1,8 @@
 class_name EnemyMinion extends Enemy
 
+@export var arm_scene: PackedScene
+@onready var arm_origin: Marker2D = %ArmOrigin
+
 @export var minion_data : MinionData
 
 func init_character() -> void:
@@ -19,8 +22,13 @@ func _init_anatomy_parts() -> void:
 
 
 func set_up_minion() -> void:
-	if minion_data == null:
+	if minion_data == null or arm_scene == null:
 		return
+	var new_arm = arm_scene.instantiate()
+	arm_origin.add_child(new_arm)
+	arm = new_arm
+	arm.position = Vector2.ZERO
+	
 	sfx_die = minion_data.sfx_die
 	sfx_entry = minion_data.sfx_entry
 	sfx_hurt = minion_data.sfx_hurt

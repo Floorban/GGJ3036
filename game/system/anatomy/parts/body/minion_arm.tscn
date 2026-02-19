@@ -24,6 +24,7 @@ modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DFABRIK_f4hwt")
 
 [node name="MinionArm" type="Node2D" unique_id=1972221418]
+z_index = 10
 script = ExtResource("1_lhpph")
 windup_distance = 20.0
 windup_strength = 2.0
