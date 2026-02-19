@@ -62,7 +62,6 @@ func _ready() -> void:
 	retro_mat = retro_screen.material as ShaderMaterial
 	#init_combat_arena(current_level)
 	start_battle()
-	first_level = false
 	await get_tree().create_timer(1.0).timeout
 	transition_screen.burn()
 
@@ -102,9 +101,10 @@ func init_combat_arena(level : int) -> void:
 	rest_room.attached_index = 0
 	if first_level:
 		#current_round = 1
-		player.hit.connect(_screen_shake)
+		#player.hit.connect(_screen_shake)
 		player.blocked.connect(_screen_shake)
 		player.die.connect(player_lose)
+		first_level = false
 
 	if i_music == null: i_music = audio.play_instance(self, sfx_music)
 
@@ -167,6 +167,9 @@ func end_battle() -> void:
 	var current_val = retro_mat.get_shader_parameter("color_quant_steps")
 	tween.tween_property(retro_mat, "shader_parameter/color_quant_steps", 10.0, 0.3).from(current_val)
 	tween.tween_property(camera, "zoom", Vector2.ONE * 3.5, 0.3)
+	
+	if enemy.hit.is_connected(_screen_shake):
+		enemy.hit.disconnect(_screen_shake)
 	
 	current_round = 0
 	in_battle = false
@@ -344,6 +347,7 @@ var barrel_distortion := 0.0
 
 
 func _screen_shake(value: float, crit := false) -> void:
+	print("shaky")
 	camera.add_trauma(value / 8)
 
 	var peak : float = clamp(value * 0.15, 0.08, 0.3)

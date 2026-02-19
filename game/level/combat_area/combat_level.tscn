@@ -174,16 +174,16 @@ rotation = -0.44854963
 scale = Vector2(5, 5)
 texture = ExtResource("13_ldpml")
 
-[node name="EnemyMinion1" parent="Enemies" index="2" unique_id=927994861 instance=ExtResource("9_p36xc")]
-visible = false
-position = Vector2(0, -40)
-minion_data = ExtResource("10_oxeqc")
-
-[node name="EnemyMinion2" parent="Enemies" index="3" unique_id=1063311903 instance=ExtResource("9_p36xc")]
+[node name="EnemyMinion2" parent="Enemies" index="2" unique_id=1063311903 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
 minion_data = ExtResource("11_v7vgh")
+
+[node name="EnemyMinion1" parent="Enemies" index="3" unique_id=927994861 instance=ExtResource("9_p36xc")]
+visible = false
+position = Vector2(0, -40)
+minion_data = ExtResource("10_oxeqc")
 
 [node name="Bully" parent="Enemies" index="4" unique_id=1348200660 instance=ExtResource("3_i2c52")]
 process_mode = 4

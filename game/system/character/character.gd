@@ -230,7 +230,7 @@ func resolve_hit(target: Anatomy, damage: float, attacker: Character, crit: bool
 		is_dead = true
 		print(name + "dies")
 		character_die()
-	hit.emit(damage * 1.2)
+	hit.emit(damage * 1.2, crit)
 	get_hit_visual_feedback(damage / 11)
 	#can_action = false
 	combat_component.pause(action_cooldown / stun_resist)
@@ -394,7 +394,7 @@ func _perform_attack(target: Anatomy) -> void:
 				var dmg := attack_damage
 				if crit: dmg *= critical_damage
 				target.anatomy_hit.emit(dmg, crit)
-				hit.emit(dmg, crit)
+				#hit.emit(dmg, crit)
 		)
 
 func _perform_block(target: Anatomy) -> void:

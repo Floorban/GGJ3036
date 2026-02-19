@@ -120,6 +120,8 @@ func get_ready_to_battle() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
+		if selected_target and selected_target.lock.visible:
+			selected_target.lock.visible = false
 		locking_on_target = false
 		if arm.is_punching:
 			return
