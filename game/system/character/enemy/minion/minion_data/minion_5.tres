@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="MinionData" format=3 uid="uid://br78cfkjs3a82"]
+
+[ext_resource type="PackedScene" uid="uid://crx0mik0fvikf" path="res://game/system/anatomy/parts/body/minion_arm.tscn" id="1_fw5os"]
+[ext_resource type="Script" uid="uid://cyavxqhgshvv7" path="res://game/system/anatomy/anatomy_data/anatomy_data.gd" id="2_rhlj5"]
+[ext_resource type="Resource" uid="uid://nw047vl0jvia" path="res://game/system/anatomy/anatomy_data/ears/ear_5.tres" id="7_ykl5v"]
+[ext_resource type="Resource" uid="uid://c30lylyplj4j2" path="res://game/system/anatomy/anatomy_data/ears/ear_6.tres" id="8_tncwv"]
+[ext_resource type="Resource" uid="uid://bi77cj53ejbtj" path="res://game/system/anatomy/anatomy_data/ears/ear_7.tres" id="9_a7bor"]
+[ext_resource type="Resource" uid="uid://bls6j1d24v8sj" path="res://game/system/anatomy/anatomy_data/eyes/eye_5.tres" id="19_gr8qm"]
+[ext_resource type="Resource" uid="uid://oi1x4tv20djw" path="res://game/system/anatomy/anatomy_data/eyes/eye_6.tres" id="20_2373x"]
+[ext_resource type="Resource" uid="uid://4wpsvawy57rb" path="res://game/system/anatomy/anatomy_data/eyes/eye_7.tres" id="21_vno7f"]
+[ext_resource type="PackedScene" uid="uid://bmwre5sbii0x1" path="res://game/system/anatomy/anatomy_data/faces/minion_face_1.tscn" id="27_f5gbo"]
+[ext_resource type="PackedScene" uid="uid://bfwf71h76qlt3" path="res://game/system/anatomy/anatomy_data/faces/minion_face_2.tscn" id="28_q55kf"]
+[ext_resource type="PackedScene" uid="uid://2mhw2o7sq4cq" path="res://game/system/anatomy/anatomy_data/faces/minion_face_3.tscn" id="29_j1lo6"]
+[ext_resource type="PackedScene" uid="uid://df8l16qj2wyqf" path="res://game/system/anatomy/anatomy_data/faces/minion_face_4.tscn" id="30_wax3x"]
+[ext_resource type="PackedScene" uid="uid://bdadtqaevulet" path="res://game/system/anatomy/anatomy_data/faces/minion_face_5.tscn" id="31_d24eq"]
+[ext_resource type="Resource" uid="uid://tds2w2lqssd2" path="res://game/system/anatomy/anatomy_data/mouths/mouth_5.tres" id="36_uanmm"]
+[ext_resource type="Resource" uid="uid://c7i1t7dvllshd" path="res://game/system/anatomy/anatomy_data/mouths/mouth_6.tres" id="37_tyt8w"]
+[ext_resource type="Resource" uid="uid://id3xwbi6qaj0" path="res://game/system/anatomy/anatomy_data/mouths/mouth_7.tres" id="38_8qin1"]
+[ext_resource type="Resource" uid="uid://cthnphp2qe0k3" path="res://game/system/anatomy/anatomy_data/noses/nose_5.tres" id="48_8lv7l"]
+[ext_resource type="Resource" uid="uid://do6cykhuitvx1" path="res://game/system/anatomy/anatomy_data/noses/nose_6.tres" id="49_iu81d"]
+[ext_resource type="Resource" uid="uid://cl5j64qcaxdb3" path="res://game/system/anatomy/anatomy_data/noses/nose_7.tres" id="50_pqi5y"]
+[ext_resource type="Script" uid="uid://bgerbi5bslcmt" path="res://game/system/character/enemy/minion/minion_data/minion_data.gd" id="56_to6ae"]
+
+[resource]
+script = ExtResource("56_to6ae")
+arm_scene = ExtResource("1_fw5os")
+arm_gesture = Vector2(-120, 140)
+face_variants = Array[PackedScene]([ExtResource("27_f5gbo"), ExtResource("28_q55kf"), ExtResource("29_j1lo6"), ExtResource("30_wax3x"), ExtResource("31_d24eq")])
+ear_variants = Array[ExtResource("2_rhlj5")]([ExtResource("7_ykl5v"), ExtResource("8_tncwv"), ExtResource("9_a7bor")])
+eye_variants = Array[ExtResource("2_rhlj5")]([ExtResource("19_gr8qm"), ExtResource("20_2373x"), ExtResource("21_vno7f")])
+mouth_variants = Array[ExtResource("2_rhlj5")]([ExtResource("36_uanmm"), ExtResource("37_tyt8w"), ExtResource("38_8qin1")])
+nose_variants = Array[ExtResource("2_rhlj5")]([ExtResource("48_8lv7l"), ExtResource("49_iu81d"), ExtResource("50_pqi5y")])
+base_cooldown = 5.0
+base_damage = 0.8
+base_speed = 0.12
+base_stun_strength = 0.3
+base_stun_resist = 0.3
+sfx_die = "event:/NPC/Hostile/Minions/Die"
+sfx_entry = "event:/NPC/Hostile/Minions/Entry"
+sfx_hurt = "event:/NPC/Hostile/Minions/Hurt"
+metadata/_custom_type_script = "uid://bgerbi5bslcmt"

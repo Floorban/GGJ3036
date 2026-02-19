@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="NoseData" format=3 uid="uid://8h7j0brt52lw"]
 
-[ext_resource type="Texture2D" uid="uid://syw2km6rpowe" path="res://sprites/body_parts/NewStyle/NewNoses/NewNose6.png" id="1_pqdpy"]
+[ext_resource type="Texture2D" uid="uid://df0341t5gxadd" path="res://sprites/body_parts/FaceAssets/MCfacevariations/Noses/PigNose.png" id="1_pqdpy"]
 [ext_resource type="Script" uid="uid://bgmfe0u6jdw3j" path="res://game/system/anatomy/anatomy_data/nose_data.gd" id="2_pg5vb"]
 
 [resource]

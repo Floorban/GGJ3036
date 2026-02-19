@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EarData" format=3 uid="uid://xhpf25rduoc1"]
+
+[ext_resource type="Texture2D" uid="uid://0t5ptb1ujroh" path="res://sprites/body_parts/NewStyle/NewEars/NewEar1.png" id="1_aco4j"]
+[ext_resource type="Script" uid="uid://chk7qjlisad38" path="res://game/system/anatomy/anatomy_data/ear_data.gd" id="2_jdfeo"]
+
+[resource]
+script = ExtResource("2_jdfeo")
+anatomy_sprite = ExtResource("1_aco4j")
+anatomy_hp = 5
+metadata/_custom_type_script = "uid://chk7qjlisad38"

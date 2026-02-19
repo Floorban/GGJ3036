@@ -15,29 +15,29 @@
 [ext_resource type="PackedScene" uid="uid://c3joaeokc1h1s" path="res://game/system/character/enemy/boss/brain_out_2.tscn" id="8_g1ogi"]
 [ext_resource type="PackedScene" uid="uid://b378v61r0ypsm" path="res://game/system/character/enemy/minion/enemy_minion.tscn" id="9_p36xc"]
 [ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="9_tgsw3"]
-[ext_resource type="Resource" uid="uid://d4dqrfx1hujr6" path="res://game/system/character/enemy/minion/minion_data/a_minion_1.tres" id="10_oxeqc"]
+[ext_resource type="Resource" uid="uid://d4dqrfx1hujr6" path="res://game/system/character/enemy/minion/minion_data/minion_1.tres" id="10_oxeqc"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="10_xaya2"]
 [ext_resource type="Shader" uid="uid://bqqnlybur4rdk" path="res://material/retro.gdshader" id="11_5tn5e"]
 [ext_resource type="Script" uid="uid://i1uip8en2isl" path="res://game/system/character/enemy/boss/boxer.gd" id="11_b7xvh"]
-[ext_resource type="Resource" uid="uid://bpvih2pls82gm" path="res://game/system/character/enemy/minion/minion_data/a_minion_2.tres" id="11_v7vgh"]
+[ext_resource type="Resource" uid="uid://fvhss6145auq" path="res://game/system/character/enemy/minion/minion_data/minion_2.tres" id="12_tvx5p"]
 [ext_resource type="PackedScene" uid="uid://b52dof6t0f114" path="res://game/level/combat_area/game_ui.tscn" id="12_unnlo"]
-[ext_resource type="Resource" uid="uid://bhfghjpron6ov" path="res://game/system/character/enemy/minion/minion_data/b_minion_1.tres" id="13_gbxfd"]
 [ext_resource type="Script" uid="uid://b6ic2kvjqwmiq" path="res://game/level/combat_area/retro_screen.gd" id="13_i2c52"]
 [ext_resource type="Texture2D" uid="uid://bk1awwhg2p6h8" path="res://sprites/Backgrounds/Arena.png" id="13_ldpml"]
 [ext_resource type="Shader" uid="uid://cq8fiv0wib6gv" path="res://material/burn_dissolve.gdshader" id="14_28xsa"]
 [ext_resource type="Script" uid="uid://c6m8tdtxaevtk" path="res://game/level/combat_area/transition_screen.gd" id="14_ay0ac"]
 [ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="14_fhe53"]
 [ext_resource type="Script" uid="uid://dfjt04hiauxuq" path="res://game/system/character/enemy/boss/fat_guy.gd" id="14_p36xc"]
-[ext_resource type="Resource" uid="uid://ge0jmml0he77" path="res://game/system/character/enemy/minion/minion_data/b_minion_2.tres" id="14_tvx5p"]
 [ext_resource type="PackedScene" uid="uid://dg80hkoj8qolf" path="res://game/level/rest_room.tscn" id="15_kjrlu"]
-[ext_resource type="Resource" uid="uid://bkms3vg2jnwfa" path="res://game/system/character/enemy/minion/minion_data/c_minion_1.tres" id="17_sm7j8"]
-[ext_resource type="Resource" uid="uid://daeeh1fcld8c" path="res://game/system/character/enemy/minion/minion_data/c_minion_2.tres" id="18_uwult"]
-[ext_resource type="Resource" uid="uid://cd0sefgq2wu2p" path="res://game/system/character/enemy/minion/minion_data/d_minion_1.tres" id="20_jlyot"]
-[ext_resource type="Resource" uid="uid://cnnnnyli4ns4l" path="res://game/system/character/enemy/minion/minion_data/d_minion_2.tres" id="21_7objy"]
-[ext_resource type="Resource" uid="uid://c18v3jp2ntrcf" path="res://game/system/character/enemy/minion/minion_data/e_minion_1.tres" id="24_owj8r"]
-[ext_resource type="Resource" uid="uid://b678elutschdb" path="res://game/system/character/enemy/minion/minion_data/e_minion_2.tres" id="25_fqi1q"]
-[ext_resource type="Resource" uid="uid://r00xqhtg0w5s" path="res://game/system/character/enemy/minion/minion_data/f_minion_1.tres" id="27_ltqse"]
-[ext_resource type="Resource" uid="uid://ck5cf8uci2mcj" path="res://game/system/character/enemy/minion/minion_data/f_minion_2.tres" id="28_nia3n"]
+[ext_resource type="Resource" uid="uid://bdccjrr0jw7b6" path="res://game/system/character/enemy/minion/minion_data/minion_3.tres" id="15_sm7j8"]
+[ext_resource type="Resource" uid="uid://bmxthbsosdyai" path="res://game/system/character/enemy/minion/minion_data/minion_4.tres" id="17_uwult"]
+[ext_resource type="Resource" uid="uid://bchfdp66sgy6k" path="res://game/system/character/enemy/minion/minion_data/minion_7.tres" id="20_7objy"]
+[ext_resource type="Resource" uid="uid://br78cfkjs3a82" path="res://game/system/character/enemy/minion/minion_data/minion_5.tres" id="20_jlyot"]
+[ext_resource type="Resource" uid="uid://c5kco4f8vcdkm" path="res://game/system/character/enemy/minion/minion_data/minion_8.tres" id="21_7objy"]
+[ext_resource type="Resource" uid="uid://bhqpg7ifisjhx" path="res://game/system/character/enemy/minion/minion_data/minion_6.tres" id="22_7objy"]
+[ext_resource type="Resource" uid="uid://chws5qhh2rnje" path="res://game/system/character/enemy/minion/minion_data/minion_9.tres" id="24_fqi1q"]
+[ext_resource type="Resource" uid="uid://cljkk5wmsedp8" path="res://game/system/character/enemy/minion/minion_data/minion_10.tres" id="25_ltqse"]
+[ext_resource type="Resource" uid="uid://d3ohf7urg3t5o" path="res://game/system/character/enemy/minion/minion_data/minion_11.tres" id="27_ltqse"]
+[ext_resource type="Resource" uid="uid://c8dxetxkescpr" path="res://game/system/character/enemy/minion/minion_data/minion_12.tres" id="28_nia3n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_85o0x"]
 shader = ExtResource("11_5tn5e")
@@ -183,7 +183,7 @@ minion_data = ExtResource("10_oxeqc")
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
-minion_data = ExtResource("11_v7vgh")
+minion_data = ExtResource("12_tvx5p")
 
 [node name="Bully" parent="Enemies" index="4" unique_id=1348200660 instance=ExtResource("3_i2c52")]
 process_mode = 4
@@ -194,13 +194,13 @@ position = Vector2(0, -5)
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
-minion_data = ExtResource("13_gbxfd")
+minion_data = ExtResource("15_sm7j8")
 
 [node name="EnemyMinion4" parent="Enemies" index="6" unique_id=968171612 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
-minion_data = ExtResource("14_tvx5p")
+minion_data = ExtResource("17_uwult")
 
 [node name="Boxer" parent="Enemies" index="7" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 process_mode = 4
@@ -213,13 +213,13 @@ min_switch_time = 3.0
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
-minion_data = ExtResource("17_sm7j8")
+minion_data = ExtResource("20_jlyot")
 
 [node name="EnemyMinion6" parent="Enemies" index="9" unique_id=1347092866 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
-minion_data = ExtResource("18_uwult")
+minion_data = ExtResource("22_7objy")
 
 [node name="BrainOut1" parent="Enemies" index="10" unique_id=710006968 instance=ExtResource("5_ay0ac")]
 process_mode = 4
@@ -231,7 +231,7 @@ boss_name = "Ron 7 mouths"
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
-minion_data = ExtResource("20_jlyot")
+minion_data = ExtResource("20_7objy")
 
 [node name="EnemyMinion8" parent="Enemies" index="12" unique_id=410606818 instance=ExtResource("9_p36xc")]
 process_mode = 4
@@ -249,13 +249,13 @@ script = ExtResource("14_p36xc")
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
-minion_data = ExtResource("24_owj8r")
+minion_data = ExtResource("24_fqi1q")
 
 [node name="EnemyMinion10" parent="Enemies" index="15" unique_id=1291810578 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
-minion_data = ExtResource("25_fqi1q")
+minion_data = ExtResource("25_ltqse")
 
 [node name="Eric" parent="Enemies" index="16" unique_id=856538371 instance=ExtResource("7_28xsa")]
 process_mode = 4

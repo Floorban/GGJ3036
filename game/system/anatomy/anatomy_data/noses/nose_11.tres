@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NoseData" format=3 uid="uid://77qct5vkn4kg"]
+
+[ext_resource type="Texture2D" uid="uid://ojf006wabgdf" path="res://sprites/body_parts/FaceAssets/Minions/MinionNose4.png" id="1_sb2n7"]
+[ext_resource type="Script" uid="uid://bgmfe0u6jdw3j" path="res://game/system/anatomy/anatomy_data/nose_data.gd" id="2_0cnjg"]
+
+[resource]
+script = ExtResource("2_0cnjg")
+anatomy_sprite = ExtResource("1_sb2n7")
+anatomy_hp = 5
+metadata/_custom_type_script = "uid://bgmfe0u6jdw3j"

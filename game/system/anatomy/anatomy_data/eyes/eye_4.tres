@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EyeData" format=3 uid="uid://dm4j8gf0i2ua0"]
 
-[ext_resource type="Texture2D" uid="uid://cfawrsgu8kwv5" path="res://sprites/body_parts/FaceAssets/Minions/EyeMinion3.png" id="1_u7apq"]
+[ext_resource type="Texture2D" uid="uid://cfp7ie5hjaq3h" path="res://sprites/body_parts/FaceAssets/MCfacevariations/eyes/ReallyOpenEye.png" id="1_u7apq"]
 [ext_resource type="Script" uid="uid://b1t6nh57l0ts4" path="res://game/system/anatomy/anatomy_data/eye_data.gd" id="2_e7r8k"]
 
 [resource]

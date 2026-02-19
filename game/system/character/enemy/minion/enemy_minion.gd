@@ -70,6 +70,8 @@ func _randomize_minion() -> void:
 		ear_r.global_transform = face_base.ear_marker_r.global_transform
 		nose.global_transform = face_base.nose_marker.global_transform
 		mouth.global_transform = face_base.mouth_marker.global_transform
+	face.scale = Vector2(0.55, 0.55) * randf_range(0.9, 1.1)
+	face.rotation_degrees = randf_range(-5,5)
 	_random_offset_to_parts([eye_l, eye_r, ear_l, ear_r, nose, mouth])
 	
 	var chosen_ear = minion_data.ear_variants.pick_random()

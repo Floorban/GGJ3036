@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EarData" format=3 uid="uid://bmsrbfa785623"]
 
-[ext_resource type="Texture2D" uid="uid://co86mf5prnmdm" path="res://sprites/body_parts/NewStyle/NewEars/NewEar6.png" id="1_bvtg0"]
+[ext_resource type="Texture2D" uid="uid://dmna6l3t44a6n" path="res://sprites/body_parts/FaceAssets/Minions/MinionEar5.png" id="1_bvtg0"]
 [ext_resource type="Script" uid="uid://chk7qjlisad38" path="res://game/system/anatomy/anatomy_data/ear_data.gd" id="2_3hcor"]
 
 [resource]
