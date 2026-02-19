@@ -19,13 +19,14 @@
 [resource]
 script = ExtResource("1_jthem")
 arm_scene = ExtResource("1_r8dvm")
+arm_gesture = Vector2(-130, 100)
 face_varuabts = Array[Texture2D]([ExtResource("2_fc1es"), ExtResource("3_r8dvm"), ExtResource("4_00fsl"), ExtResource("5_mxl1j")])
 ear_variants = Array[ExtResource("1_7mqtl")]([ExtResource("3_mxl1j"), ExtResource("4_gw3ub")])
 eye_variants = Array[ExtResource("1_7mqtl")]([ExtResource("5_5cb30"), ExtResource("6_s3ha6")])
 mouth_variants = Array[ExtResource("1_7mqtl")]([ExtResource("11_brdur"), ExtResource("12_2qxw7")])
 nose_variants = Array[ExtResource("1_7mqtl")]([ExtResource("13_eu7jv"), ExtResource("14_85j3k")])
 base_cooldown = 4.0
-base_damage = 0.8
+base_damage = 0.9
 base_speed = 0.1
 base_stun_strength = 0.5
 base_stun_resist = 0.5

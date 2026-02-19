@@ -184,14 +184,13 @@ shader_parameter/alphaThreshold = 0.2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s18kw"]
 size = Vector2(128, 50)
 
-[node name="EnemyMinion" unique_id=1861387119 node_paths=PackedStringArray("arm") instance=ExtResource("1_1oes0")]
+[node name="EnemyMinion" unique_id=1861387119 instance=ExtResource("1_1oes0")]
 script = ExtResource("2_1oes0")
 minion_data = null
 boss_name = ""
 is_minion = true
 switch_chance = 0.0
 min_switch_time = 3.0
-arm = NodePath("")
 
 [node name="ArmOrigin" type="Marker2D" parent="." index="0" unique_id=827438594]
 unique_name_in_owner = true

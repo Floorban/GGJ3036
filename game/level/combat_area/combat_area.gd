@@ -95,6 +95,8 @@ func init_combat_arena(level : int) -> void:
 	enemy.opponent = player
 	player.init_character()
 	enemy.init_character()
+	if not enemy.hit.is_connected(_screen_shake):
+		enemy.hit.connect(_screen_shake)
 	if not enemy.die.is_connected(player_win):
 		enemy.die.connect(player_win)
 	rest_room.attached_index = 0
@@ -342,9 +344,9 @@ var barrel_distortion := 0.0
 
 
 func _screen_shake(value: float, crit := false) -> void:
-	camera.add_trauma(value / 5.5)
+	camera.add_trauma(value / 8)
 
-	var peak : float = clamp(value * 0.15, 0.07, 0.3)
+	var peak : float = clamp(value * 0.15, 0.08, 0.3)
 
 	if distortion_tween and distortion_tween.is_running():
 		distortion_tween.kill()

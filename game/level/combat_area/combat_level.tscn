@@ -153,6 +153,7 @@ battle_duration = 10.0
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
 unique_name_in_owner = true
 position = Vector2(0, 175)
+base_cooldown = 3.0
 top_down_dir = 1
 
 [node name="Enemies" type="Node2D" parent="." index="1" unique_id=1222997985]
