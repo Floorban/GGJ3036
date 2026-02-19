@@ -101,6 +101,7 @@ func surgery_intro() -> void:
 	DialogueManager.say("maybe you can even look a bit less ugly after fixing it.")
 	await get_tree().create_timer(3.0).timeout
 	DialogueManager.clear_all_text_boxes()
+	surgery_done = false
 
 var is_teaching_start_with_parts := false
 
@@ -118,6 +119,7 @@ func start_with_no_parts() -> void:
 	await get_tree().create_timer(2.0).timeout
 	DialogueManager.clear_all_text_boxes()
 	is_teaching_start_with_parts = false
+	surgery_done = false
 
 
 enum ACTION_TYPES{
