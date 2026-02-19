@@ -78,7 +78,7 @@ func leave_rest_room() -> void:
 				part.reparent(background)
 				player.anatomy_parts.remove_at(i)
 	if player.anatomy_parts.is_empty():
-		push_error("can't start with no parts")
+		push_error("player can't start with no parts")
 		return
 	print(player.anatomy_parts)
 	clear_upgrade_parts()
