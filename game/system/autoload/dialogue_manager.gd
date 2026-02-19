@@ -84,7 +84,7 @@ func tooltip_text(tooltip_resource: Tooltip) -> String:
 	var text_line: String = tooltip_resource.text + " "
 	var text_image = "[img=32x32]" + tooltip_resource.icon.resource_path + "[/img] "
 
-	var text = text_line + text_image
+	var text = "[hint=]" + text_line + text_image + "[/hint]"
 	return text
 
 func _reflow() -> void:
