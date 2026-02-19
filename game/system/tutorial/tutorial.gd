@@ -114,11 +114,11 @@ func start_with_no_parts() -> void:
 	await get_tree().create_timer(2.0).timeout
 	DialogueManager.say("Get some new parts to your face now")
 	await wait_for_first_surgery()
-	DialogueManager.say("Yeeyy, that doesn't hurt too much right")
+	DialogueManager.say("Yeeyy, that doesn't hurt too much right : D")
 	await get_tree().create_timer(2.0).timeout
 	DialogueManager.clear_all_text_boxes()
 	is_teaching_start_with_parts = false
-	
+
 
 enum ACTION_TYPES{
 	ANY,

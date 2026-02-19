@@ -63,8 +63,22 @@ func enter_rest_room(current_level: int) -> void:
 	await get_tree().create_timer(1.0).timeout
 	part_info_panel.visible = true
 	ready_button.visible = true
+	
+	for part in player.anatomy_parts:
+		if is_instance_valid(part):
+			if part.body_owner == null or part.state == Anatomy.PartState.DESTROYED:
+				player.anatomy_parts.erase(part)
+				part.reparent(background)
+				part.z_index = 50
 
 func leave_rest_room() -> void:
+	for i in range(player.anatomy_parts.size() - 1, -1, -1):
+		var part = player.anatomy_parts[i]
+		if is_instance_valid(part):
+			if part.body_owner == null or part.state == Anatomy.PartState.DESTROYED:
+				part.body_owner = null
+				part.reparent(background)
+				player.anatomy_parts.remove_at(i)
 	if player.anatomy_parts.is_empty():
 		Tutorial.start_with_no_parts()
 		return
@@ -73,13 +87,7 @@ func leave_rest_room() -> void:
 	ready_button.visible = false
 	ready_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	audio.muffle(false)
-	for i in range(player.anatomy_parts.size() - 1, -1, -1):
-		var part = player.anatomy_parts[i]
-		if is_instance_valid(part):
-			if part.body_owner == null or part.state != Anatomy.PartState.HEALTHY:
-				part.body_owner = null
-				part.reparent(background)
-				player.anatomy_parts.remove_at(i)
+
 	clear_upgrade_parts()
 	player.rest_mode = false
 	await get_tree().create_timer(0.1).timeout

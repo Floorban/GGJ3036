@@ -118,7 +118,7 @@ signal disconnect()
 
 func _process(_delta: float) -> void:
 	var dist := (global_position - og_pos).length()
-	if state == PartState.HEALTHY and dist > 50.0 and has_blood:
+	if body_owner and dist > 50.0 and has_blood:
 		#drop_part()
 		state = PartState.FUCKED
 		body_owner = null
@@ -257,7 +257,7 @@ func pickup_part() -> void:
 		GameManager.hovered_part._unhover_part()
 	GameManager.dragging_part = self
 	og_pos = global_position
-	if body_owner and state == PartState.HEALTHY and body_owner.rest_mode:
+	if body_owner and body_owner.rest_mode:
 		if randf() < 0.4: audio.play(self, sfx_scream)
 		draw_blood_line()
 	is_being_dragged = true
@@ -467,7 +467,7 @@ func set_hp(changed_amount: float, crit: bool = false) -> void:
 		state = PartState.FUCKED
 		move_part()
 		current_color = Color.CHOCOLATE
-		anatomy_fucked.emit()
+		#anatomy_fucked.emit()
 		if not is_targeted and sprite:
 			sprite.modulate = current_color
 	if current_hp <= 0 and state != PartState.DESTROYED:
