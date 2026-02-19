@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Tooltip" format=3 uid="uid://4x1fr6vf7r03"]
 
-[ext_resource type="Texture2D" uid="uid://bofrqh5fge2j3" path="res://sprites/icons/right.png" id="1_svel4"]
+[ext_resource type="Texture2D" uid="uid://cagrahhd3f8gi" path="res://sprites/icons/Mouse_Right.png" id="1_svel4"]
 [ext_resource type="Script" uid="uid://d0v37d0d6w03m" path="res://game/ui/Tooltip/tooltip.gd" id="2_qyxkg"]
 
 [resource]
