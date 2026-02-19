@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_w18pu")
 icon = ExtResource("1_1cmax")
-text = "HOLD"
+text = "HOLD and Drag"
 description = "Keep pressing the LEFT button"
 metadata/_custom_type_script = "uid://d0v37d0d6w03m"

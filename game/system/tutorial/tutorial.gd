@@ -45,9 +45,8 @@ func self_broken_part() -> void:
 	var box1 = await DialogueManager.say("OHH NO! Where's your defense bro? !")
 	await get_tree().create_timer(1.0).timeout
 	DialogueManager.remove_static_box(box1)
-	var box2 = await DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to defend")
-	await wait_for_first_block()
-	DialogueManager.remove_static_box(box2)
+	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to defend")
+	await wait_for_action()
 	DialogueManager.say("You can see his attacking intent in red on your parts")
 	await wait_for_action()
 	DialogueManager.say("Have to hold your arm on the right part to block his attack")
