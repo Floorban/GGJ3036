@@ -173,9 +173,10 @@ func end_battle() -> void:
 	features.z_index = 5
 	if not anatomy_parts.is_empty():
 		for part in anatomy_parts:
-			part.is_blocking = false
-			part.is_targeted = false
-			part._unhighlight_target()
+			if is_instance_valid(part):
+				part.is_blocking = false
+				part.is_targeted = false
+				part._unhighlight_target()
 	combat_component.stop()
 	can_action = false
 	can_control = false

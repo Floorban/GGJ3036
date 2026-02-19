@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cyavxqhgshvv7" path="res://game/system/anatomy/anatomy_data/anatomy_data.gd" id="1_7mqtl"]
 [ext_resource type="Script" uid="uid://bgerbi5bslcmt" path="res://game/system/character/enemy/minion/minion_data/minion_data.gd" id="1_jthem"]
+[ext_resource type="Texture2D" uid="uid://c5h63abronlgd" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead4.png" id="2_fc1es"]
+[ext_resource type="Texture2D" uid="uid://d1qh4lsnucnce" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead3.png" id="3_r8dvm"]
+[ext_resource type="Texture2D" uid="uid://cq0kudm6oa75c" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead2.png" id="4_00fsl"]
+[ext_resource type="Texture2D" uid="uid://btgglbikviq5i" path="res://sprites/body_parts/Basehead/RandomHead/MinionHead1.png" id="5_mxl1j"]
 
 [resource]
 script = ExtResource("1_jthem")
+face_varuabts = Array[Texture2D]([ExtResource("2_fc1es"), ExtResource("3_r8dvm"), ExtResource("4_00fsl"), ExtResource("5_mxl1j")])
 sfx_die = "event:/NPC/Hostile/Minions/Die"
 sfx_entry = "event:/NPC/Hostile/Minions/Entry"
 sfx_hurt = "event:/NPC/Hostile/Minions/Hurt"
