@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EyeData" format=3 uid="uid://oi1x4tv20djw"]
+
+[ext_resource type="Texture2D" uid="uid://cyqsfhkuvj04c" path="res://sprites/body_parts/NewStyle/NewEyes/NewEye1.png" id="1_qtmft"]
+[ext_resource type="Script" uid="uid://b1t6nh57l0ts4" path="res://game/system/anatomy/anatomy_data/eye_data.gd" id="2_s1fy3"]
+
+[resource]
+script = ExtResource("2_s1fy3")
+anatomy_sprite = ExtResource("1_qtmft")
+anatomy_hp = 5
+metadata/_custom_type_script = "uid://b1t6nh57l0ts4"

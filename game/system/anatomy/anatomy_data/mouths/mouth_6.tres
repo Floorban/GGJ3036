@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MouthData" format=3 uid="uid://c7i1t7dvllshd"]
+
+[ext_resource type="Texture2D" uid="uid://hgasa8f85sv1" path="res://sprites/body_parts/NewStyle/NewMouths/NewMouth1.png" id="1_t3q07"]
+[ext_resource type="Script" uid="uid://b4w42ei3axoe5" path="res://game/system/anatomy/anatomy_data/mouth_data.gd" id="2_vkf8x"]
+
+[resource]
+script = ExtResource("2_vkf8x")
+anatomy_sprite = ExtResource("1_t3q07")
+anatomy_hp = 5
+metadata/_custom_type_script = "uid://b4w42ei3axoe5"

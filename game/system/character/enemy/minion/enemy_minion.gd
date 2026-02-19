@@ -3,6 +3,7 @@ class_name EnemyMinion extends Enemy
 @export var minion_data : MinionData
 @onready var arm_origin: Marker2D = %ArmOrigin
 
+var face_base : Face
 @onready var eye_l: Anatomy = %EyeL
 @onready var eye_r: Anatomy = %EyeR
 @onready var ear_l: Anatomy = %EarL
@@ -50,8 +51,10 @@ func set_up_minion() -> void:
 	min_switch_time = minion_data.min_switch_time
 	_randomize_minion()
 
-
 func _randomize_minion() -> void:
+	if face_base:
+		face_base.queue_free()
+		face_base = null
 	if minion_data == null:
 		return
 	max_health = 0
@@ -59,13 +62,15 @@ func _randomize_minion() -> void:
 	var chosen_face = minion_data.face_variants.pick_random().instantiate() as Face
 	if chosen_face:
 		face.add_child(chosen_face)
-		face.texture = chosen_face.face_sprite.texture
-		eye_l.global_transform = chosen_face.eye_marker_l.global_transform
-		eye_r.global_transform = chosen_face.eye_marker_r.global_transform
-		ear_l.global_transform = chosen_face.ear_marker_l.global_transform
-		ear_r.global_transform = chosen_face.ear_marker_r.global_transform
-		nose.global_transform = chosen_face.nose_marker.global_transform
-		mouth.global_transform = chosen_face.mouth_marker.global_transform
+		face_base = chosen_face
+		face.texture = face_base.face_sprite.texture
+		eye_l.global_transform = face_base.eye_marker_l.global_transform
+		eye_r.global_transform = face_base.eye_marker_r.global_transform
+		ear_l.global_transform = face_base.ear_marker_l.global_transform
+		ear_r.global_transform = face_base.ear_marker_r.global_transform
+		nose.global_transform = face_base.nose_marker.global_transform
+		mouth.global_transform = face_base.mouth_marker.global_transform
+	_random_offset_to_parts([eye_l, eye_r, ear_l, ear_r, nose, mouth])
 	
 	var chosen_ear = minion_data.ear_variants.pick_random()
 	var chosen_eye = minion_data.eye_variants.pick_random()
@@ -78,6 +83,12 @@ func _randomize_minion() -> void:
 	# max hp is assigned here after parts are assigned
 	rebuild_stats()
 
+
+func _random_offset_to_parts(parts: Array[Anatomy]) -> void:
+	for part in parts:
+		part.position += Vector2(randf_range(-3,3), randf_range(-3,3))
+		part.rotation_degrees += randf_range(-8,8)
+		part.scale *= randf_range(0.9, 1.2)
 
 func _assign_part(chosen_part: AnatomyData) -> void:
 	if chosen_part == null:

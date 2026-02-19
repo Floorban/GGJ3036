@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NoseData" format=3 uid="uid://cl5j64qcaxdb3"]
+
+[ext_resource type="Texture2D" uid="uid://djl6xlkyrnxg0" path="res://sprites/body_parts/NewStyle/NewNoses/NewNose3.png" id="1_ti41w"]
+[ext_resource type="Script" uid="uid://bgmfe0u6jdw3j" path="res://game/system/anatomy/anatomy_data/nose_data.gd" id="2_elesd"]
+
+[resource]
+script = ExtResource("2_elesd")
+anatomy_sprite = ExtResource("1_ti41w")
+anatomy_hp = 5
+metadata/_custom_type_script = "uid://bgmfe0u6jdw3j"
