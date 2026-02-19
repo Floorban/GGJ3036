@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bdfnajbn2gao2"
+path="res://.godot/imported/s_Hover.ogg-791f2b52f9cfe4c7c0228568bc6a9283.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/UI/s_Hover.ogg"
+dest_files=["res://.godot/imported/s_Hover.ogg-791f2b52f9cfe4c7c0228568bc6a9283.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

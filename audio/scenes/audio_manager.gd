@@ -69,7 +69,13 @@ value: Variant = null
 		push_error("invalid FMOD event path: " + sound_path + " FROM " + caller.name)
 		return
 
-	var instance: FmodEvent = FmodServer.create_event_instance(sound_path)
+	var instance: FmodEvent
+	if sound_path.contains('{'):
+		print("finding guid")
+		instance = FmodServer.create_event_instance_with_guid(sound_path)
+
+	else: instance = FmodServer.create_event_instance(sound_path)
+
 	instance.set_2d_attributes(object_transform)
 
 	if value is float: instance.set_parameter_by_name(parameter, value)
@@ -113,7 +119,5 @@ func muffle(state: bool = false) -> void:
 	else:
 		FmodServer.set_global_parameter_by_name_with_label(MUFFLE, FALSE)
 		muffled = false
-
-#hi
 
 #endregion
