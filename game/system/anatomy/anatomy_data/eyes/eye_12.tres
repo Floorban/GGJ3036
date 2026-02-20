@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("2_1m6ra")
 anatomy_sprite = ExtResource("1_jxq5c")
-anatomy_hp = 5
+anatomy_hp = 10
 metadata/_custom_type_script = "uid://b1t6nh57l0ts4"

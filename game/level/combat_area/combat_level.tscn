@@ -179,31 +179,19 @@ visible = false
 position = Vector2(0, -40)
 minion_data = ExtResource("10_oxeqc")
 
-[node name="EnemyMinion2" parent="Enemies" index="3" unique_id=1063311903 instance=ExtResource("9_p36xc")]
-process_mode = 4
-visible = false
-position = Vector2(0, -40)
-minion_data = ExtResource("12_tvx5p")
-
-[node name="Bully" parent="Enemies" index="4" unique_id=1348200660 instance=ExtResource("3_i2c52")]
+[node name="Bully" parent="Enemies" index="3" unique_id=1348200660 instance=ExtResource("3_i2c52")]
 process_mode = 4
 visible = false
 position = Vector2(0, -5)
 base_cooldown = 4.0
 
-[node name="EnemyMinion3" parent="Enemies" index="5" unique_id=1108674998 instance=ExtResource("9_p36xc")]
+[node name="EnemyMinion3" parent="Enemies" index="4" unique_id=1108674998 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
 minion_data = ExtResource("15_sm7j8")
 
-[node name="EnemyMinion4" parent="Enemies" index="6" unique_id=968171612 instance=ExtResource("9_p36xc")]
-process_mode = 4
-visible = false
-position = Vector2(0, -40)
-minion_data = ExtResource("17_uwult")
-
-[node name="Boxer" parent="Enemies" index="7" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
+[node name="Boxer" parent="Enemies" index="5" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 process_mode = 4
 visible = false
 position = Vector2(0, -34)
@@ -211,75 +199,87 @@ script = ExtResource("11_b7xvh")
 min_switch_time = 3.0
 base_cooldown = 4.0
 
-[node name="EnemyMinion5" parent="Enemies" index="8" unique_id=1132810370 instance=ExtResource("9_p36xc")]
+[node name="EnemyMinion5" parent="Enemies" index="6" unique_id=1132810370 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
 minion_data = ExtResource("20_jlyot")
 
-[node name="EnemyMinion6" parent="Enemies" index="9" unique_id=1347092866 instance=ExtResource("9_p36xc")]
-process_mode = 4
-visible = false
-position = Vector2(0, -40)
-minion_data = ExtResource("22_7objy")
-
-[node name="BrainOut1" parent="Enemies" index="10" unique_id=710006968 instance=ExtResource("5_ay0ac")]
+[node name="BrainOut1" parent="Enemies" index="7" unique_id=710006968 instance=ExtResource("5_ay0ac")]
 process_mode = 4
 visible = false
 position = Vector2(0, -13)
 boss_name = "Ron 7 mouths"
 
-[node name="EnemyMinion7" parent="Enemies" index="11" unique_id=946486280 instance=ExtResource("9_p36xc")]
+[node name="EnemyMinion7" parent="Enemies" index="8" unique_id=946486280 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
 minion_data = ExtResource("20_7objy")
 
-[node name="EnemyMinion8" parent="Enemies" index="12" unique_id=410606818 instance=ExtResource("9_p36xc")]
-process_mode = 4
-visible = false
-position = Vector2(0, -40)
-minion_data = ExtResource("21_7objy")
-
-[node name="FatGuy" parent="Enemies" index="13" unique_id=1388912655 instance=ExtResource("6_fhe53")]
+[node name="FatGuy" parent="Enemies" index="9" unique_id=1388912655 instance=ExtResource("6_fhe53")]
 process_mode = 4
 visible = false
 position = Vector2(-3, -63)
 script = ExtResource("14_p36xc")
 
-[node name="EnemyMinion9" parent="Enemies" index="14" unique_id=980129354 instance=ExtResource("9_p36xc")]
+[node name="EnemyMinion9" parent="Enemies" index="10" unique_id=980129354 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
 minion_data = ExtResource("24_fqi1q")
 
-[node name="EnemyMinion10" parent="Enemies" index="15" unique_id=1291810578 instance=ExtResource("9_p36xc")]
-process_mode = 4
-visible = false
-position = Vector2(0, -40)
-minion_data = ExtResource("25_ltqse")
-
-[node name="Eric" parent="Enemies" index="16" unique_id=856538371 instance=ExtResource("7_28xsa")]
+[node name="Eric" parent="Enemies" index="11" unique_id=856538371 instance=ExtResource("7_28xsa")]
 process_mode = 4
 visible = false
 position = Vector2(0, -13)
 
-[node name="EnemyMinion11" parent="Enemies" index="17" unique_id=1130295079 instance=ExtResource("9_p36xc")]
+[node name="EnemyMinion11" parent="Enemies" index="12" unique_id=1130295079 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
 minion_data = ExtResource("27_ltqse")
 
-[node name="EnemyMinion12" parent="Enemies" index="18" unique_id=1659963506 instance=ExtResource("9_p36xc")]
+[node name="BrainOut2" parent="Enemies" index="13" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
+process_mode = 4
+visible = false
+position = Vector2(0, -13)
+
+[node name="EnemyMinion2" parent="Enemies" index="14" unique_id=1063311903 instance=ExtResource("9_p36xc")]
+process_mode = 4
+visible = false
+position = Vector2(0, -40)
+minion_data = ExtResource("12_tvx5p")
+
+[node name="EnemyMinion4" parent="Enemies" index="15" unique_id=968171612 instance=ExtResource("9_p36xc")]
+process_mode = 4
+visible = false
+position = Vector2(0, -40)
+minion_data = ExtResource("17_uwult")
+
+[node name="EnemyMinion6" parent="Enemies" index="16" unique_id=1347092866 instance=ExtResource("9_p36xc")]
+process_mode = 4
+visible = false
+position = Vector2(0, -40)
+minion_data = ExtResource("22_7objy")
+
+[node name="EnemyMinion8" parent="Enemies" index="17" unique_id=410606818 instance=ExtResource("9_p36xc")]
+process_mode = 4
+visible = false
+position = Vector2(0, -40)
+minion_data = ExtResource("21_7objy")
+
+[node name="EnemyMinion10" parent="Enemies" index="18" unique_id=1291810578 instance=ExtResource("9_p36xc")]
+process_mode = 4
+visible = false
+position = Vector2(0, -40)
+minion_data = ExtResource("25_ltqse")
+
+[node name="EnemyMinion12" parent="Enemies" index="19" unique_id=1659963506 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
 minion_data = ExtResource("28_nia3n")
-
-[node name="BrainOut2" parent="Enemies" index="19" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
-process_mode = 4
-visible = false
-position = Vector2(0, -13)
 
 [node name="RestRoom" parent="Enemies" index="20" unique_id=1662139499 instance=ExtResource("15_kjrlu")]
 unique_name_in_owner = true

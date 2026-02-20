@@ -500,7 +500,8 @@ func part_dead() -> void:
 
 func move_part() -> void:
 	rotation += randf_range(-1.2, 1.2)
-	position += Vector2(randf_range(-3, 3), randf_range(-3, 3))
+	var sign : int = [-1, 1].pick_random()
+	position += sign * Vector2(randf_range(-2, 2), randf_range(-2, 2))
 
 func is_part_dead() -> bool:
 	return state == PartState.DESTROYED
