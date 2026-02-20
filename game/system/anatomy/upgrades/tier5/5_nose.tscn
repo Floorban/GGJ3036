@@ -58,16 +58,17 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x5kfg"]
-radius = 21.023796
+radius = 27.599998
 
 [node name="5Nose" unique_id=1690948451 instance=ExtResource("1_exy6e")]
+scale = Vector2(2.5, 2.5)
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_047nl")
 position = Vector2(-1.9999999, -8)
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_w5wd5")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-position = Vector2(0, 0)
+position = Vector2(0, 0.39999998)
 shape = SubResource("CircleShape2D_x5kfg")

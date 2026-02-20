@@ -61,6 +61,7 @@ shader_parameter/alphaThreshold = 0.2
 size = Vector2(45.253757, 80)
 
 [node name="4Ear" unique_id=1690948451 instance=ExtResource("1_5h6g0")]
+scale = Vector2(2.5, 2.5)
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_lrqfh")

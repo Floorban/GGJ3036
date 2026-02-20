@@ -22,13 +22,13 @@ var sfx_attach: String = "event:/SFX/Surgery/Attach"
 func get_allowed_tiers(level: int) -> Array[int]:
 	if level < 1:
 		return [1, 2]
-	elif level < 4:
+	elif level < 3:
 		return [3, 4, 5]
-	elif level < 6:
+	elif level < 5:
 		return [4, 5, 6]
-	elif level < 8:
+	elif level < 7:
 		return [5, 6, 7]
-	elif level < 10:
+	elif level < 9:
 		return [6, 7, 8]
 	else:
 		return [7, 8]

@@ -58,6 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [node name="4Nose" unique_id=1690948451 instance=ExtResource("1_1t85f")]
+scale = Vector2(2.5, 2.5)
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_oom44")

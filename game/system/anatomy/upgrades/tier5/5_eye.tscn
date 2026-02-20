@@ -61,6 +61,7 @@ shader_parameter/alphaThreshold = 0.2
 radius = 39.45884
 
 [node name="5Eye" unique_id=1690948451 instance=ExtResource("1_sf8g5")]
+scale = Vector2(2.5, 2.5)
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_uw870")
