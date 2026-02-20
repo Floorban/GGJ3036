@@ -5,10 +5,10 @@
 [ext_resource type="Resource" uid="uid://df551hcuv2knr" path="res://game/system/anatomy/anatomy_data/ears/ear_3.tres" id="5_neb6i"]
 [ext_resource type="Resource" uid="uid://xn8tofgfmve1" path="res://game/system/anatomy/anatomy_data/ears/ear_4.tres" id="6_eshna"]
 [ext_resource type="Resource" uid="uid://nw047vl0jvia" path="res://game/system/anatomy/anatomy_data/ears/ear_5.tres" id="7_h6bm5"]
+[ext_resource type="PackedScene" uid="uid://cmj74mg2yojo3" path="res://game/system/anatomy/anatomy_data/faces/minion_face_7.tscn" id="9_tsf4t"]
 [ext_resource type="Resource" uid="uid://djelb2ai7rmts" path="res://game/system/anatomy/anatomy_data/eyes/eye_3.tres" id="17_csa8s"]
 [ext_resource type="Resource" uid="uid://dm4j8gf0i2ua0" path="res://game/system/anatomy/anatomy_data/eyes/eye_4.tres" id="18_eym6p"]
 [ext_resource type="Resource" uid="uid://bls6j1d24v8sj" path="res://game/system/anatomy/anatomy_data/eyes/eye_5.tres" id="19_ha1ya"]
-[ext_resource type="PackedScene" uid="uid://bfwf71h76qlt3" path="res://game/system/anatomy/anatomy_data/faces/minion_face_2.tscn" id="28_vbqf1"]
 [ext_resource type="PackedScene" uid="uid://2mhw2o7sq4cq" path="res://game/system/anatomy/anatomy_data/faces/minion_face_3.tscn" id="29_i6eif"]
 [ext_resource type="Resource" uid="uid://bjgd6lht4mryd" path="res://game/system/anatomy/anatomy_data/mouths/mouth_3.tres" id="34_8vlsc"]
 [ext_resource type="Resource" uid="uid://bbhs1ye8sv4ks" path="res://game/system/anatomy/anatomy_data/mouths/mouth_4.tres" id="35_ldhfm"]
@@ -22,7 +22,7 @@
 script = ExtResource("56_b7ajt")
 arm_scene = ExtResource("1_tuhcs")
 arm_gesture = Vector2(-120, 140)
-face_variants = Array[PackedScene]([ExtResource("28_vbqf1"), ExtResource("29_i6eif")])
+face_variants = Array[PackedScene]([ExtResource("9_tsf4t"), ExtResource("29_i6eif")])
 ear_variants = Array[ExtResource("2_woikt")]([ExtResource("5_neb6i"), ExtResource("6_eshna"), ExtResource("7_h6bm5")])
 eye_variants = Array[ExtResource("2_woikt")]([ExtResource("17_csa8s"), ExtResource("18_eym6p"), ExtResource("19_ha1ya")])
 mouth_variants = Array[ExtResource("2_woikt")]([ExtResource("34_8vlsc"), ExtResource("35_ldhfm"), ExtResource("36_ekhop")])

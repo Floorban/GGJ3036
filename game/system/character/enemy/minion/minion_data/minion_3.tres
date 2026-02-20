@@ -8,8 +8,8 @@
 [ext_resource type="Resource" uid="uid://djelb2ai7rmts" path="res://game/system/anatomy/anatomy_data/eyes/eye_3.tres" id="17_gmcb6"]
 [ext_resource type="Resource" uid="uid://dm4j8gf0i2ua0" path="res://game/system/anatomy/anatomy_data/eyes/eye_4.tres" id="18_py7yb"]
 [ext_resource type="Resource" uid="uid://bls6j1d24v8sj" path="res://game/system/anatomy/anatomy_data/eyes/eye_5.tres" id="19_wct0c"]
-[ext_resource type="PackedScene" uid="uid://bfwf71h76qlt3" path="res://game/system/anatomy/anatomy_data/faces/minion_face_2.tscn" id="28_a4ext"]
 [ext_resource type="PackedScene" uid="uid://2mhw2o7sq4cq" path="res://game/system/anatomy/anatomy_data/faces/minion_face_3.tscn" id="29_xbvgu"]
+[ext_resource type="PackedScene" uid="uid://bdadtqaevulet" path="res://game/system/anatomy/anatomy_data/faces/minion_face_5.tscn" id="31_0te82"]
 [ext_resource type="Resource" uid="uid://bjgd6lht4mryd" path="res://game/system/anatomy/anatomy_data/mouths/mouth_3.tres" id="34_riqur"]
 [ext_resource type="Resource" uid="uid://bbhs1ye8sv4ks" path="res://game/system/anatomy/anatomy_data/mouths/mouth_4.tres" id="35_1q7dq"]
 [ext_resource type="Resource" uid="uid://tds2w2lqssd2" path="res://game/system/anatomy/anatomy_data/mouths/mouth_5.tres" id="36_y3apw"]
@@ -22,7 +22,7 @@
 script = ExtResource("56_vd6ei")
 arm_scene = ExtResource("1_fmuge")
 arm_gesture = Vector2(-120, 140)
-face_variants = Array[PackedScene]([ExtResource("28_a4ext"), ExtResource("29_xbvgu")])
+face_variants = Array[PackedScene]([ExtResource("31_0te82"), ExtResource("29_xbvgu")])
 ear_variants = Array[ExtResource("2_8r2pj")]([ExtResource("5_mguvi"), ExtResource("6_8ntta"), ExtResource("7_2s8aj")])
 eye_variants = Array[ExtResource("2_8r2pj")]([ExtResource("17_gmcb6"), ExtResource("18_py7yb"), ExtResource("19_wct0c")])
 mouth_variants = Array[ExtResource("2_8r2pj")]([ExtResource("34_riqur"), ExtResource("35_1q7dq"), ExtResource("36_y3apw")])
