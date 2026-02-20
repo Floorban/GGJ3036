@@ -5,6 +5,7 @@ extends Node
 @export var left_hold: Tooltip
 @export var left_release: Tooltip
 @export var red_intent: Tooltip
+@export var charged: Tooltip
 
 ## Combat Tutorial
 var entered_combat: bool = false
@@ -23,12 +24,13 @@ func combat_intro() -> void:
 	await wait_for_action()
 	DialogueManager.remove_static_box(box1)
 	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to block your opponent's attack")
+	block_done = false
 	await wait_for_first_block()
 	#DialogueManager.say("(Hover over the icon to see detailed description)")
 	#await wait_for_action()
 	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his face parts to attack")
 	await wait_for_first_attack()
-	DialogueManager.say("The arm will perform the attack when it finishes its cooldown")
+	DialogueManager.say("The arm will perform the attack when it's " + DialogueManager.tooltip_text(charged))
 	await get_tree().create_timer(1.5).timeout
 	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack / block")
 	await wait_for_action(ACTION_TYPES.RIGHT_PRESS)
@@ -47,10 +49,11 @@ func self_broken_part() -> void:
 	await get_tree().create_timer(1.0).timeout
 	DialogueManager.remove_static_box(box1)
 	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to defend")
-	await wait_for_action()
+	block_done = false
+	await wait_for_first_block()
 	DialogueManager.say("You can see his attacking intent in " + DialogueManager.tooltip_text(red_intent) +" on your parts")
-	await wait_for_action()
-	DialogueManager.say("Have to hold your arm on the right part to block his attack")
+	await get_tree().create_timer(1.5).timeout
+	DialogueManager.say("Have to hold your arm on the right part to block when it's fully " + DialogueManager.tooltip_text(charged))
 	can_block_sucess = true
 	await wait_for_block_success()
 	DialogueManager.say("Here we go! Nice Block! !")

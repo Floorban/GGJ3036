@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Tooltip" format=3 uid="uid://cd6gn8pcwtnn2"]
+
+[ext_resource type="Texture2D" uid="uid://chds1u2x8oiot" path="res://sprites/icons/Mouse_Drag_Hold.png" id="1_2qekg"]
+[ext_resource type="Script" uid="uid://d0v37d0d6w03m" path="res://game/ui/Tooltip/tooltip.gd" id="2_joj36"]
+
+[resource]
+script = ExtResource("2_joj36")
+icon = ExtResource("1_2qekg")
+text = "CHARGED"
+description = "Arm is chagred"
+metadata/_custom_type_script = "uid://d0v37d0d6w03m"

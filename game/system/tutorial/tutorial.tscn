@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://chsd5rtbwcenb" path="res://game/ui/Tooltip/UI/left_hold.tres" id="4_ekwj3"]
 [ext_resource type="Resource" uid="uid://di3h425ljklgh" path="res://game/ui/Tooltip/UI/left_release.tres" id="5_mbhsv"]
 [ext_resource type="Resource" uid="uid://cfjjyph2x5dpa" path="res://game/ui/Tooltip/UI/red_intent.tres" id="6_mbhsv"]
+[ext_resource type="Resource" uid="uid://cd6gn8pcwtnn2" path="res://game/ui/Tooltip/UI/charged.tres" id="7_643pl"]
 
 [node name="Tutorial" type="Node2D" unique_id=1219308028 groups=["tutorial"]]
 script = ExtResource("1_aut6k")
@@ -14,3 +15,4 @@ right_click = ExtResource("3_c3lwg")
 left_hold = ExtResource("4_ekwj3")
 left_release = ExtResource("5_mbhsv")
 red_intent = ExtResource("6_mbhsv")
+charged = ExtResource("7_643pl")
