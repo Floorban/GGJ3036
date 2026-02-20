@@ -170,21 +170,20 @@ texture = ExtResource("13_ldpml")
 [node name="EnemyMinion1" parent="Enemies" index="2" unique_id=927994861 instance=ExtResource("9_p36xc")]
 visible = false
 position = Vector2(0, -40)
-first = true
 minion_data = ExtResource("10_oxeqc")
 
 [node name="Bully" parent="Enemies" index="3" unique_id=1348200660 instance=ExtResource("3_i2c52")]
 process_mode = 4
 visible = false
 position = Vector2(0, -5)
-base_cooldown = 4.0
+base_cooldown = 3.3
 base_damage = 1.5
+base_speed = 0.07
 
 [node name="EnemyMinion3" parent="Enemies" index="4" unique_id=1108674998 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
-first = false
 minion_data = ExtResource("15_sm7j8")
 
 [node name="Boxer" parent="Enemies" index="5" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
@@ -193,14 +192,13 @@ visible = false
 position = Vector2(0, -34)
 script = ExtResource("11_b7xvh")
 min_switch_time = 3.0
-base_cooldown = 4.0
-base_damage = 2.0
+base_cooldown = 2.8
+base_damage = 2.5
 
 [node name="EnemyMinion5" parent="Enemies" index="6" unique_id=1132810370 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
-first = false
 minion_data = ExtResource("20_jlyot")
 
 [node name="BrainOut1" parent="Enemies" index="7" unique_id=710006968 instance=ExtResource("5_ay0ac")]
@@ -208,13 +206,13 @@ process_mode = 4
 visible = false
 position = Vector2(0, -13)
 boss_name = "Ron 7 mouths"
-base_damage = 1.5
+base_cooldown = 3.5
+base_damage = 2.0
 
 [node name="EnemyMinion7" parent="Enemies" index="8" unique_id=946486280 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
-first = false
 minion_data = ExtResource("20_7objy")
 
 [node name="FatGuy" parent="Enemies" index="9" unique_id=1388912655 instance=ExtResource("6_fhe53")]
@@ -222,25 +220,24 @@ process_mode = 4
 visible = false
 position = Vector2(-3, -63)
 script = ExtResource("14_p36xc")
-base_damage = 3.0
+base_damage = 4.0
 
 [node name="EnemyMinion9" parent="Enemies" index="10" unique_id=980129354 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
-first = false
 minion_data = ExtResource("24_fqi1q")
 
 [node name="Eric" parent="Enemies" index="11" unique_id=856538371 instance=ExtResource("7_28xsa")]
 process_mode = 4
 visible = false
 position = Vector2(0, -13)
+base_cooldown = 2.0
 
 [node name="EnemyMinion11" parent="Enemies" index="12" unique_id=1130295079 instance=ExtResource("9_p36xc")]
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
-first = false
 minion_data = ExtResource("27_ltqse")
 
 [node name="BrainOut2" parent="Enemies" index="13" unique_id=1772965980 instance=ExtResource("8_g1ogi")]

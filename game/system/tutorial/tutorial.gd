@@ -216,9 +216,9 @@ func on_block_success():
 
 
 func on_first_attack():
-	if block_done:
-		attack_done = true
-		block_done = false
+	#if block_done:
+	attack_done = true
+	block_done = false
 
 
 func on_attack_lock():
