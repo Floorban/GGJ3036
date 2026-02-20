@@ -74,8 +74,6 @@ func enter_rest_room(current_level: int) -> void:
 				part.z_index = 500
 
 func leave_rest_room() -> void:
-	if Tutorial.entered_surgery:
-		return
 	for i in range(player.anatomy_parts.size() - 1, -1, -1):
 		var part = player.anatomy_parts[i]
 		if is_instance_valid(part):

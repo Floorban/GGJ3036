@@ -61,6 +61,8 @@ shader_parameter/alphaThreshold = 0.2
 size = Vector2(51.199997, 51.999996)
 
 [node name="4Mouth" unique_id=1690948451 instance=ExtResource("1_1rtcp")]
+state = 3
+max_hp = 7.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_88vm0")

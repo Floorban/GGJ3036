@@ -63,6 +63,8 @@ height = 45.658386
 
 [node name="4Eye" unique_id=1690948451 instance=ExtResource("1_xnjjj")]
 scale = Vector2(2.5, 2.5)
+state = 3
+max_hp = 8.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_6eytd")
