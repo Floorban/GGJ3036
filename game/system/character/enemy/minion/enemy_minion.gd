@@ -90,7 +90,7 @@ func _random_offset_to_parts(parts: Array[Anatomy]) -> void:
 	for part in parts:
 		part.position += Vector2(randf_range(-3,3), randf_range(-3,3))
 		part.rotation_degrees += randf_range(-8,8)
-		part.scale *= randf_range(1.3, 1.5)
+		part.scale *= randf_range(1.2, 1.5)
 
 func _assign_part(chosen_part: AnatomyData) -> void:
 	if chosen_part == null:

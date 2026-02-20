@@ -22,7 +22,7 @@ rotation = -0.06622334
 position = Vector2(100, -3)
 
 [node name="NoseMarker" parent="." index="5" unique_id=1386996071]
-position = Vector2(6, 36)
+position = Vector2(6, 31)
 
 [node name="MouthMarker" parent="." index="6" unique_id=1820897015]
-position = Vector2(11, 98)
+position = Vector2(11, 104)

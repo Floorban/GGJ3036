@@ -25,8 +25,8 @@ position = Vector2(119, -16)
 rotation = 0.050138157
 
 [node name="NoseMarker" parent="." index="5" unique_id=1386996071]
-position = Vector2(0, 15)
+position = Vector2(0, 2.9999971)
 rotation = -0.04495315
 
 [node name="MouthMarker" parent="." index="6" unique_id=1820897015]
-position = Vector2(-1, 83)
+position = Vector2(-1, 93)
