@@ -29,6 +29,7 @@ func _init_anatomy_parts() -> void:
 
 func set_up_minion() -> void:
 	if minion_data == null:
+		print("ass")
 		return
 	var new_arm = minion_data.arm_scene.instantiate()
 	arm_origin.add_child(new_arm)

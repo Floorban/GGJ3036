@@ -22,7 +22,7 @@
 [resource]
 script = ExtResource("56_v10od")
 arm_scene = ExtResource("1_6owfe")
-arm_gesture = Vector2(-120, 140)
+arm_gesture = Vector2(-160, 90)
 face_variants = Array[PackedScene]([ExtResource("30_3rlfs"), ExtResource("31_jnufj"), ExtResource("11_4yd8e")])
 ear_variants = Array[ExtResource("2_qbovw")]([ExtResource("9_p2a0m"), ExtResource("10_fmbkq"), ExtResource("11_wp852")])
 eye_variants = Array[ExtResource("2_qbovw")]([ExtResource("21_dcae3"), ExtResource("22_h4uvb"), ExtResource("23_u80cn")])
