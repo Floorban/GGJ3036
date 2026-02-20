@@ -20,7 +20,7 @@ func combat_intro() -> void:
 	if DialogueManager.hide_dialogue: return
 	
 	await get_tree().create_timer(2.0).timeout
-	var box1 = await DialogueManager.say("You remember how to punch this motherfucker right?")
+	var box1 = await DialogueManager.say("Remember how to punch this motherfucker, ight?")
 	await wait_for_action()
 	DialogueManager.remove_static_box(box1)
 	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to block your opponent's attack")
