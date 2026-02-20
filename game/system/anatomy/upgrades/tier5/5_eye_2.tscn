@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://uty2r4m2ks10"]
 
 [ext_resource type="PackedScene" uid="uid://dpw0p64fe8sla" path="res://game/system/anatomy/parts/face/eye.tscn" id="1_wjpw8"]
-[ext_resource type="Texture2D" uid="uid://cuhgwkgi6erqa" path="res://sprites/body_parts/NewStyle/NewEyes/NewEye6.png" id="2_akqbv"]
+[ext_resource type="Texture2D" uid="uid://dq4iw55ucp80d" path="res://sprites/body_parts/FaceAssets/Minions/EyeMinion5.png" id="2_akqbv"]
 
 [sub_resource type="Shader" id="Shader_x080u"]
 code = "shader_type canvas_item;
@@ -65,10 +65,10 @@ scale = Vector2(2.5, 2.5)
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_llh4i")
-position = Vector2(2, 3)
+position = Vector2(0.79999995, 1.5999999)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_akqbv")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-position = Vector2(-0.39999998, -0.79999995)
+position = Vector2(-1.1999999, 1.5999999)
 shape = SubResource("CircleShape2D_lyfew")
