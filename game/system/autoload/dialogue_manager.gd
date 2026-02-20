@@ -81,10 +81,16 @@ func _start_lifetime(box: DialogueBox, duration: float) -> void:
 
 
 func tooltip_text(tooltip_resource: Tooltip) -> String:
+	var text_image: String
 	var text_line: String = tooltip_resource.text + " "
-	var text_image = "[img=32x32]" + tooltip_resource.icon.resource_path + "[/img] "
+	
+	if tooltip_resource.icon != null:
+		text_image = "[img=32x32]" + tooltip_resource.icon.resource_path + "[/img] "
 
-	var text = "[hint=]" + text_line + text_image + "[/hint]"
+	var text_color: String = "[color=" + tooltip_resource.color + "]" + text_line + text_image + "[/color]"
+	var text_underscore: String = "[hint=]" + text_color + "[/hint]"
+	var text: String = text_underscore
+	
 	return text
 
 func _reflow() -> void:
