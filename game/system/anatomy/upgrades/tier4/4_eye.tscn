@@ -58,16 +58,18 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7fnon"]
-radius = 26.072784
-height = 69.75902
+radius = 15.619169
+height = 45.658386
 
 [node name="4Eye" unique_id=1690948451 instance=ExtResource("1_xnjjj")]
 scale = Vector2(2.5, 2.5)
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_6eytd")
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_ml35x")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
+position = Vector2(0.8, 1.2)
 rotation = -1.608985
 shape = SubResource("CapsuleShape2D_7fnon")
