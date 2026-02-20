@@ -2,9 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://crx0mik0fvikf" path="res://game/system/anatomy/parts/body/minion_arm.tscn" id="1_53iod"]
 [ext_resource type="Script" uid="uid://cyavxqhgshvv7" path="res://game/system/anatomy/anatomy_data/anatomy_data.gd" id="2_pvx1c"]
+[ext_resource type="Resource" uid="uid://bedux8ow8rw2a" path="res://game/system/anatomy/anatomy_data/ears/ear_13.tres" id="5_onb4y"]
 [ext_resource type="PackedScene" uid="uid://d23pkrb2sr7t4" path="res://game/system/anatomy/anatomy_data/faces/minion_face_6.tscn" id="7_5d1k0"]
+[ext_resource type="Resource" uid="uid://ca816eoapva66" path="res://game/system/anatomy/anatomy_data/eyes/eye_13.tres" id="7_36f6i"]
 [ext_resource type="PackedScene" uid="uid://cmj74mg2yojo3" path="res://game/system/anatomy/anatomy_data/faces/minion_face_7.tscn" id="8_aligi"]
+[ext_resource type="Resource" uid="uid://h0m8ob3sb36c" path="res://game/system/anatomy/anatomy_data/mouths/mouth_13.tres" id="11_2e3mv"]
 [ext_resource type="Resource" uid="uid://xhpf25rduoc1" path="res://game/system/anatomy/anatomy_data/ears/ear_11.tres" id="13_6i1m6"]
+[ext_resource type="Resource" uid="uid://y34tnpgrbfc7" path="res://game/system/anatomy/anatomy_data/noses/nose_13.tres" id="14_36f6i"]
 [ext_resource type="Resource" uid="uid://cybinjdtvs36b" path="res://game/system/anatomy/anatomy_data/ears/ear_12.tres" id="14_a67lq"]
 [ext_resource type="Resource" uid="uid://b580j4p1rhlvo" path="res://game/system/anatomy/anatomy_data/eyes/eye_11.tres" id="25_ht0s7"]
 [ext_resource type="Resource" uid="uid://bpailtvrifpub" path="res://game/system/anatomy/anatomy_data/eyes/eye_12.tres" id="26_ij5yx"]
@@ -19,11 +23,11 @@ script = ExtResource("56_f1md7")
 arm_scene = ExtResource("1_53iod")
 arm_gesture = Vector2(-120, 140)
 face_variants = Array[PackedScene]([ExtResource("7_5d1k0"), ExtResource("8_aligi")])
-ear_variants = Array[ExtResource("2_pvx1c")]([ExtResource("13_6i1m6"), ExtResource("14_a67lq")])
-eye_variants = Array[ExtResource("2_pvx1c")]([ExtResource("25_ht0s7"), ExtResource("26_ij5yx")])
-mouth_variants = Array[ExtResource("2_pvx1c")]([ExtResource("42_3o14t"), ExtResource("43_isjrp")])
-nose_variants = Array[ExtResource("2_pvx1c")]([ExtResource("54_25giq"), ExtResource("55_7tmrp")])
-base_cooldown = 5.0
+ear_variants = Array[ExtResource("2_pvx1c")]([ExtResource("13_6i1m6"), ExtResource("14_a67lq"), ExtResource("5_onb4y")])
+eye_variants = Array[ExtResource("2_pvx1c")]([ExtResource("25_ht0s7"), ExtResource("26_ij5yx"), ExtResource("7_36f6i")])
+mouth_variants = Array[ExtResource("2_pvx1c")]([ExtResource("42_3o14t"), ExtResource("43_isjrp"), ExtResource("11_2e3mv")])
+nose_variants = Array[ExtResource("2_pvx1c")]([ExtResource("54_25giq"), ExtResource("55_7tmrp"), ExtResource("14_36f6i")])
+base_cooldown = 1.8
 base_damage = 0.8
 base_speed = 0.12
 base_stun_strength = 0.3
