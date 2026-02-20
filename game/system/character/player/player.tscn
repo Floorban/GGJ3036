@@ -175,7 +175,7 @@ size = Vector2(70, 26)
 
 [node name="Player" unique_id=1861387119 node_paths=PackedStringArray("arm") groups=["player"] instance=ExtResource("1_obar5")]
 script = ExtResource("2_b2mth")
-base_cooldown = 2.0
+base_cooldown = 3.0
 base_damage = 1.0
 base_speed = 0.05
 base_crit_damage = 1.2

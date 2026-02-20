@@ -14,4 +14,5 @@ func init_character() -> void:
 		await Tutorial.wait_for_action()
 		DialogueManager.say("This motherfucker would change the target")
 		await get_tree().create_timer(3.0).timeout
+		DialogueManager.clear_all_text_boxes()
 		enemy_dialogue_end.emit()

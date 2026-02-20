@@ -24,4 +24,5 @@ func init_character() -> void:
 		await Tutorial.wait_for_action()
 		DialogueManager.say("HE WON'T STOP")
 		await get_tree().create_timer(2.0).timeout
+		DialogueManager.clear_all_text_boxes()
 		enemy_dialogue_end.emit()

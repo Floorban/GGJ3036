@@ -16,4 +16,5 @@ func init_character() -> void:
 		await Tutorial.wait_for_action()
 		DialogueManager.say("Dont rely too much on it tho, it might fail you sometimes ")
 		await get_tree().create_timer(3.0).timeout
+		DialogueManager.clear_all_text_boxes()
 		enemy_dialogue_end.emit()

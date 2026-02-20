@@ -92,7 +92,7 @@ func leave_rest_room() -> void:
 
 	clear_upgrade_parts()
 	player.rest_mode = false
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.2).timeout
 	ready_to_fight.emit()
 
 func clear_upgrade_parts() -> void:
