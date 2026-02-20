@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://crx0mik0fvikf" path="res://game/system/anatomy/parts/body/minion_arm.tscn" id="1_kiyyu"]
 [ext_resource type="Script" uid="uid://cyavxqhgshvv7" path="res://game/system/anatomy/anatomy_data/anatomy_data.gd" id="2_jrp31"]
+[ext_resource type="Resource" uid="uid://bedux8ow8rw2a" path="res://game/system/anatomy/anatomy_data/ears/ear_13.tres" id="5_scr56"]
 [ext_resource type="Resource" uid="uid://xhpf25rduoc1" path="res://game/system/anatomy/anatomy_data/ears/ear_11.tres" id="13_58dbe"]
 [ext_resource type="Resource" uid="uid://cybinjdtvs36b" path="res://game/system/anatomy/anatomy_data/ears/ear_12.tres" id="14_qwi04"]
 [ext_resource type="Resource" uid="uid://b580j4p1rhlvo" path="res://game/system/anatomy/anatomy_data/eyes/eye_11.tres" id="25_av2xu"]
@@ -22,7 +23,7 @@ script = ExtResource("56_p2omm")
 arm_scene = ExtResource("1_kiyyu")
 arm_gesture = Vector2(-120, 140)
 face_variants = Array[PackedScene]([ExtResource("27_555o2"), ExtResource("28_7jhh3"), ExtResource("29_03bhj"), ExtResource("30_qg6t1"), ExtResource("31_feogt")])
-ear_variants = Array[ExtResource("2_jrp31")]([ExtResource("13_58dbe"), ExtResource("14_qwi04")])
+ear_variants = Array[ExtResource("2_jrp31")]([ExtResource("13_58dbe"), ExtResource("14_qwi04"), ExtResource("5_scr56")])
 eye_variants = Array[ExtResource("2_jrp31")]([ExtResource("25_av2xu"), ExtResource("26_vp62e")])
 mouth_variants = Array[ExtResource("2_jrp31")]([ExtResource("42_vw6gx"), ExtResource("43_2v6dp")])
 nose_variants = Array[ExtResource("2_jrp31")]([ExtResource("54_am2vq"), ExtResource("55_8nu0r")])

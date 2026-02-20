@@ -29,4 +29,4 @@ position = Vector2(0, 2.9999971)
 rotation = -0.04495315
 
 [node name="MouthMarker" parent="." index="6" unique_id=1820897015]
-position = Vector2(-1, 93)
+position = Vector2(-1, 88)

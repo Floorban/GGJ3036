@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EyeData" format=3 uid="uid://bpailtvrifpub"]
 
-[ext_resource type="Texture2D" uid="uid://ba2ngw8tanf00" path="res://sprites/body_parts/NewStyle/NewEyes/NewEye4.png" id="1_jxq5c"]
+[ext_resource type="Texture2D" uid="uid://b8a76tf503kmh" path="res://sprites/body_parts/NewStyle/NewEyes/NewEye7.png" id="1_jxq5c"]
 [ext_resource type="Script" uid="uid://b1t6nh57l0ts4" path="res://game/system/anatomy/anatomy_data/eye_data.gd" id="2_1m6ra"]
 
 [resource]
