@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Tooltip" format=3 uid="uid://cfjjyph2x5dpa"]
 
-[ext_resource type="Texture2D" uid="uid://b716tk1oo0qg4" path="res://sprites/body_parts/NewStyle/NewNoses/NewNose4.png" id="1_btax0"]
+[ext_resource type="Texture2D" uid="uid://egk8mk2xn73u" path="res://sprites/ui/Blood.png" id="1_btax0"]
 [ext_resource type="Script" uid="uid://d0v37d0d6w03m" path="res://game/ui/Tooltip/tooltip.gd" id="2_c0u7i"]
 
 [resource]

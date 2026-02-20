@@ -90,6 +90,7 @@ func init_combat_arena(level : int) -> void:
 	background.texture = bg_textures[level - 1]
 	enemy = enemies[level - 1]
 	enemy.visible = true
+	enemy.process_mode = Node.ProcessMode.PROCESS_MODE_INHERIT
 	player.opponent = enemy
 	enemy.opponent = player
 	player.init_character()

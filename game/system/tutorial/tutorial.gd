@@ -53,7 +53,7 @@ func self_broken_part() -> void:
 	await wait_for_first_block()
 	DialogueManager.say("You can see his attacking intent in " + DialogueManager.tooltip_text(red_intent) +" on your parts")
 	await get_tree().create_timer(1.5).timeout
-	DialogueManager.say("Have to hold your arm on the right part to block when it's fully " + DialogueManager.tooltip_text(charged))
+	DialogueManager.say("Hold your arm on the right part to block when it's " + DialogueManager.tooltip_text(charged))
 	can_block_sucess = true
 	await wait_for_block_success()
 	DialogueManager.say("Here we go! Nice Block! !")
@@ -94,7 +94,7 @@ func surgery_intro() -> void:
 	await wait_for_action()
 	DialogueManager.say(DialogueManager.tooltip_text(left_hold) + "parts to move them around")
 	await wait_for_action()
-	await DialogueManager.say(DialogueManager.tooltip_text(left_release) + "to drop the part")
+	await DialogueManager.say(DialogueManager.tooltip_text(left_release) + "to drop the part you're holding")
 	await wait_for_first_drop()
 	DialogueManager.say("Try replacing an old part on your face now.")
 	await wait_for_action()
