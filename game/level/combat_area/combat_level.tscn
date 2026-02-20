@@ -170,6 +170,7 @@ texture = ExtResource("13_ldpml")
 [node name="EnemyMinion1" parent="Enemies" index="2" unique_id=927994861 instance=ExtResource("9_p36xc")]
 visible = false
 position = Vector2(0, -40)
+first_minion = true
 minion_data = ExtResource("10_oxeqc")
 
 [node name="Bully" parent="Enemies" index="3" unique_id=1348200660 instance=ExtResource("3_i2c52")]
@@ -184,6 +185,7 @@ base_speed = 0.07
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
+first_minion = false
 minion_data = ExtResource("15_sm7j8")
 
 [node name="Boxer" parent="Enemies" index="5" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
@@ -199,6 +201,7 @@ base_damage = 2.5
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
+first_minion = false
 minion_data = ExtResource("20_jlyot")
 
 [node name="BrainOut1" parent="Enemies" index="7" unique_id=710006968 instance=ExtResource("5_ay0ac")]
@@ -213,6 +216,7 @@ base_damage = 2.0
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
+first_minion = false
 minion_data = ExtResource("20_7objy")
 
 [node name="FatGuy" parent="Enemies" index="9" unique_id=1388912655 instance=ExtResource("6_fhe53")]
@@ -226,6 +230,7 @@ base_damage = 4.0
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
+first_minion = false
 minion_data = ExtResource("24_fqi1q")
 
 [node name="Eric" parent="Enemies" index="11" unique_id=856538371 instance=ExtResource("7_28xsa")]
@@ -238,6 +243,7 @@ base_cooldown = 2.0
 process_mode = 4
 visible = false
 position = Vector2(0, -40)
+first_minion = false
 minion_data = ExtResource("27_ltqse")
 
 [node name="BrainOut2" parent="Enemies" index="13" unique_id=1772965980 instance=ExtResource("8_g1ogi")]

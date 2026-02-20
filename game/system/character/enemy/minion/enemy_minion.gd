@@ -1,5 +1,6 @@
 class_name EnemyMinion extends Enemy
 
+@export var first_minion := false
 @export var minion_data : MinionData
 @onready var arm_origin: Marker2D = %ArmOrigin
 
@@ -15,6 +16,9 @@ func init_character() -> void:
 	_init_anatomy_parts()
 	_init_combat_component()
 	get_anatomy_references()
+	if not first_minion:
+		await get_tree().create_timer(1.0).timeout
+		enemy_dialogue_end.emit()
 
 
 func _input(event: InputEvent) -> void:
