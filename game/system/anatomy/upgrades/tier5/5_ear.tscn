@@ -63,10 +63,10 @@ scale = Vector2(2.5, 2.5)
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_w20hm")
 position = Vector2(-3, -1.9073486e-06)
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_0878y")
 flip_v = false
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
-position = Vector2(-0.3999995, 2.799999)
+position = Vector2(-0.39999938, 2.799999)
 scale = Vector2(0.99999976, 0.99999976)

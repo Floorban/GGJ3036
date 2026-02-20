@@ -59,8 +59,8 @@ func enter_rest_room(current_level: int) -> void:
 	player.rest_mode = true
 	spawn_parts(current_level - 2)
 	connect_parts_interact_signal()
-	for p in background.get_children():
-		p.z_index = 10
+	#for p in background.get_children():
+		#p.z_index = 10
 	
 	await get_tree().create_timer(1.0).timeout
 	part_info_panel.visible = true
@@ -71,7 +71,7 @@ func enter_rest_room(current_level: int) -> void:
 			if part.body_owner == null or part.state == Anatomy.PartState.DESTROYED:
 				player.anatomy_parts.erase(part)
 				part.reparent(background)
-				part.z_index = 50
+				part.z_index = 500
 
 func leave_rest_room() -> void:
 	if Tutorial.entered_surgery:
@@ -157,7 +157,7 @@ func spawn_parts(level: int) -> void:
 		part.disconnect.connect(func(): 
 			part.body_owner = null
 			part.reparent(background)
-			part.z_index = 100
+			part.z_index = 500
 		)
 		var marker := free_markers[i]
 
@@ -167,7 +167,7 @@ func spawn_parts(level: int) -> void:
 			randf_range(-3, 3)
 		)
 		part.rotation = marker.global_rotation + randf_range(-5, 5)
-
+		part.z_index = 500
 		part.state = Anatomy.PartState.OutOfBody
 		upgrade_parts.append(part)
 		

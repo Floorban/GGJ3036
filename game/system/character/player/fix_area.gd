@@ -35,7 +35,7 @@ func lose_anatomy() -> void:
 		if player.rest_mode:
 			player.anatomy_parts.erase(my_anatomy)
 			my_anatomy.reparent(rest_room.background)
-			my_anatomy.z_index = 50
+			my_anatomy.z_index = 500
 	sprite.visible = true
 	sprite.rotate(randf_range(-0.2,0.2))
 	if my_anatomy.anatomy_fucked.is_connected(lose_anatomy):
@@ -73,7 +73,7 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 			if player.rest_mode:
 				player.anatomy_parts.erase(last_anatomy)
 				last_anatomy.reparent(rest_room.background)
-				last_anatomy.z_index = 50
+				last_anatomy.z_index = 500
 		last_anatomy.state = Anatomy.PartState.OutOfBody
 		last_anatomy.body_owner = null
 		last_anatomy = my_anatomy

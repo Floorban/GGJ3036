@@ -59,7 +59,7 @@ shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_djjm4"]
 radius = 19.999998
-height = 68.799995
+height = 60.799995
 
 [node name="ElfNose2" unique_id=1690948451 instance=ExtResource("1_4tb0n")]
 scale = Vector2(2.5, 2.5)
