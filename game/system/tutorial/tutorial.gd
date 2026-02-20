@@ -20,7 +20,7 @@ func combat_intro() -> void:
 	if DialogueManager.hide_dialogue: return
 	
 	await get_tree().create_timer(2.0).timeout
-	var box1 = await DialogueManager.say("Remember how to punch this motherfucker right?")
+	var box1 = await DialogueManager.say("You remember how to punch this motherfucker right?")
 	await wait_for_action()
 	DialogueManager.remove_static_box(box1)
 	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to block your opponent's attack")
@@ -30,11 +30,11 @@ func combat_intro() -> void:
 	#await wait_for_action()
 	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his face parts to attack")
 	await wait_for_first_attack()
-	DialogueManager.say("The arm will perform the attack when it's " + DialogueManager.tooltip_text(charged))
+	DialogueManager.say("The arm will perform the attack when it's fully " + DialogueManager.tooltip_text(charged))
 	await get_tree().create_timer(1.5).timeout
-	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack / block")
+	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack and block")
 	await wait_for_action(ACTION_TYPES.RIGHT_PRESS)
-	DialogueManager.say("NOW LOCK INNN ! ! !")
+	DialogueManager.say("NOW LOCK INNN!!!")
 	await get_tree().create_timer(1.0).timeout
 	GameManager.combat_area.enemy.begin_enemy()
 
@@ -45,15 +45,15 @@ func self_broken_part() -> void:
 	if self_part_broken:
 		return
 	self_part_broken = true
-	var box1 = await DialogueManager.say("OHH NO! Where's your defense bro? !")
+	var box1 = await DialogueManager.say("OHH NO! Where's your defense bro?!")
 	await get_tree().create_timer(1.0).timeout
 	DialogueManager.remove_static_box(box1)
 	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to defend")
 	block_done = false
 	await wait_for_first_block()
-	DialogueManager.say("You can see his attacking intent in " + DialogueManager.tooltip_text(red_intent) +" on your parts")
+	DialogueManager.say("Your part is being targeted when it's " + DialogueManager.tooltip_text(red_intent))
 	await get_tree().create_timer(1.5).timeout
-	DialogueManager.say("Hold your arm on the right part to block when it's " + DialogueManager.tooltip_text(charged))
+	DialogueManager.say("Cover the right part to block while having the arm " + DialogueManager.tooltip_text(charged))
 	can_block_sucess = true
 	await wait_for_block_success()
 	DialogueManager.say("Here we go! Nice Block! !")
@@ -83,7 +83,7 @@ func surgery_intro() -> void:
 		return
 	
 	await get_tree().create_timer(0.5).timeout
-	DialogueManager.say("YOU GOT EM, GOOD FUCKING JOB DUDE !!", DialogueManager.NPC.COACH, false)
+	DialogueManager.say("YOU GOT EM, GOOD FUCKING JOB DUDE!!", DialogueManager.NPC.COACH, false)
 	await wait_for_action()
 	DialogueManager.say("SO, this is the surgery room, all fancy and stuff.", DialogueManager.NPC.COACH, false)
 	await wait_for_action()

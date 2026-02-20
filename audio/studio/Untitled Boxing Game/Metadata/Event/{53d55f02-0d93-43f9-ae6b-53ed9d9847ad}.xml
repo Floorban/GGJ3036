@@ -297,7 +297,7 @@
 	</object>
 	<object class="SingleSound" id="{1fa2046e-f993-4f55-9214-64fbacc66f3f}">
 		<property name="start">
-			<value>12.00002096500285</value>
+			<value>11.976151093390779</value>
 		</property>
 		<property name="length">
 			<value>3.2914285714285714</value>
@@ -308,7 +308,7 @@
 	</object>
 	<object class="SingleSound" id="{1db4a7ae-2893-44e0-98a8-85e1e17836f3}">
 		<property name="start">
-			<value>18.000031942749199</value>
+			<value>17.971388096814714</value>
 		</property>
 		<property name="length">
 			<value>3.2914285714285714</value>
@@ -336,7 +336,7 @@
 	</object>
 	<object class="SingleSound" id="{e3f9e48d-f09f-4107-9aa8-ed03cc8703dd}">
 		<property name="start">
-			<value>14.99957671759566</value>
+			<value>14.96615889733876</value>
 		</property>
 		<property name="length">
 			<value>3.2914285714285714</value>
@@ -347,7 +347,7 @@
 	</object>
 	<object class="SingleSound" id="{b28cf12c-75a2-41a1-b71e-a8db03a28093}">
 		<property name="start">
-			<value>20.999587695342004</value>
+			<value>20.967960115456012</value>
 		</property>
 		<property name="length">
 			<value>3.2914285714285714</value>
@@ -803,6 +803,7 @@
 		<relationship name="effects">
 			<destination>{d624ad31-acce-41bb-8a81-7aa41d43a5f6}</destination>
 			<destination>{4379c644-8bb9-4eed-a979-e323d039654f}</destination>
+			<destination>{254248a9-fc9f-4b8d-b999-c8dd3af45c78}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f93cec3c-3cd8-4835-be83-29f5b0ec36de}" />
@@ -810,6 +811,7 @@
 		<relationship name="effects">
 			<destination>{0acebfca-7abe-4db5-b508-ffec5a1e7da3}</destination>
 			<destination>{25ad398a-211e-4e20-ba0e-187302faffd6}</destination>
+			<destination>{b472a9a9-2939-48e7-ac41-5103bd8e91e9}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b2429cfe-b0d0-4a9b-8989-40034420f399}" />
@@ -1055,6 +1057,11 @@
 			<value>-8</value>
 		</property>
 	</object>
+	<object class="ThreeEQEffect" id="{254248a9-fc9f-4b8d-b999-c8dd3af45c78}">
+		<property name="midGain">
+			<value>6.5</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{0acebfca-7abe-4db5-b508-ffec5a1e7da3}" />
 	<object class="SFXReverbEffect" id="{25ad398a-211e-4e20-ba0e-187302faffd6}">
 		<property name="decayTime">
@@ -1062,6 +1069,11 @@
 		</property>
 		<property name="wetLevel">
 			<value>-8</value>
+		</property>
+	</object>
+	<object class="ThreeEQEffect" id="{b472a9a9-2939-48e7-ac41-5103bd8e91e9}">
+		<property name="midGain">
+			<value>5</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{94fbbb04-2d81-4301-9576-771e1cf6fed0}" />
