@@ -23,11 +23,6 @@ func combat_intro() -> void:
 	var box1 = await DialogueManager.say("Remember how to punch this motherfucker, ight?")
 	await wait_for_action()
 	DialogueManager.remove_static_box(box1)
-	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to block your opponent's attack")
-	block_done = false
-	await wait_for_first_block()
-	#DialogueManager.say("(Hover over the icon to see detailed description)")
-	#await wait_for_action()
 	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his face parts to attack")
 	await wait_for_first_attack()
 	DialogueManager.say("The arm will perform the attack when it's fully " + DialogueManager.tooltip_text(charged))
