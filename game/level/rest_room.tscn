@@ -20,21 +20,33 @@
 [ext_resource type="PackedScene" uid="uid://s8u8xkowfvjv" path="res://game/system/anatomy/upgrades/tier3/fucked_eye.tscn" id="11_v0ssp"]
 [ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="12_8sk3i"]
 [ext_resource type="PackedScene" uid="uid://cx0kphb1k46bi" path="res://game/system/anatomy/upgrades/tier3/fucked_nose.tscn" id="13_r5fj8"]
-[ext_resource type="PackedScene" uid="uid://b50j8rkhulsb0" path="res://game/system/anatomy/upgrades/tier4/elf_ear.tscn" id="14_bbuk5"]
-[ext_resource type="PackedScene" uid="uid://dwjlhjh7e48gb" path="res://game/system/anatomy/upgrades/tier4/elf_eye.tscn" id="15_8idhi"]
+[ext_resource type="PackedScene" uid="uid://b50j8rkhulsb0" path="res://game/system/anatomy/upgrades/tier6/elf_ear.tscn" id="14_bbuk5"]
+[ext_resource type="PackedScene" uid="uid://dwjlhjh7e48gb" path="res://game/system/anatomy/upgrades/tier6/elf_eye.tscn" id="15_8idhi"]
+[ext_resource type="PackedScene" uid="uid://egt4qb24ek7n" path="res://game/system/anatomy/upgrades/tier3/fucked_mouth.tscn" id="16_7pww1"]
 [ext_resource type="PackedScene" uid="uid://c8q1qwe75dlkf" path="res://game/system/anatomy/upgrades/tier3/fucked_mouth_2.tscn" id="16_ayd62"]
-[ext_resource type="PackedScene" uid="uid://bjy44ym3bqqkk" path="res://game/system/anatomy/upgrades/tier4/elf_mouth.tscn" id="16_kxqh5"]
-[ext_resource type="PackedScene" uid="uid://u124wvxpoejt" path="res://game/system/anatomy/upgrades/tier4/elf_nose.tscn" id="17_tn4a5"]
-[ext_resource type="PackedScene" uid="uid://umd7tyqplvls" path="res://game/system/anatomy/upgrades/tier5/lol_ear.tscn" id="18_r5fj8"]
-[ext_resource type="PackedScene" uid="uid://dhbymb1l68vck" path="res://game/system/anatomy/upgrades/tier5/lol_eye.tscn" id="19_8idhi"]
-[ext_resource type="PackedScene" uid="uid://b3tltra7tpupf" path="res://game/system/anatomy/upgrades/tier5/lol_mouth.tscn" id="19_bbuk5"]
-[ext_resource type="PackedScene" uid="uid://b2iw7uva5cuay" path="res://game/system/anatomy/upgrades/tier5/lol_nose.tscn" id="20_8idhi"]
-[ext_resource type="PackedScene" uid="uid://dil04dd37e0mu" path="res://game/system/anatomy/upgrades/tier5/lol_nose_2.tscn" id="21_bbuk5"]
-[ext_resource type="PackedScene" uid="uid://1m5taxlp60cd" path="res://game/system/anatomy/upgrades/tier6/fury_ear.tscn" id="25_wjcb5"]
-[ext_resource type="PackedScene" uid="uid://bcoca4w2gblqw" path="res://game/system/anatomy/upgrades/tier6/fury_eye.tscn" id="26_uy6j2"]
-[ext_resource type="PackedScene" uid="uid://vfskt7y0pkwf" path="res://game/system/anatomy/upgrades/tier6/fury_eye_2.tscn" id="27_ayd62"]
-[ext_resource type="PackedScene" uid="uid://cwmjhk1edv11v" path="res://game/system/anatomy/upgrades/tier6/fury_mouth.tscn" id="28_u3s1c"]
-[ext_resource type="PackedScene" uid="uid://dppwuvorymkwk" path="res://game/system/anatomy/upgrades/tier6/fury_mouth_2.tscn" id="29_e21xm"]
+[ext_resource type="PackedScene" uid="uid://bjy44ym3bqqkk" path="res://game/system/anatomy/upgrades/tier6/elf_mouth.tscn" id="16_kxqh5"]
+[ext_resource type="PackedScene" uid="uid://cnrwggt1lfs66" path="res://game/system/anatomy/upgrades/tier4/4_ear.tscn" id="16_mw5ji"]
+[ext_resource type="PackedScene" uid="uid://cu8od18nwf5ys" path="res://game/system/anatomy/upgrades/tier4/4_eye.tscn" id="17_7pww1"]
+[ext_resource type="PackedScene" uid="uid://u124wvxpoejt" path="res://game/system/anatomy/upgrades/tier6/elf_nose.tscn" id="17_tn4a5"]
+[ext_resource type="PackedScene" uid="uid://umd7tyqplvls" path="res://game/system/anatomy/upgrades/tier7/lol_ear.tscn" id="18_r5fj8"]
+[ext_resource type="PackedScene" uid="uid://dnwhbixfe665u" path="res://game/system/anatomy/upgrades/tier4/4_eye_2.tscn" id="18_w15xk"]
+[ext_resource type="PackedScene" uid="uid://b2vnj4ygjemca" path="res://game/system/anatomy/upgrades/tier4/4_mouth.tscn" id="19_6gdy4"]
+[ext_resource type="PackedScene" uid="uid://dhbymb1l68vck" path="res://game/system/anatomy/upgrades/tier7/lol_eye.tscn" id="19_8idhi"]
+[ext_resource type="PackedScene" uid="uid://b3tltra7tpupf" path="res://game/system/anatomy/upgrades/tier7/lol_mouth.tscn" id="19_bbuk5"]
+[ext_resource type="PackedScene" uid="uid://b2iw7uva5cuay" path="res://game/system/anatomy/upgrades/tier7/lol_nose.tscn" id="20_8idhi"]
+[ext_resource type="PackedScene" uid="uid://djh0kwtfx54u7" path="res://game/system/anatomy/upgrades/tier4/4_nose.tscn" id="20_goawp"]
+[ext_resource type="PackedScene" uid="uid://dil04dd37e0mu" path="res://game/system/anatomy/upgrades/tier7/lol_nose_2.tscn" id="21_bbuk5"]
+[ext_resource type="PackedScene" uid="uid://d1j1naptm1o02" path="res://game/system/anatomy/upgrades/tier5/5_ear.tscn" id="21_s4nue"]
+[ext_resource type="PackedScene" uid="uid://c3c3a16gm3ule" path="res://game/system/anatomy/upgrades/tier5/5_eye.tscn" id="22_i6jny"]
+[ext_resource type="PackedScene" uid="uid://uty2r4m2ks10" path="res://game/system/anatomy/upgrades/tier5/5_eye_2.tscn" id="23_uwd3r"]
+[ext_resource type="PackedScene" uid="uid://hdybvk8ustjr" path="res://game/system/anatomy/upgrades/tier5/5_mouth.tscn" id="24_um58j"]
+[ext_resource type="PackedScene" uid="uid://bjt8kgor74ll0" path="res://game/system/anatomy/upgrades/tier5/5_nose.tscn" id="25_0lu6c"]
+[ext_resource type="PackedScene" uid="uid://1m5taxlp60cd" path="res://game/system/anatomy/upgrades/tier8/fury_ear.tscn" id="25_wjcb5"]
+[ext_resource type="PackedScene" uid="uid://bcoca4w2gblqw" path="res://game/system/anatomy/upgrades/tier8/fury_eye.tscn" id="26_uy6j2"]
+[ext_resource type="PackedScene" uid="uid://vfskt7y0pkwf" path="res://game/system/anatomy/upgrades/tier8/fury_eye_2.tscn" id="27_ayd62"]
+[ext_resource type="PackedScene" uid="uid://cwmjhk1edv11v" path="res://game/system/anatomy/upgrades/tier8/fury_mouth.tscn" id="28_u3s1c"]
+[ext_resource type="PackedScene" uid="uid://dppwuvorymkwk" path="res://game/system/anatomy/upgrades/tier8/fury_mouth_2.tscn" id="29_e21xm"]
+[ext_resource type="PackedScene" uid="uid://ch4u45p36ya2s" path="res://game/system/anatomy/upgrades/tier6/elf_nose_2.tscn" id="30_kaaep"]
 [ext_resource type="Texture2D" uid="uid://cdmnrh3w5ji0d" path="res://sprites/ui/BandageImReadyopacity.png" id="34_e21xm"]
 [ext_resource type="Texture2D" uid="uid://d0alrljy0et8o" path="res://sprites/ui/BandageImReady.png" id="34_u3s1c"]
 [ext_resource type="PackedScene" uid="uid://cu05fkjh25k63" path="res://game/system/character/player/fix_area.tscn" id="34_u4uef"]
@@ -50,10 +62,12 @@ script = ExtResource("1_nbyfe")
 upgrade_scenes_by_tier = {
 1: [ExtResource("7_x1e6w"), ExtResource("8_2xwxa"), ExtResource("10_xisql"), ExtResource("9_8sk3i"), ExtResource("6_uy6j2")],
 2: [ExtResource("6_2xwxa"), ExtResource("7_8sk3i"), ExtResource("8_xisql"), ExtResource("9_byr16"), ExtResource("10_kxqh5")],
-3: [ExtResource("10_7lyvt"), ExtResource("11_v0ssp"), ExtResource("13_r5fj8"), ExtResource("16_ayd62")],
-4: [ExtResource("14_bbuk5"), ExtResource("15_8idhi"), ExtResource("16_kxqh5"), ExtResource("17_tn4a5")],
-5: [ExtResource("18_r5fj8"), ExtResource("19_8idhi"), ExtResource("19_bbuk5"), ExtResource("20_8idhi"), ExtResource("21_bbuk5")],
-6: [ExtResource("25_wjcb5"), ExtResource("26_uy6j2"), ExtResource("27_ayd62"), ExtResource("28_u3s1c"), ExtResource("29_e21xm")]
+3: [ExtResource("10_7lyvt"), ExtResource("11_v0ssp"), ExtResource("13_r5fj8"), ExtResource("16_ayd62"), ExtResource("16_7pww1")],
+4: [ExtResource("16_mw5ji"), ExtResource("17_7pww1"), ExtResource("18_w15xk"), ExtResource("19_6gdy4"), ExtResource("20_goawp")],
+5: [ExtResource("21_s4nue"), ExtResource("22_i6jny"), ExtResource("23_uwd3r"), ExtResource("24_um58j"), ExtResource("25_0lu6c")],
+6: [ExtResource("14_bbuk5"), ExtResource("15_8idhi"), ExtResource("16_kxqh5"), ExtResource("17_tn4a5"), ExtResource("30_kaaep")],
+7: [ExtResource("18_r5fj8"), ExtResource("19_8idhi"), ExtResource("19_bbuk5"), ExtResource("20_8idhi"), ExtResource("21_bbuk5")],
+8: [ExtResource("25_wjcb5"), ExtResource("26_uy6j2"), ExtResource("27_ayd62"), ExtResource("28_u3s1c"), ExtResource("29_e21xm")]
 }
 
 [node name="Background" type="Sprite2D" parent="." unique_id=844428716]

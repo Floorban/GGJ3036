@@ -23,15 +23,15 @@ func get_allowed_tiers(level: int) -> Array[int]:
 	if level < 1:
 		return [1, 2]
 	elif level < 4:
-		return [2, 3]
+		return [3, 4, 5]
 	elif level < 6:
-		return [3, 4]
+		return [4, 5, 6]
 	elif level < 8:
-		return [4, 5]
+		return [5, 6, 7]
 	elif level < 10:
-		return [5, 6]
+		return [6, 7, 8]
 	else:
-		return [5, 6]
+		return [7, 8]
 
 @export var upgrade_parts : Array[Anatomy]
 @onready var part_spawn_markers: Array[Marker2D] = [%SpawnMarker1, %SpawnMarker2, %SpawnMarker3, %SpawnMarker4, %SpawnMarker5, %SpawnMarker6, %SpawnMarker7, %SpawnMarker8, %SpawnMarker9, %SpawnMarker10, %SpawnMarker11, %SpawnMarker12]
