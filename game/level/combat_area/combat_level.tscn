@@ -147,7 +147,7 @@ adjustment_contrast = 1.05
 adjustment_saturation = 1.1
 
 [node name="CombatLevel" unique_id=1259752126 instance=ExtResource("1_57dav")]
-bg_textures = Array[Texture2D]([ExtResource("13_ldpml"), ExtResource("3_unnlo"), ExtResource("4_ldpml"), ExtResource("5_b7xvh"), ExtResource("6_p36xc"), ExtResource("7_oxeqc")])
+bg_textures = Array[Texture2D]([ExtResource("13_ldpml"), ExtResource("13_ldpml"), ExtResource("13_ldpml"), ExtResource("3_unnlo"), ExtResource("3_unnlo"), ExtResource("3_unnlo"), ExtResource("4_ldpml"), ExtResource("4_ldpml"), ExtResource("4_ldpml"), ExtResource("5_b7xvh"), ExtResource("5_b7xvh"), ExtResource("5_b7xvh"), ExtResource("6_p36xc"), ExtResource("6_p36xc"), ExtResource("6_p36xc"), ExtResource("7_oxeqc"), ExtResource("7_oxeqc"), ExtResource("7_oxeqc")])
 battle_duration = 10.0
 
 [node name="Player" parent="." index="0" unique_id=1861387119 instance=ExtResource("2_8nlnt")]
