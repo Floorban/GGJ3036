@@ -79,7 +79,7 @@ func self_broken_part() -> void:
 	#DialogueManager.clear_all_text_boxes()
 
 func surgery_intro() -> void:
-	if DialogueManager.hide_dialogue: 
+	if DialogueManager.hide_dialogue or entered_surgery:
 		return
 	
 	await get_tree().create_timer(0.5).timeout
@@ -103,6 +103,7 @@ func surgery_intro() -> void:
 	await get_tree().create_timer(2.0).timeout
 	DialogueManager.clear_all_text_boxes()
 	surgery_done = false
+	entered_surgery = true
 
 
 var is_teaching_start_with_parts := false

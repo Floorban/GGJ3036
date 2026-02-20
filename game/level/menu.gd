@@ -30,6 +30,7 @@ var i_menu: FmodEvent
 func end() -> void:
 	if not ending:
 		return
+	DialogueManager.hide_dialogue = true
 	transition_screen.cover()
 	ending.visible = true
 	await get_tree().create_timer(1.5).timeout
