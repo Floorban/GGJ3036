@@ -8,11 +8,8 @@
 [ext_resource type="Resource" uid="uid://bls6j1d24v8sj" path="res://game/system/anatomy/anatomy_data/eyes/eye_5.tres" id="19_gr8qm"]
 [ext_resource type="Resource" uid="uid://oi1x4tv20djw" path="res://game/system/anatomy/anatomy_data/eyes/eye_6.tres" id="20_2373x"]
 [ext_resource type="Resource" uid="uid://4wpsvawy57rb" path="res://game/system/anatomy/anatomy_data/eyes/eye_7.tres" id="21_vno7f"]
-[ext_resource type="PackedScene" uid="uid://bmwre5sbii0x1" path="res://game/system/anatomy/anatomy_data/faces/minion_face_1.tscn" id="27_f5gbo"]
 [ext_resource type="PackedScene" uid="uid://bfwf71h76qlt3" path="res://game/system/anatomy/anatomy_data/faces/minion_face_2.tscn" id="28_q55kf"]
-[ext_resource type="PackedScene" uid="uid://2mhw2o7sq4cq" path="res://game/system/anatomy/anatomy_data/faces/minion_face_3.tscn" id="29_j1lo6"]
 [ext_resource type="PackedScene" uid="uid://df8l16qj2wyqf" path="res://game/system/anatomy/anatomy_data/faces/minion_face_4.tscn" id="30_wax3x"]
-[ext_resource type="PackedScene" uid="uid://bdadtqaevulet" path="res://game/system/anatomy/anatomy_data/faces/minion_face_5.tscn" id="31_d24eq"]
 [ext_resource type="Resource" uid="uid://tds2w2lqssd2" path="res://game/system/anatomy/anatomy_data/mouths/mouth_5.tres" id="36_uanmm"]
 [ext_resource type="Resource" uid="uid://c7i1t7dvllshd" path="res://game/system/anatomy/anatomy_data/mouths/mouth_6.tres" id="37_tyt8w"]
 [ext_resource type="Resource" uid="uid://id3xwbi6qaj0" path="res://game/system/anatomy/anatomy_data/mouths/mouth_7.tres" id="38_8qin1"]
@@ -25,7 +22,7 @@
 script = ExtResource("56_to6ae")
 arm_scene = ExtResource("1_fw5os")
 arm_gesture = Vector2(-120, 140)
-face_variants = Array[PackedScene]([ExtResource("27_f5gbo"), ExtResource("28_q55kf"), ExtResource("29_j1lo6"), ExtResource("30_wax3x"), ExtResource("31_d24eq")])
+face_variants = Array[PackedScene]([ExtResource("28_q55kf"), ExtResource("30_wax3x")])
 ear_variants = Array[ExtResource("2_rhlj5")]([ExtResource("7_ykl5v"), ExtResource("8_tncwv"), ExtResource("9_a7bor")])
 eye_variants = Array[ExtResource("2_rhlj5")]([ExtResource("19_gr8qm"), ExtResource("20_2373x"), ExtResource("21_vno7f")])
 mouth_variants = Array[ExtResource("2_rhlj5")]([ExtResource("36_uanmm"), ExtResource("37_tyt8w"), ExtResource("38_8qin1")])

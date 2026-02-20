@@ -10,7 +10,6 @@
 [ext_resource type="Resource" uid="uid://djelb2ai7rmts" path="res://game/system/anatomy/anatomy_data/eyes/eye_3.tres" id="17_esxdv"]
 [ext_resource type="PackedScene" uid="uid://bmwre5sbii0x1" path="res://game/system/anatomy/anatomy_data/faces/minion_face_1.tscn" id="27_v7w6q"]
 [ext_resource type="PackedScene" uid="uid://2mhw2o7sq4cq" path="res://game/system/anatomy/anatomy_data/faces/minion_face_3.tscn" id="28_3w20g"]
-[ext_resource type="PackedScene" uid="uid://df8l16qj2wyqf" path="res://game/system/anatomy/anatomy_data/faces/minion_face_4.tscn" id="28_p5m8c"]
 [ext_resource type="Resource" uid="uid://d6ixon3t1iha" path="res://game/system/anatomy/anatomy_data/mouths/mouth_1.tres" id="29_wvv4l"]
 [ext_resource type="Resource" uid="uid://sls8ofco7idm" path="res://game/system/anatomy/anatomy_data/mouths/mouth_2.tres" id="30_b1tf8"]
 [ext_resource type="Resource" uid="uid://bjgd6lht4mryd" path="res://game/system/anatomy/anatomy_data/mouths/mouth_3.tres" id="31_s85e5"]
@@ -23,7 +22,7 @@
 script = ExtResource("53_3ucus")
 arm_scene = ExtResource("1_3oui8")
 arm_gesture = Vector2(-120, 140)
-face_variants = Array[PackedScene]([ExtResource("27_v7w6q"), ExtResource("28_3w20g"), ExtResource("28_p5m8c")])
+face_variants = Array[PackedScene]([ExtResource("27_v7w6q"), ExtResource("28_3w20g")])
 ear_variants = Array[ExtResource("2_3w20g")]([ExtResource("3_g1aqp"), ExtResource("4_lv8mx"), ExtResource("5_jmhnq")])
 eye_variants = Array[ExtResource("2_3w20g")]([ExtResource("15_vybpn"), ExtResource("16_74mwk"), ExtResource("17_esxdv")])
 mouth_variants = Array[ExtResource("2_3w20g")]([ExtResource("29_wvv4l"), ExtResource("30_b1tf8"), ExtResource("31_s85e5")])
