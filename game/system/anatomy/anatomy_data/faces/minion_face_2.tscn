@@ -15,11 +15,11 @@ position = Vector2(-56, -38)
 position = Vector2(56, -42)
 
 [node name="EarMarkerL" parent="." index="3" unique_id=1066107856]
-position = Vector2(-116, -9)
+position = Vector2(-123, -9)
 rotation = -0.08672651
 
 [node name="EarMarkerR" parent="." index="4" unique_id=530276236]
-position = Vector2(105, -35)
+position = Vector2(116, -35)
 rotation = 0.07410489
 
 [node name="NoseMarker" parent="." index="5" unique_id=1386996071]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ishblhy8w5qi"]
 
 [ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_jr0rp"]
-[ext_resource type="Texture2D" uid="uid://civr2jgjofjyt" path="res://sprites/body_parts/FaceAssets/MCfacevariations/ears/Ear.png" id="2_vcbng"]
+[ext_resource type="Texture2D" uid="uid://dsxm7twfbofu4" path="res://sprites/body_parts/NewStyle/NewEars/NewEar8.png" id="2_vcbng"]
 
 [sub_resource type="Shader" id="Shader_2ro5p"]
 code = "shader_type canvas_item;
@@ -58,7 +58,7 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4h5m"]
-size = Vector2(39.200005, 63.400013)
+size = Vector2(47.200005, 73.60001)
 
 [node name="EarAttackDamage" unique_id=1690948451 instance=ExtResource("1_jr0rp")]
 z_index = 10
@@ -79,7 +79,8 @@ max_hp = 6.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_io25p")
-position = Vector2(0, -1)
+position = Vector2(1.2, -5.9604645e-08)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_vcbng")
 flip_h = true
 
@@ -87,6 +88,6 @@ flip_h = true
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" parent="MouseDetectArea" index="0" unique_id=149295176]
-position = Vector2(-1.1999996, -1.1000003)
+position = Vector2(-1.1999996, -0.99999976)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_e4h5m")

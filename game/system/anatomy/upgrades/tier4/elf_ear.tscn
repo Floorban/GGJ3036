@@ -78,7 +78,6 @@ max_hp = 12.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_wb2wf")
-position = Vector2(-4.4, 0)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_va7ya")
 

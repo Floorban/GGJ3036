@@ -79,7 +79,7 @@ max_hp = 9.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_og2o3")
-position = Vector2(-6.4, 0)
+position = Vector2(-0.8000002, 0)
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("2_dtd01")
 
