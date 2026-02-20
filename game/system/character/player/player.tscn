@@ -179,8 +179,6 @@ base_cooldown = 2.0
 base_damage = 1.0
 base_speed = 0.05
 base_crit_damage = 1.2
-base_stun_strength = 0.2
-base_stun_resist = 0.5
 top_down_dir = -1
 arm = NodePath("ArmR")
 
