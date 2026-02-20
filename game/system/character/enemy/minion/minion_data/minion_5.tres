@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cyavxqhgshvv7" path="res://game/system/anatomy/anatomy_data/anatomy_data.gd" id="2_rhlj5"]
 [ext_resource type="Resource" uid="uid://nw047vl0jvia" path="res://game/system/anatomy/anatomy_data/ears/ear_5.tres" id="7_ykl5v"]
 [ext_resource type="Resource" uid="uid://c30lylyplj4j2" path="res://game/system/anatomy/anatomy_data/ears/ear_6.tres" id="8_tncwv"]
+[ext_resource type="Resource" uid="uid://ca816eoapva66" path="res://game/system/anatomy/anatomy_data/eyes/eye_13.tres" id="9_4rqfr"]
 [ext_resource type="Resource" uid="uid://bi77cj53ejbtj" path="res://game/system/anatomy/anatomy_data/ears/ear_7.tres" id="9_a7bor"]
 [ext_resource type="PackedScene" uid="uid://d23pkrb2sr7t4" path="res://game/system/anatomy/anatomy_data/faces/minion_face_6.tscn" id="9_wna4m"]
 [ext_resource type="Resource" uid="uid://bls6j1d24v8sj" path="res://game/system/anatomy/anatomy_data/eyes/eye_5.tres" id="19_gr8qm"]
@@ -24,16 +25,16 @@ arm_scene = ExtResource("1_fw5os")
 arm_gesture = Vector2(-120, 140)
 face_variants = Array[PackedScene]([ExtResource("9_wna4m"), ExtResource("30_wax3x")])
 ear_variants = Array[ExtResource("2_rhlj5")]([ExtResource("7_ykl5v"), ExtResource("8_tncwv"), ExtResource("9_a7bor")])
-eye_variants = Array[ExtResource("2_rhlj5")]([ExtResource("19_gr8qm"), ExtResource("20_2373x"), ExtResource("21_vno7f")])
+eye_variants = Array[ExtResource("2_rhlj5")]([ExtResource("19_gr8qm"), ExtResource("20_2373x"), ExtResource("21_vno7f"), ExtResource("9_4rqfr")])
 mouth_variants = Array[ExtResource("2_rhlj5")]([ExtResource("36_uanmm"), ExtResource("37_tyt8w"), ExtResource("38_8qin1")])
 nose_variants = Array[ExtResource("2_rhlj5")]([ExtResource("48_8lv7l"), ExtResource("49_iu81d"), ExtResource("50_pqi5y")])
 base_cooldown = 3.0
 base_damage = 1.0
-base_speed = 0.07
+base_speed = 0.1
 base_stun_strength = 1.0
 base_stun_resist = 1.0
 switch_chance = 0.5
-min_switch_time = 1.0
+min_switch_time = 1.5
 sfx_die = "event:/NPC/Hostile/Minions/Die"
 sfx_entry = "event:/NPC/Hostile/Minions/Entry"
 sfx_hurt = "event:/NPC/Hostile/Minions/Hurt"
