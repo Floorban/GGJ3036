@@ -499,8 +499,8 @@ func part_dead() -> void:
 	#audio.play(body_owner.sfx_hurt)
 
 func move_part() -> void:
-	rotation += randf_range(-0.8, 0.8)
-	position += Vector2(randf_range(-2, 2), randf_range(-2, 2))
+	rotation += randf_range(-1.2, 1.2)
+	position += Vector2(randf_range(-3, 3), randf_range(-3, 3))
 
 func is_part_dead() -> bool:
 	return state == PartState.DESTROYED
