@@ -78,11 +78,11 @@ func self_broken_part() -> void:
 	#await get_tree().create_timer(2.0).timeout
 	#DialogueManager.clear_all_text_boxes()
 
-
 func surgery_intro() -> void:
-	if DialogueManager.hide_dialogue: return
+	if DialogueManager.hide_dialogue: 
+		entered_surgery = false
+		return
 	
-	entered_surgery = true
 	await get_tree().create_timer(0.5).timeout
 	DialogueManager.say("YOU GOT EM, GOOD FUCKING JOB DUDE !!", DialogueManager.NPC.COACH, false)
 	await wait_for_action()
@@ -104,6 +104,8 @@ func surgery_intro() -> void:
 	await get_tree().create_timer(2.0).timeout
 	DialogueManager.clear_all_text_boxes()
 	surgery_done = false
+	entered_surgery = true
+
 
 var is_teaching_start_with_parts := false
 

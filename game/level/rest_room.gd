@@ -72,7 +72,7 @@ func enter_rest_room(current_level: int) -> void:
 				part.z_index = 50
 
 func leave_rest_room() -> void:
-	if Tutorial.surgery_done:
+	if Tutorial.entered_surgery:
 		return
 	for i in range(player.anatomy_parts.size() - 1, -1, -1):
 		var part = player.anatomy_parts[i]

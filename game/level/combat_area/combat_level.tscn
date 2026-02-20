@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c3joaeokc1h1s" path="res://game/system/character/enemy/boss/brain_out_2.tscn" id="8_g1ogi"]
 [ext_resource type="PackedScene" uid="uid://b378v61r0ypsm" path="res://game/system/character/enemy/minion/enemy_minion.tscn" id="9_p36xc"]
 [ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="9_tgsw3"]
-[ext_resource type="Resource" uid="uid://d4dqrfx1hujr6" path="res://game/system/character/enemy/minion/minion_data/minion_1.tres" id="10_oxeqc"]
+[ext_resource type="Resource" uid="uid://ct8ooni4rcufl" path="res://game/system/character/enemy/minion/minion_data/minion_test.tres" id="10_nia3n"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="10_xaya2"]
 [ext_resource type="Shader" uid="uid://bqqnlybur4rdk" path="res://material/retro.gdshader" id="11_5tn5e"]
 [ext_resource type="Script" uid="uid://i1uip8en2isl" path="res://game/system/character/enemy/boss/boxer.gd" id="11_b7xvh"]
@@ -177,7 +177,7 @@ texture = ExtResource("13_ldpml")
 [node name="EnemyMinion1" parent="Enemies" index="2" unique_id=927994861 instance=ExtResource("9_p36xc")]
 visible = false
 position = Vector2(0, -40)
-minion_data = ExtResource("10_oxeqc")
+minion_data = ExtResource("10_nia3n")
 
 [node name="EnemyMinion2" parent="Enemies" index="3" unique_id=1063311903 instance=ExtResource("9_p36xc")]
 process_mode = 4
