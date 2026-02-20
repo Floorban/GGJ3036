@@ -78,7 +78,8 @@ state = 3
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_ayoga")
-scale = Vector2(1.2, 1.2)
+position = Vector2(0, 0.4)
+scale = Vector2(0.65, 0.65)
 texture = ExtResource("2_me0lf")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]

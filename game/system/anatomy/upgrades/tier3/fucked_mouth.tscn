@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://egt4qb24ek7n"]
 
 [ext_resource type="PackedScene" uid="uid://dml04uxtc34nm" path="res://game/system/anatomy/anatomy.tscn" id="1_bs867"]
-[ext_resource type="Texture2D" uid="uid://dkhwn1wkup5ix" path="res://sprites/body_parts/FaceAssets/MCfacevariations/Mouths/BigSmileTongueMouth.png" id="2_10a7b"]
+[ext_resource type="Texture2D" uid="uid://cunp7yhq2wf35" path="res://sprites/body_parts/NewStyle/NewMouths/NewMouth6.png" id="2_10a7b"]
 
 [sub_resource type="Shader" id="Shader_2ro5p"]
 code = "shader_type canvas_item;
@@ -79,7 +79,8 @@ max_hp = 9.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_wjq13")
-scale = Vector2(0.8, 0.8)
+position = Vector2(0, 8.4)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_10a7b")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]

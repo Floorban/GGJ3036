@@ -78,8 +78,8 @@ max_hp = 20.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_5rxhv")
-position = Vector2(0.79999924, 0)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-14.400001, 0)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_vlqle")
 
 [node name="CollisionShape2D" parent="MouseDetectArea" parent_id_path=PackedInt32Array(1106976729) index="0" unique_id=149295176]
