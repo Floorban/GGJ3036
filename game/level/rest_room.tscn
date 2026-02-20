@@ -50,8 +50,8 @@
 [ext_resource type="Texture2D" uid="uid://cdmnrh3w5ji0d" path="res://sprites/ui/BandageImReadyopacity.png" id="34_e21xm"]
 [ext_resource type="Texture2D" uid="uid://d0alrljy0et8o" path="res://sprites/ui/BandageImReady.png" id="34_u3s1c"]
 [ext_resource type="PackedScene" uid="uid://cu05fkjh25k63" path="res://game/system/character/player/fix_area.tscn" id="34_u4uef"]
-[ext_resource type="Texture2D" uid="uid://cdjjjvon41702" path="res://sprites/Backgrounds/pipe2.png" id="35_wkcso"]
 [ext_resource type="PackedScene" uid="uid://bkubpjagrypqj" path="res://game/system/tutorial/tutorial.tscn" id="40_u4uef"]
+[ext_resource type="Texture2D" uid="uid://c64wx2tw0amwu" path="res://sprites/Backgrounds/Thrashbin.png" id="45_7pww1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e21xm"]
 radius = 100.08496
@@ -185,13 +185,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Background/TrashBin/Label" unique_id=1274575618]
-custom_minimum_size = Vector2(400, 400)
+self_modulate = Color(1.2742168, 1.2742168, 1.2742168, 1)
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 0
-offset_left = -85.14227
-offset_top = -394.16754
-offset_right = 314.85773
-offset_bottom = 5.8324585
-texture = ExtResource("35_wkcso")
+offset_left = -34.666885
+offset_top = -276.95554
+offset_right = 265.33313
+offset_bottom = 23.044464
+texture = ExtResource("45_7pww1")
 expand_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981571717]

@@ -58,15 +58,15 @@ shader_parameter/glowSharpness = 1.0
 shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vthj"]
-size = Vector2(56.000008, 109.90005)
+size = Vector2(46.000008, 102.40001)
 
 [node name="4Ear" unique_id=1690948451 instance=ExtResource("1_5h6g0")]
 scale = Vector2(2.5, 2.5)
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_lrqfh")
-position = Vector2(-6.0000005, 1.2000004)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-3.1999993, 2)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_vlpnr")
 flip_v = false
 
@@ -74,6 +74,6 @@ flip_v = false
 position = Vector2(0, 31.749998)
 
 [node name="CollisionShape2D" parent="MouseDetectArea" index="0" unique_id=149295176]
-position = Vector2(0, -29.999975)
+position = Vector2(6.599999, -28.949991)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_1vthj")

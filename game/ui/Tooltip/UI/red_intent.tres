@@ -7,5 +7,6 @@
 script = ExtResource("2_c0u7i")
 icon = ExtResource("1_btax0")
 text = "RED"
+color = "DARK_RED"
 description = "RED"
 metadata/_custom_type_script = "uid://d0v37d0d6w03m"
