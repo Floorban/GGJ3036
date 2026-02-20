@@ -59,6 +59,8 @@ shader_parameter/alphaThreshold = 0.2
 
 [node name="5Ear" unique_id=1690948451 instance=ExtResource("1_uqxl0")]
 scale = Vector2(2.5, 2.5)
+state = 3
+max_hp = 11.0
 
 [node name="Sprite" parent="." index="0" unique_id=500964707]
 material = SubResource("ShaderMaterial_w20hm")

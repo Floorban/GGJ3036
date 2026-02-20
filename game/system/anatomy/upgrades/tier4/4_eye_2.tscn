@@ -61,6 +61,16 @@ shader_parameter/alphaThreshold = 0.2
 radius = 52.009613
 
 [node name="4Eye2" unique_id=1690948451 instance=ExtResource("1_mcjkq")]
+stat_modifiers = {
+0: 0.0,
+1: 0.0,
+2: 0.0,
+3: 0.5,
+4: 0.6,
+5: 0.0,
+6: 0.2,
+7: 0.0
+}
 state = 3
 max_hp = 9.0
 
