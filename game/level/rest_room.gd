@@ -15,6 +15,8 @@ signal ready_to_fight()
 	5: []
 }
 
+@export var slot_machine : SlotMachine
+
 static var attaching: bool = false
 static var attached_index: float
 var sfx_attach: String = "event:/SFX/Surgery/Attach"
@@ -44,6 +46,13 @@ func _ready() -> void:
 	ready_button.visible = false
 	ready_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	player.rest_mode = false
+	slot_machine.spawn_part.connect(_on_slot_machine_spawned_parts)
+
+
+func _on_slot_machine_spawned_parts(new_part: Anatomy) -> void:
+	upgrade_parts.append(new_part)
+	connect_parts_interact_signal()
+
 
 func enter_rest_room(current_level: int) -> void:
 	background.visible = true
@@ -57,7 +66,7 @@ func enter_rest_room(current_level: int) -> void:
 			part.body_owner = null
 	await  get_tree().create_timer(0.1).timeout
 	player.rest_mode = true
-	spawn_parts(current_level - 2)
+	#spawn_parts(current_level - 2)
 	connect_parts_interact_signal()
 	#for p in background.get_children():
 		#p.z_index = 10

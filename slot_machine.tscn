@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bruw1emy2xxnc"]
+
+[ext_resource type="Texture2D" uid="uid://b8cbihhyxyuli" path="res://sprites/GamblingMachine/Body/Body.png" id="1_842tv"]
+[ext_resource type="Script" uid="uid://d3axguvjyya5j" path="res://slot_machine.gd" id="1_kpwbf"]
+[ext_resource type="PackedScene" uid="uid://ishblhy8w5qi" path="res://game/system/anatomy/upgrades/tier2/demon_ear.tscn" id="2_2vf6k"]
+[ext_resource type="Texture2D" uid="uid://c01g5ilw0784w" path="res://sprites/GamblingMachine/Body/Lever.png" id="2_7abct"]
+[ext_resource type="PackedScene" uid="uid://j3wao5bil4nh" path="res://game/system/anatomy/upgrades/tier2/demon_ear_2.tscn" id="3_et0hv"]
+[ext_resource type="Texture2D" uid="uid://cqk0p5st4xti6" path="res://sprites/GamblingMachine/Frames/FrameLeft.png" id="3_kpwbf"]
+[ext_resource type="Texture2D" uid="uid://bmvn5x6yeqbm5" path="res://sprites/GamblingMachine/Frames/FrameMiddle.png" id="4_jfulg"]
+[ext_resource type="PackedScene" uid="uid://1hwmwkncudxn" path="res://game/system/anatomy/upgrades/tier2/demon_eye.tscn" id="4_r7rpn"]
+[ext_resource type="PackedScene" uid="uid://b3g37sa5dgn3s" path="res://game/system/anatomy/upgrades/tier2/demon_mouth.tscn" id="5_h3lt6"]
+[ext_resource type="Texture2D" uid="uid://cekpw5y72jega" path="res://sprites/GamblingMachine/Frames/FrameRight.png" id="5_nvm1u"]
+[ext_resource type="Texture2D" uid="uid://1w7ylmc35el7" path="res://sprites/GamblingMachine/Body/Pipe.png" id="6_7abct"]
+[ext_resource type="PackedScene" uid="uid://dxfudgfq78ixl" path="res://game/system/anatomy/upgrades/tier2/demon_nose.tscn" id="6_qbg7i"]
+[ext_resource type="PackedScene" uid="uid://d2va0cs367xx0" path="res://game/system/anatomy/upgrades/tier3/fucked_ear.tscn" id="7_vgm0d"]
+[ext_resource type="PackedScene" uid="uid://s8u8xkowfvjv" path="res://game/system/anatomy/upgrades/tier3/fucked_eye.tscn" id="8_mcdas"]
+[ext_resource type="PackedScene" uid="uid://egt4qb24ek7n" path="res://game/system/anatomy/upgrades/tier3/fucked_mouth.tscn" id="9_4v34l"]
+[ext_resource type="PackedScene" uid="uid://c8q1qwe75dlkf" path="res://game/system/anatomy/upgrades/tier3/fucked_mouth_2.tscn" id="10_7rw4i"]
+[ext_resource type="PackedScene" uid="uid://cx0kphb1k46bi" path="res://game/system/anatomy/upgrades/tier3/fucked_nose.tscn" id="11_vp5bn"]
+[ext_resource type="Texture2D" uid="uid://c1qlx42blyuf7" path="res://sprites/GamblingMachine/Symbols/DollarSymbol.png" id="12_vp5bn"]
+[ext_resource type="Texture2D" uid="uid://c1kuem4vrov42" path="res://sprites/GamblingMachine/Symbols/EarSymbol.png" id="13_b3qpd"]
+[ext_resource type="Texture2D" uid="uid://yg5trtmdpst0" path="res://sprites/GamblingMachine/Symbols/EyeSymbol.png" id="14_esvjm"]
+[ext_resource type="Texture2D" uid="uid://bxnw5p2bohlm7" path="res://sprites/GamblingMachine/Frames/FrameLeftInside.png" id="14_h3lt6"]
+[ext_resource type="Texture2D" uid="uid://bh3uh6co40aaf" path="res://sprites/GamblingMachine/Symbols/MouthSymbol.png" id="15_2wtlk"]
+[ext_resource type="Texture2D" uid="uid://5cleecq7e8v2" path="res://sprites/GamblingMachine/Symbols/NoseSymbol.png" id="16_6nqbk"]
+[ext_resource type="Texture2D" uid="uid://dxlbami1x22w2" path="res://sprites/GamblingMachine/Frames/FrameMiddleInside.png" id="16_qbg7i"]
+[ext_resource type="Texture2D" uid="uid://d3rs8fs5jn5ch" path="res://sprites/GamblingMachine/Symbols/SkullSymbol.png" id="17_h2ymq"]
+[ext_resource type="Texture2D" uid="uid://devtjneclb5ne" path="res://sprites/GamblingMachine/Frames/FrameRightInside.png" id="18_vgm0d"]
+
+[node name="SlotMachine" type="Node2D" unique_id=2010991533]
+script = ExtResource("1_kpwbf")
+parts_pool = Array[PackedScene]([ExtResource("2_2vf6k"), ExtResource("3_et0hv"), ExtResource("4_r7rpn"), ExtResource("5_h3lt6"), ExtResource("6_qbg7i"), ExtResource("7_vgm0d"), ExtResource("8_mcdas"), ExtResource("9_4v34l"), ExtResource("10_7rw4i"), ExtResource("11_vp5bn")])
+slot_icons_pool = Array[Texture2D]([ExtResource("14_esvjm"), ExtResource("13_b3qpd"), ExtResource("16_6nqbk"), ExtResource("15_2wtlk"), ExtResource("12_vp5bn"), ExtResource("17_h2ymq")])
+
+[node name="MachineBase" type="Sprite2D" parent="." unique_id=1177212033]
+unique_name_in_owner = true
+position = Vector2(0, -241.00003)
+rotation = 0.009421194
+texture = ExtResource("1_842tv")
+
+[node name="Slots" type="Node2D" parent="MachineBase" unique_id=827149766]
+position = Vector2(646, 0)
+
+[node name="SlotLeft" type="Sprite2D" parent="MachineBase/Slots" unique_id=316151903]
+position = Vector2(-635, -7)
+texture = ExtResource("3_kpwbf")
+
+[node name="Slot1" type="Sprite2D" parent="MachineBase/Slots/SlotLeft" unique_id=1721617046]
+unique_name_in_owner = true
+texture = ExtResource("14_h3lt6")
+
+[node name="SlotMiddle" type="Sprite2D" parent="MachineBase/Slots" unique_id=483298234]
+position = Vector2(-635, -7)
+texture = ExtResource("4_jfulg")
+
+[node name="Slot2" type="Sprite2D" parent="MachineBase/Slots/SlotMiddle" unique_id=1759682881]
+unique_name_in_owner = true
+texture = ExtResource("16_qbg7i")
+
+[node name="SlotRight" type="Sprite2D" parent="MachineBase/Slots" unique_id=21721835]
+position = Vector2(-635, -7)
+texture = ExtResource("5_nvm1u")
+
+[node name="Slot3" type="Sprite2D" parent="MachineBase/Slots/SlotRight" unique_id=2127343718]
+unique_name_in_owner = true
+texture = ExtResource("18_vgm0d")
+
+[node name="Bar" type="Sprite2D" parent="MachineBase" unique_id=1826580902]
+unique_name_in_owner = true
+position = Vector2(445, 63)
+texture = ExtResource("2_7abct")
+offset = Vector2(250, -100)
+
+[node name="Pipe" type="Sprite2D" parent="MachineBase" unique_id=555975186]
+unique_name_in_owner = true
+position = Vector2(-443, 227)
+texture = ExtResource("6_7abct")
+offset = Vector2(450, -220)
+
+[node name="SpawnPos" type="Marker2D" parent="MachineBase" unique_id=749479955]
+unique_name_in_owner = true
+position = Vector2(0, 259)

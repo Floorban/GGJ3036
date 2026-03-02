@@ -48,12 +48,15 @@ var i_music_boss: FmodEvent
 var sfx_countdown: String = "event:/SFX/NPC/Coach/Count"
 var sfx_ring: String = "event:/SFX/Arena/Ring"
 
+var slot_machine : SlotMachine
 
 func _ready() -> void:
 	GameManager.combat_area = self
 	game_ui.timer_panel.visible = false
 	battle_time_left = 100.0
 	rest_room.ready_to_fight.connect(start_battle)
+	slot_machine = rest_room.slot_machine
+	slot_machine.interacted.connect(_screen_shake)
 	start_pos = player.position
 	enemies.clear()
 	for e in enemies_container.get_children():
@@ -348,7 +351,7 @@ var distortion_tween: Tween
 var barrel_distortion := 0.0
 
 
-func _screen_shake(value: float, crit := false) -> void:
+func _screen_shake(value: float = 2, crit := false) -> void:
 	camera.add_trauma(value / 8)
 
 	var peak : float = clamp(value * 0.15, 0.08, 0.3)

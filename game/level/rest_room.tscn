@@ -52,12 +52,13 @@
 [ext_resource type="PackedScene" uid="uid://cu05fkjh25k63" path="res://game/system/character/player/fix_area.tscn" id="34_u4uef"]
 [ext_resource type="PackedScene" uid="uid://bkubpjagrypqj" path="res://game/system/tutorial/tutorial.tscn" id="40_u4uef"]
 [ext_resource type="Texture2D" uid="uid://c64wx2tw0amwu" path="res://sprites/Backgrounds/Thrashbin.png" id="45_7pww1"]
+[ext_resource type="PackedScene" uid="uid://bruw1emy2xxnc" path="res://slot_machine.tscn" id="53_w15xk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e21xm"]
 radius = 100.08496
 height = 328.5431
 
-[node name="RestRoom" type="Node2D" unique_id=1662139499 groups=["rest_room"]]
+[node name="RestRoom" type="Node2D" unique_id=1662139499 node_paths=PackedStringArray("slot_machine") groups=["rest_room"]]
 script = ExtResource("1_nbyfe")
 upgrade_scenes_by_tier = {
 1: [ExtResource("7_x1e6w"), ExtResource("8_2xwxa"), ExtResource("10_xisql"), ExtResource("9_8sk3i"), ExtResource("6_uy6j2")],
@@ -69,6 +70,7 @@ upgrade_scenes_by_tier = {
 7: [ExtResource("18_r5fj8"), ExtResource("19_8idhi"), ExtResource("19_bbuk5"), ExtResource("20_8idhi"), ExtResource("21_bbuk5")],
 8: [ExtResource("25_wjcb5"), ExtResource("26_uy6j2"), ExtResource("27_ayd62"), ExtResource("28_u3s1c"), ExtResource("29_e21xm")]
 }
+slot_machine = NodePath("Background/SlotMachine")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=844428716]
 z_index = -6
@@ -83,6 +85,7 @@ z_index = 5
 scale = Vector2(1.1111112, 1.1111112)
 
 [node name="Table1" type="Sprite2D" parent="Background" unique_id=1321632848]
+visible = false
 position = Vector2(-202.21317, 139.44757)
 rotation = 1.2771158
 scale = Vector2(0.8333334, 0.8333334)
@@ -121,6 +124,7 @@ position = Vector2(-125.49863, 73.61972)
 rotation = 0.7877548
 
 [node name="Table2" type="Sprite2D" parent="Background" unique_id=207262391]
+visible = false
 position = Vector2(145.5298, 174.76996)
 rotation = -0.389355
 scale = Vector2(0.8333334, 0.8333334)
@@ -194,6 +198,11 @@ offset_right = 265.33313
 offset_bottom = 23.044464
 texture = ExtResource("45_7pww1")
 expand_mode = 1
+
+[node name="SlotMachine" parent="Background" unique_id=2010991533 instance=ExtResource("53_w15xk")]
+position = Vector2(8.543598, 146.5693)
+rotation = 3.0543263
+scale = Vector2(0.4, 0.4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981571717]
 
