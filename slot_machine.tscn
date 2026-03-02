@@ -30,12 +30,18 @@
 [node name="SlotMachine" type="Node2D" unique_id=2010991533]
 script = ExtResource("1_kpwbf")
 parts_pool = Array[PackedScene]([ExtResource("2_2vf6k"), ExtResource("3_et0hv"), ExtResource("4_r7rpn"), ExtResource("5_h3lt6"), ExtResource("6_qbg7i"), ExtResource("7_vgm0d"), ExtResource("8_mcdas"), ExtResource("9_4v34l"), ExtResource("10_7rw4i"), ExtResource("11_vp5bn")])
-slot_icons_pool = Array[Texture2D]([ExtResource("14_esvjm"), ExtResource("13_b3qpd"), ExtResource("16_6nqbk"), ExtResource("15_2wtlk"), ExtResource("12_vp5bn"), ExtResource("17_h2ymq")])
+icon_map = {
+0: ExtResource("14_esvjm"),
+1: ExtResource("13_b3qpd"),
+2: ExtResource("16_6nqbk"),
+3: ExtResource("15_2wtlk"),
+4: ExtResource("12_vp5bn"),
+5: ExtResource("17_h2ymq")
+}
 
 [node name="MachineBase" type="Sprite2D" parent="." unique_id=1177212033]
 unique_name_in_owner = true
 position = Vector2(0, -241.00003)
-rotation = 0.009421194
 texture = ExtResource("1_842tv")
 
 [node name="Slots" type="Node2D" parent="MachineBase" unique_id=827149766]
@@ -47,6 +53,10 @@ texture = ExtResource("3_kpwbf")
 
 [node name="Slot1" type="Sprite2D" parent="MachineBase/Slots/SlotLeft" unique_id=1721617046]
 unique_name_in_owner = true
+z_index = 1
+position = Vector2(-301.66678, 43.74005)
+
+[node name="Sprite2D" type="Sprite2D" parent="MachineBase/Slots/SlotLeft" unique_id=883993003]
 texture = ExtResource("14_h3lt6")
 
 [node name="SlotMiddle" type="Sprite2D" parent="MachineBase/Slots" unique_id=483298234]
@@ -55,6 +65,10 @@ texture = ExtResource("4_jfulg")
 
 [node name="Slot2" type="Sprite2D" parent="MachineBase/Slots/SlotMiddle" unique_id=1759682881]
 unique_name_in_owner = true
+z_index = 1
+position = Vector2(-32, 37.281334)
+
+[node name="Sprite2D" type="Sprite2D" parent="MachineBase/Slots/SlotMiddle" unique_id=619702907]
 texture = ExtResource("16_qbg7i")
 
 [node name="SlotRight" type="Sprite2D" parent="MachineBase/Slots" unique_id=21721835]
@@ -63,20 +77,26 @@ texture = ExtResource("5_nvm1u")
 
 [node name="Slot3" type="Sprite2D" parent="MachineBase/Slots/SlotRight" unique_id=2127343718]
 unique_name_in_owner = true
+z_index = 1
+position = Vector2(253.30862, 38.511364)
+
+[node name="Sprite2D" type="Sprite2D" parent="MachineBase/Slots/SlotRight" unique_id=1652030146]
 texture = ExtResource("18_vgm0d")
 
 [node name="Bar" type="Sprite2D" parent="MachineBase" unique_id=1826580902]
 unique_name_in_owner = true
-position = Vector2(445, 63)
+z_index = -1
+position = Vector2(370, 93.00003)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_7abct")
 offset = Vector2(250, -100)
 
 [node name="Pipe" type="Sprite2D" parent="MachineBase" unique_id=555975186]
 unique_name_in_owner = true
-position = Vector2(-443, 227)
+position = Vector2(-396, 225.34077)
 texture = ExtResource("6_7abct")
-offset = Vector2(450, -220)
+offset = Vector2(420, -220)
 
 [node name="SpawnPos" type="Marker2D" parent="MachineBase" unique_id=749479955]
 unique_name_in_owner = true
-position = Vector2(0, 259)
+position = Vector2(32, 259)

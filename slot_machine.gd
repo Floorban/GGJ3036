@@ -3,11 +3,13 @@ class_name SlotMachine extends Node2D
 signal interacted()
 signal spawn_part(part: Anatomy)
 
-
+@export_group("Pools")
 @export var parts_pool : Array[PackedScene]
+@export var icon_map : Dictionary 
 
+@export_group("Tweens")
 var punch_tween : Tween
-var slot_tween : Tween
+var slot_tweens : Array[Tween] = [null, null, null]
 var bar_tween : Tween
 var produce_tween : Tween
 
@@ -17,107 +19,111 @@ var produce_tween : Tween
 @onready var pipe: Sprite2D = %Pipe
 @onready var spawn_pos: Marker2D = %SpawnPos
 
+var is_spinning : bool = false
 
-@export var slot_icons_pool : Array[Texture2D]
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("right_click"):
+	if Input.is_action_just_pressed("right_click") and not is_spinning:
 		on_machine_interact()
 
 
 func on_machine_interact() -> void:
-	machine_punched_effect()
+	is_spinning = true
 	interacted.emit()
-
-
-func machine_punched_effect() -> void:
-	_bar_rotate()
-	#_slots_rotate()
-	if punch_tween:
-		punch_tween.kill()
 	
-	var og_pos = position
+	_animate_bar()
+	_animate_punch()
 	
-	punch_tween = create_tween().set_ease(Tween.EASE_OUT)
-	# animate the slot machine being punched swing and scale effect
-	punch_tween.tween_property(self, "position", og_pos + Vector2.LEFT * 20, 0.1)
-	punch_tween.tween_property(self, "position", og_pos + Vector2.RIGHT * 20, 0.1)
-	punch_tween.tween_property(self, "position", og_pos, 0.1)
-	punch_tween.tween_property(machine_base, "scale", Vector2(1.2, 0.8), 0.2)
-	punch_tween.tween_property(machine_base, "scale", Vector2.ONE, 0.1)
-	punch_tween.tween_callback(_produce_item)
-
-
-func _slots_rotate() -> void:
-	if slot_tween:
-		slot_tween.kill()
+	var part_scene = _get_random_part()
+	var temp_instance = part_scene.instantiate() as Anatomy
+	var result_type = temp_instance.anatomy_type
+	temp_instance.queue_free()
 	
-	slot_tween = create_tween()
+	_spin_slots(result_type, part_scene)
 
 
-func _slots_end(outcome: Anatomy.AnatomyType) -> void:
-	if outcome == Anatomy.AnatomyType.Eye:
-		pass
-	elif outcome == Anatomy.AnatomyType.Ear:
-		pass
-	elif outcome == Anatomy.AnatomyType.Nose:
-		pass
-	elif outcome == Anatomy.AnatomyType.Mouth:
-		pass
-	else:
-		pass
-
-
-func _bar_rotate() -> void:
-	if bar_tween:
-		bar_tween.kill()
-	
-	bar_tween = create_tween().set_trans(Tween.TRANS_EXPO)
-	bar_tween.tween_property(bar, "rotation_degrees", -20, 0.07)
+func _animate_bar() -> void:
+	if bar_tween: bar_tween.kill()
+	bar_tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
 	bar_tween.tween_property(bar, "rotation_degrees", 80.0, 0.15)
-	bar_tween.tween_property(bar, "rotation_degrees", 0.0, 0.2)
-	#rotate bar
+	bar_tween.tween_property(bar, "rotation_degrees", 0.0, 0.3)
 
 
-func _produce_item() -> void:
-	var new_part = _get_random_part().instantiate() as Anatomy
-	_slots_end(new_part.anatomy_type)
+func _animate_punch() -> void:
+	if punch_tween: punch_tween.kill()
+	punch_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	
+	punch_tween.tween_property(self, "position:x", position.x - 10, 0.05)
+	punch_tween.tween_property(self, "position:x", position.x + 10, 0.05)
+	punch_tween.tween_property(self, "position:x", position.x, 0.05)
+	
+	punch_tween.parallel().tween_property(machine_base, "scale", Vector2(1.3, 0.7), 0.1)
+	punch_tween.tween_property(machine_base, "scale", Vector2.ONE, 0.2)
+
+
+func _spin_slots(final_type: Anatomy.AnatomyType, part_to_spawn: PackedScene) -> void:
+	var textures = icon_map.values()
+	
+	for i in range(machine_slots.size()):
+		var slot = machine_slots[i]
+		var loop_tween = create_tween().set_loops(10 + (i * 5))
+		loop_tween.tween_callback(func(): 
+			slot.texture = textures.pick_random()
+			slot.scale = Vector2(1.3, 0.7)
+			create_tween().tween_property(slot, "scale", Vector2.ONE, 0.05)
+		).set_delay(0.08)
+		
+		loop_tween.finished.connect(func():
+			slot.texture = icon_map[final_type]
+			slot.scale = Vector2(1.8, 1.8)
+			create_tween().set_trans(Tween.TRANS_BOUNCE).tween_property(slot, "scale", Vector2.ONE * 1.3, 0.2)
+			if i == machine_slots.size() - 1:
+				_produce_item(part_to_spawn)
+		)
+
+
+func _produce_item(part_scene: PackedScene) -> void:
+	await get_tree().create_timer(0.5).timeout
+	var new_part = part_scene.instantiate() as Anatomy
 	GameManager.rest_room.background.add_child(new_part)
+	
 	new_part.global_position = pipe.global_position
-	new_part.rotation = randf_range(-5, 5)
+	new_part.rotation = randf_range(-0.5, 0.5)
 	new_part.z_index = 500
+	
+	var pipe_tween = create_tween()
+	pipe_tween.tween_property(pipe, "scale", Vector2(1.4, 0.7), 0.1)
+	pipe_tween.tween_property(pipe, "scale", Vector2.ONE, 0.15)
+	
 	_item_produced_effect(new_part)
 	spawn_part.emit(new_part)
+	is_spinning = false
 
 
 func _item_produced_effect(part: Anatomy) -> void:
-	if produce_tween:
-		produce_tween.kill()
-	
+	if produce_tween: produce_tween.kill()
 	var og_scale := part.scale
+	produce_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	
-	produce_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
-	# animate the pipe and slide the item out
+	produce_tween.tween_property(part, "global_position", spawn_pos.global_position, 0.4)
+	produce_tween.parallel().tween_property(part, "rotation_degrees", 360.0, 0.4)
 	
-	produce_tween.tween_property(part, "global_position", spawn_pos.global_position, 0.1)
-	produce_tween.tween_property(part, "scale", part.scale * Vector2(1.4, 0.6), 0.15)
-	produce_tween.tween_property(part, "scale", og_scale, 0.1)
+	produce_tween.tween_property(part, "scale", og_scale * Vector2(1.3, 1.3), 0.1)
+	produce_tween.tween_property(part, "scale", og_scale, 0.15)
 	produce_tween.tween_callback(_item_placement.bind(part))
 
 
 func _item_placement(part: Anatomy) -> void:
-	part.disconnect.connect(func(): 
-		part.body_owner = null
-		part.reparent(GameManager.rest_room.background)
-		part.z_index = 500
-	)
 	part.state = Anatomy.PartState.OutOfBody
+	if not part.disconnect.is_connected(_on_part_disconnected):
+		part.disconnect.connect(_on_part_disconnected.bind(part))
+
+
+func _on_part_disconnected(part: Anatomy) -> void:
+	part.body_owner = null
+	part.reparent(GameManager.rest_room.background)
+	part.z_index = 500
 
 
 func _get_random_part() -> PackedScene:
-	if parts_pool.is_empty():
-		push_error("no parts in the pool")
-		return null
-	
-	var picked_part = parts_pool.pick_random()
-	return picked_part
+	return parts_pool.pick_random()
