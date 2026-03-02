@@ -19,15 +19,33 @@ var produce_tween : Tween
 @onready var pipe: Sprite2D = %Pipe
 @onready var spawn_pos: Marker2D = %SpawnPos
 
-var is_spinning : bool = false
+@onready var bar_interact_area: Area2D = %BarInteractArea
+var player_arm : Arm
+
+var is_hovered := false
+var is_spinning := false
+
+func _ready() -> void:
+	player_arm = (get_tree().get_first_node_in_group("player") as Player).arm
+	bar_interact_area.mouse_entered.connect(_on_hovered)
+	bar_interact_area.mouse_exited.connect(_on_exited)
+	_on_exited()
 
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("right_click") and not is_spinning:
-		on_machine_interact()
+	if Input.is_action_just_pressed("left_click") and not is_spinning and is_hovered:
+		_start_arm_punch()
 
 
-func on_machine_interact() -> void:
+func _start_arm_punch() -> void:
+	if player_arm == null:
+		return
+	
+	player_arm.movable_by_mouse = false
+	player_arm.punch(0.04, global_position + Vector2(randf_range(-10, 10), randf_range(-10, -30)), _on_machine_interact)
+
+
+func _on_machine_interact() -> void:
 	is_spinning = true
 	interacted.emit()
 	
@@ -40,6 +58,9 @@ func on_machine_interact() -> void:
 	temp_instance.queue_free()
 	
 	_spin_slots(result_type, part_scene)
+	
+	await get_tree().create_timer(0.5).timeout
+	player_arm.movable_by_mouse = true
 
 
 func _animate_bar() -> void:
@@ -92,8 +113,8 @@ func _produce_item(part_scene: PackedScene) -> void:
 	new_part.z_index = 500
 	
 	var pipe_tween = create_tween()
-	pipe_tween.tween_property(pipe, "scale", Vector2(1.4, 0.7), 0.1)
-	pipe_tween.tween_property(pipe, "scale", Vector2.ONE, 0.15)
+	pipe_tween.tween_property(pipe, "scale", Vector2(1.8, 0.5), 0.15)
+	pipe_tween.tween_property(pipe, "scale", Vector2.ONE, 0.2)
 	
 	_item_produced_effect(new_part)
 	spawn_part.emit(new_part)
@@ -103,10 +124,12 @@ func _produce_item(part_scene: PackedScene) -> void:
 func _item_produced_effect(part: Anatomy) -> void:
 	if produce_tween: produce_tween.kill()
 	var og_scale := part.scale
+	part.spawn_blood_parc()
+	
 	produce_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	
-	produce_tween.tween_property(part, "global_position", spawn_pos.global_position, 0.4)
-	produce_tween.parallel().tween_property(part, "rotation_degrees", 360.0, 0.4)
+	produce_tween.tween_property(part, "global_position", spawn_pos.global_position, 0.5)
+	produce_tween.parallel().tween_property(part, "rotation_degrees", 360.0 + randf_range(0, 360), 0.45)
 	
 	produce_tween.tween_property(part, "scale", og_scale * Vector2(1.3, 1.3), 0.1)
 	produce_tween.tween_property(part, "scale", og_scale, 0.15)
@@ -127,3 +150,13 @@ func _on_part_disconnected(part: Anatomy) -> void:
 
 func _get_random_part() -> PackedScene:
 	return parts_pool.pick_random()
+
+
+func _on_hovered() -> void:
+	is_hovered = true
+	bar.use_parent_material = false
+
+
+func _on_exited() -> void:
+	is_hovered = false
+	bar.use_parent_material = true

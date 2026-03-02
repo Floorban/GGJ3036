@@ -137,7 +137,7 @@ func spawn_blood_parc(particle_amount: float = 1.0) -> void:
 	bp.amount_ratio = particle_amount
 	bp.emitting = true
 	add_child(bp)
-	bp.global_position = og_pos
+	bp.global_position = sprite.global_position
 
 func update_blood_lines() -> void:
 	for line in blood_lines:

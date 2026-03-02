@@ -27,6 +27,63 @@
 [ext_resource type="Texture2D" uid="uid://d3rs8fs5jn5ch" path="res://sprites/GamblingMachine/Symbols/SkullSymbol.png" id="17_h2ymq"]
 [ext_resource type="Texture2D" uid="uid://devtjneclb5ne" path="res://sprites/GamblingMachine/Frames/FrameRightInside.png" id="18_vgm0d"]
 
+[sub_resource type="Shader" id="Shader_2ro5p"]
+code = "shader_type canvas_item;
+
+uniform sampler2D sprite_texture : source_color, filter_linear;
+
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float glowSize : hint_range(0.0, 300.0) = 15.0;
+uniform int glowDensity : hint_range(0, 30) = 3;
+uniform int glowRadialCoverage : hint_range(0, 32) = 4;
+uniform float glowAngle : hint_range(0.0, 6.283) = 1.57;
+uniform float glowSharpness : hint_range(0.0, 5.0) = 1.0;
+uniform float alphaThreshold : hint_range(0.0, 1.0) = 0.2;
+
+void fragment() {
+	vec4 col = texture(sprite_texture, UV);
+
+	COLOR = col;
+
+	vec2 pixel_size = 1.0 / vec2(textureSize(sprite_texture, 0));
+	float alph = 0.0;
+
+	for (int i = 0; i < glowRadialCoverage; i++) {
+		for (int j = 0; j < glowDensity; j++) {
+			float angle = (TAU / float(glowRadialCoverage)) * float(i + 1) + glowAngle;
+			float dist = glowSize * float(j + 1) / float(glowDensity);
+
+			vec2 offset = vec2(sin(angle), cos(angle)) * pixel_size * dist;
+			vec4 tex = texture(sprite_texture, UV + offset);
+
+			float distFrom = float(glowDensity - j) / float(glowDensity);
+			float sharpness = pow(distFrom, glowSharpness);
+
+			alph += tex.a * line_color.a * sharpness;
+		}
+	}
+
+	if (col.a < alphaThreshold) {
+		COLOR.rgb = line_color.rgb;
+		COLOR.a = alph;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vp5bn"]
+shader = SubResource("Shader_2ro5p")
+shader_parameter/sprite_texture = ExtResource("2_7abct")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 17.85200084797
+shader_parameter/glowDensity = 30
+shader_parameter/glowRadialCoverage = 32
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 1.0
+shader_parameter/alphaThreshold = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vp5bn"]
+size = Vector2(485.72168, 106.291916)
+
 [node name="SlotMachine" type="Node2D" unique_id=2010991533]
 script = ExtResource("1_kpwbf")
 parts_pool = Array[PackedScene]([ExtResource("2_2vf6k"), ExtResource("3_et0hv"), ExtResource("4_r7rpn"), ExtResource("5_h3lt6"), ExtResource("6_qbg7i"), ExtResource("7_vgm0d"), ExtResource("8_mcdas"), ExtResource("9_4v34l"), ExtResource("10_7rw4i"), ExtResource("11_vp5bn")])
@@ -41,6 +98,7 @@ icon_map = {
 
 [node name="MachineBase" type="Sprite2D" parent="." unique_id=1177212033]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(0, -241.00003)
 texture = ExtResource("1_842tv")
 
@@ -53,7 +111,7 @@ texture = ExtResource("3_kpwbf")
 
 [node name="Slot1" type="Sprite2D" parent="MachineBase/Slots/SlotLeft" unique_id=1721617046]
 unique_name_in_owner = true
-z_index = 1
+z_index = 2
 position = Vector2(-301.66678, 43.74005)
 
 [node name="Sprite2D" type="Sprite2D" parent="MachineBase/Slots/SlotLeft" unique_id=883993003]
@@ -65,7 +123,7 @@ texture = ExtResource("4_jfulg")
 
 [node name="Slot2" type="Sprite2D" parent="MachineBase/Slots/SlotMiddle" unique_id=1759682881]
 unique_name_in_owner = true
-z_index = 1
+z_index = 2
 position = Vector2(-32, 37.281334)
 
 [node name="Sprite2D" type="Sprite2D" parent="MachineBase/Slots/SlotMiddle" unique_id=619702907]
@@ -77,7 +135,7 @@ texture = ExtResource("5_nvm1u")
 
 [node name="Slot3" type="Sprite2D" parent="MachineBase/Slots/SlotRight" unique_id=2127343718]
 unique_name_in_owner = true
-z_index = 1
+z_index = 2
 position = Vector2(253.30862, 38.511364)
 
 [node name="Sprite2D" type="Sprite2D" parent="MachineBase/Slots/SlotRight" unique_id=1652030146]
@@ -85,11 +143,22 @@ texture = ExtResource("18_vgm0d")
 
 [node name="Bar" type="Sprite2D" parent="MachineBase" unique_id=1826580902]
 unique_name_in_owner = true
-z_index = -1
+material = SubResource("ShaderMaterial_vp5bn")
+use_parent_material = true
 position = Vector2(370, 93.00003)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_7abct")
 offset = Vector2(250, -100)
+
+[node name="BarInteractArea" type="Area2D" parent="MachineBase/Bar" unique_id=2032530448]
+unique_name_in_owner = true
+position = Vector2(-462.49997, 184.99998)
+scale = Vector2(1.2499999, 1.2499999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MachineBase/Bar/BarInteractArea" unique_id=125278117]
+position = Vector2(558, -213)
+rotation = -0.3202971
+shape = SubResource("RectangleShape2D_vp5bn")
 
 [node name="Pipe" type="Sprite2D" parent="MachineBase" unique_id=555975186]
 unique_name_in_owner = true

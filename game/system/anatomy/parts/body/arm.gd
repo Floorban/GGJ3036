@@ -36,7 +36,7 @@ func _process(_delta: float) -> void:
 		return
 	if dragging_obj and Input.is_action_just_released("left_click"):
 		drop_obj()
-	fist_target.global_position = get_global_mouse_position()
+	fist_target.global_position =  lerp(fist_target.global_position, get_global_mouse_position(), 0.08)
 	if dragging_obj and dragging_obj.is_being_dragged:
 		dragging_obj.global_position = get_global_mouse_position()
 
