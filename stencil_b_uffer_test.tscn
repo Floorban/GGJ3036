@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cju5ei2gtu8td"]
+
+[ext_resource type="Texture2D" uid="uid://cbmoo5upy5br0" path="res://sprites/body_parts/NewStyle/Bosses/Boxer/NewBoxerHead.png" id="1_g2b5r"]
+[ext_resource type="Texture2D" uid="uid://dmj8yhqk8h7s7" path="res://sprites/body_parts/Bodies/BoxerBody.png" id="2_en2dr"]
+[ext_resource type="Texture2D" uid="uid://colhn2sx5admh" path="res://sprites/Advertising/Logo.png" id="3_jqg8x"]
+[ext_resource type="Texture2D" uid="uid://bmvn5x6yeqbm5" path="res://sprites/GamblingMachine/Frames/FrameMiddle.png" id="4_ubj2f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2b5r"]
+stencil_mode = 3
+stencil_flags = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_vmfxp"]
+material = SubResource("StandardMaterial3D_g2b5r")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmfxp"]
+render_priority = 2
+transparency = 1
+albedo_texture = ExtResource("1_g2b5r")
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8pjxf"]
+render_priority = 2
+transparency = 1
+albedo_texture = ExtResource("2_en2dr")
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onhpp"]
+render_priority = 2
+transparency = 1
+albedo_texture = ExtResource("3_jqg8x")
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2
+
+[node name="StencilBUfferTest" type="Node3D" unique_id=1101206298]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=626162362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.30287033)
+transparency = 1.0
+mesh = SubResource("QuadMesh_vmfxp")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2095773427]
+transform = Transform3D(0.1, 0, 0, 0, 0.09792618, 0.02025993, 0, -0.02025993, 0.09792618, -0.0044831634, 0.048547387, -0.6391263)
+material_override = SubResource("StandardMaterial3D_vmfxp")
+texture = ExtResource("1_g2b5r")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=805420671]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.32517663, -0.5846882)
+material_override = SubResource("StandardMaterial3D_8pjxf")
+texture = ExtResource("2_en2dr")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2141207869]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.17696661)
+transparency = 1.0
+mesh = SubResource("QuadMesh_vmfxp")
+
+[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=2067647488]
+transform = Transform3D(-0.05, 0, -7.54979e-09, 0, 0.05, 0, 7.54979e-09, 0, -0.05, 0, -0.03085494, -0.24857157)
+material_override = SubResource("StandardMaterial3D_onhpp")
+texture = ExtResource("3_jqg8x")
+
+[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=1597268164]
+transform = Transform3D(0.48, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.22999221, 0.22230932, -0.26437575)
+texture = ExtResource("4_ubj2f")
