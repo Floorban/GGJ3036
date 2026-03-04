@@ -26,7 +26,9 @@ var is_hovered := false
 var is_spinning := false
 
 ## Audio
+var reward_index: int = 0
 var sfx_activate: String = "event:/SFX/Slot/Activate"
+var sfx_jackpot: String = "event:/SFX/Slot/Jackpot"
 var sfx_spin: String = "event:/SFX/Slot/Spin"
 var sfx_spit: String = "event:/SFX/Slot/Spit"
 
@@ -126,7 +128,10 @@ func _produce_item(part_scene: PackedScene) -> void:
 	_item_produced_effect(new_part)
 	spawn_part.emit(new_part)
 	is_spinning = false
+	
+	audio.play(self, sfx_jackpot, global_transform, "Tier", reward_index)
 	audio.play(self, sfx_spit)
+	reward_index += 1
 
 
 func _item_produced_effect(part: Anatomy) -> void:

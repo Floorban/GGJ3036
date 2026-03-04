@@ -78,7 +78,7 @@ value: Variant = null
 
 	instance.set_2d_attributes(object_transform)
 
-	if value is float: instance.set_parameter_by_name(parameter, value)
+	if value is float or value is int: instance.set_parameter_by_name(parameter, value)
 	if value is String: instance.set_parameter_by_name_with_label(parameter, value, false)
 
 	instance.start()

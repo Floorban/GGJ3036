@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b8ys7c1wm1f7k"
+path="res://.godot/imported/s_Coin.wav-d3bab2bce53abb0dde817c53696eede0.sample"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/Slot/s_Coin.wav"
+dest_files=["res://.godot/imported/s_Coin.wav-d3bab2bce53abb0dde817c53696eede0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
