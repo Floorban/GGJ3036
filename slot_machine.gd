@@ -107,7 +107,7 @@ func _spin_slots(final_type: Anatomy.AnatomyType, part_to_spawn: PackedScene) ->
 			slot.texture = icon_map[final_type]
 			slot.scale = Vector2(1.8, 1.8)
 			audio.play(self, sfx_jackpot, global_transform, "Tier", reward_index)
-			reward_index += 1
+			reward_index += randi_range(1,2)
 			create_tween().set_trans(Tween.TRANS_BOUNCE).tween_property(slot, "scale", Vector2.ONE * 1.3, 0.2)
 			if i == machine_slots.size() - 1:
 				_produce_item(part_to_spawn)
@@ -132,6 +132,9 @@ func _produce_item(part_scene: PackedScene) -> void:
 	is_spinning = false
 	
 	audio.play(self, sfx_spit)
+	reward_index += 5
+	audio.play(self, sfx_jackpot, global_transform, "Tier", reward_index)
+	reward_index = 0
 
 
 func _item_produced_effect(part: Anatomy) -> void:
