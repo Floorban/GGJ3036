@@ -25,6 +25,10 @@ var player_arm : Arm
 var is_hovered := false
 var is_spinning := false
 
+## Audio
+var sfx_activate: String = "event:/SFX/Slot/Activate"
+var sfx_spit: String = "event:/SFX/Slot/Spit"
+
 func _ready() -> void:
 	player_arm = (get_tree().get_first_node_in_group("player") as Player).arm
 	bar_interact_area.mouse_entered.connect(_on_hovered)
@@ -84,6 +88,7 @@ func _animate_punch() -> void:
 
 func _spin_slots(final_type: Anatomy.AnatomyType, part_to_spawn: PackedScene) -> void:
 	var textures = icon_map.values()
+	audio.play(self, sfx_activate)
 	
 	for i in range(machine_slots.size()):
 		var slot = machine_slots[i]
@@ -119,6 +124,7 @@ func _produce_item(part_scene: PackedScene) -> void:
 	_item_produced_effect(new_part)
 	spawn_part.emit(new_part)
 	is_spinning = false
+	audio.play(self, sfx_spit)
 
 
 func _item_produced_effect(part: Anatomy) -> void:
