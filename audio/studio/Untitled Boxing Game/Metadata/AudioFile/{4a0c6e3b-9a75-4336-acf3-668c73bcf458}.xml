@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{620d0c17-7a50-4818-9545-853a968251a0}">
+	<object class="AudioFile" id="{4a0c6e3b-9a75-4336-acf3-668c73bcf458}">
 		<property name="assetPath">
-			<value>Slot/s_Splatter_HF.ogg</value>
+			<value>Slot/s_Slot.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.65360544217687078</value>
+			<value>4</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{f07d0426-a1b0-41e5-8c22-5cf9a9a47224}</destination>

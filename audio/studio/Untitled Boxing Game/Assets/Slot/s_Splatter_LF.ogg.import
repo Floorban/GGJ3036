@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b8nhxsc4sbh51"
+path="res://.godot/imported/s_Splatter_LF.ogg-5d0d4e7b2dbcc6b20338ec0f2b12a97b.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/Slot/s_Splatter_LF.ogg"
+dest_files=["res://.godot/imported/s_Splatter_LF.ogg-5d0d4e7b2dbcc6b20338ec0f2b12a97b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -27,6 +27,7 @@ var is_spinning := false
 
 ## Audio
 var sfx_activate: String = "event:/SFX/Slot/Activate"
+var sfx_spin: String = "event:/SFX/Slot/Spin"
 var sfx_spit: String = "event:/SFX/Slot/Spit"
 
 func _ready() -> void:
@@ -89,6 +90,7 @@ func _animate_punch() -> void:
 func _spin_slots(final_type: Anatomy.AnatomyType, part_to_spawn: PackedScene) -> void:
 	var textures = icon_map.values()
 	audio.play(self, sfx_activate)
+	audio.play(self, sfx_spin)
 	
 	for i in range(machine_slots.size()):
 		var slot = machine_slots[i]

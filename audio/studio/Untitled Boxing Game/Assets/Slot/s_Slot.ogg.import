@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c0to467i1y24j"
+path="res://.godot/imported/s_Slot.ogg-c5273c475e51af026330238243bbcd07.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/studio/Untitled Boxing Game/Assets/Slot/s_Slot.ogg"
+dest_files=["res://.godot/imported/s_Slot.ogg-c5273c475e51af026330238243bbcd07.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
