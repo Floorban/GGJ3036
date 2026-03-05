@@ -200,9 +200,9 @@ texture = ExtResource("45_7pww1")
 expand_mode = 1
 
 [node name="SlotMachine" parent="Background" unique_id=2010991533 instance=ExtResource("53_w15xk")]
-position = Vector2(9.463265, 155.4105)
+position = Vector2(19.913858, 169.9629)
 rotation = 3.0543263
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.65, 0.65)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981571717]
 
