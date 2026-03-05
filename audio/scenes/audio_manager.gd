@@ -112,12 +112,12 @@ func clear_instance(instances: Array[FmodEvent], timer: float = 0) -> void:
 		instance.stop(FmodServer.FMOD_STUDIO_STOP_ALLOWFADEOUT)
 		instance.release()
 
-func muffle(state: bool = false) -> void: 
+func muffle(state: bool = false) -> void:
 	if state:
-		FmodServer.set_global_parameter_by_name_with_label(MUFFLE, TRUE)
+		FmodServer.set_global_parameter_by_name(MUFFLE, 1)
 		muffled = true
 	else:
-		FmodServer.set_global_parameter_by_name_with_label(MUFFLE, FALSE)
+		FmodServer.set_global_parameter_by_name(MUFFLE, 0)
 		muffled = false
 
 #endregion

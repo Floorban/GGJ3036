@@ -49,7 +49,6 @@
 		<relationship name="automationTracks">
 			<destination>{fb227ab2-729a-4780-8385-ab0eb5bd0737}</destination>
 			<destination>{5fab2133-6b01-47c5-a8b7-b6c3845fd029}</destination>
-			<destination>{88ac94a6-09d3-4531-a14c-1a8d56dcb0c4}</destination>
 			<destination>{e8297957-229b-4644-a55b-bf99cf76969d}</destination>
 			<destination>{503887e2-010f-4670-aa20-bda4fb332813}</destination>
 		</relationship>
@@ -152,11 +151,6 @@
 	<object class="AutomationTrack" id="{5fab2133-6b01-47c5-a8b7-b6c3845fd029}">
 		<relationship name="automator">
 			<destination>{8401ce4f-7896-484b-ba47-c18ffa616e2d}</destination>
-		</relationship>
-	</object>
-	<object class="AutomationTrack" id="{88ac94a6-09d3-4531-a14c-1a8d56dcb0c4}">
-		<relationship name="automator">
-			<destination>{df8bc472-a05f-4263-bd6f-06e9245b07a9}</destination>
 		</relationship>
 	</object>
 	<object class="AutomationTrack" id="{e8297957-229b-4644-a55b-bf99cf76969d}">
@@ -529,7 +523,6 @@
 		<relationship name="automators">
 			<destination>{be2dc3e9-4bba-4b0c-990c-5187b181e152}</destination>
 			<destination>{8401ce4f-7896-484b-ba47-c18ffa616e2d}</destination>
-			<destination>{df8bc472-a05f-4263-bd6f-06e9245b07a9}</destination>
 		</relationship>
 	</object>
 	<object class="ChorusEffect" id="{c801fa27-6c71-4a77-ba03-dc8c7d9530a0}">
@@ -764,7 +757,7 @@
 	</object>
 	<object class="AutomationPoint" id="{638eefc2-b79f-4d68-a2e0-33bf3304b404}">
 		<property name="position">
-			<value>1</value>
+			<value>0.5</value>
 		</property>
 		<property name="value">
 			<value>10</value>
@@ -786,14 +779,6 @@
 			<destination>{75831e41-751c-4b93-b73f-7a3e69f3555a}</destination>
 		</relationship>
 	</object>
-	<object class="Automator" id="{df8bc472-a05f-4263-bd6f-06e9245b07a9}">
-		<property name="nameOfPropertyBeingAutomated">
-			<value>lowGain</value>
-		</property>
-		<relationship name="automationCurves">
-			<destination>{1d726560-0c2e-4cc7-8a15-0deccac71e1f}</destination>
-		</relationship>
-	</object>
 	<object class="Automator" id="{ee251b87-418e-4a4b-9090-91675b843d6e}">
 		<property name="nameOfPropertyBeingAutomated">
 			<value>depth</value>
@@ -812,7 +797,7 @@
 	</object>
 	<object class="AutomationPoint" id="{b6f56293-30f5-40df-bea2-7371d23e1e6f}">
 		<property name="position">
-			<value>1</value>
+			<value>0.5</value>
 		</property>
 		<property name="value">
 			<value>-12.5</value>
@@ -878,15 +863,6 @@
 			<destination>{a753886e-bb22-4f3c-b093-468e28a39a31}</destination>
 		</relationship>
 	</object>
-	<object class="AutomationCurve" id="{1d726560-0c2e-4cc7-8a15-0deccac71e1f}">
-		<relationship name="parameter">
-			<destination>{2bfe7156-18dc-499c-86c7-0acd62ae75c9}</destination>
-		</relationship>
-		<relationship name="automationPoints">
-			<destination>{2aae487b-f6ae-4633-8bc2-975e6ea43d38}</destination>
-			<destination>{e1993f47-7b50-4ce7-942f-318a656abe9c}</destination>
-		</relationship>
-	</object>
 	<object class="AutomationCurve" id="{a8b495b0-ffa6-483e-abcd-092ef3b52ac9}">
 		<relationship name="parameter">
 			<destination>{2bfe7156-18dc-499c-86c7-0acd62ae75c9}</destination>
@@ -934,28 +910,12 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>-16</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{2aae487b-f6ae-4633-8bc2-975e6ea43d38}">
-		<property name="position">
-			<value>0</value>
-		</property>
-		<property name="value">
-			<value>0</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{e1993f47-7b50-4ce7-942f-318a656abe9c}">
-		<property name="position">
-			<value>1</value>
-		</property>
-		<property name="value">
-			<value>-10</value>
+			<value>-20</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{00d3e9f3-7d44-4d46-b739-ba5d2987fd60}">
 		<property name="position">
-			<value>1</value>
+			<value>0.5</value>
 		</property>
 		<property name="value">
 			<value>58</value>
@@ -971,7 +931,7 @@
 	</object>
 	<object class="AutomationPoint" id="{8e052aed-91c6-4698-bd39-01939a25e619}">
 		<property name="position">
-			<value>1</value>
+			<value>0.5</value>
 		</property>
 		<property name="value">
 			<value>2</value>

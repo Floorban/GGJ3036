@@ -134,6 +134,7 @@
 			<destination>{5877a1ec-6cd1-4fee-aaca-c537582e2d82}</destination>
 		</relationship>
 		<relationship name="audioFile">
+			<destination>{e2bdcb55-5727-49e2-8370-21529c2244b5}</destination>
 			<destination>{430d3785-69ab-4a3b-822f-dae80992c345}</destination>
 		</relationship>
 	</object>

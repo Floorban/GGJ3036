@@ -80,7 +80,7 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 		rest_room.attached_index += 1
 	
 	player.anatomy_parts.append(anatomy)
-	audio.play(rest_room, rest_room.sfx_attach, global_transform, "Tier", rest_room.attached_index)
+	audio.play(rest_room, rest_room.sfx_attach, global_transform, "Juice", rest_room.attached_index)
 	anatomy.body_owner = player
 	anatomy.position = position
 	anatomy.rotation = rotation
@@ -89,7 +89,7 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 	if not my_anatomy.anatomy_fucked.is_connected(lose_anatomy): my_anatomy.anatomy_fucked.connect(lose_anatomy)
 	player.arm.drop_obj()
 	anatomy.recover_part()
-	PopupPrompt.display_prompt("Fixed", -1 ,sprite.global_position, 0.2, 0.45)
+	#PopupPrompt.display_prompt("Fixed", -1 ,sprite.global_position, 0.2, 0.45)
 	if anatomy.anatomy_type == Anatomy.AnatomyType.Ear and is_left_ear:
 		anatomy.sprite.flip_h = false
 	else:
