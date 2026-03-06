@@ -118,7 +118,7 @@ signal disconnect()
 
 func _process(_delta: float) -> void:
 	var dist := (global_position - og_pos).length()
-	if body_owner and dist > 100.0 and has_blood:
+	if body_owner and dist > 150.0 and has_blood:
 		#drop_part()
 		state = PartState.FUCKED
 		body_owner = null
@@ -258,7 +258,7 @@ func pickup_part() -> void:
 		GameManager.hovered_part._unhover_part()
 	GameManager.dragging_part = self
 	og_pos = global_position
-	if body_owner.rest_mode:
+	if (body_owner and body_owner.rest_mode) or state == PartState.DESTROYED:
 		if randf() < 0.4: audio.play(self, sfx_scream)
 		draw_blood_line()
 	is_being_dragged = true
