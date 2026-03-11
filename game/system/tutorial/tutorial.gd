@@ -1,11 +1,13 @@
 extends Node
 
+## Tooltips
 @export var left_click: Tooltip
 @export var right_click: Tooltip
 @export var left_hold: Tooltip
 @export var left_release: Tooltip
-@export var red_intent: Tooltip
 @export var charged: Tooltip
+@export var red: Tooltip
+@export var purple: Tooltip
 
 ## Combat Tutorial
 var entered_combat: bool = false
@@ -23,11 +25,11 @@ func combat_intro() -> void:
 	var box1 = await DialogueManager.say("Remember how to punch this motherfucker, ight?")
 	await wait_for_action()
 	DialogueManager.remove_static_box(box1)
-	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his face parts to attack")
+	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his facial parts to attack")
 	await wait_for_first_attack()
 	DialogueManager.say("The arm will perform the attack when it's fully " + DialogueManager.tooltip_text(charged))
 	await get_tree().create_timer(1.5).timeout
-	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack and block")
+	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack")
 	await wait_for_action(ACTION_TYPES.RIGHT_PRESS)
 	DialogueManager.say("NOW LOCK INNN!!!")
 	await get_tree().create_timer(1.0).timeout
@@ -40,18 +42,18 @@ func self_broken_part() -> void:
 	if self_part_broken:
 		return
 	self_part_broken = true
-	var box1 = await DialogueManager.say("OHH NO! Where's your defense bro?!")
+	var box1 = await DialogueManager.say("OH NO! Where's your defense bro?!")
 	await get_tree().create_timer(1.0).timeout
 	DialogueManager.remove_static_box(box1)
-	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your face parts to defend")
-	block_done = false
-	await wait_for_first_block()
-	DialogueManager.say("Your part is being targeted when it's " + DialogueManager.tooltip_text(red_intent))
+	#DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on your facial parts to block")
+	#block_done = false
+	#await wait_for_first_block()
+	DialogueManager.say("Your facial part is being targeted when it's highlighted " + DialogueManager.tooltip_text(red))
 	await get_tree().create_timer(1.5).timeout
-	DialogueManager.say("Cover the right part to block while having the arm " + DialogueManager.tooltip_text(charged))
+	DialogueManager.say(DialogueManager.tooltip_text(left_click) + " a body part while fully " + DialogueManager.tooltip_text(charged) + " to succesfully block")
 	can_block_sucess = true
 	await wait_for_block_success()
-	DialogueManager.say("Here we go! Nice Block! !")
+	DialogueManager.say("Nice Block!!")
 	await wait_for_action()
 	await get_tree().create_timer(1.5).timeout
 	DialogueManager.clear_all_text_boxes()
@@ -80,21 +82,23 @@ func surgery_intro() -> void:
 	await get_tree().create_timer(0.5).timeout
 	DialogueManager.say("YOU GOT EM, GOOD FUCKING JOB DUDE!!", DialogueManager.NPC.COACH, false)
 	await wait_for_action()
-	DialogueManager.say("SO, this is the surgery room, all fancy and stuff.", DialogueManager.NPC.COACH, false)
+	DialogueManager.say("SO, this is the surgery room, all fancy and stuff", DialogueManager.NPC.COACH, false)
 	await wait_for_action()
-	DialogueManager.say("If your parts are destroyed (purple), you can throw em away and get new ones.", DialogueManager.NPC.COACH, false)
+	DialogueManager.say("If a facial part is broken, they are highlighted " + DialogueManager.tooltip_text(purple), DialogueManager.NPC.COACH, false)
 	await wait_for_action()
-	DialogueManager.say("You can still reattach the brown parts, they're not too fucked up.", DialogueManager.NPC.COACH, false)
+	DialogueManager.say("You can throw the broken part away and get new ones", DialogueManager.NPC.COACH, false)
 	await wait_for_action()
+	#DialogueManager.say("You can still make use of the brown parts, they're not too fucked up.", DialogueManager.NPC.COACH, false)
+	#await wait_for_action()
 	DialogueManager.say(DialogueManager.tooltip_text(left_hold) + "parts to move them around")
 	await wait_for_action()
-	await DialogueManager.say(DialogueManager.tooltip_text(left_release) + "to drop the part you're holding")
-	await wait_for_first_drop()
-	DialogueManager.say("Try replacing an old part on your face now.")
+	#await DialogueManager.say(DialogueManager.tooltip_text(left_release) + "to drop the part you're holding")
+	#await wait_for_first_drop()
+	DialogueManager.say("Try replacing an old part on your face now")
 	await wait_for_action()
-	DialogueManager.say("Remove the part from your face first if there's not enough spot for it.")
-	await wait_for_first_surgery()
-	DialogueManager.say("maybe you can even look a bit less ugly after fixing it.")
+	#DialogueManager.say("Remove the part from your face first if there's not enough spot for it.")
+	#await wait_for_first_surgery()
+	DialogueManager.say("You might look a bit less ugly too")
 	await get_tree().create_timer(2.0).timeout
 	DialogueManager.clear_all_text_boxes()
 	surgery_done = false
@@ -113,7 +117,7 @@ func start_with_no_parts() -> void:
 	await get_tree().create_timer(2.0).timeout
 	DialogueManager.say("Get some new parts to your face now")
 	await wait_for_first_surgery()
-	DialogueManager.say("Yeeyy, that doesn't hurt too much right : D")
+	DialogueManager.say("Better right?... Dumbass.")
 	await get_tree().create_timer(2.0).timeout
 	DialogueManager.clear_all_text_boxes()
 	is_teaching_start_with_parts = false
@@ -226,9 +230,9 @@ func on_attack_lock():
 		return
 	if block_success:
 		attack_lock = true
-		DialogueManager.say("Double click on the part let you lock on it.")
+		DialogueManager.say("Double clicking on a facial part lets you lock onto it")
 		await wait_for_action()
-		DialogueManager.say("That means you're gonna attack it till it's dead")
+		DialogueManager.say("That means you're gonna keep on attacking it even after landing a succesful blow")
 		await wait_for_action()
 		await get_tree().create_timer(2.0).timeout
 		DialogueManager.clear_all_text_boxes()

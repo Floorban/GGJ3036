@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Tooltip" format=3 uid="uid://d0get6elf5jnf"]
+
+[ext_resource type="Script" uid="uid://d0v37d0d6w03m" path="res://game/ui/tooltip/tooltip.gd" id="1_lk0xa"]
+
+[resource]
+script = ExtResource("1_lk0xa")
+text = "PURPLE"
+color = "PURPLE"
+description = "RED"
+metadata/_custom_type_script = "uid://d0v37d0d6w03m"
