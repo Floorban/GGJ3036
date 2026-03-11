@@ -13,6 +13,7 @@ class_name Anatomy extends Node2D
 
 #AUDIO
 var sfx_blood: String = "event:/SFX/Surgery/Blood"
+var sfx_detach: String = "event:/SFX/Surgery/Detach"
 var sfx_scream: String = "event:/NPC/Non-Hostile/Player/Scream"
 var sfx_select: String = "event:/SFX/Surgery/Select"
 var sfx_squirt: String = "event:/SFX/Surgery/Squirt"
@@ -192,14 +193,13 @@ func draw_blood_line() -> void:
 func despawn_blood_line() -> void:
 	for line in blood_lines:
 		_retract_blood_line(line, randf_range(0.26, 0.3))
-	
-	audio.clear_instance([i_blood])
 
 	if !fix_areas[0].rest_room.attaching: 
-		audio.play(self, sfx_squirt)
+		audio.play(self, sfx_detach)
 		fix_areas[0].rest_room.attaching = false
 
 	blood_lines.clear()
+	audio.clear_instance([i_blood])
 	#if state == PartState.HEALTHY:
 
 func _retract_blood_line(line: Line2D, duration := 0.2) -> void:
@@ -279,6 +279,9 @@ func drop_part() -> void:
 	if GameManager.dragging_part and GameManager.dragging_part == self:
 		GameManager.dragging_part = null
 	stop_scared_shake()
+	audio.play(self, sfx_squirt)
+	audio.clear_instance([i_blood])
+	
 	#despawn_blood_line()
 	for area in fix_areas:
 		area.unhighlight_zone()
