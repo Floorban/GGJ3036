@@ -195,6 +195,18 @@ func connect_parts_interact_signal() -> void:
 				part.anatomy_clicked.connect(player._on_self_anatomy_clicked)
 				
 @onready var mc_info_panel: MarginContainer = %MCInfoPanel
+
+@onready var stat_label_hp: Label = %StatLabelHP
+@onready var stat_label_cd: Label = %StatLabelCD
+@onready var stat_label_dmg: Label = %StatLabelDmg
+@onready var stat_label_speed: Label = %StatLabelSpeed
+@onready var stat_label_crit_chance: Label = %StatLabelCritChance
+@onready var stat_label_crit_dmg: Label = %StatLabelCritDMG
+@onready var stat_label_stun_str: Label = %StatLabelStunSTR
+@onready var stat_label_stun_resist: Label = %StatLabelStunResist
+
+
+
 @onready var part_info_panel: MarginContainer = $CanvasLayer/PartInfoPanel
 @onready var label_part_name: Label = %LabelPartName
 @onready var label_part_state: Label = %LabelPartState
