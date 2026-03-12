@@ -125,13 +125,16 @@ func end_game() -> void:
 	btn_control.mouse_filter = Control.MOUSE_FILTER_STOP
 	btn_credits.mouse_filter = Control.MOUSE_FILTER_STOP
 
+
 func set_control_page() -> void:
 	page_credits.visible = false
 	pop_page(page_control, !page_control.visible)
 
+
 func set_credits_page() -> void:
 	page_control.visible = false
 	pop_page(page_credits, !page_credits.visible)
+
 
 func pop_page(page: Control, show: bool) -> void:
 	if show:
@@ -156,4 +159,4 @@ func pop_page(page: Control, show: bool) -> void:
 
 
 func _on_tutorial_toggled(toggled_on: bool) -> void:
-	DialogueManager.hide_dialogue = toggled_on
+	DialogueManager.hide_dialogue = not toggled_on

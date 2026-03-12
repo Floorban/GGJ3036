@@ -7,7 +7,7 @@
 [node name="DialogueManager" type="CanvasLayer" unique_id=1639550093]
 layer = 7
 script = ExtResource("1_qj8b8")
-hide_dialogue = null
+hide_dialogue = true
 dialogue_scene = ExtResource("2_7y0qv")
 max_visible = 3
 spacing = 30

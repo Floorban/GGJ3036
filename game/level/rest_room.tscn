@@ -52,6 +52,7 @@
 [ext_resource type="PackedScene" uid="uid://cu05fkjh25k63" path="res://game/system/character/player/fix_area.tscn" id="34_u4uef"]
 [ext_resource type="PackedScene" uid="uid://bkubpjagrypqj" path="res://game/system/tutorial/tutorial.tscn" id="40_u4uef"]
 [ext_resource type="Texture2D" uid="uid://c64wx2tw0amwu" path="res://sprites/Backgrounds/Thrashbin.png" id="45_7pww1"]
+[ext_resource type="FontFile" uid="uid://dvwgkc1qy7gqo" path="res://Kurland-Regular.otf" id="53_6gdy4"]
 [ext_resource type="PackedScene" uid="uid://bruw1emy2xxnc" path="res://slot_machine.tscn" id="53_w15xk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e21xm"]
@@ -355,6 +356,181 @@ theme_override_colors/font_color = Color(1.781, 0.64, 0.667, 1)
 theme_override_fonts/font = ExtResource("3_x4kus")
 theme_override_font_sizes/font_size = 23
 vertical_alignment = 1
+
+[node name="MCInfoPanel" type="MarginContainer" parent="CanvasLayer" unique_id=1127328254]
+unique_name_in_owner = true
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -300.0
+offset_bottom = 190.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 0
+
+[node name="BasicInfoBG" type="NinePatchRect" parent="CanvasLayer/MCInfoPanel" unique_id=1889689289]
+custom_minimum_size = Vector2(320, 450)
+layout_mode = 2
+texture = ExtResource("8_n8ak7")
+patch_margin_left = 10
+patch_margin_top = 16
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG" unique_id=1589578197]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer" unique_id=1140512397]
+layout_mode = 2
+theme_override_constants/separation = 36
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=1163021764]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer" unique_id=868468329]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Name"
+
+[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer" unique_id=924700229]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer" unique_id=6933019]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Value"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=1749964573]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1234959642]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Name"
+
+[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1718278196]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1171811272]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Value"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=2085989235]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1159772853]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Name"
+
+[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=572298795]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=687709639]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Value"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=931051551]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=94973637]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Name"
+
+[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1602949594]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=4129493]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Value"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=164538413]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1990527277]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Name"
+
+[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1388777446]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1138549284]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Value"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=125868986]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=1266683442]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Name"
+
+[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=788941565]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=1604109131]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Value"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=1684037202]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=235090324]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Name"
+
+[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=1363809756]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=1700816071]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 24
+text = "Stat Value"
 
 [node name="Tutorial" parent="." unique_id=1219308028 instance=ExtResource("40_u4uef")]
 

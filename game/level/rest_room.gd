@@ -41,6 +41,7 @@ func get_allowed_tiers(level: int) -> Array[int]:
 func _ready() -> void:
 	GameManager.rest_room = self
 	ready_button.pressed.connect(leave_rest_room)
+	mc_info_panel.visible = false
 	part_info_panel.visible = false
 	background.visible = false
 	ready_button.visible = false
@@ -74,6 +75,7 @@ func enter_rest_room(current_level: int) -> void:
 	
 	await get_tree().create_timer(1.0).timeout
 	part_info_panel.visible = true
+	mc_info_panel.visible = true
 	ready_button.visible = true
 	
 	for part in player.anatomy_parts:
@@ -95,6 +97,7 @@ func leave_rest_room() -> void:
 		Tutorial.start_with_no_parts()
 		return
 	part_info_panel.visible = false
+	mc_info_panel.visible = false
 	background.visible = false
 	ready_button.visible = false
 	ready_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -190,7 +193,8 @@ func connect_parts_interact_signal() -> void:
 		if is_instance_valid(part):
 			if not part.anatomy_clicked.is_connected(player._on_self_anatomy_clicked):
 				part.anatomy_clicked.connect(player._on_self_anatomy_clicked)
-
+				
+@onready var mc_info_panel: MarginContainer = %MCInfoPanel
 @onready var part_info_panel: MarginContainer = $CanvasLayer/PartInfoPanel
 @onready var label_part_name: Label = %LabelPartName
 @onready var label_part_state: Label = %LabelPartState
