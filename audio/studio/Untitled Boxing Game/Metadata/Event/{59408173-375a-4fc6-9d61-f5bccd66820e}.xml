@@ -143,6 +143,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{e028ecc8-83aa-4afc-800a-b29df2e59710}">
+		<property name="volume">
+			<value>2.5</value>
+		</property>
 		<property name="name">
 			<value>Chaos Emotion</value>
 		</property>
@@ -236,6 +239,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{a8964377-db2e-43a8-8c02-06a5b4a2a995}">
+		<property name="volume">
+			<value>2.5</value>
+		</property>
 		<property name="name">
 			<value>Fright Emotion Xt</value>
 		</property>
@@ -281,7 +287,6 @@
 		<relationship name="effects">
 			<destination>{e61f7141-14c8-459c-a665-c6b5533d897e}</destination>
 			<destination>{945d7447-5015-4fb2-9dc3-cfe50cdf5e6c}</destination>
-			<destination>{1c02ef1c-6b48-41ed-99b0-4422b84e0335}</destination>
 			<destination>{58d805ae-3c30-43ff-befa-e819e02b4abb}</destination>
 			<destination>{2ce196e3-6346-4ded-904d-b69128e92b6c}</destination>
 		</relationship>
@@ -367,7 +372,6 @@
 			<value>10</value>
 		</property>
 	</object>
-	<object class="GainEffect" id="{1c02ef1c-6b48-41ed-99b0-4422b84e0335}" />
 	<object class="LimiterEffect" id="{58d805ae-3c30-43ff-befa-e819e02b4abb}" />
 	<object class="SFXReverbEffect" id="{2ce196e3-6346-4ded-904d-b69128e92b6c}">
 		<property name="decayTime">

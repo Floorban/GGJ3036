@@ -97,7 +97,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{5421718a-6c1b-4dcc-9719-84c5370fdc3a}">
 		<property name="volume">
-			<value>10</value>
+			<value>5.5</value>
 		</property>
 		<property name="pitch">
 			<value>6</value>
@@ -135,7 +135,6 @@
 		</relationship>
 		<relationship name="audioFile">
 			<destination>{e2bdcb55-5727-49e2-8370-21529c2244b5}</destination>
-			<destination>{430d3785-69ab-4a3b-822f-dae80992c345}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{b5d38ad9-8665-4f3d-aef0-326855d11f85}">

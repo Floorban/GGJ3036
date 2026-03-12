@@ -282,6 +282,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{54203ef9-b345-4e7d-9a66-72b78d00196d}">
+		<property name="volume">
+			<value>3.5</value>
+		</property>
 		<property name="name">
 			<value>Voices</value>
 		</property>
@@ -792,7 +795,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>-2.5</value>
+			<value>0</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{b6f56293-30f5-40df-bea2-7371d23e1e6f}">
@@ -800,7 +803,7 @@
 			<value>0.5</value>
 		</property>
 		<property name="value">
-			<value>-12.5</value>
+			<value>-10</value>
 		</property>
 	</object>
 	<object class="LFOModulator" id="{0159c336-b533-4b0e-af7a-b805d221554a}">
