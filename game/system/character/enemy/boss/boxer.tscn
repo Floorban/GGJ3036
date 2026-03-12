@@ -141,6 +141,7 @@ boss_name = "Tyke the Myson"
 is_minion = false
 switch_chance = 0.6
 min_switch_time = 2.0
+base_cooldown = 5.5
 base_damage = 1.5
 base_speed = 0.08
 base_crit_chance = 0.5
@@ -181,7 +182,7 @@ texture = ExtResource("5_2soic")
 [node name="EyeL" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="0" unique_id=1690948451]
 stat_modifiers = {
 0: 0.0,
-1: -0.2,
+1: 0.0,
 2: 0.0,
 3: 0.0,
 4: 0.0,
@@ -204,7 +205,7 @@ shape = SubResource("CapsuleShape2D_6jrna")
 [node name="EyeR" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="1" unique_id=584210078]
 stat_modifiers = {
 0: 0.0,
-1: -0.2,
+1: 0.0,
 2: 0.0,
 3: 0.0,
 4: 0.0,
@@ -276,7 +277,7 @@ rotation = 0.084238775
 position = Vector2(10.769232, -4.6153846)
 stat_modifiers = {
 0: 0.0,
-1: -0.3,
+1: 0.0,
 2: 0.0,
 3: 0.0,
 4: 0.0,

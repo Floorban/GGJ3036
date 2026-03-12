@@ -3,7 +3,7 @@ class_name SlotMachine extends Node2D
 signal interacted()
 signal spawn_part(part: Anatomy)
 
-var play_chance := 4
+var play_chance := 7
 
 @export_group("Pools")
 @export var parts_pool : Array[PackedScene]
@@ -50,6 +50,7 @@ func _start_arm_punch() -> void:
 	if player_arm == null:
 		return
 	play_chance -= 1
+		
 	player_arm.movable_by_mouse = false
 	player_arm.punch(0.04, global_position + Vector2(randf_range(-10, 10), randf_range(-10, -30)), _on_machine_interact)
 
@@ -173,6 +174,8 @@ func _get_random_part() -> PackedScene:
 
 
 func _on_hovered() -> void:
+	if play_chance <= 0:
+		return
 	is_hovered = true
 	bar.use_parent_material = false
 

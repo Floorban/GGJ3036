@@ -23,15 +23,15 @@ var sfx_attach: String = "event:/SFX/Surgery/Attach"
 
 func get_allowed_tiers(level: int) -> Array[int]:
 	if level < 1:
-		return [1, 2]
+		return [3, 4]
 	elif level < 2:
-		return [3, 4, 5]
+		return [4, 5]
 	elif level < 3:
-		return [4, 5, 6]
+		return [5, 6]
 	elif level < 4:
-		return [5, 6, 7]
+		return [6, 7]
 	elif level < 5:
-		return [6, 7, 8]
+		return [7, 8]
 	else:
 		return [7, 8]
 
@@ -57,7 +57,7 @@ func _on_slot_machine_spawned_parts(new_part: Anatomy) -> void:
 
 func enter_rest_room(current_level: int) -> void:
 	slot_machine.reward_index = 0
-	slot_machine.play_chance = 4
+	slot_machine.play_chance = 7
 	slot_machine.parts_pool = get_upgrade_scene_pool(current_level - 2)
 	background.visible = true
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP
