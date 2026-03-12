@@ -99,6 +99,7 @@ func _ready() -> void:
 	fix_area_detect_area.area_entered.connect(_on_fix_area_entered)
 	fix_area_detect_area.area_exited.connect(_on_fix_area_exited)
 	check_side()
+	stat_modifiers[Stats.StatType.MAX_HP] = max_hp
 
 
 func _on_fix_area_entered(area: Area2D) -> void:
@@ -119,7 +120,7 @@ signal disconnect()
 
 func _process(_delta: float) -> void:
 	var dist := (global_position - og_pos).length()
-	if body_owner and dist > 150.0 and has_blood:
+	if body_owner and dist > 100.0 and has_blood:
 		#drop_part()
 		state = PartState.FUCKED
 		body_owner = null

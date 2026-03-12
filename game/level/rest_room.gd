@@ -74,6 +74,7 @@ func enter_rest_room(current_level: int) -> void:
 		#p.z_index = 10
 	
 	await get_tree().create_timer(1.0).timeout
+	player.rebuild_stats()
 	part_info_panel.visible = true
 	mc_info_panel.visible = true
 	ready_button.visible = true
@@ -196,6 +197,7 @@ func connect_parts_interact_signal() -> void:
 				
 @onready var mc_info_panel: MarginContainer = %MCInfoPanel
 
+
 @onready var stat_label_hp: Label = %StatLabelHP
 @onready var stat_label_cd: Label = %StatLabelCD
 @onready var stat_label_dmg: Label = %StatLabelDmg
@@ -205,6 +207,33 @@ func connect_parts_interact_signal() -> void:
 @onready var stat_label_stun_str: Label = %StatLabelStunSTR
 @onready var stat_label_stun_resist: Label = %StatLabelStunResist
 
+
+func update_mc_stat_info(stat_type: Stats.StatType, value: float) -> void:
+	var formatted_value := "%.1f" % value
+	match stat_type:
+		Stats.StatType.MAX_HP:
+			formatted_value = "%d" % value
+			stat_label_hp.text = formatted_value
+		Stats.StatType.COOLDOWN:
+			formatted_value = "%.1f" % (value + 3.0)
+			stat_label_cd.text = formatted_value + " s"
+		Stats.StatType.DAMAGE:
+			formatted_value = "%.1f" % (value + 1.0)
+			stat_label_dmg.text = formatted_value
+		Stats.StatType.ATTACK_SPEED:
+			formatted_value = "%.2f" % (value + 0.05)
+			stat_label_speed.text = formatted_value
+		Stats.StatType.CRIT_CHANCE:
+			stat_label_crit_chance.text = "%.1f%%" % (value * 100)
+		Stats.StatType.CRIT_DAMAGE:
+			formatted_value = "%.1f" % (value + 1.2)
+			stat_label_crit_dmg.text = formatted_value + "x"
+		Stats.StatType.STUN_STRENGTH:
+			formatted_value = "%.1f" % (value + 1.0)
+			stat_label_stun_str.text = formatted_value
+		Stats.StatType.STUN_RESIST:
+			formatted_value = "%.1f" % (value + 2.0)
+			stat_label_stun_resist.text = formatted_value
 
 
 @onready var part_info_panel: MarginContainer = $CanvasLayer/PartInfoPanel

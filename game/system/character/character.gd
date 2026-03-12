@@ -59,11 +59,13 @@ func rebuild_stats():
 	final_stats = base_stats.duplicate(true)
 
 	for part in anatomy_parts:
-		if not is_instance_valid(part):
+		if not is_instance_valid(part) or part.state == Anatomy.PartState.DESTROYED:
 			continue
 
-		for stat in part.get_stat_modifiers():
-			final_stats[stat] += part.get_stat_modifiers()[stat]
+		var mods = part.get_stat_modifiers()
+		for stat_type in mods:
+			if final_stats.has(stat_type):
+				final_stats[stat_type] += mods[stat_type]
 	
 	action_cooldown =  max(0.2, base_cooldown + get_cooldown())
 	attack_damage = get_damage() + base_damage
@@ -72,6 +74,15 @@ func rebuild_stats():
 	critical_damage = get_crit_damage() + base_crit_damage
 	stun_strength = get_stun_strength() * base_stun_strength
 	stun_resist = get_stun_resist() * base_stun_resist
+	
+	_refresh_stats_ui()
+
+
+func _refresh_stats_ui():
+	if GameManager.rest_room:
+		for stat_type in final_stats:
+			GameManager.rest_room.update_mc_stat_info(stat_type, final_stats[stat_type])
+
 
 @export var base_cooldown: float = 5.0
 @export var base_damage: float

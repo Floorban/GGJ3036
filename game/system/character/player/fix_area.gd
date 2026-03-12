@@ -42,6 +42,7 @@ func lose_anatomy() -> void:
 		my_anatomy.anatomy_fucked.disconnect(lose_anatomy)
 	my_anatomy = null
 	is_occupied = false
+	player.rebuild_stats()
 
 func reparent_anatomy(target: Node2D, new_parent: Node2D) -> void:
 	if target.get_parent() != new_parent:
@@ -82,6 +83,7 @@ func receive_anatomy(anatomy: Anatomy) -> void:
 	player.anatomy_parts.append(anatomy)
 	audio.play(rest_room, rest_room.sfx_attach, global_transform, "Juice", rest_room.attached_index)
 	anatomy.body_owner = player
+	anatomy.body_owner.rebuild_stats()
 	anatomy.position = position
 	anatomy.rotation = rotation
 	anatomy.og_pos = global_position
