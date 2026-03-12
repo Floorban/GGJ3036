@@ -284,7 +284,7 @@ rotation = -0.08895778
 shape = SubResource("CapsuleShape2D_ltwwj")
 
 [node name="FixAreaNose" parent="Face/FixAreas" index="4" unique_id=1860991290 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
-position = Vector2(0.99999934, -8)
+position = Vector2(0.99999917, -10)
 anatomy_type = 2
 my_anatomy = NodePath("../../Features/Nose")
 
@@ -299,7 +299,7 @@ position = Vector2(-0.49999934, -1)
 shape = SubResource("RectangleShape2D_xvqmr")
 
 [node name="FixAreaMouth" parent="Face/FixAreas" index="5" unique_id=1677497174 node_paths=PackedStringArray("my_anatomy") instance=ExtResource("9_hu301")]
-position = Vector2(-0.9999968, 37)
+position = Vector2(-0.9999966, 39)
 anatomy_type = 3
 my_anatomy = NodePath("../../Features/Mouth")
 
@@ -391,7 +391,7 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_wqm0g")
 
 [node name="Nose" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="4" unique_id=1350482542]
-position = Vector2(0.99999934, -8)
+position = Vector2(0.99999917, -10)
 max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Nose" index="0" unique_id=500964707]
@@ -404,7 +404,7 @@ position = Vector2(-0.5000001, 1)
 shape = SubResource("RectangleShape2D_388rn")
 
 [node name="Mouth" parent="Face/Features" parent_id_path=PackedInt32Array(2130456873) index="5" unique_id=508432269]
-position = Vector2(-0.9999968, 37)
+position = Vector2(-0.9999966, 39)
 max_hp = 4.0
 
 [node name="Sprite" parent="Face/Features/Mouth" index="0" unique_id=500964707]
