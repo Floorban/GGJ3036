@@ -57,7 +57,7 @@ func _on_slot_machine_spawned_parts(new_part: Anatomy) -> void:
 
 func enter_rest_room(current_level: int) -> void:
 	slot_machine.reward_index = 0
-	slot_machine.play_chance = 7
+	slot_machine.play_chance = 10
 	slot_machine.parts_pool = get_upgrade_scene_pool(current_level - 2)
 	background.visible = true
 	ready_button.mouse_filter = Control.MOUSE_FILTER_STOP

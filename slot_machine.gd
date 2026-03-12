@@ -3,7 +3,7 @@ class_name SlotMachine extends Node2D
 signal interacted()
 signal spawn_part(part: Anatomy)
 
-var play_chance := 7
+var play_chance := 10
 
 @export_group("Pools")
 @export var parts_pool : Array[PackedScene]
@@ -49,13 +49,13 @@ func _input(_event: InputEvent) -> void:
 func _start_arm_punch() -> void:
 	if player_arm == null:
 		return
-	play_chance -= 1
 		
 	player_arm.movable_by_mouse = false
 	player_arm.punch(0.04, global_position + Vector2(randf_range(-10, 10), randf_range(-10, -30)), _on_machine_interact)
 
 
 func _on_machine_interact() -> void:
+	play_chance -= 1
 	is_spinning = true
 	interacted.emit()
 	
