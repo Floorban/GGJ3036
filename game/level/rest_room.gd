@@ -216,7 +216,7 @@ func update_mc_stat_info(stat_type: Stats.StatType, value: float) -> void:
 			stat_label_hp.text = formatted_value
 		Stats.StatType.COOLDOWN:
 			formatted_value = "%.1f" % (value + 3.0)
-			stat_label_cd.text = formatted_value + " s"
+			stat_label_cd.text = formatted_value + "s"
 		Stats.StatType.DAMAGE:
 			formatted_value = "%.1f" % (value + 1.0)
 			stat_label_dmg.text = formatted_value

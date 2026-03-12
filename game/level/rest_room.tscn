@@ -391,12 +391,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer" unique_id=1140512397]
 layout_mode = 2
-theme_override_constants/separation = 28
+theme_override_constants/separation = 26
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=1163021764]
@@ -409,16 +409,19 @@ theme_override_fonts/font = ExtResource("53_6gdy4")
 theme_override_font_sizes/font_size = 24
 text = "Health"
 
-[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer" unique_id=924700229]
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1010964659]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 18
+text = "- - - - - - - - - - - - -"
+horizontal_alignment = 1
 
 [node name="StatLabelHP" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer" unique_id=6933019]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("53_6gdy4")
-theme_override_font_sizes/font_size = 22
-text = "Stat Value"
+theme_override_font_sizes/font_size = 26
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=1749964573]
 layout_mode = 2
@@ -430,16 +433,19 @@ theme_override_fonts/font = ExtResource("53_6gdy4")
 theme_override_font_sizes/font_size = 24
 text = "Cooldown"
 
-[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1718278196]
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1003749161]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 18
+text = "- - - - - - - - - - - - -"
+horizontal_alignment = 1
 
 [node name="StatLabelCD" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1171811272]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("53_6gdy4")
-theme_override_font_sizes/font_size = 22
-text = "Stat Value"
+theme_override_font_sizes/font_size = 26
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=2085989235]
 layout_mode = 2
@@ -451,16 +457,19 @@ theme_override_fonts/font = ExtResource("53_6gdy4")
 theme_override_font_sizes/font_size = 24
 text = "Damage"
 
-[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=572298795]
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=509610677]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 18
+text = "- - - - - - - - - - - - -"
+horizontal_alignment = 1
 
 [node name="StatLabelDmg" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=687709639]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("53_6gdy4")
-theme_override_font_sizes/font_size = 22
-text = "Stat Value"
+theme_override_font_sizes/font_size = 26
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=931051551]
 layout_mode = 2
@@ -472,16 +481,19 @@ theme_override_fonts/font = ExtResource("53_6gdy4")
 theme_override_font_sizes/font_size = 24
 text = "Attack Speed"
 
-[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1602949594]
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1073078146]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 18
+text = "- - - - - - - - -"
+horizontal_alignment = 1
 
 [node name="StatLabelSpeed" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=4129493]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("53_6gdy4")
-theme_override_font_sizes/font_size = 22
-text = "Stat Value"
+theme_override_font_sizes/font_size = 26
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=164538413]
 layout_mode = 2
@@ -493,16 +505,19 @@ theme_override_fonts/font = ExtResource("53_6gdy4")
 theme_override_font_sizes/font_size = 24
 text = "Crit Chance"
 
-[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1388777446]
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=146293694]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 18
+text = "- - - - - - - - -"
+horizontal_alignment = 1
 
 [node name="StatLabelCritChance" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1138549284]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("53_6gdy4")
-theme_override_font_sizes/font_size = 22
-text = "Stat Value"
+theme_override_font_sizes/font_size = 26
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=125868986]
 layout_mode = 2
@@ -514,16 +529,19 @@ theme_override_fonts/font = ExtResource("53_6gdy4")
 theme_override_font_sizes/font_size = 24
 text = "Crit Damage"
 
-[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=788941565]
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=2114218492]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 18
+text = "- - - - - - - - -"
+horizontal_alignment = 1
 
 [node name="StatLabelCritDMG" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=1604109131]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("53_6gdy4")
-theme_override_font_sizes/font_size = 22
-text = "Stat Value"
+theme_override_font_sizes/font_size = 26
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=1684037202]
 layout_mode = 2
@@ -535,16 +553,19 @@ theme_override_fonts/font = ExtResource("53_6gdy4")
 theme_override_font_sizes/font_size = 24
 text = "Stun Strength"
 
-[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=1363809756]
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=123166826]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 18
+text = "- - - - - - - - -"
+horizontal_alignment = 1
 
 [node name="StatLabelStunSTR" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=1700816071]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("53_6gdy4")
-theme_override_font_sizes/font_size = 22
-text = "Stat Value"
+theme_override_font_sizes/font_size = 26
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer" unique_id=1983661435]
 layout_mode = 2
@@ -556,16 +577,19 @@ theme_override_fonts/font = ExtResource("53_6gdy4")
 theme_override_font_sizes/font_size = 24
 text = "Stun Resist"
 
-[node name="Control" type="Control" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer8" unique_id=171413970]
+[node name="Label2" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer8" unique_id=1772126083]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("53_6gdy4")
+theme_override_font_sizes/font_size = 18
+text = "- - - - - - - - -"
+horizontal_alignment = 1
 
 [node name="StatLabelStunResist" type="Label" parent="CanvasLayer/MCInfoPanel/BasicInfoBG/MarginContainer/VBoxContainer/HBoxContainer8" unique_id=1388508848]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("53_6gdy4")
-theme_override_font_sizes/font_size = 22
-text = "Stat Value"
+theme_override_font_sizes/font_size = 26
 
 [node name="Tutorial" parent="." unique_id=1219308028 instance=ExtResource("40_u4uef")]
 

@@ -10,12 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://d2lva0ous4hk6" path="res://sprites/Backgrounds/Bathroom.png" id="5_b7xvh"]
 [ext_resource type="PackedScene" uid="uid://dljdyyicgs435" path="res://game/system/character/enemy/boss/fat_guy.tscn" id="6_fhe53"]
 [ext_resource type="Texture2D" uid="uid://631cu5oyp8mc" path="res://sprites/Backgrounds/basketballbg.png" id="6_p36xc"]
-[ext_resource type="PackedScene" uid="uid://teuunrq7bxl5" path="res://game/system/character/enemy/boss/eric.tscn" id="7_28xsa"]
 [ext_resource type="Texture2D" uid="uid://bgq6adkp7rc51" path="res://sprites/Backgrounds/CarpetBg.png" id="7_oxeqc"]
 [ext_resource type="PackedScene" uid="uid://c3joaeokc1h1s" path="res://game/system/character/enemy/boss/brain_out_2.tscn" id="8_g1ogi"]
-[ext_resource type="PackedScene" uid="uid://b378v61r0ypsm" path="res://game/system/character/enemy/minion/enemy_minion.tscn" id="9_p36xc"]
 [ext_resource type="PackedScene" uid="uid://cwl4oxhktx0r7" path="res://audio/scenes/AudioManager.tscn" id="9_tgsw3"]
-[ext_resource type="Resource" uid="uid://d4dqrfx1hujr6" path="res://game/system/character/enemy/minion/minion_data/minion_1.tres" id="10_oxeqc"]
 [ext_resource type="PackedScene" uid="uid://dp8pqgndfsc8v" path="res://game/level/combat_area/camera.tscn" id="10_xaya2"]
 [ext_resource type="Shader" uid="uid://bqqnlybur4rdk" path="res://material/retro.gdshader" id="11_5tn5e"]
 [ext_resource type="Script" uid="uid://i1uip8en2isl" path="res://game/system/character/enemy/boss/boxer.gd" id="11_b7xvh"]
@@ -27,11 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://dirh5oe5ivmkk" path="res://sprites/Backgrounds/SurgeryTable.png" id="14_fhe53"]
 [ext_resource type="Script" uid="uid://dfjt04hiauxuq" path="res://game/system/character/enemy/boss/fat_guy.gd" id="14_p36xc"]
 [ext_resource type="PackedScene" uid="uid://dg80hkoj8qolf" path="res://game/level/rest_room.tscn" id="15_kjrlu"]
-[ext_resource type="Resource" uid="uid://bdccjrr0jw7b6" path="res://game/system/character/enemy/minion/minion_data/minion_3.tres" id="15_sm7j8"]
-[ext_resource type="Resource" uid="uid://bchfdp66sgy6k" path="res://game/system/character/enemy/minion/minion_data/minion_7.tres" id="20_7objy"]
-[ext_resource type="Resource" uid="uid://br78cfkjs3a82" path="res://game/system/character/enemy/minion/minion_data/minion_5.tres" id="20_jlyot"]
-[ext_resource type="Resource" uid="uid://chws5qhh2rnje" path="res://game/system/character/enemy/minion/minion_data/minion_9.tres" id="24_fqi1q"]
-[ext_resource type="Resource" uid="uid://d3ohf7urg3t5o" path="res://game/system/character/enemy/minion/minion_data/minion_11.tres" id="27_ltqse"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_85o0x"]
 shader = ExtResource("11_5tn5e")
@@ -167,13 +159,7 @@ rotation = -0.44854963
 scale = Vector2(5, 5)
 texture = ExtResource("13_ldpml")
 
-[node name="EnemyMinion1" parent="Enemies" index="2" unique_id=927994861 instance=ExtResource("9_p36xc")]
-visible = false
-position = Vector2(0, -40)
-first_minion = true
-minion_data = ExtResource("10_oxeqc")
-
-[node name="Bully" parent="Enemies" index="3" unique_id=1348200660 instance=ExtResource("3_i2c52")]
+[node name="Bully" parent="Enemies" index="2" unique_id=1348200660 instance=ExtResource("3_i2c52")]
 process_mode = 4
 visible = false
 position = Vector2(0, -5)
@@ -181,14 +167,7 @@ base_cooldown = 3.3
 base_damage = 1.5
 base_speed = 0.07
 
-[node name="EnemyMinion3" parent="Enemies" index="4" unique_id=1108674998 instance=ExtResource("9_p36xc")]
-process_mode = 4
-visible = false
-position = Vector2(0, -40)
-first_minion = false
-minion_data = ExtResource("15_sm7j8")
-
-[node name="Boxer" parent="Enemies" index="5" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
+[node name="Boxer" parent="Enemies" index="3" unique_id=1871368158 instance=ExtResource("4_kjrlu")]
 process_mode = 4
 visible = false
 position = Vector2(0, -34)
@@ -197,14 +176,7 @@ min_switch_time = 3.0
 base_cooldown = 2.8
 base_damage = 2.5
 
-[node name="EnemyMinion5" parent="Enemies" index="6" unique_id=1132810370 instance=ExtResource("9_p36xc")]
-process_mode = 4
-visible = false
-position = Vector2(0, -40)
-first_minion = false
-minion_data = ExtResource("20_jlyot")
-
-[node name="BrainOut1" parent="Enemies" index="7" unique_id=710006968 instance=ExtResource("5_ay0ac")]
+[node name="BrainOut1" parent="Enemies" index="4" unique_id=710006968 instance=ExtResource("5_ay0ac")]
 process_mode = 4
 visible = false
 position = Vector2(0, -13)
@@ -212,47 +184,20 @@ boss_name = "Ron 7 mouths"
 base_cooldown = 3.5
 base_damage = 2.0
 
-[node name="EnemyMinion7" parent="Enemies" index="8" unique_id=946486280 instance=ExtResource("9_p36xc")]
-process_mode = 4
-visible = false
-position = Vector2(0, -40)
-first_minion = false
-minion_data = ExtResource("20_7objy")
-
-[node name="FatGuy" parent="Enemies" index="9" unique_id=1388912655 instance=ExtResource("6_fhe53")]
+[node name="FatGuy" parent="Enemies" index="5" unique_id=1388912655 instance=ExtResource("6_fhe53")]
 process_mode = 4
 visible = false
 position = Vector2(-3, -63)
 script = ExtResource("14_p36xc")
 base_damage = 4.0
 
-[node name="EnemyMinion9" parent="Enemies" index="10" unique_id=980129354 instance=ExtResource("9_p36xc")]
-process_mode = 4
-visible = false
-position = Vector2(0, -40)
-first_minion = false
-minion_data = ExtResource("24_fqi1q")
-
-[node name="Eric" parent="Enemies" index="11" unique_id=856538371 instance=ExtResource("7_28xsa")]
-process_mode = 4
-visible = false
-position = Vector2(0, -13)
-base_cooldown = 2.0
-
-[node name="EnemyMinion11" parent="Enemies" index="12" unique_id=1130295079 instance=ExtResource("9_p36xc")]
-process_mode = 4
-visible = false
-position = Vector2(0, -40)
-first_minion = false
-minion_data = ExtResource("27_ltqse")
-
-[node name="BrainOut2" parent="Enemies" index="13" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
+[node name="BrainOut2" parent="Enemies" index="6" unique_id=1772965980 instance=ExtResource("8_g1ogi")]
 process_mode = 4
 visible = false
 position = Vector2(0, -13)
 base_damage = 10.0
 
-[node name="RestRoom" parent="Enemies" index="14" unique_id=1662139499 instance=ExtResource("15_kjrlu")]
+[node name="RestRoom" parent="Enemies" index="7" unique_id=1662139499 instance=ExtResource("15_kjrlu")]
 unique_name_in_owner = true
 z_index = -5
 position = Vector2(-1172, -28)
