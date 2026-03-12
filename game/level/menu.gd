@@ -26,6 +26,7 @@ var i_menu: FmodEvent
 
 @export var left_click: Tooltip
 @export var right_click: Tooltip
+@onready var tutorial_button: CheckButton = %TutorialButton
 
 func end() -> void:
 	if not ending:
@@ -68,6 +69,7 @@ func intro_dialogue() -> void:
 func _ready() -> void:
 	GameManager.main_menu = self
 	if i_menu == null: i_menu = audio.play_instance(self, sfx_menu)
+	tutorial_button.toggled.connect(_on_tutorial_toggled)
 
 func _process(_delta: float) -> void:
 	if warning == null or ending == null:
@@ -151,3 +153,7 @@ func pop_page(page: Control, show: bool) -> void:
 		tween.finished.connect(func():
 			page.visible = false
 		)
+
+
+func _on_tutorial_toggled(toggled_on: bool) -> void:
+	DialogueManager.hide_dialogue = toggled_on

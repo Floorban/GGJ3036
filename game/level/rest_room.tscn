@@ -207,12 +207,19 @@ scale = Vector2(0.65, 0.65)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981571717]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=919885564]
-offset_right = 374.0
-offset_bottom = 280.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -374.0
+offset_top = -330.0
+grow_horizontal = 0
+grow_vertical = 0
 mouse_filter = 0
-theme_override_constants/margin_left = 80
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_bottom = 180
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 120
 
 [node name="ReadyButton" type="TextureButton" parent="CanvasLayer/MarginContainer" unique_id=378972776]
 unique_name_in_owner = true
@@ -244,16 +251,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PartInfoPanel" type="MarginContainer" parent="CanvasLayer" unique_id=1985814430]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -490.0
+offset_right = 490.0
 offset_bottom = 254.0
-grow_horizontal = 0
 mouse_filter = 2
-theme_override_constants/margin_left = 0
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 30
+theme_override_constants/margin_right = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PartInfoPanel" unique_id=1425424902]
 layout_mode = 2

@@ -71,6 +71,14 @@ texture_normal = ExtResource("6_krs0x")
 ignore_texture_size = true
 stretch_mode = 4
 
+[node name="TutorialButton" type="CheckButton" parent="CanvasLayer" unique_id=1054943003]
+unique_name_in_owner = true
+offset_left = 1728.0
+offset_top = 400.0
+offset_right = 1772.0
+offset_bottom = 424.0
+scale = Vector2(3, 3)
+
 [node name="PageCredits2" type="TextureRect" parent="CanvasLayer" unique_id=2122318432]
 unique_name_in_owner = true
 visible = false
