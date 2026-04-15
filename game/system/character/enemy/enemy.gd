@@ -9,6 +9,8 @@ var round_index := 0
 @export var switch_chance := 0.5
 @export var min_switch_time := 3.0
 
+var tutorial: bool = false
+
 var next_target: Anatomy
 var can_switch_target := false
 
@@ -66,6 +68,7 @@ func _switch_target_timer(duration: float) -> void:
 		can_switch_target = true
 
 func _perform_attack(_target: Anatomy) -> void:
+	if tutorial: return
 	if not can_control:
 		_target.is_targeted = false
 		_target._unhighlight_target()
@@ -81,6 +84,7 @@ func _perform_attack(_target: Anatomy) -> void:
 			punch_strength,
 			next_target.global_position,
 			func(): enemy_attack(next_target))
+
 	else:
 		next_target = choose_target()
 

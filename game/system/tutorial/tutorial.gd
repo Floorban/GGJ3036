@@ -21,19 +21,21 @@ var entered_surgery: bool = false
 func combat_intro() -> void:
 	if DialogueManager.hide_dialogue: return
 	
+	GameManager.combat_area.enemy.tutorial = true
 	await get_tree().create_timer(2.0).timeout
 	var box1 = await DialogueManager.say("Remember how to punch this motherfucker, ight?")
-	await wait_for_action()
+	await get_tree().create_timer(1.5).timeout
 	DialogueManager.remove_static_box(box1)
 	DialogueManager.say(DialogueManager.tooltip_text(left_click) + "on his facial parts to attack")
 	await wait_for_first_attack()
 	DialogueManager.say("The arm will perform the attack when it's fully " + DialogueManager.tooltip_text(charged))
 	await get_tree().create_timer(1.5).timeout
-	DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack")
-	await wait_for_action(ACTION_TYPES.RIGHT_PRESS)
+	#DialogueManager.say(DialogueManager.tooltip_text(right_click) + "to cancel your attack")
+	#await wait_for_action(ACTION_TYPES.RIGHT_PRESS)
 	DialogueManager.say("NOW LOCK INNN!!!")
 	await get_tree().create_timer(1.0).timeout
 	GameManager.combat_area.enemy.begin_enemy()
+	GameManager.combat_area.enemy.tutorial = false
 
 
 func self_broken_part() -> void:
@@ -50,14 +52,13 @@ func self_broken_part() -> void:
 	#await wait_for_first_block()
 	DialogueManager.say("Your facial part is being targeted when it's highlighted " + DialogueManager.tooltip_text(red))
 	await get_tree().create_timer(1.5).timeout
-	DialogueManager.say(DialogueManager.tooltip_text(left_click) + " a body part while fully " + DialogueManager.tooltip_text(charged) + " to succesfully block")
+	DialogueManager.say("Click on a facial part when fully " + DialogueManager.tooltip_text(charged) + " to succesfully block")
 	can_block_sucess = true
 	await wait_for_block_success()
 	DialogueManager.say("Nice Block!!")
 	await wait_for_action()
 	await get_tree().create_timer(1.5).timeout
 	DialogueManager.clear_all_text_boxes()
-
 
 #func enemy_broken_part() -> void:
 	#if DialogueManager.hide_dialogue: return
@@ -94,7 +95,7 @@ func surgery_intro() -> void:
 	await wait_for_action()
 	#DialogueManager.say("You can still make use of the brown parts, they're not too fucked up.", DialogueManager.NPC.COACH, false)
 	#await wait_for_action()
-	DialogueManager.say("You can " + DialogueManager.tooltip_text(left_hold) + " parts to move them around")
+	DialogueManager.say(DialogueManager.tooltip_text(left_hold) + " parts to move them around")
 	await wait_for_action()
 	#await DialogueManager.say(DialogueManager.tooltip_text(left_release) + "to drop the part you're holding")
 	#await wait_for_first_drop()
