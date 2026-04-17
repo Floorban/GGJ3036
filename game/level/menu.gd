@@ -32,7 +32,7 @@ func end() -> void:
 	if not ending:
 		return
 	transition_screen.cover()
-	ending.visible = true
+	ending.visible = false
 	await get_tree().create_timer(1.5).timeout
 	transition_screen.burn()
 	await get_tree().create_timer(8.0).timeout

@@ -82,28 +82,28 @@ func surgery_intro() -> void:
 	
 	await get_tree().create_timer(0.5).timeout
 	DialogueManager.say("YOU GOT EM, GOOD FUCKING JOB DUDE!!", DialogueManager.NPC.COACH, false)
-	await wait_for_action()
+	await get_tree().create_timer(2.0).timeout
 	#DialogueManager.say("SO, this is the surgery room, all fancy and stuff", DialogueManager.NPC.COACH, false)
 	#await wait_for_action()
 	DialogueManager.say("Welcome to the gambling room", DialogueManager.NPC.COACH, false)
-	await wait_for_action()
+	await get_tree().create_timer(2.0).timeout
 	DialogueManager.say("If a facial part is broken, it starts bleeding everywhere and turns " + DialogueManager.tooltip_text(purple), DialogueManager.NPC.COACH, false)
-	await wait_for_action()
+	await get_tree().create_timer(2.0).timeout
 	DialogueManager.say("You can throw the broken part away and get new ones", DialogueManager.NPC.COACH, false)
-	await wait_for_action()
+	await get_tree().create_timer(2.0).timeout
 	DialogueManager.say("Punch the lever of the slot machine to start getting new parts", DialogueManager.NPC.COACH, false)
-	await wait_for_action()
+	await get_tree().create_timer(5.0).timeout
 	#DialogueManager.say("You can still make use of the brown parts, they're not too fucked up.", DialogueManager.NPC.COACH, false)
 	#await wait_for_action()
 	DialogueManager.say(DialogueManager.tooltip_text(left_hold) + " parts to move them around")
-	await wait_for_action()
+	await get_tree().create_timer(2.0).timeout
 	#await DialogueManager.say(DialogueManager.tooltip_text(left_release) + "to drop the part you're holding")
 	#await wait_for_first_drop()
 	DialogueManager.say("Try replacing an old part on your face now")
-	await wait_for_action()
+	await get_tree().create_timer(2.0).timeout
 	#DialogueManager.say("Remove the part from your face first if there's not enough spot for it.")
 	#await wait_for_first_surgery()
-	DialogueManager.say("You might look a bit less ugly too")
+	DialogueManager.say("You can spin up to 10 times every round")
 	await get_tree().create_timer(2.0).timeout
 	DialogueManager.clear_all_text_boxes()
 	surgery_done = false

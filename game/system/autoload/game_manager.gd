@@ -48,3 +48,4 @@ func return_to_main_menu() -> void:
 	if main_menu == null:
 		return
 	main_menu.end()
+	
