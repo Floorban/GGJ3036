@@ -20,7 +20,7 @@ config/description="Queble game jam 2026.
 Themes: Out of Place & Timing"
 config/version="1.0"
 run/main_scene="uid://cqjd3j5jrkthw"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/image="uid://colhn2sx5admh"
 config/icon="uid://c7f583vqgdmne"
 boot_splash/minimum_display_time=20

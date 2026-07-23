@@ -162,3 +162,5 @@ priority = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FistTarget/FixAreaDetector" unique_id=1356125102]
 shape = SubResource("CircleShape2D_ei0c6")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2116079839]
